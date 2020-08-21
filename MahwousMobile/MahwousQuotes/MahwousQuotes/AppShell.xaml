@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:views="clr-namespace:MahwousQuotes.Views"
+            Title="Delicious Food"
+            FlyoutHeaderBehavior="CollapseOnScroll"
+            Visual="Material"
+            mc:Ignorable="d"
+            xmlns:ShellTemplate="clr-namespace:MahwousQuotes.Views.ShellTemplates" xmlns:helpers="clr-namespace:MahwousQuotes.Helpers"
+            FlyoutHeaderTemplate="{DataTemplate ShellTemplate:FlyoutHeaderTemplate}"
+             x:Class="MahwousQuotes.AppShell">
+
+    
+    
+    
+    <!--#region SHELL RESOURCES-->
+    <Shell.Resources>
+        <!--#region SHELL STYLES-->
+        <Style
+            x:Key="BaseStyle"
+            TargetType="Element"
+            ApplyToDerivedTypes="True">
+            <!--  In iOS, this property changes the color of the FlyoutIcon and the selected top tabs  -->
+            <Setter Property="Shell.ForegroundColor" Value="{DynamicResource colQua}" />
+            <!--  In iOS this property changes the color tabs upper not selected  -->
+            <Setter Property="Shell.UnselectedColor" Value="{DynamicResource colTabBarUns}" />
+
+
+            <Setter Property="Shell.BackgroundColor" Value="{DynamicResource NavigationPrimary}" />
+            
+            <Setter Property="Shell.TitleColor" Value="#FFFFFF" />
+            <Setter Property="Shell.TabBarBackgroundColor" Value="{DynamicResource colTabBarBack}" />
+            <Setter Property="Shell.TabBarUnselectedColor" Value="{DynamicResource colTabBarUns}" />
+            <Setter Property="Shell.TabBarTitleColor" Value="{DynamicResource colPrim}" />
+            <!--<Setter Property="Shell.FlyoutBackgroundImage" Value="img_bgflyout.png"/>-->
+        </Style>
+        <!--#endregion-->
+
+        <!--#region ADD TabBar FlyoutBehavior is INVISIBLE-->
+        <Style
+            BasedOn="{StaticResource BaseStyle}"
+            TargetType="TabBar"
+            ApplyToDerivedTypes="True" />
+        <!--#endregion-->
+
+        <!--#region ADD ShellItem FlyoutBehavior is VISIBLE-->
+        <Style
+            BasedOn="{StaticResource BaseStyle}"
+            TargetType="ShellItem"
+            ApplyToDerivedTypes="True" />
+        <!--#endregion-->
+
+        <!--#region ADD FlyoutItem FlyoutBehavior is VISIBLE-->
+        <Style
+            BasedOn="{StaticResource BaseStyle}"
+            TargetType="FlyoutItem"
+            ApplyToDerivedTypes="True" />
+        <!--#endregion-->
+    </Shell.Resources>
+    <!--#endregion-->
+    
+
+
+    <FlyoutItem Title="الصفحة الرئيسية" 
+                Icon="{StaticResource icon_fly_home}" 
+                FlyoutDisplayOptions="AsMultipleItems">
+        
+        <Tab  Title="الصفحة الرئيسية" Icon="{StaticResource icon_fly_home}">
+            <ShellContent>
+                <views:HomePage />
+            </ShellContent>
+        </Tab>
+        
+        <Tab Title="التصنيفات"   Icon="{StaticResource icon_spaguetti}">
+            <ShellContent>
+                <views:CategoriesPage/>
+            </ShellContent>
+        </Tab>
+
+        <Tab Title="الحالات" Icon="{StaticResource icon_fly_ticket}">
+            
+            <ShellContent Title="عشوائي">
+                <views:QuotesPage SortType="Random" Title="عشوائي" />
+            </ShellContent>
+            <ShellContent Title="الجديدة">
+                <views:QuotesPage SortType="Newest" Title="الجديدة" />
+            </ShellContent>
+            <ShellContent Title="القديمة">
+                <views:QuotesPage SortType="Oldest" Title="القديمة" />
+            </ShellContent>
+            <ShellContent Title="الأكثر مشاركة">
+                <views:QuotesPage SortType="Downloads" Title="الأكثر مشاركة" />
+            </ShellContent>
+            <ShellContent Title="الأكثر مشاهدة">
+                <views:QuotesPage SortType="Views" Title="الأكثر مشاهدة" />
+            </ShellContent>
+        </Tab>
+    </FlyoutItem>
+
+
+
+    <FlyoutItem Title="اخبار مهووس" 
+                Icon="{StaticResource icon_fly_support}"
+                FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Title="تطبيقاتنا" Icon="{StaticResource icon_spaguetti}">
+            <views:AppsPage/>
+        </ShellContent>
+        <ShellContent Title="الأخبار" Icon="{StaticResource icon_hamburger}">
+            <views:PostsPage/>
+        </ShellContent>
+        <ShellContent Title="من نحن" Icon="{StaticResource icon_hamburger}">
+            <views:AboutPage />
+        </ShellContent>
+    </FlyoutItem>
+
+
+    <MenuItem Text="تقييم التطبيق" IconImageSource="{StaticResource icon_star}"/>
+
+    <MenuItem Text="مشاركة" IconImageSource="{StaticResource icon_filtering}" />
+
+    <MenuItem Text="حالة عشوائية" IconImageSource="{StaticResource icon_spaguetti}" />
+
+    <MenuItem Text="الإعدادات" IconImageSource="{StaticResource icon_fly_settings}" />
+
+    <MenuItem Text="الخروج" IconImageSource="{StaticResource icon_fly_basket}"/>
+
+
+</Shell>

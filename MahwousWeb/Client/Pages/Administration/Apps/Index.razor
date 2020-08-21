@@ -1,0 +1,150 @@
+﻿@page "/administration/apps"
+@layout AdminLayout
+@attribute [Authorize]
+
+@inject IJSRuntime js
+@inject NavigationManager navigation
+@inject IAppRepository appRepository
+@inject HttpAuthorizer authorizer
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>التطبيقات</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item active">التطبيقات</li>
+                    <li class="breadcrumb-item"><a href="administration">الإدارة</a></li>
+                    <li class="breadcrumb-item"><a href="">الصفحة الرئيسية</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-lg-9">
+
+
+                <div class="card">
+                    <div class="card-header">
+                        <Pagination CurrentPage="@paginationDTO.Page" TotalAmountPages="totalAmountPages"
+                                    SelectedPage="SelectedPage" />
+                    </div>
+
+                    <div class="card-body">
+
+                        <div>
+
+                            @if (apps == null)
+                            {
+                                <p>جاري تحميل التطبيقات...</p>
+                            }
+                            else if (apps.Count == 0)
+                            {
+                                <p> لا يوجد تطبيقات! </p>
+                            }
+                            else
+                            {
+                                <div class="content">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            @foreach (var app in apps)
+                                            {
+                                                <div class="col-md-4">
+                                                    <div class="card">
+                                                        <div class="card-header p-0">
+                                                            <img src="@app.ImagePath" style="height:auto; width:100%; object-fit:cover" />
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <h4 class="card-title">@app.Name</h4>
+                                                        </div>
+                                                        <div class="card-footer">
+                                                            <div class="stats">
+                                                                <button class="btn btn-danger" @onclick="@(() => DeleteApp(app.Id))">حذف</button>
+                                                                <a class="btn btn-info" href="administration/apps/edit/@app.Id">تعديل</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+
+                            }
+                        </div>
+
+                    </div>
+
+                    <div class="card-footer">
+                        <Pagination CurrentPage="@paginationDTO.Page" TotalAmountPages="totalAmountPages"
+                                    SelectedPage="SelectedPage" />
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <div class="col-lg-3">
+                <a href="administration/apps/create" class="btn btn-primary btn-block mb-3">اضافة تطبيق جديد</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+@code {
+
+    List<MahwousWeb.Shared.Models.App> apps { get; set; }
+
+    PaginationDTO paginationDTO = new PaginationDTO();
+    int totalAmountPages;
+
+
+    protected async override Task OnInitializedAsync()
+    {
+        await authorizer.SetAuthorizationAsync();
+        await LoadApps();
+    }
+
+    async Task LoadApps()
+    {
+        try
+        {
+            var paginatedResponse = await appRepository.GetApps(paginationDTO);
+            apps = paginatedResponse.Response;
+            totalAmountPages = paginatedResponse.TotalAmountPages;
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
+        }
+    }
+
+    async Task DeleteApp(int appId)
+    {
+        var app = apps.First(x => x.Id == appId);
+        if (await js.Confirm("تأكيد", $"هل أنت متأكد أنك تريد أن تحذف {app.Name} ؟", SweetAlertMessageType.error))
+        {
+            await appRepository.Delete(appId);
+            await LoadApps();
+        }
+    }
+
+    private async Task SelectedPage(int page)
+    {
+        await LoadApps();
+    }
+}

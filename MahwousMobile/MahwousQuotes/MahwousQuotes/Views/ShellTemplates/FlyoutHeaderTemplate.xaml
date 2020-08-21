@@ -1,0 +1,16 @@
+﻿<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MahwousQuotes.Views.ShellTemplates.FlyoutHeaderTemplate"
+             HeightRequest="150">
+
+    <Grid BackgroundColor="{StaticResource NavigationPrimary}">
+        
+        <BoxView Opacity="0.6" />
+        
+        <Label Text="حالات كتابية"
+               TextColor="White"
+               FontAttributes="Bold"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center" />
+    </Grid>
+</ContentView>

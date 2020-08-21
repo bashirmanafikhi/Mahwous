@@ -1,0 +1,69 @@
+﻿
+
+<li class="nav-item ">
+    <NavLink class="nav-link" href="administration" Match="NavLinkMatch.All">
+        <i class="fas fa-home"></i>
+        <p>الرئيسية</p>
+    </NavLink>
+</li>
+
+<AuthorizeView>
+    <Authorized>
+        <li class="nav-item ">
+            <NavLink class="nav-link" href="administration/categories">
+                <i class="fas fa-tags"></i>
+                <p>التصنيفات</p>
+            </NavLink>
+        </li>
+
+
+        <li class="nav-item ">
+            <NavLink class="nav-link" href="administration/quotes">
+                <i class="fas fa-quote-right"></i>
+                <p>الحالات الكتابية</p>
+            </NavLink>
+        </li>
+        <li class="nav-item ">
+            <NavLink class="nav-link" href="administration/videos">
+                <i class="fas fa-video"></i>
+                <p>الحالات الفيديو</p>
+            </NavLink>
+        </li>
+        <li class="nav-item ">
+            <NavLink class="nav-link" href="administration/images">
+                <i class="fas fa-images"></i>
+                <p>الصور</p>
+            </NavLink>
+        </li>
+
+
+        <li class="nav-item ">
+            <NavLink class="nav-link" href="administration/apps">
+                <i class="fas fa-mobile-alt"></i>
+                <p>تطبيقاتنا</p>
+            </NavLink>
+        </li>
+        <li class="nav-item ">
+            <NavLink class="nav-link" href="administration/notifications">
+                <i class="fas fa-bell"></i>
+                <p>اشعارات</p>
+            </NavLink>
+        </li>
+        <li class="nav-item ">
+            <NavLink class="nav-link" href="administration/posts">
+                <i class="fas fa-newspaper"></i>
+                <p>المنشورات والأخبار</p>
+            </NavLink>
+        </li>
+
+    </Authorized>
+</AuthorizeView>
+
+<li class="nav-item ">
+    <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+        <i class="fas fa-door-open"></i>
+        <p>العودة إلى الموقع</p>
+    </NavLink>
+</li>
+
+

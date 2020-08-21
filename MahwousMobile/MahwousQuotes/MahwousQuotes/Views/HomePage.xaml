@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MahwousQuotes.Views.HomePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:MahwousQuotes.ViewModels" 
+    xmlns:views="clr-namespace:MahwousQuotes.Views" 
+    xmlns:templates="clr-namespace:MahwousQuotes.Views.DataTemplates"
+    mc:Ignorable="d">
+
+
+    <Shell.TitleView>
+        <StackLayout
+            Padding="0,0,10,0"
+            Orientation="Horizontal">
+            <Label
+                Text="الصفحة الرئيسية"
+                VerticalOptions="CenterAndExpand">
+                <Label.HorizontalOptions>
+                    <OnPlatform
+                        x:TypeArguments="LayoutOptions"
+                        iOS="EndAndExpand"
+                        Android="StartAndExpand" />
+                </Label.HorizontalOptions>
+            </Label>
+
+            <Switch
+                Toggled="Switch_Toggled"
+                OnColor="Black"
+                HorizontalOptions="EndAndExpand"
+                VerticalOptions="CenterAndExpand"
+                Visual="Material" />
+
+        </StackLayout>
+    </Shell.TitleView>
+
+    <ContentPage.Content>
+        <StackLayout   BackgroundColor="{DynamicResource colBG2}">
+            <Label Text="الصفحة الرئيسية" 
+                   VerticalOptions="CenterAndExpand"
+                   
+                   TextColor="{DynamicResource colQua}"
+                   HorizontalOptions="CenterAndExpand"/>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <!--#region FONTSFAMILY-->
+
+    <OnPlatform x:Key="JannaLTBold" x:TypeArguments="x:String">
+        <On Platform="Android" Value="Fonts/JannaLTBold.ttf#JannaLTBold" />
+        <On Platform="iOS" Value="JannaLTBold" />
+        <On Platform="UWP" Value="Assets/Fonts/JannaLTBold.ttf#JannaLTBold" />
+    </OnPlatform>
+    
+    <OnPlatform x:Key="ArslanWessam" x:TypeArguments="x:String">
+        <On Platform="Android" Value="Fonts/ArslanWessam.ttf#ArslanWessam" />
+        <On Platform="iOS" Value="ArslanWessam" />
+        <On Platform="UWP" Value="Assets/Fonts/ArslanWessam.ttf#ArslanWessam" />
+    </OnPlatform>
+
+
+</ResourceDictionary>

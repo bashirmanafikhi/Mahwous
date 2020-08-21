@@ -1,0 +1,34 @@
+﻿@page "/authentication/{action}"
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@inject NavigationManager navigation
+
+
+
+    <RemoteAuthenticatorView Action="@Action">
+
+
+
+        <LoggingIn>
+            <text>جاري تفقد تسجيل الدخول</text>
+        </LoggingIn>
+
+        <CompletingLoggingIn>
+            @{ navigation.NavigateTo("/administration");}
+        </CompletingLoggingIn>
+
+
+
+
+
+        <LogOutSucceeded>
+            @{ navigation.NavigateTo("/");}
+        </LogOutSucceeded>
+
+
+
+
+    </RemoteAuthenticatorView>
+
+@code{
+    [Parameter] public string Action { get; set; }
+}

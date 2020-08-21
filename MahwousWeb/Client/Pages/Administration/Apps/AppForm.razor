@@ -1,0 +1,76 @@
+﻿@using System.IO
+
+    <EditForm Model="App" OnValidSubmit="@OnDataAnnotationsValidated">
+
+        <DataAnnotationsValidator />
+
+        <div class="form-group">
+            <label for="Name">عنوان التطبيق:</label>
+            <div>
+                <RadzenTextBox @bind-Value="App.Name" Placeholder="عنوان التطبيق" />
+                <span class="text-danger"><ValidationMessage For="@(() => App.Name)" /></span>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="Content">وصف التطبيق:</label><br />
+            <RadzenTextArea Cols="30" Placeholder="اكتب الوصف هنا..." @bind-Value="@App.Description" />
+            <span class="text-danger"><ValidationMessage For="@(() => App.Description)" /></span>
+        </div>
+
+        <div class="form-group">
+            <InputImage Label="صورة التطبيق" OnSelectedImage="PictureSelected" />
+            <span class="text-danger"><ValidationMessage For="@(() => App.ImagePath)" /></span>
+        </div>
+
+
+        <div class="form-group">
+            <label for="Name">رابط جوجل بلاي ستور:</label>
+            <div>
+                <RadzenTextBox @bind-Value="App.PlayStoreLink" Placeholder="رابط متجر بلاي" />
+                <span class="text-danger"><ValidationMessage For="@(() => App.PlayStoreLink)" /></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Name">رابط آبل ستور:</label>
+            <div>
+                <RadzenTextBox @bind-Value="App.AppleStoreLink" Placeholder="رابط متجر آيفون" />
+                <span class="text-danger"><ValidationMessage For="@(() => App.AppleStoreLink)" /></span>
+            </div>
+        </div>
+
+        <br />
+
+
+        <a href="administration/apps" class="btn btn-danger">
+            رجوع
+        </a>
+
+        <button type="submit" class="btn btn-info">
+            @ButtonText
+        </button>
+
+    </EditForm>
+
+@code {
+    [Parameter] public MahwousWeb.Shared.Models.App App { get; set; }
+    [Parameter] public string ButtonText { get; set; } = "حفظ";
+    [Parameter] public EventCallback OnValidSubmit { get; set; }
+
+    private async Task OnDataAnnotationsValidated()
+    {
+        await OnValidSubmit.InvokeAsync(null);
+    }
+
+    protected override void OnInitialized()
+    {
+        App.ImagePath = null;
+    }
+
+    private void PictureSelected(string imageBase64)
+    {
+        App.ImagePath = imageBase64;
+    }
+}

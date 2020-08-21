@@ -1,0 +1,347 @@
+﻿@page "/administration/videos"
+@layout AdminLayout
+@attribute [Authorize]
+
+@inject IJSRuntime js
+@inject NavigationManager navigation
+@inject IVideoRepository videoRepository
+@inject ICategoryRepository categoryRepository
+@inject HttpAuthorizer authorizer
+
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>حالات فيديو</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item active">حالات فيديو</li>
+                    <li class="breadcrumb-item"><a href="administration">الإدارة</a></li>
+                    <li class="breadcrumb-item"><a href="">الصفحة الرئيسية</a></li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="card">
+                    <div class="card-header">
+                        <Pagination CurrentPage="@videoFilter.Page" TotalAmountPages="totalAmountPages"
+                                    SelectedPage="SelectedPage" />
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+
+                        <div>
+                            @if (videos == null)
+                            {
+                                <p>جاري تحميل الحالات .. </p>
+                            }
+                            else if (videos.Count == 0)
+                            {
+                                <p> لا يوجد حالات! </p>
+                            }
+                            else
+                            {
+                                <div class="content">
+                                    <div class="row">
+                                        @foreach (var video in videos)
+                                        {
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h4 class="card-title">@video.Title</h4>
+                                                    </div>
+                                                    <div class="card-body p-0">
+                                                        <video src="@video.VideoPath" style="height:auto; width:100%; max-height:200px; object-fit:cover" controls />
+                                                    </div>
+                                                    <div class="card-footer">
+                                                        <div class="stats">
+                                                            <button class="btn btn-danger" @onclick="@(() => DeleteVideo(video.Id))">حذف</button>
+                                                            <a class="btn btn-info" href="administration/videos/edit/@video.Id">تعديل</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+
+                            }
+                        </div>
+
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer">
+                        <Pagination CurrentPage="@videoFilter.Page" TotalAmountPages="totalAmountPages"
+                                    SelectedPage="SelectedPage" />
+                    </div>
+                    <!-- /.card-footer -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+            <div class="col-lg-3">
+                <a href="administration/videos/create" class="btn btn-primary btn-block mb-3">اضافة حالة جديدة</a>
+
+                <EditForm Model="videoFilter">
+                    <div class="card collapsed-card">
+                        <div class="card-header">
+                            <h3 class="card-title">فلترة</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+
+
+                            <div class="form-group">
+                                <label for="Content">Content</label>
+                                <input type="text" class="form-control" id="title" placeholder="Video Content"
+                                       @bind-value="videoFilter.Name" @bind-value:event="oninput"
+                                       @onkeypress="@((KeyboardEventArgs e) => NameKeyPress(e))" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="ViewsCount">عدد المشاهدات</label>
+                                <input type="number" class="form-control" id="ViewsCount" placeholder="ViewsCount"
+                                       @bind-value="videoFilter.ViewsCount" @bind-value:event="oninput" />
+                            </div>
+                            <div class="form-group">
+                                <label for="LikesCount">عدد اللايكات</label>
+                                <input type="number" class="form-control" id="LikesCount" placeholder="LikesCount"
+                                       @bind-value="videoFilter.LikesCount" @bind-value:event="oninput" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="DownloadsCount">عدد التحميلات</label>
+                                <input type="number" class="form-control" id="DownloadsCount" placeholder="DownloadsCount"
+                                       @bind-value="videoFilter.DownloadsCount" @bind-value:event="oninput" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="DateFrom">من تاريخ</label>
+                                <input type="date" class="form-control" id="DateFrom" placeholder="DateFrom"
+                                       @bind-value="videoFilter.DateFrom" @bind-value:event="oninput" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="DateTo">إلى تاريخ</label>
+                                <input type="date" class="form-control" id="DateTo" placeholder="DateTo"
+                                       @bind-value="videoFilter.DateTo" @bind-value:event="oninput" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Categories">تصنيفات</label>
+                                <RadzenDropDown class="form-control" AllowClear="true" AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" @bind-Value="selectedCategoriesIds" Multiple="true" Placeholder="Select..." Data="@categories" TextProperty="Name" ValueProperty="Id"
+                                                Change="@(args => Change(args))" />
+                            </div>
+
+
+
+
+                            <div class="form-group">
+
+                                <label for="sortType">نوع الترتيب</label>
+
+                                <InputSelect class="form-control" id="SortType" @bind-Value="videoFilter.SortType">
+
+                                    @foreach (var sortType in Enum.GetValues(typeof(SortType)))
+                                    {
+                                        <option value="@sortType">@sortType</option>
+                                    }
+
+                                </InputSelect>
+
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="Visible" @bind="videoFilter.Visible" />
+                                <label class="form-check-label" for="Visible">ازالة المخفي</label>
+                            </div>
+
+                        </div>
+
+                        <div class="card-footer">
+                            @*<button type="submit" class="btn btn-primary">Submit</button>*@
+                            <button type="button" class="btn btn-primary" @onclick="SearchForVideos">فلترة</button>
+                            <button type="button" class="btn btn-link text-danger" @onclick="Clear">حذف الفلتر <i class="fas fa-backspace"></i></button>
+                        </div>
+                    </div>
+                </EditForm>
+                <!-- /.card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">ملاحظات</h3>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body p-0">
+                        <ul class="nav nav-pills flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link"><i class="far fa-circle text-danger"></i> أكثر من الصلاة على النبي</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"><i class="far fa-circle text-warning"></i> لا اله إلا الله</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"><i class="far fa-circle text-primary"></i> لا حول ولا قوة الا بالله</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+
+
+    </div><!-- /.container-fluid -->
+</section>
+
+
+
+
+
+
+
+
+
+@code {
+    private VideoFilter videoFilter = new VideoFilter();
+
+    List<VideoStatus> videos { get; set; }
+    List<Category> categories { get; set; }
+
+
+    private int totalAmountPages;
+
+
+    protected async override Task OnInitializedAsync()
+    {
+        await authorizer.SetAuthorizationAsync();
+        videoFilter.Visible = false;
+        videoFilter.SortType = SortType.Newest;
+        await LoadVideos();
+        await LoadCategories();
+    }
+
+
+
+    IEnumerable<int> selectedCategoriesIds = new int[] { };
+    void Change(object value)
+    {
+        //StateHasChanged();
+    }
+
+
+    async Task LoadCategories()
+    {
+        try
+        {
+            var paginatedResponse = await categoryRepository.GetCategoriesFiltered(new CategoryFilter() { ForVideos = true, RecordsPerPage = 100 });
+            categories = paginatedResponse.Response;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
+        }
+    }
+
+
+
+    async Task LoadVideos()
+    {
+        try
+        {
+            var paginatedResponse = await videoRepository.GetVideosFiltered(videoFilter);
+            videos = paginatedResponse.Response;
+            totalAmountPages = paginatedResponse.TotalAmountPages;
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
+        }
+    }
+
+    async Task DeleteVideo(int videoId)
+    {
+        //var video = videos.First(i => i.Id == videoId);
+        if (await js.Confirm("تأكيد", $"هل أنت متأكد أنك تريد أن تحذف هذه الصورة؟", SweetAlertMessageType.error))
+        {
+            await videoRepository.Delete(videoId);
+            await LoadVideos();
+        }
+    }
+
+    private async Task SelectedPage(int page)
+    {
+        videoFilter.Page = page;
+        await LoadVideos();
+    }
+
+
+
+    private async Task SearchForVideos()
+    {
+        videoFilter.Categories.Clear();
+        foreach (int id in selectedCategoriesIds)
+        {
+            videoFilter.Categories.Add(categories.First(c => c.Id == id));
+        }
+
+
+        await LoadVideos();
+    }
+
+    private async Task Clear()
+    {
+        videoFilter.Name = string.Empty;
+
+        videoFilter.DownloadsCount = 0;
+        videoFilter.ViewsCount = 0;
+        videoFilter.LikesCount = 0;
+
+        videoFilter.DateFrom = DateTime.MinValue;
+        videoFilter.DateTo = DateTime.MinValue;
+
+        selectedCategoriesIds = new int[] { };
+        videoFilter.Categories.Clear();
+
+        videoFilter.SortType = SortType.Newest;
+
+        videoFilter.Visible = false;
+
+        await LoadVideos();
+    }
+
+    private async Task NameKeyPress(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            await SearchForVideos();
+        }
+    }
+}
