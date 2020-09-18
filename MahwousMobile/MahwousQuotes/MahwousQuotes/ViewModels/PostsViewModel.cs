@@ -8,7 +8,7 @@ using MahwousWeb.Shared.Models;
 using MahwousWeb.Shared.Pagination;
 using Xamarin.Forms;
 
-namespace MahwousPosts.ViewModels
+namespace MahwousQuotes.ViewModels
 {
 
     public class PostsViewModel : BaseViewModel
@@ -39,7 +39,6 @@ namespace MahwousPosts.ViewModels
 
         public PostsViewModel()
         {
-
             Posts = new ObservableCollection<Post>();
 
             LoadPostsCommand = new Command(async () => await ExecuteLoadPostsCommand());
@@ -51,7 +50,7 @@ namespace MahwousPosts.ViewModels
         {
             if (!IsLoadingMore)
             {
-                Debug.WriteLine("Bashir: Loading More");
+                Debug.WriteLine("Bashir: Loading More Posts");
                 IsLoadingMore = true;
 
                 try
@@ -83,7 +82,10 @@ namespace MahwousPosts.ViewModels
 
         async Task ExecuteLoadPostsCommand()
         {
-                IsBusy = true;
+            if (IsBusy)
+                return;
+
+            IsBusy = true;
 
                 try
                 {

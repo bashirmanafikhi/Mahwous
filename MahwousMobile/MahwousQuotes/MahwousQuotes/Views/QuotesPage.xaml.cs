@@ -7,50 +7,41 @@ using MahwousQuotes.Models;
 using MahwousQuotes.ViewModels;
 using MahwousWeb.Shared.Models;
 using MahwousWeb.Shared.Filters;
+using System.Diagnostics;
 
 namespace MahwousQuotes.Views
 {
-    // Learn more about making custom code visible in the Xamarin.Forms previewer
-    // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
     public partial class QuotesPage : ContentPage
     {
+        private SortType sortType;
         public SortType SortType
         {
-            get => viewModel.Filter.SortType;
+            get => sortType;
             set
             {
-                viewModel.Filter.SortType = value;
-                viewModel.LoadQuotesCommand.Execute(null);
+                sortType = value;
             }
         }
 
-
-        QuotesViewModel viewModel;
-
-        public QuotesPage(QuotesViewModel viewModel)
+        public QuotesPage()
         {
             InitializeComponent();
-
-            BindingContext = this.viewModel = viewModel;
-
-            viewModel.QuotesFinished += OnQuotesFinished;
-
+            myBanner.AdsLoaded += MyBanner_AdsLoaded;
         }
-
-        public QuotesPage() : this(new QuotesViewModel()) { }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
-            if (viewModel.Quotes.Count == 0)
-                viewModel.IsBusy = true;
+            myQuotesTemplate.SortType = this.SortType;
         }
 
-        private void OnQuotesFinished(object sender, EventArgs e)
+        private void MyBanner_AdsLoaded(object sender, EventArgs e)
         {
-            DisplayAlert("تنبيه", "انتهت الحالات في هذا التصنيف", "حسناً");
+            if (Xamarin.Forms.Device.Idiom == TargetIdiom.Phone)
+                myBanner.HeightRequest = 50;
+            else
+                myBanner.HeightRequest = 90;
         }
     }
 }

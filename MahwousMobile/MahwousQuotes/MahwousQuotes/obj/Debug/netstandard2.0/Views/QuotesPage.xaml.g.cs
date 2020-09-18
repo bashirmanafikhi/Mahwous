@@ -17,12 +17,16 @@ namespace MahwousQuotes.Views {
     public partial class QuotesPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Xamarin.Forms.CollectionView ItemsCollectionView;
+        private global::MahwousQuotes.Views.DataTemplates.QuotesTemplate myQuotesTemplate;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
+        private global::MarcTron.Plugin.Controls.MTAdView myBanner;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(QuotesPage));
-            ItemsCollectionView = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.CollectionView>(this, "ItemsCollectionView");
+            myQuotesTemplate = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::MahwousQuotes.Views.DataTemplates.QuotesTemplate>(this, "myQuotesTemplate");
+            myBanner = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::MarcTron.Plugin.Controls.MTAdView>(this, "myBanner");
         }
     }
 }

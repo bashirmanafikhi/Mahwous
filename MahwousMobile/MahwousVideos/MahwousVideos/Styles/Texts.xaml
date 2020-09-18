@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <!--#region FONTSFAMILY-->
+
+
+
+    <OnPlatform x:Key="txt_Hacen_Sahara_St" x:TypeArguments="x:String">
+        <!--<On Platform="Android" Value="FontsFamily/Pacifico-Regular.ttf#Pacifico-Regular" />-->
+        <On Platform="Android" Value="FontsFamily/Hacen-Sahara-St.ttf#Hacen-Sahara-St" />
+        <On Platform="iOS" Value="Hacen-Sahara-St" />
+        <On Platform="UWP" Value="Assets/FontsFamily/Hacen-Sahara-St.ttf#Hacen-Sahara-St" />
+    </OnPlatform>
+
+    <OnPlatform x:Key="txt_ArslanWessam" x:TypeArguments="x:String">
+        <On Platform="Android" Value="FontsFamily/Arslan-Wessam.ttf#Arslan-Wessam" />
+        <On Platform="iOS" Value="Arslan-Wessam" />
+        <On Platform="UWP" Value="Assets/FontsFamily/Arslan-Wessam.ttf#Arslan-Wessam" />
+    </OnPlatform>
+
+    <OnPlatform x:Key="txt_Janna" x:TypeArguments="x:String">
+        <On Platform="Android" Value="FontsFamily/Janna-LT-Bold.ttf#Janna-LT-Bold" />
+        <On Platform="iOS" Value="Janna-LT-Bold" />
+        <On Platform="UWP" Value="Assets/FontsFamily/Janna-LT-Bold.ttf#Janna-LT-Bold" />
+    </OnPlatform>
+
+
+</ResourceDictionary>

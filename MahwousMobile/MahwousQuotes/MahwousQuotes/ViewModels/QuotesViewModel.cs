@@ -2,6 +2,8 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using MahwousQuote.ViewModels;
+using MahwousQuotes.Helpers;
 using MahwousQuotes.Models;
 using MahwousWeb.Shared.Filters;
 using MahwousWeb.Shared.Models;
@@ -15,6 +17,7 @@ namespace MahwousQuotes.ViewModels
     {
         private QuoteFilter filter;
         private int totalAmountPages;
+        private QuotesDatabase database = new QuotesDatabase();
 
 
         bool isLoadingMore = false;
@@ -24,7 +27,7 @@ namespace MahwousQuotes.ViewModels
             set { SetProperty(ref isLoadingMore, value); }
         }
 
-        private int itemTreshold = 3;
+        private int itemTreshold = 2;
         public int ItemTreshold
         {
             get { return itemTreshold; }
@@ -33,7 +36,9 @@ namespace MahwousQuotes.ViewModels
 
         public event EventHandler QuotesFinished;
 
-        public ObservableCollection<QuoteStatus> Quotes { get; set; }
+
+
+        public ObservableCollection<QuoteViewModel> Quotes { get; set; }
         public Command LoadQuotesCommand { get; set; }
         public Command LoadMoreQuotesCommand { get; set; }
         public QuoteFilter Filter { get => filter; set => filter = value; }
@@ -42,19 +47,47 @@ namespace MahwousQuotes.ViewModels
         {
             Filter = filter;
 
-            Quotes = new ObservableCollection<QuoteStatus>();
+            Quotes = new ObservableCollection<QuoteViewModel>();
 
             LoadQuotesCommand = new Command(async () => await ExecuteLoadQuotesCommand());
             LoadMoreQuotesCommand = new Command(async () => await ExecuteLoadMoreQuotesCommand());
         }
 
-        public QuotesViewModel() : this(new QuoteFilter {SortType=SortType.Random}) { }
+        public QuotesViewModel() : this(new QuoteFilter { SortType = SortType.Random }) { }
+
+        async Task ExecuteLoadQuotesCommand()
+        {
+            if (IsBusy) return;
+            Debug.WriteLine("Bashir: Load " + Filter.SortType);
+            IsBusy = true;
+
+            try
+            {
+                Quotes.Clear();
+                filter.Page = 1;
+
+                var paginatedResponse = await Repositories.QuoteRepository.GetQuotesFiltered(Filter);
+                totalAmountPages = paginatedResponse.TotalAmountPages;
+                var quotes = paginatedResponse.Response;
+                foreach (var quote in quotes)
+                {
+                    Quotes.Add(new QuoteViewModel(quote) { Liked = database.Exists(quote) });
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
 
         async Task ExecuteLoadMoreQuotesCommand()
         {
             if (!IsLoadingMore)
             {
-                Debug.WriteLine("Bashir: Loading More");
                 IsLoadingMore = true;
 
                 try
@@ -64,10 +97,11 @@ namespace MahwousQuotes.ViewModels
                         Filter.Page++;
                         var paginatedResponse = await Repositories.QuoteRepository.GetQuotesFiltered(Filter);
                         foreach (var quote in paginatedResponse.Response)
-                            Quotes.Add(quote);
+                            Quotes.Add(new QuoteViewModel(quote) { Liked = database.Exists(quote) });
                     }
                     else
                     {
+                        DependencyService.Get<IMessage>().ShortAlert("إنتهت الحالات في هذا القسم");
                         QuotesFinished?.Invoke(this, EventArgs.Empty);
                         ItemTreshold = -1;
                     }
@@ -84,31 +118,10 @@ namespace MahwousQuotes.ViewModels
             }
         }
 
-        async Task ExecuteLoadQuotesCommand()
-        {
-                IsBusy = true;
 
-                try
-                {
-                    Quotes.Clear();
-                    filter.Page = 1;
 
-                    var paginatedResponse = await Repositories.QuoteRepository.GetQuotesFiltered(Filter);
-                    totalAmountPages = paginatedResponse.TotalAmountPages;
-                    var quotes = paginatedResponse.Response;
-                    foreach (var quote in quotes)
-                    {
-                        Quotes.Add(quote);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine(ex);
-                }
-                finally
-                {
-                    IsBusy = false;
-                }
-        }
+
+
+
     }
 }

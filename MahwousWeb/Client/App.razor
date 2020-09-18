@@ -5,11 +5,19 @@
                 <NotAuthorized>
                     <RedirectToLogin />
                 </NotAuthorized>
+                <Authorizing>
+                    <LayoutView>
+                        <div style="height:100%; width:100%; margin:auto; text-align:center">
+                            <h1>مهووس</h1>
+                            <p><i class="fas fa-spin fa-spinner"></i> جاري تفقد تسجيل الدخول </p>
+                        </div>
+                    </LayoutView>
+                </Authorizing>
             </AuthorizeRouteView>
         </Found>
         <NotFound>
             <LayoutView Layout="@typeof(MainLayout)">
-                <p>عذراً, هذه الصفحة غير متوفرة.</p>
+                <p class="p-5">عذراً, هذه الصفحة غير متوفرة.</p>
             </LayoutView>
         </NotFound>
     </Router>

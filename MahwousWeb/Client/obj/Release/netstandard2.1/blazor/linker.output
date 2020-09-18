@@ -26,6 +26,10 @@ obj\Release\netstandard2.1\blazor\linker\Mono.Security.dll
 obj\Release\netstandard2.1\blazor\linker\mscorlib.dll
 obj\Release\netstandard2.1\blazor\linker\netstandard.dll
 obj\Release\netstandard2.1\blazor\linker\Radzen.Blazor.dll
+obj\Release\netstandard2.1\blazor\linker\SQLite-net.dll
+obj\Release\netstandard2.1\blazor\linker\SQLitePCLRaw.batteries_v2.dll
+obj\Release\netstandard2.1\blazor\linker\SQLitePCLRaw.core.dll
+obj\Release\netstandard2.1\blazor\linker\SQLitePCLRaw.provider.e_sqlite3.dll
 obj\Release\netstandard2.1\blazor\linker\System.ComponentModel.DataAnnotations.dll
 obj\Release\netstandard2.1\blazor\linker\System.Core.dll
 obj\Release\netstandard2.1\blazor\linker\System.dll

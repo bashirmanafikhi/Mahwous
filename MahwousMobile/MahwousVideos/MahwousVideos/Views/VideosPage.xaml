@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:templates="clr-namespace:MahwousVideos.Views.DataTemplates"
+             xmlns:vm="clr-namespace:MahwousVideos.ViewModels" 
+             xmlns:helpers="clr-namespace:MahwousVideos.Helpers"
+             mc:Ignorable="d"
+             x:Class="MahwousVideos.Views.VideosPage"
+             Visual="Material"
+             Title="{Binding Title}">
+
+
+
+
+    <ContentPage.BindingContext>
+        <vm:VideosViewModel />
+    </ContentPage.BindingContext>
+
+
+    <!--<Shell.SearchHandler>
+        <helpers:VideoSearchHandler Placeholder="أدخل كلمة للبحث"
+                                      ShowsResults="True"
+                                      DisplayMemberName="Content" />
+    </Shell.SearchHandler>-->
+
+
+
+
+    <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding LoadVideosCommand}">
+        <StackLayout>
+            <CollectionView x:Name="ItemsCollectionView"
+                            RemainingItemsThreshold="{Binding ItemTreshold}"
+                            RemainingItemsThresholdReachedCommand="{Binding LoadMoreVideosCommand}"
+                            ItemTemplate="{DataTemplate templates:VideoTemplate}"
+                ItemsSource="{Binding Videos}">
+
+            </CollectionView>
+            <ActivityIndicator IsRunning="{Binding IsLoadingMore}"  IsVisible="{Binding IsLoadingMore}" />
+
+
+        </StackLayout>
+    </RefreshView>
+
+
+</ContentPage>

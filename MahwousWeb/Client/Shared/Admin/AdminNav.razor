@@ -1,69 +1,56 @@
-﻿
+﻿<ul class="list-group list-group-flush">
 
-<li class="nav-item ">
-    <NavLink class="nav-link" href="administration" Match="NavLinkMatch.All">
-        <i class="fas fa-home"></i>
-        <p>الرئيسية</p>
+    <NavLink class="list-group-item list-group-item-mine" href="administration" Match="NavLinkMatch.All">
+        <i class="fas fa-home"></i> الإعدادات العامة
     </NavLink>
-</li>
-
-<AuthorizeView>
-    <Authorized>
-        <li class="nav-item ">
-            <NavLink class="nav-link" href="administration/categories">
-                <i class="fas fa-tags"></i>
-                <p>التصنيفات</p>
-            </NavLink>
-        </li>
 
 
-        <li class="nav-item ">
-            <NavLink class="nav-link" href="administration/quotes">
-                <i class="fas fa-quote-right"></i>
-                <p>الحالات الكتابية</p>
+    <AuthorizeView>
+        <Authorized>
+
+            <NavLink class="list-group-item list-group-item-mine" href="administration/categories">
+                <i class="fas fa-tags"></i> التصنيفات
             </NavLink>
-        </li>
-        <li class="nav-item ">
-            <NavLink class="nav-link" href="administration/videos">
-                <i class="fas fa-video"></i>
-                <p>الحالات الفيديو</p>
-            </NavLink>
-        </li>
-        <li class="nav-item ">
-            <NavLink class="nav-link" href="administration/images">
-                <i class="fas fa-images"></i>
-                <p>الصور</p>
-            </NavLink>
-        </li>
 
 
-        <li class="nav-item ">
-            <NavLink class="nav-link" href="administration/apps">
-                <i class="fas fa-mobile-alt"></i>
-                <p>تطبيقاتنا</p>
+            <NavLink class="list-group-item list-group-item-mine" href="administration/quotes">
+                <i class="fas fa-quote-right"></i> الحالات الكتابية
             </NavLink>
-        </li>
-        <li class="nav-item ">
-            <NavLink class="nav-link" href="administration/notifications">
-                <i class="fas fa-bell"></i>
-                <p>اشعارات</p>
-            </NavLink>
-        </li>
-        <li class="nav-item ">
-            <NavLink class="nav-link" href="administration/posts">
-                <i class="fas fa-newspaper"></i>
-                <p>المنشورات والأخبار</p>
-            </NavLink>
-        </li>
 
-    </Authorized>
-</AuthorizeView>
 
-<li class="nav-item ">
-    <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-        <i class="fas fa-door-open"></i>
-        <p>العودة إلى الموقع</p>
+            <NavLink class="list-group-item list-group-item-mine" href="administration/videos">
+                <i class="fas fa-video"></i> الحالات الفيديو
+            </NavLink>
+
+
+            <NavLink class="list-group-item list-group-item-mine" href="administration/images">
+
+                <i class="fas fa-images"></i> الصور
+            </NavLink>
+
+
+            <NavLink class="list-group-item list-group-item-mine" href="administration/apps">
+
+                <i class="fas fa-mobile-alt"></i> تطبيقاتنا
+            </NavLink>
+
+
+            <NavLink class="list-group-item list-group-item-mine" href="administration/notifications">
+                <i class="fas fa-bell"></i> اشعارات
+            </NavLink>
+
+
+            <NavLink class="list-group-item list-group-item-mine" href="administration/posts">
+                <i class="fas fa-newspaper"></i> المنشورات والأخبار
+            </NavLink>
+
+        </Authorized>
+    </AuthorizeView>
+
+
+    <NavLink class="list-group-item list-group-item-mine" href="" Match="NavLinkMatch.All">
+        <i class="fas fa-door-open"></i> العودة إلى الموقع
     </NavLink>
-</li>
 
 
+</ul>

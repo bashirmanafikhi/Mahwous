@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:views="clr-namespace:MahwousVideos.Views"
+             Title="Delicious Food"
+             FlyoutHeaderBehavior="CollapseOnScroll"
+             Visual="Material"
+             
+             mc:Ignorable="d"
+             xmlns:ShellTemplate="clr-namespace:MahwousVideos.Views.ShellTemplates" 
+             xmlns:helpers="clr-namespace:MahwousVideos.Helpers"
+             FlyoutHeaderTemplate="{DataTemplate ShellTemplate:FlyoutHeaderTemplate}"
+             ItemTemplate="{DataTemplate ShellTemplate:FlyoutItemTemplate}"
+             MenuItemTemplate="{DataTemplate ShellTemplate:FlyoutMenuItemTemplate}"
+             x:Class="MahwousVideos.AppShell"
+             FlyoutBackgroundColor="{DynamicResource colBackground}" >
+
+
+
+
+    <!--#region SHELL RESOURCES-->
+    <Shell.Resources>
+        
+        
+        
+        <!--#region SHELL STYLES-->
+        <Style
+            x:Key="BaseStyle"
+            TargetType="Element"
+            ApplyToDerivedTypes="True">
+            <!--  In iOS, this property changes the color of the FlyoutIcon and the selected top tabs  -->
+            <!--  In iOS this property changes the color tabs upper not selected  -->
+
+
+            
+            
+            
+            
+            <Setter Property="Shell.BackgroundColor" Value="{DynamicResource colBlack}" />
+            <Setter Property="Shell.ForegroundColor" Value="{DynamicResource colRed}" />
+            <Setter Property="Shell.UnselectedColor" Value="{DynamicResource colWhite}" />
+            <Setter Property="Shell.TitleColor" Value="{StaticResource colWhite}" />
+
+            <Setter Property="Shell.TabBarBackgroundColor" Value="{DynamicResource colBlack}" />
+            <Setter Property="Shell.TabBarForegroundColor" Value="{DynamicResource colRed}" />
+            <Setter Property="Shell.TabBarUnselectedColor" Value="{DynamicResource colWhite}" />
+            <Setter Property="Shell.TabBarTitleColor" Value="{DynamicResource colRed}" />
+
+            <!--<Setter Property="Shell.FlyoutBackgroundImage" Value="img_bgflyout.png"/>-->
+        </Style>
+        <!--#endregion-->
+
+        <!--#region ADD TabBar FlyoutBehavior is INVISIBLE-->
+        <Style
+            BasedOn="{StaticResource BaseStyle}"
+            TargetType="TabBar"
+            ApplyToDerivedTypes="True" />
+        <!--#endregion-->
+
+        <!--#region ADD ShellItem FlyoutBehavior is VISIBLE-->
+        <Style
+            BasedOn="{StaticResource BaseStyle}"
+            TargetType="ShellItem"
+            ApplyToDerivedTypes="True" />
+        <!--#endregion-->
+
+        <!--#region ADD FlyoutItem FlyoutBehavior is VISIBLE-->
+        <Style
+            BasedOn="{StaticResource BaseStyle}"
+            TargetType="FlyoutItem"
+            ApplyToDerivedTypes="True" />
+        <!--#endregion-->
+
+    </Shell.Resources>
+    <!--#endregion-->
+
+
+
+    <FlyoutItem Title="الصفحة الرئيسية" 
+                Icon="{StaticResource icon_Home}" 
+                FlyoutDisplayOptions="AsMultipleItems">
+
+        <Tab  Title="الصفحة الرئيسية" Icon="{StaticResource icon_Home}">
+            <ShellContent>
+                <views:HomePage />
+            </ShellContent>
+        </Tab>
+
+        <Tab Title="التصنيفات"   Icon="{StaticResource icon_TagMultiple}">
+            <ShellContent>
+                <views:CategoriesPage/>
+            </ShellContent>
+        </Tab>
+
+        <Tab Title="جميع الفيديوهات" Icon="{StaticResource icon_Text}">
+
+            <ShellContent Title="عشوائي">
+                <views:VideosPage SortType="Random" Title="عشوائي" />
+            </ShellContent>
+            <ShellContent Title="الجديدة">
+                <views:VideosPage SortType="Newest" Title="الجديدة" />
+            </ShellContent>
+            <ShellContent Title="القديمة">
+                <views:VideosPage SortType="Oldest" Title="القديمة" />
+            </ShellContent>
+            <ShellContent Title="الأكثر مشاركة">
+                <views:VideosPage SortType="Downloads" Title="الأكثر مشاركة" />
+            </ShellContent>
+            <ShellContent Title="الأكثر مشاهدة">
+                <views:VideosPage SortType="Views" Title="الأكثر مشاهدة" />
+            </ShellContent>
+        </Tab>
+    </FlyoutItem>
+
+
+
+    <FlyoutItem Title="اخبار مهووس" 
+                Icon="{StaticResource icon_Newspaper}"
+                FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Title="تطبيقاتنا" Icon="{StaticResource icon_Apps}">
+            <views:AppsPage Title="تطبيقاتنا" />
+        </ShellContent>
+        <ShellContent Title="الأخبار" Icon="{StaticResource icon_Newspaper}">
+            <views:PostsPage Title="الأخبار" />
+        </ShellContent>
+        <ShellContent Title="من نحن" Icon="{StaticResource icon_FrequentlyAskedQuestions}">
+            <views:AboutPage  Title="من نحن" />
+        </ShellContent>
+    </FlyoutItem>
+
+
+    <MenuItem Text="تقييم التطبيق" Clicked="MenuItem_Rate_Clicked" IconImageSource="{StaticResource icon_Star}"/>
+
+    <MenuItem Text="مشاركة" Clicked="MenuItem_ShareApp_Clicked" IconImageSource="{StaticResource icon_Share}" />
+
+    <!--<MenuItem Text="حالة عشوائية" IconImageSource="{StaticResource icon_Shuffle}" />
+
+    <MenuItem Text="الإعدادات" IconImageSource="{StaticResource icon_Settings}" />-->
+
+    <MenuItem Text="الخروج" Clicked="MenuItem_Exit_Clicked" IconImageSource="{StaticResource icon_ExitRun}"/>
+
+
+</Shell>

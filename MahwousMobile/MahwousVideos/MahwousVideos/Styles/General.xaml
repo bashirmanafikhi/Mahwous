@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+
+    <!--Dark Mode-->
+    <Style TargetType="Label">
+        <Setter Property="TextColor" Value="{DynamicResource colForeground}" />
+        <Setter Property="FontFamily" Value="{StaticResource txt_Janna}" />
+
+    </Style>
+    <Style TargetType="Span">
+        <Setter Property="TextColor" Value="{DynamicResource colForeground}" />
+        <Setter Property="FontFamily" Value="{StaticResource txt_Janna}" />
+    </Style>
+    <Style TargetType="ContentPage"  ApplyToDerivedTypes="True">
+        <Setter Property="Visual" Value="Material" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource colBackground}" />
+    </Style>
+
+
+
+
+
+
+
+
+
+
+
+
+    <Style x:Key="FloutItemStyle" TargetType="Grid">
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal" />
+                    <VisualState x:Name="Selected">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="{DynamicResource colSubBackground}"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+
+
+
+
+
+
+
+
+
+
+    <!--Flow Direction-->
+    <Style TargetType="Page">
+        <Setter Property="FlowDirection" Value="RightToLeft" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource colBackground}" />
+    </Style>
+    
+    <Style TargetType="Grid">
+        <Setter Property="FlowDirection" Value="RightToLeft" />
+    </Style>
+    
+    <Style TargetType="StackLayout">
+        <Setter Property="FlowDirection" Value="RightToLeft" />
+    </Style>
+
+
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Texts.xaml" />
+        <ResourceDictionary Source="Icons.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+
+
+
+</ResourceDictionary>

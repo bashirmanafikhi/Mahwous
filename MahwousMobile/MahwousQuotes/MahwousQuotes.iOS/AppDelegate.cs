@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using Google.MobileAds;
 using Matcha.BackgroundService.iOS;
 using UIKit;
 using Xamarin.Forms;
@@ -30,12 +31,14 @@ namespace MahwousQuotes.iOS
             // Ask the user for permission to show notifications on iOS 10.0+ at startup.
             // If not asked at startup, user will be asked when showing the first notification.
             Plugin.LocalNotification.NotificationCenter.AskPermission();
+            MobileAds.SharedInstance.Start(CompletionHandler);
 
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
         }
+        private void CompletionHandler(InitializationStatus status) { }
 
         public override void WillEnterForeground(UIApplication uiApplication)
         {

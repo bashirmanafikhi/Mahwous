@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MahwousVideos.Views.HomePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:MahwousVideos.ViewModels" 
+    xmlns:views="clr-namespace:MahwousVideos.Views" 
+    xmlns:templates="clr-namespace:MahwousVideos.Views.DataTemplates"
+    mc:Ignorable="d">
+
+
+    <Shell.TitleView>
+        <StackLayout
+            Padding="0,0,10,0"
+            Orientation="Horizontal">
+
+            <Label
+                Text="الصفحة الرئيسية"
+                TextColor="{DynamicResource colWhite}"
+                VerticalOptions="CenterAndExpand">
+                <Label.HorizontalOptions>
+                    <OnPlatform
+                        x:TypeArguments="LayoutOptions"
+                        iOS="EndAndExpand"
+                        Android="StartAndExpand" />
+                </Label.HorizontalOptions>
+            </Label>
+
+            <Switch
+                x:Name="darkSwitch"
+                Toggled="Switch_Toggled"
+                OnColor="{DynamicResource colWhite}"
+                HorizontalOptions="EndAndExpand"
+                VerticalOptions="CenterAndExpand"
+                Visual="Material" />
+
+        </StackLayout>
+    </Shell.TitleView>
+
+    <ContentPage.Content>
+        
+        <StackLayout BackgroundColor="{DynamicResource colBackground}">
+
+
+
+            <Image x:Name="homePageImage"
+                   HorizontalOptions="CenterAndExpand"
+                   WidthRequest="200" HeightRequest="200"
+                   Aspect="AspectFill"
+                   Source="TransparentBlack.png" />
+
+
+
+            <Label Text="اهلاً بكم في تطبيق فيديوهات مهووس" 
+                   VerticalOptions="CenterAndExpand"
+                   TextColor="{DynamicResource colForeground}"
+                   HorizontalOptions="CenterAndExpand" 
+                   />
+
+            <!--<Label Text="الصفحة الرئيسية" 
+                   VerticalOptions="CenterAndExpand"
+                   TextColor="{DynamicResource colForeground}"
+                   HorizontalOptions="CenterAndExpand" 
+                   FontFamily="FontsFamily/Pacifico-Regular.ttf#Pacifico-Regular"
+                   />-->
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

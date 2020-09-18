@@ -9,3 +9,7 @@ Layout/BottomTabLayout.axml;layout/bottomtablayout.xml
 Layout/FlyoutContent.axml;layout/flyoutcontent.xml
 Layout/RootLayout.axml;layout/rootlayout.xml
 Layout/ShellContent.axml;layout/shellcontent.xml
+Layout/FallbackTabbarDoNotUse.axml;layout/fallbacktabbardonotuse.xml
+Layout/FallbackToolbarDoNotUse.axml;layout/fallbacktoolbardonotuse.xml
+Layout/Tabbar.axml;layout/tabbar.xml
+Layout/Toolbar.axml;layout/toolbar.xml

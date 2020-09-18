@@ -46,8 +46,8 @@ namespace MahwousWeb.Server.Controllers
         {
             var queryable = context.QuoteStatuses.AsQueryable();
 
-            
-            
+
+
             await HttpContext.InsertPaginationParametersInResponse(queryable, paginationDTO.RecordsPerPage);
             return await queryable.Paginate(paginationDTO).ToListAsync();
 
@@ -111,7 +111,7 @@ namespace MahwousWeb.Server.Controllers
             var quote = await context.QuoteStatuses.FirstOrDefaultAsync(q => q.Id == id);
             if (quote == null) { return NotFound(); }
 
-            
+
 
 
             context.Remove(quote);
@@ -136,7 +136,11 @@ namespace MahwousWeb.Server.Controllers
 
 
             // categories filter
-            if (quoteFilter.Categories != null && quoteFilter.Categories.Count > 0)
+            if (quoteFilter.WithoutCategory)
+            {
+                quotesQueryable = quotesQueryable.Where(v => v.StatusCategories == null || v.StatusCategories.Count == 0);
+            }
+            else if (quoteFilter.Categories != null && quoteFilter.Categories.Count > 0)
             {
                 int[] catIds = quoteFilter.Categories.Select(c => c.Id).ToArray();
 
@@ -147,20 +151,15 @@ namespace MahwousWeb.Server.Controllers
 
             // other general status properties
 
-            quotesQueryable = quotesQueryable.Where(v => v.ViewsCount >= quoteFilter.ViewsCount);
-            quotesQueryable = quotesQueryable.Where(v => v.DownloadsCount >= quoteFilter.DownloadsCount);
-            quotesQueryable = quotesQueryable.Where(v => v.LikesCount >= quoteFilter.LikesCount);
+            quotesQueryable = quotesQueryable.Where(v => v.ViewsCount >= quoteFilter.ViewsCount.From && v.ViewsCount <= quoteFilter.ViewsCount.To);
+            quotesQueryable = quotesQueryable.Where(v => v.DownloadsCount >= quoteFilter.DownloadsCount.From && v.DownloadsCount <= quoteFilter.DownloadsCount.To);
+            quotesQueryable = quotesQueryable.Where(v => v.LikesCount >= quoteFilter.LikesCount.From && v.LikesCount <= quoteFilter.LikesCount.To);
+
+            quotesQueryable = quotesQueryable.Where(v => v.Date >= quoteFilter.Date.From && v.Date <= quoteFilter.Date.To);
+
+            quotesQueryable = quotesQueryable.Where(v => v.Visible == quoteFilter.Visible);
 
 
-            if (quoteFilter.Visible)
-            {
-                quotesQueryable = quotesQueryable.Where(v => v.Visible);
-            }
-
-            if (quoteFilter.DateFrom != DateTime.MinValue)
-                quotesQueryable = quotesQueryable.Where(v => v.Date > quoteFilter.DateFrom);
-            if (quoteFilter.DateTo != DateTime.MinValue)
-                quotesQueryable = quotesQueryable.Where(v => v.Date < quoteFilter.DateTo);
 
             switch (quoteFilter.SortType)
             {
@@ -176,6 +175,9 @@ namespace MahwousWeb.Server.Controllers
                 case SortType.Downloads:
                     quotesQueryable = quotesQueryable.OrderByDescending(v => v.DownloadsCount);
                     break;
+                case SortType.Likes:
+                    quotesQueryable = quotesQueryable.OrderByDescending(v => v.LikesCount);
+                    break;
                 case SortType.Random:
                     quotesQueryable = quotesQueryable.OrderBy(v => Guid.NewGuid());
                     break;
@@ -189,6 +191,106 @@ namespace MahwousWeb.Server.Controllers
             var quotes = await quotesQueryable.Paginate(quoteFilter.Pagination).ToListAsync();
 
             return quotes;
+        }
+
+        [AllowAnonymous]
+        [HttpPost("count")]
+        public async Task<ActionResult<FilteredInformations>> Count(QuoteFilter quoteFilter)
+        {
+
+            var quotesQueryable = context.QuoteStatuses.AsQueryable();
+
+            // videos title
+            if (!string.IsNullOrWhiteSpace(quoteFilter.Content))
+            {
+                quotesQueryable = quotesQueryable
+                    .Where(v => v.Content.Contains(quoteFilter.Content));
+            }
+
+
+            // categories filter
+            if (quoteFilter.WithoutCategory)
+            {
+                quotesQueryable = quotesQueryable.Where(v => v.StatusCategories == null || v.StatusCategories.Count == 0);
+            }
+            else if (quoteFilter.Categories != null && quoteFilter.Categories.Count > 0)
+            {
+                int[] catIds = quoteFilter.Categories.Select(c => c.Id).ToArray();
+
+                quotesQueryable = quotesQueryable.Where(quote =>
+                    quote.StatusCategories.Any(sc => catIds.Contains(sc.CategoryId))
+                );
+            }
+
+            // other general status properties
+
+            quotesQueryable = quotesQueryable.Where(v => v.ViewsCount >= quoteFilter.ViewsCount.From && v.ViewsCount <= quoteFilter.ViewsCount.To);
+            quotesQueryable = quotesQueryable.Where(v => v.DownloadsCount >= quoteFilter.DownloadsCount.From && v.DownloadsCount <= quoteFilter.DownloadsCount.To);
+            quotesQueryable = quotesQueryable.Where(v => v.LikesCount >= quoteFilter.LikesCount.From && v.LikesCount <= quoteFilter.LikesCount.To);
+
+            quotesQueryable = quotesQueryable.Where(v => v.Date >= quoteFilter.Date.From && v.Date <= quoteFilter.Date.To);
+
+            quotesQueryable = quotesQueryable.Where(v => v.Visible == quoteFilter.Visible);
+
+
+
+            switch (quoteFilter.SortType)
+            {
+                case SortType.Newest:
+                    quotesQueryable = quotesQueryable.OrderByDescending(v => v.Date);
+                    break;
+                case SortType.Oldest:
+                    quotesQueryable = quotesQueryable.OrderBy(v => v.Date);
+                    break;
+                case SortType.Views:
+                    quotesQueryable = quotesQueryable.OrderByDescending(v => v.ViewsCount);
+                    break;
+                case SortType.Downloads:
+                    quotesQueryable = quotesQueryable.OrderByDescending(v => v.DownloadsCount);
+                    break;
+                case SortType.Likes:
+                    quotesQueryable = quotesQueryable.OrderByDescending(v => v.LikesCount);
+                    break;
+                case SortType.Random:
+                    quotesQueryable = quotesQueryable.OrderBy(v => Guid.NewGuid());
+                    break;
+                default:
+                    break;
+            }
+
+            FilteredInformations informations = new FilteredInformations();
+            informations.StatusesCount = await quotesQueryable.CountAsync();
+
+            informations.DownloadsCount = await quotesQueryable.SumAsync(s=> (long)s.DownloadsCount);
+            informations.LikesCount = await quotesQueryable.SumAsync(s=> (long)s.LikesCount);
+            informations.ViewsCount = await quotesQueryable.SumAsync(s=>(long)s.ViewsCount);
+
+            informations.CategoriesCount = await context.Categories.Where(c => c.ForQuotes).CountAsync();
+
+            var categoriesStatusCounts = context.Categories.Where(c => c.ForQuotes).Select(c => new KeyValuePair<string, int>(c.Name, c.StatusCategories.Where(sc => sc.Status is QuoteStatus).Count()));
+            informations.CategoriesStatusCounts = new Dictionary<string, int>(categoriesStatusCounts);
+
+            return informations;
+            //return await quotesQueryable.CountAsync();
+        }
+
+        [AllowAnonymous]
+        [HttpGet("count")]
+        public async Task<ActionResult<FilteredInformations>> Count()
+        {
+            FilteredInformations informations = new FilteredInformations();
+            informations.StatusesCount = await context.QuoteStatuses.CountAsync();
+
+            informations.DownloadsCount = await context.QuoteStatuses.SumAsync(s => (long)s.DownloadsCount);
+            informations.LikesCount = await context.QuoteStatuses.SumAsync(s => (long)s.LikesCount);
+            informations.ViewsCount = await context.QuoteStatuses.SumAsync(s => (long)s.ViewsCount);
+
+            informations.CategoriesCount = await context.Categories.Where(c => c.ForQuotes).CountAsync();
+
+            var categoriesStatusCounts = context.Categories.Where(c => c.ForQuotes).Select(c => new KeyValuePair<string, int>(c.Name, c.StatusCategories.Where(sc => sc.Status is QuoteStatus).Count()));
+            informations.CategoriesStatusCounts = new Dictionary<string, int>(categoriesStatusCounts);
+
+            return informations;
         }
     }
 }

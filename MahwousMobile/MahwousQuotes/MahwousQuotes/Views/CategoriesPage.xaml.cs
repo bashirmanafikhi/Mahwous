@@ -25,7 +25,12 @@ namespace MahwousQuotes.Views
         {
             InitializeComponent();
 
-            BindingContext = viewModel = new CategoriesViewModel();
+            //BindingContext = viewModel = new CategoriesViewModel();
+            viewModel = (BindingContext as CategoriesViewModel);
+
+
+            viewModel.GetInformationsCommand.Execute(null);
+            viewModel.LoadCategoriesCommand.Execute(null);
         }
 
         protected override void OnAppearing()

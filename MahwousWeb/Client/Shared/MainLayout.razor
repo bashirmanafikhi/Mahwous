@@ -4,114 +4,78 @@
 
 
 
+<div class="d-flex @(toggled ? "toggled" : "")" id="wrapper">
 
-    <div class="wrapper">
+    <!-- Sidebar -->
+    <div class="bg-dark border-right" id="sidebar-wrapper">
 
-        <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-            <!-- Right navbar links -->
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
-                </li>
-            </ul>
+        @*<p class="sidebar-heading text-center text-white">مهووس</p>*@
+        <a href="#">
+            <img class="img-fluid my-0 py-0" src="img/Transparent copymdpi.png" alt="">
+        </a>
+        <NavMenu />
+    </div>
+    <!-- /#sidebar-wrapper -->
+    <!-- Page Content -->
+    <div id="page-content-wrapper" class="d-inline-flex flex-column justify-content-between">
 
+        <div>
+            <nav class="navbar navbar-expand navbar-white navbar-dark bg-dark border-bottom">
+                <button class="btn btn-link btn-lg text-danger" @onclick="Toggle"><i class="fas fa-bars"></i></button>
 
+                <ul class="navbar-nav">
+                    <li class="nav-item d-none d-sm-inline-block">
+                        <a href="#" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item d-none d-sm-inline-block">
+                        <a href="#" class="nav-link">Contact</a>
+                    </li>
+                </ul>
 
-            <!-- Left navbar links -->
-            <ul class="navbar-nav mr-auto-navbav">
-
-                <li class="nav-item">
-                    <!-- SEARCH FORM -->
-                    <form class="form-inline ml-3">
-                        <div class="input-group input-group-sm">
-                            <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-                            <div class="input-group-append">
-                                <button class="btn btn-navbar" type="submit">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                            </div>
+                <!-- Navbar Search-->
+                <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+                    <div class="input-group">
+                        <input class="form-control" type="text" placeholder="بحث عن .." aria-label="Search" aria-describedby="basic-addon2" />
+                        <div class="input-group-append">
+                            <button class="btn btn-danger" type="button"><i class="fas fa-search"></i></button>
                         </div>
-                    </form>
-                </li>
-            </ul>
-
-
-
-        </nav>
-        <!-- /.navbar -->
-
-
-
-
-
-        <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <!-- Brand Logo -->
-            <a href="" class="brand-link">
-                <img src="AdminLTE/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-                     style="opacity: .8">
-                <span class="brand-text font-weight-light">مهووس</span>
-            </a>
-
-            <!-- Sidebar -->
-            <div class="sidebar">
-                <!-- Sidebar user panel (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="AdminLTE/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
-                    <div class="info">
-                        <a href="#" class="d-block">بشير منافيخي</a>
-                    </div>
-                </div>
+                </form>
+                <!-- Navbar-->
+                <ul class="navbar-nav ml-auto ml-md-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="#">Settings</a>
+                            <a class="dropdown-item" href="#">Activity Log</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
 
-                <!-- Sidebar Menu -->
-                <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <NavMenu />
-                    </ul>
-                </nav>
-                <!-- /.sidebar-menu -->
+            <div class="container-fluid px-0">
+
+                @Body
+
             </div>
-            <!-- /.sidebar -->
-        </aside>
-
-
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-        
-            @Body
 
         </div>
-        <!-- /.content-wrapper -->
-
-
-
-
-
 
         <Footer />
 
-
-
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-light">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
-
     </div>
-<!-- ./wrapper -->
+    <!-- /#page-content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
 
 
-
-@code {
-   
+@code{
+    bool toggled = true;
+    void Toggle()
+    {
+        toggled = !toggled;
+    }
 }

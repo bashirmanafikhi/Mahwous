@@ -73,5 +73,26 @@ namespace MahwousWeb.Shared.Repositories
             return paginatedResponse;
         }
 
+        public async Task<FilteredInformations> GetInformations(VideoFilter filter = null)
+        {
+            if (filter is null)
+            {
+                var responseHTTP = await httpService.Get<FilteredInformations>($"{url}/count");
+                return responseHTTP.Response;
+            }
+            else
+            {
+                var responseHTTP = await httpService.Post<VideoFilter, FilteredInformations>($"{url}/count", filter);
+                return responseHTTP.Response;
+            }
+        }
+
+        public async Task<VideoStatus> GetRandomVideo()
+        {
+            var filter = new VideoFilter() { RecordsPerPage = 1 };
+            var responseHTTP = await GetVideosFiltered(filter);
+            var video = responseHTTP.Response.First();
+            return video;
+        }
     }
 }

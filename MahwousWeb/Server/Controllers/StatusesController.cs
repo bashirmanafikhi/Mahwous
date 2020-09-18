@@ -184,7 +184,11 @@ namespace MahwousWeb.Server.Controllers
 
 
             // categories filter
-            if (statusFilter.Categories != null && statusFilter.Categories.Count > 0)
+            if (statusFilter.WithoutCategory)
+            {
+                statusesQueryable = statusesQueryable.Where(v => v.StatusCategories == null || v.StatusCategories.Count == 0);
+            }
+            else if (statusFilter.Categories != null && statusFilter.Categories.Count > 0)
             {
                 int[] catIds = statusFilter.Categories.Select(c => c.Id).ToArray();
 
@@ -195,19 +199,14 @@ namespace MahwousWeb.Server.Controllers
 
             // other general status properties
 
-            statusesQueryable = statusesQueryable.Where(v => v.ViewsCount >= statusFilter.ViewsCount);
-            statusesQueryable = statusesQueryable.Where(v => v.DownloadsCount >= statusFilter.DownloadsCount);
-            statusesQueryable = statusesQueryable.Where(v => v.LikesCount >= statusFilter.LikesCount);
 
-            if (statusFilter.Visible)
-            {
-                statusesQueryable = statusesQueryable.Where(v => v.Visible);
-            }
+            statusesQueryable = statusesQueryable.Where(v => v.ViewsCount >= statusFilter.ViewsCount.From && v.ViewsCount <= statusFilter.ViewsCount.To);
+            statusesQueryable = statusesQueryable.Where(v => v.DownloadsCount >= statusFilter.DownloadsCount.From && v.DownloadsCount <= statusFilter.DownloadsCount.To);
+            statusesQueryable = statusesQueryable.Where(v => v.LikesCount >= statusFilter.LikesCount.From && v.LikesCount <= statusFilter.LikesCount.To);
 
-            if (statusFilter.DateFrom != DateTime.MinValue)
-                statusesQueryable = statusesQueryable.Where(v => v.Date > statusFilter.DateFrom);
-            if (statusFilter.DateTo != DateTime.MinValue)
-                statusesQueryable = statusesQueryable.Where(v => v.Date < statusFilter.DateTo);
+            statusesQueryable = statusesQueryable.Where(v => v.Date >= statusFilter.Date.From && v.Date <= statusFilter.Date.To);
+
+            statusesQueryable = statusesQueryable.Where(v => v.Visible == statusFilter.Visible);
 
             switch (statusFilter.SortType)
             {
@@ -222,6 +221,9 @@ namespace MahwousWeb.Server.Controllers
                     break;
                 case SortType.Downloads:
                     statusesQueryable = statusesQueryable.OrderByDescending(v => v.DownloadsCount);
+                    break;
+                case SortType.Likes:
+                    statusesQueryable = statusesQueryable.OrderByDescending(v => v.LikesCount);
                     break;
                 case SortType.Random:
                     statusesQueryable = statusesQueryable.OrderBy(v => Guid.NewGuid());
@@ -286,6 +288,142 @@ namespace MahwousWeb.Server.Controllers
 
             await context.SaveChangesAsync();
             return Ok();
+        }
+
+
+
+        [AllowAnonymous]
+        [HttpPost("decrementlikes/{id}")]
+        public async Task<ActionResult> DecrementLikes(int id)
+        {
+            var status = await context.Statuses.FirstOrDefaultAsync(s => s.Id == id);
+
+            if (status == null) { return NotFound(); }
+
+            status.LikesCount--;
+
+            await context.SaveChangesAsync();
+            return Ok();
+        }
+
+
+        [AllowAnonymous]
+        [HttpPost("count")]
+        public async Task<ActionResult<FilteredInformations>> Count(StatusFilter statusFilter)
+        {
+            var statusesQueryable = context.Statuses.AsQueryable();
+
+
+            // categories filter
+            if (statusFilter.WithoutCategory)
+            {
+                statusesQueryable = statusesQueryable.Where(v => v.StatusCategories == null || v.StatusCategories.Count == 0);
+            }
+            else if (statusFilter.Categories != null && statusFilter.Categories.Count > 0)
+            {
+                int[] catIds = statusFilter.Categories.Select(c => c.Id).ToArray();
+
+                statusesQueryable = statusesQueryable.Where(status =>
+                    status.StatusCategories.Any(sc => catIds.Contains(sc.CategoryId))
+                );
+            }
+
+            // other general status properties
+
+
+            statusesQueryable = statusesQueryable.Where(v => v.ViewsCount >= statusFilter.ViewsCount.From && v.ViewsCount <= statusFilter.ViewsCount.To);
+            statusesQueryable = statusesQueryable.Where(v => v.DownloadsCount >= statusFilter.DownloadsCount.From && v.DownloadsCount <= statusFilter.DownloadsCount.To);
+            statusesQueryable = statusesQueryable.Where(v => v.LikesCount >= statusFilter.LikesCount.From && v.LikesCount <= statusFilter.LikesCount.To);
+
+            statusesQueryable = statusesQueryable.Where(v => v.Date >= statusFilter.Date.From && v.Date <= statusFilter.Date.To);
+
+            statusesQueryable = statusesQueryable.Where(v => v.Visible == statusFilter.Visible);
+
+            switch (statusFilter.SortType)
+            {
+                case SortType.Newest:
+                    statusesQueryable = statusesQueryable.OrderByDescending(v => v.Date);
+                    break;
+                case SortType.Oldest:
+                    statusesQueryable = statusesQueryable.OrderBy(v => v.Date);
+                    break;
+                case SortType.Views:
+                    statusesQueryable = statusesQueryable.OrderByDescending(v => v.ViewsCount);
+                    break;
+                case SortType.Downloads:
+                    statusesQueryable = statusesQueryable.OrderByDescending(v => v.DownloadsCount);
+                    break;
+                case SortType.Likes:
+                    statusesQueryable = statusesQueryable.OrderByDescending(v => v.LikesCount);
+                    break;
+                case SortType.Random:
+                    statusesQueryable = statusesQueryable.OrderBy(v => Guid.NewGuid());
+                    break;
+                default:
+                    break;
+            }
+
+            FilteredInformations informations = new FilteredInformations();
+            informations.StatusesCount = await statusesQueryable.CountAsync();
+
+            informations.DownloadsCount = await statusesQueryable.SumAsync(s => (long)s.DownloadsCount);
+            informations.LikesCount = await statusesQueryable.SumAsync(s => (long)s.LikesCount);
+            informations.ViewsCount = await statusesQueryable.SumAsync(s => (long)s.ViewsCount);
+
+            informations.CategoriesCount = await context.Categories.CountAsync();
+
+            var categoriesStatusCounts = context.Categories.Select(c => new KeyValuePair<string, int>(c.Name, c.StatusCategories.Count));
+            informations.CategoriesStatusCounts = new Dictionary<string, int>(categoriesStatusCounts);
+
+            return informations;
+        }
+
+        [AllowAnonymous]
+        [HttpGet("informations")]
+        public async Task<ActionResult<GeneralInformations>> Informations()
+        {
+            GeneralInformations informations = new GeneralInformations();
+
+            informations.AllStatusesCount = await context.Statuses.CountAsync();
+
+            informations.ImageStatusesCount = await context.ImageStatuses.CountAsync();
+            informations.QuoteStatusesCount = await context.QuoteStatuses.CountAsync();
+            informations.VideoStatusesCount = await context.VideoStatuses.CountAsync();
+
+            informations.AppsCount = await context.Apps.CountAsync();
+            informations.PostsCount = await context.Posts.CountAsync();
+
+            informations.LikesCount = await context.Statuses.SumAsync(s => (long)s.LikesCount);
+            informations.DownloadsCount = await context.Statuses.SumAsync(s => (long)s.DownloadsCount);
+            informations.ViewsCount = await context.Statuses.SumAsync(s => (long)s.ViewsCount);
+
+            informations.CategoriesCount = await context.Categories.CountAsync();
+
+            var categoriesStatusCounts = context.Categories.Select(c => new KeyValuePair<string, int>(c.Name, c.StatusCategories.Count));
+            informations.CategoriesStatusCounts = new Dictionary<string, int>(categoriesStatusCounts);
+            
+            return informations;
+        }
+
+        [AllowAnonymous]
+        [HttpGet("count")]
+        public async Task<ActionResult<FilteredInformations>> Count()
+        {
+            FilteredInformations informations = new FilteredInformations();
+            informations.StatusesCount = await context.Statuses.CountAsync();
+
+            informations.DownloadsCount = await context.Statuses.SumAsync(s => (long)s.DownloadsCount);
+            informations.LikesCount = await context.Statuses.SumAsync(s => (long)s.LikesCount);
+            informations.ViewsCount = await context.Statuses.SumAsync(s => (long)s.ViewsCount);
+
+            informations.CategoriesCount = await context.Categories.CountAsync();
+
+            var categoriesStatusCounts = context.Categories.Select(c => new KeyValuePair<string, int>(c.Name, c.StatusCategories.Count));
+            informations.CategoriesStatusCounts = new Dictionary<string, int>(categoriesStatusCounts);
+
+
+
+            return informations;
         }
     }
 }

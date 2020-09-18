@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "3+H6MbxV4AFUF6rY7U2gt6EbJd3Xeh8g1sSzCobtYcxBP9VFgwTLqxFPrHcQsFcN9/aMWnIYeQULxPEbjtXjnQ==",
+  "dgSpecHash": "rumCYWwPebJ+XO0G4wCMjOYNhr51V5x8qcraZ8ry3zQ3UG9hdlJNbt4hmruSXuR7m5+bXgAdbMJc2v0d6/ba9Q==",
   "success": true,
   "projectFilePath": "D:\\Mahwous\\MahwousWeb\\Server\\MahwousWeb.Server.csproj",
   "expectedPackageFiles": [
@@ -119,6 +119,11 @@
     "C:\\Users\\Bashir\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Bashir\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Bashir\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\Bashir\\.nuget\\packages\\sqlite-net-pcl\\1.7.335\\sqlite-net-pcl.1.7.335.nupkg.sha512",
+    "C:\\Users\\Bashir\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.3\\sqlitepclraw.bundle_green.2.0.3.nupkg.sha512",
+    "C:\\Users\\Bashir\\.nuget\\packages\\sqlitepclraw.core\\2.0.3\\sqlitepclraw.core.2.0.3.nupkg.sha512",
+    "C:\\Users\\Bashir\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.3\\sqlitepclraw.lib.e_sqlite3.2.0.3.nupkg.sha512",
+    "C:\\Users\\Bashir\\.nuget\\packages\\sqlitepclraw.provider.dynamic_cdecl\\2.0.3\\sqlitepclraw.provider.dynamic_cdecl.2.0.3.nupkg.sha512",
     "C:\\Users\\Bashir\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\Bashir\\.nuget\\packages\\system.buffers\\4.3.0\\system.buffers.4.3.0.nupkg.sha512",
     "C:\\Users\\Bashir\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
@@ -207,8 +212,7 @@
     "C:\\Users\\Bashir\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Bashir\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Bashir\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
-    "C:\\Users\\Bashir\\.nuget\\packages\\tewr.blazor.filereader\\1.5.0.20109\\tewr.blazor.filereader.1.5.0.20109.nupkg.sha512",
-    "C:\\Users\\Bashir\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+    "C:\\Users\\Bashir\\.nuget\\packages\\tewr.blazor.filereader\\1.5.0.20109\\tewr.blazor.filereader.1.5.0.20109.nupkg.sha512"
   ],
   "logs": []
 }

@@ -6,6 +6,11 @@ using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 
 using MahwousQuotes.Models;
+using MahwousWeb.Shared.Models;
+using System.Windows.Input;
+using System.Timers;
+using MahwousQuotes.Helpers;
+using System.Threading;
 
 namespace MahwousQuotes.ViewModels
 {
@@ -48,8 +53,11 @@ namespace MahwousQuotes.ViewModels
             if (changed == null)
                 return;
 
+
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
+
+
     }
 }

@@ -6,159 +6,130 @@
 @inject NavigationManager navigation
 @inject ICategoryRepository categoryRepository
 @inject HttpAuthorizer authorizer
-<!-- Content Header (Page header) -->
-<section class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1>حالات فيديو</h1>
-            </div>
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item active">حالات فيديو</li>
-                    <li class="breadcrumb-item"><a href="administration">الإدارة</a></li>
-                    <li class="breadcrumb-item"><a href="">الصفحة الرئيسية</a></li>
-                </ol>
-            </div>
-        </div>
-    </div><!-- /.container-fluid -->
-</section>
-
-<!-- Main content -->
-<section class="content">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-9">
 
 
-                <div class="card">
-                    <div class="card-header">
-                        <Pagination CurrentPage="@categoryFilter.Page" TotalAmountPages="totalAmountPages"
-                                    SelectedPage="SelectedPage" />
-                    </div>
-                    <!-- /.card-header -->
-                    <div class="card-body">
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="">الصفحة الرئيسية</a></li>
+    <li class="breadcrumb-item"><a href="administration">الإدارة</a></li>
+    <li class="breadcrumb-item active">التصنيفات</li>
+</ol>
 
-                        <div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
 
-                            @if (categories == null)
+
+            <div class="card">
+                <div class="card-header">
+                    <Pagination CurrentPage="@categoryFilter.Page" TotalAmountPages="totalAmountPages"
+                                SelectedPage="SelectedPage" />
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+
+
+                    @if (categories == null)
+                    {
+                        <p>جاري تحميل التصنيفات...</p>
+                    }
+                    else if (categories.Count == 0)
+                    {
+                        <p> لا يوجد تصنيفات! </p>
+                    }
+                    else
+                    {
+                        <div class="card-columns">
+                            @foreach (Category category in categories)
                             {
-                                <p>جاري تحميل التصنيفات...</p>
-                            }
-                            else if (categories.Count == 0)
-                            {
-                                <p> لا يوجد تصنيفات! </p>
-                            }
-                            else
-                            {
-                                <div class="content">
-                                    <div class="container-fluid">
-                                        <div class="row">
-                                            @foreach (Category category in categories)
-                                            {
-                                                <div class="col-md-4">
-                                                    <div class="card card-chart">
-                                                        <div class="card-header p-0">
-                                                            <img src="@category.CoverPath" style="height:auto; width:100%; object-fit:cover" />
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <h4 class="card-title">@category.Name</h4>
-                                                            <i class="material-icons ">categories</i>
-                                                            <p class="card-category">
-                                                                @if (category.ForImages)
-                                                                {<span class="text-secondary">صور | </span>}
-                                                                @if (category.ForQuotes)
-                                                                {<span class="text-secondary">كتابية | </span>}
-                                                                @if (category.ForVideos)
-                                                                {<span class="text-secondary">فيديو </span>}
-                                                            </p>
-                                                        </div>
-                                                        <div class="card-footer">
-                                                            <div class="stats">
-                                                                <button class="btn btn-danger" @onclick="@(() => DeleteCategory(category.Id))">حذف</button>
-                                                                <a class="btn btn-info" href="administration/categories/edit/@category.Id">تعديل</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            }
+                                <div class="card">
+                                    <div class="card-header p-0">
+                                        <img src="@category.CoverPath" style="height:auto; width:100%; object-fit:cover" />
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title">@category.Name</h4>
+                                        <i class="material-icons ">categories</i>
+                                        <p class="card-category">
+                                            @if (category.ForImages)
+                                            {<span class="text-secondary">صور | </span>}
+                                            @if (category.ForQuotes)
+                                            {<span class="text-secondary">كتابية | </span>}
+                                            @if (category.ForVideos)
+                                            {<span class="text-secondary">فيديو </span>}
+                                        </p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <button class="btn btn-danger" @onclick="@(() => DeleteCategory(category.Id))">حذف</button>
+                                            <a class="btn btn-info" href="administration/categories/edit/@category.Id">تعديل</a>
                                         </div>
                                     </div>
                                 </div>
-
                             }
                         </div>
 
-                    </div>
-                    <!-- /.card-body -->
-                    <div class="card-footer">
-                        <Pagination CurrentPage="@categoryFilter.Page" TotalAmountPages="totalAmountPages"
-                                    SelectedPage="SelectedPage" />
-                    </div>
-                    <!-- /.card-footer -->
+                    }
+
                 </div>
-                <!-- /.card -->
-
+                <!-- /.card-body -->
+                <div class="card-footer">
+                    <Pagination CurrentPage="@categoryFilter.Page" TotalAmountPages="totalAmountPages"
+                                SelectedPage="SelectedPage" />
+                </div>
+                <!-- /.card-footer -->
             </div>
-            <div class="col-lg-3">
-                <a href="administration/categories/create" class="btn btn-primary btn-block mb-3">اضافة تصنيف جديد</a>
+            <!-- /.card -->
 
-                <EditForm Model="categoryFilter">
+        </div>
+        <div class="col-lg-3">
+            <a href="administration/categories/create" class="btn btn-primary btn-block mb-3">اضافة تصنيف جديد</a>
 
-                    <div class="card collapsed-card">
-                        <div class="card-header">
-                            <h3 class="card-title">فلترة</h3>
+            <EditForm Model="categoryFilter">
 
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="card-body">
-
-
-                            <div class="form-group">
-                                <label for="Content">Name</label>
-                                <input type="text" class="form-control" id="Name" placeholder="category Name"
-                                       @bind-value="categoryFilter.Name" @bind-value:event="oninput"
-                                       @onkeypress="@((KeyboardEventArgs e) => NameKeyPress(e))" />
-                            </div>
-
-
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="ForImages" @bind="categoryFilter.ForImages" />
-                                <label class="form-check-label" for="ForImages">For Images</label>
-                            </div>
-
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="ForQuotes" @bind="categoryFilter.ForQuotes" />
-                                <label class="form-check-label" for="ForQuotes">For Quotes</label>
-                            </div>
-
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="ForVideos" @bind="categoryFilter.ForVideos" />
-                                <label class="form-check-label" for="ForVideos">For Videos</label>
-                            </div>
-
-                        </div>
-
-                        <div class="card-footer">
-                            <button type="button" class="btn btn-primary" @onclick="SearchForCategories">فلترة</button>
-                            <button type="button" class="btn btn-link text-danger" @onclick="Clear">حذف الفلتر <i class="fas fa-backspace"></i></button>
-                        </div>
+                <div class="card my-2">
+                    <div class="card-header">
+                        <h3 class="card-title">فلترة</h3>
                     </div>
 
-                </EditForm>
+                    <div class="card-body">
 
 
-            </div>
+                        <div class="form-group">
+                            <label for="Content">Name</label>
+                            <input type="text" class="form-control" id="Name" placeholder="category Name"
+                                   @bind-value="categoryFilter.Name" @bind-value:event="oninput"
+                                   @onkeypress="@((KeyboardEventArgs e) => NameKeyPress(e))" />
+                        </div>
+
+
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="ForImages" @bind="categoryFilter.ForImages" />
+                            <label class="form-check-label" for="ForImages">For Images</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="ForQuotes" @bind="categoryFilter.ForQuotes" />
+                            <label class="form-check-label" for="ForQuotes">For Quotes</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="ForVideos" @bind="categoryFilter.ForVideos" />
+                            <label class="form-check-label" for="ForVideos">For Videos</label>
+                        </div>
+
+                    </div>
+
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-primary" @onclick="SearchForCategories">فلترة</button>
+                        <button type="button" class="btn btn-link text-danger" @onclick="Clear">حذف الفلتر <i class="fas fa-backspace"></i></button>
+                    </div>
+                </div>
+
+            </EditForm>
+
+
         </div>
-    </div><!-- /.container-fluid -->
-</section>
-
-
+    </div>
+</div>
 
 
 

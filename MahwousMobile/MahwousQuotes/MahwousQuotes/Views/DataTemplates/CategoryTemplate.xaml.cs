@@ -25,11 +25,10 @@ namespace MahwousQuotes.Views.DataTemplates
         async void OnItemSelected(object sender, EventArgs args)
         {
             var layout = (BindableObject)sender;
-            var category = (Category)layout.BindingContext;
+            var viewModel = (CategoryViewModel)layout.BindingContext;
+            var category = viewModel.Category;
 
-            QuoteFilter filter = new QuoteFilter();
-            filter.Categories.Add(category);
-            await Navigation.PushAsync(new QuotesPage(new QuotesViewModel(filter)));
+            await Navigation.PushAsync(new CategoryDetailsPage(viewModel));
         }
     }
 }

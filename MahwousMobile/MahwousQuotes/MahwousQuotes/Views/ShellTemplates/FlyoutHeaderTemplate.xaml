@@ -3,14 +3,25 @@
              x:Class="MahwousQuotes.Views.ShellTemplates.FlyoutHeaderTemplate"
              HeightRequest="150">
 
-    <Grid BackgroundColor="{StaticResource NavigationPrimary}">
-        
-        <BoxView Opacity="0.6" />
-        
-        <Label Text="حالات كتابية"
-               TextColor="White"
+    <Grid BackgroundColor="{StaticResource colYellow}">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Image HorizontalOptions="CenterAndExpand"
+               VerticalOptions="CenterAndExpand"
+               Aspect="AspectFill"
+               Source="TransparentBlack.png" />
+
+        <Label Grid.Column="1"
+               Text="مسجاتي"
+               TextColor="{DynamicResource colBlack}"
+               FontSize="Title"
                FontAttributes="Bold"
-               HorizontalTextAlignment="Center"
-               VerticalTextAlignment="Center" />
+               HorizontalOptions="CenterAndExpand"
+               VerticalOptions="CenterAndExpand"/>
+        
     </Grid>
 </ContentView>

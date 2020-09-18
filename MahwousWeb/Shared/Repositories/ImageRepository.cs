@@ -72,5 +72,27 @@ namespace MahwousWeb.Shared.Repositories
 
             return paginatedResponse;
         }
+
+        public async Task<FilteredInformations> GetInformations(ImageFilter filter = null)
+        {
+            if (filter is null)
+            {
+                var responseHTTP = await httpService.Get<FilteredInformations>($"{url}/count");
+                return responseHTTP.Response;
+            }
+            else
+            {
+                var responseHTTP = await httpService.Post<ImageFilter, FilteredInformations>($"{url}/count", filter);
+                return responseHTTP.Response;
+            }
+        }
+
+        public async Task<ImageStatus> GetRandomImage()
+        {
+            var filter = new ImageFilter() { RecordsPerPage = 1 };
+            var responseHTTP = await GetImagesFiltered(filter);
+            var image = responseHTTP.Response.First();
+            return image;
+        }
     }
 }

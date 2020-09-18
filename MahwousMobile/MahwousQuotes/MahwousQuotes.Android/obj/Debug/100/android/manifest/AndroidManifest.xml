@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" package="com.mahwous.mahwousquotes" android:installLocation="auto" android:versionCode="1" android:versionName="1.0">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" package="com.mahwous.mahwousquotes" android:installLocation="auto" android:versionCode="6" android:versionName="1.6">
   <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="29" />
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -9,8 +9,13 @@
   <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
   <uses-permission android:name="android.permission.WAKE_LOCK" />
   <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-  <application android:name="android.app.Application" android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:debuggable="true" android:icon="@drawable/my_logo" android:label="Mahwous Quotes" android:supportsRtl="true">
-    <activity android:name="crc64855ea8876d6c1840.MainActivity" android:configChanges="orientation|screenSize" android:icon="@mipmap/icon" android:label="مهووس حالات كتابية" android:theme="@style/MainTheme">
+  <application android:name="android.app.Application" android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:debuggable="true" android:icon="@drawable/icon" android:label="مسجاتي" android:supportsRtl="true">
+    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+    <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-1685177955120006~6067673223" />
+    <activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:exported="false" android:theme="@android:style/Theme.Translucent" />
+    <uses-library android:name="org.apache.http.legacy" android:required="false" />
+    <activity android:name="crc64855ea8876d6c1840.MainActivity" android:configChanges="orientation|screenSize" android:icon="@mipmap/icon" android:label="مسجاتي" android:theme="@style/MainTheme" />
+    <activity android:name="crc64855ea8876d6c1840.SplashActivity" android:configChanges="orientation|screenSize" android:noHistory="true" android:theme="@style/SplashTheme">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
@@ -33,7 +38,6 @@
         <category android:name="mono.android.intent.category.SEPPUKU.com.mahwous.mahwousquotes" />
       </intent-filter>
     </receiver>
-    <service android:name="androidx.room.MultiInstanceInvalidationService" android:directBootAware="true" android:exported="false" />
     <provider android:name="androidx.work.impl.WorkManagerInitializer" android:authorities="com.mahwous.mahwousquotes.workmanager-init" android:directBootAware="false" android:exported="false" android:multiprocess="true" tools:targetApi="n" />
     <service android:name="androidx.work.impl.background.systemalarm.SystemAlarmService" android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" tools:targetApi="n" />
     <service android:name="androidx.work.impl.background.systemjob.SystemJobService" android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:permission="android.permission.BIND_JOB_SERVICE" tools:targetApi="n" />
@@ -74,5 +78,7 @@
         <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
       </intent-filter>
     </receiver>
+    <provider android:name="com.google.android.gms.ads.MobileAdsInitProvider" android:authorities="com.mahwous.mahwousquotes.mobileadsinitprovider" android:exported="false" android:initOrder="100" />
+    <service android:name="androidx.room.MultiInstanceInvalidationService" android:directBootAware="true" android:exported="false" />
   </application>
 </manifest>

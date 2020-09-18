@@ -1,0 +1,56 @@
+﻿using MahwousQuotes.Helpers;
+using MahwousQuotes.ViewModels;
+using MahwousWeb.Shared.Filters;
+using MahwousWeb.Shared.Models;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+namespace MahwousQuotes.Views.DataTemplates
+{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class QuotesTemplate : ContentView
+    {
+        QuotesViewModel viewModel;
+        public SortType SortType
+        {
+            get => viewModel.Filter.SortType;
+            set
+            {
+                if (viewModel.Quotes.Count > 0)
+                    return;
+                viewModel.Filter.SortType = value;
+                viewModel.LoadQuotesCommand.Execute(null);
+            }
+        }
+
+        public int QuotesCount { get => viewModel.Quotes.Count; }
+
+        public void SetCategories(params Category[] categories)
+        {
+            viewModel.Filter.Categories.Clear();
+            foreach (var category in categories)
+            {
+                viewModel.Filter.Categories.Add(category);
+            }
+            viewModel.LoadQuotesCommand.Execute(null);
+        }
+
+
+
+        public QuotesTemplate() : this(new QuotesViewModel()) { }
+
+        public QuotesTemplate(QuotesViewModel viewModel)
+        {
+            InitializeComponent();
+
+            BindingContext = this.viewModel = viewModel;
+        }
+    }
+}

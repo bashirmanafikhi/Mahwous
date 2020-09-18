@@ -3,24 +3,76 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:styles="clr-namespace:MahwousQuotes.Styles;assembly=MahwousQuotes" 
+             xmlns:vm="clr-namespace:MahwousQuote.ViewModels"
              mc:Ignorable="d"
              Visual="Material"
              x:Class="MahwousQuotes.Views.DataTemplates.QuoteTemplate">
-    
-  <ContentView.Content>
-      <StackLayout>
-            <Frame Margin="5,2"
-                    CornerRadius="5"
-                   HasShadow="True"
-                   Padding="10"
-                    BackgroundColor="{DynamicResource colSec}">
-                <Label Text="{Binding Content}" 
-                                d:Text="مرحباً بالعالم" 
-                       TextColor="Black"
+    <ContentView.Resources>
+
+        <ResourceDictionary>
+            <Style x:Key="btnLikeStyle" TargetType="Button">
+                <Style.Triggers>
+                    <DataTrigger TargetType="Button" Binding="{Binding Liked}" Value="true">
+                        <Setter Property="Image">
+                            <FontImageSource Size="Subtitle"  Color="Black" Glyph="{x:Static styles:SolidIcons.ThumbsUp}" FontFamily="FA-S" />
+                        </Setter>
+                    </DataTrigger>
+                    <DataTrigger TargetType="Button" Binding="{Binding Liked}" Value="false">
+                        <Setter Property="Image">
+                            <FontImageSource Size="Subtitle"  Color="Black" Glyph="{x:Static styles:RegularIcons.ThumbsUp}" FontFamily="FA-R" />
+                        </Setter>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+
+    </ContentView.Resources>
+
+    <ContentView.BindingContext>
+        <vm:QuoteViewModel />
+    </ContentView.BindingContext>
+
+    <ContentView.Content>
+        <StackLayout>
+            <StackLayout Margin="6"
+                   Padding="10">
+
+                <StackLayout Orientation="Vertical">
+                    <Label Text="{Binding Quote.Content}"
+                           Padding="10"
+                       d:Text="مرحباً بالعالم" 
+                       TextColor="{DynamicResource colForeground}"
                        Margin="0"
-                                FontSize="20"
-                               HorizontalOptions="Center"/>
-            </Frame>
+                       FontSize="Body"
+                       HorizontalOptions="Center"/>
+
+                    <Grid IsVisible="{Binding IsControlsVisible}" HorizontalOptions="CenterAndExpand" HeightRequest="30">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+
+                        <Button Grid.Column="0" Style="{StaticResource Key=btnLikeStyle}" Padding="4, 4, 8, 4" CornerRadius="20" Text="{Binding LikesCount}" FontSize="Subtitle" BackgroundColor="{StaticResource colYellow}" Command="{Binding ToggleLikeCommand}" />
+                        <Button Grid.Column="1" FontFamily="Hacen" CornerRadius="20" Text="التفاصيل" FontSize="Subtitle" BackgroundColor="{StaticResource colYellow}" Clicked="ShowDetails" />
+                        <Button Grid.Column="2" FontFamily="FA-R" CornerRadius="20" Text="{x:Static styles:SolidIcons.Copy}" FontSize="Subtitle" BackgroundColor="{StaticResource colYellow}" Command="{Binding CoppyQuoteCommand}" />
+                        <Button Grid.Column="3" FontFamily="FA-S" CornerRadius="20" Text="{x:Static styles:SolidIcons.ShareAlt}" FontSize="Subtitle" BackgroundColor="{StaticResource colYellow}" Command="{Binding ShareQuoteCommand}" />
+                        <Button Grid.Column="4" FontFamily="FA-B" CornerRadius="20" Text="{x:Static styles:BrandIcons.Whatsapp}" FontSize="Subtitle" BackgroundColor="{StaticResource colYellow}" Command="{Binding ShareQuoteWhatsCommand}" />
+                        <Button Grid.Column="5" FontFamily="FA-B" CornerRadius="20" Text="{x:Static styles:BrandIcons.FacebookF}" FontSize="Subtitle" BackgroundColor="{StaticResource colYellow}" Command="{Binding ShareQuoteFaceCommand}" />
+
+                    </Grid>
+                </StackLayout>
+
+
+
+            </StackLayout>
+
+            <StackLayout HeightRequest="0.5" BackgroundColor="Black" />
         </StackLayout>
-  </ContentView.Content>
+    </ContentView.Content>
 </ContentView>

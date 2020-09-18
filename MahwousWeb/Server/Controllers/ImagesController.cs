@@ -83,7 +83,7 @@ namespace MahwousWeb.Server.Controllers
                 var imagePath = Convert.FromBase64String(imageStatus.ImagePath);
                 imageStatus.ImagePath = await fileStorageService.SaveFile(imagePath, "jpg", "images");
             }
-            else if(string.IsNullOrWhiteSpace(imageStatus.ImagePath))
+            else if (string.IsNullOrWhiteSpace(imageStatus.ImagePath))
             {
                 imageStatus.ImagePath = noImage;
             }
@@ -153,7 +153,11 @@ namespace MahwousWeb.Server.Controllers
             var imagesQueryable = context.ImageStatuses.AsQueryable();
 
             // categories filter
-            if(imageFilter.Categories != null && imageFilter.Categories.Count > 0)
+            if (imageFilter.WithoutCategory)
+            {
+                imagesQueryable = imagesQueryable.Where(v => v.StatusCategories == null || v.StatusCategories.Count == 0);
+            }
+            else if (imageFilter.Categories != null && imageFilter.Categories.Count > 0)
             {
                 int[] catIds = imageFilter.Categories.Select(c => c.Id).ToArray();
 
@@ -161,23 +165,20 @@ namespace MahwousWeb.Server.Controllers
                     image.StatusCategories.Any(sc => catIds.Contains(sc.CategoryId))
                 );
             }
-            
+
 
 
 
             // other general status properties
 
-            imagesQueryable = imagesQueryable.Where(v => v.ViewsCount >= imageFilter.ViewsCount);
-            imagesQueryable = imagesQueryable.Where(v => v.DownloadsCount >= imageFilter.DownloadsCount);
-            imagesQueryable = imagesQueryable.Where(v => v.LikesCount >= imageFilter.LikesCount);
+            imagesQueryable = imagesQueryable.Where(v => v.ViewsCount >= imageFilter.ViewsCount.From && v.ViewsCount <= imageFilter.ViewsCount.To);
+            imagesQueryable = imagesQueryable.Where(v => v.DownloadsCount >= imageFilter.DownloadsCount.From && v.DownloadsCount <= imageFilter.DownloadsCount.To);
+            imagesQueryable = imagesQueryable.Where(v => v.LikesCount >= imageFilter.LikesCount.From && v.LikesCount <= imageFilter.LikesCount.To);
 
-            if (imageFilter.Visible)
-                imagesQueryable = imagesQueryable.Where(v => v.Visible);
+            imagesQueryable = imagesQueryable.Where(v => v.Date >= imageFilter.Date.From && v.Date <= imageFilter.Date.To);
 
-            if (imageFilter.DateFrom != DateTime.MinValue)
-                imagesQueryable = imagesQueryable.Where(v => v.Date > imageFilter.DateFrom);
-            if (imageFilter.DateTo != DateTime.MinValue)
-                imagesQueryable = imagesQueryable.Where(v => v.Date < imageFilter.DateTo);
+            imagesQueryable = imagesQueryable.Where(v => v.Visible == imageFilter.Visible);
+
 
             switch (imageFilter.SortType)
             {
@@ -193,6 +194,9 @@ namespace MahwousWeb.Server.Controllers
                 case SortType.Downloads:
                     imagesQueryable = imagesQueryable.OrderByDescending(v => v.DownloadsCount);
                     break;
+                case SortType.Likes:
+                    imagesQueryable = imagesQueryable.OrderByDescending(v => v.LikesCount);
+                    break;
                 case SortType.Random:
                     imagesQueryable = imagesQueryable.OrderBy(v => Guid.NewGuid());
                     break;
@@ -206,6 +210,102 @@ namespace MahwousWeb.Server.Controllers
             var images = await imagesQueryable.Paginate(imageFilter.Pagination).ToListAsync();
 
             return images;
+        }
+
+
+        [AllowAnonymous]
+        [HttpPost("count")]
+        public async Task<ActionResult<FilteredInformations>> Count(ImageFilter imageFilter)
+        {
+
+            var imagesQueryable = context.ImageStatuses.AsQueryable();
+
+            // categories filter
+            if (imageFilter.WithoutCategory)
+            {
+                imagesQueryable = imagesQueryable.Where(v => v.StatusCategories == null || v.StatusCategories.Count == 0);
+            }
+            else if (imageFilter.Categories != null && imageFilter.Categories.Count > 0)
+            {
+                int[] catIds = imageFilter.Categories.Select(c => c.Id).ToArray();
+
+                imagesQueryable = imagesQueryable.Where(image =>
+                    image.StatusCategories.Any(sc => catIds.Contains(sc.CategoryId))
+                );
+            }
+
+
+
+
+            // other general status properties
+
+            imagesQueryable = imagesQueryable.Where(v => v.ViewsCount >= imageFilter.ViewsCount.From && v.ViewsCount <= imageFilter.ViewsCount.To);
+            imagesQueryable = imagesQueryable.Where(v => v.DownloadsCount >= imageFilter.DownloadsCount.From && v.DownloadsCount <= imageFilter.DownloadsCount.To);
+            imagesQueryable = imagesQueryable.Where(v => v.LikesCount >= imageFilter.LikesCount.From && v.LikesCount <= imageFilter.LikesCount.To);
+
+            imagesQueryable = imagesQueryable.Where(v => v.Date >= imageFilter.Date.From && v.Date <= imageFilter.Date.To);
+
+            imagesQueryable = imagesQueryable.Where(v => v.Visible == imageFilter.Visible);
+
+
+            switch (imageFilter.SortType)
+            {
+                case SortType.Newest:
+                    imagesQueryable = imagesQueryable.OrderByDescending(v => v.Date);
+                    break;
+                case SortType.Oldest:
+                    imagesQueryable = imagesQueryable.OrderBy(v => v.Date);
+                    break;
+                case SortType.Views:
+                    imagesQueryable = imagesQueryable.OrderByDescending(v => v.ViewsCount);
+                    break;
+                case SortType.Downloads:
+                    imagesQueryable = imagesQueryable.OrderByDescending(v => v.DownloadsCount);
+                    break;
+                case SortType.Likes:
+                    imagesQueryable = imagesQueryable.OrderByDescending(v => v.LikesCount);
+                    break;
+                case SortType.Random:
+                    imagesQueryable = imagesQueryable.OrderBy(v => Guid.NewGuid());
+                    break;
+                default:
+                    break;
+            }
+
+            FilteredInformations informations = new FilteredInformations();
+            informations.StatusesCount = await imagesQueryable.CountAsync();
+
+            informations.DownloadsCount = await imagesQueryable.SumAsync(s => (long)s.DownloadsCount);
+            informations.LikesCount = await imagesQueryable.SumAsync(s => (long)s.LikesCount);
+            informations.ViewsCount = await imagesQueryable.SumAsync(s => (long)s.ViewsCount);
+
+            informations.CategoriesCount = await context.Categories.Where(c => c.ForImages).CountAsync();
+
+            var categoriesStatusCounts = context.Categories.Where(c => c.ForImages).Select(c => new KeyValuePair<string, int>(c.Name, c.StatusCategories.Where(sc => sc.Status is ImageStatus).Count()));
+            informations.CategoriesStatusCounts = new Dictionary<string, int>(categoriesStatusCounts);
+
+            return informations;
+        }
+
+
+
+        [AllowAnonymous]
+        [HttpGet("count")]
+        public async Task<ActionResult<FilteredInformations>> Count()
+        {
+            FilteredInformations informations = new FilteredInformations();
+            informations.StatusesCount = await context.ImageStatuses.CountAsync();
+
+            informations.DownloadsCount = await context.ImageStatuses.SumAsync(s => (long)s.DownloadsCount);
+            informations.LikesCount = await context.ImageStatuses.SumAsync(s => (long)s.LikesCount);
+            informations.ViewsCount = await context.ImageStatuses.SumAsync(s => (long)s.ViewsCount);
+
+            informations.CategoriesCount = await context.Categories.Where(c => c.ForImages).CountAsync();
+
+            var categoriesStatusCounts = context.Categories.Where(c => c.ForImages).Select(c => new KeyValuePair<string, int>(c.Name, c.StatusCategories.Where(sc=>sc.Status is ImageStatus).Count()));
+            informations.CategoriesStatusCounts = new Dictionary<string, int>(categoriesStatusCounts);
+
+            return informations;
         }
     }
 }

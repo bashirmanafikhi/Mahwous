@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="MahwousQuotes.Views.DataTemplates.AppTemplate">
   <ContentView.Content>
-        <Frame Margin="1, 1" HeightRequest="200" BackgroundColor="Black" CornerRadius="5" Padding="0">
+        <Frame Margin="5" HeightRequest="250" BackgroundColor="{DynamicResource colSubBackground}" CornerRadius="5" Padding="0">
 
             <Grid>
                 <Grid.RowDefinitions>
@@ -16,14 +16,18 @@
                 <Image Source="{Binding ImagePath}"
                                        HorizontalOptions="FillAndExpand"
                                        VerticalOptions="FillAndExpand"
-                                       Aspect="AspectFill"
-                                       HeightRequest="45" />
+                                       Aspect="AspectFill" />
 
 
                 <Label Grid.Row="1"
                     Text="{Binding Name}" 
                    VerticalOptions="CenterAndExpand"
                    HorizontalOptions="CenterAndExpand"/>
+
+
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Item_Tapped"></TapGestureRecognizer>
+                </Grid.GestureRecognizers>
 
             </Grid>
         </Frame>

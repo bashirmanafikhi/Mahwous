@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:DataTemplates="clr-namespace:MahwousQuotes.Views.DataTemplates"
+             x:Class="MahwousQuotes.Views.CategoryDetailsPage"
+             Title="{Binding Category.Name}">
+    
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <StackLayout BackgroundColor="{StaticResource colYellow}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+
+                    <Image Source="{Binding Category.CoverPath}"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                       HeightRequest="120"
+                        Aspect="AspectFill" />
+                    
+                    <!--<Label
+                        FontAttributes="Bold"
+                        Text="{Binding Category.Name, StringFormat='(  {0}  )'}"
+                        TextColor="{DynamicResource colBlack}"
+                        FontSize="Title"
+                        HorizontalOptions="CenterAndExpand"
+                        FontFamily="Hacen"
+                        Padding="4"
+                        VerticalTextAlignment="Center" />-->
+
+                    <Label
+                        Text="{Binding StatusCount, StringFormat='عدد الحالات في هذا التصنيف: {0}'}"
+                        TextColor="{DynamicResource colYellow}"
+                        BackgroundColor="{DynamicResource colBlack}"
+                        FontSize="Subtitle"
+                        Padding="4"
+                        FontFamily="Hacen"
+                        HorizontalOptions="FillAndExpand"
+                        HorizontalTextAlignment="Center"/>
+
+                </StackLayout>
+
+                <ScrollView Grid.Row="1">
+
+
+                    <DataTemplates:QuotesTemplate x:Name="myQuotesTemplate"/>
+
+
+                </ScrollView>
+            </Grid>
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

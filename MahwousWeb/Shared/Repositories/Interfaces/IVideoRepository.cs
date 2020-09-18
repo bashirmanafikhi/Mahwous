@@ -16,5 +16,7 @@ namespace MahwousWeb.Shared.Repositories.Interfaces
         Task Update(VideoStatus video);
         Task Delete(int Id);
         Task<PaginatedResponse<List<VideoStatus>>> GetVideosFiltered(VideoFilter videoFilter);
+        Task<FilteredInformations> GetInformations(VideoFilter filter = null);
+        Task<VideoStatus> GetRandomVideo();
     }
 }

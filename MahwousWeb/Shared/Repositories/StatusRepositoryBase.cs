@@ -1,4 +1,5 @@
-﻿using MahwousWeb.Shared.Models;
+﻿using MahwousWeb.Shared.Filters;
+using MahwousWeb.Shared.Models;
 using MahwousWeb.Shared.Repositories.Interfaces;
 using MahwousWeb.Shared.Services;
 using System;
@@ -39,5 +40,19 @@ namespace MahwousWeb.Shared.Repositories
             if (!response.Success)
                 throw new ApplicationException(await response.GetBody());
         }
+
+        public async Task DecrementLikes(int id)
+        {
+            var response = await httpService.Post($"{url}/decrementlikes/{id}");
+            if (!response.Success)
+                 throw new ApplicationException(await response.GetBody());
+        }
+
+        public async Task<GeneralInformations> GetGeneralInformations()
+        {
+            var response = await httpService.Get<GeneralInformations>($"{url}/informations");
+            return response.Response;
+        }
+
     }
 }

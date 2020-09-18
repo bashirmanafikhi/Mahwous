@@ -6,23 +6,58 @@
              mc:Ignorable="d"
              x:Class="MahwousQuotes.Views.DataTemplates.CategoryTemplate">
     <ContentView.Content>
-        <Frame Margin="1, 1" HeightRequest="120" BackgroundColor="Black" CornerRadius="5" Padding="0">
+        <Frame Margin="5" 
+               Padding="1" 
+               CornerRadius="10" 
+               HasShadow="True"
+               BackgroundColor="{DynamicResource colSubBackground}" >
 
-            <Grid>
-                <Image Source="{Binding CoverPath}"
-                                       HorizontalOptions="FillAndExpand"
-                                       VerticalOptions="FillAndExpand"
-                                       Aspect="AspectFill"
-                                       Opacity="0.6"
-                                       HeightRequest="45" />
-                <Label Text="{Binding Name}"
-                                d:Text="{Binding .}" 
-                                   TextColor="White"
-                                   FontAttributes="Bold"
-                                       FontSize="Title"
-                                   HorizontalTextAlignment="Center"
-                                   VerticalTextAlignment="Center" />
-            </Grid>
+            <StackLayout Spacing="0" Padding="0" Margin="0">
+                <Image Source="{Binding Category.CoverPath}"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                       HeightRequest="120"
+                        Aspect="AspectFill" />
+                    
+
+                <StackLayout Orientation="Horizontal" Padding="5">
+                <Label
+                        Text="{Binding Category.Name}"
+                        FontAttributes="Bold"
+                        TextColor="{DynamicResource colForeground}"
+                        FontSize="Subtitle"
+                    HorizontalTextAlignment="Center"
+                    HorizontalOptions="FillAndExpand"
+                        VerticalTextAlignment="Center" />
+
+                <Label
+                        Text="{Binding StatusCount}"
+                        FontAttributes="Bold"
+                        TextColor="{DynamicResource colRed}"
+                        FontSize="Body"
+                    HorizontalOptions="End"
+                        VerticalTextAlignment="Center" />
+                </StackLayout>
+
+                <!--<StackLayout Orientation="Horizontal">
+
+                    
+
+                    <Label x:Name="lblCount"
+                           Text=""
+                        FontAttributes="Bold"
+                        TextColor="{DynamicResource colRed}"
+                        FontSize="Title"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center" />
+
+                </StackLayout>-->
+            </StackLayout>
+
+            <!--<Grid>
+                
+
+            </Grid>-->
             <Frame.GestureRecognizers>
                 <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnItemSelected"></TapGestureRecognizer>
             </Frame.GestureRecognizers>

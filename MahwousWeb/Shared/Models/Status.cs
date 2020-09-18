@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
@@ -18,6 +19,8 @@ namespace MahwousWeb.Shared.Models
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
 
+
+        [Ignore]
         public IList<StatusCategories> StatusCategories { get; set; }
 
         

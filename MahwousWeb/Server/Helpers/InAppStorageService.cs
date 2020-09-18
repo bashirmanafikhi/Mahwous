@@ -58,7 +58,6 @@ namespace MahwousWeb.Server.Helpers
             await File.WriteAllBytesAsync(savingPath, content);
 
             var currentUrl = $"{httpContextAccessor.HttpContext.Request.Scheme}://{httpContextAccessor.HttpContext.Request.Host}";
-            //var pathForDatabase = Path.Combine(currentUrl, "content", containerName, fileName); this is for folders not for urls!
 
             Uri baseUri = new Uri(currentUrl);
             Uri myUri = new Uri(baseUri, $"content/{containerName}/{fileName}");

@@ -7,13 +7,8 @@
              xmlns:templates="clr-namespace:MahwousQuotes.Views.DataTemplates"
              mc:Ignorable="d"
              x:Class="MahwousQuotes.Views.CategoriesPage"
-             Title="{Binding Title}"
-             
-             x:Name="BrowseItemsPage">
+             Title="{Binding Title}" >
 
-    <NavigationPage.TitleView>
-        <Label Text="This is my Title" FontSize="12" TextColor="White" />
-    </NavigationPage.TitleView>
 
     <ContentPage.BindingContext>
         <vm:CategoriesViewModel />

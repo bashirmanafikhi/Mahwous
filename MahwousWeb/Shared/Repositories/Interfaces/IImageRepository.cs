@@ -16,6 +16,7 @@ namespace MahwousWeb.Shared.Repositories.Interfaces
         Task Update(ImageStatus image);
         Task Delete(int Id);
         Task<PaginatedResponse<List<ImageStatus>>> GetImagesFiltered(ImageFilter imageFilter);
-
+        Task<FilteredInformations> GetInformations(ImageFilter filter = null);
+        Task<ImageStatus> GetRandomImage();
     }
 }

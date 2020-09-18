@@ -2,6 +2,20 @@
   "version": 3,
   "targets": {
     "Xamarin.iOS,Version=v1.0": {
+      "MarcTron.Admob/1.5.7": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Forms": "4.2.0.815419",
+          "Xamarin.Google.iOS.MobileAds": "7.57.0"
+        },
+        "compile": {
+          "lib/xamarinios10/Plugin.MtAdmob.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.MtAdmob.dll": {}
+        }
+      },
       "Matcha.BackgroundService/1.0.5478": {
         "type": "package",
         "dependencies": {
@@ -38,6 +52,57 @@
         },
         "runtime": {
           "lib/xamarinios10/Plugin.LocalNotification.dll": {}
+        }
+      },
+      "sqlite-net-pcl/1.7.335": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.bundle_green": "2.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLite-net.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLite-net.dll": {}
+        }
+      },
+      "SQLitePCLRaw.bundle_green/2.0.3": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.3",
+          "SQLitePCLRaw.provider.dynamic_cdecl": "2.0.3"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/SQLitePCLRaw.batteries_v2.dll": {},
+          "lib/Xamarin.iOS10/SQLitePCLRaw.nativelibrary.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/SQLitePCLRaw.batteries_v2.dll": {},
+          "lib/Xamarin.iOS10/SQLitePCLRaw.nativelibrary.dll": {}
+        }
+      },
+      "SQLitePCLRaw.core/2.0.3": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        }
+      },
+      "SQLitePCLRaw.provider.dynamic_cdecl/2.0.3": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {}
         }
       },
       "System.Buffers/4.5.1": {
@@ -119,6 +184,19 @@
         },
         "runtime": {
           "lib/xamarinios10/_._": {}
+        }
+      },
+      "System.Memory/4.5.3": {
+        "type": "package",
+        "dependencies": {
+          "System.Buffers": "4.4.0",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Memory.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Memory.dll": {}
         }
       },
       "System.Reactive/3.0.0": {
@@ -319,6 +397,13 @@
           "lib/xamarinios10/_._": {}
         }
       },
+      "Xamarin.Build.Download/0.10.0": {
+        "type": "package",
+        "build": {
+          "buildTransitive/Xamarin.Build.Download.props": {},
+          "buildTransitive/Xamarin.Build.Download.targets": {}
+        }
+      },
       "Xamarin.Essentials/1.5.3.2": {
         "type": "package",
         "frameworkAssemblies": [
@@ -330,6 +415,24 @@
         },
         "runtime": {
           "lib/xamarinios10/Xamarin.Essentials.dll": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Core/6.6.6": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Firebase.Core.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Firebase.Core.dll": {}
+        },
+        "build": {
+          "buildTransitive/Xamarin.Firebase.iOS.Core.targets": {}
         }
       },
       "Xamarin.Forms/4.8.0.1269": {
@@ -453,15 +556,55 @@
           "buildTransitive/Xamarin.Forms.targets": {}
         }
       },
+      "Xamarin.Google.iOS.MobileAds/7.57.0": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Firebase.iOS.Core": "6.6.6"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Google.MobileAds.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Google.MobileAds.dll": {}
+        },
+        "build": {
+          "buildTransitive/Xamarin.Google.iOS.MobileAds.targets": {}
+        }
+      },
+      "Xamarin.Google.iOS.SignIn/5.0.2.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Firebase.iOS.Core": "6.6.6"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Google.SignIn.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Google.SignIn.dll": {}
+        },
+        "build": {
+          "buildTransitive/Xamarin.Google.iOS.SignIn.targets": {}
+        }
+      },
       "MahwousQuotes/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "MahwousWeb.Shared": "1.0.0",
+          "MarcTron.Admob": "1.5.7",
           "Matcha.BackgroundService": "1.0.5478",
           "Plugin.LocalNotification": "5.0.6",
           "Xamarin.Essentials": "1.5.3.2",
-          "Xamarin.Forms": "4.8.0.1269"
+          "Xamarin.Forms": "4.8.0.1269",
+          "sqlite-net-pcl": "1.7.335"
         },
         "compile": {
           "bin/placeholder/MahwousQuotes.dll": {}
@@ -475,7 +618,8 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "System.ComponentModel.Annotations": "4.7.0",
-          "System.Text.Json": "4.7.2"
+          "System.Text.Json": "4.7.2",
+          "sqlite-net-pcl": "1.7.335"
         },
         "compile": {
           "bin/placeholder/MahwousWeb.Shared.dll": {}
@@ -486,6 +630,20 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win": {
+      "MarcTron.Admob/1.5.7": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Forms": "4.2.0.815419",
+          "Xamarin.Google.iOS.MobileAds": "7.57.0"
+        },
+        "compile": {
+          "lib/xamarinios10/Plugin.MtAdmob.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.MtAdmob.dll": {}
+        }
+      },
       "Matcha.BackgroundService/1.0.5478": {
         "type": "package",
         "dependencies": {
@@ -522,6 +680,57 @@
         },
         "runtime": {
           "lib/xamarinios10/Plugin.LocalNotification.dll": {}
+        }
+      },
+      "sqlite-net-pcl/1.7.335": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.bundle_green": "2.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLite-net.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLite-net.dll": {}
+        }
+      },
+      "SQLitePCLRaw.bundle_green/2.0.3": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.3",
+          "SQLitePCLRaw.provider.dynamic_cdecl": "2.0.3"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/SQLitePCLRaw.batteries_v2.dll": {},
+          "lib/Xamarin.iOS10/SQLitePCLRaw.nativelibrary.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/SQLitePCLRaw.batteries_v2.dll": {},
+          "lib/Xamarin.iOS10/SQLitePCLRaw.nativelibrary.dll": {}
+        }
+      },
+      "SQLitePCLRaw.core/2.0.3": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        }
+      },
+      "SQLitePCLRaw.provider.dynamic_cdecl/2.0.3": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {}
         }
       },
       "System.Buffers/4.5.1": {
@@ -603,6 +812,19 @@
         },
         "runtime": {
           "lib/xamarinios10/_._": {}
+        }
+      },
+      "System.Memory/4.5.3": {
+        "type": "package",
+        "dependencies": {
+          "System.Buffers": "4.4.0",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Memory.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Memory.dll": {}
         }
       },
       "System.Reactive/3.0.0": {
@@ -803,6 +1025,13 @@
           "lib/xamarinios10/_._": {}
         }
       },
+      "Xamarin.Build.Download/0.10.0": {
+        "type": "package",
+        "build": {
+          "buildTransitive/Xamarin.Build.Download.props": {},
+          "buildTransitive/Xamarin.Build.Download.targets": {}
+        }
+      },
       "Xamarin.Essentials/1.5.3.2": {
         "type": "package",
         "frameworkAssemblies": [
@@ -814,6 +1043,24 @@
         },
         "runtime": {
           "lib/xamarinios10/Xamarin.Essentials.dll": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Core/6.6.6": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Firebase.Core.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Firebase.Core.dll": {}
+        },
+        "build": {
+          "buildTransitive/Xamarin.Firebase.iOS.Core.targets": {}
         }
       },
       "Xamarin.Forms/4.8.0.1269": {
@@ -937,15 +1184,55 @@
           "buildTransitive/Xamarin.Forms.targets": {}
         }
       },
+      "Xamarin.Google.iOS.MobileAds/7.57.0": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Firebase.iOS.Core": "6.6.6"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Google.MobileAds.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Google.MobileAds.dll": {}
+        },
+        "build": {
+          "buildTransitive/Xamarin.Google.iOS.MobileAds.targets": {}
+        }
+      },
+      "Xamarin.Google.iOS.SignIn/5.0.2.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Firebase.iOS.Core": "6.6.6"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Google.SignIn.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Google.SignIn.dll": {}
+        },
+        "build": {
+          "buildTransitive/Xamarin.Google.iOS.SignIn.targets": {}
+        }
+      },
       "MahwousQuotes/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "MahwousWeb.Shared": "1.0.0",
+          "MarcTron.Admob": "1.5.7",
           "Matcha.BackgroundService": "1.0.5478",
           "Plugin.LocalNotification": "5.0.6",
           "Xamarin.Essentials": "1.5.3.2",
-          "Xamarin.Forms": "4.8.0.1269"
+          "Xamarin.Forms": "4.8.0.1269",
+          "sqlite-net-pcl": "1.7.335"
         },
         "compile": {
           "bin/placeholder/MahwousQuotes.dll": {}
@@ -959,7 +1246,8 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "System.ComponentModel.Annotations": "4.7.0",
-          "System.Text.Json": "4.7.2"
+          "System.Text.Json": "4.7.2",
+          "sqlite-net-pcl": "1.7.335"
         },
         "compile": {
           "bin/placeholder/MahwousWeb.Shared.dll": {}
@@ -970,6 +1258,20 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x64": {
+      "MarcTron.Admob/1.5.7": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Forms": "4.2.0.815419",
+          "Xamarin.Google.iOS.MobileAds": "7.57.0"
+        },
+        "compile": {
+          "lib/xamarinios10/Plugin.MtAdmob.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.MtAdmob.dll": {}
+        }
+      },
       "Matcha.BackgroundService/1.0.5478": {
         "type": "package",
         "dependencies": {
@@ -1006,6 +1308,57 @@
         },
         "runtime": {
           "lib/xamarinios10/Plugin.LocalNotification.dll": {}
+        }
+      },
+      "sqlite-net-pcl/1.7.335": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.bundle_green": "2.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLite-net.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLite-net.dll": {}
+        }
+      },
+      "SQLitePCLRaw.bundle_green/2.0.3": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.3",
+          "SQLitePCLRaw.provider.dynamic_cdecl": "2.0.3"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/SQLitePCLRaw.batteries_v2.dll": {},
+          "lib/Xamarin.iOS10/SQLitePCLRaw.nativelibrary.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/SQLitePCLRaw.batteries_v2.dll": {},
+          "lib/Xamarin.iOS10/SQLitePCLRaw.nativelibrary.dll": {}
+        }
+      },
+      "SQLitePCLRaw.core/2.0.3": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        }
+      },
+      "SQLitePCLRaw.provider.dynamic_cdecl/2.0.3": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {}
         }
       },
       "System.Buffers/4.5.1": {
@@ -1087,6 +1440,19 @@
         },
         "runtime": {
           "lib/xamarinios10/_._": {}
+        }
+      },
+      "System.Memory/4.5.3": {
+        "type": "package",
+        "dependencies": {
+          "System.Buffers": "4.4.0",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Memory.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Memory.dll": {}
         }
       },
       "System.Reactive/3.0.0": {
@@ -1287,6 +1653,13 @@
           "lib/xamarinios10/_._": {}
         }
       },
+      "Xamarin.Build.Download/0.10.0": {
+        "type": "package",
+        "build": {
+          "buildTransitive/Xamarin.Build.Download.props": {},
+          "buildTransitive/Xamarin.Build.Download.targets": {}
+        }
+      },
       "Xamarin.Essentials/1.5.3.2": {
         "type": "package",
         "frameworkAssemblies": [
@@ -1298,6 +1671,24 @@
         },
         "runtime": {
           "lib/xamarinios10/Xamarin.Essentials.dll": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Core/6.6.6": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Firebase.Core.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Firebase.Core.dll": {}
+        },
+        "build": {
+          "buildTransitive/Xamarin.Firebase.iOS.Core.targets": {}
         }
       },
       "Xamarin.Forms/4.8.0.1269": {
@@ -1421,15 +1812,55 @@
           "buildTransitive/Xamarin.Forms.targets": {}
         }
       },
+      "Xamarin.Google.iOS.MobileAds/7.57.0": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Firebase.iOS.Core": "6.6.6"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Google.MobileAds.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Google.MobileAds.dll": {}
+        },
+        "build": {
+          "buildTransitive/Xamarin.Google.iOS.MobileAds.targets": {}
+        }
+      },
+      "Xamarin.Google.iOS.SignIn/5.0.2.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Firebase.iOS.Core": "6.6.6"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Google.SignIn.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Google.SignIn.dll": {}
+        },
+        "build": {
+          "buildTransitive/Xamarin.Google.iOS.SignIn.targets": {}
+        }
+      },
       "MahwousQuotes/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "MahwousWeb.Shared": "1.0.0",
+          "MarcTron.Admob": "1.5.7",
           "Matcha.BackgroundService": "1.0.5478",
           "Plugin.LocalNotification": "5.0.6",
           "Xamarin.Essentials": "1.5.3.2",
-          "Xamarin.Forms": "4.8.0.1269"
+          "Xamarin.Forms": "4.8.0.1269",
+          "sqlite-net-pcl": "1.7.335"
         },
         "compile": {
           "bin/placeholder/MahwousQuotes.dll": {}
@@ -1443,7 +1874,8 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "System.ComponentModel.Annotations": "4.7.0",
-          "System.Text.Json": "4.7.2"
+          "System.Text.Json": "4.7.2",
+          "sqlite-net-pcl": "1.7.335"
         },
         "compile": {
           "bin/placeholder/MahwousWeb.Shared.dll": {}
@@ -1454,6 +1886,20 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x86": {
+      "MarcTron.Admob/1.5.7": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Forms": "4.2.0.815419",
+          "Xamarin.Google.iOS.MobileAds": "7.57.0"
+        },
+        "compile": {
+          "lib/xamarinios10/Plugin.MtAdmob.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.MtAdmob.dll": {}
+        }
+      },
       "Matcha.BackgroundService/1.0.5478": {
         "type": "package",
         "dependencies": {
@@ -1490,6 +1936,57 @@
         },
         "runtime": {
           "lib/xamarinios10/Plugin.LocalNotification.dll": {}
+        }
+      },
+      "sqlite-net-pcl/1.7.335": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.bundle_green": "2.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLite-net.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLite-net.dll": {}
+        }
+      },
+      "SQLitePCLRaw.bundle_green/2.0.3": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.3",
+          "SQLitePCLRaw.provider.dynamic_cdecl": "2.0.3"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/SQLitePCLRaw.batteries_v2.dll": {},
+          "lib/Xamarin.iOS10/SQLitePCLRaw.nativelibrary.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/SQLitePCLRaw.batteries_v2.dll": {},
+          "lib/Xamarin.iOS10/SQLitePCLRaw.nativelibrary.dll": {}
+        }
+      },
+      "SQLitePCLRaw.core/2.0.3": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        }
+      },
+      "SQLitePCLRaw.provider.dynamic_cdecl/2.0.3": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {}
         }
       },
       "System.Buffers/4.5.1": {
@@ -1571,6 +2068,19 @@
         },
         "runtime": {
           "lib/xamarinios10/_._": {}
+        }
+      },
+      "System.Memory/4.5.3": {
+        "type": "package",
+        "dependencies": {
+          "System.Buffers": "4.4.0",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Memory.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Memory.dll": {}
         }
       },
       "System.Reactive/3.0.0": {
@@ -1771,6 +2281,13 @@
           "lib/xamarinios10/_._": {}
         }
       },
+      "Xamarin.Build.Download/0.10.0": {
+        "type": "package",
+        "build": {
+          "buildTransitive/Xamarin.Build.Download.props": {},
+          "buildTransitive/Xamarin.Build.Download.targets": {}
+        }
+      },
       "Xamarin.Essentials/1.5.3.2": {
         "type": "package",
         "frameworkAssemblies": [
@@ -1782,6 +2299,24 @@
         },
         "runtime": {
           "lib/xamarinios10/Xamarin.Essentials.dll": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Core/6.6.6": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Firebase.Core.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Firebase.Core.dll": {}
+        },
+        "build": {
+          "buildTransitive/Xamarin.Firebase.iOS.Core.targets": {}
         }
       },
       "Xamarin.Forms/4.8.0.1269": {
@@ -1905,15 +2440,55 @@
           "buildTransitive/Xamarin.Forms.targets": {}
         }
       },
+      "Xamarin.Google.iOS.MobileAds/7.57.0": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Firebase.iOS.Core": "6.6.6"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Google.MobileAds.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Google.MobileAds.dll": {}
+        },
+        "build": {
+          "buildTransitive/Xamarin.Google.iOS.MobileAds.targets": {}
+        }
+      },
+      "Xamarin.Google.iOS.SignIn/5.0.2.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Firebase.iOS.Core": "6.6.6"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Google.SignIn.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Google.SignIn.dll": {}
+        },
+        "build": {
+          "buildTransitive/Xamarin.Google.iOS.SignIn.targets": {}
+        }
+      },
       "MahwousQuotes/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "MahwousWeb.Shared": "1.0.0",
+          "MarcTron.Admob": "1.5.7",
           "Matcha.BackgroundService": "1.0.5478",
           "Plugin.LocalNotification": "5.0.6",
           "Xamarin.Essentials": "1.5.3.2",
-          "Xamarin.Forms": "4.8.0.1269"
+          "Xamarin.Forms": "4.8.0.1269",
+          "sqlite-net-pcl": "1.7.335"
         },
         "compile": {
           "bin/placeholder/MahwousQuotes.dll": {}
@@ -1927,7 +2502,8 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "System.ComponentModel.Annotations": "4.7.0",
-          "System.Text.Json": "4.7.2"
+          "System.Text.Json": "4.7.2",
+          "sqlite-net-pcl": "1.7.335"
         },
         "compile": {
           "bin/placeholder/MahwousWeb.Shared.dll": {}
@@ -1939,6 +2515,25 @@
     }
   },
   "libraries": {
+    "MarcTron.Admob/1.5.7": {
+      "sha512": "Dx9Xc8+xrZnF74ojE4SVkUxfsqIDroMmVlly3Q6gU/j4vPdc13oRelOMLLLfd3JrbWlec33tySYT1IXaqfwMRQ==",
+      "type": "package",
+      "path": "marctron.admob/1.5.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid81/Plugin.MtAdmob.dll",
+        "lib/monoandroid90/Plugin.MtAdmob.dll",
+        "lib/netstandard1.0/Plugin.MtAdmob.dll",
+        "lib/netstandard2.0/Plugin.MtAdmob.dll",
+        "lib/uap10.0.18362/Plugin.MtAdmob.dll",
+        "lib/uap10.0.18362/Plugin.MtAdmob.pri",
+        "lib/xamarinios10/Plugin.MtAdmob.dll",
+        "marctron.admob.1.5.7.nupkg.sha512",
+        "marctron.admob.nuspec",
+        "readme.txt"
+      ]
+    },
     "Matcha.BackgroundService/1.0.5478": {
       "sha512": "qqRwQfuLLHDY3DlIVmzixLj9bgi1ZDQUxTcFVaa70K6FVSe/8HDt989PKzqU0pywn2v8mheMVH1BLMgyh/BcHw==",
       "type": "package",
@@ -2020,6 +2615,62 @@
         "lib/xamarinios10/Plugin.LocalNotification.xml",
         "plugin.localnotification.5.0.6.nupkg.sha512",
         "plugin.localnotification.nuspec"
+      ]
+    },
+    "sqlite-net-pcl/1.7.335": {
+      "sha512": "0A9YNPbp66aB+Sitxmh9lq1KDtD4+EBPfdtnYN8WenvQqh5dNgMxUV7kaEG6EXYTi4zBxcsDKpyYJzbViWJXtw==",
+      "type": "package",
+      "path": "sqlite-net-pcl/1.7.335",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "lib/netstandard2.0/SQLite-net.dll",
+        "lib/netstandard2.0/SQLite-net.xml",
+        "sqlite-net-pcl.1.7.335.nupkg.sha512",
+        "sqlite-net-pcl.nuspec"
+      ]
+    },
+    "SQLitePCLRaw.bundle_green/2.0.3": {
+      "sha512": "QgevRdYSy/MtL1TDdWuhoCH5cpBPZYUZd8h/WqgiLGXDa8e93Fv4/SE812SDCdjTb2+6s8SIwSLRq0z2bUeieg==",
+      "type": "package",
+      "path": "sqlitepclraw.bundle_green/2.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/Xamarin.iOS10/SQLitePCLRaw.batteries_v2.dll",
+        "lib/Xamarin.iOS10/SQLitePCLRaw.nativelibrary.dll",
+        "lib/net461/SQLitePCLRaw.batteries_v2.dll",
+        "lib/net461/SQLitePCLRaw.nativelibrary.dll",
+        "lib/netcoreapp3.0/SQLitePCLRaw.batteries_v2.dll",
+        "lib/netcoreapp3.0/SQLitePCLRaw.nativelibrary.dll",
+        "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll",
+        "sqlitepclraw.bundle_green.2.0.3.nupkg.sha512",
+        "sqlitepclraw.bundle_green.nuspec"
+      ]
+    },
+    "SQLitePCLRaw.core/2.0.3": {
+      "sha512": "9LO3qT7tP+0qBAQxg/PGLHPcsKri4H2zIiiMEg+7EGrnBbuUnJg1tcfKiiqFtRp74kZSAV6N0ZeSGYiodqYnoQ==",
+      "type": "package",
+      "path": "sqlitepclraw.core/2.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/SQLitePCLRaw.core.dll",
+        "sqlitepclraw.core.2.0.3.nupkg.sha512",
+        "sqlitepclraw.core.nuspec"
+      ]
+    },
+    "SQLitePCLRaw.provider.dynamic_cdecl/2.0.3": {
+      "sha512": "RybfknbgdhjD+g38vyLA8Ram3CbivpZEUa+ZthtULROrEp81V8hxK30mIsAM9YFb3cOmnF/3hOIjhpVo9h72Lg==",
+      "type": "package",
+      "path": "sqlitepclraw.provider.dynamic_cdecl/2.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll",
+        "sqlitepclraw.provider.dynamic_cdecl.2.0.3.nupkg.sha512",
+        "sqlitepclraw.provider.dynamic_cdecl.nuspec"
       ]
     },
     "System.Buffers/4.5.1": {
@@ -2600,6 +3251,27 @@
         "ref/xamarinwatchos10/_._",
         "system.linq.4.1.0.nupkg.sha512",
         "system.linq.nuspec"
+      ]
+    },
+    "System.Memory/4.5.3": {
+      "sha512": "3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
+      "type": "package",
+      "path": "system.memory/4.5.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netcoreapp2.1/_._",
+        "lib/netstandard1.1/System.Memory.dll",
+        "lib/netstandard1.1/System.Memory.xml",
+        "lib/netstandard2.0/System.Memory.dll",
+        "lib/netstandard2.0/System.Memory.xml",
+        "ref/netcoreapp2.1/_._",
+        "system.memory.4.5.3.nupkg.sha512",
+        "system.memory.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "System.Reactive/3.0.0": {
@@ -3315,6 +3987,28 @@
         "version.txt"
       ]
     },
+    "Xamarin.Build.Download/0.10.0": {
+      "sha512": "XiQNxx6Jox00O80sJRlZv6jXDZ/r3KC7SMwzQNQcD1gZ+vsZyJH3LcSpdJ5NiZhRrWZlTGNSbooHsOBF7lBOyQ==",
+      "type": "package",
+      "path": "xamarin.build.download/0.10.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "THIRD-PARTY-NOTICE.txt",
+        "build/Microsoft.Win32.Registry.dll",
+        "build/Newtonsoft.Json.dll",
+        "build/Xamarin.Build.Download.dll",
+        "build/Xamarin.Build.Download.props",
+        "build/Xamarin.Build.Download.targets",
+        "buildTransitive/Microsoft.Win32.Registry.dll",
+        "buildTransitive/Newtonsoft.Json.dll",
+        "buildTransitive/Xamarin.Build.Download.dll",
+        "buildTransitive/Xamarin.Build.Download.props",
+        "buildTransitive/Xamarin.Build.Download.targets",
+        "xamarin.build.download.0.10.0.nupkg.sha512",
+        "xamarin.build.download.nuspec"
+      ]
+    },
     "Xamarin.Essentials/1.5.3.2": {
       "sha512": "BSLgDJUOPFRwTpQaftM+s4qb/MsTjrqXulEYDOcK6KF3i0Orf75zo3RwRfqnQ8WfpoEFxW/v0jgcPWCvOMgHxg==",
       "type": "package",
@@ -3361,6 +4055,23 @@
         "readme.txt",
         "xamarin.essentials.1.5.3.2.nupkg.sha512",
         "xamarin.essentials.nuspec"
+      ]
+    },
+    "Xamarin.Firebase.iOS.Core/6.6.6": {
+      "sha512": "GM43jhKOjzs2AwTNxPA3OFW/UVAM7oBWfYn0m9c56oOAAlPdpO7LebWXkLNa/vcFv9gtfCBrVVl+QIk8miwTDw==",
+      "type": "package",
+      "path": "xamarin.firebase.ios.core/6.6.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.md",
+        "THIRD-PARTY-NOTICES.txt",
+        "build/Xamarin.Firebase.iOS.Core.targets",
+        "buildTransitive/Xamarin.Firebase.iOS.Core.targets",
+        "firebaseioscore_128x128.png",
+        "lib/xamarinios10/Firebase.Core.dll",
+        "xamarin.firebase.ios.core.6.6.6.nupkg.sha512",
+        "xamarin.firebase.ios.core.nuspec"
       ]
     },
     "Xamarin.Forms/4.8.0.1269": {
@@ -3677,6 +4388,40 @@
         "xamarin.forms.nuspec"
       ]
     },
+    "Xamarin.Google.iOS.MobileAds/7.57.0": {
+      "sha512": "e9hQr0/i8gy+wO4VssaQoIN8L5lgkN3UVzpN+NilgxhFZRbZncCaYyFW2NTvvb7r0QzTix4dZRhnSvBP3r8x5Q==",
+      "type": "package",
+      "path": "xamarin.google.ios.mobileads/7.57.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.md",
+        "THIRD-PARTY-NOTICES.txt",
+        "build/Xamarin.Google.iOS.MobileAds.targets",
+        "buildTransitive/Xamarin.Google.iOS.MobileAds.targets",
+        "googleiosmobileads_128x128.png",
+        "lib/xamarinios10/Google.MobileAds.dll",
+        "xamarin.google.ios.mobileads.7.57.0.nupkg.sha512",
+        "xamarin.google.ios.mobileads.nuspec"
+      ]
+    },
+    "Xamarin.Google.iOS.SignIn/5.0.2.1": {
+      "sha512": "lIhbpsiN1D3hVxrKdOFOxoddT/4I85sqov0lm7oOH3fna3KKzyX5y925PkoFbles8O0XznZ337s4bQFAO+WYaw==",
+      "type": "package",
+      "path": "xamarin.google.ios.signin/5.0.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.md",
+        "THIRD-PARTY-NOTICES.txt",
+        "build/Xamarin.Google.iOS.SignIn.targets",
+        "buildTransitive/Xamarin.Google.iOS.SignIn.targets",
+        "googleiossignin_128x128.png",
+        "lib/xamarinios10/Google.SignIn.dll",
+        "xamarin.google.ios.signin.5.0.2.1.nupkg.sha512",
+        "xamarin.google.ios.signin.nuspec"
+      ]
+    },
     "MahwousQuotes/1.0.0": {
       "type": "project",
       "path": "../MahwousQuotes/MahwousQuotes.csproj",
@@ -3691,8 +4436,12 @@
   "projectFileDependencyGroups": {
     "Xamarin.iOS,Version=v1.0": [
       "MahwousQuotes >= 1.0.0",
+      "MarcTron.Admob >= 1.5.7",
       "Xamarin.Essentials >= 1.5.3.2",
-      "Xamarin.Forms >= 4.8.0.1269"
+      "Xamarin.Forms >= 4.8.0.1269",
+      "Xamarin.Google.iOS.MobileAds >= 7.57.0",
+      "Xamarin.Google.iOS.SignIn >= 5.0.2.1",
+      "sqlite-net-pcl >= 1.7.335"
     ]
   },
   "packageFolders": {
@@ -3737,6 +4486,10 @@
     "frameworks": {
       "xamarinios10": {
         "dependencies": {
+          "MarcTron.Admob": {
+            "target": "Package",
+            "version": "[1.5.7, )"
+          },
           "Xamarin.Essentials": {
             "target": "Package",
             "version": "[1.5.3.2, )"
@@ -3744,6 +4497,18 @@
           "Xamarin.Forms": {
             "target": "Package",
             "version": "[4.8.0.1269, )"
+          },
+          "Xamarin.Google.iOS.MobileAds": {
+            "target": "Package",
+            "version": "[7.57.0, )"
+          },
+          "Xamarin.Google.iOS.SignIn": {
+            "target": "Package",
+            "version": "[5.0.2.1, )"
+          },
+          "sqlite-net-pcl": {
+            "target": "Package",
+            "version": "[1.7.335, )"
           }
         }
       }

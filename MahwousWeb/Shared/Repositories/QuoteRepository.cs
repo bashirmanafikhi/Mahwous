@@ -73,5 +73,27 @@ namespace MahwousWeb.Shared.Repositories
 
             return paginatedResponse;
         }
+
+        public async Task<FilteredInformations> GetInformations(QuoteFilter filter = null)
+        {
+            if (filter is null)
+            {
+                var responseHTTP = await httpService.Get<FilteredInformations>($"{url}/count");
+                return responseHTTP.Response;
+            }
+            else
+            {
+                var responseHTTP = await httpService.Post<QuoteFilter, FilteredInformations>($"{url}/count", filter);
+                return responseHTTP.Response;
+            }
+        }
+
+        public async Task<QuoteStatus> GetRandomQuote()
+        {
+            var filter = new QuoteFilter() { RecordsPerPage = 1 };
+            var responseHTTP = await GetQuotesFiltered(filter);
+            var quote = responseHTTP.Response.FirstOrDefault();
+            return quote;
+        }
     }
 }

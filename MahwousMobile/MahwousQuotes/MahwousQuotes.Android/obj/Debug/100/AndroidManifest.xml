@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.mahwous.mahwousquotes" android:installLocation="auto">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.6" package="com.mahwous.mahwousquotes" android:installLocation="auto" android:versionCode="6">
   <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="29" />
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -7,8 +7,13 @@
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="android.permission.BATTERY_STATS" />
   <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-  <application android:label="Mahwous Quotes" android:supportsRtl="true" android:icon="@drawable/my_logo" android:name="android.app.Application" android:allowBackup="true" android:debuggable="true">
-    <activity android:configChanges="orientation|screenSize" android:icon="@mipmap/icon" android:label="مهووس حالات كتابية" android:theme="@style/MainTheme" android:name="crc64855ea8876d6c1840.MainActivity">
+  <application android:label="مسجاتي" android:supportsRtl="true" android:icon="@drawable/icon" android:name="android.app.Application" android:allowBackup="true" android:debuggable="true">
+    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+    <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-1685177955120006~6067673223" />
+    <activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:theme="@android:style/Theme.Translucent" />
+    <uses-library android:name="org.apache.http.legacy" android:required="false" />
+    <activity android:configChanges="orientation|screenSize" android:icon="@mipmap/icon" android:label="مسجاتي" android:theme="@style/MainTheme" android:name="crc64855ea8876d6c1840.MainActivity" />
+    <activity android:configChanges="orientation|screenSize" android:noHistory="true" android:theme="@style/SplashTheme" android:name="crc64855ea8876d6c1840.SplashActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />

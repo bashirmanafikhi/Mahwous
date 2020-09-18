@@ -1,7 +1,11 @@
-﻿
+﻿body, html {
+    direction: rtl;
+    text-align: right;
+    background: #f6f4e6;
+}
 
-.sidebar-wrapper .nav-item a.active,
-.sidebar-wrapper .nav-item a.active i{
+.sidebar-wrapper list-group-item a.active,
+.sidebar-wrapper list-group-item a.active i {
     background-color: #9c27b0;
     color: white;
 }
@@ -30,9 +34,124 @@
     z-index: 1000;
 }
 
-#blazor-error-ui .dismiss {
-    cursor: pointer;
-    position: absolute;
-    right: 0.75rem;
-    top: 0.5rem;
+    #blazor-error-ui .dismiss {
+        cursor: pointer;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+    }
+
+.bg-image-full {
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
 }
+
+
+/*Scroll Bar */
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(#ff4262, #0096ed);
+}
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(#E22545, #147CB9);
+    }
+
+
+    /** Navigation List item */
+
+
+.list-group-item-mine {
+    margin-right: 1rem;
+    margin-left: 1rem;
+    background-color: #1e1e1f !important;
+    color: white;
+}
+
+    .list-group-item-mine:hover {
+        color: #58BAF3;
+    }
+
+a.active {
+    background: linear-gradient(-135deg,#ff4262, #0096ed) !important;
+    color: #FFFFFF;
+}
+
+    a.active:hover {
+        background: linear-gradient(-135deg,#E22545, #147CB9) !important;
+        color: #FFFFFF;
+    }
+
+
+
+/* Override Colors */
+.bg-dark {
+    background-color: #1e1e1f !important;
+}
+
+.bg-light {
+    background-color: #f6f4e6 !important;
+}
+
+.bg-danger {
+    background-color: #ff4262 !important;
+}
+
+.bg-warning {
+    background-color: #dfb20c !important;
+}
+
+.bg-primary {
+    background-color: #0096ed !important;
+}
+
+
+
+/* Multıple Select */
+
+.multiple-selector {
+    display: flex;
+}
+
+.selectable-ul {
+    height: 200px;
+    overflow-y: auto;
+    list-style-type: none;
+    width: 170px;
+    padding: 0;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+    .selectable-ul li {
+        cursor: pointer;
+        border-bottom: 1px #eee solid;
+        padding: 2px 10px;
+        font-size: 14px;
+    }
+
+        .selectable-ul li:hover {
+            background-color: #08c;
+        }
+
+.multiple-selector-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px;
+}
+
+    .multiple-selector-buttons button {
+        margin: 5px;
+    }

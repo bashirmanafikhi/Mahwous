@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "56bYvslUj532qv5KSp6DHhiV3LShYvowvy+g2V+wbcWk0S5SyVe0cHLof4JnCxP/8RZZsRHgo3U98hn2qG8h2g==",
+  "dgSpecHash": "1TwMbq6PSeyR0vPRDSX9Vls/FMaVdlFDI70NVlgWtkY7G1d48JeTouvrD5Y0ZEF8NQMvf3xCOJ1xOkJo0bJP4Q==",
   "success": true,
   "projectFilePath": "D:\\Mahwous\\MahwousWeb\\Client\\MahwousWeb.Client.csproj",
   "expectedPackageFiles": [
@@ -39,6 +39,11 @@
     "C:\\Users\\Bashir\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\Bashir\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\Bashir\\.nuget\\packages\\radzen.blazor\\2.11.6\\radzen.blazor.2.11.6.nupkg.sha512",
+    "C:\\Users\\Bashir\\.nuget\\packages\\sqlite-net-pcl\\1.7.335\\sqlite-net-pcl.1.7.335.nupkg.sha512",
+    "C:\\Users\\Bashir\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.3\\sqlitepclraw.bundle_green.2.0.3.nupkg.sha512",
+    "C:\\Users\\Bashir\\.nuget\\packages\\sqlitepclraw.core\\2.0.3\\sqlitepclraw.core.2.0.3.nupkg.sha512",
+    "C:\\Users\\Bashir\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.3\\sqlitepclraw.lib.e_sqlite3.2.0.3.nupkg.sha512",
+    "C:\\Users\\Bashir\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.0.3\\sqlitepclraw.provider.e_sqlite3.2.0.3.nupkg.sha512",
     "C:\\Users\\Bashir\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\Bashir\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512",
     "C:\\Users\\Bashir\\.nuget\\packages\\system.io\\4.3.0\\system.io.4.3.0.nupkg.sha512",

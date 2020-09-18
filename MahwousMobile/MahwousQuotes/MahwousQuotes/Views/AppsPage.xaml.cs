@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using Xamarin.Forms;
-using MahwousApps.ViewModels;
+using MahwousQuotes.ViewModels;
 
 namespace MahwousQuotes.Views
 {
@@ -16,16 +16,19 @@ namespace MahwousQuotes.Views
         {
             InitializeComponent();
 
-            BindingContext = this.viewModel = new AppsViewModel();
-
+            //BindingContext = this.viewModel = new AppsViewModel();
+            this.viewModel = (BindingContext as AppsViewModel);
         }
 
         protected override void OnAppearing()
         {
-            base.OnAppearing();
+            System.Diagnostics.Debug.WriteLine("Bashir OnAppearing Apps");
+            //base.OnAppearing();
 
             if (viewModel.Apps.Count == 0)
-                viewModel.IsBusy = true;
+            {
+                viewModel.LoadAppsCommand.Execute(null);
+            }
         }
     }
 }

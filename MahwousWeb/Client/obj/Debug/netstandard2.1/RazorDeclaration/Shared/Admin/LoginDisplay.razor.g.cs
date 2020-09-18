@@ -57,83 +57,90 @@ using MahwousWeb.Client;
 #nullable disable
 #nullable restore
 #line 8 "D:\Mahwous\MahwousWeb\Client\_Imports.razor"
-using MahwousWeb.Client.Shared;
+using MahwousWeb.Client.Pages.Components;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 9 "D:\Mahwous\MahwousWeb\Client\_Imports.razor"
-using MahwousWeb.Client.Shared.Components;
+using MahwousWeb.Client.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 10 "D:\Mahwous\MahwousWeb\Client\_Imports.razor"
-using MahwousWeb.Client.Shared.Admin;
+using MahwousWeb.Client.Shared.Components;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 11 "D:\Mahwous\MahwousWeb\Client\_Imports.razor"
-using Microsoft.AspNetCore.Authorization;
+using MahwousWeb.Client.Shared.Admin;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 12 "D:\Mahwous\MahwousWeb\Client\_Imports.razor"
-using MahwousWeb.Shared.Models;
+using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 13 "D:\Mahwous\MahwousWeb\Client\_Imports.razor"
-using MahwousWeb.Shared.Repositories;
+using MahwousWeb.Shared.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 14 "D:\Mahwous\MahwousWeb\Client\_Imports.razor"
-using MahwousWeb.Client.Helpers;
+using MahwousWeb.Shared.Repositories;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 15 "D:\Mahwous\MahwousWeb\Client\_Imports.razor"
-using MahwousWeb.Shared.Pagination;
+using MahwousWeb.Client.Helpers;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 16 "D:\Mahwous\MahwousWeb\Client\_Imports.razor"
-using MahwousWeb.Shared.Filters;
+using MahwousWeb.Shared.Pagination;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 17 "D:\Mahwous\MahwousWeb\Client\_Imports.razor"
+using MahwousWeb.Shared.Filters;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 18 "D:\Mahwous\MahwousWeb\Client\_Imports.razor"
 using MahwousWeb.Shared.Repositories.Interfaces;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 19 "D:\Mahwous\MahwousWeb\Client\_Imports.razor"
+#line 20 "D:\Mahwous\MahwousWeb\Client\_Imports.razor"
 using Radzen;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 20 "D:\Mahwous\MahwousWeb\Client\_Imports.razor"
+#line 21 "D:\Mahwous\MahwousWeb\Client\_Imports.razor"
 using Radzen.Blazor;
 
 #line default

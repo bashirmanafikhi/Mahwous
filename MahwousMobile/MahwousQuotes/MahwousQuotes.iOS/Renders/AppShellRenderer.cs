@@ -6,7 +6,6 @@ using CoreGraphics;
 using Foundation;
 using MahwousQuotes;
 using MahwousQuotes.iOS.Renders;
-using MahwousQuotes.TestShell;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;

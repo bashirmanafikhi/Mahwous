@@ -42,6 +42,10 @@
       "frameworks": {
         "monoandroid10.0": {
           "dependencies": {
+            "MarcTron.Admob": {
+              "target": "Package",
+              "version": "[1.5.7, )"
+            },
             "Xamarin.Essentials": {
               "target": "Package",
               "version": "[1.5.3.2, )"
@@ -49,6 +53,14 @@
             "Xamarin.Forms": {
               "target": "Package",
               "version": "[4.8.0.1269, )"
+            },
+            "Xamarin.GooglePlayServices.Ads.Lite": {
+              "target": "Package",
+              "version": "[71.1720.4, )"
+            },
+            "sqlite-net-pcl": {
+              "target": "Package",
+              "version": "[1.7.335, )"
             }
           }
         }
@@ -97,6 +109,10 @@
       "frameworks": {
         "netstandard2.0": {
           "dependencies": {
+            "MarcTron.Admob": {
+              "target": "Package",
+              "version": "[1.5.7, )"
+            },
             "Matcha.BackgroundService": {
               "target": "Package",
               "version": "[1.0.5478, )"
@@ -118,6 +134,10 @@
             "Xamarin.Forms": {
               "target": "Package",
               "version": "[4.8.0.1269, )"
+            },
+            "sqlite-net-pcl": {
+              "target": "Package",
+              "version": "[1.7.335, )"
             }
           },
           "imports": [
@@ -130,7 +150,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -186,6 +206,10 @@
             "System.Text.Json": {
               "target": "Package",
               "version": "[4.7.2, )"
+            },
+            "sqlite-net-pcl": {
+              "target": "Package",
+              "version": "[1.7.335, )"
             }
           },
           "imports": [
@@ -198,7 +222,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

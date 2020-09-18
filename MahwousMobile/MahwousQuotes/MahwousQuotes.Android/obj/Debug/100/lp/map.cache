@@ -1,6 +1,8 @@
 FormsViewGroup
 Matcha.BackgroundService.Droid
 Plugin.LocalNotification
+Plugin.MtAdmob
+SQLitePCLRaw.lib.e_sqlite3.android
 Xamarin.AndroidX.Activity
 Xamarin.AndroidX.Annotation
 Xamarin.AndroidX.AppCompat.AppCompatResources
@@ -52,6 +54,11 @@ Xamarin.Forms.Platform.Android
 Xamarin.Forms.Platform
 Xamarin.Google.Android.Material
 Xamarin.Google.Guava.ListenableFuture
+Xamarin.GooglePlayServices.Ads.Base
+Xamarin.GooglePlayServices.Ads.Lite
+Xamarin.GooglePlayServices.Basement
+Xamarin.GooglePlayServices.Measurement.Base
+Xamarin.GooglePlayServices.Measurement.Sdk.Api
 androidx.versionedparcelable.versionedparcelable
 androidx.lifecycle.lifecycle-runtime
 androidx.core.core

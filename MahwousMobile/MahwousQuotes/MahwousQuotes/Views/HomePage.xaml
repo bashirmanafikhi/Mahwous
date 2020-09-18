@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
+    x:Name="Page"
     x:Class="MahwousQuotes.Views.HomePage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -15,8 +16,10 @@
         <StackLayout
             Padding="0,0,10,0"
             Orientation="Horizontal">
+
             <Label
                 Text="الصفحة الرئيسية"
+                TextColor="{DynamicResource colWhite}"
                 VerticalOptions="CenterAndExpand">
                 <Label.HorizontalOptions>
                     <OnPlatform
@@ -27,8 +30,9 @@
             </Label>
 
             <Switch
+                x:Name="darkSwitch"
                 Toggled="Switch_Toggled"
-                OnColor="Black"
+                OnColor="{DynamicResource colWhite}"
                 HorizontalOptions="EndAndExpand"
                 VerticalOptions="CenterAndExpand"
                 Visual="Material" />
@@ -37,14 +41,157 @@
     </Shell.TitleView>
 
     <ContentPage.Content>
-        <StackLayout   BackgroundColor="{DynamicResource colBG2}">
-            <Label Text="الصفحة الرئيسية" 
+        <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding GetInformationsCommand}">
+
+            <ScrollView>
+                <StackLayout>
+
+                    <Image x:Name="homePageImage"
+                       HorizontalOptions="CenterAndExpand"
+                       HeightRequest="200"
+                       Aspect="AspectFill"
+                       Source="TransparentBlack.png" />
+
+                    <Button Margin="10" Text="زيارة موقعنا"
+                        Command="{Binding OpenWebCommand}"
+                        BackgroundColor="{StaticResource colBlue}"
+                            FontAttributes="Bold"
+                        HorizontalOptions="CenterAndExpand"
+                        CornerRadius="15"
+                        TextColor="White" />
+
+
+
+                    <Frame  CornerRadius="15" 
+                       Margin="50,10" 
+                       Padding="1"
+                       BackgroundColor="{DynamicResource colForeground}" 
+                       HasShadow="True">
+                        <Frame BackgroundColor="{DynamicResource colBackground}"
+                           CornerRadius="30" >
+
+
+                            <StackLayout Spacing="0">
+                                <Frame CornerRadius="30" 
+                               Margin="40,0" 
+                               Padding="5"
+                               BackgroundColor="{DynamicResource colRed}" 
+                               HasShadow="True">
+
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+
+                                        <Label Text="إحصائيات" 
+                                   VerticalOptions="CenterAndExpand"
+                                   FontAttributes="Bold"
+                                   TextColor="{DynamicResource colWhite}"
+                                   HorizontalOptions="Center" />
+
+                                        <ActivityIndicator HeightRequest="15" 
+                                    WidthRequest="15" 
+                                    Margin="5,0"
+                                    Color="{DynamicResource colBlack}"
+                                    IsVisible="{Binding IsBusy}" 
+                                    IsRunning="{Binding IsBusy}"
+                                    HorizontalOptions="Center"/>
+                                    </StackLayout>
+                                </Frame>
+
+
+
+                                <StackLayout Spacing="0" Padding="10">
+
+
+                                    <Label Text="{Binding Informations.StatusesCount, StringFormat='عدد الحالات: {0} حالة'}" 
                    VerticalOptions="CenterAndExpand"
-                   
-                   TextColor="{DynamicResource colQua}"
-                   HorizontalOptions="CenterAndExpand"/>
+                   TextColor="{DynamicResource colForeground}"
+                   HorizontalOptions="CenterAndExpand" />
+
+                                    <Label Text="{Binding Informations.CategoriesCount, StringFormat='عدد التصنيفات: {0} تصنيف'}" 
+                   VerticalOptions="CenterAndExpand"
+                   TextColor="{DynamicResource colForeground}"
+                   HorizontalOptions="CenterAndExpand" />
+
+                                    <Label Text="{Binding Informations.ViewsCount, StringFormat='المشاهدات : {0}'}" 
+                   VerticalOptions="CenterAndExpand"
+                   TextColor="{DynamicResource colForeground}"
+                   HorizontalOptions="CenterAndExpand" />
+
+                                    <Label Text="{Binding Informations.LikesCount, StringFormat='الإعجابات : {0}'}" 
+                   VerticalOptions="CenterAndExpand"
+                   TextColor="{DynamicResource colForeground}"
+                   HorizontalOptions="CenterAndExpand" />
+
+                                    <Label Text="{Binding Informations.DownloadsCount, StringFormat='المشاركات : {0}'}" 
+                   VerticalOptions="CenterAndExpand"
+                   TextColor="{DynamicResource colForeground}"
+                   HorizontalOptions="CenterAndExpand" />
 
 
-        </StackLayout>
+
+                                </StackLayout>
+
+
+
+                            </StackLayout>
+
+                        </Frame>
+
+                    </Frame>
+
+
+
+                    <Frame  CornerRadius="15" 
+                       Margin="50,10" 
+                       Padding="1"
+                       BackgroundColor="{DynamicResource colForeground}" 
+                       HasShadow="True">
+                        <Frame BackgroundColor="{DynamicResource colBackground}"
+                           CornerRadius="30" >
+
+
+                            <StackLayout Spacing="0">
+                                <Frame CornerRadius="30" 
+                               Margin="40,0" 
+                               Padding="5"
+                               BackgroundColor="{DynamicResource colRed}" 
+                               HasShadow="True">
+
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+
+                                        <Label Text="إخترنا لكم:" 
+                                   VerticalOptions="CenterAndExpand"
+                                   TextColor="{DynamicResource colWhite}"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="Center" />
+
+                                        <ActivityIndicator HeightRequest="15" 
+                                    WidthRequest="15" 
+                                    Margin="5,0"
+                                    IsVisible="{Binding IsGettingRandomQuote}" 
+                                    IsRunning="{Binding IsGettingRandomQuote}"
+                                    HorizontalOptions="Center"
+                                    Color="{DynamicResource colWhite}"/>
+                                    </StackLayout>
+
+                                </Frame>
+
+
+                                <templates:QuoteTemplate Quote="{Binding BindingContext.Quote, Source={x:Reference Page}}" IsControlsVisible="True" />
+
+
+
+                            </StackLayout>
+
+                        </Frame>
+                    </Frame>
+
+
+
+
+                </StackLayout>
+
+            </ScrollView>
+        </RefreshView>
+
     </ContentPage.Content>
 </ContentPage>

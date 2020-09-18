@@ -10,10 +10,10 @@
 
     <Application.Resources>
 
-        
+
         <ResourceDictionary Source="/Styles/Themes/WhiteTheme.xaml" />
 
-        
+
     </Application.Resources>
 
 </Application>

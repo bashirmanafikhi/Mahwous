@@ -187,7 +187,11 @@ namespace MahwousWeb.Server.Controllers
 
 
             // categories filter
-            if (videoFilter.Categories != null && videoFilter.Categories.Count > 0)
+            if (videoFilter.WithoutCategory)
+            {
+                videosQueryable = videosQueryable.Where(v => v.StatusCategories == null || v.StatusCategories.Count == 0);
+            }
+            else if (videoFilter.Categories != null && videoFilter.Categories.Count > 0)
             {
                 int[] catIds = videoFilter.Categories.Select(c => c.Id).ToArray();
 
@@ -198,19 +202,13 @@ namespace MahwousWeb.Server.Controllers
 
             // other general status properties
 
-            videosQueryable = videosQueryable.Where(v => v.ViewsCount >= videoFilter.ViewsCount);
-            videosQueryable = videosQueryable.Where(v => v.DownloadsCount >= videoFilter.DownloadsCount);
-            videosQueryable = videosQueryable.Where(v => v.LikesCount >= videoFilter.LikesCount);
+            videosQueryable = videosQueryable.Where(v => v.ViewsCount >= videoFilter.ViewsCount.From && v.ViewsCount <= videoFilter.ViewsCount.To);
+            videosQueryable = videosQueryable.Where(v => v.DownloadsCount >= videoFilter.DownloadsCount.From && v.DownloadsCount <= videoFilter.DownloadsCount.To);
+            videosQueryable = videosQueryable.Where(v => v.LikesCount >= videoFilter.LikesCount.From && v.LikesCount <= videoFilter.LikesCount.To);
 
-            if (videoFilter.Visible)
-            {
-                videosQueryable = videosQueryable.Where(v => v.Visible);
-            }
+            videosQueryable = videosQueryable.Where(v => v.Date >= videoFilter.Date.From && v.Date <= videoFilter.Date.To);
 
-            if (videoFilter.DateFrom != DateTime.MinValue)
-                videosQueryable = videosQueryable.Where(v => v.Date > videoFilter.DateFrom);
-            if (videoFilter.DateTo != DateTime.MinValue)
-                videosQueryable = videosQueryable.Where(v => v.Date < videoFilter.DateTo);
+            videosQueryable = videosQueryable.Where(v => v.Visible == videoFilter.Visible);
 
             switch (videoFilter.SortType)
             {
@@ -226,6 +224,9 @@ namespace MahwousWeb.Server.Controllers
                 case SortType.Downloads:
                     videosQueryable = videosQueryable.OrderByDescending(v => v.DownloadsCount);
                     break;
+                case SortType.Likes:
+                    videosQueryable = videosQueryable.OrderByDescending(v => v.LikesCount);
+                    break;
                 case SortType.Random:
                     videosQueryable = videosQueryable.OrderBy(v => Guid.NewGuid());
                     break;
@@ -239,6 +240,105 @@ namespace MahwousWeb.Server.Controllers
             var videos = await videosQueryable.Paginate(videoFilter.Pagination).ToListAsync();
 
             return videos;
+        }
+
+        [AllowAnonymous]
+        [HttpPost("count")]
+        public async Task<ActionResult<FilteredInformations>> Count(VideoFilter videoFilter)
+        {
+
+            var videosQueryable = context.VideoStatuses.AsQueryable();
+
+            // videos title
+            if (!string.IsNullOrWhiteSpace(videoFilter.Name))
+            {
+                videosQueryable = videosQueryable
+                    .Where(v => v.Title.Contains(videoFilter.Name));
+            }
+
+
+            // categories filter
+            if (videoFilter.WithoutCategory)
+            {
+                videosQueryable = videosQueryable.Where(v => v.StatusCategories == null || v.StatusCategories.Count == 0);
+            }
+            else if (videoFilter.Categories != null && videoFilter.Categories.Count > 0)
+            {
+                int[] catIds = videoFilter.Categories.Select(c => c.Id).ToArray();
+
+                videosQueryable = videosQueryable.Where(video =>
+                    video.StatusCategories.Any(sc => catIds.Contains(sc.CategoryId))
+                );
+            }
+
+            // other general status properties
+
+            videosQueryable = videosQueryable.Where(v => v.ViewsCount >= videoFilter.ViewsCount.From && v.ViewsCount <= videoFilter.ViewsCount.To);
+            videosQueryable = videosQueryable.Where(v => v.DownloadsCount >= videoFilter.DownloadsCount.From && v.DownloadsCount <= videoFilter.DownloadsCount.To);
+            videosQueryable = videosQueryable.Where(v => v.LikesCount >= videoFilter.LikesCount.From && v.LikesCount <= videoFilter.LikesCount.To);
+
+            videosQueryable = videosQueryable.Where(v => v.Date >= videoFilter.Date.From && v.Date <= videoFilter.Date.To);
+
+            videosQueryable = videosQueryable.Where(v => v.Visible == videoFilter.Visible);
+
+            switch (videoFilter.SortType)
+            {
+                case SortType.Newest:
+                    videosQueryable = videosQueryable.OrderByDescending(v => v.Date);
+                    break;
+                case SortType.Oldest:
+                    videosQueryable = videosQueryable.OrderBy(v => v.Date);
+                    break;
+                case SortType.Views:
+                    videosQueryable = videosQueryable.OrderByDescending(v => v.ViewsCount);
+                    break;
+                case SortType.Downloads:
+                    videosQueryable = videosQueryable.OrderByDescending(v => v.DownloadsCount);
+                    break;
+                case SortType.Likes:
+                    videosQueryable = videosQueryable.OrderByDescending(v => v.LikesCount);
+                    break;
+                case SortType.Random:
+                    videosQueryable = videosQueryable.OrderBy(v => Guid.NewGuid());
+                    break;
+                default:
+                    break;
+            }
+
+            FilteredInformations informations = new FilteredInformations();
+            informations.StatusesCount = await videosQueryable.CountAsync();
+
+            informations.DownloadsCount = await videosQueryable.SumAsync(s => (long)s.DownloadsCount);
+            informations.LikesCount = await videosQueryable.SumAsync(s => (long)s.LikesCount);
+            informations.ViewsCount = await videosQueryable.SumAsync(s => (long)s.ViewsCount);
+
+            informations.CategoriesCount = await context.Categories.Where(c => c.ForVideos).CountAsync();
+
+            var categoriesStatusCounts = context.Categories.Where(c => c.ForVideos).Select(c => new KeyValuePair<string, int>(c.Name, c.StatusCategories.Where(sc => sc.Status is VideoStatus).Count()));
+            informations.CategoriesStatusCounts = new Dictionary<string, int>(categoriesStatusCounts);
+
+            return informations;
+        }
+
+
+
+        [AllowAnonymous]
+        [HttpGet("count")]
+        public async Task<ActionResult<FilteredInformations>> Count()
+        {
+            FilteredInformations informations = new FilteredInformations();
+            informations.StatusesCount = await context.VideoStatuses.CountAsync();
+
+            informations.DownloadsCount = await context.VideoStatuses.SumAsync(s => (long)s.DownloadsCount);
+            informations.LikesCount = await context.VideoStatuses.SumAsync(s => (long)s.LikesCount);
+            informations.ViewsCount = await context.VideoStatuses.SumAsync(s => (long)s.ViewsCount);
+
+            informations.CategoriesCount = await context.Categories.Where(c => c.ForVideos).CountAsync();
+
+            var categoriesStatusCounts = context.Categories.Where(c => c.ForVideos).Select(c => new KeyValuePair<string, int>(c.Name, c.StatusCategories.Where(sc => sc.Status is VideoStatus).Count()));
+            informations.CategoriesStatusCounts = new Dictionary<string, int>(categoriesStatusCounts);
+
+            return informations;
         }
     }
 }

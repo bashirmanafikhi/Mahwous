@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 using MahwousQuotes.ViewModels;
 using MahwousWeb.Shared.Filters;
 using MahwousWeb.Shared.Models;
+using App =  MahwousWeb.Shared.Models.App;
 using MahwousWeb.Shared.Pagination;
 using Xamarin.Forms;
 
-namespace MahwousApps.ViewModels
+namespace MahwousQuotes.ViewModels
 {
 
     public class AppsViewModel : BaseViewModel
@@ -29,7 +30,7 @@ namespace MahwousApps.ViewModels
             get { return itemTreshold; }
             set { SetProperty(ref itemTreshold, value); }
         }
-        public ObservableCollection<App> Apps { get; set; }
+        public ObservableCollection<MahwousWeb.Shared.Models.App> Apps { get; set; }
 
 
         public Command LoadAppsCommand { get; set; }
@@ -37,14 +38,17 @@ namespace MahwousApps.ViewModels
 
         public AppsViewModel()
         {
-            Apps = new ObservableCollection<App>();
+            Apps = new ObservableCollection<MahwousWeb.Shared.Models.App>();
 
-            LoadAppsCommand = new Command(async () => await ExecuteLoadAppsCommand());
+            LoadAppsCommand = new Command(ExecuteLoadAppsCommand);
         }
 
-        async Task ExecuteLoadAppsCommand()
+        async void ExecuteLoadAppsCommand()
         {
-                IsBusy = true;
+            if (IsBusy)
+                return;
+
+            IsBusy = true;
 
                 try
                 {

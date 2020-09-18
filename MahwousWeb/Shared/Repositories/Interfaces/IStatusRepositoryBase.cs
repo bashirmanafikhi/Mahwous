@@ -11,5 +11,7 @@ namespace MahwousWeb.Shared.Repositories.Interfaces
         Task IncrementViews(int id);
         Task IncrementDownloads(int id);
         Task IncrementLikes(int id);
+        Task DecrementLikes(int id);
+        Task<GeneralInformations> GetGeneralInformations();
     }
 }

@@ -11,19 +11,22 @@ using MahwousWeb.Shared.Models;
 using MahwousWeb.Shared.Pagination;
 using MahwousWeb.Shared.Filters;
 using System.Linq;
+using System.Windows.Input;
 
 namespace MahwousQuotes.ViewModels
 {
     public class CategoriesViewModel : BaseViewModel
     {
-        public ObservableCollection<Category> Categories { get; set; }
+        public ObservableCollection<CategoryViewModel> Categories { get; set; }
         public Command LoadCategoriesCommand { get; set; }
 
         public CategoriesViewModel()
         {
             Title = "التصنيفات";
+            Categories = new ObservableCollection<CategoryViewModel>();
+
             LoadCategoriesCommand = new Command(async () => await ExecuteLoadCategoriesCommand());
-            Categories = new ObservableCollection<Category>();
+            GetInformationsCommand = new Command(ExecuteGetInformationsCommand);
         }
 
         async Task ExecuteLoadCategoriesCommand()
@@ -34,8 +37,10 @@ namespace MahwousQuotes.ViewModels
             {
                 Categories.Clear();
                 CategoryFilter filter = new CategoryFilter() { ForQuotes = true, RecordsPerPage = 100};
+
                 var paginatedResponse = await Repositories.CategoryRepository.GetCategoriesFiltered(filter);
                 var categories = paginatedResponse.Response;
+
 
                 // randomize
                 Random rng = new Random();
@@ -44,8 +49,10 @@ namespace MahwousQuotes.ViewModels
                 // add to the list
                 foreach (var category in categories)
                 {
-                    Categories.Add(category);
+                    Categories.Add(new CategoryViewModel(category, Informations.CategoriesStatusCounts[category.Name]));
                 }
+
+                
 
             }
             catch (Exception ex)
@@ -56,6 +63,39 @@ namespace MahwousQuotes.ViewModels
             {
                 IsBusy = false;
             }
+
+
+
+
         }
+
+
+
+
+        private FilteredInformations informations;
+        public FilteredInformations Informations
+        {
+            get { return informations; }
+            set { SetProperty(ref informations, value); }
+        }
+
+        private async void ExecuteGetInformationsCommand()
+        {
+            IsBusy = true;
+            try
+            {
+                Informations = await Repositories.QuoteRepository.GetInformations();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+        public ICommand GetInformationsCommand { get; }
+
     }
 }

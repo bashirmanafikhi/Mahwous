@@ -16,5 +16,7 @@ namespace MahwousWeb.Shared.Repositories.Interfaces
         Task Update(QuoteStatus quote);
         Task Delete(int Id);
         Task<PaginatedResponse<List<QuoteStatus>>> GetQuotesFiltered(QuoteFilter quoteFilter);
+        Task<FilteredInformations> GetInformations(QuoteFilter filter = null);
+        Task<QuoteStatus> GetRandomQuote();
     }
 }

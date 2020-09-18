@@ -9,6 +9,9 @@ using Matcha.BackgroundService;
 using Plugin.LocalNotification;
 using MahwousQuotes.Models;
 using MahwousQuotes.Helpers;
+using MahwousQuotes.Styles.Themes;
+using MahwousWeb.Shared.Models;
+using Xamarin.Essentials;
 
 namespace MahwousQuotes
 {
@@ -18,14 +21,15 @@ namespace MahwousQuotes
         public App()
         {
             InitializeComponent();
-            RegisterServices();
 
+            RegisterServices();
+            SetProperties();
+            CheckTheme();
 
             // Local Notification tap event listener
-            NotificationCenter.Current.NotificationTapped += OnLocalNotificationTapped;
+            //NotificationCenter.Current.NotificationTapped += OnLocalNotificationTapped;
 
-            //MainPage = new NavigationPage(new SplashPage());
-            MainPage = new SplashPage();
+            MainPage = new AppShell();
         }
 
         protected override void OnStart()
@@ -61,6 +65,7 @@ namespace MahwousQuotes
 
         private void RegisterServices()
         {
+            // Repositories
             DependencyService.Register<Repositories>();
             var http = GetHttpService();
             DependencyService.Get<Repositories>().CategoryRepository = new CategoryRepository(http);
@@ -70,10 +75,17 @@ namespace MahwousQuotes
             DependencyService.Get<Repositories>().PostRepository = new PostRepository(http);
         }
 
-        private void OnLocalNotificationTapped(NotificationTappedEventArgs e)
+        private void SetProperties()
         {
-            // your code goes here
-            MainPage = new AboutPage();
+            //Properties["informations"] = await DependencyService.Get<Repositories>().QuoteRepository.GetInformations();
+        }
+
+        private void CheckTheme()
+        {
+            if (Preferences.ContainsKey("dark_mode"))
+            {
+                Current.Resources = new DarkTheme();
+            }
         }
     }
 }
