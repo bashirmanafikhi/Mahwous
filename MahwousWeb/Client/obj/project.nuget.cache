@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "wWCe9h3uGPqWAeZksz7py41MsVWncZKkNtq9USmfI6WNHqDDcky5H1z8B2P4CjoTEEkYcsz65LBF+tN12EeQtg==",
+  "dgSpecHash": "Vq4nESXuc1FMxByp3FcQnXUjvM3sd6an0CyHFXzBhwYnz+qUF70zKYuxz84uaFzt4+ORkgleggb7mZaDZkdJMQ==",
   "success": true,
   "projectFilePath": "D:\\Mahwous\\MahwousWeb\\Client\\MahwousWeb.Client.csproj",
   "expectedPackageFiles": [
@@ -43,7 +43,7 @@
     "C:\\Users\\Bashir\\.nuget\\packages\\system.linq.dynamic.core\\1.2.2\\system.linq.dynamic.core.1.2.2.nupkg.sha512",
     "C:\\Users\\Bashir\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
     "C:\\Users\\Bashir\\.nuget\\packages\\system.text.json\\5.0.0\\system.text.json.5.0.0.nupkg.sha512",
-    "C:\\Users\\Bashir\\.nuget\\packages\\microsoft.netcore.app.runtime.browser-wasm\\5.0.0\\microsoft.netcore.app.runtime.browser-wasm.5.0.0.nupkg.sha512"
+    "C:\\Users\\Bashir\\.nuget\\packages\\microsoft.netcore.app.runtime.browser-wasm\\5.0.1\\microsoft.netcore.app.runtime.browser-wasm.5.0.1.nupkg.sha512"
   ],
   "logs": []
 }
