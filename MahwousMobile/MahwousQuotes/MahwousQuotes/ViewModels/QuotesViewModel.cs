@@ -1,13 +1,10 @@
-﻿using System;
+﻿using MahwousQuote.ViewModels;
+using MahwousQuotes.Helpers;
+using MahwousWeb.Shared.Filters;
+using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using MahwousQuote.ViewModels;
-using MahwousQuotes.Helpers;
-using MahwousQuotes.Models;
-using MahwousWeb.Shared.Filters;
-using MahwousWeb.Shared.Models;
-using MahwousWeb.Shared.Pagination;
 using Xamarin.Forms;
 
 namespace MahwousQuotes.ViewModels
@@ -57,16 +54,20 @@ namespace MahwousQuotes.ViewModels
 
         async Task ExecuteLoadQuotesCommand()
         {
-            if (IsBusy) return;
-            Debug.WriteLine("Bashir: Load " + Filter.SortType);
+            //if (IsBusy)
+            //{
+            //    return;
+            //}
+
+            Debug.WriteLine("Bashir:  IsBusy true " + Filter.SortType);
             IsBusy = true;
 
             try
             {
                 Quotes.Clear();
-                filter.Page = 1;
+                filter.Pagination.Page = 1;
 
-                var paginatedResponse = await Repositories.QuoteRepository.GetQuotesFiltered(Filter);
+                var paginatedResponse = await Repositories.QuotesRepository.GetFiltered(Filter);
                 totalAmountPages = paginatedResponse.TotalAmountPages;
                 var quotes = paginatedResponse.Response;
                 foreach (var quote in quotes)
@@ -80,6 +81,7 @@ namespace MahwousQuotes.ViewModels
             }
             finally
             {
+                Debug.WriteLine("Bashir: IsBusy false " + Filter.SortType);
                 IsBusy = false;
             }
         }
@@ -92,12 +94,14 @@ namespace MahwousQuotes.ViewModels
 
                 try
                 {
-                    if (Filter.Page < totalAmountPages)
+                    if (Filter.Pagination.Page < totalAmountPages)
                     {
-                        Filter.Page++;
-                        var paginatedResponse = await Repositories.QuoteRepository.GetQuotesFiltered(Filter);
+                        Filter.Pagination.Page++;
+                        var paginatedResponse = await Repositories.QuotesRepository.GetFiltered(Filter);
                         foreach (var quote in paginatedResponse.Response)
+                        {
                             Quotes.Add(new QuoteViewModel(quote) { Liked = database.Exists(quote) });
+                        }
                     }
                     else
                     {

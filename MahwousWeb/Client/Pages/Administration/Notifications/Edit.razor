@@ -1,9 +1,9 @@
-﻿@*@page "/administration/notifications/edit/{notificationId:int}"
+﻿@page "/administration/notifications/edit/{notificationId:int}"
 @layout AdminLayout
 @attribute [Authorize]
 
 @inject HttpAuthorizer authorizer
-@inject INotificationRepository notificationRepository
+@inject MahwousRepositories repositories
 @inject NavigationManager navigation
 
 <div class="content-header">
@@ -45,14 +45,14 @@
 
     protected async override Task OnParametersSetAsync()
     {
-        notification = await notificationRepository.Get(notificationId);
+        notification = await repositories.NotificationsRepository.Get(notificationId);
     }
 
     async Task EditNotification()
     {
         try
         {
-            await notificationRepository.Update(notification);
+            await repositories.NotificationsRepository.Update(notification);
             navigation.NavigateTo("administration/notifications");
 
         }
@@ -61,4 +61,4 @@
             Console.WriteLine("Error: " + ex.Message);
         }
     }
-}*@
+}

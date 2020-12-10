@@ -6,6 +6,7 @@
              xmlns:templates="clr-namespace:MahwousVideos.Views.DataTemplates"
              xmlns:vm="clr-namespace:MahwousVideos.ViewModels" 
              xmlns:helpers="clr-namespace:MahwousVideos.Helpers"
+             xmlns:controls="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              mc:Ignorable="d"
              x:Class="MahwousVideos.Views.VideosPage"
              Visual="Material"
@@ -25,23 +26,29 @@
                                       DisplayMemberName="Content" />
     </Shell.SearchHandler>-->
 
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+
+        <templates:VideosTemplate x:Name="myVideosTemplate" />
 
 
 
-    <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding LoadVideosCommand}">
-        <StackLayout>
-            <CollectionView x:Name="ItemsCollectionView"
-                            RemainingItemsThreshold="{Binding ItemTreshold}"
-                            RemainingItemsThresholdReachedCommand="{Binding LoadMoreVideosCommand}"
-                            ItemTemplate="{DataTemplate templates:VideoTemplate}"
-                ItemsSource="{Binding Videos}">
+        <!--تجريب-->
+        <!--<controls:MTAdView BackgroundColor="{DynamicResource colBackground}" x:Name="myBanner" AdsId="ca-app-pub-3940256099942544/6300978111" Grid.Row="1"/>-->
+        <!--حقيقي-->
+        <controls:MTAdView BackgroundColor="{DynamicResource colBackground}" x:Name="myBanner" AdsId="ca-app-pub-1685177955120006/3389381831" Grid.Row="1"/>
 
-            </CollectionView>
-            <ActivityIndicator IsRunning="{Binding IsLoadingMore}"  IsVisible="{Binding IsLoadingMore}" />
+    </Grid>
 
 
-        </StackLayout>
-    </RefreshView>
 
 
+    
+    
+    
+    
 </ContentPage>

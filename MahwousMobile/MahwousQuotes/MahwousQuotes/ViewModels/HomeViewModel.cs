@@ -1,7 +1,6 @@
 ﻿using MahwousWeb.Shared.Models;
 using System;
 using System.Diagnostics;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
@@ -13,6 +12,7 @@ namespace MahwousQuotes.ViewModels
     {
         public HomeViewModel()
         {
+
             OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://www.mahwous.com"));
             GetInformationsCommand = new Command(ExecuteGetInformationsCommand);
 
@@ -30,8 +30,8 @@ namespace MahwousQuotes.ViewModels
         }
 
 
-        private FilteredInformations informations;
-        public FilteredInformations Informations
+        private Informations informations;
+        public Informations Informations
         {
             get { return informations; }
             set { SetProperty(ref informations, value); }
@@ -44,7 +44,7 @@ namespace MahwousQuotes.ViewModels
             try
             {
                 await initRandomQuote();
-                Informations = await Repositories.QuoteRepository.GetInformations();
+                Informations = await Repositories.QuotesRepository.GetInformations();
             }
             catch (Exception ex)
             {
@@ -72,7 +72,7 @@ namespace MahwousQuotes.ViewModels
             try
             {
                 //Quote = new QuoteStatus();
-                Quote = await Repositories.QuoteRepository.GetRandomQuote();
+                Quote = await Repositories.QuotesRepository.GetRandom();
             }
             catch (Exception ex)
             {

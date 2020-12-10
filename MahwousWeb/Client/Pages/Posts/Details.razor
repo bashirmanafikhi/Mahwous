@@ -1,0 +1,19 @@
+﻿@page "/posts/{id:int}"
+@layout AdminLayout
+@inject MahwousRepositories repositories
+Id is:
+@if (post != null)
+{
+    <h3>@post.Id</h3>
+}
+
+
+@code {
+    [Parameter] public int id { get; set; }
+    MahwousWeb.Shared.Models.Post post;
+
+    protected async override Task OnParametersSetAsync()
+    {
+        post = await repositories.PostsRepository.Get(id);
+    }
+}

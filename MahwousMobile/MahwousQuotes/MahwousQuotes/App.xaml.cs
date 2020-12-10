@@ -1,17 +1,9 @@
-﻿using System;
-using Xamarin.Forms;
-using MahwousQuotes.Views;
-using MahwousWeb.Shared.Repositories;
-using MahwousWeb.Shared.Services;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Matcha.BackgroundService;
-using Plugin.LocalNotification;
-using MahwousQuotes.Models;
-using MahwousQuotes.Helpers;
-using MahwousQuotes.Styles.Themes;
+﻿using MahwousQuotes.Styles.Themes;
 using MahwousWeb.Shared.Models;
+using MahwousWeb.Shared.Repositories;
+using System.Diagnostics;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace MahwousQuotes
 {
@@ -52,27 +44,9 @@ namespace MahwousQuotes
         }
 
 
-        private IHttpService GetHttpService()
-        {
-            HttpClient httpClient = new HttpClient
-            {
-                BaseAddress = new Uri(@"https://www.mahwous.com/")
-            };
-            IHttpService httpService = new HttpService(httpClient);
-
-            return httpService;
-        }
-
         private void RegisterServices()
         {
-            // Repositories
-            DependencyService.Register<Repositories>();
-            var http = GetHttpService();
-            DependencyService.Get<Repositories>().CategoryRepository = new CategoryRepository(http);
-            DependencyService.Get<Repositories>().QuoteRepository = new QuoteRepository(http);
-            DependencyService.Get<Repositories>().NotificationRepository = new NotificationRepository(http);
-            DependencyService.Get<Repositories>().AppRepository = new AppRepository(http);
-            DependencyService.Get<Repositories>().PostRepository = new PostRepository(http);
+            DependencyService.Register<MahwousRepositories>();
         }
 
         private void SetProperties()

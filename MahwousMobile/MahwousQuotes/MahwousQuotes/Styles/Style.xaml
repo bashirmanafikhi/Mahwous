@@ -9,21 +9,6 @@
     mc:Ignorable="d">
 
 
-
-
-    <Style TargetType="controls:MTAdView">
-        <!--<Setter Property="HeightRequest">
-            <Setter.Value>
-                <x:OnIdiom Phone="50" Tablet="90"/>
-            </Setter.Value>
-        </Setter>-->
-    </Style>
-
-
-
-
-    
-    
     <Style TargetType="Label">
         <Setter Property="TextColor" Value="{DynamicResource colForeground}" />
         <Setter Property="FontFamily" Value="Janna" />
@@ -42,15 +27,6 @@
         <Setter Property="Padding" Value="0" />
     </Style>
 
-
-
-
-
-
-
-
-
-
     <Style x:Key="FloutItemStyle" TargetType="Grid">
         <Setter Property="VisualStateManager.VisualStateGroups">
             <VisualStateGroupList>
@@ -66,12 +42,7 @@
         </Setter>
     </Style>
 
-
-
-
-
-
-
+    
 
     <!--Flow Direction-->
     <Style TargetType="Page">

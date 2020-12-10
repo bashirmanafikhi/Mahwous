@@ -19,7 +19,7 @@ public final class R {
 		public static final int fontStyle = 0x7f0300e5;
 		public static final int fontVariationSettings = 0x7f0300e6;
 		public static final int fontWeight = 0x7f0300e7;
-		public static final int ttcIndex = 0x7f0301e2;
+		public static final int ttcIndex = 0x7f0301e3;
 	}
 	public static final class bool {
 		public static final int enable_system_alarm_service_default = 0x7f040003;
@@ -176,7 +176,7 @@ public final class R {
 		public static final int FontFamily_fontProviderFetchTimeout = 3;
 		public static final int FontFamily_fontProviderPackage = 4;
 		public static final int FontFamily_fontProviderQuery = 5;
-		public static final int[] FontFamilyFont = new int[] { 0x01010532, 0x01010533, 0x0101053f, 0x0101056f, 0x01010570, 0x7f0300dd, 0x7f0300e5, 0x7f0300e6, 0x7f0300e7, 0x7f0301e2 };
+		public static final int[] FontFamilyFont = new int[] { 0x01010532, 0x01010533, 0x0101053f, 0x0101056f, 0x01010570, 0x7f0300dd, 0x7f0300e5, 0x7f0300e6, 0x7f0300e7, 0x7f0301e3 };
 		public static final int FontFamilyFont_android_font = 0;
 		public static final int FontFamilyFont_android_fontStyle = 2;
 		public static final int FontFamilyFont_android_fontVariationSettings = 4;

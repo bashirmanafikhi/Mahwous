@@ -2,7 +2,7 @@
 @layout AdminLayout
 @attribute [Authorize]
 @inject HttpAuthorizer authorizer
-@inject IAppRepository appRepository
+@inject MahwousRepositories repositories
 @inject NavigationManager navigation
 
 <div class="content-header">
@@ -44,7 +44,7 @@
     {
         try
         {
-            await appRepository.Add(app);
+            await repositories.AppsRepository.Add(app);
             navigation.NavigateTo("administration/apps");
 
         }

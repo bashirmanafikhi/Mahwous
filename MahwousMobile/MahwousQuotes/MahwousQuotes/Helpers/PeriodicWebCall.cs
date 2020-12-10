@@ -1,9 +1,7 @@
-﻿using MahwousQuotes.Models;
+﻿using MahwousWeb.Shared.Repositories;
 using Matcha.BackgroundService;
 using Plugin.LocalNotification;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -11,7 +9,7 @@ namespace MahwousQuotes.Helpers
 {
     public class PeriodicWebCall : IPeriodicTask
     {
-        public Repositories Repositories => DependencyService.Get<Repositories>();
+        public MahwousRepositories Repositories => DependencyService.Get<MahwousRepositories>();
 
 
         public PeriodicWebCall(int seconds)
@@ -23,7 +21,7 @@ namespace MahwousQuotes.Helpers
 
         public async Task<bool> StartJob()
         {
-            var serverNotification = await Repositories.NotificationRepository.GetNewest();
+            var serverNotification = await Repositories.NotificationsRepository.GetRandom();
             if (serverNotification.Title.Equals("Bashir"))
             {
                 // show notification
@@ -31,7 +29,7 @@ namespace MahwousQuotes.Helpers
                 {
                     NotificationId = 100,
                     Title = serverNotification.Title,
-                    Description = serverNotification.Content,
+                    Description = serverNotification.Description,
                     ReturningData = "Dummy data", // Returning data when tapped on notification.
                     //NotifyTime = DateTime.Now.AddSeconds(30) // Used for Scheduling local notification, if not specified notification will show immediately.
                 };

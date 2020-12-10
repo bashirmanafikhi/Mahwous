@@ -1,16 +1,8 @@
-﻿
-
-using MahwousQuotes.Helpers;
-using MahwousQuotes.Models;
+﻿using MahwousQuotes.Helpers;
 using MahwousQuotes.ViewModels;
-using MahwousWeb.Shared.Filters;
 using MahwousWeb.Shared.Models;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Globalization;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
@@ -33,9 +25,13 @@ namespace MahwousQuote.ViewModels
             ShareQuoteFaceCommand = new Command(ExecuteShareQuoteFaceCommand);
 
             if (quote is null)
+            {
                 initRandomQuote();
+            }
             else
+            {
                 Quote = quote;
+            }
         }
 
         private async void initRandomQuote()
@@ -43,7 +39,7 @@ namespace MahwousQuote.ViewModels
             IsBusy = true;
             try
             {
-                Quote = await Repositories.QuoteRepository.GetRandomQuote();
+                Quote = await Repositories.QuotesRepository.GetRandom();
             }
             catch (Exception ex)
             {
@@ -146,9 +142,10 @@ namespace MahwousQuote.ViewModels
             {
                 try
                 {
+                    await Repositories.QuotesRepository.DecrementLikes(quote.Id);
+
                     LikesCount--;
                     Liked = false;
-                    await Repositories.QuoteRepository.DecrementLikes(quote.Id);
 
                     using (QuotesDatabase database = new QuotesDatabase())
                     {
@@ -169,7 +166,7 @@ namespace MahwousQuote.ViewModels
                 {
                     LikesCount++;
                     Liked = true;
-                    await Repositories.QuoteRepository.IncrementLikes(quote.Id);
+                    await Repositories.QuotesRepository.IncrementLikes(quote.Id);
 
                     using (QuotesDatabase database = new QuotesDatabase())
                     {
@@ -240,7 +237,7 @@ namespace MahwousQuote.ViewModels
         {
             try
             {
-                await DependencyService.Get<Repositories>().QuoteRepository.IncrementDownloads(quote.Id);
+                await Repositories.QuotesRepository.IncrementDownloads(quote.Id);
             }
             catch (Exception ex)
             {

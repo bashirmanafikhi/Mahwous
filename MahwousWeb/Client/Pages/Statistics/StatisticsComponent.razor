@@ -1,6 +1,5 @@
-﻿@inject IImageRepository ImageRepository
-@inject IVideoRepository VideoRepository
-@inject IQuoteRepository QuoteRepository
+﻿
+@inject MahwousRepositories repositories
 
 
 
@@ -17,7 +16,7 @@
                 <div class="card-body">
                     @if (generalInformations != null)
                     {
-                        <p>عدد الحالات الكلي: @generalInformations.AllStatusesCount</p>
+                        <p>عدد الحالات الكلي: @generalInformations.Count</p>
                         <p>التحميلات: @generalInformations.DownloadsCount</p>
                         <p>المشاهدات: @generalInformations.ViewsCount</p>
                         <p>الإعجابات: @generalInformations.LikesCount</p>
@@ -28,8 +27,8 @@
                     }
                 </div>
                 <div class="card-footer bg-info text-white d-flex align-items-center justify-content-between">
-                    @*<a class="small text-white stretched-link" href="administration/categories">ذهاب الى التصنيفات</a>
-                        <div class="small text-white"><i class="fas fa-angle-left"></i></div>*@
+                    <a class="small text-white stretched-link" href="categories">ذهاب الى التصنيفات</a>
+                    <div class="small text-white"><i class="fas fa-angle-left"></i></div>
                 </div>
             </div>
         </div>
@@ -41,7 +40,7 @@
                 <div class="card-body">
                     @if (videoInformations != null)
                     {
-                        <p>عدد الفيديوهات: @videoInformations.StatusesCount</p>
+                        <p>عدد الفيديوهات: @videoInformations.Count</p>
                         <p>التحميلات: @videoInformations.DownloadsCount</p>
                         <p>المشاهدات: @videoInformations.ViewsCount</p>
                         <p>الإعجابات: @videoInformations.LikesCount</p>
@@ -52,7 +51,7 @@
                     }
                 </div>
                 <div class="card-footer bg-info text-white d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="administration/videos">ذهاب إلى الفيديوهات</a>
+                    <a class="small text-white stretched-link" href="videos">ذهاب إلى الفيديوهات</a>
                     <div class="small text-white"><i class="fas fa-angle-left"></i></div>
                 </div>
             </div>
@@ -65,7 +64,7 @@
                 <div class="card-body">
                     @if (imageInformations != null)
                     {
-                        <p>عدد الصور: @imageInformations.StatusesCount</p>
+                        <p>عدد الصور: @imageInformations.Count</p>
                         <p>التحميلات: @imageInformations.DownloadsCount</p>
                         <p>المشاهدات: @imageInformations.ViewsCount</p>
                         <p>الإعجابات: @imageInformations.LikesCount</p>
@@ -76,7 +75,7 @@
                     }
                 </div>
                 <div class="card-footer bg-info text-white d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="administration/images">ذهاب الى الصور</a>
+                    <a class="small text-white stretched-link" href="images">ذهاب الى الصور</a>
                     <div class="small text-white"><i class="fas fa-angle-left"></i></div>
                 </div>
             </div>
@@ -89,7 +88,7 @@
                 <div class="card-body">
                     @if (quoteInformations != null)
                     {
-                        <p>عدد الحالات الكتابية: @quoteInformations.StatusesCount</p>
+                        <p>عدد الحالات الكتابية: @quoteInformations.Count</p>
                         <p>التحميلات: @quoteInformations.DownloadsCount</p>
                         <p>المشاهدات: @quoteInformations.ViewsCount</p>
                         <p>الإعجابات: @quoteInformations.LikesCount</p>
@@ -100,7 +99,7 @@
                     }
                 </div>
                 <div class="card-footer bg-info text-white d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="administration/quotes">ذهاب الى الحالات الكتابية</a>
+                    <a class="small text-white stretched-link" href="quotes">ذهاب الى الحالات الكتابية</a>
                     <div class="small text-white"><i class="fas fa-angle-left"></i></div>
                 </div>
             </div>
@@ -122,7 +121,7 @@
                                 <TitleTemplate>
                                     <div class="rz-donut-content">
                                         <div> العدد الكلي </div>
-                                        <div class="text-primary">@generalInformations.AllStatusesCount</div>
+                                        <div class="text-primary">@generalInformations.Count</div>
                                     </div>
                                 </TitleTemplate>
                             </RadzenDonutSeries>
@@ -175,17 +174,17 @@
                     <h3 class="font-weight-bold"> التصنيفات </h3>
                 </div>
                 <div class="card-body">
-                    @if (generalInformations != null)
-                    {
-                        <p>عدد التصنيفات: @generalInformations.CategoriesCount</p>
-                    }
-                    else
-                    {
-                        <p><i class="fas fa-spin fa-spinner"></i> جاري تحميل البيانات </p>
-                    }
+                    @*@if (generalInformations != null)
+                        {
+                            <p>عدد التصنيفات: @generalInformations.CategoriesCount</p>
+                        }
+                        else
+                        {
+                            <p><i class="fas fa-spin fa-spinner"></i> جاري تحميل البيانات </p>
+                        }*@التصنيفات
                 </div>
                 <div class="card-footer bg-primary text-white d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="administration/categories">ذهاب الى التصنيفات</a>
+                    <a class="small text-white stretched-link" href="categories">ذهاب الى التصنيفات</a>
                     <div class="small text-white"><i class="fas fa-angle-left"></i></div>
                 </div>
             </div>
@@ -196,17 +195,17 @@
                     <h3 class="font-weight-bold"> التطبيقات </h3>
                 </div>
                 <div class="card-body">
-                    @if (generalInformations != null)
-                    {
-                        <p>عدد التطبيقات: @generalInformations.AppsCount</p>
-                    }
-                    else
-                    {
-                        <p><i class="fas fa-spin fa-spinner"></i> جاري تحميل البيانات </p>
-                    }
+                    @*@if (generalInformations != null)
+                        {
+                            <p>عدد التطبيقات: @generalInformations.AppsCount</p>
+                        }
+                        else
+                        {
+                            <p><i class="fas fa-spin fa-spinner"></i> جاري تحميل البيانات </p>
+                        }*@التطبيقات
                 </div>
                 <div class="card-footer bg-primary text-white d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="administration/apps">ذهاب الى التطبيقات</a>
+                    <a class="small text-white stretched-link" href="apps">ذهاب الى التطبيقات</a>
                     <div class="small text-white"><i class="fas fa-angle-left"></i></div>
                 </div>
             </div>
@@ -217,17 +216,17 @@
                     <h3 class="font-weight-bold"> المنشورات </h3>
                 </div>
                 <div class="card-body">
-                    @if (generalInformations != null)
-                    {
-                        <p>عدد المنشورات: @generalInformations.PostsCount</p>
-                    }
-                    else
-                    {
-                        <p><i class="fas fa-spin fa-spinner"></i> جاري تحميل البيانات </p>
-                    }
+                    @*@if (generalInformations != null)
+                        {
+                            <p>عدد المنشورات: @generalInformations.PostsCount</p>
+                        }
+                        else
+                        {
+                            <p><i class="fas fa-spin fa-spinner"></i> جاري تحميل البيانات </p>
+                        }*@المنشورات
                 </div>
                 <div class="card-footer bg-primary text-white d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="administration/posts">ذهاب الى المنشورات</a>
+                    <a class="small text-white stretched-link" href="posts">ذهاب الى المنشورات</a>
                     <div class="small text-white"><i class="fas fa-angle-left"></i></div>
                 </div>
             </div>
@@ -281,10 +280,10 @@
                 <div class="card-body">
                     @if (generalInformations != null)
                     {
-                        <p>جميع الحالات: @generalInformations.AllStatusesCount</p>
-                        <p>الفيديوهات: @generalInformations.VideoStatusesCount</p>
-                        <p>الكتابية: @generalInformations.QuoteStatusesCount</p>
-                        <p>الصور: @generalInformations.ImageStatusesCount</p>
+                        <p>جميع الحالات: @generalInformations.Count</p>
+                        <p>الفيديوهات: @videoInformations.Count</p>
+                        <p>الكتابية: @quoteInformations.Count</p>
+                        <p>الصور: @imageInformations.Count</p>
                     }
                     else
                     {
@@ -301,47 +300,47 @@
 
 @code{
 
-    GeneralInformations generalInformations;
-    FilteredInformations quoteInformations;
-    FilteredInformations videoInformations;
-    FilteredInformations imageInformations;
+    Informations generalInformations;
+    Informations quoteInformations;
+    Informations videoInformations;
+    Informations imageInformations;
 
     Dictionary<string, DataItem[]> informations = new Dictionary<string, DataItem[]>();
 
     protected async override Task OnInitializedAsync()
     {
-        quoteInformations = await QuoteRepository.GetInformations();
-        videoInformations = await VideoRepository.GetInformations();
-        imageInformations = await ImageRepository.GetInformations();
+        quoteInformations = await repositories.QuotesRepository.GetInformations();
+        videoInformations = await repositories.VideosRepository.GetInformations();
+        imageInformations = await repositories.ImagesRepository.GetInformations();
 
-        generalInformations = await QuoteRepository.GetGeneralInformations();
+        generalInformations = await repositories.StatusesRepository.GetInformations();
 
         informations[nameof(quoteInformations)] = new DataItem[] {
-            new DataItem("العدد",quoteInformations.StatusesCount),
-            new DataItem("الإعجابات",quoteInformations.LikesCount),
-            new DataItem("التحميلات",quoteInformations.DownloadsCount),
-            new DataItem("المشاهدات",quoteInformations.ViewsCount)
-        };
+                new DataItem("العدد",quoteInformations.Count),
+                new DataItem("الإعجابات",quoteInformations.LikesCount),
+                new DataItem("التحميلات",quoteInformations.DownloadsCount),
+                new DataItem("المشاهدات",quoteInformations.ViewsCount)
+            };
 
         informations[nameof(videoInformations)] = new DataItem[] {
-            new DataItem("العدد",videoInformations.StatusesCount),
-            new DataItem("الإعجابات",videoInformations.LikesCount),
-            new DataItem("التحميلات",videoInformations.DownloadsCount),
-            new DataItem("المشاهدات",videoInformations.ViewsCount)
-        };
+                new DataItem("العدد",videoInformations.Count),
+                new DataItem("الإعجابات",videoInformations.LikesCount),
+                new DataItem("التحميلات",videoInformations.DownloadsCount),
+                new DataItem("المشاهدات",videoInformations.ViewsCount)
+            };
 
         informations[nameof(imageInformations)] = new DataItem[] {
-            new DataItem("العدد",imageInformations.StatusesCount),
-            new DataItem("الإعجابات",imageInformations.LikesCount),
-            new DataItem("التحميلات",imageInformations.DownloadsCount),
-            new DataItem("المشاهدات",imageInformations.ViewsCount)
-        };
+                new DataItem("العدد",imageInformations.Count),
+                new DataItem("الإعجابات",imageInformations.LikesCount),
+                new DataItem("التحميلات",imageInformations.DownloadsCount),
+                new DataItem("المشاهدات",imageInformations.ViewsCount)
+            };
 
         informations[nameof(generalInformations)] = new DataItem[] {
-            new DataItem("الفيديو",generalInformations.VideoStatusesCount),
-            new DataItem("الصور",generalInformations.ImageStatusesCount),
-            new DataItem("الكتابية",generalInformations.QuoteStatusesCount)
-        };
+                new DataItem("الفيديو",videoInformations.Count),
+                new DataItem("الصور",imageInformations.Count),
+                new DataItem("الكتابية",quoteInformations.Count)
+            };
 
     }
 

@@ -3,7 +3,7 @@
 @attribute [Authorize]
 
 @inject HttpAuthorizer authorizer
-@inject IAppRepository appRepository
+@inject MahwousRepositories repositories
 @inject NavigationManager navigation
 
 <!-- Content Header (Page header) -->
@@ -46,14 +46,14 @@
 
     protected async override Task OnParametersSetAsync()
     {
-        app = await appRepository.Get(appId);
+        app = await repositories.AppsRepository.Get(appId);
     }
 
     async Task EditApp()
     {
         try
         {
-            await appRepository.Update(app);
+            await repositories.AppsRepository.Update(app);
             navigation.NavigateTo("administration/apps");
 
         }

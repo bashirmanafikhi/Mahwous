@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MahwousVideos.Helpers;
+using MahwousVideos.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,9 +36,47 @@ namespace MahwousVideos
         {
             await Share.RequestAsync(new ShareTextRequest
             {
-                Uri = "https://play.google.com/store/apps/details?id=com.mahwous.MahwousVideos",
+                Uri = "https://play.google.com/store/apps/details?id=com.mahwous.mahwousvideos",
                 Title = "مشاركة تطبيق مهووس"
             });
+        }
+
+
+        private async void MenuItem_LikedVideos_Clicked(object sender, EventArgs e)
+        {
+            Shell.Current.FlyoutIsPresented = false;
+
+            await Navigation.PushAsync(new LikedVideosPage());
+        }
+
+
+        private bool maybe_exit = false;
+        //-------------------------------------------------------------------
+        protected override bool OnBackButtonPressed()
+        //-------------------------------------------------------------------
+        {
+            if (Navigation.NavigationStack.Count > 1 || Navigation.ModalStack.Count > 1)
+            {
+                return base.OnBackButtonPressed();
+            }
+            //some more custom checks here
+            //..
+
+            if (maybe_exit)
+            {
+                return false; //QUIT
+            }
+
+            DependencyService.Get<IMessage>().ShortAlert("إضغط مرة أخرة للخروج من البرنامج!");
+            maybe_exit = true;
+
+            Device.StartTimer(TimeSpan.FromSeconds(2), () =>
+            {
+                maybe_exit = false; //reset those 2 seconds
+
+                return false;// false - Don't repeat the timer 
+            });
+            return true; //true - don't process BACK by system
         }
     }
 }

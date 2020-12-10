@@ -11,6 +11,11 @@
              Title="{Binding Title}">
 
 
+    <ContentPage.BindingContext>
+        <vm:PostsViewModel />
+    </ContentPage.BindingContext>
+
+
 
     <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding LoadPostsCommand}">
         <StackLayout>

@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace MahwousWeb.Server.Helpers
@@ -21,9 +20,10 @@ namespace MahwousWeb.Server.Helpers
             this.httpContextAccessor = httpContextAccessor;
         }
 
-        public Task DeleteFile(string fileRoute, string containerName)
+        public Task DeleteFile(string fileRoute)
         {
             var fileName = Path.GetFileName(fileRoute);
+            var containerName = Path.GetFileName(Path.GetDirectoryName(fileRoute));
             string fileDirectory = Path.Combine(env.WebRootPath, "content", containerName, fileName);
             if (File.Exists(fileDirectory))
             {
@@ -34,11 +34,12 @@ namespace MahwousWeb.Server.Helpers
         }
 
 
-        public async Task<string> EditFile(byte[] content, string extension, string containerName, string fileName)
+        public async Task<string> EditFile(byte[] content, string extension, string fileRoute)
         {
-            if (!string.IsNullOrEmpty(fileName))
+            var containerName = Path.GetFileName(Path.GetDirectoryName(fileRoute));
+            if (!string.IsNullOrEmpty(fileRoute))
             {
-                await DeleteFile(fileName, containerName);
+                await DeleteFile(fileRoute);
             }
 
             return await SaveFile(content, extension, containerName);
@@ -67,5 +68,19 @@ namespace MahwousWeb.Server.Helpers
 
             //return fileName;
         }
+
+        public byte[] GetFile(string fileRoute)
+        {
+            var fileName = Path.GetFileName(fileRoute);
+            var containerName = Path.GetFileName(Path.GetDirectoryName(fileRoute));
+
+            string filePath = Path.Combine(env.WebRootPath, "content", containerName, fileName);
+            if (File.Exists(filePath))
+            {
+                return File.ReadAllBytes(filePath);
+            }
+            return null;
+        }
+
     }
 }

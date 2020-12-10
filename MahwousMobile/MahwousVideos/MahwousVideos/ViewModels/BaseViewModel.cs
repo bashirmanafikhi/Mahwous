@@ -1,17 +1,15 @@
-﻿using System;
+﻿using MahwousWeb.Shared.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-
 using Xamarin.Forms;
-
-using MahwousVideos.Models;
 
 namespace MahwousVideos.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public Repositories Repositories => DependencyService.Get<Repositories>();
+        public MahwousRepositories Repositories => DependencyService.Get<MahwousRepositories>();
 
         bool isBusy = false;
         public bool IsBusy
@@ -32,7 +30,9 @@ namespace MahwousVideos.ViewModels
             Action onChanged = null)
         {
             if (EqualityComparer<T>.Default.Equals(backingStore, value))
+            {
                 return false;
+            }
 
             backingStore = value;
             onChanged?.Invoke();
@@ -46,10 +46,14 @@ namespace MahwousVideos.ViewModels
         {
             var changed = PropertyChanged;
             if (changed == null)
+            {
                 return;
+            }
 
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
+
+
     }
 }

@@ -3,9 +3,8 @@
 @attribute [Authorize]
 
 @inject HttpAuthorizer authorizer
-@inject ICategoryRepository categoryRepository
+@inject MahwousRepositories repositories
 @inject NavigationManager navigation
-
 <!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
@@ -29,8 +28,8 @@
     <div class="container-fluid">
 
 
-<CategoryForm ButtonText="تعديل التصنيف" Category="category"
-              OnValidSubmit="@EditCategory" />
+        <CategoryForm ButtonText="تعديل التصنيف" Category="category"
+                      OnValidSubmit="@EditCategory" />
 
     </div>
 </div>
@@ -47,14 +46,14 @@
 
     protected async override Task OnParametersSetAsync()
     {
-        category = await categoryRepository.Get(categoryId);
+        category = await repositories.CategoriesRepository.Get(categoryId);
     }
 
     async Task EditCategory()
     {
         try
         {
-            await categoryRepository.Update(category);
+            await repositories.CategoriesRepository.Update(category);
             navigation.NavigateTo("administration/categories");
 
         }

@@ -1,14 +1,9 @@
 ﻿using MahwousQuote.ViewModels;
 using MahwousQuotes.Helpers;
-using MahwousQuotes.Models;
 using MahwousQuotes.Views;
-using MahwousWeb.Shared.Filters;
-using MahwousWeb.Shared.Models;
+using MahwousWeb.Shared.Repositories;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -47,8 +42,8 @@ namespace MahwousQuotes
         {
             try
             {
-                var repository = DependencyService.Get<Repositories>().QuoteRepository;
-                var quote = await repository.GetRandomQuote();
+                var repository = DependencyService.Get<MahwousRepositories>().QuotesRepository;
+                var quote = await repository.GetRandom();
                 var viewModel = new QuoteViewModel(quote);
 
                 Shell.Current.FlyoutIsPresented = false;
@@ -56,13 +51,15 @@ namespace MahwousQuotes
                 var previousPage = Navigation.NavigationStack.LastOrDefault();
                 await Navigation.PushAsync(new QuoteDetailsPage(viewModel));
                 if (previousPage != null && previousPage is QuoteDetailsPage)
+                {
                     Navigation.RemovePage(previousPage);
+                }
             }
             catch (Exception)
             {
 
             }
-            
+
 
         }
 
@@ -86,7 +83,10 @@ namespace MahwousQuotes
             //some more custom checks here
             //..
 
-            if (maybe_exit) return false; //QUIT
+            if (maybe_exit)
+            {
+                return false; //QUIT
+            }
 
             DependencyService.Get<IMessage>().ShortAlert("إضغط مرة أخرة للخروج من البرنامج!");
             maybe_exit = true;
@@ -94,7 +94,7 @@ namespace MahwousQuotes
             Device.StartTimer(TimeSpan.FromSeconds(2), () =>
             {
                 maybe_exit = false; //reset those 2 seconds
-                                    
+
                 return false;// false - Don't repeat the timer 
             });
             return true; //true - don't process BACK by system

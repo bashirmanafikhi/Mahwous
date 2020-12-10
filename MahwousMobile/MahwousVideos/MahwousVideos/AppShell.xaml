@@ -6,11 +6,10 @@
              xmlns:views="clr-namespace:MahwousVideos.Views"
              Title="Delicious Food"
              FlyoutHeaderBehavior="CollapseOnScroll"
+             xmlns:styles="clr-namespace:MahwousVideos.Styles;assembly=MahwousVideos"
              Visual="Material"
-             
              mc:Ignorable="d"
              xmlns:ShellTemplate="clr-namespace:MahwousVideos.Views.ShellTemplates" 
-             xmlns:helpers="clr-namespace:MahwousVideos.Helpers"
              FlyoutHeaderTemplate="{DataTemplate ShellTemplate:FlyoutHeaderTemplate}"
              ItemTemplate="{DataTemplate ShellTemplate:FlyoutItemTemplate}"
              MenuItemTemplate="{DataTemplate ShellTemplate:FlyoutMenuItemTemplate}"
@@ -22,9 +21,9 @@
 
     <!--#region SHELL RESOURCES-->
     <Shell.Resources>
-        
-        
-        
+
+
+
         <!--#region SHELL STYLES-->
         <Style
             x:Key="BaseStyle"
@@ -34,10 +33,10 @@
             <!--  In iOS this property changes the color tabs upper not selected  -->
 
 
-            
-            
-            
-            
+
+
+
+
             <Setter Property="Shell.BackgroundColor" Value="{DynamicResource colBlack}" />
             <Setter Property="Shell.ForegroundColor" Value="{DynamicResource colRed}" />
             <Setter Property="Shell.UnselectedColor" Value="{DynamicResource colWhite}" />
@@ -48,98 +47,173 @@
             <Setter Property="Shell.TabBarUnselectedColor" Value="{DynamicResource colWhite}" />
             <Setter Property="Shell.TabBarTitleColor" Value="{DynamicResource colRed}" />
 
-            <!--<Setter Property="Shell.FlyoutBackgroundImage" Value="img_bgflyout.png"/>-->
         </Style>
-        <!--#endregion-->
 
-        <!--#region ADD TabBar FlyoutBehavior is INVISIBLE-->
         <Style
             BasedOn="{StaticResource BaseStyle}"
             TargetType="TabBar"
             ApplyToDerivedTypes="True" />
-        <!--#endregion-->
 
-        <!--#region ADD ShellItem FlyoutBehavior is VISIBLE-->
         <Style
             BasedOn="{StaticResource BaseStyle}"
             TargetType="ShellItem"
             ApplyToDerivedTypes="True" />
-        <!--#endregion-->
 
-        <!--#region ADD FlyoutItem FlyoutBehavior is VISIBLE-->
         <Style
             BasedOn="{StaticResource BaseStyle}"
             TargetType="FlyoutItem"
             ApplyToDerivedTypes="True" />
-        <!--#endregion-->
 
     </Shell.Resources>
-    <!--#endregion-->
 
 
 
     <FlyoutItem Title="الصفحة الرئيسية" 
-                Icon="{StaticResource icon_Home}" 
                 FlyoutDisplayOptions="AsMultipleItems">
 
-        <Tab  Title="الصفحة الرئيسية" Icon="{StaticResource icon_Home}">
+        <FlyoutItem.Icon>
+            <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Home}" FontFamily="FA-S" />
+        </FlyoutItem.Icon>
+
+
+        <Tab  Title="الصفحة الرئيسية">
+            <Tab.Icon>
+                <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Home}" FontFamily="FA-S" />
+            </Tab.Icon>
             <ShellContent>
                 <views:HomePage />
             </ShellContent>
         </Tab>
 
-        <Tab Title="التصنيفات"   Icon="{StaticResource icon_TagMultiple}">
+        <Tab Title="التصنيفات">
+            <Tab.Icon>
+                <FontImageSource Color="{DynamicResource colForeground}" Glyph="{x:Static styles:SolidIcons.Tags}" FontFamily="FA-S" />
+            </Tab.Icon>
             <ShellContent>
                 <views:CategoriesPage/>
             </ShellContent>
         </Tab>
 
-        <Tab Title="جميع الفيديوهات" Icon="{StaticResource icon_Text}">
+        <Tab Title="الفيديوهات">
+
+            <Tab.Icon>
+                <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.QuoteRight}" FontFamily="FA-S" />
+            </Tab.Icon>
 
             <ShellContent Title="عشوائي">
+                <ShellContent.Icon>
+                    <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Random}" FontFamily="FA-S" />
+                </ShellContent.Icon>
+
                 <views:VideosPage SortType="Random" Title="عشوائي" />
             </ShellContent>
+
             <ShellContent Title="الجديدة">
+                <ShellContent.Icon>
+                    <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Bahai}" FontFamily="FA-S" />
+                </ShellContent.Icon>
+
                 <views:VideosPage SortType="Newest" Title="الجديدة" />
             </ShellContent>
-            <ShellContent Title="القديمة">
-                <views:VideosPage SortType="Oldest" Title="القديمة" />
-            </ShellContent>
+
             <ShellContent Title="الأكثر مشاركة">
+                <ShellContent.Icon>
+                    <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.ShareAlt}" FontFamily="FA-S" />
+                </ShellContent.Icon>
+
                 <views:VideosPage SortType="Downloads" Title="الأكثر مشاركة" />
             </ShellContent>
+
             <ShellContent Title="الأكثر مشاهدة">
+                <ShellContent.Icon>
+                    <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Eye}" FontFamily="FA-S" />
+                </ShellContent.Icon>
+
                 <views:VideosPage SortType="Views" Title="الأكثر مشاهدة" />
+            </ShellContent>
+
+            <ShellContent Title="الأكثر إعجاباً">
+                <ShellContent.Icon>
+                    <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Anchor}" FontFamily="FA-S" />
+                </ShellContent.Icon>
+
+                <views:VideosPage SortType="Likes" Title="الأكثر إعجاباً" />
+            </ShellContent>
+
+            <ShellContent Title="القديمة">
+                <ShellContent.Icon>
+                    <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Anchor}" FontFamily="FA-S" />
+                </ShellContent.Icon>
+
+                <views:VideosPage SortType="Oldest" Title="القديمة" />
             </ShellContent>
         </Tab>
     </FlyoutItem>
 
 
 
-    <FlyoutItem Title="اخبار مهووس" 
-                Icon="{StaticResource icon_Newspaper}"
+    <FlyoutItem Title="اخبار مهووس"
                 FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Title="تطبيقاتنا" Icon="{StaticResource icon_Apps}">
-            <views:AppsPage Title="تطبيقاتنا" />
-        </ShellContent>
-        <ShellContent Title="الأخبار" Icon="{StaticResource icon_Newspaper}">
-            <views:PostsPage Title="الأخبار" />
-        </ShellContent>
-        <ShellContent Title="من نحن" Icon="{StaticResource icon_FrequentlyAskedQuestions}">
-            <views:AboutPage  Title="من نحن" />
-        </ShellContent>
+
+        <FlyoutItem.Icon>
+            <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Newspaper}" FontFamily="FA-S" />
+        </FlyoutItem.Icon>
+
+
+        <Tab  Title="تطبيقاتنا">
+            <Tab.Icon>
+                <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.ThLarge}" FontFamily="FA-S" />
+            </Tab.Icon>
+            <ShellContent>
+                <views:AppsPage />
+            </ShellContent>
+        </Tab>
+
+        <Tab  Title="الأخبار">
+            <Tab.Icon>
+                <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Newspaper}" FontFamily="FA-S" />
+            </Tab.Icon>
+            <ShellContent>
+                <views:PostsPage />
+            </ShellContent>
+        </Tab>
+
+        <Tab  Title="من نحن">
+            <Tab.Icon>
+                <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Question}" FontFamily="FA-S" />
+            </Tab.Icon>
+            <ShellContent>
+                <views:AboutPage />
+            </ShellContent>
+        </Tab>
+
     </FlyoutItem>
 
 
-    <MenuItem Text="تقييم التطبيق" Clicked="MenuItem_Rate_Clicked" IconImageSource="{StaticResource icon_Star}"/>
 
-    <MenuItem Text="مشاركة" Clicked="MenuItem_ShareApp_Clicked" IconImageSource="{StaticResource icon_Share}" />
+    <MenuItem Text="فيديوهات أعجبتك" Clicked="MenuItem_LikedVideos_Clicked" >
+        <MenuItem.IconImageSource>
+            <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Heart}" FontFamily="FA-S" />
+        </MenuItem.IconImageSource>
+    </MenuItem>
+    
+    
+    <MenuItem Text="تقييم التطبيق" Clicked="MenuItem_Rate_Clicked" >
+        <MenuItem.IconImageSource>
+            <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.StarHalfAlt}" FontFamily="FA-S" />
+        </MenuItem.IconImageSource>
+    </MenuItem>
 
-    <!--<MenuItem Text="حالة عشوائية" IconImageSource="{StaticResource icon_Shuffle}" />
+    <MenuItem Text="مشاركة" Clicked="MenuItem_ShareApp_Clicked" >
+        <MenuItem.IconImageSource>
+            <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.ShareAlt}" FontFamily="FA-S" />
+        </MenuItem.IconImageSource>
+    </MenuItem>
 
-    <MenuItem Text="الإعدادات" IconImageSource="{StaticResource icon_Settings}" />-->
-
-    <MenuItem Text="الخروج" Clicked="MenuItem_Exit_Clicked" IconImageSource="{StaticResource icon_ExitRun}"/>
-
+    <MenuItem Text="الخروج" Clicked="MenuItem_Exit_Clicked" >
+        <MenuItem.IconImageSource>
+            <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.DoorOpen}" FontFamily="FA-S" />
+        </MenuItem.IconImageSource>
+    </MenuItem>
 
 </Shell>

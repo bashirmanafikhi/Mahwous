@@ -27,9 +27,9 @@ public final class R {
 		public static final int layoutManager = 0x7f030117;
 		public static final int recyclerViewStyle = 0x7f03015d;
 		public static final int reverseLayout = 0x7f03015e;
-		public static final int spanCount = 0x7f030173;
-		public static final int stackFromEnd = 0x7f030179;
-		public static final int ttcIndex = 0x7f0301e2;
+		public static final int spanCount = 0x7f030174;
+		public static final int stackFromEnd = 0x7f03017a;
+		public static final int ttcIndex = 0x7f0301e3;
 	}
 	public static final class color {
 		public static final int notification_action_color_filter = 0x7f050070;
@@ -187,7 +187,7 @@ public final class R {
 		public static final int FontFamily_fontProviderFetchTimeout = 3;
 		public static final int FontFamily_fontProviderPackage = 4;
 		public static final int FontFamily_fontProviderQuery = 5;
-		public static final int[] FontFamilyFont = new int[] { 0x01010532, 0x01010533, 0x0101053f, 0x0101056f, 0x01010570, 0x7f0300dd, 0x7f0300e5, 0x7f0300e6, 0x7f0300e7, 0x7f0301e2 };
+		public static final int[] FontFamilyFont = new int[] { 0x01010532, 0x01010533, 0x0101053f, 0x0101056f, 0x01010570, 0x7f0300dd, 0x7f0300e5, 0x7f0300e6, 0x7f0300e7, 0x7f0301e3 };
 		public static final int FontFamilyFont_android_font = 0;
 		public static final int FontFamilyFont_android_fontStyle = 2;
 		public static final int FontFamilyFont_android_fontVariationSettings = 4;
@@ -214,7 +214,7 @@ public final class R {
 		public static final int[] GradientColorItem = new int[] { 0x010101a5, 0x01010514 };
 		public static final int GradientColorItem_android_color = 0;
 		public static final int GradientColorItem_android_offset = 1;
-		public static final int[] RecyclerView = new int[] { 0x010100c4, 0x010100eb, 0x010100f1, 0x7f0300d6, 0x7f0300d7, 0x7f0300d8, 0x7f0300d9, 0x7f0300da, 0x7f030117, 0x7f03015e, 0x7f030173, 0x7f030179 };
+		public static final int[] RecyclerView = new int[] { 0x010100c4, 0x010100eb, 0x010100f1, 0x7f0300d6, 0x7f0300d7, 0x7f0300d8, 0x7f0300d9, 0x7f0300da, 0x7f030117, 0x7f03015e, 0x7f030174, 0x7f03017a };
 		public static final int RecyclerView_android_clipToPadding = 1;
 		public static final int RecyclerView_android_descendantFocusability = 2;
 		public static final int RecyclerView_android_orientation = 0;

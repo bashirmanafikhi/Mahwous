@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MahwousQuotes.Helpers
+﻿namespace MahwousQuotes.Helpers
 {
     public interface IMessage
     {

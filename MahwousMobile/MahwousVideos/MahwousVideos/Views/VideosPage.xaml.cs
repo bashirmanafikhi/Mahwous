@@ -2,26 +2,23 @@
 using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
-using MahwousVideos.Models;
 using MahwousVideos.ViewModels;
 using MahwousWeb.Shared.Models;
 using MahwousWeb.Shared.Filters;
+using System.Linq;
 
 namespace MahwousVideos.Views
 {
-    // Learn more about making custom code visible in the Xamarin.Forms previewer
-    // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
     public partial class VideosPage : ContentPage
     {
+        private SortType sortType = SortType.Random;
         public SortType SortType
         {
-            get => viewModel.Filter.SortType;
+            get => sortType;
             set
             {
-                viewModel.Filter.SortType = value;
-                viewModel.LoadVideosCommand.Execute(null);
+                sortType = value;
             }
         }
 
@@ -31,6 +28,8 @@ namespace MahwousVideos.Views
         public VideosPage(VideosViewModel viewModel)
         {
             InitializeComponent();
+            myBanner.AdsLoaded += MyBanner_AdsLoaded;
+
 
             BindingContext = this.viewModel = viewModel;
 
@@ -44,8 +43,25 @@ namespace MahwousVideos.Views
         {
             base.OnAppearing();
 
-            if (viewModel.Videos.Count == 0)
-                viewModel.IsBusy = true;
+            if (myVideosTemplate.VideosCount == 0 && viewModel.Filter.Categories.Count > 0)
+            {
+                myVideosTemplate.SetCategories(viewModel.Filter.Categories.ToArray());
+                //myVideosTemplate.SortType = SortType.Random;
+                //return;
+            }
+
+            myVideosTemplate.SortType = this.SortType;
+        }
+        private void MyBanner_AdsLoaded(object sender, EventArgs e)
+        {
+            if (Xamarin.Forms.Device.Idiom == TargetIdiom.Phone)
+            {
+                myBanner.HeightRequest = 50;
+            }
+            else
+            {
+                myBanner.HeightRequest = 90;
+            }
         }
 
         private void OnVideosFinished(object sender, EventArgs e)

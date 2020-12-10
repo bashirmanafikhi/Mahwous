@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -21,7 +17,9 @@ namespace MahwousQuotes.Views.DataTemplates
         {
             var app = BindingContext as MahwousWeb.Shared.Models.App;
             if (!string.IsNullOrEmpty(app.PlayStoreLink))
+            {
                 await Browser.OpenAsync(app.PlayStoreLink);
+            }
         }
     }
 }

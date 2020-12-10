@@ -30,7 +30,14 @@ namespace MahwousVideos.Views.DataTemplates
             VideoViewModel viewModel = new VideoViewModel(video);
             VideoPage page = new VideoPage(viewModel);
 
+
+            var previousPage = Navigation.NavigationStack.LastOrDefault();
             await Navigation.PushAsync(page);
+            if (previousPage != null && previousPage is VideoPage)
+            {
+                Navigation.RemovePage(previousPage);
+            }
+
         }
     }
 }

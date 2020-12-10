@@ -1,12 +1,5 @@
-﻿using MahwousQuotes.Helpers;
-using MahwousQuotes.Styles.Themes;
+﻿using MahwousQuotes.Styles.Themes;
 using MahwousQuotes.ViewModels;
-using MahwousWeb.Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

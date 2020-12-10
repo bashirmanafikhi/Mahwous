@@ -3,10 +3,8 @@
 @attribute [Authorize]
 
 @inject HttpAuthorizer authorizer
-@inject IImageRepository imageRepository
-@inject ICategoryRepository categoryRepository
+@inject MahwousRepositories repositories
 @inject NavigationManager navigation
-
 <!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
@@ -31,11 +29,11 @@
 
 
 
-@if (NotSelectedCategories != null)
-{
-    <ImageForm ButtonText="تعديل الصورة" Image="image"
-               OnValidSubmit="@EditImage" NotSelectedCategories="NotSelectedCategories" SelectedCategories="SelectedCategories" />
-}
+        @if (NotSelectedCategories != null)
+        {
+            <ImageForm ButtonText="تعديل الصورة" Image="image"
+                       OnValidSubmit="@EditImage" NotSelectedCategories="NotSelectedCategories" SelectedCategories="SelectedCategories" />
+        }
 
     </div>
 </div>
@@ -52,11 +50,15 @@
 
     protected async override Task OnParametersSetAsync()
     {
-        image = await imageRepository.Get(imageId);
+        image = await repositories.ImagesRepository.Get(imageId);
+
+        CategoryFilter filter = new CategoryFilter();
+        filter.ForImages = true;
+        filter.Pagination.RecordsPerPage = 100;
 
         SelectedCategories = image.StatusCategories.Select(sc => sc.Category).ToList();
-        var categories = (await categoryRepository.GetCategoriesFiltered(
-            new CategoryFilter() { ForImages = true, RecordsPerPage = 100 }
+        var categories = (await repositories.CategoriesRepository.GetFiltered(
+            filter
             )).Response;
 
         NotSelectedCategories = categories.Where(c =>
@@ -70,7 +72,7 @@
     {
         try
         {
-            await imageRepository.Update(image);
+            await repositories.ImagesRepository.Update(image);
             navigation.NavigateTo("administration/images");
 
         }

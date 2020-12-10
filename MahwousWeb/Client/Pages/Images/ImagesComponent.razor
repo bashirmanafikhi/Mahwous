@@ -2,8 +2,7 @@
 
 @inject IJSRuntime js
 @inject NavigationManager navigation
-@inject IImageRepository imageRepository
-@inject ICategoryRepository categoryRepository
+@inject MahwousRepositories repositories
 @inject HttpAuthorizer authorizer
 
 
@@ -15,59 +14,59 @@
         <!-- /.col -->
         <div class="col-lg-9">
 
-                <div class="card">
-                    <div class="card-header">
-                        <Pagination CurrentPage="@imageFilter.Page" TotalAmountPages="totalAmountPages"
-                                    SelectedPage="SelectedPage" />
-                    </div>
-                    <!-- /.card-header -->
-                    <div class="card-body">
-
-                        <div>
-                            @if (images == null)
-                            {
-                                <p>جاري تحميل الصور .. </p>
-                            }
-                            else if (images.Count == 0)
-                            {
-                                <p> لا يوجد صور! </p>
-                            }
-                            else
-                            {
-                                    <div class="card-columns">
-                                        @foreach (ImageStatus image in images)
-                                        {
-                                                <div class="card card-chart">
-                                                    <div class="card-body card-header-success p-0">
-                                                        <img src="@image.ImagePath" class="m-1" style="height:auto; width:100%; object-fit:cover" />
-                                                    </div>
-
-                                                    <AuthorizeView>
-                                                        <Authorized>
-                                                            <div class="card-footer">
-                                                                <div class="stats">
-                                                                    <button class="btn btn-danger" @onclick="@(() => DeleteImage(image.Id))">حذف</button>
-                                                                    <a class="btn btn-info" href="administration/images/edit/@image.Id">تعديل</a>
-                                                                </div>
-                                                            </div>
-                                                        </Authorized>
-                                                    </AuthorizeView>
-                                                </div>
-                                        }
-                                    </div>
-
-                            }
-                        </div>
-
-                    </div>
-                    <!-- /.card-body -->
-                    <div class="card-footer">
-                        <Pagination CurrentPage="@imageFilter.Page" TotalAmountPages="totalAmountPages"
-                                    SelectedPage="SelectedPage" />
-                    </div>
-                    <!-- /.card-footer -->
+            <div class="card">
+                <div class="card-header">
+                    <Pagination CurrentPage="@imageFilter.Pagination.Page" TotalAmountPages="totalAmountPages"
+                                SelectedPage="SelectedPage" />
                 </div>
-                <!-- /.card -->
+                <!-- /.card-header -->
+                <div class="card-body">
+
+                    <div>
+                        @if (images == null)
+                        {
+                            <p>جاري تحميل الصور .. </p>
+                        }
+                        else if (images.Count == 0)
+                        {
+                            <p> لا يوجد صور! </p>
+                        }
+                        else
+                        {
+                            <div class="card-columns">
+                                @foreach (ImageStatus image in images)
+                                {
+                                    <div class="card card-chart">
+                                        <div class="card-body card-header-success p-0">
+                                            <img src="@image.ImagePath" class="m-1" style="height:auto; width:100%; object-fit:cover" />
+                                        </div>
+
+                                        <AuthorizeView>
+                                            <Authorized>
+                                                <div class="card-footer">
+                                                    <div class="stats">
+                                                        <button class="btn btn-danger" @onclick="@(() => DeleteImage(image.Id))">حذف</button>
+                                                        <a class="btn btn-info" href="administration/images/edit/@image.Id">تعديل</a>
+                                                    </div>
+                                                </div>
+                                            </Authorized>
+                                        </AuthorizeView>
+                                    </div>
+                                }
+                            </div>
+
+                        }
+                    </div>
+
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                    <Pagination CurrentPage="@imageFilter.Pagination.Page" TotalAmountPages="totalAmountPages"
+                                SelectedPage="SelectedPage" />
+                </div>
+                <!-- /.card-footer -->
+            </div>
+            <!-- /.card -->
         </div>
         <!-- /.col -->
         <div class="col-lg-3">
@@ -186,7 +185,7 @@
                         <p class="ml-auto ml-md-0"></p>
                         <ul class="nav nav-pills flex-column">
                             <li class="nav-item">
-                                <a class="nav-link"><i class="far fa-circle text-danger"></i> عدد الصور: @informations.StatusesCount</a>
+                                <a class="nav-link"><i class="far fa-circle text-danger"></i> عدد الصور: @informations.Count</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link"><i class="far fa-circle text-warning"></i> مجموع المشاهدات: @informations.ViewsCount</a>
@@ -215,9 +214,9 @@
 @code {
     private ImageFilter imageFilter = new ImageFilter();
 
-    List<ImageStatus> images { get; set; }
-    List<Category> categories { get; set; }
-    FilteredInformations informations;
+    ICollection<ImageStatus> images { get; set; }
+    ICollection<Category> categories { get; set; }
+    Informations informations;
 
 
     private int totalAmountPages;
@@ -227,7 +226,7 @@
     {
         await authorizer.SetAuthorizationAsync();
         imageFilter.SortType = SortType.Newest;
-        informations = await imageRepository.GetInformations();
+        informations = await repositories.ImagesRepository.GetInformations();
         await LoadImages();
         await LoadCategories();
     }
@@ -245,7 +244,12 @@
     {
         try
         {
-            var paginatedResponse = await categoryRepository.GetCategoriesFiltered(new CategoryFilter() { ForImages = true, RecordsPerPage = 100 });
+
+            CategoryFilter filter = new CategoryFilter();
+            filter.ForImages = true;
+            filter.Pagination.RecordsPerPage = 100;
+
+            var paginatedResponse = await repositories.CategoriesRepository.GetFiltered(filter);
             categories = paginatedResponse.Response;
         }
         catch (Exception ex)
@@ -260,7 +264,7 @@
     {
         try
         {
-            var paginatedResponse = await imageRepository.GetImagesFiltered(imageFilter);
+            var paginatedResponse = await repositories.ImagesRepository.GetFiltered(imageFilter);
             images = paginatedResponse.Response;
             totalAmountPages = paginatedResponse.TotalAmountPages;
 
@@ -276,14 +280,14 @@
         var video = images.First(i => i.Id == imageId);
         if (await js.Confirm("تأكيد", $"هل أنت متأكد أنك تريد أن تحذف هذه الصورة؟", SweetAlertMessageType.error))
         {
-            await imageRepository.Delete(imageId);
+            await repositories.ImagesRepository.Delete(imageId);
             await LoadImages();
         }
     }
 
     private async Task SelectedPage(int page)
     {
-        imageFilter.Page = page;
+        imageFilter.Pagination.Page = page;
         await LoadImages();
     }
 

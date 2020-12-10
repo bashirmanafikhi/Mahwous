@@ -4,35 +4,114 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:mm="clr-namespace:MediaManager.Forms;assembly=MediaManager.Forms"
+             xmlns:templates="clr-namespace:MahwousVideos.Views.DataTemplates"
+             xmlns:styles="clr-namespace:MahwousVideos.Styles;assembly=MahwousVideos"
              mc:Ignorable="d"
              x:Class="MahwousVideos.Views.VideoPage">
+
+
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="btnLikeStyle" TargetType="Button">
+                <Style.Triggers>
+                    <DataTrigger TargetType="Button" Binding="{Binding Liked}" Value="true">
+                        <Setter Property="ImageSource">
+                            <FontImageSource Size="Subtitle"  Color="Black" Glyph="{x:Static styles:SolidIcons.ThumbsUp}" FontFamily="FA-S" />
+                        </Setter>
+                    </DataTrigger>
+                    <DataTrigger TargetType="Button" Binding="{Binding Liked}" Value="false">
+                        <Setter Property="ImageSource">
+                            <FontImageSource Size="Subtitle"  Color="Black" Glyph="{x:Static styles:RegularIcons.ThumbsUp}" FontFamily="FA-R" />
+                        </Setter>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    
+    <Shell.TitleView>
+        <StackLayout
+            Padding="0,0,10,0"
+            Orientation="Horizontal">
+
+            <Label
+                Text="مشاهدة الفيديو"
+                TextColor="{DynamicResource colWhite}"
+                VerticalOptions="CenterAndExpand">
+                <Label.HorizontalOptions>
+                    <OnPlatform
+                        x:TypeArguments="LayoutOptions"
+                        iOS="EndAndExpand"
+                        Android="StartAndExpand" />
+                </Label.HorizontalOptions>
+            </Label>
+            
+            
+            <Button 
+                FontFamily="FA-S"
+                Text="{x:Static styles:SolidIcons.Download}"
+                Command="{Binding DownloadVideoCommand}"
+                Clicked="DownloadButton_Clicked"
+                Visual="Material"
+                TextColor="{DynamicResource colRed}"
+                WidthRequest="40"
+                BackgroundColor="{DynamicResource colBlack}"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="End" />
+
+            <Button 
+                FontFamily="FA-S"
+                Text="{x:Static styles:SolidIcons.ShareAlt}"
+                Command="{Binding ShareVideoCommand}"
+                Visual="Material"
+                TextColor="{DynamicResource colRed}"
+                WidthRequest="40"
+                BackgroundColor="{DynamicResource colBlack}"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="End" />
+
+        </StackLayout>
+    </Shell.TitleView>
+    
+    
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout
+                       BackgroundColor="{DynamicResource colBackground}">
 
-            <mm:VideoView ShowControls="True" HeightRequest="250" />
+            <Grid>
 
-            <Label Text="{Binding Video.Title}" 
-                       TextColor="{DynamicResource colYellow}"
+                <mm:VideoView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#141414" ShowControls="True" HeightRequest="400"/>
+            
+                <ActivityIndicator x:Name="loadingIndicator" IsRunning="True" IsVisible="true" HorizontalOptions="Center" VerticalOptions="Center" Color="{DynamicResource colRed}"/>
+            
+            </Grid>
+
+            <Frame CornerRadius="15" 
+                        Margin="5,0" 
+                        Padding="3"
+                        BackgroundColor="{DynamicResource colRed}" 
+                        HasShadow="True">
+
+                <StackLayout Orientation="Horizontal">
+
+                    <Button Style="{StaticResource Key=btnLikeStyle}" CornerRadius="10" Text="{Binding LikesCount}" Padding="10, 0" WidthRequest="50" FontSize="Subtitle" BackgroundColor="{StaticResource colYellow}" Command="{Binding ToggleLikeCommand}" />
+
+                <Label     Text="{Binding Video.Title}" 
+                       TextColor="{DynamicResource colWhite}"
                        HorizontalTextAlignment="Center"
-                       Margin="10"
-                       FontSize="Title"
-                       HorizontalOptions="Center"/>
-
-            <Label     TextColor="{DynamicResource colBlue}"
-                        Text="نشكركم لإستخدامكم تطبيقاتنا.. سوف نقوم بإضافة زر تحميل الفيديوهات في اقرب وقت ممكن" 
-                       HorizontalTextAlignment="Center"
-                       Margin="10"
+                       Margin="10,4"
                        FontSize="Subtitle"
                        HorizontalOptions="Center"/>
+                
+                </StackLayout>
+                
+            </Frame>
+
+            <templates:VideosTemplate HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="myVideosTemplate" SortType="Random" />
 
 
-
-            <Image Source="icon.png"
-                   
-                        HorizontalOptions="Center"
-                        VerticalOptions="Center"
-                        Aspect="AspectFill"
-                        HeightRequest="200" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

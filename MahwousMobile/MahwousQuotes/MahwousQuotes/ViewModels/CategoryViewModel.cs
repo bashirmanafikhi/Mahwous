@@ -1,9 +1,4 @@
-﻿using MahwousWeb.Shared.Filters;
-using MahwousWeb.Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Text;
+﻿using MahwousWeb.Shared.Models;
 
 namespace MahwousQuotes.ViewModels
 {
@@ -18,10 +13,6 @@ namespace MahwousQuotes.ViewModels
             get { return statusCount; }
             set { SetProperty(ref statusCount, value); }
         }
-
-
-
-
 
         public CategoryViewModel(Category category, int statusCount)
         {

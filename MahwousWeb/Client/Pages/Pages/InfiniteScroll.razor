@@ -2,7 +2,7 @@
 @inject IJSRuntime JsRuntime
 @implements IDisposable
 
-@inject IQuoteRepository quoteRepository
+@inject MahwousRepositories repositories
 @inject HttpAuthorizer authorizer
 
 <div class="container">
@@ -60,9 +60,10 @@
 
         List<QuoteStatus> quotes { get; set; } = new List<QuoteStatus>();
 
-    private int totalAmountPages;
+        private int totalAmountPages;
 
-    private QuoteFilter quoteFilter = new QuoteFilter() { RecordsPerPage = 25};
+
+        private QuoteFilter quoteFilter = new QuoteFilter();
 
 
     bool IsLoading { get; set; } = false;
@@ -75,6 +76,7 @@
 
     protected async override Task OnInitializedAsync()
     {
+        quoteFilter.Pagination.RecordsPerPage = 25;
         await authorizer.SetAuthorizationAsync();
         await InitJsListenerAsync();
         await LoadQuotes();
@@ -99,10 +101,10 @@
 
         try
         {
-            var paginatedResponse = await quoteRepository.GetQuotesFiltered(quoteFilter);
+            var paginatedResponse = await repositories.QuotesRepository.GetFiltered(quoteFilter);
             quotes.AddRange(paginatedResponse.Response);
             totalAmountPages = paginatedResponse.TotalAmountPages;
-            quoteFilter.Page++;
+            quoteFilter.Pagination.Page++;
         }
         catch (Exception ex)
         {
@@ -117,7 +119,7 @@
     [JSInvokable]
     public async Task LoadMore()
     {
-        if (quoteFilter.Page <= totalAmountPages)
+        if (quoteFilter.Pagination.Page <= totalAmountPages)
             await LoadQuotes();
         else
             await StopListener();

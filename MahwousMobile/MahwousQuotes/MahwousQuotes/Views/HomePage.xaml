@@ -101,12 +101,7 @@
                                 <StackLayout Spacing="0" Padding="10">
 
 
-                                    <Label Text="{Binding Informations.StatusesCount, StringFormat='عدد الحالات: {0} حالة'}" 
-                   VerticalOptions="CenterAndExpand"
-                   TextColor="{DynamicResource colForeground}"
-                   HorizontalOptions="CenterAndExpand" />
-
-                                    <Label Text="{Binding Informations.CategoriesCount, StringFormat='عدد التصنيفات: {0} تصنيف'}" 
+                                    <Label Text="{Binding Informations.Count, StringFormat='عدد الحالات: {0} حالة'}" 
                    VerticalOptions="CenterAndExpand"
                    TextColor="{DynamicResource colForeground}"
                    HorizontalOptions="CenterAndExpand" />

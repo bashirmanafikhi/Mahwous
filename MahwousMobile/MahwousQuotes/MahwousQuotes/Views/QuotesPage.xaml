@@ -31,9 +31,9 @@
         
         
         <!--تجريب-->
-        <controls:MTAdView BackgroundColor="{DynamicResource colBackground}" x:Name="myBanner" AdsId="ca-app-pub-3940256099942544/6300978111" Grid.Row="1"/>
+        <!--<controls:MTAdView BackgroundColor="{DynamicResource colBackground}" x:Name="myBanner" AdsId="ca-app-pub-3940256099942544/6300978111" Grid.Row="1"/>-->
         <!--حقيقي-->
-        <!--<controls:MTAdView BackgroundColor="{DynamicResource colBackground}" x:Name="myBanner" AdsId="ca-app-pub-1685177955120006/7988077793" Grid.Row="1"/>-->
+        <controls:MTAdView BackgroundColor="{DynamicResource colBackground}" x:Name="myBanner" AdsId="ca-app-pub-1685177955120006/7988077793" Grid.Row="1"/>
 
     </Grid>
 

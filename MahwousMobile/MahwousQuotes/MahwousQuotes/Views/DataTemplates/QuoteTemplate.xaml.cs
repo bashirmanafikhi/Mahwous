@@ -1,11 +1,8 @@
 ﻿using MahwousQuote.ViewModels;
 using MahwousQuotes.Helpers;
-using MahwousQuotes.Models;
-using MahwousQuotes.Styles;
 using MahwousWeb.Shared.Models;
 using System;
 using System.Linq;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -75,9 +72,12 @@ namespace MahwousQuotes.Views.DataTemplates
                 var previousPage = Navigation.NavigationStack.LastOrDefault();
                 await Navigation.PushAsync(new QuoteDetailsPage(viewModel));
                 if (previousPage != null && previousPage is QuoteDetailsPage)
+                {
                     Navigation.RemovePage(previousPage);
+                }
             }
-            catch (Exception) {
+            catch (Exception)
+            {
                 DependencyService.Get<IMessage>().ShortAlert("لا يمكن مشاهدة التفاصيل من هذه الصفحة");
             }
         }

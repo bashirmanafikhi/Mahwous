@@ -1,17 +1,12 @@
-﻿using System;
+﻿using MahwousWeb.Shared.Filters;
+using MahwousWeb.Shared.Models;
+using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
-
-using MahwousQuotes.Models;
-using MahwousQuotes.Views;
-using MahwousWeb.Shared.Models;
-using MahwousWeb.Shared.Pagination;
-using MahwousWeb.Shared.Filters;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace MahwousQuotes.ViewModels
 {
@@ -36,9 +31,9 @@ namespace MahwousQuotes.ViewModels
             try
             {
                 Categories.Clear();
-                CategoryFilter filter = new CategoryFilter() { ForQuotes = true, RecordsPerPage = 100};
+                CategoryFilter filter = new CategoryFilter() { ForQuotes = true };
 
-                var paginatedResponse = await Repositories.CategoryRepository.GetCategoriesFiltered(filter);
+                var paginatedResponse = await Repositories.CategoriesRepository.GetFiltered(filter);
                 var categories = paginatedResponse.Response;
 
 
@@ -52,7 +47,7 @@ namespace MahwousQuotes.ViewModels
                     Categories.Add(new CategoryViewModel(category, Informations.CategoriesStatusCounts[category.Name]));
                 }
 
-                
+
 
             }
             catch (Exception ex)
@@ -72,19 +67,20 @@ namespace MahwousQuotes.ViewModels
 
 
 
-        private FilteredInformations informations;
-        public FilteredInformations Informations
+        private Informations informations;
+        public Informations Informations
         {
             get { return informations; }
             set { SetProperty(ref informations, value); }
         }
+
 
         private async void ExecuteGetInformationsCommand()
         {
             IsBusy = true;
             try
             {
-                Informations = await Repositories.QuoteRepository.GetInformations();
+                Informations = await Repositories.QuotesRepository.GetInformations();
             }
             catch (Exception ex)
             {

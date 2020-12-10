@@ -2,10 +2,10 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using MahwousVideos.Models;
 using MahwousWeb.Shared.Filters;
 using MahwousWeb.Shared.Models;
 using MahwousWeb.Shared.Pagination;
+using MahwousWeb.Shared.Repositories;
 using Xamarin.Forms;
 
 namespace MahwousVideos.ViewModels
@@ -34,6 +34,40 @@ namespace MahwousVideos.ViewModels
         public event EventHandler VideosFinished;
 
 
+        async void Func()
+        {
+
+            MahwousRepositories mahwous = new MahwousRepositories();
+
+            var category1 = await mahwous.CategoriesRepository.GetRandom();
+            var category2 = await mahwous.CategoriesRepository.GetRandom();
+
+            VideoFilter filter = new VideoFilter();
+
+            filter.SortType = SortType.Random;
+
+            filter.Categories.Add(category1);
+            filter.Categories.Add(category2);
+
+            filter.Pagination.Page = 2;
+            filter.Pagination.RecordsPerPage = 100;
+
+            filter.Date.From = new DateTime(2020, 11, 01);
+            filter.Date.To = DateTime.Now;
+
+            filter.DownloadsCount.From = 1000;
+
+            filter.ViewsCount.From = 500;
+
+            filter.Name = "جرح";
+
+
+            var videos = await mahwous.VideosRepository.GetFiltered(filter);
+
+
+
+        }
+
 
 
         public ObservableCollection<VideoStatus> Videos { get; set; }
@@ -43,6 +77,7 @@ namespace MahwousVideos.ViewModels
 
         public VideosViewModel(VideoFilter filter)
         {
+
             Filter = filter;
 
             Videos = new ObservableCollection<VideoStatus>();
@@ -62,10 +97,10 @@ namespace MahwousVideos.ViewModels
 
                 try
                 {
-                    if (Filter.Page < totalAmountPages)
+                    if (Filter.Pagination.Page < totalAmountPages)
                     {
-                        Filter.Page++;
-                        var paginatedResponse = await Repositories.VideoRepository.GetVideosFiltered(Filter);
+                        Filter.Pagination.Page++;
+                        var paginatedResponse = await Repositories.VideosRepository.GetFiltered(Filter);
                         foreach (var video in paginatedResponse.Response)
                             Videos.Add(video);
                     }
@@ -94,9 +129,9 @@ namespace MahwousVideos.ViewModels
                 try
                 {
                     Videos.Clear();
-                    filter.Page = 1;
+                    filter.Pagination.Page = 1;
 
-                    var paginatedResponse = await Repositories.VideoRepository.GetVideosFiltered(Filter);
+                    var paginatedResponse = await Repositories.VideosRepository.GetFiltered(Filter);
                     totalAmountPages = paginatedResponse.TotalAmountPages;
                     var videos = paginatedResponse.Response;
                     foreach (var video in videos)

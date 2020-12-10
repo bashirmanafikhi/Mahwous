@@ -4,10 +4,8 @@
 
 
 @inject HttpAuthorizer authorizer
-@inject IImageRepository imageRepository
-@inject ICategoryRepository categoryRepository
+@inject MahwousRepositories repositories
 @inject NavigationManager navigation
-
 <!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
@@ -32,11 +30,11 @@
 
 
 
-@if (NotSelectedCategories != null)
-{
-    <ImageForm ButtonText="إضافة صورة" Image="image"
-               OnValidSubmit="CreateImage" NotSelectedCategories="NotSelectedCategories" />
-}
+        @if (NotSelectedCategories != null)
+        {
+            <ImageForm ButtonText="إضافة صورة" Image="image"
+                       OnValidSubmit="CreateImage" NotSelectedCategories="NotSelectedCategories" />
+        }
 
     </div>
 </div>
@@ -50,8 +48,12 @@
 
     protected override async Task OnInitializedAsync()
     {
-        var paginatedResponse = await categoryRepository.GetCategoriesFiltered(new CategoryFilter() { ForImages = true, RecordsPerPage = 100 });
-        NotSelectedCategories = paginatedResponse.Response;
+        CategoryFilter filter = new CategoryFilter();
+        filter.ForImages = true;
+        filter.Pagination.RecordsPerPage = 100;
+
+        var paginatedResponse = await repositories.CategoriesRepository.GetFiltered(filter);
+        NotSelectedCategories = paginatedResponse.Response.ToList();
 
 
         // to give tokens to api :)
@@ -62,7 +64,7 @@
     {
         try
         {
-            await imageRepository.Add(image);
+            await repositories.ImagesRepository.Add(image);
             navigation.NavigateTo("administration/images");
 
         }

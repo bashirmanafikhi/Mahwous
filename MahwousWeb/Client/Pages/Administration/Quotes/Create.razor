@@ -5,8 +5,7 @@
 
 @inject IJSRuntime js
 @inject HttpAuthorizer authorizer
-@inject IQuoteRepository quoteRepository
-@inject ICategoryRepository categoryRepository
+@inject MahwousRepositories repositories
 @inject NavigationManager navigation
 <!-- Content Header (Page header) -->
 <div class="content-header">
@@ -32,11 +31,11 @@
 
 
 
-            @if (NotSelectedCategories != null)
-            {
-                <QuoteForm ButtonText="إضافة حالة" Quote="quote"
-                           OnValidSubmit="CreateQuote" NotSelectedCategories="NotSelectedCategories" />
-            }
+        @if (NotSelectedCategories != null)
+        {
+            <QuoteForm ButtonText="إضافة حالة" Quote="quote"
+                       OnValidSubmit="CreateQuote" NotSelectedCategories="NotSelectedCategories" />
+        }
 
 
 
@@ -57,8 +56,15 @@
 
     protected async override Task OnInitializedAsync()
     {
-        var paginatedResponse = await categoryRepository.GetCategoriesFiltered(new CategoryFilter() { ForQuotes = true, RecordsPerPage = 100 });
-        NotSelectedCategories = paginatedResponse.Response;
+
+        CategoryFilter filter = new CategoryFilter();
+        filter.ForQuotes = true;
+        filter.Pagination.RecordsPerPage = 100;
+
+
+
+        var paginatedResponse = await repositories.CategoriesRepository.GetFiltered(filter);
+        NotSelectedCategories = paginatedResponse.Response.ToList();
 
 
 
@@ -71,7 +77,8 @@
 
         try
         {
-            await quoteRepository.Add(quote);
+
+            await repositories.QuotesRepository.Add(quote);
             navigation.NavigateTo("administration/quotes");
 
         }

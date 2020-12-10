@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace MahwousWeb.Shared.Models
 {
-    public class App
+    public class App : ModelBase
     {
-        public int Id { get; set; }
-
+        public string Package { get; set; }
         public string Name { get; set; }
 
         public string ImagePath { get; set; }
@@ -22,9 +19,11 @@ namespace MahwousWeb.Shared.Models
         public string AppleStoreLink { get; set; }
 
 
-        public App()
-        {
-            
-        }
+
+        public int PlayStoreOpenedCount { get; set; }
+        public int AppleStoreOpenedCount { get; set; }
+
+
+        public IList<NotificationApps> NotificationApps { get; set; }
     }
 }

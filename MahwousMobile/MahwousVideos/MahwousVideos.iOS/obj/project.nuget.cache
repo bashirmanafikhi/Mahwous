@@ -1,25 +1,56 @@
 {
   "version": 2,
-  "dgSpecHash": "tAAT0R+pLYUwm03D7HCqpaKLlBKuyzSlGGazjCVxHrEXU6xvKh5yLirN2MUWxQokiq/4+VUQ33lviz2FbiTAXA==",
+  "dgSpecHash": "5q8G8BQaKXXVkysxV+oGLsHOX6drYlK1q/6hnrutnqcYRPyWg/XQ69KaBaUvfyRJVKSAsfpmaT3eWSzWy8FEdQ==",
   "success": true,
   "projectFilePath": "D:\\Mahwous\\MahwousMobile\\MahwousVideos\\MahwousVideos.iOS\\MahwousVideos.iOS.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Bashir\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
-    "C:\\Users\\Bashir\\.nuget\\packages\\plugin.mediamanager\\1.0.1\\plugin.mediamanager.1.0.1.nupkg.sha512",
-    "C:\\Users\\Bashir\\.nuget\\packages\\plugin.mediamanager.forms\\1.0.1\\plugin.mediamanager.forms.1.0.1.nupkg.sha512",
+    "C:\\Users\\Bashir\\.nuget\\packages\\marctron.admob\\1.5.7\\marctron.admob.1.5.7.nupkg.sha512",
+    "C:\\Users\\Bashir\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\5.0.0\\microsoft.bcl.asyncinterfaces.5.0.0.nupkg.sha512",
+    "C:\\Users\\Bashir\\.nuget\\packages\\plugin.localnotification\\5.1.1\\plugin.localnotification.5.1.1.nupkg.sha512",
+    "C:\\Users\\Bashir\\.nuget\\packages\\plugin.mediamanager\\0.9.0\\plugin.mediamanager.0.9.0.nupkg.sha512",
+    "C:\\Users\\Bashir\\.nuget\\packages\\plugin.mediamanager.forms\\0.9.0\\plugin.mediamanager.forms.0.9.0.nupkg.sha512",
     "C:\\Users\\Bashir\\.nuget\\packages\\sqlite-net-pcl\\1.7.335\\sqlite-net-pcl.1.7.335.nupkg.sha512",
     "C:\\Users\\Bashir\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.3\\sqlitepclraw.bundle_green.2.0.3.nupkg.sha512",
     "C:\\Users\\Bashir\\.nuget\\packages\\sqlitepclraw.core\\2.0.3\\sqlitepclraw.core.2.0.3.nupkg.sha512",
     "C:\\Users\\Bashir\\.nuget\\packages\\sqlitepclraw.provider.dynamic_cdecl\\2.0.3\\sqlitepclraw.provider.dynamic_cdecl.2.0.3.nupkg.sha512",
     "C:\\Users\\Bashir\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
-    "C:\\Users\\Bashir\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512",
+    "C:\\Users\\Bashir\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\Bashir\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
-    "C:\\Users\\Bashir\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.7.1\\system.runtime.compilerservices.unsafe.4.7.1.nupkg.sha512",
-    "C:\\Users\\Bashir\\.nuget\\packages\\system.text.encodings.web\\4.7.1\\system.text.encodings.web.4.7.1.nupkg.sha512",
-    "C:\\Users\\Bashir\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512",
-    "C:\\Users\\Bashir\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.2\\system.threading.tasks.extensions.4.5.2.nupkg.sha512",
+    "C:\\Users\\Bashir\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
+    "C:\\Users\\Bashir\\.nuget\\packages\\system.text.encodings.web\\5.0.0\\system.text.encodings.web.5.0.0.nupkg.sha512",
+    "C:\\Users\\Bashir\\.nuget\\packages\\system.text.json\\5.0.0\\system.text.json.5.0.0.nupkg.sha512",
+    "C:\\Users\\Bashir\\.nuget\\packages\\xamarin.build.download\\0.10.0\\xamarin.build.download.0.10.0.nupkg.sha512",
     "C:\\Users\\Bashir\\.nuget\\packages\\xamarin.essentials\\1.5.3.2\\xamarin.essentials.1.5.3.2.nupkg.sha512",
-    "C:\\Users\\Bashir\\.nuget\\packages\\xamarin.forms\\4.8.0.1269\\xamarin.forms.4.8.0.1269.nupkg.sha512"
+    "C:\\Users\\Bashir\\.nuget\\packages\\xamarin.firebase.ios.core\\6.6.6\\xamarin.firebase.ios.core.6.6.6.nupkg.sha512",
+    "C:\\Users\\Bashir\\.nuget\\packages\\xamarin.forms\\4.8.0.1269\\xamarin.forms.4.8.0.1269.nupkg.sha512",
+    "C:\\Users\\Bashir\\.nuget\\packages\\xamarin.google.ios.mobileads\\7.57.0\\xamarin.google.ios.mobileads.7.57.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package downgrade: Plugin.MediaManager.Forms from 1.0.4 to 0.9.0. Reference the package directly from the project to select a different version. \r\n MahwousVideos.iOS -> MahwousVideos -> Plugin.MediaManager.Forms (>= 1.0.4) \r\n MahwousVideos.iOS -> Plugin.MediaManager.Forms (>= 0.9.0)",
+      "libraryId": "Plugin.MediaManager.Forms",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package downgrade: Xamarin.Forms from 4.8.0.1687 to 4.8.0.1269. Reference the package directly from the project to select a different version. \r\n MahwousVideos.iOS -> MahwousVideos -> Xamarin.Forms (>= 4.8.0.1687) \r\n MahwousVideos.iOS -> Xamarin.Forms (>= 4.8.0.1269)",
+      "libraryId": "Xamarin.Forms",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    }
+  ]
 }

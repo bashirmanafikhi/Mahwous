@@ -1,0 +1,10 @@
+D:\Mahwous\MahwousMobile\MahwousImages\MahwousImages.Android\obj\Debug\90\MonoAndroid,Version=v9.0.AssemblyAttributes.cs
+D:\Mahwous\MahwousMobile\MahwousImages\MahwousImages.Android\obj\Debug\90\build.props
+D:\Mahwous\MahwousMobile\MahwousImages\MahwousImages.Android\obj\Debug\90\adb.props
+D:\Mahwous\MahwousMobile\MahwousImages\MahwousImages.Android\obj\Debug\90\MahwousImages.Android.csprojAssemblyReference.cache
+D:\Mahwous\MahwousMobile\MahwousImages\MahwousImages.Android\obj\Debug\90\_VerifyXamarinAndroidSupportVersions.stamp
+D:\Mahwous\MahwousMobile\MahwousImages\MahwousImages.Android\obj\Debug\90\stamp\_BuildLibraryImportsCache.stamp
+D:\Mahwous\MahwousMobile\MahwousImages\MahwousImages.Android\obj\Debug\90\res.flag
+D:\Mahwous\MahwousMobile\MahwousImages\MahwousImages.Android\obj\Debug\90\R.txt
+D:\Mahwous\MahwousMobile\MahwousImages\MahwousImages.Android\obj\Debug\90\R.cs.flag
+D:\Mahwous\MahwousMobile\MahwousImages\MahwousImages.Android\obj\Debug\90\MahwousImages.Android.csproj.CoreCompileInputs.cache

@@ -3,7 +3,7 @@
 @attribute [Authorize]
 
 @inject HttpAuthorizer authorizer
-@inject IPostRepository postRepository
+@inject MahwousRepositories repositories
 @inject NavigationManager navigation
 <!-- Content Header (Page header) -->
 <div class="content-header">
@@ -45,14 +45,14 @@
 
     protected async override Task OnParametersSetAsync()
     {
-        post = await postRepository.Get(postId);
+        post = await repositories.PostsRepository.Get(postId);
     }
 
     async Task EditPost()
     {
         try
         {
-            await postRepository.Update(post);
+            await repositories.PostsRepository.Update(post);
             navigation.NavigateTo("administration/posts");
 
         }

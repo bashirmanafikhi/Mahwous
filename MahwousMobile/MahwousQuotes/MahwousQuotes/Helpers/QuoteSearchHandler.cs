@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace MahwousQuotes.Helpers
 {
@@ -23,7 +20,7 @@ namespace MahwousQuotes.Helpers
             }
         }
 
-        protected override async void OnItemSelected(object item)
+        protected override void OnItemSelected(object item)
         {
             base.OnItemSelected(item);
 

@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MahwousWeb.Shared.Pagination;
+using System.Linq;
 
 namespace MahwousWeb.Shared.Filters
 {
@@ -10,6 +9,8 @@ namespace MahwousWeb.Shared.Filters
     /// <typeparam name="T">Class Type</typeparam>
     public interface IFilter<T> where T : class
     {
+        PaginationDetails Pagination { get; set; }
 
+        IQueryable<T> Filter(IQueryable<T> queryable);
     }
 }

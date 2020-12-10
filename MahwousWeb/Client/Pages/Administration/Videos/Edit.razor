@@ -3,8 +3,7 @@
 @attribute [Authorize]
 
 @inject HttpAuthorizer authorizer
-@inject IVideoRepository videoRepository
-@inject ICategoryRepository categoryRepository
+@inject MahwousRepositories repositories
 @inject NavigationManager navigation
 
 <!-- Content Header (Page header) -->
@@ -53,12 +52,17 @@
 
     protected async override Task OnParametersSetAsync()
     {
-        video = await videoRepository.Get(videoId);
+        video = await repositories.VideosRepository.Get(videoId);
 
         SelectedCategories = video.StatusCategories.Select(sc => sc.Category).ToList();
-        var categories = (await categoryRepository.GetCategoriesFiltered(
-            new CategoryFilter() { ForVideos = true, RecordsPerPage = 100 }
-            )).Response;
+
+        CategoryFilter filter = new CategoryFilter();
+        filter.ForVideos = true;
+        filter.Pagination.RecordsPerPage = 100;
+
+
+        var categories = (await repositories.CategoriesRepository.GetFiltered(
+        filter )).Response;
 
         NotSelectedCategories = categories.Where(c =>
                 !SelectedCategories
@@ -71,7 +75,7 @@
     {
         try
         {
-            await videoRepository.Update(video);
+            await repositories.VideosRepository.Update(video);
             navigation.NavigateTo("administration/videos");
 
         }

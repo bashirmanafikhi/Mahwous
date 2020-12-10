@@ -6,16 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
-using MahwousVideos.Models;
 using MahwousVideos.Views;
 using MahwousVideos.ViewModels;
 using MahwousWeb.Shared.Models;
 
 namespace MahwousVideos.Views
 {
-    // Learn more about making custom code visible in the Xamarin.Forms previewer
-    // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
     public partial class CategoriesPage : ContentPage
     {
@@ -25,7 +21,9 @@ namespace MahwousVideos.Views
         {
             InitializeComponent();
 
-            BindingContext = viewModel = new CategoriesViewModel();
+            viewModel = (BindingContext as CategoriesViewModel);
+            viewModel.GetInformationsCommand.Execute(null);
+            viewModel.LoadCategoriesCommand.Execute(null);
         }
 
         protected override void OnAppearing()
@@ -33,7 +31,9 @@ namespace MahwousVideos.Views
             base.OnAppearing();
 
             if (viewModel.Categories.Count == 0)
+            {
                 viewModel.IsBusy = true;
+            }
         }
     }
 }

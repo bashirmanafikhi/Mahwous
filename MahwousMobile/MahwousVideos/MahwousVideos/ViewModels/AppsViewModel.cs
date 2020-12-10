@@ -8,12 +8,12 @@ using MahwousWeb.Shared.Models;
 using MahwousWeb.Shared.Pagination;
 using Xamarin.Forms;
 
-namespace MahwousApps.ViewModels
+namespace MahwousVideos.ViewModels
 {
 
     public class AppsViewModel : BaseViewModel
     {
-        readonly PaginationDTO paginationDTO = new PaginationDTO() { RecordsPerPage = 200};
+        readonly PaginationDetails paginationDetails = new PaginationDetails() { RecordsPerPage = 200 };
 
 
         bool isLoadingMore = false;
@@ -29,7 +29,7 @@ namespace MahwousApps.ViewModels
             get { return itemTreshold; }
             set { SetProperty(ref itemTreshold, value); }
         }
-        public ObservableCollection<App> Apps { get; set; }
+        public ObservableCollection<MahwousWeb.Shared.Models.App> Apps { get; set; }
 
 
         public Command LoadAppsCommand { get; set; }
@@ -37,34 +37,39 @@ namespace MahwousApps.ViewModels
 
         public AppsViewModel()
         {
-            Apps = new ObservableCollection<App>();
+            Apps = new ObservableCollection<MahwousWeb.Shared.Models.App>();
 
             LoadAppsCommand = new Command(async () => await ExecuteLoadAppsCommand());
         }
 
         async Task ExecuteLoadAppsCommand()
         {
-                IsBusy = true;
+            //if (IsBusy && Apps.Count == 0)
+            //{
+            //    return;
+            //}
 
-                try
-                {
-                    Apps.Clear();
+            IsBusy = true;
 
-                    var paginatedResponse = await Repositories.AppRepository.GetApps(paginationDTO);
-                    var apps = paginatedResponse.Response;
-                    foreach (var app in apps)
-                    {
-                        Apps.Add(app);
-                    }
-                }
-                catch (Exception ex)
+            try
+            {
+                Apps.Clear();
+
+                var paginatedResponse = await Repositories.AppsRepository.GetPaginated(paginationDetails);
+                var apps = paginatedResponse.Response;
+                foreach (var app in apps)
                 {
-                    Debug.WriteLine(ex);
+                    Apps.Add(app);
                 }
-                finally
-                {
-                    IsBusy = false;
-                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
     }
 }

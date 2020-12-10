@@ -39,8 +39,10 @@ D:\Mahwous\MahwousMobile\MahwousQuotes\MahwousQuotes\bin\Debug\netstandard2.0\Ma
 D:\Mahwous\MahwousMobile\MahwousQuotes\MahwousQuotes\bin\Debug\netstandard2.0\MahwousQuotes.dll
 D:\Mahwous\MahwousMobile\MahwousQuotes\MahwousQuotes\bin\Debug\netstandard2.0\ref\MahwousQuotes.dll
 D:\Mahwous\MahwousMobile\MahwousQuotes\MahwousQuotes\bin\Debug\netstandard2.0\MahwousQuotes.pdb
+D:\Mahwous\MahwousMobile\MahwousQuotes\MahwousQuotes\bin\Debug\netstandard2.0\MahwousMobile.Base.dll
 D:\Mahwous\MahwousMobile\MahwousQuotes\MahwousQuotes\bin\Debug\netstandard2.0\MahwousWeb.Shared.dll
 D:\Mahwous\MahwousMobile\MahwousQuotes\MahwousQuotes\bin\Debug\netstandard2.0\MahwousWeb.Shared.pdb
+D:\Mahwous\MahwousMobile\MahwousQuotes\MahwousQuotes\bin\Debug\netstandard2.0\MahwousMobile.Base.pdb
 D:\Mahwous\MahwousMobile\MahwousQuotes\MahwousQuotes\obj\Debug\netstandard2.0\MahwousQuotes.csprojAssemblyReference.cache
 D:\Mahwous\MahwousMobile\MahwousQuotes\MahwousQuotes\obj\Debug\netstandard2.0\App.xaml.g.cs
 D:\Mahwous\MahwousMobile\MahwousQuotes\MahwousQuotes\obj\Debug\netstandard2.0\AppShell.xaml.g.cs
@@ -57,7 +59,6 @@ D:\Mahwous\MahwousMobile\MahwousQuotes\MahwousQuotes\obj\Debug\netstandard2.0\Vi
 D:\Mahwous\MahwousMobile\MahwousQuotes\MahwousQuotes\obj\Debug\netstandard2.0\Views\DataTemplates\PostTemplate.xaml.g.cs
 D:\Mahwous\MahwousMobile\MahwousQuotes\MahwousQuotes\obj\Debug\netstandard2.0\Views\DataTemplates\QuotesTemplate.xaml.g.cs
 D:\Mahwous\MahwousMobile\MahwousQuotes\MahwousQuotes\obj\Debug\netstandard2.0\Views\DataTemplates\QuoteTemplate.xaml.g.cs
-D:\Mahwous\MahwousMobile\MahwousQuotes\MahwousQuotes\obj\Debug\netstandard2.0\Views\DataTemplates\TestTemplate.xaml.g.cs
 D:\Mahwous\MahwousMobile\MahwousQuotes\MahwousQuotes\obj\Debug\netstandard2.0\Views\HomePage.xaml.g.cs
 D:\Mahwous\MahwousMobile\MahwousQuotes\MahwousQuotes\obj\Debug\netstandard2.0\Views\LikedQuotesPage.xaml.g.cs
 D:\Mahwous\MahwousMobile\MahwousQuotes\MahwousQuotes\obj\Debug\netstandard2.0\Views\PostsPage.xaml.g.cs

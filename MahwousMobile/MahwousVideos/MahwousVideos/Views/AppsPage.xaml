@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:templates="clr-namespace:MahwousVideos.Views.DataTemplates"
-             xmlns:vm="clr-namespace:MahwousApps.ViewModels"
+             xmlns:vm="clr-namespace:MahwousVideos.ViewModels"
              mc:Ignorable="d"
              x:Class="MahwousVideos.Views.AppsPage"
              Visual="Material"

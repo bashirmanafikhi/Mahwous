@@ -1,13 +1,7 @@
-﻿using System;
+﻿using MahwousWeb.Shared.Filters;
+using System;
 using System.ComponentModel;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
-using MahwousQuotes.Models;
-using MahwousQuotes.ViewModels;
-using MahwousWeb.Shared.Models;
-using MahwousWeb.Shared.Filters;
-using System.Diagnostics;
 
 namespace MahwousQuotes.Views
 {
@@ -39,9 +33,13 @@ namespace MahwousQuotes.Views
         private void MyBanner_AdsLoaded(object sender, EventArgs e)
         {
             if (Xamarin.Forms.Device.Idiom == TargetIdiom.Phone)
+            {
                 myBanner.HeightRequest = 50;
+            }
             else
+            {
                 myBanner.HeightRequest = 90;
+            }
         }
     }
 }

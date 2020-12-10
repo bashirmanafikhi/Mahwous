@@ -1,0 +1,19 @@
+﻿@page "/quotes/{id:int}"
+@layout AdminLayout
+@inject MahwousRepositories repositories
+Id is:
+@if (quote != null)
+{
+    <h3>@quote.Id</h3>
+}
+
+
+@code {
+    [Parameter] public int id { get; set; }
+    MahwousWeb.Shared.Models.QuoteStatus quote;
+
+    protected async override Task OnParametersSetAsync()
+    {
+        quote = await repositories.QuotesRepository.Get(id);
+    }
+}

@@ -74,10 +74,8 @@ public class MonoPackageManager_Resources {
 		"Xamarin.AndroidX.Work.Runtime.dll",
 		"Xamarin.Google.Android.Material.dll",
 		"FormsViewGroup.dll",
-		"MahwousQuotes.dll",
 		"Matcha.BackgroundService.dll",
 		"Matcha.BackgroundService.Droid.dll",
-		"Microsoft.Bcl.AsyncInterfaces.dll",
 		"Plugin.LocalNotification.dll",
 		"Plugin.MtAdmob.dll",
 		"SQLite-net.dll",
@@ -89,8 +87,6 @@ public class MonoPackageManager_Resources {
 		"System.Reactive.Interfaces.dll",
 		"System.Reactive.Linq.dll",
 		"System.Reactive.PlatformServices.dll",
-		"System.Text.Encodings.Web.dll",
-		"System.Text.Json.dll",
 		"Xamarin.AndroidX.Activity.dll",
 		"Xamarin.AndroidX.SavedState.dll",
 		"Xamarin.Essentials.dll",
@@ -104,8 +100,12 @@ public class MonoPackageManager_Resources {
 		"Xamarin.GooglePlayServices.Basement.dll",
 		"Xamarin.GooglePlayServices.Measurement.Base.dll",
 		"Xamarin.GooglePlayServices.Measurement.Sdk.Api.dll",
-		"MahwousWeb.Shared.dll",
 		"MahwousQuotes.Android.dll",
+		"MahwousWeb.Shared.dll",
+		"MahwousQuotes.dll",
+		"Microsoft.Bcl.AsyncInterfaces.dll",
+		"System.Text.Encodings.Web.dll",
+		"System.Text.Json.dll",
 	};
 	public static String[] Dependencies = new String[]{
 	};

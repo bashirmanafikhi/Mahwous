@@ -1,11 +1,9 @@
-﻿using AutoMapper;
+﻿using MahwousWeb.Server.Controllers.MyControllerBase;
 using MahwousWeb.Server.Data;
 using MahwousWeb.Server.Helpers;
-using MahwousWeb.Shared;
 using MahwousWeb.Shared.Filters;
 using MahwousWeb.Shared.Models;
 using MahwousWeb.Shared.Pagination;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -17,110 +15,94 @@ using System.Threading.Tasks;
 namespace MahwousWeb.Server.Controllers
 {
 
-    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
-    public class NotificationsController : ControllerBase
+    public class NotificationsController : GenericControllerBase<Notification, NotificationFilter>
     {
-        private readonly ApplicationDbContext context;
-        private readonly IFileStorageService fileStorageService;
+        public NotificationsController(ApplicationDbContext context, IFileStorageService fileStorageService)
+            : base(context, fileStorageService) { }
 
-        public NotificationsController(ApplicationDbContext context,
-            IFileStorageService fileStorageService)
+
+        public override async Task<IActionResult> Put(Notification entity)
         {
-            this.context = context;
-            this.fileStorageService = fileStorageService;
-        }
+            var old = await table.FirstOrDefaultAsync(c => c.Id == entity.Id);
 
-        [AllowAnonymous]
-        [HttpGet(Name = "GetNotifications")]
-        public async Task<ActionResult<List<Notification>>> Get([FromQuery] PaginationDTO paginationDTO)
-        {
-            var queryable = context.Notifications.AsQueryable();
-            await HttpContext.InsertPaginationParametersInResponse(queryable, paginationDTO.RecordsPerPage);
-            return await queryable.Paginate(paginationDTO).ToListAsync();
-
-        }
+            if (old == null) { return NotFound(); }
 
 
-        [AllowAnonymous]
-        [HttpGet("{id}", Name = "GetNotification")]
-        public async Task<ActionResult<Notification>> Get(int id)
-        {
-            return await context.Notifications.FirstOrDefaultAsync(c => c.Id == id);
-        }
+            await context.Database.ExecuteSqlInterpolatedAsync($"delete from NotificationApps where NotificationId = {entity.Id}");
+
+            old.NotificationApps = entity.NotificationApps;
 
 
-        [AllowAnonymous]
-        [HttpGet("GetLastNotification", Name = "GetLastNotification")]
-        public async Task<ActionResult<Notification>> GetLastNotification()
-        {
-            return await context.Notifications.OrderByDescending(n => n.Id).FirstOrDefaultAsync();
-        }
-
-        [HttpPost]
-        public async Task<ActionResult> Post(Notification notification)
-        {
-            context.Add(notification);
-            await context.SaveChangesAsync();
-            return new CreatedAtRouteResult("GetNotification", new { id = notification.Id }, notification);
-        }
-
-        [HttpPut]
-        public async Task<ActionResult> Put(Notification notification)
-        {
-            var oldNotification = await context.Notifications.FirstOrDefaultAsync(c => c.Id == notification.Id);
-
-            if (oldNotification == null) { return NotFound(); }
-
-
-            context.Entry(oldNotification).CurrentValues.SetValues(notification);
+            context.Entry(old).CurrentValues.SetValues(entity);
 
             await context.SaveChangesAsync();
             return NoContent();
         }
+        //[HttpPost]
+        //[Authorize]
+        //public override async Task<ActionResult<int>> Post(Notification notification)
+        //{
+        //    context.Add(notification);
+        //    await context.SaveChangesAsync();
+        //    return notification.Id;
+        //}
 
-        [HttpDelete("{id}")]
-        public async Task<ActionResult> Delete(int id)
-        {
-            var notification = await context.Notifications.FirstOrDefaultAsync(c => c.Id == id);
+        //[HttpPut]
+        //[Authorize]
+        //public override async Task<IActionResult> Put(Notification notification)
+        //{
+        //    var oldNotification = await context.Notifications.FirstOrDefaultAsync(c => c.Id == notification.Id);
 
-            if (notification == null) { return NotFound(); }
+        //    if (oldNotification == null) { return NotFound(); }
 
-            context.Remove(notification);
-            await context.SaveChangesAsync();
-            return NoContent();
-        }
+        //    context.Entry(oldNotification).CurrentValues.SetValues(notification);
 
+        //    await context.SaveChangesAsync();
+        //    return NoContent();
+        //}
 
-        [HttpPost("IncreaseOpenedCount")]
-        public async Task<ActionResult> IncreaseOpenedCount(Notification notification)
-        {
-            var myNotification = await context.Notifications.FirstOrDefaultAsync(n => n.Id == notification.Id);
+        //[HttpDelete("{id}")]
+        //[Authorize]
+        //public override async Task<IActionResult> Delete(int id)
+        //{
+        //    var notification = await context.Notifications.FirstOrDefaultAsync(c => c.Id == id);
 
-            if (myNotification == null) { return NotFound(); }
-
-            myNotification.OpenedCount++;
-
-            await context.SaveChangesAsync();
-            return Ok();
-        }
-
-
-
-        [HttpPost("IncreaseRecivedCount")]
-        public async Task<ActionResult> IncreaseRecivedCount(Notification notification)
-        {
-            var myNotification = await context.Notifications.FirstOrDefaultAsync(n => n.Id == notification.Id);
-
-            if (myNotification == null) { return NotFound(); }
-
-            myNotification.RecivedCount++;
-
-            await context.SaveChangesAsync();
-            return Ok();
-        }
+        //    if (notification == null) { return NotFound(); }
 
 
+        //    context.Remove(notification);
+        //    await context.SaveChangesAsync();
+        //    return NoContent();
+        //}
+
+
+        //[HttpGet("GetInformations")]
+        //public override async Task<ActionResult<Informations>> GetInformations()
+        //{
+        //    return await GetNotificationsInformations();
+        //}
+
+
+        //[HttpPost("GetInformationsFiltered")]
+        //public async Task<ActionResult<Informations>> GetInformations(NotificationFilter filter)
+        //{ return await GetInformations((IFilter<Notification>)filter); }
+        //[NonAction]
+        //public override async Task<ActionResult<Informations>> GetInformations(IFilter<Notification> filter)
+        //{
+        //    return await GetNotificationsInformations(filter);
+        //}
+
+        //private async Task<Informations> GetNotificationsInformations(IFilter<Notification> filter = null)
+        //{
+        //    var notifications = context.Notifications.Filter(filter);
+
+        //    Informations informations = new Informations();
+        //    informations.Count = await notifications.CountAsync();
+        //    informations.ViewsCount = await notifications.SumAsync(s => (long)s.ViewsCount);
+
+        //    return informations;
+        //}
     }
 }

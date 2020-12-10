@@ -1,8 +1,7 @@
 ﻿
 @inject IJSRuntime js
 @inject NavigationManager navigation
-@inject IQuoteRepository quoteRepository
-@inject ICategoryRepository categoryRepository
+@inject MahwousRepositories repositories
 @inject HttpAuthorizer authorizer
 
 <div class="container">
@@ -10,7 +9,7 @@
         <div class="col-lg-9">
             <div class="card">
                 <div class="card-header">
-                    <Pagination CurrentPage="@quoteFilter.Page" TotalAmountPages="totalAmountPages"
+                    <Pagination CurrentPage="@quoteFilter.Pagination.Page" TotalAmountPages="totalAmountPages"
                                 SelectedPage="SelectedPage" />
                 </div>
                 <!-- /.card-header -->
@@ -58,7 +57,7 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                    <Pagination CurrentPage="@quoteFilter.Page" TotalAmountPages="totalAmountPages"
+                    <Pagination CurrentPage="@quoteFilter.Pagination.Page" TotalAmountPages="totalAmountPages"
                                 SelectedPage="SelectedPage" />
                 </div>
                 <!-- /.card-footer -->
@@ -135,7 +134,17 @@
 
                         <div class="form-group">
                             <label for="Categories">تصنيفات</label>
-                            <RadzenDropDown class="form-control" Disabled="@quoteFilter.WithoutCategory" AllowClear="true" AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" @bind-Value="selectedCategoriesIds" Multiple="true" Placeholder="Select..." Data="@categories" TextProperty="Name" ValueProperty="Id"
+                            <RadzenDropDown class="form-control"
+                                            Disabled="@quoteFilter.WithoutCategory"
+                                            AllowClear="true"
+                                            AllowFiltering="true"
+                                            FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+                                            @bind-Value="selectedCategoriesIds"
+                                            Multiple="true"
+                                            Placeholder="Select..."
+                                            Data="@categories"
+                                            TextProperty="Name"
+                                            ValueProperty="Id"
                                             Change="@(args => Change(args))" />
                         </div>
 
@@ -189,7 +198,7 @@
                         <p class="ml-auto ml-md-0"></p>
                         <ul class="nav nav-pills flex-column">
                             <li class="nav-item">
-                                <a class="nav-link"><i class="far fa-circle text-danger"></i> عدد الحالات الكتابية: @informations.StatusesCount</a>
+                                <a class="nav-link"><i class="far fa-circle text-danger"></i> عدد الحالات الكتابية: @informations.Count</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link"><i class="far fa-circle text-warning"></i> مجموع المشاهدات: @informations.ViewsCount</a>
@@ -224,9 +233,9 @@
 @code {
     private QuoteFilter quoteFilter = new QuoteFilter();
 
-    List<QuoteStatus> quotes { get; set; }
-    List<Category> categories { get; set; }
-    FilteredInformations informations;
+    ICollection<QuoteStatus> quotes { get; set; }
+    ICollection<Category> categories { get; set; }
+    Informations informations;
 
 
     private int totalAmountPages;
@@ -236,7 +245,7 @@
     {
         await authorizer.SetAuthorizationAsync();
         quoteFilter.SortType = SortType.Newest;
-        informations = await quoteRepository.GetInformations();
+        informations = await repositories.QuotesRepository.GetInformations();
         await LoadQuotes();
         await LoadCategories();
     }
@@ -244,6 +253,7 @@
 
 
     IEnumerable<int> selectedCategoriesIds = new int[] { };
+
     void Change(object value)
     {
         //StateHasChanged();
@@ -254,7 +264,11 @@
     {
         try
         {
-            var paginatedResponse = await categoryRepository.GetCategoriesFiltered(new CategoryFilter() { ForQuotes = true, RecordsPerPage = 100 });
+            CategoryFilter filter = new CategoryFilter();
+            filter.ForQuotes = true;
+            filter.Pagination.RecordsPerPage = 100;
+
+            var paginatedResponse = await repositories.CategoriesRepository.GetFiltered(filter);
             categories = paginatedResponse.Response;
         }
         catch (Exception ex)
@@ -269,7 +283,7 @@
     {
         try
         {
-            var paginatedResponse = await quoteRepository.GetQuotesFiltered(quoteFilter);
+            var paginatedResponse = await repositories.QuotesRepository.GetFiltered(quoteFilter);
             quotes = paginatedResponse.Response;
             totalAmountPages = paginatedResponse.TotalAmountPages;
 
@@ -285,14 +299,14 @@
         //var quote = quotes.First(i => i.Id == quoteId);
         if (await js.Confirm("تأكيد", $"هل أنت متأكد أنك تريد أن تحذف هذه الصورة؟", SweetAlertMessageType.error))
         {
-            await quoteRepository.Delete(quoteId);
+            await repositories.QuotesRepository.Delete(quoteId);
             await LoadQuotes();
         }
     }
 
     private async Task SelectedPage(int page)
     {
-        quoteFilter.Page = page;
+        quoteFilter.Pagination.Page = page;
         await LoadQuotes();
     }
 

@@ -3,10 +3,8 @@
 @attribute [Authorize]
 
 @inject HttpAuthorizer authorizer
-@inject IQuoteRepository quoteRepository
-@inject ICategoryRepository categoryRepository
+@inject MahwousRepositories repositories
 @inject NavigationManager navigation
-
 <!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
@@ -30,11 +28,11 @@
     <div class="container-fluid">
 
 
-@if (NotSelectedCategories != null)
-{
-    <QuoteForm ButtonText="تعديل حالة" Quote="quote"
-               OnValidSubmit="EditQuote" NotSelectedCategories="NotSelectedCategories" SelectedCategories="SelectedCategories" />
-}
+        @if (NotSelectedCategories != null)
+        {
+            <QuoteForm ButtonText="تعديل حالة" Quote="quote"
+                       OnValidSubmit="EditQuote" NotSelectedCategories="NotSelectedCategories" SelectedCategories="SelectedCategories" />
+        }
 
     </div>
 </div>
@@ -51,11 +49,14 @@
 
     protected async override Task OnParametersSetAsync()
     {
-        quote = await quoteRepository.Get(quoteId);
+        CategoryFilter filter = new CategoryFilter();
+        filter.ForQuotes = true;
+        filter.Pagination.RecordsPerPage = 100;
+
+
+        quote = await repositories.QuotesRepository.Get(quoteId);
         SelectedCategories = quote.StatusCategories.Select(sc => sc.Category).ToList();
-        var categories = (await categoryRepository.GetCategoriesFiltered(
-            new CategoryFilter() { ForQuotes = true, RecordsPerPage = 100 }
-            )).Response;
+        var categories = (await repositories.CategoriesRepository.GetFiltered(filter)).Response;
 
         NotSelectedCategories = categories.Where(c =>
                 !SelectedCategories
@@ -70,7 +71,7 @@
     {
         try
         {
-            await quoteRepository.Update(quote);
+            await repositories.QuotesRepository.Update(quote);
 
             navigation.NavigateTo("administration/quotes");
 

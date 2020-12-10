@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 
 namespace MahwousQuotes.Helpers
 {
@@ -64,7 +63,7 @@ namespace MahwousQuotes.Helpers
         public bool Exists(QuoteStatus quote)
         {
             //return Connection.Table<QuoteStatus>().Where(q => q.Id == quote.Id).Count() > 0;
-            return Connection.Table<QuoteStatus>().Any(q=>q.Id == quote.Id);
+            return Connection.Table<QuoteStatus>().Any(q => q.Id == quote.Id);
         }
     }
 }

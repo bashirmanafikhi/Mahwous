@@ -28,7 +28,6 @@ com.google.android.material.tabs.TabLayout;D:\Mahwous\MahwousMobile\MahwousQuote
 com.google.android.material.tabs.TabLayout;D:\Mahwous\MahwousMobile\MahwousQuotes\MahwousQuotes.Android\obj\Debug\100\lp\52\jl\res\layout\rootlayout.xml
 com.google.android.material.tabs.TabLayout;D:\Mahwous\MahwousMobile\MahwousQuotes\MahwousQuotes.Android\obj\Debug\100\lp\52\jl\res\layout\tabbar.xml
 com.google.android.material.tabs.TabLayout;obj\Debug\100\res\layout\tabbar.xml
-crc64720bb2db43a66fe9.FormsViewPager;D:\Mahwous\MahwousMobile\MahwousQuotes\MahwousQuotes.Android\obj\Debug\100\lp\52\jl\res\layout\rootlayout.xml
 declare-styleable;D:\Mahwous\MahwousMobile\MahwousQuotes\MahwousQuotes.Android\obj\Debug\100\lp\52\jl\res\values\attrs.xml
 external-cache-path;D:\Mahwous\MahwousMobile\MahwousQuotes\MahwousQuotes.Android\obj\Debug\100\lp\51\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 external-path;D:\Mahwous\MahwousMobile\MahwousQuotes\MahwousQuotes.Android\obj\Debug\100\lp\51\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml

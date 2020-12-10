@@ -1,15 +1,12 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
+using Android.Content;
 using Android.Content.PM;
+using Android.Gms.Ads;
+using Android.OS;
 using Android.Runtime;
 using Android.Views;
-using Android.Widget;
-using Android.OS;
 using Matcha.BackgroundService.Droid;
 using Plugin.LocalNotification;
-using Android.Content;
-using Xamarin.Forms;
-using Android.Gms.Ads;
 
 namespace MahwousQuotes.Droid
 {

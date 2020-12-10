@@ -6,27 +6,33 @@
              mc:Ignorable="d"
              Visual="Material"
              x:Class="MahwousVideos.Views.DataTemplates.VideoTemplate">
-    
-  <ContentView.Content>
-      <StackLayout>
-            <Frame Margin="5,2"
+
+
+    <ContentView.Content>
+        <StackLayout>
+
+            <Frame Margin="5,5"
                     CornerRadius="5"
+                   BorderColor="{DynamicResource colForeground}"
+                   Padding="3"
                    HasShadow="True"
-                    BackgroundColor="{DynamicResource colSubBackground}">
+                    BackgroundColor="{DynamicResource colBackground}">
 
                 <StackLayout Orientation="Vertical">
+ 
+
+                    <Label x:Name="lblVideo"
+                       Padding="6,2"
+                       Text="{Binding Title}" 
+                       TextColor="{DynamicResource colForeground}"
+                       FontSize="Subtitle"
+                       HorizontalOptions="Center"/>
 
                     <Image Source="{Binding CoverPath}"
                         HorizontalOptions="FillAndExpand"
                         VerticalOptions="FillAndExpand"
                         Aspect="AspectFill"
                         HeightRequest="200" />
-
-                    <Label x:Name="lblVideo" Text="{Binding Title}" 
-                       TextColor="{DynamicResource colForeground}"
-                       Margin="10"
-                       FontSize="20"
-                       HorizontalOptions="Center"/>
 
 
 
@@ -35,15 +41,12 @@
                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Item_Tapped"></TapGestureRecognizer>
                     </StackLayout.GestureRecognizers>
 
-                    <!--<StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-                        <Button WidthRequest="60" HeightRequest="30" Text="نسخ" BackgroundColor="{StaticResource colYellow}" TextColor="{StaticResource colBlack}" FontAttributes="Bold" Padding="2" Clicked="Button_Coppy_Video_Clicked" />
-                        <Button WidthRequest="60" HeightRequest="30"  Text="مشاركة" BackgroundColor="{StaticResource colYellow}" TextColor="{StaticResource colBlack}" FontAttributes="Bold" Padding="2" Clicked="Button_Share_Video_Clicked" />
-                    </StackLayout>-->
                 </StackLayout>
 
 
 
             </Frame>
+
         </StackLayout>
-  </ContentView.Content>
+    </ContentView.Content>
 </ContentView>

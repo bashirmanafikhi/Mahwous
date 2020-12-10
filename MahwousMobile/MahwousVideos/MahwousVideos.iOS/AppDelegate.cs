@@ -4,6 +4,7 @@ using System.Linq;
 using Foundation;
 using MediaManager;
 using UIKit;
+using Google.MobileAds;
 
 namespace MahwousVideos.iOS
 {
@@ -25,11 +26,26 @@ namespace MahwousVideos.iOS
 
             CrossMediaManager.Current.Init();
 
+
             global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
             global::Xamarin.Forms.Forms.Init();
+
+
+            MobileAds.SharedInstance.Start(CompletionHandler);
+
+            // Ask the user for permission to show notifications on iOS 10.0+ at startup.
+            // If not asked at startup, user will be asked when showing the first notification.
+            Plugin.LocalNotification.NotificationCenter.AskPermission();
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
         }
+        public override void WillEnterForeground(UIApplication uiApplication)
+        {
+            Plugin.LocalNotification.NotificationCenter.ResetApplicationIconBadgeNumber(uiApplication);
+        }
+
+        private void CompletionHandler(InitializationStatus status) { }
     }
 }

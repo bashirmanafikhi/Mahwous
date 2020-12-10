@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MahwousConsoleCore
 {
@@ -9,7 +7,7 @@ namespace MahwousConsoleCore
         void Proccess()
         {
             Predicate<Test> predicate = new Predicate<Test>(Method);
-            
+
 
         }
 

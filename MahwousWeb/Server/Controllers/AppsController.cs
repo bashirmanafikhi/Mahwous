@@ -1,11 +1,9 @@
-﻿using AutoMapper;
+﻿using MahwousWeb.Server.Controllers.MyControllerBase;
 using MahwousWeb.Server.Data;
 using MahwousWeb.Server.Helpers;
-using MahwousWeb.Shared;
 using MahwousWeb.Shared.Filters;
 using MahwousWeb.Shared.Models;
 using MahwousWeb.Shared.Pagination;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -17,43 +15,17 @@ using System.Threading.Tasks;
 namespace MahwousWeb.Server.Controllers
 {
 
-    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
-    public class AppsController : ControllerBase
+    public class AppsController : GenericControllerBase<App, AppFilter>
     {
-        private readonly string noImage = "https://www.mahwous.com/website/images/no_image.jpg";
-
-        private readonly ApplicationDbContext context;
-        private readonly IFileStorageService fileStorageService;
-
-        public AppsController(ApplicationDbContext context,
-            IFileStorageService fileStorageService)
-        {
-            this.context = context;
-            this.fileStorageService = fileStorageService;
-        }
-
-        [AllowAnonymous]
-        [HttpGet(Name = "GetApps")]
-        public async Task<ActionResult<List<App>>> Get([FromQuery] PaginationDTO paginationDTO)
-        {
-            var queryable = context.Apps.AsQueryable();
-            await HttpContext.InsertPaginationParametersInResponse(queryable, paginationDTO.RecordsPerPage);
-            return await queryable.Paginate(paginationDTO).ToListAsync();
-
-        }
+        public AppsController(ApplicationDbContext context, IFileStorageService fileStorageService)
+            : base(context, fileStorageService) { }
 
 
-        [AllowAnonymous]
-        [HttpGet("{id}", Name = "GetApp")]
-        public async Task<ActionResult<App>> Get(int id)
-        {
-            return await context.Apps.FirstOrDefaultAsync(c => c.Id == id);
-        }
-
-        [HttpPost]
-        public async Task<ActionResult> Post(App app)
+        //[HttpPost]
+        //[Authorize]
+        public override async Task<ActionResult<int>> Post(App app)
         {
             if (!string.IsNullOrWhiteSpace(app.ImagePath))
             {
@@ -67,11 +39,12 @@ namespace MahwousWeb.Server.Controllers
 
             context.Add(app);
             await context.SaveChangesAsync();
-            return new CreatedAtRouteResult("GetApp", new { id = app.Id }, app);
+            return app.Id;
         }
 
-        [HttpPut]
-        public async Task<ActionResult> Put(App app)
+        //[HttpPut]
+        //[Authorize]
+        public override async Task<IActionResult> Put(App app)
         {
             var oldApp = await context.Apps.FirstOrDefaultAsync(c => c.Id == app.Id);
 
@@ -83,7 +56,7 @@ namespace MahwousWeb.Server.Controllers
             {
                 var appCover = Convert.FromBase64String(app.ImagePath);
                 app.ImagePath = await fileStorageService.EditFile(appCover,
-                    "jpg", "apps", oldApp.ImagePath);
+                    "jpg", oldApp.ImagePath);
             }
 
             context.Entry(oldApp).CurrentValues.SetValues(app);
@@ -92,8 +65,9 @@ namespace MahwousWeb.Server.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
-        public async Task<ActionResult> Delete(int id)
+        //[HttpDelete("{id}")]
+        //[Authorize]
+        public override async Task<IActionResult> Delete(int id)
         {
             var app = await context.Apps.FirstOrDefaultAsync(c => c.Id == id);
 
@@ -102,7 +76,7 @@ namespace MahwousWeb.Server.Controllers
 
             if (!string.IsNullOrWhiteSpace(app.ImagePath))
             {
-                await fileStorageService.DeleteFile(app.ImagePath, "apps");
+                await fileStorageService.DeleteFile(app.ImagePath);
             }
 
             context.Remove(app);
@@ -111,5 +85,33 @@ namespace MahwousWeb.Server.Controllers
         }
 
 
+        //[HttpGet("GetInformations")]
+        //public override async Task<ActionResult<Informations>> GetInformations()
+        //{
+        //    return await GetAppsInformations();
+        //}
+
+
+        //[HttpPost("GetInformationsFiltered")]
+        //public async Task<ActionResult<Informations>> GetInformations(AppFilter filter)
+        //{ return await GetInformations((IFilter<App>)filter); }
+        //[NonAction]
+        //public override async Task<ActionResult<Informations>> GetInformations(IFilter<App> filter)
+        //{
+        //    return await GetAppsInformations(filter);
+        //}
+
+        //private async Task<Informations> GetAppsInformations(IFilter<App> filter = null)
+        //{
+        //    var apps = context.Apps.Filter(filter);
+
+        //    Informations informations = new Informations
+        //    {
+        //        Count = await apps.CountAsync(),
+        //        ViewsCount = await apps.SumAsync(s => (long)s.ViewsCount)
+        //    };
+
+        //    return informations;
+        //}
     }
 }

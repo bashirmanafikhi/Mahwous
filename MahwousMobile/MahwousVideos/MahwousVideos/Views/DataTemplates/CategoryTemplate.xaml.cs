@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -25,10 +24,15 @@ namespace MahwousVideos.Views.DataTemplates
         async void OnItemSelected(object sender, EventArgs args)
         {
             var layout = (BindableObject)sender;
-            var category = (Category)layout.BindingContext;
+            var viewModel = (CategoryViewModel)layout.BindingContext;
+
+
 
             VideoFilter filter = new VideoFilter();
-            filter.Categories.Add(category);
+            filter.Categories.Add(viewModel.Category);
+
+
+
             await Navigation.PushAsync(new VideosPage(new VideosViewModel(filter)));
         }
     }

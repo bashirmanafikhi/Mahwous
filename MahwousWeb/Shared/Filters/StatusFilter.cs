@@ -2,15 +2,16 @@
 using MahwousWeb.Shared.Pagination;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 namespace MahwousWeb.Shared.Filters
 {
-
-    public class StatusFilter
+    public class StatusFilter : IFilter<Status>
     {
+        public PaginationDetails Pagination { get; set; }
         public StatusFilter()
         {
+            Pagination = new PaginationDetails();
             Categories = new List<Category>();
 
             DownloadsCount = new Range<int>();
@@ -30,16 +31,7 @@ namespace MahwousWeb.Shared.Filters
             LikesCount.To = int.MaxValue;
         }
 
-        public int Page { get; set; } = 1;
-        public int RecordsPerPage { get; set; } = 10;
-
-        public PaginationDTO Pagination
-        {
-            get { return new PaginationDTO() { Page = Page, RecordsPerPage = RecordsPerPage }; }
-        }
-
-
-
+        public bool Visible { get; set; }
 
         public SortType SortType { get; set; }
 
@@ -48,15 +40,64 @@ namespace MahwousWeb.Shared.Filters
         public Range<int> LikesCount { get; set; }
 
         public Range<DateTime> Date { get; set; }
-
-
-        public bool Visible { get; set; }
         public bool WithoutCategory { get; set; }
-
         public IList<Category> Categories { get; set; }
+
+
+
+        public IQueryable<Status> Filter(IQueryable<Status> queryable)
+        {
+            // categories filter
+            if (WithoutCategory)
+            {
+                queryable = queryable.Where(v => v.StatusCategories == null || v.StatusCategories.Count == 0);
+            }
+            else if (Categories != null && Categories.Count > 0)
+            {
+                int[] catIds = Categories.Select(c => c.Id).ToArray();
+
+                queryable = queryable.Where(video =>
+                    video.StatusCategories.Any(sc => catIds.Contains(sc.CategoryId))
+                );
+            }
+
+            // other general status properties
+
+            queryable = queryable.Where(v => v.ViewsCount >= ViewsCount.From && v.ViewsCount <= ViewsCount.To);
+            queryable = queryable.Where(v => v.DownloadsCount >= DownloadsCount.From && v.DownloadsCount <= DownloadsCount.To);
+            queryable = queryable.Where(v => v.LikesCount >= LikesCount.From && v.LikesCount <= LikesCount.To);
+
+            queryable = queryable.Where(v => v.Date >= Date.From && v.Date <= Date.To);
+
+            queryable = queryable.Where(v => v.Visible == Visible);
+
+            switch (SortType)
+            {
+                case SortType.Newest:
+                    queryable = queryable.OrderByDescending(v => v.Date);
+                    break;
+                case SortType.Oldest:
+                    queryable = queryable.OrderBy(v => v.Date);
+                    break;
+                case SortType.Views:
+                    queryable = queryable.OrderByDescending(v => v.ViewsCount);
+                    break;
+                case SortType.Downloads:
+                    queryable = queryable.OrderByDescending(v => v.DownloadsCount);
+                    break;
+                case SortType.Likes:
+                    queryable = queryable.OrderByDescending(v => v.LikesCount);
+                    break;
+                case SortType.Random:
+                    queryable = queryable.OrderBy(v => Guid.NewGuid());
+                    break;
+                default:
+                    break;
+            }
+
+            return queryable;
+        }
     }
-
-
 
     public enum SortType
     {
@@ -66,13 +107,6 @@ namespace MahwousWeb.Shared.Filters
         Downloads,
         Likes,
         Random
-    }
-
-    public enum Visibility
-    {
-        Both,
-        Visible,
-        Invisible
     }
 
     public class Range<T>

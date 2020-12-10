@@ -1,429 +1,229 @@
-﻿using AutoMapper;
+﻿using MahwousWeb.Server.Controllers.MyControllerBase;
 using MahwousWeb.Server.Data;
 using MahwousWeb.Server.Helpers;
-using MahwousWeb.Shared;
 using MahwousWeb.Shared.Filters;
 using MahwousWeb.Shared.Models;
 using MahwousWeb.Shared.Pagination;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
-using System.Runtime.InteropServices.ComTypes;
-using System.Text;
-using System.Text.Json;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace MahwousWeb.Server.Controllers
 {
-
-    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
-    public class StatusesController : ControllerBase
+    public class StatusesController : GenericStatusesControllerBase<Status, StatusFilter>
     {
+        public StatusesController(ApplicationDbContext context, IFileStorageService fileStorageService)
+            : base(context, fileStorageService) { }
 
-        private readonly ApplicationDbContext context;
-        private readonly IFileStorageService fileStorageService;
 
-        public StatusesController(ApplicationDbContext context,
-            IFileStorageService fileStorageService)
-        {
-            this.context = context;
-            this.fileStorageService = fileStorageService;
-        }
 
 
+        //[HttpPost]
+        //[Authorize]
+        //public override async Task<ActionResult<int>> Post(Status status)
+        //{
+        //    if (status is ImageStatus &&
+        //        !string.IsNullOrWhiteSpace((status as ImageStatus).ImagePath))
+        //    {
+        //        var imagePath = Convert.FromBase64String((status as ImageStatus).ImagePath);
+        //        (status as ImageStatus).ImagePath = await fileStorageService.SaveFile(imagePath, "jpg", "images");
+        //    }
 
-        [AllowAnonymous]
-        [HttpGet(Name = "GetStatuses")]
-        public async Task<ActionResult<List<Status>>> Get([FromQuery] PaginationDTO paginationDTO)
-        {
-            var queryable = context.Statuses.AsQueryable();
-            await HttpContext.InsertPaginationParametersInResponse(queryable, paginationDTO.RecordsPerPage);
-            return await queryable.Paginate(paginationDTO).ToListAsync();
+        //    if (status is VideoStatus &&
+        //        !string.IsNullOrWhiteSpace((status as VideoStatus).CoverPath))
+        //    {
+        //        var coverPath = Convert.FromBase64String((status as VideoStatus).CoverPath);
+        //        (status as VideoStatus).CoverPath = await fileStorageService.SaveFile(coverPath, "jpg", "video_covers");
+        //    }
 
-        }
+        //    if (status is VideoStatus &&
+        //        !string.IsNullOrWhiteSpace((status as VideoStatus).VideoPath))
+        //    {
+        //        var videoPath = Convert.FromBase64String((status as VideoStatus).VideoPath);
+        //        (status as VideoStatus).VideoPath = await fileStorageService.SaveFile(videoPath, "mp4", "videos");
+        //    }
 
 
 
-        [AllowAnonymous]
-        [HttpGet("{id}", Name = "GetStatus")]
-        public async Task<ActionResult<Status>> Get(int id)
-        {
-            return await context.Statuses.FirstOrDefaultAsync(s => s.Id == id);
-        }
+        //    context.Add(status);
+        //    await context.SaveChangesAsync();
+        //    return status.Id;
+        //}
 
+        //[HttpPut]
+        //[Authorize]
+        //public override async Task<IActionResult> Put(Status status)
+        //{
+        //    var oldStatus = await context.Statuses.FirstOrDefaultAsync(c => c.Id == status.Id);
 
+        //    if (oldStatus == null) { return NotFound(); }
 
 
-        [HttpPost]
-        public async Task<ActionResult> Post(Status status)
-        {
-            if (status is ImageStatus &&
-                !string.IsNullOrWhiteSpace((status as ImageStatus).ImagePath))
-            {
-                var imagePath = Convert.FromBase64String((status as ImageStatus).ImagePath);
-                (status as ImageStatus).ImagePath = await fileStorageService.SaveFile(imagePath, "jpg", "images");
-            }
 
-            if (status is VideoStatus &&
-                !string.IsNullOrWhiteSpace((status as VideoStatus).CoverPath))
-            {
-                var coverPath = Convert.FromBase64String((status as VideoStatus).CoverPath);
-                (status as VideoStatus).CoverPath = await fileStorageService.SaveFile(coverPath, "jpg", "video_covers");
-            }
+        //    if (status is ImageStatus &&
+        //        !string.IsNullOrWhiteSpace((status as ImageStatus).ImagePath) &&
+        //        !(status as ImageStatus).ImagePath.Equals((oldStatus as ImageStatus).ImagePath))
+        //    {
+        //        var imagePath = Convert.FromBase64String((status as ImageStatus).ImagePath);
+        //        (status as ImageStatus).ImagePath = await fileStorageService.EditFile(imagePath,
+        //            "jpg", (oldStatus as ImageStatus).ImagePath);
+        //    }
 
-            if (status is VideoStatus &&
-                !string.IsNullOrWhiteSpace((status as VideoStatus).VideoPath))
-            {
-                var videoPath = Convert.FromBase64String((status as VideoStatus).VideoPath);
-                (status as VideoStatus).VideoPath = await fileStorageService.SaveFile(videoPath, "mp4", "videos");
-            }
 
 
 
-            context.Add(status);
-            await context.SaveChangesAsync();
-            return new CreatedAtRouteResult("GetStatus", new { id = status.Id }, status);
-        }
+        //    if (status is VideoStatus &&
+        //        !string.IsNullOrWhiteSpace((status as VideoStatus).CoverPath) &&
+        //        !(status as VideoStatus).CoverPath.Equals((oldStatus as VideoStatus).CoverPath))
+        //    {
+        //        var coverPath = Convert.FromBase64String((status as VideoStatus).CoverPath);
+        //        (status as VideoStatus).CoverPath = await fileStorageService.EditFile(coverPath,
+        //            "jpg", (oldStatus as VideoStatus).CoverPath);
+        //    }
 
-        [HttpPut]
-        public async Task<ActionResult> Put(Status status)
-        {
-            var oldStatus = await context.Statuses.FirstOrDefaultAsync(s => s.Id == status.Id);
+        //    if (status is VideoStatus &&
+        //        !string.IsNullOrWhiteSpace((status as VideoStatus).VideoPath) &&
+        //        !(status as VideoStatus).VideoPath.Equals((oldStatus as VideoStatus).VideoPath))
+        //    {
+        //        var videoPath = Convert.FromBase64String((status as VideoStatus).VideoPath);
+        //        (status as VideoStatus).VideoPath = await fileStorageService.EditFile(videoPath,
+        //            "mp4", (oldStatus as VideoStatus).VideoPath);
+        //    }
 
-            if (oldStatus == null) { return NotFound(); }
 
 
-            if (status is ImageStatus &&
-                !string.IsNullOrWhiteSpace((status as ImageStatus).ImagePath) &&
-                !(status as ImageStatus).ImagePath.Equals((oldStatus as ImageStatus).ImagePath))
-            {
-                var imagePath = Convert.FromBase64String((status as ImageStatus).ImagePath);
-                (status as ImageStatus).ImagePath = await fileStorageService.EditFile(imagePath,
-                    "jpg", "images", (oldStatus as ImageStatus).ImagePath);
-            }
+        //    await context.Database.ExecuteSqlInterpolatedAsync($"delete from StatusCategories where StatusId = {status.Id}");
 
+        //    oldStatus.StatusCategories = status.StatusCategories;
 
 
+        //    context.Entry(oldStatus).CurrentValues.SetValues(status);
 
-            if (status is VideoStatus &&
-                !string.IsNullOrWhiteSpace((status as VideoStatus).CoverPath) &&
-                !(status as VideoStatus).CoverPath.Equals((oldStatus as VideoStatus).CoverPath))
-            {
-                var coverPath = Convert.FromBase64String((status as VideoStatus).CoverPath);
-                (status as VideoStatus).CoverPath = await fileStorageService.EditFile(coverPath,
-                    "jpg", "video_covers", (oldStatus as VideoStatus).CoverPath);
-            }
+        //    await context.SaveChangesAsync();
+        //    return NoContent();
+        //}
 
-            if (status is VideoStatus &&
-                !string.IsNullOrWhiteSpace((status as VideoStatus).VideoPath) &&
-                !(status as VideoStatus).VideoPath.Equals((oldStatus as VideoStatus).VideoPath))
-            {
-                var videoPath = Convert.FromBase64String((status as VideoStatus).VideoPath);
-                (status as VideoStatus).VideoPath = await fileStorageService.EditFile(videoPath,
-                    "mp4", "videos", (oldStatus as VideoStatus).VideoPath);
-            }
+        //[HttpDelete("{id}")]
+        //[Authorize]
+        //public override async Task<IActionResult> Delete(int id)
+        //{
+        //    var status = await context.Statuses.FirstOrDefaultAsync(c => c.Id == id);
 
+        //    if (status == null) { return NotFound(); }
 
+        //    if (status is ImageStatus &&
+        //        !string.IsNullOrWhiteSpace((status as ImageStatus).ImagePath))
+        //    {
+        //        await fileStorageService.DeleteFile((status as ImageStatus).ImagePath);
+        //    }
 
+        //    if (status is VideoStatus &&
+        //        !string.IsNullOrWhiteSpace((status as VideoStatus).CoverPath))
+        //    {
+        //        await fileStorageService.DeleteFile((status as VideoStatus).CoverPath);
+        //    }
 
+        //    if (status is VideoStatus &&
+        //        !string.IsNullOrWhiteSpace((status as VideoStatus).VideoPath))
+        //    {
+        //        await fileStorageService.DeleteFile((status as VideoStatus).VideoPath);
+        //    }
 
+        //    context.Remove(status);
+        //    await context.SaveChangesAsync();
+        //    return NoContent();
+        //}
 
-            context.Entry(oldStatus).CurrentValues.SetValues(status);
 
-            await context.SaveChangesAsync();
-            return NoContent();
-        }
 
-        [HttpDelete("{id}")]
-        public async Task<ActionResult> Delete(int id)
-        {
-            var status = await context.Statuses.FirstOrDefaultAsync(s => s.Id == id);
-            if (status == null) { return NotFound(); }
 
-            if (status is ImageStatus &&
-                !string.IsNullOrWhiteSpace((status as ImageStatus).ImagePath))
-            {
-                await fileStorageService.DeleteFile((status as ImageStatus).ImagePath, "images");
-            }
 
-            if (status is VideoStatus &&
-                !string.IsNullOrWhiteSpace((status as VideoStatus).CoverPath))
-            {
-                await fileStorageService.DeleteFile((status as VideoStatus).CoverPath, "video_covers");
-            }
 
-            if (status is VideoStatus &&
-                !string.IsNullOrWhiteSpace((status as VideoStatus).VideoPath))
-            {
-                await fileStorageService.DeleteFile((status as VideoStatus).VideoPath, "videos");
-            }
+        //[HttpGet("GetInformations")]
+        //public override async Task<ActionResult<Informations>> GetInformations()
+        //{
+        //    return await GetStatusesInformations();
+        //}
 
 
-            context.Remove(status);
-            await context.SaveChangesAsync();
-            return NoContent();
-        }
+        //[HttpPost("GetInformationsFiltered")]
+        //public override async Task<ActionResult<Informations>> GetInformations(StatusFilter filter)
+        //{
+        //    return await GetStatusesInformations(filter);
+        //}
 
+        //private async Task<Informations> GetStatusesInformations(IFilter<Status> filter = null)
+        //{
+        //    var statuses = context.Statuses.Filter(filter);
+        //    Informations informations = new Informations();
 
-        [AllowAnonymous]
-        [HttpPost("filter")]
-        public async Task<ActionResult<List<Status>>> Filter(StatusFilter statusFilter)
-        {
+        //    informations.Count = await statuses.CountAsync();
 
-            var statusesQueryable = context.Statuses.AsQueryable();
+        //    informations.LikesCount = await statuses.SumAsync(s => (long)s.LikesCount);
+        //    informations.DownloadsCount = await statuses.SumAsync(s => (long)s.DownloadsCount);
+        //    informations.SharesCount = await statuses.SumAsync(s => (long)s.SharesCount);
+        //    informations.ViewsCount = await statuses.SumAsync(s => (long)s.ViewsCount);
 
 
+        //    var categoriesStatusCounts = context.Categories.Select(c => new KeyValuePair<string, int>(c.Name, c.StatusCategories.Count));
+        //    informations.CategoriesStatusCounts = new Dictionary<string, int>(categoriesStatusCounts);
 
-            // categories filter
-            if (statusFilter.WithoutCategory)
-            {
-                statusesQueryable = statusesQueryable.Where(v => v.StatusCategories == null || v.StatusCategories.Count == 0);
-            }
-            else if (statusFilter.Categories != null && statusFilter.Categories.Count > 0)
-            {
-                int[] catIds = statusFilter.Categories.Select(c => c.Id).ToArray();
+        //    return informations;
+        //}
 
-                statusesQueryable = statusesQueryable.Where(status =>
-                    status.StatusCategories.Any(sc => catIds.Contains(sc.CategoryId))
-                );
-            }
 
-            // other general status properties
+        ////---------------------- not implementaion methods -------------------------
 
 
-            statusesQueryable = statusesQueryable.Where(v => v.ViewsCount >= statusFilter.ViewsCount.From && v.ViewsCount <= statusFilter.ViewsCount.To);
-            statusesQueryable = statusesQueryable.Where(v => v.DownloadsCount >= statusFilter.DownloadsCount.From && v.DownloadsCount <= statusFilter.DownloadsCount.To);
-            statusesQueryable = statusesQueryable.Where(v => v.LikesCount >= statusFilter.LikesCount.From && v.LikesCount <= statusFilter.LikesCount.To);
 
-            statusesQueryable = statusesQueryable.Where(v => v.Date >= statusFilter.Date.From && v.Date <= statusFilter.Date.To);
+        //[HttpPut("IncrementDownloads/{id}")]
+        //public async Task<IActionResult> IncrementDownloads(int id)
+        //{
+        //    Status status = await context.Statuses.FirstOrDefaultAsync(s => s.Id == id);
+        //    status.DownloadsCount++;
+        //    context.SaveChanges();
 
-            statusesQueryable = statusesQueryable.Where(v => v.Visible == statusFilter.Visible);
+        //    return Ok();
+        //}
 
-            switch (statusFilter.SortType)
-            {
-                case SortType.Newest:
-                    statusesQueryable = statusesQueryable.OrderByDescending(v => v.Date);
-                    break;
-                case SortType.Oldest:
-                    statusesQueryable = statusesQueryable.OrderBy(v => v.Date);
-                    break;
-                case SortType.Views:
-                    statusesQueryable = statusesQueryable.OrderByDescending(v => v.ViewsCount);
-                    break;
-                case SortType.Downloads:
-                    statusesQueryable = statusesQueryable.OrderByDescending(v => v.DownloadsCount);
-                    break;
-                case SortType.Likes:
-                    statusesQueryable = statusesQueryable.OrderByDescending(v => v.LikesCount);
-                    break;
-                case SortType.Random:
-                    statusesQueryable = statusesQueryable.OrderBy(v => Guid.NewGuid());
-                    break;
-                default:
-                    break;
-            }
+        //[HttpPut("IncrementShares/{id}")]
+        //public async Task<IActionResult> IncrementShares(int id)
+        //{
+        //    Status status = await context.Statuses.FirstOrDefaultAsync(s => s.Id == id);
+        //    status.SharesCount++;
+        //    context.SaveChanges();
 
-            await HttpContext.InsertPaginationParametersInResponse(statusesQueryable,
-                statusFilter.RecordsPerPage);
+        //    return Ok();
+        //}
 
-            var statuses = await statusesQueryable.Paginate(statusFilter.Pagination).ToListAsync();
+        //[HttpPut("IncrementLikes/{id}")]
+        //public async Task<IActionResult> IncrementLikes(int id)
+        //{
+        //    Status status = await context.Statuses.FirstOrDefaultAsync(s => s.Id == id);
+        //    status.LikesCount++;
+        //    context.SaveChanges();
 
-            return statuses;
-        }
+        //    return Ok();
+        //}
 
+        //[HttpPut("DecrementLikes/{id}")]
+        //public async Task<IActionResult> DecrementLikes(int id)
+        //{
+        //    Status status = await context.Statuses.FirstOrDefaultAsync(s => s.Id == id);
+        //    status.LikesCount--;
+        //    context.SaveChanges();
 
+        //    return Ok();
+        //}
 
 
-        [AllowAnonymous]
-        [HttpPost("incrementviews/{id}")]
-        public async Task<ActionResult> IncrementViews(int id)
-        {
-            var status = await context.Statuses.FirstOrDefaultAsync(s => s.Id == id);
-
-            if (status == null) { return NotFound(); }
-
-            status.ViewsCount++;
-
-            await context.SaveChangesAsync();
-            //return NoContent();
-            return Ok();
-        }
-
-
-
-        [AllowAnonymous]
-        [HttpPost("incrementdownloads/{id}")]
-        public async Task<ActionResult> IncrementDownloads(int id)
-        {
-            var status = await context.Statuses.FirstOrDefaultAsync(s => s.Id == id);
-
-            if (status == null) { return NotFound(); }
-
-            status.DownloadsCount++;
-
-            await context.SaveChangesAsync();
-            return Ok();
-        }
-
-
-
-        [AllowAnonymous]
-        [HttpPost("incrementlikes/{id}")]
-        public async Task<ActionResult> IncrementLikes(int id)
-        {
-            var status = await context.Statuses.FirstOrDefaultAsync(s => s.Id == id);
-
-            if (status == null) { return NotFound(); }
-
-            status.LikesCount++;
-
-            await context.SaveChangesAsync();
-            return Ok();
-        }
-
-
-
-        [AllowAnonymous]
-        [HttpPost("decrementlikes/{id}")]
-        public async Task<ActionResult> DecrementLikes(int id)
-        {
-            var status = await context.Statuses.FirstOrDefaultAsync(s => s.Id == id);
-
-            if (status == null) { return NotFound(); }
-
-            status.LikesCount--;
-
-            await context.SaveChangesAsync();
-            return Ok();
-        }
-
-
-        [AllowAnonymous]
-        [HttpPost("count")]
-        public async Task<ActionResult<FilteredInformations>> Count(StatusFilter statusFilter)
-        {
-            var statusesQueryable = context.Statuses.AsQueryable();
-
-
-            // categories filter
-            if (statusFilter.WithoutCategory)
-            {
-                statusesQueryable = statusesQueryable.Where(v => v.StatusCategories == null || v.StatusCategories.Count == 0);
-            }
-            else if (statusFilter.Categories != null && statusFilter.Categories.Count > 0)
-            {
-                int[] catIds = statusFilter.Categories.Select(c => c.Id).ToArray();
-
-                statusesQueryable = statusesQueryable.Where(status =>
-                    status.StatusCategories.Any(sc => catIds.Contains(sc.CategoryId))
-                );
-            }
-
-            // other general status properties
-
-
-            statusesQueryable = statusesQueryable.Where(v => v.ViewsCount >= statusFilter.ViewsCount.From && v.ViewsCount <= statusFilter.ViewsCount.To);
-            statusesQueryable = statusesQueryable.Where(v => v.DownloadsCount >= statusFilter.DownloadsCount.From && v.DownloadsCount <= statusFilter.DownloadsCount.To);
-            statusesQueryable = statusesQueryable.Where(v => v.LikesCount >= statusFilter.LikesCount.From && v.LikesCount <= statusFilter.LikesCount.To);
-
-            statusesQueryable = statusesQueryable.Where(v => v.Date >= statusFilter.Date.From && v.Date <= statusFilter.Date.To);
-
-            statusesQueryable = statusesQueryable.Where(v => v.Visible == statusFilter.Visible);
-
-            switch (statusFilter.SortType)
-            {
-                case SortType.Newest:
-                    statusesQueryable = statusesQueryable.OrderByDescending(v => v.Date);
-                    break;
-                case SortType.Oldest:
-                    statusesQueryable = statusesQueryable.OrderBy(v => v.Date);
-                    break;
-                case SortType.Views:
-                    statusesQueryable = statusesQueryable.OrderByDescending(v => v.ViewsCount);
-                    break;
-                case SortType.Downloads:
-                    statusesQueryable = statusesQueryable.OrderByDescending(v => v.DownloadsCount);
-                    break;
-                case SortType.Likes:
-                    statusesQueryable = statusesQueryable.OrderByDescending(v => v.LikesCount);
-                    break;
-                case SortType.Random:
-                    statusesQueryable = statusesQueryable.OrderBy(v => Guid.NewGuid());
-                    break;
-                default:
-                    break;
-            }
-
-            FilteredInformations informations = new FilteredInformations();
-            informations.StatusesCount = await statusesQueryable.CountAsync();
-
-            informations.DownloadsCount = await statusesQueryable.SumAsync(s => (long)s.DownloadsCount);
-            informations.LikesCount = await statusesQueryable.SumAsync(s => (long)s.LikesCount);
-            informations.ViewsCount = await statusesQueryable.SumAsync(s => (long)s.ViewsCount);
-
-            informations.CategoriesCount = await context.Categories.CountAsync();
-
-            var categoriesStatusCounts = context.Categories.Select(c => new KeyValuePair<string, int>(c.Name, c.StatusCategories.Count));
-            informations.CategoriesStatusCounts = new Dictionary<string, int>(categoriesStatusCounts);
-
-            return informations;
-        }
-
-        [AllowAnonymous]
-        [HttpGet("informations")]
-        public async Task<ActionResult<GeneralInformations>> Informations()
-        {
-            GeneralInformations informations = new GeneralInformations();
-
-            informations.AllStatusesCount = await context.Statuses.CountAsync();
-
-            informations.ImageStatusesCount = await context.ImageStatuses.CountAsync();
-            informations.QuoteStatusesCount = await context.QuoteStatuses.CountAsync();
-            informations.VideoStatusesCount = await context.VideoStatuses.CountAsync();
-
-            informations.AppsCount = await context.Apps.CountAsync();
-            informations.PostsCount = await context.Posts.CountAsync();
-
-            informations.LikesCount = await context.Statuses.SumAsync(s => (long)s.LikesCount);
-            informations.DownloadsCount = await context.Statuses.SumAsync(s => (long)s.DownloadsCount);
-            informations.ViewsCount = await context.Statuses.SumAsync(s => (long)s.ViewsCount);
-
-            informations.CategoriesCount = await context.Categories.CountAsync();
-
-            var categoriesStatusCounts = context.Categories.Select(c => new KeyValuePair<string, int>(c.Name, c.StatusCategories.Count));
-            informations.CategoriesStatusCounts = new Dictionary<string, int>(categoriesStatusCounts);
-            
-            return informations;
-        }
-
-        [AllowAnonymous]
-        [HttpGet("count")]
-        public async Task<ActionResult<FilteredInformations>> Count()
-        {
-            FilteredInformations informations = new FilteredInformations();
-            informations.StatusesCount = await context.Statuses.CountAsync();
-
-            informations.DownloadsCount = await context.Statuses.SumAsync(s => (long)s.DownloadsCount);
-            informations.LikesCount = await context.Statuses.SumAsync(s => (long)s.LikesCount);
-            informations.ViewsCount = await context.Statuses.SumAsync(s => (long)s.ViewsCount);
-
-            informations.CategoriesCount = await context.Categories.CountAsync();
-
-            var categoriesStatusCounts = context.Categories.Select(c => new KeyValuePair<string, int>(c.Name, c.StatusCategories.Count));
-            informations.CategoriesStatusCounts = new Dictionary<string, int>(categoriesStatusCounts);
-
-
-
-            return informations;
-        }
     }
 }

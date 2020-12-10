@@ -1,14 +1,15 @@
 ﻿using System;
 using Xamarin.Forms;
 using MahwousVideos.Views;
-using MahwousWeb.Shared.Repositories;
-using MahwousWeb.Shared.Services;
 using System.Net.Http;
 using System.Threading.Tasks;
-using MahwousVideos.Models;
 using MahwousVideos.Helpers;
 using MahwousVideos.Styles.Themes;
 using MediaManager;
+using MahwousWeb.Shared.Repositories;
+using Xamarin.Essentials;
+using System.Diagnostics;
+using Plugin.LocalNotification;
 
 namespace MahwousVideos
 {
@@ -18,21 +19,34 @@ namespace MahwousVideos
         public App()
         {
             InitializeComponent();
+
             RegisterServices();
             CheckTheme();
             SetMediaManagerOptions();
+            SetLocalNotificationsOptions();
+
 
             MainPage = new AppShell();
         }
 
+        private void SetLocalNotificationsOptions()
+        {
+            // Local Notification tap event listener
+            NotificationCenter.Current.NotificationTapped += OnLocalNotificationTapped;
+        }
+        private void OnLocalNotificationTapped(NotificationTappedEventArgs e)
+        {
+            // your code goes here
+        }
+
         private void SetMediaManagerOptions()
         {
-            //CrossMediaManager.Current.ClearQueueOnPlay = true;
-
+            CrossMediaManager.Current.ClearQueueOnPlay = true;
             CrossMediaManager.Current.MediaPlayer.VideoAspect = MediaManager.Video.VideoAspectMode.AspectFit;
-            CrossMediaManager.Current.MediaPlayer.VideoPlaceholder = (new ActivityIndicator()).IsVisible = true;
-            CrossMediaManager.Current.Notification.ShowNavigationControls = true;
-            CrossMediaManager.Current.Notification.ShowPlayPauseControls = true;
+            CrossMediaManager.Current.MediaPlayer.VideoPlaceholder = (new ActivityIndicator() { IsVisible = true , IsRunning = true});
+            CrossMediaManager.Current.Notification.ShowNavigationControls = false;
+            CrossMediaManager.Current.Notification.ShowPlayPauseControls = false;
+            CrossMediaManager.Current.Notification.Enabled = false;
         }
 
         protected override void OnStart()
@@ -56,36 +70,15 @@ namespace MahwousVideos
 
         private void CheckTheme()
         {
-            if (Current.Properties.ContainsKey("dark_mode"))
+            if (Preferences.ContainsKey("dark_mode"))
             {
                 Current.Resources = new DarkTheme();
             }
         }
 
-
-        private IHttpService GetHttpService()
-        {
-            HttpClient httpClient = new HttpClient
-            {
-                BaseAddress = new Uri(@"https://www.mahwous.com/")
-            };
-            IHttpService httpService = new HttpService(httpClient);
-
-            return httpService;
-        }
-
         private void RegisterServices()
         {
-            DependencyService.Register<Repositories>();
-
-            var http = GetHttpService();
-            var repositories = DependencyService.Get<Repositories>();
-
-            repositories.CategoryRepository = new CategoryRepository(http);
-            repositories.VideoRepository = new VideoRepository(http);
-            repositories.NotificationRepository = new NotificationRepository(http);
-            repositories.AppRepository = new AppRepository(http);
-            repositories.PostRepository = new PostRepository(http);
+            DependencyService.Register<MahwousRepositories>();
         }
     }
 }

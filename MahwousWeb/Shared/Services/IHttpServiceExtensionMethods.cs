@@ -1,8 +1,6 @@
 ﻿using MahwousWeb.Shared.Pagination;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MahwousWeb.Shared.Services
@@ -20,24 +18,31 @@ namespace MahwousWeb.Shared.Services
         }
 
         public static async Task<PaginatedResponse<T>> GetHelper<T>(this IHttpService httpService, string url,
-            PaginationDTO paginationDTO)
+            PaginationDetails pagination)
         {
             string newURL = "";
             if (url.Contains("?"))
             {
-                newURL = $"{url}&page={paginationDTO.Page}&recordsPerPage={paginationDTO.RecordsPerPage}";
+                newURL = $"{url}&page={pagination.Page}&recordsPerPage={pagination.RecordsPerPage}";
             }
             else
             {
-                newURL = $"{url}?page={paginationDTO.Page}&recordsPerPage={paginationDTO.RecordsPerPage}";
+                newURL = $"{url}?page={pagination.Page}&recordsPerPage={pagination.RecordsPerPage}";
             }
 
             var httpResponse = await httpService.Get<T>(newURL);
             var totalAmountPages = int.Parse(httpResponse.HttpResponseMessage.Headers.GetValues("totalAmountPages").FirstOrDefault());
+            var recordsPerPage = int.Parse(httpResponse.HttpResponseMessage.Headers.GetValues("recordsPerPage").FirstOrDefault());
+            var currentPage = int.Parse(httpResponse.HttpResponseMessage.Headers.GetValues("currentPage").FirstOrDefault());
             var paginatedResponse = new PaginatedResponse<T>
             {
                 Response = httpResponse.Response,
-                TotalAmountPages = totalAmountPages
+                TotalAmountPages = totalAmountPages,
+                Pagination = new PaginationDetails
+                {
+                    Page = currentPage,
+                    RecordsPerPage = recordsPerPage
+                }
             };
             return paginatedResponse;
         }

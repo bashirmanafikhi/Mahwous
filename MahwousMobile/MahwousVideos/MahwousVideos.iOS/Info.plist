@@ -36,5 +36,11 @@
     <string>MahwousVideos</string>
     <key>XSAppIconAssets</key>
     <string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-1685177955120006~8639773316</string>
+	<key>GADIsAdManagerApp</key>
+	<true/>
+
+
 </dict>
 </plist>

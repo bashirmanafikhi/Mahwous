@@ -2,7 +2,7 @@
 @layout AdminLayout
 @attribute [Authorize]
 @inject HttpAuthorizer authorizer
-@inject INotificationRepository notificationRepository
+@inject MahwousRepositories repositories
 @inject NavigationManager navigation
 
 <div class="content-header">
@@ -44,7 +44,7 @@
     {
         try
         {
-            await notificationRepository.Add(notification);
+            await repositories.NotificationsRepository.Add(notification);
             navigation.NavigateTo("administration/notifications");
 
         }

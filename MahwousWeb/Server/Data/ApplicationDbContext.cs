@@ -1,13 +1,9 @@
-﻿using MahwousWeb.Server.Models;
-using IdentityServer4.EntityFramework.Options;
+﻿using IdentityServer4.EntityFramework.Options;
+using MahwousWeb.Server.Models;
+using MahwousWeb.Shared.Models;
 using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MahwousWeb.Shared.Models;
 
 namespace MahwousWeb.Server.Data
 {
@@ -23,6 +19,7 @@ namespace MahwousWeb.Server.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<StatusCategories>().HasKey(x => new { x.StatusId, x.CategoryId });
+            modelBuilder.Entity<NotificationApps>().HasKey(x => new { x.NotificationId, x.AppId });
 
             base.OnModelCreating(modelBuilder);
         }
@@ -34,10 +31,9 @@ namespace MahwousWeb.Server.Data
         public DbSet<VideoStatus> VideoStatuses { get; set; }
         public DbSet<QuoteStatus> QuoteStatuses { get; set; }
 
+        public DbSet<Post> Posts { get; set; }
         public DbSet<App> Apps { get; set; }
         public DbSet<Notification> Notifications { get; set; }
-        public DbSet<Post> Posts { get; set; }
-
-
+        public DbSet<NotificationApps> NotificationApps { get; set; }
     }
 }

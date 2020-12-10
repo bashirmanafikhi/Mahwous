@@ -8,12 +8,12 @@ using MahwousWeb.Shared.Models;
 using MahwousWeb.Shared.Pagination;
 using Xamarin.Forms;
 
-namespace MahwousPosts.ViewModels
+namespace MahwousVideos.ViewModels
 {
 
     public class PostsViewModel : BaseViewModel
     {
-        PaginationDTO paginationDTO = new PaginationDTO();
+        PaginationDetails paginationDetails = new PaginationDetails();
         private int totalAmountPages;
 
 
@@ -56,10 +56,10 @@ namespace MahwousPosts.ViewModels
 
                 try
                 {
-                    if (paginationDTO.Page < totalAmountPages)
+                    if (paginationDetails.Page < totalAmountPages)
                     {
-                        paginationDTO.Page++;
-                        var paginatedResponse = await Repositories.PostRepository.GetPosts(paginationDTO);
+                        paginationDetails.Page++;
+                        var paginatedResponse = await Repositories.PostsRepository.GetPaginated(paginationDetails);
                         foreach (var post in paginatedResponse.Response)
                             Posts.Add(post);
                     }
@@ -83,29 +83,34 @@ namespace MahwousPosts.ViewModels
 
         async Task ExecuteLoadPostsCommand()
         {
-                IsBusy = true;
+            //if (IsBusy && Posts.Count == 0)
+            //{
+            //    return;
+            //}
 
-                try
-                {
-                    Posts.Clear();
-                    paginationDTO.Page = 1;
+            IsBusy = true;
 
-                    var paginatedResponse = await Repositories.PostRepository.GetPosts(paginationDTO);
-                    totalAmountPages = paginatedResponse.TotalAmountPages;
-                    var posts = paginatedResponse.Response;
-                    foreach (var post in posts)
-                    {
-                        Posts.Add(post);
-                    }
-                }
-                catch (Exception ex)
+            try
+            {
+                Posts.Clear();
+                paginationDetails.Page = 1;
+
+                var paginatedResponse = await Repositories.PostsRepository.GetPaginated(paginationDetails);
+                totalAmountPages = paginatedResponse.TotalAmountPages;
+                var posts = paginatedResponse.Response;
+                foreach (var post in posts)
                 {
-                    Debug.WriteLine(ex);
+                    Posts.Add(post);
                 }
-                finally
-                {
-                    IsBusy = false;
-                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
     }
 }

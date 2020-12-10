@@ -5,13 +5,28 @@
              x:Class="MahwousQuotes.Views.LikedQuotesPage"
              xmlns:templates="clr-namespace:MahwousQuotes.Views.DataTemplates"
              Title="فيديوهات أعجبتك">
-    
+
     <ContentPage.BindingContext>
         <vm:LikedQuotesViewModel />
     </ContentPage.BindingContext>
-    
+
     <ContentPage.Content>
         <StackLayout>
+
+            <Frame CornerRadius="30" 
+                    Margin="40,0" 
+                    Padding="5"
+                    BackgroundColor="{DynamicResource colRed}" 
+                    HasShadow="True">
+
+                <Label Text="فيديوهات أعجبتك" 
+                    VerticalOptions="CenterAndExpand"
+                    FontAttributes="Bold"
+                    TextColor="{DynamicResource colWhite}"
+                    HorizontalOptions="Center" />
+            </Frame>
+
+
             <CollectionView x:Name="ItemsCollectionView"
                             ItemTemplate="{DataTemplate templates:QuoteTemplate}"
                             ItemsSource="{Binding Quotes}">

@@ -4,7 +4,7 @@
 
 
 @inject HttpAuthorizer authorizer
-@inject ICategoryRepository categoryRepository
+@inject MahwousRepositories repositories
 @inject NavigationManager navigation
 
 <!-- Content Header (Page header) -->
@@ -51,7 +51,7 @@
     {
         try
         {
-            await categoryRepository.Add(category);
+            await repositories.CategoriesRepository.Add(category);
             navigation.NavigateTo("administration/categories");
 
         }

@@ -28,7 +28,7 @@
 .L.compressed_assembly_descriptors:
 	/* 0: FormsViewGroup.dll */
 	/* uncompressed_file_size */
-	.long	14336
+	.long	15360
 	/* loaded */
 	.byte	0
 	/* data */
@@ -55,7 +55,7 @@
 
 	/* 3: MahwousQuotes.dll */
 	/* uncompressed_file_size */
-	.long	761344
+	.long	758272
 	/* loaded */
 	.byte	0
 	/* data */
@@ -64,7 +64,7 @@
 
 	/* 4: MahwousWeb.Shared.dll */
 	/* uncompressed_file_size */
-	.long	71680
+	.long	51712
 	/* loaded */
 	.byte	0
 	/* data */
@@ -100,7 +100,7 @@
 
 	/* 8: Mono.Android.dll */
 	/* uncompressed_file_size */
-	.long	2041856
+	.long	2060800
 	/* loaded */
 	.byte	0
 	/* data */
@@ -181,7 +181,7 @@
 
 	/* 17: System.Buffers.dll */
 	/* uncompressed_file_size */
-	.long	13688
+	.long	13704
 	/* loaded */
 	.byte	0
 	/* data */
@@ -199,7 +199,7 @@
 
 	/* 19: System.Core.dll */
 	/* uncompressed_file_size */
-	.long	335872
+	.long	337408
 	/* loaded */
 	.byte	0
 	/* data */
@@ -217,7 +217,7 @@
 
 	/* 21: System.Net.Http.dll */
 	/* uncompressed_file_size */
-	.long	219648
+	.long	220160
 	/* loaded */
 	.byte	0
 	/* data */
@@ -298,7 +298,7 @@
 
 	/* 30: System.Text.Encodings.Web.dll */
 	/* uncompressed_file_size */
-	.long	46080
+	.long	55296
 	/* loaded */
 	.byte	0
 	/* data */
@@ -307,7 +307,7 @@
 
 	/* 31: System.Text.Json.dll */
 	/* uncompressed_file_size */
-	.long	283136
+	.long	340992
 	/* loaded */
 	.byte	0
 	/* data */
@@ -334,7 +334,7 @@
 
 	/* 34: System.dll */
 	/* uncompressed_file_size */
-	.long	762368
+	.long	760320
 	/* loaded */
 	.byte	0
 	/* data */
@@ -748,7 +748,7 @@
 
 	/* 80: Xamarin.Forms.Core.dll */
 	/* uncompressed_file_size */
-	.long	1190400
+	.long	1191424
 	/* loaded */
 	.byte	0
 	/* data */
@@ -757,7 +757,7 @@
 
 	/* 81: Xamarin.Forms.Platform.Android.dll */
 	/* uncompressed_file_size */
-	.long	799232
+	.long	798720
 	/* loaded */
 	.byte	0
 	/* data */
@@ -847,7 +847,7 @@
 
 	/* 91: mscorlib.dll */
 	/* uncompressed_file_size */
-	.long	2134528
+	.long	2137600
 	/* loaded */
 	.byte	0
 	/* data */

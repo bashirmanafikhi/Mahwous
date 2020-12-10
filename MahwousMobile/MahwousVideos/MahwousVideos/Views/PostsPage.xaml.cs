@@ -1,12 +1,10 @@
-﻿using System;
+﻿using MahwousVideos.ViewModels;
+using System;
 using System.ComponentModel;
 using Xamarin.Forms;
-using MahwousPosts.ViewModels;
 
 namespace MahwousVideos.Views
 {
-    // Learn more about making custom code visible in the Xamarin.Forms previewer
-    // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
     public partial class PostsPage : ContentPage
     {
@@ -16,16 +14,16 @@ namespace MahwousVideos.Views
         {
             InitializeComponent();
 
-            BindingContext = this.viewModel = new PostsViewModel();
-
+            this.viewModel = (BindingContext as PostsViewModel);
         }
 
         protected override void OnAppearing()
         {
-            base.OnAppearing();
-
             if (viewModel.Posts.Count == 0)
+            {
+                //viewModel.LoadPostsCommand.Execute(null);
                 viewModel.IsBusy = true;
+            }
         }
     }
 }

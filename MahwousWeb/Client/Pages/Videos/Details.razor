@@ -1,0 +1,20 @@
+﻿@page "/videos/{id:int}"
+@layout AdminLayout
+@inject MahwousRepositories repositories
+
+Id is:
+@if (video != null)
+{
+    <h3>@video.Id</h3>
+}
+
+
+@code {
+    [Parameter] public int id { get; set; }
+    MahwousWeb.Shared.Models.VideoStatus video;
+
+    protected async override Task OnParametersSetAsync()
+    {
+        video = await repositories.VideosRepository.Get(id);
+    }
+}

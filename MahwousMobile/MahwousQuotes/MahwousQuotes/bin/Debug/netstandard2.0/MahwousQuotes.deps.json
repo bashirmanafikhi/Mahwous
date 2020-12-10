@@ -9,6 +9,7 @@
     ".NETStandard,Version=v2.0/": {
       "MahwousQuotes/1.0.0": {
         "dependencies": {
+          "MahwousMobile.Base": "1.0.0",
           "MahwousWeb.Shared": "1.0.0",
           "MarcTron.Admob": "1.5.7",
           "Matcha.BackgroundService": "1.0.5478",
@@ -592,6 +593,11 @@
           }
         }
       },
+      "MahwousMobile.Base/1.0.0": {
+        "runtime": {
+          "MahwousMobile.Base.dll": {}
+        }
+      },
       "MahwousWeb.Shared/1.0.0": {
         "dependencies": {
           "System.ComponentModel.Annotations": "4.7.0",
@@ -980,6 +986,11 @@
       "sha512": "sha512-3UFTlfJvF9l8HB+gWVmYUEVRSPU+c3H0G/h09RVG8/P5i/QRiDBg/YHEGfPR3HNuWlJ9S9TgZjrFruTUS1ZYiQ==",
       "path": "xamarin.forms/4.8.0.1269",
       "hashPath": "xamarin.forms.4.8.0.1269.nupkg.sha512"
+    },
+    "MahwousMobile.Base/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "MahwousWeb.Shared/1.0.0": {
       "type": "project",

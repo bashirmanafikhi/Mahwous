@@ -1,12 +1,7 @@
-﻿using System;
+﻿using MahwousWeb.Shared.Pagination;
+using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Threading.Tasks;
-using MahwousQuotes.ViewModels;
-using MahwousWeb.Shared.Filters;
-using MahwousWeb.Shared.Models;
-using App =  MahwousWeb.Shared.Models.App;
-using MahwousWeb.Shared.Pagination;
 using Xamarin.Forms;
 
 namespace MahwousQuotes.ViewModels
@@ -14,7 +9,7 @@ namespace MahwousQuotes.ViewModels
 
     public class AppsViewModel : BaseViewModel
     {
-        readonly PaginationDTO paginationDTO = new PaginationDTO() { RecordsPerPage = 200};
+        readonly PaginationDetails paginationDTO = new PaginationDetails() { RecordsPerPage = 200 };
 
 
         bool isLoadingMore = false;
@@ -45,30 +40,27 @@ namespace MahwousQuotes.ViewModels
 
         async void ExecuteLoadAppsCommand()
         {
-            if (IsBusy)
-                return;
-
             IsBusy = true;
 
-                try
-                {
-                    Apps.Clear();
+            try
+            {
+                Apps.Clear();
 
-                    var paginatedResponse = await Repositories.AppRepository.GetApps(paginationDTO);
-                    var apps = paginatedResponse.Response;
-                    foreach (var app in apps)
-                    {
-                        Apps.Add(app);
-                    }
-                }
-                catch (Exception ex)
+                var paginatedResponse = await Repositories.AppsRepository.GetPaginated(paginationDTO);
+                var apps = paginatedResponse.Response;
+                foreach (var app in apps)
                 {
-                    Debug.WriteLine(ex);
+                    Apps.Add(app);
                 }
-                finally
-                {
-                    IsBusy = false;
-                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
     }
 }

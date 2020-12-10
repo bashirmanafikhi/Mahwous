@@ -1,22 +1,15 @@
-﻿using System;
+﻿using MahwousWeb.Shared.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-
 using Xamarin.Forms;
-
-using MahwousQuotes.Models;
-using MahwousWeb.Shared.Models;
-using System.Windows.Input;
-using System.Timers;
-using MahwousQuotes.Helpers;
-using System.Threading;
 
 namespace MahwousQuotes.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public Repositories Repositories => DependencyService.Get<Repositories>();
+        public MahwousRepositories Repositories => DependencyService.Get<MahwousRepositories>();
 
         bool isBusy = false;
         public bool IsBusy
@@ -37,7 +30,9 @@ namespace MahwousQuotes.ViewModels
             Action onChanged = null)
         {
             if (EqualityComparer<T>.Default.Equals(backingStore, value))
+            {
                 return false;
+            }
 
             backingStore = value;
             onChanged?.Invoke();
@@ -51,8 +46,9 @@ namespace MahwousQuotes.ViewModels
         {
             var changed = PropertyChanged;
             if (changed == null)
+            {
                 return;
-
+            }
 
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }

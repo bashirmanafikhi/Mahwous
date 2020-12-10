@@ -1,0 +1,20 @@
+﻿@page "/images/{id:int}"
+@layout AdminLayout
+@inject MahwousRepositories repositories
+
+Id is:
+@if (image != null)
+{
+    <h3>@image.Id</h3>
+}
+
+
+@code {
+    [Parameter] public int id { get; set; }
+    MahwousWeb.Shared.Models.ImageStatus image;
+
+    protected async override Task OnParametersSetAsync()
+    {
+        image = await repositories.ImagesRepository.Get(id);
+    }
+}

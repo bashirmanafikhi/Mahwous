@@ -1,11 +1,9 @@
-﻿using System;
+﻿using MahwousWeb.Shared.Filters;
 using MahwousWeb.Shared.Models;
-using MahwousWeb.Shared.Repositories.Interfaces;
 using MahwousWeb.Shared.Repositories;
-using MahwousWeb.Shared.Services;
-using System.Net.Http;
+using System;
 using System.Collections.Generic;
-using MahwousWeb.Shared.Filters;
+using System.IO;
 
 namespace MahwousConsoleCore
 {
@@ -13,31 +11,42 @@ namespace MahwousConsoleCore
     {
         static void Main(string[] args)
         {
-            HttpClient httpClient = new HttpClient
-            {
-                //BaseAddress = new Uri(@"https://www.mahwous.com/")
-                BaseAddress = new Uri(@"https://localhost:44333/")
-            };
-            IHttpService httpService = new HttpService(httpClient);
-
-            ICategoryRepository categoryRepository = new CategoryRepository(httpService);
-            IImageRepository imageRepository = new ImageRepository(httpService);
+            //Do();
 
 
+            Console.ReadKey();
+        }
 
-            //Category category = CategoryRepository.Get(1).Result;
 
-            CategoryFilter categoryFilter = new CategoryFilter() { Name= "s" };
-            List<Category> categories = categoryRepository.GetCategoriesFiltered(categoryFilter).Result.Response;
+        private static void SaveFileStream(Stream stream,String path)
+        {
+            var fileStream = new FileStream(path, FileMode.Create, FileAccess.Write);
+            stream.CopyTo(fileStream);
+            fileStream.Dispose();
+        }
 
-            ImageFilter imageFilter = new ImageFilter
-            {
-                Categories = categories
-            };
-            List<ImageStatus> images = imageRepository.GetImagesFiltered(imageFilter).Result.Response;
+        static async void Do()
+        {
+            Console.WriteLine("Do function started..");
 
-            Console.WriteLine("categorys count : " + categories.Count);
-            Console.WriteLine("images count : " + images.Count);
+            var mahwous = new MahwousRepositories(@"https://localhost:44333/");
+
+
+
+
+            Stream stream1 = await mahwous.VideosRepository.Download(34);
+
+            Stream stream2 = await mahwous.ImagesRepository.Download(30);
+
+            Stream stream3 = await mahwous.QuotesRepository.Download(41);
+
+            SaveFileStream(stream1, "1.mp4");
+            SaveFileStream(stream2, "2.jpg");
+            SaveFileStream(stream3, "3.txt");
+
+
+            Console.WriteLine("Done");
+
 
             Console.ReadKey();
         }

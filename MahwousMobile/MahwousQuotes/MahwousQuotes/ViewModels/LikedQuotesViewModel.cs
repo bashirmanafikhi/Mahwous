@@ -1,11 +1,8 @@
 ﻿using MahwousQuote.ViewModels;
 using MahwousQuotes.Helpers;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace MahwousQuotes.ViewModels
