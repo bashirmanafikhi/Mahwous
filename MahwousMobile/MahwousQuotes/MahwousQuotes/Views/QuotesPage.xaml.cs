@@ -8,8 +8,8 @@ namespace MahwousQuotes.Views
     [DesignTimeVisible(false)]
     public partial class QuotesPage : ContentPage
     {
-        private SortType sortType;
-        public SortType SortType
+        private StatusSortType sortType;
+        public StatusSortType SortType
         {
             get => sortType;
             set

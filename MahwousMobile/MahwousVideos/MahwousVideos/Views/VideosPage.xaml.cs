@@ -12,8 +12,8 @@ namespace MahwousVideos.Views
     [DesignTimeVisible(false)]
     public partial class VideosPage : ContentPage
     {
-        private SortType sortType = SortType.Random;
-        public SortType SortType
+        private StatusSortType sortType = StatusSortType.Random;
+        public StatusSortType SortType
         {
             get => sortType;
             set

@@ -1,11 +1,11 @@
 ﻿@page "/administration/videos/edit/{videoId:int}"
 @layout AdminLayout
 @attribute [Authorize]
-
-@inject HttpAuthorizer authorizer
-@inject MahwousRepositories repositories
+@*@inject MahwousRepositories repositories*@
+@*@inject HttpAuthorizer authorizer*@
+@inject AuthorizedRepositories authorizedRepositories
+@inject NotAuthorizedRepositories notAuthorizedRepositories
 @inject NavigationManager navigation
-
 <!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
@@ -29,11 +29,11 @@
     <div class="container-fluid">
 
 
-    @if (NotSelectedCategories != null)
-    {
-        <VideoForm ButtonText="تعديل الفيديو" Video="video"
-                   OnValidSubmit="@EditVideo" NotSelectedCategories="NotSelectedCategories" SelectedCategories="SelectedCategories" />
-    }
+        @if (NotSelectedCategories != null)
+        {
+            <VideoForm ButtonText="تعديل الفيديو" Video="video"
+                       OnValidSubmit="@EditVideo" NotSelectedCategories="NotSelectedCategories" SelectedCategories="SelectedCategories" />
+        }
 
 
 
@@ -47,12 +47,12 @@
     protected override async Task OnInitializedAsync()
     {
         // to give tokens to api :)
-        await authorizer.SetAuthorizationAsync();
+        //await authorizer.SetAuthorizationAsync();
     }
 
     protected async override Task OnParametersSetAsync()
     {
-        video = await repositories.VideosRepository.Get(videoId);
+        video = await notAuthorizedRepositories.VideosRepository.Get(videoId);
 
         SelectedCategories = video.StatusCategories.Select(sc => sc.Category).ToList();
 
@@ -61,8 +61,8 @@
         filter.Pagination.RecordsPerPage = 100;
 
 
-        var categories = (await repositories.CategoriesRepository.GetFiltered(
-        filter )).Response;
+        var categories = (await notAuthorizedRepositories.CategoriesRepository.GetFiltered(
+        filter)).Response;
 
         NotSelectedCategories = categories.Where(c =>
                 !SelectedCategories
@@ -75,7 +75,7 @@
     {
         try
         {
-            await repositories.VideosRepository.Update(video);
+            await authorizedRepositories.VideosRepository.Update(video);
             navigation.NavigateTo("administration/videos");
 
         }

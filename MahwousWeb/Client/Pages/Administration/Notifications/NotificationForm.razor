@@ -1,5 +1,5 @@
 ﻿@using System.IO
-@inject MahwousRepositories repositories
+@inject AuthorizedRepositories repositories
 
 <EditForm Model="Notification" OnValidSubmit="@OnDataAnnotationsValidated">
 
@@ -16,30 +16,40 @@
 
     <div class="form-group">
         <label for="Content">نص الإشعار:</label><br />
-        <RadzenTextArea Cols="30" Placeholder="اكتب النص هنا..." @bind-Value="@Notification.Description" />
+        <RadzenTextArea Placeholder="اكتب النص هنا..." @bind-Value="@Notification.Description" />
         <span class="text-danger"><ValidationMessage For="@(() => Notification.Description)" /></span>
     </div>
 
     <div class="form-group">
         <label for="Name">معلومات للبرنامج:</label>
         <div>
-            <RadzenTextBox @bind-Value="Notification.ReturningData" Placeholder="معلومات للبرنامج" />
+            <RadzenTextArea @bind-Value="Notification.ReturningData" Placeholder="معلومات للبرنامج" />
             <span class="text-danger"><ValidationMessage For="@(() => Notification.ReturningData)" /></span>
         </div>
     </div>
 
     <div>
-        <label>رقم الإشعارات</label>
+        <label>عدد الإشعارات</label>
         <input type="number" class="form-control" min="0" max="100"
                @bind-value="Notification.BadgeNumber" @bind-value:event="oninput" />
     </div>
 
-    @*يجب وضع خاصية هل الإشعار مجدول أم لأ*@
-    @*<div class="form-group">
-            <label for="Date">وقت الإرسال</label>
-            <input type="datetime-local" class="form-control" id="Date" placeholder="وقت الإرسال"
-                   @bind-value="Notification.Date" @bind-value:event="oninput" />
-        </div>*@
+
+    <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="WithoutCategory" @bind="Notification.IsScheduled" />
+        <label class="form-check-label" for="WithoutCategory">جدولة الإرسال في وقت معين</label>
+    </div>
+
+    @if (Notification.IsScheduled)
+    {
+<div class="form-group">
+    <label for="Date">وقت الإرسال</label>
+    <input type="datetime-local" class="form-control" id="Date" placeholder="وقت الإرسال"
+           @bind-value="Notification.Date" @bind-value:event="oninput" />
+
+
+</div>
+    }
 
 
     <div class="form-group">
@@ -91,14 +101,22 @@
         Apps = await repositories.AppsRepository.GetAll();
     }
 
+    protected override void OnParametersSet()
+    {
+        if (Notification?.NotificationApps != null)
+        {
+            selectedAppsIds = Notification.NotificationApps.Select(na => na.AppId);
+        }
+    }
+
 
     private async Task OnDataAnnotationsValidated()
     {
-        //هي المنطقة لسا ما خلصت برمجتها
-        foreach (int id in selectedAppsIds ?? new int[] { })
-        {
-            Notification.NotificationApps.Add(new NotificationApps { AppId = id });
-        }
+
+        Notification.NotificationApps = selectedAppsIds?
+        .Select(x => new NotificationApps { AppId = x })?.ToList();
+
+
 
         await OnValidSubmit.InvokeAsync(null);
     }

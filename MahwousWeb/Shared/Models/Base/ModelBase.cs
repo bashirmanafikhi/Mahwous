@@ -7,16 +7,17 @@ namespace MahwousWeb.Shared.Models
     {
         [Key]
         public int Id { get; set; }
-        public bool Visible { get; set; }
+        public bool Visible { get; set; } 
         public int ViewsCount { get; set; }
 
         [DataType(DataType.Date)]
-        public DateTime Date { get; set; } = DateTime.UtcNow;
+        public DateTime Date { get; set; }
 
-        //public ModelBase()
-        //{
-        //    Date = DateTime.Now;
-        //    Visible = true;
-        //}
+        public ModelBase()
+        {
+            Date = DateTime.UtcNow;
+            Date = Date.AddSeconds(-Date.Second);
+            Visible = true;
+        }
     }
 }

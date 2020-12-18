@@ -11,6 +11,7 @@ using Android.Support.V4.Content;
 using Android.Gms.Ads;
 using Android.Content;
 using Plugin.LocalNotification;
+using AndroidX.Work;
 
 namespace MahwousVideos.Droid
 {
@@ -51,7 +52,12 @@ namespace MahwousVideos.Droid
 
             NotificationCenter.NotifyNotificationTapped(Intent);
 
+            // Notification Service Worker
+            PeriodicWorkRequest notificationWorkRequest = PeriodicWorkRequest.Builder.From<NotificationWorker>(TimeSpan.FromMinutes(15)).Build();
             
+            //WorkManager.Instance.Enqueue(notificationWorkRequest);  // deprecated
+            WorkManager.GetInstance(Application.Context).Enqueue(notificationWorkRequest);
+
         }
 
         protected override void OnNewIntent(Intent intent)

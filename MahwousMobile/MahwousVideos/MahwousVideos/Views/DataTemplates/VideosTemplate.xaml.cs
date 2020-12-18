@@ -11,7 +11,7 @@ namespace MahwousVideos.Views.DataTemplates
     public partial class VideosTemplate : ContentView
     {
         VideosViewModel viewModel;
-        public SortType SortType
+        public StatusSortType SortType
         {
             get => viewModel.Filter.SortType;
             set

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MahwousWeb.Shared.Repositories
 {
-    public interface IRepository<T> where T : class
+    public interface IRepository<T> where T : ModelBase
     {
         Task<int> Add(T entity);
         Task Update(T entity);

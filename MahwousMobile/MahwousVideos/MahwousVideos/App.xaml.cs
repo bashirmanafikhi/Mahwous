@@ -33,11 +33,25 @@ namespace MahwousVideos
         {
             // Local Notification tap event listener
             NotificationCenter.Current.NotificationTapped += OnLocalNotificationTapped;
+
+            // Local Notification received event listener
+            NotificationCenter.Current.NotificationReceived += OnLocalNotificationReceived;
+
         }
+
         private void OnLocalNotificationTapped(NotificationTappedEventArgs e)
         {
             // your code goes here
+            //DependencyService.Get<IMessage>().LongAlert("Tapped - " + e.Data);
         }
+
+        private void OnLocalNotificationReceived(NotificationReceivedEventArgs e)
+        {
+            // your code goes here
+            //DependencyService.Get<IMessage>().LongAlert("Received - " + e.Title);
+        }
+
+
 
         private void SetMediaManagerOptions()
         {

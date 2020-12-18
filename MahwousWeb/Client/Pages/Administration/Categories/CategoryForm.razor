@@ -22,19 +22,29 @@
 
     <div class="form-check">
         <InputCheckbox @bind-Value="Category.ForQuotes" />
-        <label class="form-check-label" for="Visible">للكتابية</label>
+        <label class="form-check-label" for="ForQuotes">للكتابية</label>
         <span class="text-danger"><ValidationMessage For="@(() => Category.ForQuotes)" /></span>
     </div>
     <div class="form-check">
         <InputCheckbox @bind-Value="Category.ForVideos" />
-        <label class="form-check-label" for="Visible">للفيديو</label>
+        <label class="form-check-label" for="ForVideos">للفيديو</label>
         <span class="text-danger"><ValidationMessage For="@(() => Category.ForVideos)" /></span>
     </div>
     <div class="form-check">
         <InputCheckbox @bind-Value="Category.ForImages" />
-        <label class="form-check-label" for="Visible">للصور</label>
+        <label class="form-check-label" for="ForImages">للصور</label>
         <span class="text-danger"><ValidationMessage For="@(() => Category.ForImages)" /></span>
     </div>
+
+
+    <div class="form-check">
+        <InputCheckbox @bind-Value="Category.Visible" />
+        <label class="form-check-label" for="Visible">مرئي</label>
+        <span class="text-danger"><ValidationMessage For="@(() => Category.Visible)" /></span>
+    </div>
+
+
+
 
     <br />
 

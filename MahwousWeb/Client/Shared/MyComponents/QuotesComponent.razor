@@ -1,8 +1,8 @@
 ﻿
 @inject IJSRuntime js
 @inject NavigationManager navigation
-@inject MahwousRepositories repositories
-@inject HttpAuthorizer authorizer
+@inject AuthorizedRepositories authorizedRepositories
+@inject NotAuthorizedRepositories notAuthorizedRepositories
 
 <div class="container">
     <div class="row">
@@ -30,24 +30,28 @@
                             <div class="card-columns">
                                 @foreach (var quote in quotes)
                                 {
-                                    <div class="card">
-                                        <div class="card-body">
+                                    <a href="quotes/@quote.Id">
+                                        <div class="card text-dark">
+                                            <div class="card-body">
 
-                                            <p class="card-text">
-                                                @quote.Content
-                                            </p>
-                                        </div>
-                                        <AuthorizeView>
-                                            <Authorized>
-                                                <div class="card-footer">
-                                                    <div class="stats">
-                                                        <button class="btn btn-danger" @onclick="@(() => DeleteQuote(quote.Id))">حذف</button>
-                                                        <a class="btn btn-info" href="administration/quotes/edit/@quote.Id">تعديل</a>
+                                                <p class="card-text">
+                                                    @quote.Content
+
+
+                                                </p>
+                                            </div>
+                                            <AuthorizeView>
+                                                <Authorized>
+                                                    <div class="card-footer">
+                                                        <div class="stats">
+                                                            <button class="btn btn-danger" @onclick="@(() => DeleteQuote(quote.Id))">حذف</button>
+                                                            <a class="btn btn-info" href="administration/quotes/edit/@quote.Id">تعديل</a>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </Authorized>
-                                        </AuthorizeView>
-                                    </div>
+                                                </Authorized>
+                                            </AuthorizeView>
+                                        </div>
+                                    </a>
                                 }
                             </div>
 
@@ -243,9 +247,9 @@
 
     protected async override Task OnInitializedAsync()
     {
-        await authorizer.SetAuthorizationAsync();
-        quoteFilter.SortType = SortType.Newest;
-        informations = await repositories.QuotesRepository.GetInformations();
+        //await authorizer.SetAuthorizationAsync();
+        quoteFilter.SortType = StatusSortType.Newest;
+        informations = await notAuthorizedRepositories.QuotesRepository.GetInformations();
         await LoadQuotes();
         await LoadCategories();
     }
@@ -268,7 +272,7 @@
             filter.ForQuotes = true;
             filter.Pagination.RecordsPerPage = 100;
 
-            var paginatedResponse = await repositories.CategoriesRepository.GetFiltered(filter);
+            var paginatedResponse = await notAuthorizedRepositories.CategoriesRepository.GetFiltered(filter);
             categories = paginatedResponse.Response;
         }
         catch (Exception ex)
@@ -283,7 +287,7 @@
     {
         try
         {
-            var paginatedResponse = await repositories.QuotesRepository.GetFiltered(quoteFilter);
+            var paginatedResponse = await notAuthorizedRepositories.QuotesRepository.GetFiltered(quoteFilter);
             quotes = paginatedResponse.Response;
             totalAmountPages = paginatedResponse.TotalAmountPages;
 
@@ -299,7 +303,7 @@
         //var quote = quotes.First(i => i.Id == quoteId);
         if (await js.Confirm("تأكيد", $"هل أنت متأكد أنك تريد أن تحذف هذه الصورة؟", SweetAlertMessageType.error))
         {
-            await repositories.QuotesRepository.Delete(quoteId);
+            await authorizedRepositories.QuotesRepository.Delete(quoteId);
             await LoadQuotes();
         }
     }
@@ -328,7 +332,7 @@
     {
         quoteFilter = new QuoteFilter();
         selectedCategoriesIds = new int[] { };
-        quoteFilter.SortType = SortType.Newest;
+        quoteFilter.SortType = StatusSortType.Newest;
 
         await LoadQuotes();
     }

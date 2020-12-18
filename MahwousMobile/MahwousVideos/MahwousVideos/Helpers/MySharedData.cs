@@ -6,7 +6,7 @@ namespace MahwousVideos.Helpers
 {
     static class MySharedData
     {
-        public static Dictionary<string, int> CategoriesStatusCounts { get; set; }
+        //public static Dictionary<string, int> CategoriesStatusCounts { get; set; }
 
     }
 }

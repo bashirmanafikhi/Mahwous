@@ -37,7 +37,7 @@ namespace MahwousVideos.ViewModels
             get { return informations; }
             set { 
                 SetProperty(ref informations, value);
-                MySharedData.CategoriesStatusCounts = informations.CategoriesStatusCounts;
+                //MySharedData.CategoriesStatusCounts = informations.CategoriesStatusCounts;
             }
         }
 

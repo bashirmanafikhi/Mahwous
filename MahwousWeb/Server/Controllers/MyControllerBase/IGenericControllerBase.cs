@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace MahwousWeb.Server.Controllers.MyControllerBase
 {
     public interface IGenericControllerBase<TModel, TFilter>
-        where TModel : class
+        where TModel : ModelBase
         where TFilter : IFilter<TModel>
     {
         Task<ActionResult<int>> Post(TModel entity);

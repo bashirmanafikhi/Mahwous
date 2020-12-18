@@ -3,13 +3,14 @@ using System.Linq;
 
 namespace MahwousWeb.Shared.Filters
 {
-    public class VideoFilter : StatusFilter, IFilter<VideoStatus>
+    public class VideoFilter : StatusFilterBase<VideoStatus>
     {
         public string Name { get; set; }
 
-        public IQueryable<VideoStatus> Filter(IQueryable<VideoStatus> queryable)
+        public override IQueryable<VideoStatus> Filter(IQueryable<VideoStatus> queryable)
         {
-            queryable = base.Filter(queryable).Cast<VideoStatus>();
+            queryable = base.Filter(queryable);
+            //queryable = base.Filter(queryable).Cast<VideoStatus>();
 
             // videos title
             if (!string.IsNullOrWhiteSpace(Name))

@@ -83,14 +83,14 @@ namespace MahwousWeb.Shared.Repositories
         }
 
 
-        private Repository<Notification> notificationsRepository;
-        public Repository<Notification> NotificationsRepository
+        private NotificationRepository notificationsRepository;
+        public NotificationRepository NotificationsRepository
         {
             get
             {
                 if (notificationsRepository is null)
                 {
-                    notificationsRepository = new Repository<Notification>(httpService, Constants.NotificationsUrl);
+                    notificationsRepository = new NotificationRepository(httpService, Constants.NotificationsUrl);
                 }
                 return notificationsRepository;
             }

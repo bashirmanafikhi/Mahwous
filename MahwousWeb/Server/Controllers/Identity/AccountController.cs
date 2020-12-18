@@ -1,7 +1,9 @@
 ﻿
 using MahwousWeb.Server.Models;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Net.Http.Headers;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 
@@ -27,14 +29,19 @@ namespace MahwousWeb.Server.Controllers.Identity
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(InputModel model)
+        public async Task<ActionResult<string>> Login(InputModel model)
         {
             if (ModelState.IsValid)
             {
                 var result = await signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    return Ok();
+                    var accessToken1 = Request.Headers[HeaderNames.Authorization];
+                    var accessToken2 = await HttpContext.GetTokenAsync("access_token");
+
+                    
+
+                    return accessToken1.ToString();
                 }
                 else
                 {
@@ -43,6 +50,12 @@ namespace MahwousWeb.Server.Controllers.Identity
             }
 
             return BadRequest();
+        }
+
+
+        void Basir()
+        {
+            var accessToken = Request.Headers[HeaderNames.Authorization];
         }
     }
 

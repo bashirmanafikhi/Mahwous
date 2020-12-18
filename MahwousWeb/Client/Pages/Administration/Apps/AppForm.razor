@@ -5,7 +5,7 @@
         <DataAnnotationsValidator />
 
         <div class="form-group">
-            <label for="Name">عنوان التطبيق:</label>
+            <label for="App.Name">عنوان التطبيق:</label>
             <div>
                 <RadzenTextBox @bind-Value="App.Name" Placeholder="عنوان التطبيق" />
                 <span class="text-danger"><ValidationMessage For="@(() => App.Name)" /></span>
@@ -14,7 +14,7 @@
 
 
         <div class="form-group">
-            <label for="Content">وصف التطبيق:</label><br />
+            <label for="App.Description">وصف التطبيق:</label><br />
             <RadzenTextArea Cols="30" Placeholder="اكتب الوصف هنا..." @bind-Value="@App.Description" />
             <span class="text-danger"><ValidationMessage For="@(() => App.Description)" /></span>
         </div>
@@ -26,7 +26,16 @@
 
 
         <div class="form-group">
-            <label for="Name">رابط جوجل بلاي ستور:</label>
+            <label for="App.Package">اسم الحزمة Package Name:</label>
+            <div>
+                <RadzenTextBox @bind-Value="App.Package" Placeholder="اسم الحزمة" />
+                <span class="text-danger"><ValidationMessage For="@(() => App.Package)" /></span>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="App.PlayStoreLink">رابط جوجل بلاي ستور:</label>
             <div>
                 <RadzenTextBox @bind-Value="App.PlayStoreLink" Placeholder="رابط متجر بلاي" />
                 <span class="text-danger"><ValidationMessage For="@(() => App.PlayStoreLink)" /></span>
@@ -34,7 +43,7 @@
         </div>
 
         <div class="form-group">
-            <label for="Name">رابط آبل ستور:</label>
+            <label for="App.AppleStoreLink">رابط آبل ستور:</label>
             <div>
                 <RadzenTextBox @bind-Value="App.AppleStoreLink" Placeholder="رابط متجر آيفون" />
                 <span class="text-danger"><ValidationMessage For="@(() => App.AppleStoreLink)" /></span>

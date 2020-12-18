@@ -3,13 +3,14 @@ using System.Linq;
 
 namespace MahwousWeb.Shared.Filters
 {
-    public class QuoteFilter : StatusFilter, IFilter<QuoteStatus>
+    public class QuoteFilter : StatusFilterBase<QuoteStatus>
     {
         public string Content { get; set; }
 
-        public IQueryable<QuoteStatus> Filter(IQueryable<QuoteStatus> queryable)
+        public override IQueryable<QuoteStatus> Filter(IQueryable<QuoteStatus> queryable)
         {
-            queryable = base.Filter(queryable).Cast<QuoteStatus>();
+            queryable = base.Filter(queryable);
+            //queryable = base.Filter(queryable).Cast<QuoteStatus>();
 
             // Quotes Content
             if (!string.IsNullOrWhiteSpace(Content))

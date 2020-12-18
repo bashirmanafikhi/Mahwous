@@ -41,7 +41,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahwousImages.iOS", "Mahwou
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahwousImages", "MahwousMobile\MahwousImages\MahwousImages\MahwousImages.csproj", "{57302601-6C58-4303-BCAD-8423E56B0B3F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahwousMobile.Base", "MahwousMobile\MahwousMobile.Base\MahwousMobile.Base.csproj", "{E5B98B9E-9C2E-4E02-BA96-4811FC662F74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahwousMobile.Base", "MahwousMobile\MahwousMobile.Base\MahwousMobile.Base.csproj", "{E5B98B9E-9C2E-4E02-BA96-4811FC662F74}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

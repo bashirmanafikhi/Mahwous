@@ -294,6 +294,9 @@ namespace MahwousWeb.Server.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsScheduled")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime?>("NotifyTime")
                         .HasColumnType("datetime2");
 
@@ -601,13 +604,13 @@ namespace MahwousWeb.Server.Data.Migrations
             modelBuilder.Entity("MahwousWeb.Shared.Models.NotificationApps", b =>
                 {
                     b.HasOne("MahwousWeb.Shared.Models.App", "App")
-                        .WithMany()
+                        .WithMany("NotificationApps")
                         .HasForeignKey("AppId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("MahwousWeb.Shared.Models.Notification", "Notification")
-                        .WithMany()
+                        .WithMany("NotificationApps")
                         .HasForeignKey("NotificationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -687,9 +690,19 @@ namespace MahwousWeb.Server.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("MahwousWeb.Shared.Models.App", b =>
+                {
+                    b.Navigation("NotificationApps");
+                });
+
             modelBuilder.Entity("MahwousWeb.Shared.Models.Category", b =>
                 {
                     b.Navigation("StatusCategories");
+                });
+
+            modelBuilder.Entity("MahwousWeb.Shared.Models.Notification", b =>
+                {
+                    b.Navigation("NotificationApps");
                 });
 
             modelBuilder.Entity("MahwousWeb.Shared.Models.Status", b =>

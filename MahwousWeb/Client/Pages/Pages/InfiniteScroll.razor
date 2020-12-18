@@ -1,9 +1,8 @@
 ﻿@page "/infinitescroll"
 @inject IJSRuntime JsRuntime
 @implements IDisposable
+@inject NotAuthorizedRepositories notAuthorizedRepositories
 
-@inject MahwousRepositories repositories
-@inject HttpAuthorizer authorizer
 
 <div class="container">
     <div class="card my-3">
@@ -58,12 +57,12 @@
 
 @code {
 
-        List<QuoteStatus> quotes { get; set; } = new List<QuoteStatus>();
+    List<QuoteStatus> quotes { get; set; } = new List<QuoteStatus>();
 
-        private int totalAmountPages;
+    private int totalAmountPages;
 
 
-        private QuoteFilter quoteFilter = new QuoteFilter();
+    private QuoteFilter quoteFilter = new QuoteFilter();
 
 
     bool IsLoading { get; set; } = false;
@@ -77,7 +76,7 @@
     protected async override Task OnInitializedAsync()
     {
         quoteFilter.Pagination.RecordsPerPage = 25;
-        await authorizer.SetAuthorizationAsync();
+        //await authorizer.SetAuthorizationAsync();
         await InitJsListenerAsync();
         await LoadQuotes();
     }
@@ -101,7 +100,7 @@
 
         try
         {
-            var paginatedResponse = await repositories.QuotesRepository.GetFiltered(quoteFilter);
+            var paginatedResponse = await notAuthorizedRepositories.QuotesRepository.GetFiltered(quoteFilter);
             quotes.AddRange(paginatedResponse.Response);
             totalAmountPages = paginatedResponse.TotalAmountPages;
             quoteFilter.Pagination.Page++;

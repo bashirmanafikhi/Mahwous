@@ -2,9 +2,10 @@
 @layout AdminLayout
 @attribute [Authorize]
 
-
-@inject HttpAuthorizer authorizer
-@inject MahwousRepositories repositories
+@*@inject MahwousRepositories repositories*@
+@*@inject HttpAuthorizer authorizer*@
+@inject AuthorizedRepositories authorizedRepositories
+@inject NotAuthorizedRepositories notAuthorizedRepositories
 @inject NavigationManager navigation
 <!-- Content Header (Page header) -->
 <div class="content-header">
@@ -52,19 +53,19 @@
         filter.ForImages = true;
         filter.Pagination.RecordsPerPage = 100;
 
-        var paginatedResponse = await repositories.CategoriesRepository.GetFiltered(filter);
+        var paginatedResponse = await notAuthorizedRepositories.CategoriesRepository.GetFiltered(filter);
         NotSelectedCategories = paginatedResponse.Response.ToList();
 
 
         // to give tokens to api :)
-        await authorizer.SetAuthorizationAsync();
+        //await authorizer.SetAuthorizationAsync();
     }
 
     async Task CreateImage()
     {
         try
         {
-            await repositories.ImagesRepository.Add(image);
+            await authorizedRepositories.ImagesRepository.Add(image);
             navigation.NavigateTo("administration/images");
 
         }

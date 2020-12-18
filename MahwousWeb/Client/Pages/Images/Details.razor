@@ -1,12 +1,45 @@
 ﻿@page "/images/{id:int}"
-@layout AdminLayout
-@inject MahwousRepositories repositories
+@inject NotAuthorizedRepositories repositories
 
-Id is:
-@if (image != null)
-{
-    <h3>@image.Id</h3>
-}
+
+<div class="container">
+    <div class="card my-4">
+
+        <div class="card-header">
+
+        </div>
+
+        <div class="card-body">
+            @if (image != null)
+            {
+            <div class="card text-center">
+                <div class="card-body card-header-success p-0">
+                    <img src="@image.ImagePath" class="m-1" style=" height: auto; width: auto; max-height: 100%;  max-height: 400px; object-fit: cover" />
+                </div>
+
+                <div class="card-footer">
+                    <AuthorizeView>
+                        <Authorized>
+                            <a class="btn btn-info" href="administration/images/edit/@image.Id">تعديل</a>
+                        </Authorized>
+                    </AuthorizeView>
+                    <a class="btn btn-primary" href="api/images/download/@image.Id">تحميل</a>
+                    <a class="btn btn-info" href="images">رجوع</a>
+                </div>
+            </div>
+            }
+            else
+            {
+                <p><i class="fas fa-spin fa-spinner"></i> جاري تحميل الصورة </p>
+            }
+        </div>
+
+        <div class="card-footer">
+
+        </div>
+
+    </div>
+</div>
 
 
 @code {

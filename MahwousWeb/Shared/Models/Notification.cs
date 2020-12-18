@@ -11,6 +11,8 @@ namespace MahwousWeb.Shared.Models
         public int BadgeNumber { get; set; }
         public int RecivedCount { get; set; }
         public int OpenedCount { get; set; }
+
+        public bool IsScheduled{ get; set; }
         public DateTime? NotifyTime { get; set; }
 
 

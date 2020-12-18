@@ -4,19 +4,18 @@ using System.Linq;
 
 namespace MahwousWeb.Shared.Filters
 {
-    public class CategoryFilter : IFilter<Category>
+    public class CategoryFilter : FilterBase<Category>
     {
-
-        public PaginationDetails Pagination { get; set; } = new PaginationDetails { RecordsPerPage = 200 };
-
         public string Name { get; set; }
 
         public bool ForVideos { get; set; }
         public bool ForImages { get; set; }
         public bool ForQuotes { get; set; }
 
-        public IQueryable<Category> Filter(IQueryable<Category> queryable)
+        public override IQueryable<Category> Filter(IQueryable<Category> queryable)
         {
+            queryable = base.Filter(queryable);
+
             if (!string.IsNullOrWhiteSpace(Name))
             {
                 queryable = queryable

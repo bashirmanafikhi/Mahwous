@@ -1,12 +1,12 @@
 ﻿@page "/administration/quotes/create"
 @layout AdminLayout
 @attribute [Authorize]
-
-
 @inject IJSRuntime js
-@inject HttpAuthorizer authorizer
-@inject MahwousRepositories repositories
+@inject AuthorizedRepositories authorizedRepositories
+@inject NotAuthorizedRepositories notAuthorizedRepositories
 @inject NavigationManager navigation
+
+
 <!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
@@ -63,13 +63,13 @@
 
 
 
-        var paginatedResponse = await repositories.CategoriesRepository.GetFiltered(filter);
+        var paginatedResponse = await notAuthorizedRepositories.CategoriesRepository.GetFiltered(filter);
         NotSelectedCategories = paginatedResponse.Response.ToList();
 
 
 
         // to give tokens to api :)
-        await authorizer.SetAuthorizationAsync();
+        //await authorizer.SetAuthorizationAsync();
     }
 
     async Task CreateQuote()
@@ -78,7 +78,7 @@
         try
         {
 
-            await repositories.QuotesRepository.Add(quote);
+            await authorizedRepositories.QuotesRepository.Add(quote);
             navigation.NavigateTo("administration/quotes");
 
         }

@@ -5,12 +5,14 @@ namespace MahwousWeb.Shared.Models
 {
     public class App : ModelBase
     {
-        public string Package { get; set; }
         public string Name { get; set; }
 
         public string ImagePath { get; set; }
 
         public string Description { get; set; }
+
+        public string Package { get; set; }
+
 
         [DataType(DataType.Url)]
         public string PlayStoreLink { get; set; }

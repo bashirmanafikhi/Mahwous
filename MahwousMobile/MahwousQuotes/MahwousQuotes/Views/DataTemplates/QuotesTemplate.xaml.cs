@@ -11,7 +11,7 @@ namespace MahwousQuotes.Views.DataTemplates
     public partial class QuotesTemplate : ContentView
     {
         QuotesViewModel viewModel;
-        public SortType SortType
+        public StatusSortType SortType
         {
             get => viewModel.Filter.SortType;
             set

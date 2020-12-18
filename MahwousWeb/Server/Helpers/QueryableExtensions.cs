@@ -1,4 +1,5 @@
 ﻿using MahwousWeb.Shared.Filters;
+using MahwousWeb.Shared.Models;
 using MahwousWeb.Shared.Pagination;
 using System.Linq;
 
@@ -14,7 +15,7 @@ namespace MahwousWeb.Server.Helpers
         }
 
 
-        public static IQueryable<T> Filter<T>(this IQueryable<T> queryable, IFilter<T> filter) where T : class
+        public static IQueryable<T> Filter<T>(this IQueryable<T> queryable, IFilter<T> filter) where T : ModelBase
         {
             if (filter != null)
             {

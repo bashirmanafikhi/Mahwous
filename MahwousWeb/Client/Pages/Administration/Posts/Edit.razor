@@ -1,9 +1,10 @@
 ﻿@page "/administration/posts/edit/{postId:int}"
 @layout AdminLayout
 @attribute [Authorize]
-
-@inject HttpAuthorizer authorizer
-@inject MahwousRepositories repositories
+@*@inject MahwousRepositories repositories*@
+@*@inject HttpAuthorizer authorizer*@
+@inject AuthorizedRepositories authorizedRepositories
+@inject NotAuthorizedRepositories notAuthorizedRepositories
 @inject NavigationManager navigation
 <!-- Content Header (Page header) -->
 <div class="content-header">
@@ -40,19 +41,19 @@
     protected override async Task OnInitializedAsync()
     {
         // to give tokens to api :)
-        await authorizer.SetAuthorizationAsync();
+        //await authorizer.SetAuthorizationAsync();
     }
 
     protected async override Task OnParametersSetAsync()
     {
-        post = await repositories.PostsRepository.Get(postId);
+        post = await notAuthorizedRepositories.PostsRepository.Get(postId);
     }
 
     async Task EditPost()
     {
         try
         {
-            await repositories.PostsRepository.Update(post);
+            await authorizedRepositories.PostsRepository.Update(post);
             navigation.NavigateTo("administration/posts");
 
         }

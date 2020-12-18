@@ -13,20 +13,20 @@ namespace MahwousWeb.Server.Controllers.Identity
         }
 
         [HttpGet]
-        public async Task<IActionResult> Check(string request)
+        public IActionResult Get(string request)
         {
             return Ok(request);
         }
 
         [HttpPost]
-        public async Task<IActionResult> CheckPost([FromBody] string request)
+        public IActionResult Post([FromBody] string request)
         {
             return Ok(request);
         }
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> CheckAuthorize([FromBody] string request)
+        public IActionResult Authorize([FromBody] string request)
         {
             return Ok(request);
         }

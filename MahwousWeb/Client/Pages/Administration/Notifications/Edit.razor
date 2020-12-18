@@ -1,16 +1,17 @@
 ﻿@page "/administration/notifications/edit/{notificationId:int}"
 @layout AdminLayout
 @attribute [Authorize]
-
-@inject HttpAuthorizer authorizer
-@inject MahwousRepositories repositories
+@*@inject MahwousRepositories repositories*@
+@*@inject HttpAuthorizer authorizer*@
+@inject AuthorizedRepositories authorizedRepositories
+@inject NotAuthorizedRepositories notAuthorizedRepositories
 @inject NavigationManager navigation
 
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark">تعديل التطبيق</h1>
+                <h1 class="m-0 text-dark">تعديل الإشعار</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -40,19 +41,19 @@
     protected override async Task OnInitializedAsync()
     {
         // to give tokens to api :)
-        await authorizer.SetAuthorizationAsync();
+        //await authorizer.SetAuthorizationAsync();
     }
 
     protected async override Task OnParametersSetAsync()
     {
-        notification = await repositories.NotificationsRepository.Get(notificationId);
+        notification = await notAuthorizedRepositories.NotificationsRepository.Get(notificationId);
     }
 
     async Task EditNotification()
     {
         try
         {
-            await repositories.NotificationsRepository.Update(notification);
+            await authorizedRepositories.NotificationsRepository.Update(notification);
             navigation.NavigateTo("administration/notifications");
 
         }

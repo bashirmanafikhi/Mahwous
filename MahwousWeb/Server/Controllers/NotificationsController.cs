@@ -40,69 +40,66 @@ namespace MahwousWeb.Server.Controllers
             await context.SaveChangesAsync();
             return NoContent();
         }
-        //[HttpPost]
-        //[Authorize]
-        //public override async Task<ActionResult<int>> Post(Notification notification)
-        //{
-        //    context.Add(notification);
-        //    await context.SaveChangesAsync();
-        //    return notification.Id;
-        //}
-
-        //[HttpPut]
-        //[Authorize]
-        //public override async Task<IActionResult> Put(Notification notification)
-        //{
-        //    var oldNotification = await context.Notifications.FirstOrDefaultAsync(c => c.Id == notification.Id);
-
-        //    if (oldNotification == null) { return NotFound(); }
-
-        //    context.Entry(oldNotification).CurrentValues.SetValues(notification);
-
-        //    await context.SaveChangesAsync();
-        //    return NoContent();
-        //}
-
-        //[HttpDelete("{id}")]
-        //[Authorize]
-        //public override async Task<IActionResult> Delete(int id)
-        //{
-        //    var notification = await context.Notifications.FirstOrDefaultAsync(c => c.Id == id);
-
-        //    if (notification == null) { return NotFound(); }
 
 
-        //    context.Remove(notification);
-        //    await context.SaveChangesAsync();
-        //    return NoContent();
-        //}
+        public override async Task<ActionResult<Notification>> Get(int id)
+        {
+            var notification = await table
+                .Include(q => q.NotificationApps)
+                .ThenInclude(sc => sc.App)
+                .FirstOrDefaultAsync(q => q.Id == id);
+
+            if (notification == null)
+            {
+                return NotFound();
+            }
+
+            return notification;
+        }
 
 
-        //[HttpGet("GetInformations")]
-        //public override async Task<ActionResult<Informations>> GetInformations()
-        //{
-        //    return await GetNotificationsInformations();
-        //}
+        [HttpGet("GetLastNotification")]
+        public async Task<ActionResult<Notification>> GetLastNotification(string packageName)
+        {
+            var notification = await table
+                .Where(n => n.NotificationApps.Any(na => na.App.Package == packageName))
+                //.Include(q => q.NotificationApps)
+                //.ThenInclude(sc => sc.App)
+                .OrderByDescending(n => n.Id)
+                .FirstOrDefaultAsync();
+
+            if (notification == null)
+            {
+                return NotFound();
+            }
+
+            return notification;
+        }
 
 
-        //[HttpPost("GetInformationsFiltered")]
-        //public async Task<ActionResult<Informations>> GetInformations(NotificationFilter filter)
-        //{ return await GetInformations((IFilter<Notification>)filter); }
-        //[NonAction]
-        //public override async Task<ActionResult<Informations>> GetInformations(IFilter<Notification> filter)
-        //{
-        //    return await GetNotificationsInformations(filter);
-        //}
 
-        //private async Task<Informations> GetNotificationsInformations(IFilter<Notification> filter = null)
-        //{
-        //    var notifications = context.Notifications.Filter(filter);
 
-        //    Informations informations = new Informations();
-        //    informations.Count = await notifications.CountAsync();
-        //    informations.ViewsCount = await notifications.SumAsync(s => (long)s.ViewsCount);
+        [HttpPut("IncrementOpened/{id}")]
+        public async Task<IActionResult> IncrementOpened(int id)
+        {
+            Notification notification = await table.FirstOrDefaultAsync(s => s.Id == id);
+            notification.OpenedCount++;
+            context.SaveChanges();
 
-        //    return informations;
-        //}
+            return Ok();
+        }
+
+
+        [HttpPut("IncrementRecived/{id}")]
+        public async Task<IActionResult> IncrementRecived(int id)
+        {
+            Notification notification = await table.FirstOrDefaultAsync(s => s.Id == id);
+            notification.RecivedCount++;
+            context.SaveChanges();
+
+            return Ok();
+        }
+
+
     }
 }

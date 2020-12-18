@@ -1,8 +1,7 @@
 ﻿@page "/administration/notifications/create"
 @layout AdminLayout
 @attribute [Authorize]
-@inject HttpAuthorizer authorizer
-@inject MahwousRepositories repositories
+@inject AuthorizedRepositories authorizedRepositories
 @inject NavigationManager navigation
 
 <div class="content-header">
@@ -34,17 +33,11 @@
 @code {
     Notification notification = new Notification();
 
-    protected async override Task OnInitializedAsync()
-    {
-        // to give tokens to api :)
-        await authorizer.SetAuthorizationAsync();
-    }
-
     async Task CreateNotification()
     {
         try
         {
-            await repositories.NotificationsRepository.Add(notification);
+            await authorizedRepositories.NotificationsRepository.Add(notification);
             navigation.NavigateTo("administration/notifications");
 
         }

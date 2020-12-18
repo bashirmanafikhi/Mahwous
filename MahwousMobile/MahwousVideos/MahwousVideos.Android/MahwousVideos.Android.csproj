@@ -60,7 +60,7 @@
     <AndroidSigningStorePass>Bb2274659</AndroidSigningStorePass>
     <AndroidSigningKeyAlias>Mahwous</AndroidSigningKeyAlias>
     <AndroidSigningKeyPass>Bb2274659</AndroidSigningKeyPass>
-    <AndroidPackageFormat>apk</AndroidPackageFormat>
+    <AndroidPackageFormat>aab</AndroidPackageFormat>
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
@@ -100,6 +100,7 @@
     <Compile Include="Fileservice.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MessageAndroid.cs" />
+    <Compile Include="NotificationWorker.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SplashActivity.cs" />

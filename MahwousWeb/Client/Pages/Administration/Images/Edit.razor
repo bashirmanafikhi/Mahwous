@@ -1,9 +1,10 @@
 ﻿@page "/administration/images/edit/{imageId:int}"
 @layout AdminLayout
 @attribute [Authorize]
-
-@inject HttpAuthorizer authorizer
-@inject MahwousRepositories repositories
+@*@inject MahwousRepositories repositories*@
+@*@inject HttpAuthorizer authorizer*@
+@inject AuthorizedRepositories authorizedRepositories
+@inject NotAuthorizedRepositories notAuthorizedRepositories
 @inject NavigationManager navigation
 <!-- Content Header (Page header) -->
 <div class="content-header">
@@ -45,19 +46,19 @@
     protected override async Task OnInitializedAsync()
     {
         // to give tokens to api :)
-        await authorizer.SetAuthorizationAsync();
+        //await authorizer.SetAuthorizationAsync();
     }
 
     protected async override Task OnParametersSetAsync()
     {
-        image = await repositories.ImagesRepository.Get(imageId);
+        image = await notAuthorizedRepositories.ImagesRepository.Get(imageId);
 
         CategoryFilter filter = new CategoryFilter();
         filter.ForImages = true;
         filter.Pagination.RecordsPerPage = 100;
 
         SelectedCategories = image.StatusCategories.Select(sc => sc.Category).ToList();
-        var categories = (await repositories.CategoriesRepository.GetFiltered(
+        var categories = (await notAuthorizedRepositories.CategoriesRepository.GetFiltered(
             filter
             )).Response;
 
@@ -72,7 +73,7 @@
     {
         try
         {
-            await repositories.ImagesRepository.Update(image);
+            await authorizedRepositories.ImagesRepository.Update(image);
             navigation.NavigateTo("administration/images");
 
         }

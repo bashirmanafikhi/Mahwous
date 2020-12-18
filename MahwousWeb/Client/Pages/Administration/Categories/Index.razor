@@ -4,8 +4,10 @@
 
 @inject IJSRuntime js
 @inject NavigationManager navigation
-@inject MahwousRepositories repositories
-@inject HttpAuthorizer authorizer
+@*@inject MahwousRepositories repositories*@
+@*@inject HttpAuthorizer authorizer*@
+@inject AuthorizedRepositories authorizedRepositories
+@inject NotAuthorizedRepositories notAuthorizedRepositories
 
 
 <ol class="breadcrumb mb-4">
@@ -116,6 +118,11 @@
                             <label class="form-check-label" for="ForVideos">For Videos</label>
                         </div>
 
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="Visible" @bind="categoryFilter.Visible" />
+                            <label class="form-check-label" for="Visible">Visible</label>
+                        </div>
+
                     </div>
 
                     <div class="card-footer">
@@ -145,7 +152,9 @@
 
     protected async override Task OnInitializedAsync()
     {
-        await authorizer.SetAuthorizationAsync();
+        //await authorizer.SetAuthorizationAsync();
+        
+
         await LoadCategories();
     }
 
@@ -153,10 +162,9 @@
     {
         try
         {
-            var paginatedResponse = await repositories.CategoriesRepository.GetFiltered(categoryFilter);
+            var paginatedResponse = await notAuthorizedRepositories.CategoriesRepository.GetFiltered(categoryFilter);
             categories = paginatedResponse.Response;
             totalAmountPages = paginatedResponse.TotalAmountPages;
-
         }
         catch (Exception ex)
         {
@@ -169,7 +177,7 @@
         var category = categories.First(x => x.Id == categoryId);
         if (await js.Confirm("تأكيد", $"هل أنت متأكد أنك تريد أن تحذف {category.Name} ؟", SweetAlertMessageType.error))
         {
-            await repositories.CategoriesRepository.Delete(categoryId);
+            await authorizedRepositories.CategoriesRepository.Delete(categoryId);
             await LoadCategories();
         }
     }

@@ -5,8 +5,10 @@
 
 @inject IJSRuntime js
 @inject NavigationManager navigation
-@inject MahwousRepositories repositories
-@inject HttpAuthorizer authorizer
+@*@inject MahwousRepositories repositories*@
+@*@inject HttpAuthorizer authorizer*@
+@inject AuthorizedRepositories authorizedRepositories
+@inject NotAuthorizedRepositories notAuthorizedRepositories
 
 <ol class="breadcrumb mb-4">
     <li class="breadcrumb-item"><a href="">الصفحة الرئيسية</a></li>
@@ -40,32 +42,32 @@
                         }
                         else
                         {
-                            <div class="card-columns">
-                                @foreach (var notification in notifications)
-                                {
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <p class="card-title text-bold">
-                                                @notification.Title
-                                            </p>
-                                        </div>
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                @notification.Description
-                                            </p>
-                                        </div>
-                                        <div class="card-footer">
-                                            <p class="card-text text-secondary">
-                                                @notification.Date
-                                            </p>
-                                            <div class="stats">
+
+                            <table class="table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">العنوان</th>
+                                        <th scope="col">مرات الإستقبال</th>
+                                        <th scope="col">مرات الفتح</th>
+                                        <th scope="col">مهام أخرى</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var notification in notifications)
+                                    {
+                                        <tr>
+                                            <th scope="row">@notification.Title</th>
+                                            <td>@notification.RecivedCount</td>
+                                            <td>@notification.OpenedCount</td>
+                                            <td>
                                                 <button class="btn btn-danger" @onclick="@(() => DeleteNotification(notification.Id))">حذف</button>
                                                 <a class="btn btn-info" href="administration/notifications/edit/@notification.Id">تعديل</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                }
-                            </div>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
 
                         }
                     </div>
@@ -98,14 +100,14 @@
     int totalAmountPages;
     protected async override Task OnInitializedAsync()
     {
-        await authorizer.SetAuthorizationAsync();
+        //await authorizer.SetAuthorizationAsync();
         await LoadNotifications();
     }
     async Task LoadNotifications()
     {
         try
         {
-            var paginatedResponse = await repositories.NotificationsRepository.GetPaginated(pagination);
+            var paginatedResponse = await notAuthorizedRepositories.NotificationsRepository.GetPaginated(pagination);
             notifications = paginatedResponse.Response;
             totalAmountPages = paginatedResponse.TotalAmountPages;
         }
@@ -120,7 +122,7 @@
 x.Id == notificationId);
         if (await js.Confirm("تأكيد", $"هل أنت متأكد أنك تريد أن تحذف {notification.Title} ؟", SweetAlertMessageType.error))
         {
-            await repositories.NotificationsRepository.Delete(notificationId);
+            await authorizedRepositories.NotificationsRepository.Delete(notificationId);
             await LoadNotifications();
         }
     }

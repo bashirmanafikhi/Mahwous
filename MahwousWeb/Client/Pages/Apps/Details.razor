@@ -1,12 +1,74 @@
 ﻿@page "/apps/{id:int}"
-@layout AdminLayout
-@inject MahwousRepositories repositories
+@inject AuthorizedRepositories authorizedRepositories
+@inject NotAuthorizedRepositories notAuthorizedRepositories
 
-Id is:
-@if (app != null)
-{
-    <h3>@app.Id</h3>
-}
+<div class="container">
+    <div class="card my-4">
+
+        <div class="card-header">
+
+        </div>
+
+        <div class="card-body">
+            @if (app != null)
+            {
+                <div class="card text-center">
+                    <div class="card-header p-0">
+                        <img src="@app.ImagePath" style="height: auto; width: auto; max-height: 100%;  max-height: 260px; object-fit: cover" />
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-title">@app.Name</h2>
+
+                        <p>@app.Description</p>
+
+
+
+
+
+                        @if (!string.IsNullOrWhiteSpace(app.PlayStoreLink))
+                        {
+                            <p>
+                                <a target="_blank" href="@(app.PlayStoreLink ?? "#")">تحميل للأندرويد <i class="fab fa-google-play"></i></a>
+                                @app.PlayStoreOpenedCount مرة .
+                            </p>
+                        }
+
+
+                        @if (!string.IsNullOrWhiteSpace(app.AppleStoreLink))
+                        {
+                            <p>
+                                <a target="_blank" href="@(app.AppleStoreLink ?? "#")">تحميل للآيفون <i class="fab fa-app-store"></i></a>
+                                @app.AppleStoreOpenedCount مرة .
+                            </p>
+                        }
+
+
+
+                    </div>
+
+
+                    <div class="card-footer">
+                        <AuthorizeView>
+                            <Authorized>
+                                <a class="btn btn-info" href="administration/apps/edit/@app.Id">تعديل</a>
+                            </Authorized>
+                        </AuthorizeView>
+                        <a class="btn btn-info" href="apps">رجوع</a>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <p><i class="fas fa-spin fa-spinner"></i> جاري تحميل معلومات التطبيق </p>
+            }
+        </div>
+
+        <div class="card-footer">
+
+        </div>
+
+    </div>
+</div>
 
 
 @code {
@@ -15,7 +77,8 @@ Id is:
 
     protected async override Task OnParametersSetAsync()
     {
-        app = await repositories.AppsRepository.Get(id);
+        app = await notAuthorizedRepositories.AppsRepository.Get(id);
     }
+
 }
 

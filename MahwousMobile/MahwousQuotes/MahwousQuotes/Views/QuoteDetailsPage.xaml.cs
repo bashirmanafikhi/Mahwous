@@ -23,7 +23,7 @@ namespace MahwousQuotes.Views
         {
             base.OnAppearing();
 
-            myQuotesTemplate.SortType = SortType.Random; //this will excute load quotes command
+            myQuotesTemplate.SortType = StatusSortType.Random; //this will excute load quotes command
         }
 
     }

@@ -1,12 +1,11 @@
 ﻿@page "/administration/categories/create"
 @layout AdminLayout
 @attribute [Authorize]
-
-
-@inject HttpAuthorizer authorizer
-@inject MahwousRepositories repositories
+@*@inject MahwousRepositories repositories*@
+@*@inject HttpAuthorizer authorizer*@
+@inject AuthorizedRepositories authorizedRepositories
+@inject NotAuthorizedRepositories notAuthorizedRepositories
 @inject NavigationManager navigation
-
 <!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
@@ -30,8 +29,8 @@
     <div class="container-fluid">
 
 
-<CategoryForm ButtonText="إضافة تصنيف" Category="category"
-              OnValidSubmit="CreateCategory" />
+        <CategoryForm ButtonText="إضافة تصنيف" Category="category"
+                      OnValidSubmit="CreateCategory" />
 
 
     </div>
@@ -44,14 +43,14 @@
     protected override async Task OnInitializedAsync()
     {
         // to give tokens to api :)
-        await authorizer.SetAuthorizationAsync();
+        //await authorizer.SetAuthorizationAsync();
     }
 
     async Task CreateCategory()
     {
         try
         {
-            await repositories.CategoriesRepository.Add(category);
+            await authorizedRepositories.CategoriesRepository.Add(category);
             navigation.NavigateTo("administration/categories");
 
         }

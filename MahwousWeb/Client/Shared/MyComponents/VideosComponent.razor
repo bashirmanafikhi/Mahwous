@@ -1,57 +1,59 @@
-﻿
-
-@inject IJSRuntime js
+﻿@inject IJSRuntime js
 @inject NavigationManager navigation
-@inject MahwousRepositories repositories
-@inject HttpAuthorizer authorizer
-
-
-
-
+@*@inject MahwousRepositories repositories*@
+@*@inject HttpAuthorizer authorizer*@
+@inject AuthorizedRepositories authorizedRepositories
+@inject NotAuthorizedRepositories notAuthorizedRepositories
 
 <div class="container">
-    <div class="row">
-        <!-- /.col -->
-        <div class="col-lg-9">
 
+    <div class="row">
+        <div class="col-lg-9">
             <div class="card">
                 <div class="card-header">
-                    <Pagination CurrentPage="@imageFilter.Pagination.Page" TotalAmountPages="totalAmountPages"
+                    <Pagination CurrentPage="@videoFilter.Pagination.Page" TotalAmountPages="totalAmountPages"
                                 SelectedPage="SelectedPage" />
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
 
                     <div>
-                        @if (images == null)
+                        @if (videos == null)
                         {
-                            <p>جاري تحميل الصور .. </p>
+                            <p>جاري تحميل الحالات .. </p>
                         }
-                        else if (images.Count == 0)
+                        else if (videos.Count == 0)
                         {
-                            <p> لا يوجد صور! </p>
+                            <p> لا يوجد حالات! </p>
                         }
                         else
                         {
                             <div class="card-columns">
-                                @foreach (ImageStatus image in images)
+                                @foreach (var video in videos)
                                 {
-                                    <div class="card card-chart">
-                                        <div class="card-body card-header-success p-0">
-                                            <img src="@image.ImagePath" class="m-1" style="height:auto; width:100%; object-fit:cover" />
-                                        </div>
+                                    <a href="videos/@video.Id">
+                                        <div class="card text-dark">
+                                            <div class="card-header">
+                                                <h4 class="card-title">@video.Title</h4>
+                                            </div>
+                                            <div class="card-body p-0">
+                                                @*<video src="@video.VideoPath" style="height:auto; width:100%; max-height:200px; object-fit:cover" controls />*@
+                                                <img src="@video.CoverPath" style="height:auto; width:100%; object-fit:cover" />
+                                            </div>
 
-                                        <AuthorizeView>
-                                            <Authorized>
-                                                <div class="card-footer">
-                                                    <div class="stats">
-                                                        <button class="btn btn-danger" @onclick="@(() => DeleteImage(image.Id))">حذف</button>
-                                                        <a class="btn btn-info" href="administration/images/edit/@image.Id">تعديل</a>
+                                            <AuthorizeView>
+                                                <Authorized>
+                                                    <div class="card-footer">
+                                                        <div class="stats">
+                                                            <button class="btn btn-danger" @onclick="@(() => DeleteVideo(video.Id))">حذف</button>
+                                                            <a class="btn btn-info" href="administration/videos/edit/@video.Id">تعديل</a>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </Authorized>
-                                        </AuthorizeView>
-                                    </div>
+                                                </Authorized>
+                                            </AuthorizeView>
+
+                                        </div>
+                                    </a>
                                 }
                             </div>
 
@@ -61,7 +63,7 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                    <Pagination CurrentPage="@imageFilter.Pagination.Page" TotalAmountPages="totalAmountPages"
+                    <Pagination CurrentPage="@videoFilter.Pagination.Page" TotalAmountPages="totalAmountPages"
                                 SelectedPage="SelectedPage" />
                 </div>
                 <!-- /.card-footer -->
@@ -70,68 +72,76 @@
         </div>
         <!-- /.col -->
         <div class="col-lg-3">
+
+
             <AuthorizeView>
                 <Authorized>
-                    <a href="administration/images/create" class="btn btn-primary btn-block mb-3">اضافة صورة جديدة</a>
+                    <a href="administration/videos/create" class="btn btn-primary btn-block mb-3">اضافة فيديو جديد</a>
                 </Authorized>
             </AuthorizeView>
 
-
-
-            <EditForm Model="imageFilter">
+            <EditForm Model="videoFilter">
                 <div class="card my-2">
                     <div class="card-header">
                         <h3 class="card-title">فلترة</h3>
                     </div>
 
-
                     <div class="card-body">
+
+
+                        <div class="form-group">
+                            <label for="Content">Content</label>
+                            <input type="text" class="form-control" id="title" placeholder="Video Content"
+                                   @bind-value="videoFilter.Name" @bind-value:event="oninput"
+                                   @onkeypress="@((KeyboardEventArgs e) => NameKeyPress(e))" />
+                        </div>
+
                         <div class="form-group">
                             <label for="ViewsCountFrom"> عدد المشاهدات من</label>
                             <input type="number" class="form-control" id="ViewsCountFrom"
-                                   @bind-value="imageFilter.ViewsCount.From" @bind-value:event="oninput" />
+                                   @bind-value="videoFilter.ViewsCount.From" @bind-value:event="oninput" />
                             <label for="ViewsCountTo">إلى</label>
                             <input type="number" class="form-control" id="ViewsCountFromTo"
-                                   @bind-value="imageFilter.ViewsCount.To" @bind-value:event="oninput" />
+                                   @bind-value="videoFilter.ViewsCount.To" @bind-value:event="oninput" />
                         </div>
                         <div class="form-group">
                             <label for="LikesCountFrom">عدد اللايكات من</label>
                             <input type="number" class="form-control" id="LikesCountFrom"
-                                   @bind-value="imageFilter.LikesCount.From" @bind-value:event="oninput" />
+                                   @bind-value="videoFilter.LikesCount.From" @bind-value:event="oninput" />
                             <label for="LikesCountTo">إلى</label>
                             <input type="number" class="form-control" id="LikesCounttFromTo"
-                                   @bind-value="imageFilter.LikesCount.To" @bind-value:event="oninput" />
+                                   @bind-value="videoFilter.LikesCount.To" @bind-value:event="oninput" />
                         </div>
 
                         <div class="form-group">
                             <label for="DownloadsCountFrom">عدد التحميلات من</label>
                             <input type="number" class="form-control" id="DownloadsCountFrom"
-                                   @bind-value="imageFilter.DownloadsCount.From" @bind-value:event="oninput" />
+                                   @bind-value="videoFilter.DownloadsCount.From" @bind-value:event="oninput" />
                             <label for="DownloadsCountTo">إلى</label>
                             <input type="number" class="form-control" id="DownloadsCountTo"
-                                   @bind-value="imageFilter.DownloadsCount.To" @bind-value:event="oninput" />
+                                   @bind-value="videoFilter.DownloadsCount.To" @bind-value:event="oninput" />
                         </div>
 
                         <div class="form-group">
                             <label for="DateFrom">من تاريخ</label>
                             <input type="date" class="form-control" id="DateFrom" placeholder="DateFrom"
-                                   @bind-value="imageFilter.Date.From" @bind-value:event="oninput" />
+                                   @bind-value="videoFilter.Date.From" @bind-value:event="oninput" />
                         </div>
 
                         <div class="form-group">
                             <label for="DateTo">إلى تاريخ</label>
                             <input type="date" class="form-control" id="DateTo" placeholder="DateTo"
-                                   @bind-value="imageFilter.Date.To" @bind-value:event="oninput" />
+                                   @bind-value="videoFilter.Date.To" @bind-value:event="oninput" />
                         </div>
 
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="WithoutCategory" @bind="imageFilter.WithoutCategory" />
+                            <input type="checkbox" class="form-check-input" id="WithoutCategory" @bind="videoFilter.WithoutCategory" />
                             <label class="form-check-label" for="WithoutCategory">بدون تصنيف فقط</label>
                         </div>
 
                         <div class="form-group">
                             <label for="Categories">تصنيفات</label>
-                            <RadzenDropDown class="form-control" Disabled="@imageFilter.WithoutCategory" AllowClear="false" AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" @bind-Value="selectedCategoriesIds" Multiple="true" Placeholder="إختر تصنيفات.." Data="@categories" TextProperty="Name" ValueProperty="Id"
+                            <RadzenDropDown class="form-control" Disabled="@videoFilter.WithoutCategory" AllowClear="true" AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" @bind-Value="selectedCategoriesIds" Multiple="true" Placeholder="Select..." Data="@categories" TextProperty="Name" ValueProperty="Id"
                                             Change="@(args => Change(args))" />
                         </div>
 
@@ -142,7 +152,7 @@
 
                             <label for="sortType">نوع الترتيب</label>
 
-                            <InputSelect class="form-control" id="SortType" @bind-Value="imageFilter.SortType">
+                            <InputSelect class="form-control" id="SortType" @bind-Value="videoFilter.SortType">
 
                                 @foreach (var sortType in Enum.GetValues(typeof(SortType)))
                                 {
@@ -158,17 +168,18 @@
                         <AuthorizeView>
                             <Authorized Context="authorized">
                                 <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="Visible" @bind="imageFilter.Visible" />
+                                    <input type="checkbox" class="form-check-input" id="Visible" @bind="videoFilter.Visible" />
                                     <label class="form-check-label" for="Visible">مرئي</label>
                                 </div>
                             </Authorized>
                         </AuthorizeView>
 
+
                     </div>
 
                     <div class="card-footer">
                         @*<button type="submit" class="btn btn-primary">Submit</button>*@
-                        <button type="button" class="btn btn-primary" @onclick="SearchForImages">فلترة</button>
+                        <button type="button" class="btn btn-primary" @onclick="SearchForVideos">فلترة</button>
                         <button type="button" class="btn btn-link text-danger" @onclick="Clear">حذف الفلتر <i class="fas fa-backspace"></i></button>
                     </div>
                 </div>
@@ -185,7 +196,7 @@
                         <p class="ml-auto ml-md-0"></p>
                         <ul class="nav nav-pills flex-column">
                             <li class="nav-item">
-                                <a class="nav-link"><i class="far fa-circle text-danger"></i> عدد الصور: @informations.Count</a>
+                                <a class="nav-link"><i class="far fa-circle text-danger"></i> عدد الفيديوهات: @informations.Count</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link"><i class="far fa-circle text-warning"></i> مجموع المشاهدات: @informations.ViewsCount</a>
@@ -204,17 +215,25 @@
             </div>
             <!-- /.card -->
         </div>
+        <!-- /.col -->
     </div>
     <!-- /.row -->
-</div>
+
+
+</div><!-- /.container-fluid -->
+
+
+
+
+
 
 
 
 
 @code {
-    private ImageFilter imageFilter = new ImageFilter();
+    private VideoFilter videoFilter = new VideoFilter();
 
-    ICollection<ImageStatus> images { get; set; }
+    ICollection<VideoStatus> videos { get; set; }
     ICollection<Category> categories { get; set; }
     Informations informations;
 
@@ -224,21 +243,21 @@
 
     protected async override Task OnInitializedAsync()
     {
-        await authorizer.SetAuthorizationAsync();
-        imageFilter.SortType = SortType.Newest;
-        informations = await repositories.ImagesRepository.GetInformations();
-        await LoadImages();
+        //await authorizer.SetAuthorizationAsync();
+        videoFilter.SortType = StatusSortType.Newest;
+        informations = await notAuthorizedRepositories.VideosRepository.GetInformations();
+        await LoadVideos();
         await LoadCategories();
     }
 
 
 
     IEnumerable<int> selectedCategoriesIds = new int[] { };
-
     void Change(object value)
     {
-        StateHasChanged();
+        //StateHasChanged();
     }
+
 
     async Task LoadCategories()
     {
@@ -246,10 +265,10 @@
         {
 
             CategoryFilter filter = new CategoryFilter();
-            filter.ForImages = true;
+            filter.ForVideos = true;
             filter.Pagination.RecordsPerPage = 100;
 
-            var paginatedResponse = await repositories.CategoriesRepository.GetFiltered(filter);
+            var paginatedResponse = await notAuthorizedRepositories.CategoriesRepository.GetFiltered(filter);
             categories = paginatedResponse.Response;
         }
         catch (Exception ex)
@@ -260,12 +279,12 @@
 
 
 
-    async Task LoadImages()
+    async Task LoadVideos()
     {
         try
         {
-            var paginatedResponse = await repositories.ImagesRepository.GetFiltered(imageFilter);
-            images = paginatedResponse.Response;
+            var paginatedResponse = await notAuthorizedRepositories.VideosRepository.GetFiltered(videoFilter);
+            videos = paginatedResponse.Response;
             totalAmountPages = paginatedResponse.TotalAmountPages;
 
         }
@@ -275,50 +294,50 @@
         }
     }
 
-    async Task DeleteImage(int imageId)
+    async Task DeleteVideo(int videoId)
     {
-        var video = images.First(i => i.Id == imageId);
+        //var video = videos.First(i => i.Id == videoId);
         if (await js.Confirm("تأكيد", $"هل أنت متأكد أنك تريد أن تحذف هذه الصورة؟", SweetAlertMessageType.error))
         {
-            await repositories.ImagesRepository.Delete(imageId);
-            await LoadImages();
+            await authorizedRepositories.VideosRepository.Delete(videoId);
+            await LoadVideos();
         }
     }
 
     private async Task SelectedPage(int page)
     {
-        imageFilter.Pagination.Page = page;
-        await LoadImages();
+        videoFilter.Pagination.Page = page;
+        await LoadVideos();
     }
 
 
-    private async Task SearchForImages()
+
+    private async Task SearchForVideos()
     {
-        imageFilter.Categories.Clear();
+        videoFilter.Categories.Clear();
         foreach (int id in selectedCategoriesIds ?? new int[] { })
         {
-            imageFilter.Categories.Add(categories.First(c => c.Id == id));
+            videoFilter.Categories.Add(categories.First(c => c.Id == id));
         }
 
 
-        await LoadImages();
+        await LoadVideos();
     }
 
     private async Task Clear()
     {
-        imageFilter = new ImageFilter();
+        videoFilter = new VideoFilter();
         selectedCategoriesIds = new int[] { };
-        imageFilter.SortType = SortType.Newest;
+        videoFilter.SortType = StatusSortType.Newest;
 
-        await LoadImages();
+        await LoadVideos();
     }
 
     private async Task NameKeyPress(KeyboardEventArgs e)
     {
         if (e.Key == "Enter")
         {
-            await SearchForImages();
+            await SearchForVideos();
         }
     }
 }
-

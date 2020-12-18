@@ -18,7 +18,7 @@ namespace MahwousWeb.Server.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class StatusesController : GenericStatusesControllerBase<Status, StatusFilter>
+    public class StatusesController : GenericStatusesControllerBase<Status, StatusFilterBase<Status>>
     {
         public StatusesController(ApplicationDbContext context, IFileStorageService fileStorageService)
             : base(context, fileStorageService) { }

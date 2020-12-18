@@ -1,9 +1,10 @@
 ﻿@page "/administration/quotes/edit/{quoteId:int}"
 @layout AdminLayout
 @attribute [Authorize]
-
-@inject HttpAuthorizer authorizer
-@inject MahwousRepositories repositories
+@*@inject MahwousRepositories repositories*@
+@*@inject HttpAuthorizer authorizer*@
+@inject AuthorizedRepositories authorizedRepositories
+@inject NotAuthorizedRepositories notAuthorizedRepositories
 @inject NavigationManager navigation
 <!-- Content Header (Page header) -->
 <div class="content-header">
@@ -44,7 +45,7 @@
     protected override async Task OnInitializedAsync()
     {
         // to give tokens to api :)
-        await authorizer.SetAuthorizationAsync();
+        //await authorizer.SetAuthorizationAsync();
     }
 
     protected async override Task OnParametersSetAsync()
@@ -54,9 +55,9 @@
         filter.Pagination.RecordsPerPage = 100;
 
 
-        quote = await repositories.QuotesRepository.Get(quoteId);
+        quote = await notAuthorizedRepositories.QuotesRepository.Get(quoteId);
         SelectedCategories = quote.StatusCategories.Select(sc => sc.Category).ToList();
-        var categories = (await repositories.CategoriesRepository.GetFiltered(filter)).Response;
+        var categories = (await notAuthorizedRepositories.CategoriesRepository.GetFiltered(filter)).Response;
 
         NotSelectedCategories = categories.Where(c =>
                 !SelectedCategories
@@ -71,7 +72,7 @@
     {
         try
         {
-            await repositories.QuotesRepository.Update(quote);
+            await authorizedRepositories.QuotesRepository.Update(quote);
 
             navigation.NavigateTo("administration/quotes");
 

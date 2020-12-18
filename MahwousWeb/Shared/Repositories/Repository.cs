@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MahwousWeb.Shared.Repositories
 {
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : ModelBase
     {
         protected string url = "api/statuses";
 

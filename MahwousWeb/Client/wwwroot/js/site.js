@@ -26,8 +26,17 @@ function CustomConfirm(title, message, type) {
     });
 }
 
+
+function setTitle(title) {
+    document.title = title;
+}
+
 function helloworld() {
     alert("hello world!");
+}
+
+function hello(title) {
+    alert(title);
 }
 
 function isScrollEnded() {

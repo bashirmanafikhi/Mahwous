@@ -4,11 +4,11 @@ using System.Linq;
 
 namespace MahwousWeb.Shared.Filters
 {
-    public class PostFilter : IFilter<Post>
+    public class PostFilter : FilterBase<Post>
     {
-        public PaginationDetails Pagination { get; set; } = new PaginationDetails();
-        public IQueryable<Post> Filter(IQueryable<Post> queryable)
+        public override IQueryable<Post> Filter(IQueryable<Post> queryable)
         {
+            queryable = base.Filter(queryable);
             return queryable;
         }
     }

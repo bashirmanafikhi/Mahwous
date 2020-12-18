@@ -1,8 +1,10 @@
 ﻿@page "/administration/posts/create"
 @layout AdminLayout
 @attribute [Authorize]
-@inject HttpAuthorizer authorizer
-@inject MahwousRepositories repositories
+@*@inject MahwousRepositories repositories*@
+@*@inject HttpAuthorizer authorizer*@
+@inject AuthorizedRepositories authorizedRepositories
+@inject NotAuthorizedRepositories notAuthorizedRepositories
 @inject NavigationManager navigation
 
 <div class="content-header">
@@ -37,14 +39,14 @@
     protected async override Task OnInitializedAsync()
     {
         // to give tokens to api :)
-        await authorizer.SetAuthorizationAsync();
+        //await authorizer.SetAuthorizationAsync();
     }
 
     async Task CreatePost()
     {
         try
         {
-            await repositories.PostsRepository.Add(post);
+            await authorizedRepositories.PostsRepository.Add(post);
             navigation.NavigateTo("administration/posts");
 
         }

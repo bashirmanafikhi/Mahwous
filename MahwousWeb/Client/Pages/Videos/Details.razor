@@ -1,12 +1,56 @@
 ﻿@page "/videos/{id:int}"
-@layout AdminLayout
-@inject MahwousRepositories repositories
+@inject NotAuthorizedRepositories repositories
 
-Id is:
-@if (video != null)
+
+@if(video != null)
 {
-    <h3>@video.Id</h3>
+    <PageTitle Title="@video.Title" />
 }
+
+
+<div class="container">
+    <div class="card my-4">
+
+        <div class="card-header">
+
+        </div>
+
+        <div class="card-body">
+            @if (video != null)
+            {
+                <div class="card text-center">
+                    <div class="card-header">
+                        <h4 class="card-title">@video.Title</h4>
+                    </div>
+                    <div class="card-body p-0">
+                        <video src="@video.VideoPath" style=" height: auto; width: auto; max-height: 100%;  max-height: 400px; object-fit: cover" controls />
+                        @*<img src="@video.CoverPath" style="height:auto; width:100%; object-fit:cover" />*@
+                    </div>
+
+                    <div class="card-footer">
+                        <AuthorizeView>
+                            <Authorized>
+                                <a class="btn btn-info" href="administration/videos/edit/@video.Id">تعديل</a>
+                            </Authorized>
+                        </AuthorizeView>
+                        <a class="btn btn-primary" href="api/videos/download/@video.Id">تحميل</a>
+                        <a class="btn btn-info" href="videos">رجوع</a>
+                    </div>
+
+                </div> }
+            else
+            {
+                <p><i class="fas fa-spin fa-spinner"></i> جاري تحميل الفيديو </p>
+            }
+        </div>
+
+        <div class="card-footer">
+
+        </div>
+
+    </div>
+</div>
+
 
 
 @code {

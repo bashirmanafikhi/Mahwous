@@ -1,10 +1,10 @@
 ﻿@page "/administration/videos/create"
 @layout AdminLayout
 @attribute [Authorize]
-
-
-@inject HttpAuthorizer authorizer
-@inject MahwousRepositories repositories
+@*@inject MahwousRepositories repositories*@
+@*@inject HttpAuthorizer authorizer*@
+@inject AuthorizedRepositories authorizedRepositories
+@inject NotAuthorizedRepositories notAuthorizedRepositories 
 
 @inject NavigationManager navigation
 <!-- Content Header (Page header) -->
@@ -59,12 +59,12 @@
         filter.ForVideos = true;
         filter.Pagination.RecordsPerPage = 100;
 
-        var paginatedResponse = await repositories.CategoriesRepository.GetFiltered(filter);
+        var paginatedResponse = await notAuthorizedRepositories.CategoriesRepository.GetFiltered(filter);
         NotSelectedCategories = paginatedResponse.Response.ToList();
 
 
         // to give tokens to api :)
-        await authorizer.SetAuthorizationAsync();
+        //await authorizer.SetAuthorizationAsync();
     }
 
     async Task CreateVideo()
@@ -73,7 +73,7 @@
 
         try
         {
-            await repositories.VideosRepository.Add(video);
+            await authorizedRepositories.VideosRepository.Add(video);
             navigation.NavigateTo("administration/videos");
 
         }

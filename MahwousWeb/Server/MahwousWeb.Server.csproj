@@ -3,22 +3,12 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <UserSecretsId>ccf543f6-bcd7-4a67-b0ba-269ac3f0a75f</UserSecretsId>
-    <!--<DisableImplicitComponentsAnalyzers>true</DisableImplicitComponentsAnalyzers>
-    <UserSecretsId>BlazorWasm-CSharp.Server-1EBF6E8C-7DEC-4350-A394-C00C1182945A</UserSecretsId>
-    <SignAssembly>false</SignAssembly>
-    <AssemblyOriginatorKeyFile>mahwous.pfx</AssemblyOriginatorKeyFile>
-    <DelaySign>false</DelaySign>-->
   </PropertyGroup>
-
-  <!--<ItemGroup>
-    <Content Remove="wwwroot\content\**" />
-    <EmbeddedResource Remove="wwwroot\content\**" />
-    <None Remove="wwwroot\content\**" />
-  </ItemGroup>-->
 
 	<ItemGroup>
 		<Content Remove="wwwroot\content\**" />
 	</ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="5.0.0" />
@@ -39,10 +29,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.0">
 
-
-      <!--<PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>-->
-    </PackageReference>
+ </PackageReference>
   </ItemGroup>
 
 </Project>

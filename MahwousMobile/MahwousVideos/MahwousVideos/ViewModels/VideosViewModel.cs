@@ -44,7 +44,7 @@ namespace MahwousVideos.ViewModels
 
             VideoFilter filter = new VideoFilter();
 
-            filter.SortType = SortType.Random;
+            filter.SortType = StatusSortType.Random;
 
             filter.Categories.Add(category1);
             filter.Categories.Add(category2);
@@ -86,7 +86,7 @@ namespace MahwousVideos.ViewModels
             LoadMoreVideosCommand = new Command(async () => await ExecuteLoadMoreVideosCommand());
         }
 
-        public VideosViewModel() : this(new VideoFilter {SortType=SortType.Random}) { }
+        public VideosViewModel() : this(new VideoFilter {SortType=StatusSortType.Random}) { }
 
         async Task ExecuteLoadMoreVideosCommand()
         {

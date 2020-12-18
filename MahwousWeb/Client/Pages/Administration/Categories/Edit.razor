@@ -1,9 +1,10 @@
 ﻿@page "/administration/categories/edit/{categoryId:int}"
 @layout AdminLayout
 @attribute [Authorize]
-
-@inject HttpAuthorizer authorizer
-@inject MahwousRepositories repositories
+@*@inject MahwousRepositories repositories*@
+@*@inject HttpAuthorizer authorizer*@
+@inject AuthorizedRepositories authorizedRepositories
+@inject NotAuthorizedRepositories notAuthorizedRepositories
 @inject NavigationManager navigation
 <!-- Content Header (Page header) -->
 <div class="content-header">
@@ -41,19 +42,19 @@
     protected override async Task OnInitializedAsync()
     {
         // to give tokens to api :)
-        await authorizer.SetAuthorizationAsync();
+        //await authorizer.SetAuthorizationAsync();
     }
 
     protected async override Task OnParametersSetAsync()
     {
-        category = await repositories.CategoriesRepository.Get(categoryId);
+        category = await notAuthorizedRepositories.CategoriesRepository.Get(categoryId);
     }
 
     async Task EditCategory()
     {
         try
         {
-            await repositories.CategoriesRepository.Update(category);
+            await authorizedRepositories.CategoriesRepository.Update(category);
             navigation.NavigateTo("administration/categories");
 
         }

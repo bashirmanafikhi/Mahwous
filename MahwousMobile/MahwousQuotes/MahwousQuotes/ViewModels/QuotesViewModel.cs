@@ -50,7 +50,7 @@ namespace MahwousQuotes.ViewModels
             LoadMoreQuotesCommand = new Command(async () => await ExecuteLoadMoreQuotesCommand());
         }
 
-        public QuotesViewModel() : this(new QuoteFilter { SortType = SortType.Random }) { }
+        public QuotesViewModel() : this(new QuoteFilter { SortType = StatusSortType.Random }) { }
 
         async Task ExecuteLoadQuotesCommand()
         {
