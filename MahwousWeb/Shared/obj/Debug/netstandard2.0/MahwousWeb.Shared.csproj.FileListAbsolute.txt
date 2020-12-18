@@ -1,9 +1,0 @@
-D:\Mahwous\MahwousWeb\Shared\bin\Debug\netstandard2.0\MahwousWeb.Shared.deps.json
-D:\Mahwous\MahwousWeb\Shared\bin\Debug\netstandard2.0\MahwousWeb.Shared.dll
-D:\Mahwous\MahwousWeb\Shared\bin\Debug\netstandard2.0\MahwousWeb.Shared.pdb
-D:\Mahwous\MahwousWeb\Shared\obj\Debug\netstandard2.0\MahwousWeb.Shared.csprojAssemblyReference.cache
-D:\Mahwous\MahwousWeb\Shared\obj\Debug\netstandard2.0\MahwousWeb.Shared.AssemblyInfoInputs.cache
-D:\Mahwous\MahwousWeb\Shared\obj\Debug\netstandard2.0\MahwousWeb.Shared.AssemblyInfo.cs
-D:\Mahwous\MahwousWeb\Shared\obj\Debug\netstandard2.0\MahwousWeb.Shared.csproj.CoreCompileInputs.cache
-D:\Mahwous\MahwousWeb\Shared\obj\Debug\netstandard2.0\MahwousWeb.Shared.dll
-D:\Mahwous\MahwousWeb\Shared\obj\Debug\netstandard2.0\MahwousWeb.Shared.pdb
