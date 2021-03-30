@@ -2,8 +2,7 @@
 @layout AdminLayout
 @attribute [Authorize]
 @inject IJSRuntime js
-@inject AuthorizedRepositories authorizedRepositories
-@inject NotAuthorizedRepositories notAuthorizedRepositories
+@inject MahwousRepositories repositories
 @inject NavigationManager navigation
 
 
@@ -63,7 +62,7 @@
 
 
 
-        var paginatedResponse = await notAuthorizedRepositories.CategoriesRepository.GetFiltered(filter);
+        var paginatedResponse = await repositories.CategoriesRepository.GetFiltered(filter);
         NotSelectedCategories = paginatedResponse.Response.ToList();
 
 
@@ -78,7 +77,7 @@
         try
         {
 
-            await authorizedRepositories.QuotesRepository.Add(quote);
+            await repositories.QuotesRepository.Add(quote);
             navigation.NavigateTo("administration/quotes");
 
         }

@@ -1,11 +1,9 @@
 ﻿@page "/administration/categories/edit/{categoryId:int}"
 @layout AdminLayout
 @attribute [Authorize]
-@*@inject MahwousRepositories repositories*@
-@*@inject HttpAuthorizer authorizer*@
-@inject AuthorizedRepositories authorizedRepositories
-@inject NotAuthorizedRepositories notAuthorizedRepositories
+@inject MahwousRepositories repositories
 @inject NavigationManager navigation
+
 <!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
@@ -47,14 +45,14 @@
 
     protected async override Task OnParametersSetAsync()
     {
-        category = await notAuthorizedRepositories.CategoriesRepository.Get(categoryId);
+        category = await repositories.CategoriesRepository.Get(categoryId);
     }
 
     async Task EditCategory()
     {
         try
         {
-            await authorizedRepositories.CategoriesRepository.Update(category);
+            await repositories.CategoriesRepository.Update(category);
             navigation.NavigateTo("administration/categories");
 
         }

@@ -1,8 +1,8 @@
 ﻿@page "/videos/{id:int}"
-@inject NotAuthorizedRepositories repositories
+@inject MahwousRepositories repositories
 
 
-@if(video != null)
+@if (video != null)
 {
     <PageTitle Title="@video.Title" />
 }

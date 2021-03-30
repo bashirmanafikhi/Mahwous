@@ -6,6 +6,7 @@ using MahwousVideos.ViewModels;
 using MahwousWeb.Shared.Models;
 using MahwousWeb.Shared.Filters;
 using System.Linq;
+using MarcTron.Plugin;
 
 namespace MahwousVideos.Views
 {
@@ -34,6 +35,9 @@ namespace MahwousVideos.Views
             BindingContext = this.viewModel = viewModel;
 
             viewModel.VideosFinished += OnVideosFinished;
+
+            //CrossMTAdmob.Current.LoadRewardedVideo("ca-app-pub-3940256099942544/1033173712"); //تجريب
+            CrossMTAdmob.Current.LoadRewardedVideo("ca-app-pub-1685177955120006/6453640828"); //حقيقي
 
         }
 

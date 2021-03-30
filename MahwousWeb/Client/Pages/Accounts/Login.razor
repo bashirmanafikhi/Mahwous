@@ -1,0 +1,54 @@
+﻿@page "/accounts/login"
+
+@inject IAccountsRepository accountsRepository
+@inject NavigationManager navigationManager
+@inject ILoginService loginService
+@inject IJSRuntime js
+
+@using MahwousWeb.Client.Auth
+
+
+<div class="container pt-5">
+    <h3>تسجيل الدخول</h3>
+
+    <EditForm Model="userInfo" OnValidSubmit="CreateUser">
+        <DataAnnotationsValidator />
+
+        <div class="form-group">
+            <label>الحساب:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="@userInfo.Email" />
+                <ValidationMessage For="@(() => userInfo.Email)" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>كلمة المرور:</label>
+            <div>
+                <InputText class="form-control" @bind-Value="@userInfo.Password" type="password" />
+                <ValidationMessage For="@(() => userInfo.Password)" />
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">تسجيل الدخول</button>
+
+    </EditForm>
+</div>
+
+@code {
+    private UserInfo userInfo = new UserInfo();
+
+    private async Task CreateUser()
+    {
+        try
+        {
+            var userToken = await accountsRepository.Login(userInfo);
+            await loginService.Login(userToken);
+            navigationManager.NavigateTo("");
+        }
+        catch (Exception ex)
+        {
+            await js.DisplayMessage(ex.Message);
+        }
+    }
+}

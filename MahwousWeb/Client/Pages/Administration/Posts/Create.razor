@@ -1,10 +1,7 @@
 ﻿@page "/administration/posts/create"
 @layout AdminLayout
 @attribute [Authorize]
-@*@inject MahwousRepositories repositories*@
-@*@inject HttpAuthorizer authorizer*@
-@inject AuthorizedRepositories authorizedRepositories
-@inject NotAuthorizedRepositories notAuthorizedRepositories
+@inject MahwousRepositories repositories
 @inject NavigationManager navigation
 
 <div class="content-header">
@@ -46,7 +43,7 @@
     {
         try
         {
-            await authorizedRepositories.PostsRepository.Add(post);
+            await repositories.PostsRepository.Add(post);
             navigation.NavigateTo("administration/posts");
 
         }

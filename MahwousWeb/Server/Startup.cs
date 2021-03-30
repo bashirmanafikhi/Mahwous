@@ -2,6 +2,7 @@ using MahwousWeb.Server.Data;
 using MahwousWeb.Server.Helpers;
 using MahwousWeb.Server.Models;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -9,6 +10,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
+using System;
+using System.Text;
 
 namespace MahwousWeb.Server
 {
@@ -28,45 +32,55 @@ namespace MahwousWeb.Server
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
 
             services.AddScoped<IFileStorageService, InAppStorageService>();
-            services.AddHttpContextAccessor();
 
-
-
-            services.AddDatabaseDeveloperPageExceptionFilter();
-
-            services.AddDefaultIdentity<ApplicationUser>(options =>
-            {
-                options.Password.RequireNonAlphanumeric = false; //optional
-            })
-            .AddRoles<IdentityRole>()
-            .AddEntityFrameworkStores<ApplicationDbContext>();
-
-
-
-            services.AddIdentityServer(option => option.UserInteraction.LoginReturnUrlParameter = "/administration")
-                .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
-
-
-
-            services.AddAuthentication()
-                .AddIdentityServerJwt();
-
-            //services.AddControllersWithViews().AddNewtonsoftJson(options =>
-
-            //    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
-            //);
 
             services.AddControllersWithViews()
                 .AddNewtonsoftJson(options =>
                     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
-                ); 
+                );
 
             services.AddRazorPages();
+
+
+
+
+
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            {
+                options.Password.RequireNonAlphanumeric = false;
+            })
+               .AddEntityFrameworkStores<ApplicationDbContext>()
+               .AddDefaultTokenProviders();
+
+
+
+            services.AddAuthentication(auth =>
+            {
+                auth.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                auth.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+                .AddJwtBearer(options =>
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidIssuer = Configuration["JwtSettings:Issuer"],
+
+                    ValidateAudience = true,
+                    ValidAudience = Configuration["JwtSettings:Audience"],
+
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JwtSettings:Key"])),
+
+                    RequireExpirationTime = true,
+
+                });
+
+
+
 
 
         }
@@ -78,7 +92,6 @@ namespace MahwousWeb.Server
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseMigrationsEndPoint();
                 app.UseWebAssemblyDebugging();
             }
             else
@@ -96,7 +109,6 @@ namespace MahwousWeb.Server
 
             app.UseRouting();
 
-            app.UseIdentityServer();
             app.UseAuthentication();
             app.UseAuthorization();
 

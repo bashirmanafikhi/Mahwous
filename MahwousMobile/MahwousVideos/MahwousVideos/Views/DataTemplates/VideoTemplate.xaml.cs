@@ -1,5 +1,6 @@
 ﻿using MahwousVideos.ViewModels;
 using MahwousWeb.Shared.Models;
+using MarcTron.Plugin;
 using MediaManager;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,8 @@ namespace MahwousVideos.Views.DataTemplates
 
         private async void Item_Tapped(object sender, EventArgs e)
         {
+            CrossMTAdmob.Current.ShowRewardedVideo();
+
             var layout = (BindableObject)sender;
             var video = (VideoStatus)layout.BindingContext;
 

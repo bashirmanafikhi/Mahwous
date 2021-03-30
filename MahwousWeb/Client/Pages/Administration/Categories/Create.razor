@@ -1,11 +1,9 @@
 ﻿@page "/administration/categories/create"
 @layout AdminLayout
 @attribute [Authorize]
-@*@inject MahwousRepositories repositories*@
-@*@inject HttpAuthorizer authorizer*@
-@inject AuthorizedRepositories authorizedRepositories
-@inject NotAuthorizedRepositories notAuthorizedRepositories
+@inject MahwousRepositories repositories
 @inject NavigationManager navigation
+
 <!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
@@ -50,7 +48,7 @@
     {
         try
         {
-            await authorizedRepositories.CategoriesRepository.Add(category);
+            await repositories.CategoriesRepository.Add(category);
             navigation.NavigateTo("administration/categories");
 
         }

@@ -23,7 +23,7 @@ namespace MahwousWeb.Shared.Filters
 
 
             Date.From = new DateTime(2020, 01, 01);
-            Date.To = DateTime.Now;
+            Date.To = DateTime.UtcNow;
 
 
             ViewsCount.To = int.MaxValue;
@@ -48,7 +48,7 @@ namespace MahwousWeb.Shared.Filters
 
             queryable = queryable.Where(v => v.ViewsCount >= ViewsCount.From && v.ViewsCount <= ViewsCount.To);
 
-            queryable = queryable.Where(v => v.Date >= Date.From && v.Date <= Date.To);
+            queryable = queryable.Where(v => v.Date.Date >= Date.From.Date && v.Date.Date <= Date.To.Date);
 
             if (Visible.HasValue)
             {

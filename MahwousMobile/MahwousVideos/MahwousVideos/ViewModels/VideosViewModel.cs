@@ -34,42 +34,6 @@ namespace MahwousVideos.ViewModels
         public event EventHandler VideosFinished;
 
 
-        async void Func()
-        {
-
-            MahwousRepositories mahwous = new MahwousRepositories();
-
-            var category1 = await mahwous.CategoriesRepository.GetRandom();
-            var category2 = await mahwous.CategoriesRepository.GetRandom();
-
-            VideoFilter filter = new VideoFilter();
-
-            filter.SortType = StatusSortType.Random;
-
-            filter.Categories.Add(category1);
-            filter.Categories.Add(category2);
-
-            filter.Pagination.Page = 2;
-            filter.Pagination.RecordsPerPage = 100;
-
-            filter.Date.From = new DateTime(2020, 11, 01);
-            filter.Date.To = DateTime.Now;
-
-            filter.DownloadsCount.From = 1000;
-
-            filter.ViewsCount.From = 500;
-
-            filter.Name = "جرح";
-
-
-            var videos = await mahwous.VideosRepository.GetFiltered(filter);
-
-
-
-        }
-
-
-
         public ObservableCollection<VideoStatus> Videos { get; set; }
         public Command LoadVideosCommand { get; set; }
         public Command LoadMoreVideosCommand { get; set; }

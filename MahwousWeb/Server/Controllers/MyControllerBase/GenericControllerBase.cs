@@ -3,6 +3,7 @@ using MahwousWeb.Server.Helpers;
 using MahwousWeb.Shared.Filters;
 using MahwousWeb.Shared.Models;
 using MahwousWeb.Shared.Pagination;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

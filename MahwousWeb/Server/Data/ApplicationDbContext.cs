@@ -1,19 +1,15 @@
-﻿using IdentityServer4.EntityFramework.Options;
-using MahwousWeb.Server.Models;
+﻿using MahwousWeb.Server.Models;
 using MahwousWeb.Shared.Models;
-using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
 namespace MahwousWeb.Server.Data
 {
-    public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext(
-            DbContextOptions options,
-            IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
+        public ApplicationDbContext(DbContextOptions options) : base(options)
         {
-
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -30,7 +26,6 @@ namespace MahwousWeb.Server.Data
         public DbSet<ImageStatus> ImageStatuses { get; set; }
         public DbSet<VideoStatus> VideoStatuses { get; set; }
         public DbSet<QuoteStatus> QuoteStatuses { get; set; }
-
         public DbSet<Post> Posts { get; set; }
         public DbSet<App> Apps { get; set; }
         public DbSet<Notification> Notifications { get; set; }

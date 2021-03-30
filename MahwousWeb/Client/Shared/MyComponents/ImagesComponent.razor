@@ -2,10 +2,7 @@
 
 @inject IJSRuntime js
 @inject NavigationManager navigation
-@*@inject MahwousRepositories repositories*@
-@*@inject HttpAuthorizer authorizer*@
-@inject AuthorizedRepositories authorizedRepositories
-@inject NotAuthorizedRepositories notAuthorizedRepositories
+@inject MahwousRepositories repositories
 
 
 
@@ -38,24 +35,24 @@
                             <div class="card-columns">
                                 @foreach (ImageStatus image in images)
                                 {
-                                    <a href="images/@image.Id">
-                                        <div class="card card-chart text-dark">
+                                    <div class="card card-chart">
+                                        <a href="images/@image.Id" class="text-dark card-text">
                                             <div class="card-body card-header-success p-0">
                                                 <img src="@image.ImagePath" class="m-1" style="height:auto; width:100%; object-fit:cover" />
                                             </div>
+                                        </a>
 
-                                            <AuthorizeView>
-                                                <Authorized>
-                                                    <div class="card-footer">
-                                                        <div class="stats">
-                                                            <button class="btn btn-danger" @onclick="@(() => DeleteImage(image.Id))">حذف</button>
-                                                            <a class="btn btn-info" href="administration/images/edit/@image.Id">تعديل</a>
-                                                        </div>
+                                        <AuthorizeView>
+                                            <Authorized>
+                                                <div class="card-footer">
+                                                    <div class="stats">
+                                                        <button class="btn btn-danger" @onclick="@(() => DeleteImage(image.Id))">حذف</button>
+                                                        <a class="btn btn-info" href="administration/images/edit/@image.Id">تعديل</a>
                                                     </div>
-                                                </Authorized>
-                                            </AuthorizeView>
-                                        </div>
-                                    </a>
+                                                </div>
+                                            </Authorized>
+                                        </AuthorizeView>
+                                    </div>
                                 }
                             </div>
 
@@ -230,7 +227,7 @@
     {
         //await authorizer.SetAuthorizationAsync();
         imageFilter.SortType = StatusSortType.Newest;
-        informations = await notAuthorizedRepositories.ImagesRepository.GetInformations();
+        informations = await repositories.ImagesRepository.GetInformations();
         await LoadImages();
         await LoadCategories();
     }
@@ -253,7 +250,7 @@
             filter.ForImages = true;
             filter.Pagination.RecordsPerPage = 100;
 
-            var paginatedResponse = await notAuthorizedRepositories.CategoriesRepository.GetFiltered(filter);
+            var paginatedResponse = await repositories.CategoriesRepository.GetFiltered(filter);
             categories = paginatedResponse.Response;
         }
         catch (Exception ex)
@@ -268,7 +265,7 @@
     {
         try
         {
-            var paginatedResponse = await notAuthorizedRepositories.ImagesRepository.GetFiltered(imageFilter);
+            var paginatedResponse = await repositories.ImagesRepository.GetFiltered(imageFilter);
             images = paginatedResponse.Response;
             totalAmountPages = paginatedResponse.TotalAmountPages;
 
@@ -284,7 +281,7 @@
         var video = images.First(i => i.Id == imageId);
         if (await js.Confirm("تأكيد", $"هل أنت متأكد أنك تريد أن تحذف هذه الصورة؟", SweetAlertMessageType.error))
         {
-            await authorizedRepositories.ImagesRepository.Delete(imageId);
+            await repositories.ImagesRepository.Delete(imageId);
             await LoadImages();
         }
     }

@@ -1,6 +1,6 @@
 ﻿@inject IJSRuntime JsRuntime
 @implements IDisposable
-@inject NotAuthorizedRepositories notAuthorizedRepositories
+@inject MahwousRepositories repositories
 
 
 <div class="container">
@@ -99,7 +99,7 @@
 
         try
         {
-            var paginatedResponse = await notAuthorizedRepositories.QuotesRepository.GetFiltered(quoteFilter);
+            var paginatedResponse = await repositories.QuotesRepository.GetFiltered(quoteFilter);
             quotes.AddRange(paginatedResponse.Response);
             totalAmountPages = paginatedResponse.TotalAmountPages;
             quoteFilter.Pagination.Page++;

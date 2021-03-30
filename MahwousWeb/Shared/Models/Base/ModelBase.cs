@@ -15,7 +15,7 @@ namespace MahwousWeb.Shared.Models
 
         public ModelBase()
         {
-            Date = DateTime.UtcNow;
+            Date = DateTime.Now;
             Date = Date.AddSeconds(-Date.Second);
             Visible = true;
         }

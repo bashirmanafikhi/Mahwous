@@ -1,11 +1,10 @@
 ﻿@page "/administration/quotes/edit/{quoteId:int}"
 @layout AdminLayout
 @attribute [Authorize]
-@*@inject MahwousRepositories repositories*@
-@*@inject HttpAuthorizer authorizer*@
-@inject AuthorizedRepositories authorizedRepositories
-@inject NotAuthorizedRepositories notAuthorizedRepositories
+@inject MahwousRepositories repositories
 @inject NavigationManager navigation
+
+
 <!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
@@ -55,9 +54,9 @@
         filter.Pagination.RecordsPerPage = 100;
 
 
-        quote = await notAuthorizedRepositories.QuotesRepository.Get(quoteId);
+        quote = await repositories.QuotesRepository.Get(quoteId);
         SelectedCategories = quote.StatusCategories.Select(sc => sc.Category).ToList();
-        var categories = (await notAuthorizedRepositories.CategoriesRepository.GetFiltered(filter)).Response;
+        var categories = (await repositories.CategoriesRepository.GetFiltered(filter)).Response;
 
         NotSelectedCategories = categories.Where(c =>
                 !SelectedCategories
@@ -72,7 +71,7 @@
     {
         try
         {
-            await authorizedRepositories.QuotesRepository.Update(quote);
+            await repositories.QuotesRepository.Update(quote);
 
             navigation.NavigateTo("administration/quotes");
 

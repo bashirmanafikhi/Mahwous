@@ -59,7 +59,7 @@ namespace MahwousVideos
             CrossMediaManager.Current.MediaPlayer.VideoAspect = MediaManager.Video.VideoAspectMode.AspectFit;
             CrossMediaManager.Current.MediaPlayer.VideoPlaceholder = (new ActivityIndicator() { IsVisible = true , IsRunning = true});
             CrossMediaManager.Current.Notification.ShowNavigationControls = false;
-            CrossMediaManager.Current.Notification.ShowPlayPauseControls = false;
+            CrossMediaManager.Current.Notification.ShowPlayPauseControls = true;
             CrossMediaManager.Current.Notification.Enabled = false;
         }
 

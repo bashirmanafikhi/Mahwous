@@ -1,10 +1,16 @@
 ﻿@using System.IO
+@inject IJSRuntime js
 
 <div>
     <label>@Label</label>
     <div>
-        <InputFile OnChange="InputFileChange" accept=".jpg,.jpeg,.png"/>
+        <InputFile OnChange="InputFileChange" accept=".jpg,.jpeg,.png" />
     </div>
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" style="@($"width: { progressBar }%")" aria-valuenow="@progressBar" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+
+
 </div>
 <div>
     @if (imageBase64 != null)
@@ -26,6 +32,10 @@
 
 </div>
 
+
+
+
+
 @code {
     [Parameter] public string Label { get; set; } = "Image";
     [Parameter] public string ImageURL { get; set; }
@@ -35,12 +45,71 @@
 
     async Task InputFileChange(InputFileChangeEventArgs e)
     {
-        var browserFile = e.File;
+        try
+        {
+            var browserFile = e.File;
 
-        var buffer = new byte[browserFile.Size];
-        await browserFile.OpenReadStream().ReadAsync(buffer);
+            var buffer = new byte[browserFile.Size];
 
-        imageBase64 = Convert.ToBase64String(buffer);
-        await OnSelectedImage.InvokeAsync(imageBase64);
+            //await browserFile.OpenReadStream().ReadAsync(buffer);
+
+
+
+            Stream stream = browserFile.OpenReadStream(2560000);
+
+
+            progressBarInt = await stream.ReadAsync(buffer);
+            progressBar = (100.0 * progressBarInt / stream.Length).ToString("0");
+
+
+
+
+
+
+
+            imageBase64 = Convert.ToBase64String(buffer);
+            await OnSelectedImage.InvokeAsync(imageBase64);
+        }
+        catch (Exception ex)
+        {
+            await js.DisplayMessage(ex.Message + "\n ملاحظة: حجم الصورة ما لازم يتجاوز ال2 ميغا ونص");
+        }
     }
+
+
+
+
+
+
+
+    // unused example for progress bar
+
+    string progressBar = "";
+    int progressBarInt = 0;
+
+    private async Task OnInputFileChange(InputFileChangeEventArgs e)
+    {
+
+        var maxAllowedFiles = 1;
+        var format = "image/*";
+
+
+        foreach (var imageFile in e.GetMultipleFiles(maxAllowedFiles))
+        {
+            var progressBarInt = 0;
+            var progressBar = "";
+            var imageDataUrls = new List<string>();
+
+            var resizedImageFile = await imageFile.RequestImageFileAsync(format, 100, 100);
+            var buffer = new byte[resizedImageFile.Size];
+            Stream stream = resizedImageFile.OpenReadStream();
+            progressBarInt = await stream.ReadAsync(buffer);
+            progressBar = (100.0 * progressBarInt / stream.Length).ToString("0");
+            var imageDataUrl = $"data:{format};base64,{Convert.ToBase64String(buffer)}";
+            imageDataUrls.Add(imageDataUrl);
+        }
+    }
+
+
+
 }

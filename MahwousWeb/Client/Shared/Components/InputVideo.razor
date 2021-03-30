@@ -1,17 +1,18 @@
 ﻿@using System.IO
+@inject IJSRuntime js
 
 <div>
     <label>@Label</label>
     <div>
-        <InputFile OnChange="InputFileChange"  accept="video/mp4,video/x-m4v,video/*" />
+        <InputFile OnChange="InputFileChange" accept="video/mp4,video/x-m4v,video/*" />
     </div>
 </div>
 <div>
     @if (videoBase64 != null)
     {
-            <div style="margin:10px">
-                <video src="data:video/webm;base64, @videoBase64" style="width: 400px;" controls />
-            </div>
+        <div style="margin:10px">
+            <video src="data:video/webm;base64, @videoBase64" style="width: 400px;" controls />
+        </div>
     }
 
 </div>
@@ -24,13 +25,21 @@
 
     async Task InputFileChange(InputFileChangeEventArgs e)
     {
-        var browserFile = e.File;
+        try
+        {
+            var browserFile = e.File;
 
-        var buffer = new byte[browserFile.Size];
-        await browserFile.OpenReadStream().ReadAsync(buffer);
+            var buffer = new byte[browserFile.Size];
+            await browserFile.OpenReadStream(5120000).ReadAsync(buffer);
 
-        videoBase64 = Convert.ToBase64String(buffer);
-        await OnSelectedVideo.InvokeAsync(videoBase64);
+            videoBase64 = Convert.ToBase64String(buffer);
+            await OnSelectedVideo.InvokeAsync(videoBase64);
+
+        }
+        catch (Exception ex)
+        {
+            await js.DisplayMessage(ex.Message + "\n ملاحظة: حجم الفيديو ما لازم يتجاوز ال5 ميغا ");
+        }
     }
 
 }

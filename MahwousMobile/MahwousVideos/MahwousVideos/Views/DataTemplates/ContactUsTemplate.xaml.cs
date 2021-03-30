@@ -25,25 +25,25 @@ namespace MahwousVideos.Views.DataTemplates
 
         private async void BtnFace_Clicked(object sender, EventArgs e)
         {
-            string Uri = "https://www.facebook.com/mahwousss";
+            string Uri = "https://www.facebook.com/mmahwous";
             await Browser.OpenAsync(Uri);
         }
 
         private async void BtnInsta_Clicked(object sender, EventArgs e)
         {
-            string Uri = "https://www.instagram.com/mahwous2020/";
+            string Uri = "https://www.instagram.com/mmahwous/";
             await Browser.OpenAsync(Uri);
         }
 
         private async void BtnYoutube_Clicked(object sender, EventArgs e)
         {
-            string Uri = "https://www.youtube.com/channel/UCkB4CvaTDA9lWABBmcdi98g";
+            string Uri = "https://www.youtube.com/channel/UC1wBu4kB5v8HQbru_5Zhg_Q";
             await Browser.OpenAsync(Uri);
         }
 
         private async void BtnTelegram_Clicked(object sender, EventArgs e)
         {
-            string Uri = "https://t.me/mahwous2020";
+            string Uri = "https://t.me/mmahwous";
             await Browser.OpenAsync(Uri);
         }
 

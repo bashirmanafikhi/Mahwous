@@ -1,8 +1,8 @@
-﻿using System;
+﻿using MahwousImages.Services;
+using MahwousImages.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using MahwousImages.Services;
-using MahwousImages.Views;
 
 namespace MahwousImages
 {

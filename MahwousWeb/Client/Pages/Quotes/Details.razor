@@ -1,5 +1,5 @@
 ﻿@page "/quotes/{id:int}"
-@inject NotAuthorizedRepositories repositories
+@inject MahwousRepositories repositories
 
 
 
@@ -14,27 +14,27 @@
         <div class="card-body">
             @if (quote != null)
             {
-            <div class="card  text-center">
-                <div class="card-body">
+                <div class="card  text-center">
+                    <div class="card-body">
 
-                    <p class="card-text">
-                        @quote.Content
+                        <p class="card-text">
+                            @quote.Content
 
-                    </p>
+                        </p>
 
-                </div>
+                    </div>
 
 
-                <div class="card-footer">
-                    <AuthorizeView>
-                        <Authorized>
-                            <a class="btn btn-info" href="administration/quotes/edit/@quote.Id">تعديل</a>
-                        </Authorized>
-                    </AuthorizeView>
-                    <a class="btn btn-primary" href="api/quotes/download/@quote.Id">تحميل</a>
-                    <a class="btn btn-info" href="quotes">رجوع</a>
-                </div>
-            </div> }
+                    <div class="card-footer">
+                        <AuthorizeView>
+                            <Authorized>
+                                <a class="btn btn-info" href="administration/quotes/edit/@quote.Id">تعديل</a>
+                            </Authorized>
+                        </AuthorizeView>
+                        <a class="btn btn-primary" href="api/quotes/download/@quote.Id">تحميل</a>
+                        <a class="btn btn-info" href="quotes">رجوع</a>
+                    </div>
+                </div> }
             else
             {
                 <p><i class="fas fa-spin fa-spinner"></i> جاري تحميل الحالة </p>

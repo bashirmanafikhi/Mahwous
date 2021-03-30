@@ -1,9 +1,6 @@
 ﻿@inject IJSRuntime js
 @inject NavigationManager navigation
-@*@inject MahwousRepositories repositories*@
-@*@inject HttpAuthorizer authorizer*@
-@inject AuthorizedRepositories authorizedRepositories
-@inject NotAuthorizedRepositories notAuthorizedRepositories
+@inject MahwousRepositories repositories
 
 <div class="container">
 
@@ -31,29 +28,28 @@
                             <div class="card-columns">
                                 @foreach (var video in videos)
                                 {
-                                    <a href="videos/@video.Id">
-                                        <div class="card text-dark">
+                                    <div class="card">
+                                        <a href="videos/@video.Id" class="text-dark card-text">
                                             <div class="card-header">
                                                 <h4 class="card-title">@video.Title</h4>
                                             </div>
                                             <div class="card-body p-0">
-                                                @*<video src="@video.VideoPath" style="height:auto; width:100%; max-height:200px; object-fit:cover" controls />*@
                                                 <img src="@video.CoverPath" style="height:auto; width:100%; object-fit:cover" />
                                             </div>
+                                        </a>
 
-                                            <AuthorizeView>
-                                                <Authorized>
-                                                    <div class="card-footer">
-                                                        <div class="stats">
-                                                            <button class="btn btn-danger" @onclick="@(() => DeleteVideo(video.Id))">حذف</button>
-                                                            <a class="btn btn-info" href="administration/videos/edit/@video.Id">تعديل</a>
-                                                        </div>
+                                        <AuthorizeView>
+                                            <Authorized>
+                                                <div class="card-footer">
+                                                    <div class="stats">
+                                                        <button class="btn btn-danger" @onclick="@(() => DeleteVideo(video.Id))">حذف</button>
+                                                        <a class="btn btn-info" href="administration/videos/edit/@video.Id">تعديل</a>
                                                     </div>
-                                                </Authorized>
-                                            </AuthorizeView>
+                                                </div>
+                                            </Authorized>
+                                        </AuthorizeView>
 
-                                        </div>
-                                    </a>
+                                    </div>
                                 }
                             </div>
 
@@ -245,7 +241,7 @@
     {
         //await authorizer.SetAuthorizationAsync();
         videoFilter.SortType = StatusSortType.Newest;
-        informations = await notAuthorizedRepositories.VideosRepository.GetInformations();
+        informations = await repositories.VideosRepository.GetInformations();
         await LoadVideos();
         await LoadCategories();
     }
@@ -268,7 +264,7 @@
             filter.ForVideos = true;
             filter.Pagination.RecordsPerPage = 100;
 
-            var paginatedResponse = await notAuthorizedRepositories.CategoriesRepository.GetFiltered(filter);
+            var paginatedResponse = await repositories.CategoriesRepository.GetFiltered(filter);
             categories = paginatedResponse.Response;
         }
         catch (Exception ex)
@@ -283,7 +279,7 @@
     {
         try
         {
-            var paginatedResponse = await notAuthorizedRepositories.VideosRepository.GetFiltered(videoFilter);
+            var paginatedResponse = await repositories.VideosRepository.GetFiltered(videoFilter);
             videos = paginatedResponse.Response;
             totalAmountPages = paginatedResponse.TotalAmountPages;
 
@@ -299,7 +295,7 @@
         //var video = videos.First(i => i.Id == videoId);
         if (await js.Confirm("تأكيد", $"هل أنت متأكد أنك تريد أن تحذف هذه الصورة؟", SweetAlertMessageType.error))
         {
-            await authorizedRepositories.VideosRepository.Delete(videoId);
+            await repositories.VideosRepository.Delete(videoId);
             await LoadVideos();
         }
     }

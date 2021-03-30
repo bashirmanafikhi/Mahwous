@@ -1,6 +1,6 @@
 ﻿
 @inject IJSRuntime js
-@inject AuthorizedRepositories authorizedRepositories
+@inject MahwousRepositories repositories
 
 
 <a href="apps/@App.Id">
@@ -36,7 +36,7 @@
         //var app = apps.First(x => x.Id == appId);
         //if (await js.Confirm("تأكيد", $"هل أنت متأكد أنك تريد أن تحذف {app.Name} ؟", SweetAlertMessageType.error))
         //{
-        //    await authorizedRepositories.AppsRepository.Delete(appId);
+        //    await repositories.AppsRepository.Delete(appId);
         //    await LoadApps();
         //}
     }

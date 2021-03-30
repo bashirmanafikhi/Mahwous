@@ -2,10 +2,7 @@
 
 @inject IJSRuntime js
 @inject NavigationManager navigation
-@*@inject MahwousRepositories repositories*@
-@*@inject HttpAuthorizer authorizer*@
-@inject AuthorizedRepositories authorizedRepositories
-@inject NotAuthorizedRepositories notAuthorizedRepositories
+@inject MahwousRepositories repositories
 
 
 
@@ -41,8 +38,8 @@
                             <div class="card-columns">
                                 @foreach (var post in posts)
                                 {
-                                    <a href="posts/@post.Id">
-                                        <div class="card text-dark">
+                                    <div class="card">
+                                        <a href="posts/@post.Id" class="text-dark card-text">
                                             <div class="card-header p-0">
                                                 <img src="@post.ImagePath" style="height:auto; width:100%; object-fit:cover" />
                                             </div>
@@ -50,19 +47,19 @@
                                                 <h4 class="card-title">@post.Title</h4>
                                                 <pre class="card-text">@post.Content</pre>
                                             </div>
-                                            <AuthorizeView>
-                                                <Authorized>
-                                                    <div class="card-footer">
-                                                        <div class="stats">
-                                                            <button class="btn btn-danger" @onclick="@(() => DeletePost(post.Id))">حذف</button>
-                                                            <a class="btn btn-info" href="administration/posts/edit/@post.Id">تعديل</a>
-                                                        </div>
+                                        </a>
+                                        <AuthorizeView>
+                                            <Authorized>
+                                                <div class="card-footer">
+                                                    <div class="stats">
+                                                        <button class="btn btn-danger" @onclick="@(() => DeletePost(post.Id))">حذف</button>
+                                                        <a class="btn btn-info" href="administration/posts/edit/@post.Id">تعديل</a>
                                                     </div>
-                                                </Authorized>
-                                            </AuthorizeView>
+                                                </div>
+                                            </Authorized>
+                                        </AuthorizeView>
 
-                                        </div>
-                                    </a>
+                                    </div>
                                 }
                             </div>
 
@@ -101,7 +98,7 @@
     {
         try
         {
-            var paginatedResponse = await notAuthorizedRepositories.PostsRepository.GetPaginated(pagination);
+            var paginatedResponse = await repositories.PostsRepository.GetPaginated(pagination);
             posts = paginatedResponse.Response;
             totalAmountPages = paginatedResponse.TotalAmountPages;
 
@@ -117,7 +114,7 @@
         var post = posts.First(x => x.Id == postId);
         if (await js.Confirm("تأكيد", $"هل أنت متأكد أنك تريد أن تحذف هذا المنشور ؟", SweetAlertMessageType.error))
         {
-            await authorizedRepositories.PostsRepository.Delete(postId);
+            await repositories.PostsRepository.Delete(postId);
             await LoadPosts();
         }
     }

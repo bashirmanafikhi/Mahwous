@@ -1,11 +1,9 @@
 ﻿@page "/administration/apps/edit/{appId:int}"
 @layout AdminLayout
 @attribute [Authorize]
-@*@inject MahwousRepositories repositories*@
-@*@inject HttpAuthorizer authorizer*@
-@inject AuthorizedRepositories authorizedRepositories
-@inject NotAuthorizedRepositories notAuthorizedRepositories
+@inject MahwousRepositories repositories
 @inject NavigationManager navigation
+
 <!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
@@ -46,14 +44,14 @@
 
     protected async override Task OnParametersSetAsync()
     {
-        app = await notAuthorizedRepositories.AppsRepository.Get(appId);
+        app = await repositories.AppsRepository.Get(appId);
     }
 
     async Task EditApp()
     {
         try
         {
-            await authorizedRepositories.AppsRepository.Update(app);
+            await repositories.AppsRepository.Update(app);
             navigation.NavigateTo("administration/apps");
 
         }

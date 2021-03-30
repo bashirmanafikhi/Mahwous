@@ -1,7 +1,7 @@
 ﻿@page "/administration/notifications/create"
 @layout AdminLayout
 @attribute [Authorize]
-@inject AuthorizedRepositories authorizedRepositories
+@inject MahwousRepositories repositories
 @inject NavigationManager navigation
 
 <div class="content-header">
@@ -37,7 +37,7 @@
     {
         try
         {
-            await authorizedRepositories.NotificationsRepository.Add(notification);
+            await repositories.NotificationsRepository.Add(notification);
             navigation.NavigateTo("administration/notifications");
 
         }

@@ -23,8 +23,6 @@ namespace MahwousWeb.Server.Controllers
             : base(context, fileStorageService) { }
 
 
-        //[HttpPost]
-        //[Authorize]
         public override async Task<ActionResult<int>> Post(Category category)
         {
             if (!string.IsNullOrWhiteSpace(category.CoverPath))
@@ -42,8 +40,7 @@ namespace MahwousWeb.Server.Controllers
             return category.Id;
         }
 
-        //[HttpPut]
-        //[Authorize]
+
         public override async Task<IActionResult> Put(Category category)
         {
             var oldCategory = await context.Categories.FirstOrDefaultAsync(c => c.Id == category.Id);
@@ -65,8 +62,7 @@ namespace MahwousWeb.Server.Controllers
             return NoContent();
         }
 
-        //[HttpDelete("{id}")]
-        //[Authorize]
+
         public override async Task<IActionResult> Delete(int id)
         {
             var category = await context.Categories.FirstOrDefaultAsync(c => c.Id == id);
@@ -83,36 +79,6 @@ namespace MahwousWeb.Server.Controllers
             await context.SaveChangesAsync();
             return NoContent();
         }
-
-        
-        //[HttpGet("GetInformations")]
-        //public override async Task<ActionResult<Informations>> GetInformations()
-        //{
-        //    return await GetCategoriesInformations();
-        //}
-
-
-        //[HttpPost("GetInformationsFiltered")]
-        //public async Task<ActionResult<Informations>> GetInformations(CategoryFilter filter)
-        //{ return await GetInformations((IFilter<Category>)filter); }
-        //[NonAction]
-        //public override async Task<ActionResult<Informations>> GetInformations(IFilter<Category> filter)
-        //{
-        //    return await GetCategoriesInformations(filter);
-        //}
-
-        //private async Task<Informations> GetCategoriesInformations(IFilter<Category> filter = null)
-        //{
-        //    var categories = context.Categories.Filter(filter);
-
-        //    Informations informations = new Informations
-        //    {
-        //        Count = await categories.CountAsync(),
-        //        ViewsCount = await categories.SumAsync(s => (long)s.ViewsCount)
-        //    };
-
-        //    return informations;
-        //}
 
 
     }

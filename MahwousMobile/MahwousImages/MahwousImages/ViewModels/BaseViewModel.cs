@@ -1,12 +1,10 @@
-﻿using System;
+﻿using MahwousImages.Models;
+using MahwousImages.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-
 using Xamarin.Forms;
-
-using MahwousImages.Models;
-using MahwousImages.Services;
 
 namespace MahwousImages.ViewModels
 {

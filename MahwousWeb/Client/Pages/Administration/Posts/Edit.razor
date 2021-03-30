@@ -1,11 +1,11 @@
 ﻿@page "/administration/posts/edit/{postId:int}"
 @layout AdminLayout
 @attribute [Authorize]
-@*@inject MahwousRepositories repositories*@
-@*@inject HttpAuthorizer authorizer*@
-@inject AuthorizedRepositories authorizedRepositories
-@inject NotAuthorizedRepositories notAuthorizedRepositories
+@inject MahwousRepositories repositories
 @inject NavigationManager navigation
+
+
+
 <!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
@@ -46,14 +46,14 @@
 
     protected async override Task OnParametersSetAsync()
     {
-        post = await notAuthorizedRepositories.PostsRepository.Get(postId);
+        post = await repositories.PostsRepository.Get(postId);
     }
 
     async Task EditPost()
     {
         try
         {
-            await authorizedRepositories.PostsRepository.Update(post);
+            await repositories.PostsRepository.Update(post);
             navigation.NavigateTo("administration/posts");
 
         }

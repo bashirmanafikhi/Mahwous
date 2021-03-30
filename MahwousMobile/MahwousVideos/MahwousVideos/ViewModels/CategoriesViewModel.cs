@@ -32,6 +32,8 @@ namespace MahwousVideos.ViewModels
             {
                 Categories.Clear();
                 CategoryFilter filter = new CategoryFilter() { ForVideos = true };
+                filter.Pagination.RecordsPerPage = 500;
+
 
                 var paginatedResponse = await Repositories.CategoriesRepository.GetFiltered(filter);
                 var categories = paginatedResponse.Response;

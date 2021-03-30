@@ -1,0 +1,61 @@
+﻿@page "/users"
+@inject IUsersRepository usersRepository
+@attribute [Authorize(Roles = "مدير")]
+@layout AdminLayout
+
+<Pagination CurrentPage="@paginationDTO.Page" SelectedPage="SelectedPage"
+            TotalAmountPages="totalAmountOfPages"></Pagination>
+
+
+<div class="container pt-5">
+    <h3>المستخدمين</h3>
+
+    @if (Users != null)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>مستخدم</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Users)
+                {
+                    <tr>
+                        <td>
+                            <a href="/users/edit/@user.UserId" class="btn btn-success">تعديل</a>
+                        </td>
+                        <td>
+                            @user.Email
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+
+@code {
+    List<UserDTO> Users;
+    PaginationDetails paginationDTO = new PaginationDetails();
+    int totalAmountOfPages;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadUsers();
+    }
+
+    private async Task SelectedPage(int page)
+    {
+        paginationDTO.Page = page;
+        await LoadUsers();
+    }
+
+    private async Task LoadUsers()
+    {
+        var paginatedResponse = await usersRepository.GetUsers(paginationDTO);
+        Users = paginatedResponse.Response;
+        totalAmountOfPages = paginatedResponse.TotalAmountPages;
+    }
+}

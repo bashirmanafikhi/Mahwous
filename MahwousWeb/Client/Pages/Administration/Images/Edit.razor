@@ -1,11 +1,10 @@
 ﻿@page "/administration/images/edit/{imageId:int}"
 @layout AdminLayout
 @attribute [Authorize]
-@*@inject MahwousRepositories repositories*@
-@*@inject HttpAuthorizer authorizer*@
-@inject AuthorizedRepositories authorizedRepositories
-@inject NotAuthorizedRepositories notAuthorizedRepositories
+@inject MahwousRepositories repositories
 @inject NavigationManager navigation
+
+
 <!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
@@ -51,14 +50,14 @@
 
     protected async override Task OnParametersSetAsync()
     {
-        image = await notAuthorizedRepositories.ImagesRepository.Get(imageId);
+        image = await repositories.ImagesRepository.Get(imageId);
 
         CategoryFilter filter = new CategoryFilter();
         filter.ForImages = true;
         filter.Pagination.RecordsPerPage = 100;
 
         SelectedCategories = image.StatusCategories.Select(sc => sc.Category).ToList();
-        var categories = (await notAuthorizedRepositories.CategoriesRepository.GetFiltered(
+        var categories = (await repositories.CategoriesRepository.GetFiltered(
             filter
             )).Response;
 
@@ -73,7 +72,7 @@
     {
         try
         {
-            await authorizedRepositories.ImagesRepository.Update(image);
+            await repositories.ImagesRepository.Update(image);
             navigation.NavigateTo("administration/images");
 
         }

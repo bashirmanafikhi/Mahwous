@@ -6,8 +6,8 @@
 @inject NavigationManager navigation
 @*@inject MahwousRepositories repositories*@
 @*@inject HttpAuthorizer authorizer*@
-@inject AuthorizedRepositories authorizedRepositories
-@inject NotAuthorizedRepositories notAuthorizedRepositories
+@inject MahwousRepositories repositories
+@inject MahwousRepositories repositories
 
 
 <ol class="breadcrumb mb-4">
@@ -162,7 +162,7 @@
     {
         try
         {
-            var paginatedResponse = await notAuthorizedRepositories.CategoriesRepository.GetFiltered(categoryFilter);
+            var paginatedResponse = await repositories.CategoriesRepository.GetFiltered(categoryFilter);
             categories = paginatedResponse.Response;
             totalAmountPages = paginatedResponse.TotalAmountPages;
         }
@@ -177,7 +177,7 @@
         var category = categories.First(x => x.Id == categoryId);
         if (await js.Confirm("تأكيد", $"هل أنت متأكد أنك تريد أن تحذف {category.Name} ؟", SweetAlertMessageType.error))
         {
-            await authorizedRepositories.CategoriesRepository.Delete(categoryId);
+            await repositories.CategoriesRepository.Delete(categoryId);
             await LoadCategories();
         }
     }

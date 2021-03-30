@@ -1,5 +1,5 @@
 ﻿
-@inject NotAuthorizedRepositories repositories
+@inject MahwousRepositories repositories
 
 
 
@@ -249,7 +249,10 @@
                             <thead>
                                 <tr>
                                     <th scope="col">التصنيف</th>
-                                    <th scope="col">عدد الحالات</th>
+                                    <th scope="col">العدد الكلي</th>
+                                    <th scope="col">الفيديو</th>
+                                    <th scope="col">الكتابية</th>
+                                    <th scope="col">الصور</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -258,6 +261,9 @@
                                     <tr>
                                         <th scope="row">@item.Key</th>
                                         <td>@item.Value</td>
+                                        <td>@videoInformations.CategoriesStatusCounts[item.Key]</td>
+                                        <td>@quoteInformations.CategoriesStatusCounts[item.Key]</td>
+                                        <td>@imageInformations.CategoriesStatusCounts[item.Key]</td>
                                     </tr>
                                 }
                             </tbody>

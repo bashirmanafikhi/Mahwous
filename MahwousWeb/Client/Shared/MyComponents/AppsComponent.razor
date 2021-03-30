@@ -3,8 +3,7 @@
 
 @inject IJSRuntime js
 @inject NavigationManager navigation
-@inject AuthorizedRepositories authorizedRepositories
-@inject NotAuthorizedRepositories notAuthorizedRepositories
+@inject MahwousRepositories repositories
 
 
 
@@ -42,26 +41,26 @@
                             <div class="card-columns">
                                 @foreach (var app in apps)
                                 {
-                                    <a href="apps/@app.Id">
-                                            <div class="card text-dark">
-                                                <div class="card-header p-0">
-                                                    <img src="@app.ImagePath" style="height:auto; width:100%; object-fit:cover" />
-                                                </div>
-                                                <div class="card-body">
-                                                    <h4 class="card-title">@app.Name</h4>
-                                                </div>
-                                                <AuthorizeView>
-                                                    <Authorized>
-                                                        <div class="card-footer">
-                                                            <div class="stats">
-                                                                <button class="btn btn-danger" @onclick="@(() => DeleteApp(app.Id))">حذف</button>
-                                                                <a class="btn btn-info" href="administration/apps/edit/@app.Id">تعديل</a>
-                                                            </div>
-                                                        </div>
-                                                    </Authorized>
-                                                </AuthorizeView>
+                                    <div class="card">
+                                        <a href="apps/@app.Id" class="text-dark card-text">
+                                            <div class="card-header p-0">
+                                                <img src="@app.ImagePath" style="height:auto; width:100%; object-fit:cover" />
                                             </div>
-                                    </a>
+                                            <div class="card-body">
+                                                <h4 class="card-title">@app.Name</h4>
+                                            </div>
+                                        </a>
+                                        <AuthorizeView>
+                                            <Authorized>
+                                                <div class="card-footer">
+                                                    <div class="stats">
+                                                        <button class="btn btn-danger" @onclick="@(() => DeleteApp(app.Id))">حذف</button>
+                                                        <a class="btn btn-info" href="administration/apps/edit/@app.Id">تعديل</a>
+                                                    </div>
+                                                </div>
+                                            </Authorized>
+                                        </AuthorizeView>
+                                    </div>
                                 }
 
                             </div>
@@ -85,28 +84,28 @@
 
 @code {
 
-            ICollection<MahwousWeb.Shared.Models.App> apps { get; set; }
+    ICollection<MahwousWeb.Shared.Models.App> apps { get; set; }
 
-            PaginationDetails pagination = new PaginationDetails();
-            int totalAmountPages;
+    PaginationDetails pagination = new PaginationDetails();
+    int totalAmountPages;
 
 
-            protected async override Task OnInitializedAsync()
-            {
-                //await authorizer.SetAuthorizationAsync();
-                await LoadApps();
-            }
+    protected async override Task OnInitializedAsync()
+    {
+        //await authorizer.SetAuthorizationAsync();
+        await LoadApps();
+    }
 
-            async Task LoadApps()
-            {
-                try
-                {
-                    AppFilter appFilter = new AppFilter() { SortType = SortType.Random, Visible = true };
-            var paginatedResponse = await notAuthorizedRepositories.AppsRepository.GetFiltered(appFilter);
-                apps = paginatedResponse.Response;
-                totalAmountPages = paginatedResponse.TotalAmountPages;
+    async Task LoadApps()
+    {
+        try
+        {
+            AppFilter appFilter = new AppFilter() { SortType = SortType.Random, Visible = true };
+            var paginatedResponse = await repositories.AppsRepository.GetFiltered(appFilter);
+            apps = paginatedResponse.Response;
+            totalAmountPages = paginatedResponse.TotalAmountPages;
 
-            }
+        }
         catch (Exception ex)
         {
             Console.WriteLine("Error: " + ex.Message);
@@ -118,7 +117,7 @@
         var app = apps.First(x => x.Id == appId);
         if (await js.Confirm("تأكيد", $"هل أنت متأكد أنك تريد أن تحذف {app.Name} ؟", SweetAlertMessageType.error))
         {
-            await authorizedRepositories.AppsRepository.Delete(appId);
+            await repositories.AppsRepository.Delete(appId);
             await LoadApps();
         }
     }
