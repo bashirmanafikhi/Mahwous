@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:templates="clr-namespace:MahwousImages.Views.DataTemplates"
+             xmlns:styles="clr-namespace:MahwousImages.Styles;assembly=MahwousImages"
+             mc:Ignorable="d"
+             x:Class="MahwousImages.Views.ImagePage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="btnLikeStyle" TargetType="Button">
+                <Style.Triggers>
+                    <DataTrigger TargetType="Button" Binding="{Binding Liked}" Value="true">
+                        <Setter Property="ImageSource">
+                            <FontImageSource Size="Subtitle"  Color="Black" Glyph="{x:Static styles:SolidIcons.ThumbsUp}" FontFamily="FA-S" />
+                        </Setter>
+                    </DataTrigger>
+                    <DataTrigger TargetType="Button" Binding="{Binding Liked}" Value="false">
+                        <Setter Property="ImageSource">
+                            <FontImageSource Size="Subtitle"  Color="Black" Glyph="{x:Static styles:RegularIcons.ThumbsUp}" FontFamily="FA-R" />
+                        </Setter>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <Shell.TitleView>
+        <StackLayout
+            Padding="0,0,10,0"
+            Orientation="Horizontal">
+
+            <Label
+                Text="مشاهدة الصورة"
+                TextColor="{DynamicResource colWhite}"
+                VerticalOptions="CenterAndExpand">
+                <Label.HorizontalOptions>
+                    <OnPlatform
+                        x:TypeArguments="LayoutOptions"
+                        iOS="EndAndExpand"
+                        Android="StartAndExpand" />
+                </Label.HorizontalOptions>
+            </Label>
+
+
+            <Button 
+                FontFamily="FA-S"
+                Text="{x:Static styles:SolidIcons.Download}"
+                Command="{Binding DownloadImageCommand}"
+                Clicked="ShowInterstitialAd"
+                Visual="Material"
+                TextColor="{DynamicResource colRed}"
+                WidthRequest="40"
+                BackgroundColor="{DynamicResource colBlack}"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="End" />
+
+            <Button 
+                FontFamily="FA-S"
+                Text="{x:Static styles:SolidIcons.ShareAlt}"
+                Command="{Binding ShareImageCommand}"
+                Visual="Material"
+                Clicked="ShowInterstitialAd"
+                TextColor="{DynamicResource colRed}"
+                WidthRequest="40"
+                BackgroundColor="{DynamicResource colBlack}"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="End" />
+
+        </StackLayout>
+    </Shell.TitleView>
+
+
+    <ContentPage.Content>
+        <StackLayout
+                       BackgroundColor="{DynamicResource colBackground}">
+
+
+
+            <templates:ImageTemplate BindingContext="{Binding Image}"/>
+
+            <Frame CornerRadius="15" 
+                        Margin="5,0" 
+                        Padding="3"
+                        BackgroundColor="{DynamicResource colRed}" 
+                        HasShadow="True">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button 
+                        Style="{StaticResource Key=btnLikeStyle}" 
+                        CornerRadius="10" 
+                        Text="{Binding LikesCount}" 
+                        Padding="10, 0" WidthRequest="50"
+                        FontSize="Subtitle" 
+                        BackgroundColor="{StaticResource colYellow}" 
+                        Command="{Binding ToggleLikeCommand}" />
+
+                    <Button
+                        Grid.Column="1"
+                FontFamily="FA-S"
+                        CornerRadius="10" 
+                        Padding="10, 0" 
+                        WidthRequest="50"
+                        FontSize="Subtitle" 
+                        BackgroundColor="{StaticResource colYellow}" 
+                Text="{x:Static styles:SolidIcons.Download}"
+                Command="{Binding DownloadImageCommand}"
+                Clicked="ShowInterstitialAd"
+                Visual="Material"
+                TextColor="{DynamicResource colBlack}"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="FillAndExpand" />
+
+                    <Button 
+                        Grid.Column="2"
+                FontFamily="FA-S"
+                        CornerRadius="10" 
+                        Padding="10, 0" 
+                        FontSize="Subtitle" 
+                        BackgroundColor="{StaticResource colYellow}" 
+                Text="{x:Static styles:SolidIcons.ShareAlt}"
+                Command="{Binding ShareImageCommand}"
+                Visual="Material"
+                TextColor="{DynamicResource colBlack}"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="FillAndExpand" />
+
+                </Grid>
+
+            </Frame>
+
+            <templates:ImagesTemplate HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="myImagesTemplate" SortType="Random" />
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

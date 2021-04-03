@@ -76,10 +76,13 @@
     {
         quoteFilter.Pagination.RecordsPerPage = 25;
         //await authorizer.SetAuthorizationAsync();
-        await InitJsListenerAsync();
         await LoadQuotes();
     }
 
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        await InitJsListenerAsync();
+    }
 
 
     protected async Task InitJsListenerAsync()

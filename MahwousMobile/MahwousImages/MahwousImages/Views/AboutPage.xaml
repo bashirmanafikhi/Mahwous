@@ -1,52 +1,119 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:MahwousImages.ViewModels" xmlns:templates="clr-namespace:MahwousImages.Views.DataTemplates"
+             mc:Ignorable="d"
              x:Class="MahwousImages.Views.AboutPage"
-             xmlns:vm="clr-namespace:MahwousImages.ViewModels"
              Title="{Binding Title}">
     
     <ContentPage.BindingContext>
         <vm:AboutViewModel />
     </ContentPage.BindingContext>
     
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Color x:Key="Accent">#96d1ff</Color>
-        </ResourceDictionary>
-    </ContentPage.Resources>
 
+    
     <Grid>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+        
+        <StackLayout BackgroundColor="{StaticResource colYellow}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
-                    <Image Source="xamarin_logo.png" VerticalOptions="Center" HeightRequest="64" />
+                <ContentView Padding="0,10,0,10" VerticalOptions="FillAndExpand">
+                    <Image Source="TransparentBlack.png" VerticalOptions="Center" HeightRequest="128" />
                 </ContentView>
             </StackLayout>
         </StackLayout>
         <ScrollView Grid.Row="1">
-            <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
-                <Label Text="Start developing now" FontSize="Title"/>
-                <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="0,0,0,0"/>
-                <Label FontSize="16" Padding="0,24,0,0">
+            <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
+                <Label FontSize="22">
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="Learn more at "/>
-                                <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
+                                <Span Text="مهووس" FontAttributes="Bold" FontSize="22" />
+                                <Span Text=" " />
+                                <Span Text="1.0" />
                             </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                <Button Margin="0,10,0,0" Text="Learn more"
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="نحن فريق مكوّن من عدة شباب هدفنا ان نمتلك أكبر تجمع حالات عربية في" />
+                                <Span Text=" " />
+                                <Span Text="الوطن العربي" TextColor="{StaticResource colRed}" FontAttributes="Bold" />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="بدأت رحلتنا منذ عام" />
+                                <Span Text=" 2018 " FontAttributes="Bold" />
+                                <Span Text="من خلال تصميم حالات فيديو وإنشاء اول تطبيق اندرويد للحالات الفيديو" />
+                                <Span Text=" " />
+                                <Span Text="ثم بعد نجاح تطبيقنا بفضل الله قررنا التوسع في هذا المجال فبدأنا بتجميع كل انواع الحالات" />
+                                <Span Text=" كتابية " TextColor="{StaticResource colRed}" FontAttributes="Bold"  />
+                                <Span Text="-" />
+                                <Span Text=" فيديو " TextColor="{StaticResource colRed}" FontAttributes="Bold"  />
+                                <Span Text="-" />
+                                <Span Text=" صور " TextColor="{StaticResource colRed}" FontAttributes="Bold"  />
+                                <Span Text=" ضممنا اشخاص جدد للفريق وأنشأنا موقع مهووس الإلكتروني وتوسعنا بصفحات التواصل الإجتماعي" />
+                                <Span Text="." />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="سوف يكون لدى هذا التطبيق اصدارات  متعددة لكل من"/>
+                                <Span Text=" " />
+                                <Span Text="iOS, Android, Windows" FontAttributes="Bold" />
+                                <Span Text=" " />
+                                <Span Text="." />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <StackLayout Padding="6" Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+
+                    <Button Grid.Column="0"
+                        Padding="6"
+                        Margin="5"
+                        Text="موقعنا الإلكتروني"
+                        HorizontalOptions="FillAndExpand"
+                        CornerRadius="3"
                         Command="{Binding OpenWebCommand}"
-                        BackgroundColor="{StaticResource Primary}"
+                        BackgroundColor="{StaticResource colRed}"
                         TextColor="White" />
+
+                <Button Grid.Column="1" 
+                        Padding="6"
+                        Margin="5"
+                        Text="صفحتنا عالمتجر"
+                        HorizontalOptions="FillAndExpand"
+                        CornerRadius="3"
+                        Command="{Binding OpenGooglePlayCommand}"
+                        BackgroundColor="{StaticResource colRed}"
+                        TextColor="White" />
+
+                </StackLayout>
+
+                <templates:ContactUsTemplate />
+                
             </StackLayout>
         </ScrollView>
     </Grid>
-
+    
 </ContentPage>

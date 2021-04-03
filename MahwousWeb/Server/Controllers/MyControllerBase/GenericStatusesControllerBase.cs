@@ -58,35 +58,12 @@ namespace MahwousWeb.Server.Controllers.MyControllerBase
             var statuses = table.Filter(filter);
             Informations informations = new Informations();
 
-
-            List<Task> tasks = new List<Task>();
-
-            tasks.Add(Task.Run(async () =>
-            {
-                informations.Count = await statuses.CountAsync(s => s is TModel);
-            }));
-
-            tasks.Add(Task.Run(async () =>
-            {
-                informations.LikesCount = await statuses.SumAsync(s => (long)s.LikesCount);
-            }));
-
-            tasks.Add(Task.Run(async () =>
-            {
-                informations.DownloadsCount = await statuses.SumAsync(s => (long)s.DownloadsCount);
-            }));
-
-            tasks.Add(Task.Run(async () =>
-            {
-                informations.SharesCount = await statuses.SumAsync(s => (long)s.SharesCount);
-            }));
-
-            tasks.Add(Task.Run(async () =>
-            {
-                informations.ViewsCount = await statuses.SumAsync(s => (long)s.ViewsCount);
-            }));
-
-            await Task.WhenAll(tasks.ToArray());
+            // todo: replace those awaits to Task.WaitAll();
+            informations.Count = await statuses.CountAsync(s => s is TModel);
+            informations.LikesCount = await statuses.SumAsync(s => (long)s.LikesCount);
+            informations.DownloadsCount = await statuses.SumAsync(s => (long)s.DownloadsCount);
+            informations.SharesCount = await statuses.SumAsync(s => (long)s.SharesCount);
+            informations.ViewsCount = await statuses.SumAsync(s => (long)s.ViewsCount);
 
             var categoriesStatusCounts = context.Categories.Select(c => new KeyValuePair<string, int>(c.Name, c.StatusCategories.Count(sc => sc.Status is TModel)));
             informations.CategoriesStatusCounts = new Dictionary<string, int>(categoriesStatusCounts);

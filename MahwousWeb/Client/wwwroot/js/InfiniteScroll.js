@@ -14,7 +14,6 @@
                 bounding.right <= (window.innerWidth || element.clientWidth) &&
                 bounding.bottom <= (window.innerHeight || element.clientHeight)
             ) {
-                console.log('In the viewport!');
                 DotNetHelper.invokeMethodAsync("LoadMore");
             }
         };
@@ -25,7 +24,6 @@
 
         this.RemoveListener = function () {
             document.removeEventListener("scroll", this.handler, true);
-            console.log('Listener removed!');
         }
     }
 }

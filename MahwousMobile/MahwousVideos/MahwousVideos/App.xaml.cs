@@ -42,13 +42,13 @@ namespace MahwousVideos
         private void OnLocalNotificationTapped(NotificationTappedEventArgs e)
         {
             // your code goes here
-            //DependencyService.Get<IMessage>().LongAlert("Tapped - " + e.Data);
+            DependencyService.Get<IMessage>().LongAlert("Tapped - " + e.Data);
         }
 
         private void OnLocalNotificationReceived(NotificationReceivedEventArgs e)
         {
             // your code goes here
-            //DependencyService.Get<IMessage>().LongAlert("Received - " + e.Title);
+            DependencyService.Get<IMessage>().LongAlert("Received - " + e.Title);
         }
 
 

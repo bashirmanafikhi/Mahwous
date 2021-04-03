@@ -9,8 +9,6 @@
              mc:Ignorable="d"
              x:Class="MahwousVideos.Views.VideoPage">
 
-
-
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="btnLikeStyle" TargetType="Button">
@@ -29,7 +27,6 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
     
     <Shell.TitleView>
         <StackLayout

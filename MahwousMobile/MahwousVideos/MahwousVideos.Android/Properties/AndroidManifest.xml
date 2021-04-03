@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="5" android:versionName="1.5" package="com.mahwous.mahwousvideos" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="29" />
-	<application android:requestLegacyExternalStorage="true" android:label="حالات فيديو" android:supportsRtl="true" android:icon="@drawable/icon">
+	<application android:requestLegacyExternalStorage="true" android:label="حالات فيديو" android:icon="@drawable/icon">
 		<meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-1685177955120006~8639773316" />
 	</application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
