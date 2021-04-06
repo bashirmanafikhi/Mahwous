@@ -1,6 +1,6 @@
-﻿using MahwousWeb.Shared.Filters;
-using MahwousWeb.Shared.Models;
-using MahwousWeb.Shared.Pagination;
+﻿using MahwousWeb.Models.Filters;
+using MahwousWeb.Models.Models;
+using MahwousWeb.Models.Pagination;
 using System.Linq;
 
 namespace MahwousWeb.Server.Helpers

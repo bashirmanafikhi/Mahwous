@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using MahwousVideos.Helpers;
 using MahwousVideos.Styles.Themes;
 using MediaManager;
-using MahwousWeb.Shared.Repositories;
+using MahwousWeb.Service.Repositories;
 using Xamarin.Essentials;
 using System.Diagnostics;
 using Plugin.LocalNotification;

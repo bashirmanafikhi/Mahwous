@@ -1,6 +1,6 @@
 ﻿using MahwousVideos.ViewModels;
-using MahwousWeb.Shared.Filters;
-using MahwousWeb.Shared.Models;
+using MahwousWeb.Models.Filters;
+using MahwousWeb.Models.Models;
 using MarcTron.Plugin;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

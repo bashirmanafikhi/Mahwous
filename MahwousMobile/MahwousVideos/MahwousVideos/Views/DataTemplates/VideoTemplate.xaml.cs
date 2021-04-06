@@ -1,5 +1,5 @@
 ﻿using MahwousVideos.ViewModels;
-using MahwousWeb.Shared.Models;
+using MahwousWeb.Models.Models;
 using MarcTron.Plugin;
 using MediaManager;
 using System;

@@ -177,7 +177,7 @@ namespace MahwousWeb.Persistent.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("MahwousWeb.Shared.Models.Category", b =>
+            modelBuilder.Entity("MahwousWeb.Models.Models.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

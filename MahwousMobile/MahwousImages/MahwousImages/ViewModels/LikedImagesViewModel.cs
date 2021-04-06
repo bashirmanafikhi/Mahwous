@@ -1,6 +1,6 @@
 ﻿using MahwousMobile.Base.Helpers;
 using MahwousImages.Helpers;
-using MahwousWeb.Shared.Models;
+using MahwousWeb.Models.Models;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;

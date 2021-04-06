@@ -30,7 +30,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\MahwousWeb\Shared\MahwousWeb.Shared.csproj" />
     <ProjectReference Include="..\..\MahwousMobile.Base\MahwousMobile.Base.csproj" />
   </ItemGroup>
 

@@ -19,7 +19,7 @@ namespace MahwousImages.Views.DataTemplates
 
         private async void Item_Tapped(object sender, EventArgs e)
         {
-            var app = BindingContext as MahwousWeb.Shared.Models.App ;
+            var app = BindingContext as MahwousWeb.Models.Models.App ;
             if(!string.IsNullOrEmpty(app.PlayStoreLink))
                 await Browser.OpenAsync(app.PlayStoreLink);
         }

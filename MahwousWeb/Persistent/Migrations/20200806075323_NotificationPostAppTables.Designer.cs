@@ -177,7 +177,7 @@ namespace MahwousWeb.Persistent.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("MahwousWeb.Shared.Models.App", b =>
+            modelBuilder.Entity("MahwousWeb.Models.Models.App", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -204,7 +204,7 @@ namespace MahwousWeb.Persistent.Data.Migrations
                     b.ToTable("Apps");
                 });
 
-            modelBuilder.Entity("MahwousWeb.Shared.Models.Category", b =>
+            modelBuilder.Entity("MahwousWeb.Models.Models.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -232,7 +232,7 @@ namespace MahwousWeb.Persistent.Data.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("MahwousWeb.Shared.Models.Notification", b =>
+            modelBuilder.Entity("MahwousWeb.Models.Models.Notification", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -259,7 +259,7 @@ namespace MahwousWeb.Persistent.Data.Migrations
                     b.ToTable("Notifications");
                 });
 
-            modelBuilder.Entity("MahwousWeb.Shared.Models.Post", b =>
+            modelBuilder.Entity("MahwousWeb.Models.Models.Post", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -295,7 +295,7 @@ namespace MahwousWeb.Persistent.Data.Migrations
                     b.ToTable("Posts");
                 });
 
-            modelBuilder.Entity("MahwousWeb.Shared.Models.Status", b =>
+            modelBuilder.Entity("MahwousWeb.Models.Models.Status", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -328,7 +328,7 @@ namespace MahwousWeb.Persistent.Data.Migrations
                     b.HasDiscriminator<string>("Discriminator").HasValue("Status");
                 });
 
-            modelBuilder.Entity("MahwousWeb.Shared.Models.StatusCategories", b =>
+            modelBuilder.Entity("MahwousWeb.Models.Models.StatusCategories", b =>
                 {
                     b.Property<int>("StatusId")
                         .HasColumnType("int");
@@ -478,9 +478,9 @@ namespace MahwousWeb.Persistent.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("MahwousWeb.Shared.Models.ImageStatus", b =>
+            modelBuilder.Entity("MahwousWeb.Models.Models.ImageStatus", b =>
                 {
-                    b.HasBaseType("MahwousWeb.Shared.Models.Status");
+                    b.HasBaseType("MahwousWeb.Models.Models.Status");
 
                     b.Property<string>("ImagePath")
                         .IsRequired()
@@ -489,9 +489,9 @@ namespace MahwousWeb.Persistent.Data.Migrations
                     b.HasDiscriminator().HasValue("ImageStatus");
                 });
 
-            modelBuilder.Entity("MahwousWeb.Shared.Models.QuoteStatus", b =>
+            modelBuilder.Entity("MahwousWeb.Models.Models.QuoteStatus", b =>
                 {
-                    b.HasBaseType("MahwousWeb.Shared.Models.Status");
+                    b.HasBaseType("MahwousWeb.Models.Models.Status");
 
                     b.Property<string>("Content")
                         .IsRequired()
@@ -500,9 +500,9 @@ namespace MahwousWeb.Persistent.Data.Migrations
                     b.HasDiscriminator().HasValue("QuoteStatus");
                 });
 
-            modelBuilder.Entity("MahwousWeb.Shared.Models.VideoStatus", b =>
+            modelBuilder.Entity("MahwousWeb.Models.Models.VideoStatus", b =>
                 {
-                    b.HasBaseType("MahwousWeb.Shared.Models.Status");
+                    b.HasBaseType("MahwousWeb.Models.Models.Status");
 
                     b.Property<string>("CoverPath")
                         .IsRequired()
@@ -519,15 +519,15 @@ namespace MahwousWeb.Persistent.Data.Migrations
                     b.HasDiscriminator().HasValue("VideoStatus");
                 });
 
-            modelBuilder.Entity("MahwousWeb.Shared.Models.StatusCategories", b =>
+            modelBuilder.Entity("MahwousWeb.Models.Models.StatusCategories", b =>
                 {
-                    b.HasOne("MahwousWeb.Shared.Models.Category", "Category")
+                    b.HasOne("MahwousWeb.Models.Models.Category", "Category")
                         .WithMany("StatusCategories")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MahwousWeb.Shared.Models.Status", "Status")
+                    b.HasOne("MahwousWeb.Models.Models.Status", "Status")
                         .WithMany("StatusCategories")
                         .HasForeignKey("StatusId")
                         .OnDelete(DeleteBehavior.Cascade)

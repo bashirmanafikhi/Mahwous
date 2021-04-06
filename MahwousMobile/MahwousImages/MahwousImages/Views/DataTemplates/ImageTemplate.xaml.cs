@@ -1,5 +1,5 @@
 ﻿using MahwousImages.ViewModels;
-using MahwousWeb.Shared.Models;
+using MahwousWeb.Models.Models;
 using MarcTron.Plugin;
 using System;
 using System.Collections.Generic;

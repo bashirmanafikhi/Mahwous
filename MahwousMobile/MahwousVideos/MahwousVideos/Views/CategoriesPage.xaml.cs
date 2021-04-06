@@ -8,7 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using MahwousVideos.Views;
 using MahwousVideos.ViewModels;
-using MahwousWeb.Shared.Models;
+using MahwousWeb.Models.Models;
 
 namespace MahwousVideos.Views
 {

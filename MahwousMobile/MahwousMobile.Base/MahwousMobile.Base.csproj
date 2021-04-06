@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\MahwousWeb\Shared\MahwousWeb.Shared.csproj" />
+    <ProjectReference Include="..\..\MahwousWeb\Service\MahwousWeb.Service.csproj" />
   </ItemGroup>
 
 </Project>

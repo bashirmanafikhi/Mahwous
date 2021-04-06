@@ -1,6 +1,6 @@
 ﻿using MahwousWeb.Client.Helpers;
-using MahwousWeb.Shared.Models;
-using MahwousWeb.Shared.Repositories;
+using MahwousWeb.Models.Models;
+using MahwousWeb.Service.Repositories;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.JSInterop;
 using System;

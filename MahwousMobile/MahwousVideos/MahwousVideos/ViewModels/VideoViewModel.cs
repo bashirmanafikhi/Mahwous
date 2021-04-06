@@ -1,7 +1,7 @@
 ﻿using MahwousMobile.Base.Helpers;
 using MahwousVideos.Helpers;
-using MahwousWeb.Shared.Filters;
-using MahwousWeb.Shared.Models;
+using MahwousWeb.Models.Filters;
+using MahwousWeb.Models.Models;
 using Plugin.LocalNotification;
 using System;
 using System.Collections.Generic;

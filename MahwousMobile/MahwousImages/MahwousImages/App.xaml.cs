@@ -8,7 +8,7 @@ using MahwousImages.Styles.Themes;
 using Xamarin.Essentials;
 using System.Diagnostics;
 using Plugin.LocalNotification;
-using MahwousWeb.Shared.Repositories;
+using MahwousWeb.Service.Repositories;
 
 namespace MahwousImages
 {

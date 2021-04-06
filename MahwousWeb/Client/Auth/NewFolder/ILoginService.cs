@@ -1,4 +1,4 @@
-﻿using MahwousWeb.Shared.Models;
+﻿using MahwousWeb.Models.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

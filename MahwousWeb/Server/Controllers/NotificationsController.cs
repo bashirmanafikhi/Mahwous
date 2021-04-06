@@ -1,9 +1,9 @@
 ﻿using MahwousWeb.Persistent;
 using MahwousWeb.Server.Controllers.MyControllerBase;
 using MahwousWeb.Server.Helpers;
-using MahwousWeb.Shared.Filters;
-using MahwousWeb.Shared.Models;
-using MahwousWeb.Shared.Pagination;
+using MahwousWeb.Models.Filters;
+using MahwousWeb.Models.Models;
+using MahwousWeb.Models.Pagination;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

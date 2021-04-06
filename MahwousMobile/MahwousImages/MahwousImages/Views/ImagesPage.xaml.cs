@@ -3,8 +3,8 @@ using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using MahwousImages.ViewModels;
-using MahwousWeb.Shared.Models;
-using MahwousWeb.Shared.Filters;
+using MahwousWeb.Models.Models;
+using MahwousWeb.Models.Filters;
 using System.Linq;
 //using MarcTron.Plugin;
 

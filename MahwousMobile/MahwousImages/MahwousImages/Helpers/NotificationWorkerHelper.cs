@@ -1,5 +1,5 @@
-﻿using MahwousWeb.Shared.Models;
-using MahwousWeb.Shared.Repositories;
+﻿using MahwousWeb.Models.Models;
+using MahwousWeb.Service.Repositories;
 using Plugin.LocalNotification;
 using System;
 using System.Collections.Generic;

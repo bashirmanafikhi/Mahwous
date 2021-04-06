@@ -1,7 +1,7 @@
 using MahwousWeb.Client.Auth;
 using MahwousWeb.Client.Helpers;
-using MahwousWeb.Shared.Repositories;
-using MahwousWeb.Shared.Services;
+using MahwousWeb.Service.Repositories;
+using MahwousWeb.Service.Services;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;

@@ -3,9 +3,9 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using MahwousImages.ViewModels;
-using MahwousWeb.Shared.Filters;
-using MahwousWeb.Shared.Models;
-using MahwousWeb.Shared.Pagination;
+using MahwousWeb.Models.Filters;
+using MahwousWeb.Models.Models;
+using MahwousWeb.Models.Pagination;
 using Xamarin.Forms;
 
 namespace MahwousImages.ViewModels
@@ -29,7 +29,7 @@ namespace MahwousImages.ViewModels
             get { return itemTreshold; }
             set { SetProperty(ref itemTreshold, value); }
         }
-        public ObservableCollection<MahwousWeb.Shared.Models.App> Apps { get; set; }
+        public ObservableCollection<MahwousWeb.Models.Models.App> Apps { get; set; }
 
 
         public Command LoadAppsCommand { get; set; }
@@ -37,7 +37,7 @@ namespace MahwousImages.ViewModels
 
         public AppsViewModel()
         {
-            Apps = new ObservableCollection<MahwousWeb.Shared.Models.App>();
+            Apps = new ObservableCollection<MahwousWeb.Models.Models.App>();
 
             LoadAppsCommand = new Command(async () => await ExecuteLoadAppsCommand());
         }

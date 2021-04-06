@@ -2,10 +2,10 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using MahwousWeb.Shared.Filters;
-using MahwousWeb.Shared.Models;
-using MahwousWeb.Shared.Pagination;
-using MahwousWeb.Shared.Repositories;
+using MahwousWeb.Models.Filters;
+using MahwousWeb.Models.Models;
+using MahwousWeb.Models.Pagination;
+using MahwousWeb.Service.Repositories;
 using Xamarin.Forms;
 
 namespace MahwousVideos.ViewModels

@@ -1,4 +1,4 @@
-﻿using MahwousWeb.Shared.Pagination;
+﻿using MahwousWeb.Models.Pagination;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using System;

@@ -3,9 +3,9 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using MahwousImages.ViewModels;
-using MahwousWeb.Shared.Filters;
-using MahwousWeb.Shared.Models;
-using MahwousWeb.Shared.Pagination;
+using MahwousWeb.Models.Filters;
+using MahwousWeb.Models.Models;
+using MahwousWeb.Models.Pagination;
 using Xamarin.Forms;
 
 namespace MahwousImages.ViewModels

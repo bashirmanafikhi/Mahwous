@@ -1,5 +1,5 @@
 ﻿using MahwousWeb.Persistent.Models;
-using MahwousWeb.Shared.Models;
+using MahwousWeb.Models.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;

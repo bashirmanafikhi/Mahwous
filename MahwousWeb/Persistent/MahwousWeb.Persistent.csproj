@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Shared\MahwousWeb.Shared.csproj" />
+    <ProjectReference Include="..\Models\MahwousWeb.Models.csproj" />
   </ItemGroup>
 
 </Project>

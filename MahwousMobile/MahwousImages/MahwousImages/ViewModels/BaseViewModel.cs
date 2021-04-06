@@ -1,4 +1,4 @@
-﻿using MahwousWeb.Shared.Repositories;
+﻿using MahwousWeb.Service.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

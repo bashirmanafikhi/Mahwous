@@ -1,4 +1,4 @@
-﻿using MahwousWeb.Shared.Models;
+﻿using MahwousWeb.Models.Models;
 
 namespace MahwousVideos.ViewModels
 {
