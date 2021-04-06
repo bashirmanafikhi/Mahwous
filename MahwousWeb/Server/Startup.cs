@@ -1,6 +1,6 @@
-using MahwousWeb.Server.Data;
+using MahwousWeb.Persistent;
+using MahwousWeb.Persistent.Models;
 using MahwousWeb.Server.Helpers;
-using MahwousWeb.Server.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;

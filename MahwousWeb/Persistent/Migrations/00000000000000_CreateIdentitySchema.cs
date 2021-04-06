@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 
-namespace MahwousWeb.Server.Data.Migrations
+namespace MahwousWeb.Persistent.Data.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {

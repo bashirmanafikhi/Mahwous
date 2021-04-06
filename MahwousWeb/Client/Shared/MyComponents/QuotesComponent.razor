@@ -159,7 +159,7 @@
 
                             <InputSelect class="form-control" id="SortType" @bind-Value="quoteFilter.SortType">
 
-                                @foreach (var sortType in Enum.GetValues(typeof(SortType)))
+                                @foreach (var sortType in Enum.GetValues(typeof(StatusSortType)))
                                 {
                                     <option value="@sortType">@sortType</option>
                                 }

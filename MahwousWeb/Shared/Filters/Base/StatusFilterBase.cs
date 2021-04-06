@@ -68,6 +68,15 @@ namespace MahwousWeb.Shared.Filters
 
             switch (SortType)
             {
+                case StatusSortType.Newest:
+                    queryable = queryable.OrderByDescending(v => v.Date);
+                    break;
+                case StatusSortType.Oldest:
+                    queryable = queryable.OrderBy(v => v.Date);
+                    break;
+                case StatusSortType.Views:
+                    queryable = queryable.OrderByDescending(v => v.ViewsCount);
+                    break;
                 case StatusSortType.Downloads:
                     queryable = queryable.OrderByDescending(v => v.DownloadsCount);
                     break;
@@ -77,9 +86,13 @@ namespace MahwousWeb.Shared.Filters
                 case StatusSortType.Shares:
                     queryable = queryable.OrderByDescending(v => v.SharesCount);
                     break;
+                case StatusSortType.Random:
+                    queryable = queryable.OrderBy(v => Guid.NewGuid());
+                    break;
                 default:
                     break;
             }
+
 
             return queryable;
         }

@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace MahwousWeb.Server.Data.Migrations
+namespace MahwousWeb.Persistent.Data.Migrations
 {
     public partial class MigratingToNet5 : Migration
     {

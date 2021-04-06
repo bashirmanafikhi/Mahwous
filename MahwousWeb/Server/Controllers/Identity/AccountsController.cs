@@ -1,4 +1,4 @@
-﻿using MahwousWeb.Server.Models;
+﻿using MahwousWeb.Persistent.Models;
 using MahwousWeb.Shared.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;

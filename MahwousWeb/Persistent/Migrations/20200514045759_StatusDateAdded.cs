@@ -1,22 +1,23 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
+using System;
 
-namespace MahwousWeb.Server.Data.Migrations
+namespace MahwousWeb.Persistent.Data.Migrations
 {
-    public partial class VisibleStatuses : Migration
+    public partial class StatusDateAdded : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<bool>(
-                name: "Visible",
+            migrationBuilder.AddColumn<DateTime>(
+                name: "Date",
                 table: "Statuses",
                 nullable: false,
-                defaultValue: false);
+                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Visible",
+                name: "Date",
                 table: "Statuses");
         }
     }

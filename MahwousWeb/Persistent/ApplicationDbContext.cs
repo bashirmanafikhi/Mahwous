@@ -1,10 +1,10 @@
-﻿using MahwousWeb.Server.Models;
+﻿using MahwousWeb.Persistent.Models;
 using MahwousWeb.Shared.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
-namespace MahwousWeb.Server.Data
+namespace MahwousWeb.Persistent
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {

@@ -1,6 +1,6 @@
-﻿using MahwousWeb.Server.Data;
+﻿using MahwousWeb.Persistent;
+using MahwousWeb.Persistent.Models;
 using MahwousWeb.Server.Helpers;
-using MahwousWeb.Server.Models;
 using MahwousWeb.Shared.Models;
 using MahwousWeb.Shared.Pagination;
 using Microsoft.AspNetCore.Authentication.JwtBearer;

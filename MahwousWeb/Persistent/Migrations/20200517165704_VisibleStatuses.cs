@@ -1,15 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace MahwousWeb.Server.Data.Migrations
+namespace MahwousWeb.Persistent.Data.Migrations
 {
-    public partial class ScheduledNotification : Migration
+    public partial class VisibleStatuses : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<bool>(
-                name: "IsScheduled",
-                table: "Notifications",
-                type: "bit",
+                name: "Visible",
+                table: "Statuses",
                 nullable: false,
                 defaultValue: false);
         }
@@ -17,8 +16,8 @@ namespace MahwousWeb.Server.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "IsScheduled",
-                table: "Notifications");
+                name: "Visible",
+                table: "Statuses");
         }
     }
 }

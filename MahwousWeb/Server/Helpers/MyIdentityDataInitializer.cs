@@ -1,8 +1,8 @@
-﻿using MahwousWeb.Server.Models;
+﻿using MahwousWeb.Persistent.Models;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 
-namespace MahwousWeb.Server.Data
+namespace MahwousWeb.Server.Helpers
 {
     public static class MyIdentityDataInitializer
     {

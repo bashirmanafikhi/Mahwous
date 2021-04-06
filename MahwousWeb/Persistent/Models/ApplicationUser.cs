@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace MahwousWeb.Server.Models
+namespace MahwousWeb.Persistent.Models
 {
     public class ApplicationUser : IdentityUser
     {

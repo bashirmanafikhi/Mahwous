@@ -1,5 +1,5 @@
-﻿using MahwousWeb.Server.Controllers.MyControllerBase;
-using MahwousWeb.Server.Data;
+﻿using MahwousWeb.Persistent;
+using MahwousWeb.Server.Controllers.MyControllerBase;
 using MahwousWeb.Server.Helpers;
 using MahwousWeb.Shared.Filters;
 using MahwousWeb.Shared.Models;
@@ -122,41 +122,6 @@ namespace MahwousWeb.Server.Controllers
             await context.SaveChangesAsync();
             return NoContent();
         }
-
-        //[HttpGet("GetInformations")]
-        //public override async Task<ActionResult<Informations>> GetInformations()
-        //{
-        //    return await GetVideosInformations();
-        //}
-
-
-        //[HttpPost("GetInformationsFiltered")]
-        //public override async Task<ActionResult<Informations>> GetInformations(VideoFilter filter)
-        //{ 
-        //    return await GetVideosInformations(filter); 
-        //}
-        
-        ////[NonAction]
-        ////public override async Task<ActionResult<Informations>> GetInformations(IFilter<VideoStatus> filter)
-        ////{
-        ////    return await GetVideosInformations(filter);
-        ////}
-
-        //private async Task<Informations> GetVideosInformations(IFilter<VideoStatus> filter = null)
-        //{
-        //    var videos = context.VideoStatuses.Filter(filter);
-        //    Informations informations = new Informations();
-        //    informations.Count = await videos.CountAsync();
-
-        //    informations.DownloadsCount = await videos.SumAsync(s => (long)s.DownloadsCount);
-        //    informations.LikesCount = await videos.SumAsync(s => (long)s.LikesCount);
-        //    informations.ViewsCount = await videos.SumAsync(s => (long)s.ViewsCount);
-
-        //    var categoriesStatusCounts = context.Categories.Where(c => c.ForVideos).Select(c => new KeyValuePair<string, int>(c.Name, c.StatusCategories.Where(sc => sc.Status is VideoStatus).Count()));
-        //    informations.CategoriesStatusCounts = new Dictionary<string, int>(categoriesStatusCounts);
-
-        //    return informations;
-        //}
 
 
         [HttpGet("Download/{id}")]
