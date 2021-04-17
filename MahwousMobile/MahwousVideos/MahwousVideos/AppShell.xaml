@@ -3,13 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:views="clr-namespace:MahwousVideos.Views"
-             Title="Delicious Food"
+             xmlns:views="clr-namespace:MahwousMobile.Base.Views;assembly=MahwousMobile.Base"
              FlyoutHeaderBehavior="CollapseOnScroll"
-             xmlns:styles="clr-namespace:MahwousVideos.Styles;assembly=MahwousVideos"
+             xmlns:styles="clr-namespace:MahwousMobile.Base.Styles;assembly=MahwousMobile.Base"
              Visual="Material"
              mc:Ignorable="d"
-             xmlns:ShellTemplate="clr-namespace:MahwousVideos.Views.ShellTemplates" 
+             xmlns:ShellTemplate="clr-namespace:MahwousMobile.Base.Templates.ShellTemplates;assembly=MahwousMobile.Base" 
              FlyoutHeaderTemplate="{DataTemplate ShellTemplate:FlyoutHeaderTemplate}"
              ItemTemplate="{DataTemplate ShellTemplate:FlyoutItemTemplate}"
              MenuItemTemplate="{DataTemplate ShellTemplate:FlyoutMenuItemTemplate}"
@@ -81,7 +80,7 @@
                 <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Home}" FontFamily="FA-S" />
             </Tab.Icon>
             <ShellContent>
-                <views:HomePage />
+                <views:HomePage StatusType="Video" />
             </ShellContent>
         </Tab>
 
@@ -90,7 +89,7 @@
                 <FontImageSource Color="{DynamicResource colForeground}" Glyph="{x:Static styles:SolidIcons.Tags}" FontFamily="FA-S" />
             </Tab.Icon>
             <ShellContent>
-                <views:CategoriesPage/>
+                <views:CategoriesPage StatusType="Video"/>
             </ShellContent>
         </Tab>
 

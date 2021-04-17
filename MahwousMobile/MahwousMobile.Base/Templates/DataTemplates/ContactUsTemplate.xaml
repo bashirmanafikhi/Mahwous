@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MahwousMobile.Base.Templates.DataTemplates.ContactUsTemplate"
+    xmlns:styles="clr-namespace:MahwousMobile.Base.Styles;assembly=MahwousMobile.Base" >
+    <ContentView.Content>
+        
+        <Frame  CornerRadius="6" 
+                       Margin="10" 
+                       Padding="1"
+                       BackgroundColor="{DynamicResource colForeground}" 
+                       HasShadow="True">
+
+            <Frame BackgroundColor="{DynamicResource colBackground}"
+                           CornerRadius="12" >
+
+
+
+                <Grid>
+                    
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label FontAttributes="Bold" Text="للمزيد من الصور والحالات تابعونا على موقعنا الرسمي او صفحات التواصل الإجتماعي" HorizontalTextAlignment="Center" Grid.ColumnSpan="5" />
+
+                    <!--<Button Grid.Row="1" Grid.Column="0" FontFamily="FA-B" CornerRadius="20" FontAttributes="Bold" FontSize="Subtitle" TextColor="White" BackgroundColor="#25D366" Text="{x:Static styles:BrandIcons.Whatsapp}" Clicked="BtnWhats_Clicked"/>-->
+                    <Button Grid.Row="1" Grid.Column="0" FontFamily="FA-S" CornerRadius="20" FontSize="Subtitle" TextColor="White" BackgroundColor="#1F8869" Text="{x:Static styles:SolidIcons.Globe}" Clicked="BtnWebsite_Clicked" />
+                    <Button Grid.Row="1" Grid.Column="1" FontFamily="FA-B" CornerRadius="20" FontSize="Subtitle" TextColor="White" BackgroundColor="#0088cc" Text="{x:Static styles:BrandIcons.TelegramPlane}" Clicked="BtnTelegram_Clicked" />
+                    <Button Grid.Row="1" Grid.Column="2" FontFamily="FA-B" CornerRadius="20" FontSize="Subtitle" TextColor="White" BackgroundColor="#4267B2" Text="{x:Static styles:BrandIcons.FacebookF}"  Clicked="BtnFace_Clicked"/>
+                    <Button Grid.Row="1" Grid.Column="3" FontFamily="FA-B" CornerRadius="20" FontSize="Subtitle" TextColor="White" BackgroundColor="#e1306c" Text="{x:Static styles:BrandIcons.Instagram}" Clicked="BtnInsta_Clicked" />
+                    <Button Grid.Row="1" Grid.Column="4" FontFamily="FA-B" CornerRadius="20" FontSize="Subtitle" TextColor="White" BackgroundColor="#c4302b" Text="{x:Static styles:BrandIcons.Youtube}" Clicked="BtnYoutube_Clicked" />
+
+                </Grid>
+
+            </Frame>
+
+        </Frame>
+        
+    </ContentView.Content>
+</ContentView>

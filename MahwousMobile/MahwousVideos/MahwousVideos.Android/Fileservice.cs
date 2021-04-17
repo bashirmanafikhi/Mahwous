@@ -7,8 +7,8 @@ using Android.OS;
 using Android.Support.V4.App;
 using Android.Support.V4.Content;
 using Android.Widget;
+using MahwousMobile.Base.Helpers;
 using MahwousVideos.Droid;
-using MahwousVideos.Helpers;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -20,24 +20,13 @@ namespace MahwousVideos.Droid
 {
     public class FileService : IFileService
     {
-        public void SaveImage(System.IO.Stream data, string name, string location = "temp")
+        public void SaveImage(System.IO.Stream data, string name, string location = "صور")
         {
-            var documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-            documentsPath = Path.Combine(documentsPath, "مهووس", location);
-            Directory.CreateDirectory(documentsPath);
+        }
 
-            string filePath = Path.Combine(documentsPath, name);
-
-            byte[] bArray = new byte[data.Length];
-            using (FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate))
-            {
-                using (data)
-                {
-                    data.Read(bArray, 0, (int)data.Length);
-                }
-                int length = bArray.Length;
-                fs.Write(bArray, 0, length);
-            }
+        public Task<bool> SaveImage(byte[] data, string name, string location = "صور")
+        {
+            return null;
         }
 
         public async Task<bool> SaveVideo(byte[] file, string name, string location = "فيديوهات مهووس")
@@ -48,7 +37,7 @@ namespace MahwousVideos.Droid
                 await Permissions.RequestAsync<ReadWriteStoragePermission>();
 
                 // save video
-                var directoryPath = Android.OS.Environment.ExternalStorageDirectory.AbsolutePath;
+                string directoryPath = Path.Combine(Environment.ExternalStorageDirectory.AbsolutePath, Environment.DirectoryDownloads);
 
                 directoryPath = Path.Combine(directoryPath, "مهووس", location);
 

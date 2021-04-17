@@ -1,5 +1,5 @@
-﻿using MahwousVideos.Helpers;
-using MahwousVideos.Views;
+﻿using MahwousMobile.Base.Helpers;
+using MahwousMobile.Base.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;

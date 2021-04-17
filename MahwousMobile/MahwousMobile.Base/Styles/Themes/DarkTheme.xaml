@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    x:Class="MahwousMobile.Base.Styles.Themes.DarkTheme"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Source="/Styles/Style.xaml"
+    mc:Ignorable="d">
+
+
+
+    <!--My Colors-->
+    <Color x:Key="colBlue">#0096ed</Color>
+    <Color x:Key="colYellow">#dfb20c</Color>
+    <Color x:Key="colRed">#ff4262</Color>
+    <Color x:Key="colBlack">#1e1e1f</Color>
+    <Color x:Key="colWhite">#f6f4e6</Color>
+
+
+    <Color x:Key="colBackground">#1e1e1f</Color>
+    <Color x:Key="colForeground">#f6f4e6</Color>
+    <Color x:Key="colSubBackground">#343435</Color>
+
+</ResourceDictionary>

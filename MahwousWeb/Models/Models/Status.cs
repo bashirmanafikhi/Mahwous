@@ -8,9 +8,7 @@ namespace MahwousWeb.Models.Models
         public int LikesCount { get; set; }
         public int SharesCount { get; set; }
 
-
-        // [Ignore] // this attribute for sqlite in xamarin
-        public IList<StatusCategories> StatusCategories { get; set; }
+        public virtual IList<StatusCategories> StatusCategories { get; set; }
 
     }
 }

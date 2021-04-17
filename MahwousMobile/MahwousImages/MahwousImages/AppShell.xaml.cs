@@ -1,5 +1,5 @@
-﻿using MahwousImages.Helpers;
-using MahwousImages.Views;
+﻿using MahwousMobile.Base.Helpers;
+using MahwousMobile.Base.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +23,7 @@ namespace MahwousImages
 
         private void MenuItem_Exit_Clicked(object sender, EventArgs e)
         {
-            System.Environment.Exit(0);
+            Environment.Exit(0);
         }
 
         private async void MenuItem_Rate_Clicked(object sender, EventArgs e)

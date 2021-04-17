@@ -1,4 +1,5 @@
 ﻿using MahwousWeb.Models.Models;
+using MahwousWeb.Models.Models;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -7,10 +8,10 @@ using System.Linq;
 
 namespace MahwousMobile.Base.Helpers
 {
-    public class MahwousSqliteDB<T> : IDisposable where T : ModelBase , new()
+    public class MahwousSqliteDB<T> : IDisposable where T : ModelBase, new()
     {
 
-        const string dbFileName = "Mahwous.db3";
+        private const string dbFileName = "Mahwous.db3";
         public SQLiteConnection Connection { get; set; }
 
         public MahwousSqliteDB()

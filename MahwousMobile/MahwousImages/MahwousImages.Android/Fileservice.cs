@@ -7,7 +7,7 @@ using Android.OS;
 using Android.Support.V4.App;
 using Android.Widget;
 using MahwousImages.Droid;
-using MahwousImages.Helpers;
+using MahwousMobile.Base.Helpers;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -19,24 +19,12 @@ namespace MahwousImages.Droid
 {
     public class FileService : IFileService
     {
-        public void SaveImage(System.IO.Stream data, string name, string location = "temp")
+
+        public async void SaveImage(System.IO.Stream data, string name, string location = "صور مهووس")
         {
-            var documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-            documentsPath = Path.Combine(documentsPath, "مهووس", location);
-            Directory.CreateDirectory(documentsPath);
-
-            string filePath = Path.Combine(documentsPath, name);
-
-            byte[] bArray = new byte[data.Length];
-            using (FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate))
-            {
-                using (data)
-                {
-                    data.Read(bArray, 0, (int)data.Length);
-                }
-                int length = bArray.Length;
-                fs.Write(bArray, 0, length);
-            }
+            var ms = new MemoryStream();
+            data.CopyTo(ms);
+            await SaveImage(ms.ToArray(), name, location);
         }
 
         public async Task<bool> SaveImage(byte[] file, string name, string location = "صور مهووس")
@@ -47,7 +35,7 @@ namespace MahwousImages.Droid
                 await Permissions.RequestAsync<ReadWriteStoragePermission>();
 
                 // save video
-                var directoryPath = Android.OS.Environment.ExternalStorageDirectory.AbsolutePath;
+                string directoryPath = Path.Combine(Environment.ExternalStorageDirectory.AbsolutePath, Environment.DirectoryDownloads);
 
                 directoryPath = Path.Combine(directoryPath, "مهووس", location);
 
@@ -75,6 +63,11 @@ namespace MahwousImages.Droid
             {
                 return false;
             }
+        }
+
+        public Task<bool> SaveVideo(byte[] data, string name, string location = "فيديو")
+        {
+            throw new System.NotImplementedException();
         }
 
         public class ReadWriteStoragePermission : Xamarin.Essentials.Permissions.BasePlatformPermission

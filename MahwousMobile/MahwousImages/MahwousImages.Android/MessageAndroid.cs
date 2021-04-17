@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Widget;
 using MahwousImages.Droid;
-using MahwousImages.Helpers;
+using MahwousMobile.Base.Helpers;
 
 [assembly: Xamarin.Forms.Dependency(typeof(MessageAndroid))]
 namespace MahwousImages.Droid

@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Widget;
+using MahwousMobile.Base.Helpers;
 using MahwousVideos.Droid;
-using MahwousVideos.Helpers;
 
 [assembly: Xamarin.Forms.Dependency(typeof(MessageAndroid))]
 namespace MahwousVideos.Droid

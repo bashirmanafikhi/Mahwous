@@ -17,7 +17,7 @@ namespace MahwousWeb.Models.Models
 
 
         // [Ignore] // this attribute for sqlite in xamarin
-        public IList<StatusCategories> StatusCategories { get; set; }
+        public virtual IList<StatusCategories> StatusCategories { get; set; }
 
     }
 }

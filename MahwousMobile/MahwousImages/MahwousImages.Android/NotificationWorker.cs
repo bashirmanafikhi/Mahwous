@@ -9,7 +9,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using AndroidX.Work;
-using MahwousImages.Helpers;
+using MahwousMobile.Base.Helpers;
 
 namespace MahwousImages.Droid
 {
@@ -19,8 +19,6 @@ namespace MahwousImages.Droid
         {
 
         }
-
-
 
         public override Result DoWork()
         {
