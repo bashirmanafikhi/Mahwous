@@ -22,20 +22,21 @@ namespace MahwousImages.Droid
 
         public override Result DoWork()
         {
+            try
+            {
+                NotificationWorkerHelper workerHelper = new NotificationWorkerHelper();
 
+                workerHelper.CheckNotification().Wait();
 
-            NotificationWorkerHelper workerHelper = new NotificationWorkerHelper();
-            workerHelper.CheckNotification().Wait();
+                Android.Util.Log.Debug("NotificationWorker", $"NotificationWorker worked");
 
-
-            Android.Util.Log.Debug("NotificationWorker", $"NotificationWorker worked");
-
-            return Result.InvokeSuccess();
-
-
+                return Result.InvokeSuccess();
+            }
+            catch
+            {
+                return Result.InvokeFailure();
+            }
         }
-
-
 
         public double CalculateTaxes()
         {

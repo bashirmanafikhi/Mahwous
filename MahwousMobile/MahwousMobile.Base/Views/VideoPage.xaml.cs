@@ -39,7 +39,12 @@ namespace MahwousMobile.Base.Views
 
         protected override async void OnAppearing()
         {
-            await ((VideoViewModel)BindingContext).Repositories.VideosRepository.IncrementViews(((VideoViewModel)BindingContext).Video.Id);
+            try
+            {
+                await ((VideoViewModel)BindingContext).Repositories.VideosRepository.IncrementViews(((VideoViewModel)BindingContext).Video.Id);
+            }
+            catch
+            { }
         }
 
         protected override async void OnDisappearing()

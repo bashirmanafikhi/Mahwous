@@ -53,22 +53,31 @@ namespace MahwousWeb.Server.Controllers.MyControllerBase
             return await GetStatusesInformations(filter);
         }
 
-        private async Task<Informations> GetStatusesInformations(IFilter<TModel> filter = null)
+        private async Task<ActionResult<Informations>> GetStatusesInformations(IFilter<TModel> filter = null)
         {
-            var statuses = table.Filter(filter);
-            Informations informations = new Informations();
+            try
+            {
+                var statuses = table.Filter(filter);
+                Informations informations = new Informations();
 
-            // todo: replace those awaits to Task.WaitAll();
-            informations.Count = await statuses.CountAsync(s => s is TModel);
-            informations.LikesCount = await statuses.SumAsync(s => (long)s.LikesCount);
-            informations.DownloadsCount = await statuses.SumAsync(s => (long)s.DownloadsCount);
-            informations.SharesCount = await statuses.SumAsync(s => (long)s.SharesCount);
-            informations.ViewsCount = await statuses.SumAsync(s => (long)s.ViewsCount);
+                // todo: replace those awaits to Task.WaitAll();
+                informations.Count = await statuses.CountAsync(s => s is TModel);
+                informations.LikesCount = await statuses.SumAsync(s => (long)s.LikesCount);
+                informations.DownloadsCount = await statuses.SumAsync(s => (long)s.DownloadsCount);
+                informations.SharesCount = await statuses.SumAsync(s => (long)s.SharesCount);
+                informations.ViewsCount = await statuses.SumAsync(s => (long)s.ViewsCount);
 
-            var categoriesStatusCounts = context.Categories.Select(c => new KeyValuePair<string, int>(c.Name, c.StatusCategories.Count(sc => sc.Status is TModel)));
-            informations.CategoriesStatusCounts = new Dictionary<string, int>(categoriesStatusCounts);
+                var categoriesStatusCounts = context.Categories.Select(c => new KeyValuePair<string, int>(c.Name, c.StatusCategories.Count(sc => sc.Status is TModel)));
+                informations.CategoriesStatusCounts = new Dictionary<string, int>(categoriesStatusCounts);
 
-            return informations;
+                return informations;
+            }
+            catch
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    "Error while getting statuses informations.");
+
+            }
         }
 
 
@@ -77,41 +86,73 @@ namespace MahwousWeb.Server.Controllers.MyControllerBase
         [HttpPut("IncrementDownloads/{id}")]
         public async Task<IActionResult> IncrementDownloads(int id)
         {
-            Status status = await context.Statuses.FirstOrDefaultAsync(s => s.Id == id);
-            status.DownloadsCount++;
-            context.SaveChanges();
+            try
+            {
+                Status status = await context.Statuses.FirstOrDefaultAsync(s => s.Id == id);
+                status.DownloadsCount++;
+                context.SaveChanges();
 
-            return Ok();
+                return Ok();
+            }
+            catch
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    "Error while increment downloads.");
+            }
         }
 
         [HttpPut("IncrementShares/{id}")]
         public async Task<IActionResult> IncrementShares(int id)
         {
-            Status status = await context.Statuses.FirstOrDefaultAsync(s => s.Id == id);
-            status.SharesCount++;
-            context.SaveChanges();
+            try
+            {
+                Status status = await context.Statuses.FirstOrDefaultAsync(s => s.Id == id);
+                status.SharesCount++;
+                context.SaveChanges();
 
-            return Ok();
+                return Ok();
+            }
+            catch
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    "Error while Increment Shares.");
+            }
         }
 
         [HttpPut("IncrementLikes/{id}")]
         public async Task<IActionResult> IncrementLikes(int id)
         {
-            Status status = await context.Statuses.FirstOrDefaultAsync(s => s.Id == id);
-            status.LikesCount++;
-            context.SaveChanges();
+            try
+            {
+                Status status = await context.Statuses.FirstOrDefaultAsync(s => s.Id == id);
+                status.LikesCount++;
+                context.SaveChanges();
 
-            return Ok();
+                return Ok();
+            }
+            catch
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    "Error while Increment Likes.");
+            }
         }
 
         [HttpPut("DecrementLikes/{id}")]
         public async Task<IActionResult> DecrementLikes(int id)
         {
-            Status status = await context.Statuses.FirstOrDefaultAsync(s => s.Id == id);
-            status.LikesCount--;
-            context.SaveChanges();
+            try
+            {
+                Status status = await context.Statuses.FirstOrDefaultAsync(s => s.Id == id);
+                status.LikesCount--;
+                context.SaveChanges();
 
-            return Ok();
+                return Ok();
+            }
+            catch
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    "Error while Decrement Likes.");
+            }
         }
 
     }

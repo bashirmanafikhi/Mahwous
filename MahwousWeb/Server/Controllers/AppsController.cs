@@ -23,8 +23,6 @@ namespace MahwousWeb.Server.Controllers
             : base(context, fileStorageService) { }
 
 
-        //[HttpPost]
-        //[Authorize]
         public override async Task<ActionResult<int>> Post(App app)
         {
             if (!string.IsNullOrWhiteSpace(app.ImagePath))
@@ -42,8 +40,6 @@ namespace MahwousWeb.Server.Controllers
             return app.Id;
         }
 
-        //[HttpPut]
-        //[Authorize]
         public override async Task<IActionResult> Put(App app)
         {
             var oldApp = await context.Apps.FirstOrDefaultAsync(c => c.Id == app.Id);
@@ -65,8 +61,6 @@ namespace MahwousWeb.Server.Controllers
             return NoContent();
         }
 
-        //[HttpDelete("{id}")]
-        //[Authorize]
         public override async Task<IActionResult> Delete(int id)
         {
             var app = await context.Apps.FirstOrDefaultAsync(c => c.Id == id);
@@ -83,35 +77,5 @@ namespace MahwousWeb.Server.Controllers
             await context.SaveChangesAsync();
             return NoContent();
         }
-
-
-        //[HttpGet("GetInformations")]
-        //public override async Task<ActionResult<Informations>> GetInformations()
-        //{
-        //    return await GetAppsInformations();
-        //}
-
-
-        //[HttpPost("GetInformationsFiltered")]
-        //public async Task<ActionResult<Informations>> GetInformations(AppFilter filter)
-        //{ return await GetInformations((IFilter<App>)filter); }
-        //[NonAction]
-        //public override async Task<ActionResult<Informations>> GetInformations(IFilter<App> filter)
-        //{
-        //    return await GetAppsInformations(filter);
-        //}
-
-        //private async Task<Informations> GetAppsInformations(IFilter<App> filter = null)
-        //{
-        //    var apps = context.Apps.Filter(filter);
-
-        //    Informations informations = new Informations
-        //    {
-        //        Count = await apps.CountAsync(),
-        //        ViewsCount = await apps.SumAsync(s => (long)s.ViewsCount)
-        //    };
-
-        //    return informations;
-        //}
     }
 }

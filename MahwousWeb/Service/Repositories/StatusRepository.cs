@@ -50,8 +50,8 @@ namespace MahwousWeb.Service.Repositories
         public async Task<byte[]> Download(int id)
         {
             string urlWithId = $"{url}/Download/{id}";
-
-            return await httpService.GetFile(urlWithId);
+            var response = await httpService.GetFile(urlWithId);
+            return response;
         }
     }
 }

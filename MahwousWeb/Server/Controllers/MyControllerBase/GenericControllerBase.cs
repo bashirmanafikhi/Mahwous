@@ -11,9 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
-
-
+using Microsoft.AspNetCore.Http;
 
 namespace MahwousWeb.Server.Controllers.MyControllerBase
 {
@@ -46,9 +44,16 @@ namespace MahwousWeb.Server.Controllers.MyControllerBase
         [Authorize]
         public virtual async Task<ActionResult<int>> Post(TModel entity)
         {
-            context.Add(entity);
-            await context.SaveChangesAsync();
-            return entity.Id;
+            try
+            {
+                context.Add(entity);
+                await context.SaveChangesAsync();
+                return entity.Id;
+            }
+            catch
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "error while adding data.");
+            }
         }
 
 
@@ -56,27 +61,41 @@ namespace MahwousWeb.Server.Controllers.MyControllerBase
         [Authorize]
         public virtual async Task<IActionResult> Put(TModel entity)
         {
-            var old = await table.FirstOrDefaultAsync(c => c.Id == entity.Id);
+            try
+            {
+                var old = await table.FirstOrDefaultAsync(c => c.Id == entity.Id);
 
-            if (old == null) { return NotFound(); }
+                if (old == null) { return NotFound(); }
 
-            context.Entry(old).CurrentValues.SetValues(entity);
+                context.Entry(old).CurrentValues.SetValues(entity);
 
-            await context.SaveChangesAsync();
-            return NoContent();
+                await context.SaveChangesAsync();
+                return NoContent();
+            }
+            catch
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "error while updating data.");
+            }
         }
 
         [HttpDelete("{id}")]
         [Authorize]
         public virtual async Task<IActionResult> Delete(int id)
         {
-            var entity = await table.FirstOrDefaultAsync(c => c.Id == id);
+            try
+            {
+                var entity = await table.FirstOrDefaultAsync(c => c.Id == id);
 
-            if (entity == null) { return NotFound(); }
+                if (entity == null) { return NotFound(); }
 
-            context.Remove(entity);
-            await context.SaveChangesAsync();
-            return NoContent();
+                context.Remove(entity);
+                await context.SaveChangesAsync();
+                return NoContent();
+            }
+            catch
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "error while deleting data.");
+            }
         }
 
 
@@ -104,9 +123,16 @@ namespace MahwousWeb.Server.Controllers.MyControllerBase
         [HttpGet("GetPaginated")]
         public async Task<ActionResult<ICollection<TModel>>> GetPaginated([FromQuery] PaginationDetails pagination)
         {
-            var queryable = table.AsQueryable();
-            await HttpContext.InsertPaginationParametersInResponse(queryable, pagination);
-            return await queryable.Paginate(pagination).ToListAsync();
+            try
+            {
+                var queryable = table.AsQueryable();
+                await HttpContext.InsertPaginationParametersInResponse(queryable, pagination);
+                return await queryable.Paginate(pagination).ToListAsync();
+            }
+            catch
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "error while getting paginated data.");
+            }
         }
 
 
@@ -127,31 +153,35 @@ namespace MahwousWeb.Server.Controllers.MyControllerBase
         [HttpPost("GetFiltered")]
         public async Task<ActionResult<ICollection<TModel>>> GetFiltered(TFilter filter)
         {
-            var queryable = table.Filter(filter);
-            await HttpContext.InsertPaginationParametersInResponse(queryable, filter.Pagination);
-            return await queryable.Paginate(filter.Pagination).ToListAsync();
+            try
+            {
+                var queryable = table.Filter(filter);
+                await HttpContext.InsertPaginationParametersInResponse(queryable, filter.Pagination);
+                return await queryable.Paginate(filter.Pagination).ToListAsync();
+            }
+            catch
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "error while getting filtered data.");
+            }
         }
 
 
         [HttpPut("IncrementViews/{id}")]
         public async Task<IActionResult> IncrementViews(int id)
         {
-            TModel model = await table.FirstOrDefaultAsync(s => s.Id == id);
-            model.ViewsCount++;
-            context.SaveChanges();
+            try
+            {
+                TModel model = await table.FirstOrDefaultAsync(s => s.Id == id);
+                model.ViewsCount++;
+                context.SaveChanges();
 
-            return Ok();
+                return Ok();
+            }
+            catch
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "error while incrementing views.");
+            }
         }
-
-
-
-
-        //public abstract Task<ActionResult<Informations>> GetInformations();
-        //public abstract Task<ActionResult<Informations>> GetInformations(IFilter<TModel> filter);
-
-
-
-        // this is for test.. if this work fine then delete the section in the bottom
 
         [HttpGet("GetInformations")]
         public virtual async Task<ActionResult<Informations>> GetInformations()
@@ -162,56 +192,29 @@ namespace MahwousWeb.Server.Controllers.MyControllerBase
 
         [HttpPost("GetInformationsFiltered")]
         public virtual async Task<ActionResult<Informations>> GetInformations(TFilter filter)
-        { 
-            return await GetEntityInformations(filter); 
-        }
-
-
-        private async Task<Informations> GetEntityInformations(IFilter<TModel> filter = null)
         {
-            var entities = table.Filter(filter);
-
-            Informations informations = new Informations 
-            {
-                Count = await entities.CountAsync(),
-                ViewsCount = await entities.SumAsync(s => (long)s.ViewsCount)
-            };
-
-            return informations;
+            return await GetEntityInformations(filter);
         }
 
 
+        private async Task<ActionResult<Informations>> GetEntityInformations(IFilter<TModel> filter = null)
+        {
+            try
+            {
+                var entities = table.Filter(filter);
 
+                Informations informations = new Informations
+                {
+                    Count = await entities.CountAsync(),
+                    ViewsCount = await entities.SumAsync(s => (long)s.ViewsCount)
+                };
 
-
-
-        //// this should Working Fine
-        //[HttpGet("GetInformations")]
-        //public override async Task<ActionResult<Informations>> GetInformations()
-        //{
-        //    return await GetEntityInformations();
-        //}
-
-
-        //[HttpPost("GetInformationsFiltered")]
-        //public async Task<ActionResult<Informations>> GetInformations(TFilter filter)
-        //{ return await GetInformations((IFilter<TModel>)filter); }
-
-        //[NonAction]
-        //public override async Task<ActionResult<Informations>> GetInformations(IFilter<TModel> filter)
-        //{
-        //    return await GetEntityInformations(filter);
-        //}
-
-        //private async Task<Informations> GetEntityInformations(IFilter<TModel> filter = null)
-        //{
-        //    var notifications = table.Filter(filter);
-
-        //    Informations informations = new Informations();
-        //    informations.Count = await notifications.CountAsync();
-        //    informations.ViewsCount = await notifications.SumAsync(s => (long)s.ViewsCount);
-
-        //    return informations;
-        //}
+                return informations;
+            }
+            catch
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "error while getting informations.");
+            }
+        }
     }
 }

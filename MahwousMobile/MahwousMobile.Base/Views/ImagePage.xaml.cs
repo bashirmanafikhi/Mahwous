@@ -29,7 +29,12 @@ namespace MahwousMobile.Base.Views
 
         protected override async void OnAppearing()
         {
-            await ((ImageViewModel)BindingContext).Repositories.ImagesRepository.IncrementViews(((ImageViewModel)BindingContext).Image.Id);
+            try
+            {
+                await ((ImageViewModel)BindingContext).Repositories.ImagesRepository.IncrementViews(((ImageViewModel)BindingContext).Image.Id);
+            }
+            catch
+            { }
         }
 
         private void ShowInterstitialAd(object sender, EventArgs e)

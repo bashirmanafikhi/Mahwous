@@ -11,38 +11,44 @@ namespace MahwousWeb.Service.Repositories
     {
         public NotificationRepository(IHttpService httpService, string url) : base(httpService, url) { }
 
-
-
         public async Task<Notification> GetLastNotification(string packageName)
         {
-            var response = await httpService.Get<Notification>($"{url}/getLastNotification?packageName={packageName}");
-            if (!response.Success)
+            try
             {
-                throw new ApplicationException(await response.GetBody());
+                var response = await httpService.Get<Notification>($"{url}/getLastNotification?packageName={packageName}");
+                if (!response.Success)
+                {
+                    throw new ApplicationException(await response.GetBody());
+                }
+                return response.Response;
             }
-            return response.Response;
+            catch { return null; }
         }
-
-
 
         public async Task IncrementOpened(int id)
         {
-            var response = await httpService.Put($"{url}/IncrementOpened/{id}");
-            if (!response.Success)
+            try
             {
-                throw new ApplicationException(await response.GetBody());
+                var response = await httpService.Put($"{url}/IncrementOpened/{id}");
+                if (!response.Success)
+                {
+                    throw new ApplicationException(await response.GetBody());
+                }
             }
+            catch { }
         }
-
-
 
         public async Task IncrementRecived(int id)
         {
-            var response = await httpService.Put($"{url}/IncrementRecived/{id}");
-            if (!response.Success)
+            try
             {
-                throw new ApplicationException(await response.GetBody());
+                var response = await httpService.Put($"{url}/IncrementRecived/{id}");
+                if (!response.Success)
+                {
+                    throw new ApplicationException(await response.GetBody());
+                }
             }
+            catch { }
         }
 
 
