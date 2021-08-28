@@ -6,6 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\MahwousMobile.Base\MahwousMobile.Base.csproj" />
+    <ProjectReference Include="..\..\MobileBase\MahwousMobile.Base\MahwousMobile.Base.csproj" />
   </ItemGroup>
 </Project>

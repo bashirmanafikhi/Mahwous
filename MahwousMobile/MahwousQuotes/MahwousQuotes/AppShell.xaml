@@ -1,16 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-
 <Shell xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:views="clr-namespace:MahwousQuotes.Views"
-             Title="Delicious Food"
+             xmlns:views="clr-namespace:MahwousMobile.Base.Views;assembly=MahwousMobile.Base"
              FlyoutHeaderBehavior="CollapseOnScroll"
-             xmlns:styles="clr-namespace:MahwousQuotes.Styles;assembly=MahwousQuotes"
+             xmlns:styles="clr-namespace:MahwousMobile.Base.Styles;assembly=MahwousMobile.Base"
              Visual="Material"
              mc:Ignorable="d"
-             xmlns:ShellTemplate="clr-namespace:MahwousQuotes.Views.ShellTemplates"
+             xmlns:ShellTemplate="clr-namespace:MahwousMobile.Base.Templates.ShellTemplates;assembly=MahwousMobile.Base" 
              FlyoutHeaderTemplate="{DataTemplate ShellTemplate:FlyoutHeaderTemplate}"
              ItemTemplate="{DataTemplate ShellTemplate:FlyoutItemTemplate}"
              MenuItemTemplate="{DataTemplate ShellTemplate:FlyoutMenuItemTemplate}"
@@ -18,7 +16,11 @@
              FlyoutBackgroundColor="{DynamicResource colBackground}" >
 
 
+
+
+    <!--#region SHELL RESOURCES-->
     <Shell.Resources>
+
 
 
         <!--#region SHELL STYLES-->
@@ -28,6 +30,9 @@
             ApplyToDerivedTypes="True">
             <!--  In iOS, this property changes the color of the FlyoutIcon and the selected top tabs  -->
             <!--  In iOS this property changes the color tabs upper not selected  -->
+
+
+
 
 
 
@@ -41,10 +46,7 @@
             <Setter Property="Shell.TabBarUnselectedColor" Value="{DynamicResource colWhite}" />
             <Setter Property="Shell.TabBarTitleColor" Value="{DynamicResource colRed}" />
 
-            <!--<Setter Property="Shell.FlyoutBackgroundImage" Value="img_bgflyout.png"/>-->
         </Style>
-
-
 
         <Style
             BasedOn="{StaticResource BaseStyle}"
@@ -65,20 +67,20 @@
 
 
 
-
-    <FlyoutItem Title="الصفحة الرئيسية"
+    <FlyoutItem Title="الصفحة الرئيسية" 
                 FlyoutDisplayOptions="AsMultipleItems">
 
         <FlyoutItem.Icon>
             <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Home}" FontFamily="FA-S" />
         </FlyoutItem.Icon>
 
+
         <Tab  Title="الصفحة الرئيسية">
             <Tab.Icon>
                 <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Home}" FontFamily="FA-S" />
             </Tab.Icon>
             <ShellContent>
-                <views:HomePage />
+                <views:HomePage StatusType="Quote" />
             </ShellContent>
         </Tab>
 
@@ -87,11 +89,11 @@
                 <FontImageSource Color="{DynamicResource colForeground}" Glyph="{x:Static styles:SolidIcons.Tags}" FontFamily="FA-S" />
             </Tab.Icon>
             <ShellContent>
-                <views:CategoriesPage/>
+                <views:CategoriesPage StatusType="Quote"/>
             </ShellContent>
         </Tab>
 
-        <Tab Title="الحالات" >
+        <Tab Title="الإقتباسات">
 
             <Tab.Icon>
                 <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.QuoteRight}" FontFamily="FA-S" />
@@ -149,7 +151,6 @@
 
 
 
-
     <FlyoutItem Title="اخبار مهووس"
                 FlyoutDisplayOptions="AsMultipleItems">
 
@@ -188,17 +189,13 @@
     </FlyoutItem>
 
 
-    <MenuItem Text="فيديوهات أعجبتك" Clicked="MenuItem_LikedQuotes_Clicked" >
+
+    <MenuItem Text="اقتباسات أعجبتك" Clicked="MenuItem_LikedQuotes_Clicked" >
         <MenuItem.IconImageSource>
             <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Heart}" FontFamily="FA-S" />
         </MenuItem.IconImageSource>
     </MenuItem>
 
-    <MenuItem Text="حالة عشوائية" Clicked="MenuItem_RandomQuote_Clicked" >
-        <MenuItem.IconImageSource>
-            <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Random}" FontFamily="FA-S" />
-        </MenuItem.IconImageSource>
-    </MenuItem>
 
     <MenuItem Text="تقييم التطبيق" Clicked="MenuItem_Rate_Clicked" >
         <MenuItem.IconImageSource>
@@ -212,15 +209,10 @@
         </MenuItem.IconImageSource>
     </MenuItem>
 
-
-
-    <!--<MenuItem Text="الإعدادات"/>-->
-
     <MenuItem Text="الخروج" Clicked="MenuItem_Exit_Clicked" >
         <MenuItem.IconImageSource>
             <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.DoorOpen}" FontFamily="FA-S" />
         </MenuItem.IconImageSource>
     </MenuItem>
-
 
 </Shell>
