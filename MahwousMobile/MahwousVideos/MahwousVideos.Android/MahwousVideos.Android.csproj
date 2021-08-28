@@ -123,7 +123,7 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\MahwousMobile.Base\MahwousMobile.Base.csproj">
+    <ProjectReference Include="..\..\MobileBase\MahwousMobile.Base\MahwousMobile.Base.csproj">
       <Project>{e5b98b9e-9c2e-4e02-ba96-4811fc662f74}</Project>
       <Name>MahwousMobile.Base</Name>
     </ProjectReference>

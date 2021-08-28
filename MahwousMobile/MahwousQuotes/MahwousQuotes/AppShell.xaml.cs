@@ -1,9 +1,10 @@
-﻿using MahwousQuote.ViewModels;
-using MahwousQuotes.Helpers;
-using MahwousQuotes.Views;
-using MahwousWeb.Shared.Repositories;
+﻿using MahwousMobile.Base.Helpers;
+using MahwousMobile.Base.Views;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -16,6 +17,8 @@ namespace MahwousQuotes
         public AppShell()
         {
             InitializeComponent();
+
+
         }
 
         private void MenuItem_Exit_Clicked(object sender, EventArgs e)
@@ -25,7 +28,7 @@ namespace MahwousQuotes
 
         private async void MenuItem_Rate_Clicked(object sender, EventArgs e)
         {
-            string Uri = "https://play.google.com/store/apps/details?id=com.mahwous.mahwousquotes";
+            string Uri = "https://play.google.com/store/apps/details?id=com.mahwous.MahwousQuotes";
             await Browser.OpenAsync(Uri);
         }
 
@@ -38,36 +41,12 @@ namespace MahwousQuotes
             });
         }
 
-        private async void MenuItem_RandomQuote_Clicked(object sender, EventArgs e)
-        {
-            try
-            {
-                var repository = DependencyService.Get<MahwousRepositories>().QuotesRepository;
-                var quote = await repository.GetRandom();
-                var viewModel = new QuoteViewModel(quote);
-
-                Shell.Current.FlyoutIsPresented = false;
-
-                var previousPage = Navigation.NavigationStack.LastOrDefault();
-                await Navigation.PushAsync(new QuoteDetailsPage(viewModel));
-                if (previousPage != null && previousPage is QuoteDetailsPage)
-                {
-                    Navigation.RemovePage(previousPage);
-                }
-            }
-            catch (Exception)
-            {
-
-            }
-
-
-        }
 
         private async void MenuItem_LikedQuotes_Clicked(object sender, EventArgs e)
         {
             Shell.Current.FlyoutIsPresented = false;
 
-            await Navigation.PushModalAsync(new LikedQuotesPage());
+            await Navigation.PushAsync(new LikedQuotesPage());
         }
 
 
