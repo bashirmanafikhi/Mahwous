@@ -3,13 +3,8 @@ using MahwousWeb.Server.Controllers.MyControllerBase;
 using MahwousWeb.Server.Helpers;
 using MahwousWeb.Models.Filters;
 using MahwousWeb.Models.Models;
-using MahwousWeb.Models.Pagination;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,8 +18,6 @@ namespace MahwousWeb.Server.Controllers
             : base(context, fileStorageService) { }
 
 
-        //[HttpPost]
-        //[Authorize]
         public override async Task<ActionResult<int>> Post(QuoteStatus quote)
         {
             context.Add(quote);
@@ -32,8 +25,7 @@ namespace MahwousWeb.Server.Controllers
             return quote.Id;
         }
 
-        //[HttpPut]
-        //[Authorize]
+
         
         public override async Task<IActionResult> Put(QuoteStatus quote)
         {
@@ -53,8 +45,7 @@ namespace MahwousWeb.Server.Controllers
             return NoContent();
         }
 
-        //[HttpDelete("{id}")]
-        //[Authorize]
+
         public override async Task<IActionResult> Delete(int id)
         {
             var quote = await context.QuoteStatuses.FirstOrDefaultAsync(c => c.Id == id);
@@ -66,44 +57,6 @@ namespace MahwousWeb.Server.Controllers
             await context.SaveChangesAsync();
             return NoContent();
         }
-
-        //[HttpGet("GetInformations")]
-        //public override async Task<ActionResult<Informations>> GetInformations()
-        //{
-        //    return await GetQuotesInformations();
-        //}
-
-
-        //[HttpPost("GetInformationsFiltered")]
-        //public override async Task<ActionResult<Informations>> GetInformations(QuoteFilter filter)
-        //{ 
-        //    return await GetQuotesInformations(filter); 
-        //}
-
-        ////[NonAction]
-        ////public override async Task<ActionResult<Informations>> GetInformations(IFilter<QuoteStatus> filter)
-        ////{
-        ////    return await GetQuotesInformations(filter);
-        ////}
-
-        //private async Task<Informations> GetQuotesInformations(IFilter<QuoteStatus> filter = null)
-        //{
-        //    var quotes = context.QuoteStatuses.Filter(filter);
-
-        //    Informations informations = new Informations
-        //    {
-        //        Count = await quotes.CountAsync(),
-        //        DownloadsCount = await quotes.SumAsync(s => (long)s.DownloadsCount),
-        //        LikesCount = await quotes.SumAsync(s => (long)s.LikesCount),
-        //        ViewsCount = await quotes.SumAsync(s => (long)s.ViewsCount)
-        //    };
-
-
-        //    var categoriesStatusCounts = context.Categories.Where(c => c.ForQuotes).Select(c => new KeyValuePair<string, int>(c.Name, c.StatusCategories.Where(sc => sc.Status is QuoteStatus).Count()));
-        //    informations.CategoriesStatusCounts = new Dictionary<string, int>(categoriesStatusCounts);
-
-        //    return informations;
-        //}
 
 
         [HttpGet("Download/{id}")]

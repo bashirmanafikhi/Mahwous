@@ -83,22 +83,6 @@ namespace MahwousWeb.Server.Controllers
         }
 
 
-
-        //[HttpGet("RenewToken")]
-        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        //public async Task<ActionResult<UserToken>> Renew()
-        //{
-        //    var userInfo = new UserInfo()
-        //    {
-        //        Email = HttpContext.User.Identity.Name
-        //    };
-
-        //    return await BuildToken(userInfo);
-        //}
-
-
-
-
         private async Task<UserToken> BuildToken(UserInfo userinfo)
         {
 

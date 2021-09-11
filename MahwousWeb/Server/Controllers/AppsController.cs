@@ -3,13 +3,9 @@ using MahwousWeb.Server.Controllers.MyControllerBase;
 using MahwousWeb.Server.Helpers;
 using MahwousWeb.Models.Filters;
 using MahwousWeb.Models.Models;
-using MahwousWeb.Models.Pagination;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace MahwousWeb.Server.Controllers
