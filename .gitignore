@@ -485,3 +485,10 @@ MigrationBackup/
 .ionide/
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio,aspnetcore
+
+# MFractors (Xamarin productivity tool) working folder 
+.mfractor/
+**/appsettings.development.json
+**/appsettings.Development.json
+**/appsettings.local.json
+**/launchSettings.json

@@ -1,6 +1,4 @@
-﻿using MahwousWeb.Shared.Filters;
-using MahwousWeb.Shared.Models;
-using MahwousWeb.Shared.Repositories;
+﻿using MahwousWeb.Service.Repositories;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -34,15 +32,15 @@ namespace MahwousConsoleCore
 
 
 
-            Stream stream1 = await mahwous.VideosRepository.Download(34);
+            var stream1 = await mahwous.VideosRepository.Download(34);
 
-            Stream stream2 = await mahwous.ImagesRepository.Download(30);
+            var stream2 = await mahwous.ImagesRepository.Download(30);
 
-            Stream stream3 = await mahwous.QuotesRepository.Download(41);
+            var stream3 = await mahwous.QuotesRepository.Download(41);
 
-            SaveFileStream(stream1, "1.mp4");
-            SaveFileStream(stream2, "2.jpg");
-            SaveFileStream(stream3, "3.txt");
+            //SaveFileStream(stream1, "1.mp4");
+            //SaveFileStream(stream2, "2.jpg");
+            //SaveFileStream(stream3, "3.txt");
 
 
             Console.WriteLine("Done");
