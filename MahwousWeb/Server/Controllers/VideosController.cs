@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using System.Text.Json;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MahwousWeb.Server.Controllers
 {
@@ -19,71 +22,45 @@ namespace MahwousWeb.Server.Controllers
             : base(context, fileStorageService) { }
 
 
-        //[HttpPost]
-        //[Authorize]
-        public override async Task<ActionResult<int>> Post(VideoStatus video)
+
+        [Authorize]
+        [HttpPost]
+        public async Task<ActionResult<int>> Post([FromForm] string serializedObject, [FromForm] IFormFile coverFile, [FromForm] IFormFile videoFile)
         {
-            if (video is VideoStatus &&
-                !string.IsNullOrWhiteSpace(video.CoverPath))
-            {
-                var coverPath = Convert.FromBase64String(video.CoverPath);
-                video.CoverPath = await fileStorageService.SaveFile(coverPath, "jpg", "video_covers");
-            }
-            else if (string.IsNullOrWhiteSpace(video.CoverPath))
-            {
+            VideoStatus video = JsonSerializer.Deserialize<VideoStatus>(serializedObject);
+
+            if (coverFile != null && coverFile.Length > 0)
+                video.CoverPath = await fileStorageService.SaveFile(coverFile, "jpg", "video_covers");
+            else
                 video.CoverPath = noImage;
-            }
 
-            if (video is VideoStatus &&
-                !string.IsNullOrWhiteSpace(video.VideoPath))
-            {
-                var videoPath = Convert.FromBase64String(video.VideoPath);
-                video.VideoPath = await fileStorageService.SaveFile(videoPath, "mp4", "videos");
-            }
-
-
+            if (videoFile.Length > 0)
+                video.VideoPath = await fileStorageService.SaveFile(videoFile, "mp4", "videos");
 
             context.Add(video);
             await context.SaveChangesAsync();
-            return video.Id;
+            return Ok(video.Id);
         }
 
-        //[HttpPut]
-        //[Authorize]
-        public override async Task<IActionResult> Put(VideoStatus video)
+        [Authorize]
+        [HttpPut]
+        public async Task<IActionResult> Put([FromForm] string serializedObject, [FromForm] IFormFile coverFile, [FromForm] IFormFile videoFile)
         {
+            VideoStatus video = JsonSerializer.Deserialize<VideoStatus>(serializedObject);
+
             var oldStatus = await context.VideoStatuses.FirstOrDefaultAsync(c => c.Id == video.Id);
 
             if (oldStatus == null) { return NotFound(); }
 
+            if (coverFile != null && coverFile.Length > 0)
+                video.CoverPath = await fileStorageService.SaveFile(coverFile, "jpg", "video_covers");
 
-            if (video is VideoStatus &&
-                !string.IsNullOrWhiteSpace((video as VideoStatus).CoverPath) &&
-                !(video as VideoStatus).CoverPath.Equals((oldStatus as VideoStatus).CoverPath))
-            {
-                var coverPath = Convert.FromBase64String((video as VideoStatus).CoverPath);
-                (video as VideoStatus).CoverPath = await fileStorageService.EditFile(coverPath,
-                    "jpg", (oldStatus as VideoStatus).CoverPath);
-            }
-
-            if (video is VideoStatus &&
-                !string.IsNullOrWhiteSpace((video as VideoStatus).VideoPath) &&
-                !(video as VideoStatus).VideoPath.Equals((oldStatus as VideoStatus).VideoPath))
-            {
-                var videoPath = Convert.FromBase64String((video as VideoStatus).VideoPath);
-                (video as VideoStatus).VideoPath = await fileStorageService.EditFile(videoPath,
-                    "mp4", (oldStatus as VideoStatus).VideoPath);
-            }
-
-
-
-
+            if (videoFile != null && videoFile.Length > 0)
+                video.VideoPath = await fileStorageService.SaveFile(videoFile, "mp4", "videos");
 
             await context.Database.ExecuteSqlInterpolatedAsync($"delete from StatusCategories where StatusId = {video.Id}");
 
             oldStatus.StatusCategories = video.StatusCategories;
-
-
 
             context.Entry(oldStatus).CurrentValues.SetValues(video);
 
@@ -91,8 +68,7 @@ namespace MahwousWeb.Server.Controllers
             return NoContent();
         }
 
-        //[HttpDelete("{id}")]
-        //[Authorize]
+
         public override async Task<IActionResult> Delete(int id)
         {
             var video = await context.VideoStatuses.FirstOrDefaultAsync(c => c.Id == id);

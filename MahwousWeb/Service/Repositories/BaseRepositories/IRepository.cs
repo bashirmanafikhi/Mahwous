@@ -2,14 +2,13 @@
 using MahwousWeb.Models.Models;
 using MahwousWeb.Models.Pagination;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace MahwousWeb.Service.Repositories
 {
     public interface IRepository<T> where T : ModelBase
     {
-        Task<int> Add(T entity);
-        Task Update(T entity);
         Task Delete(int Id);
 
         Task<T> Get(int id);
@@ -26,6 +25,5 @@ namespace MahwousWeb.Service.Repositories
         Task<Informations> GetInformations(IFilter<T> filter);
 
         Task IncrementViews(int id);
-
     }
 }

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MahwousWeb.Server.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : ControllerBase
     {
         private readonly ApplicationDbContext context;
 
@@ -18,6 +18,8 @@ namespace MahwousWeb.Server.Controllers
         {
             this.context = context;
         }
+
+
         [Route("sitemap.xml")]
         public ActionResult SitemapXml()
         {

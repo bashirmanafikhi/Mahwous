@@ -31,7 +31,7 @@
         @if (NotSelectedCategories != null)
         {
             <VideoForm ButtonText="تعديل الفيديو" Video="video"
-                       OnValidSubmit="@EditVideo" NotSelectedCategories="NotSelectedCategories" SelectedCategories="SelectedCategories" />
+                       OnValidSubmit="@((args)=> EditVideo(args.Item1,args.Item2))" NotSelectedCategories="NotSelectedCategories" SelectedCategories="SelectedCategories" />
         }
 
 
@@ -70,11 +70,11 @@
             ).ToList();
     }
 
-    async Task EditVideo()
+    async Task EditVideo(Stream coverFile, Stream videoFile)
     {
         try
         {
-            await repositories.VideosRepository.Update(video);
+            await repositories.VideosRepository.Update(video, coverFile, videoFile);
             navigation.NavigateTo("administration/videos");
 
         }

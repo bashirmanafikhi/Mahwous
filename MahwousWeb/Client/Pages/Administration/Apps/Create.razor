@@ -39,11 +39,11 @@
         //await authorizer.SetAuthorizationAsync();
     }
 
-    async Task CreateApp()
+    async Task CreateApp(Stream imageFile)
     {
         try
         {
-            await repositories.AppsRepository.Add(app);
+            await repositories.AppsRepository.Add(app, imageFile);
             navigation.NavigateTo("administration/apps");
 
         }

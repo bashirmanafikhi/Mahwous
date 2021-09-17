@@ -49,11 +49,11 @@
         post = await repositories.PostsRepository.Get(postId);
     }
 
-    async Task EditPost()
+    async Task EditPost(Stream imageFile)
     {
         try
         {
-            await repositories.PostsRepository.Update(post);
+            await repositories.PostsRepository.Update(post, imageFile);
             navigation.NavigateTo("administration/posts");
 
         }

@@ -1,96 +1,118 @@
 ﻿@using System.IO
-
+@using System.ComponentModel.DataAnnotations
 @inject IJSRuntime js
 
 
-    <EditForm Model="Image" OnValidSubmit="OnDataAnnotationsValidated">
+<EditForm Model="Image" OnValidSubmit="OnDataAnnotationsValidated">
 
-        <DataAnnotationsValidator />
-
-
-        <div class="form-group">
-            <InputImage Label="صورة" OnSelectedImage="PictureSelected" ImageURL="@imageURL" />
-            <span class="text-danger"><ValidationMessage For="@(() => Image.ImagePath)" /></span>
-</div>
+    <DataAnnotationsValidator />
 
 
-
-
-        <div class="form-group">
-            <label for="Categories">التصنيفات:</label>
-            <div>
-                <MultipleSelector Selected="Selected" NoSelected="NotSelected"></MultipleSelector>
+    <div class="form-group">
+        <label>صورة</label>
+        <InputFile OnChange="OnChooseFile" accept=".jpg,.jpeg,.png" />
+        <span class="text-danger"></span>
+    </div>
+        @if (Image.ImagePath != null)
+    {
+        <div>
+            <div style="margin:10px">
+                <img src="@Image.ImagePath" style="width: 400px;" />
             </div>
         </div>
+    }
+
+    @*<div class="progress">
+            <div class="progress-bar" role="progressbar" style="@($"width: { progressBar }%")" aria-valuenow="@progressBar" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>*@
 
 
 
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="Visible" @bind="Image.Visible" />
-            <label class="form-check-label" for="Visible">مرئي</label>
+
+    <div class="form-group">
+        <label for="Image.Categories">التصنيفات:</label>
+        <div>
+            <MultipleSelector Selected="Selected" NoSelected="NotSelected"></MultipleSelector>
         </div>
+    </div>
 
-        <br />
 
-        <a href="administration/images" class="btn btn-danger">
-            رجوع
-        </a>
 
-        <button type="submit" class="btn btn-info">
-            @ButtonText
-        </button>
+    <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="Visible" @bind="Image.Visible" />
+        <label class="form-check-label" for="Image.Visible">مرئي</label>
+    </div>
 
-    </EditForm>
+    <br />
+
+    <a href="administration/images" class="btn btn-danger">
+        رجوع
+    </a>
+
+    <button type="submit" class="btn btn-info">
+        @ButtonText
+    </button>
+
+</EditForm>
 
 @code {
 
     [Parameter] public ImageStatus Image { get; set; }
     [Parameter] public string ButtonText { get; set; } = "حفظ الصورة";
-    [Parameter] public EventCallback OnValidSubmit { get; set; }
-
-
+    [Parameter] public EventCallback<Stream> OnValidSubmit { get; set; }
 
     [Parameter] public List<Category> SelectedCategories { get; set; } = new List<Category>();
     [Parameter] public List<Category> NotSelectedCategories { get; set; } = new List<Category>();
-
-    private string imageURL;
-
 
     private List<MultipleSelectorModel> Selected = new List<MultipleSelectorModel>();
     private List<MultipleSelectorModel> NotSelected = new List<MultipleSelectorModel>();
 
     protected override void OnInitialized()
     {
-        if (!string.IsNullOrEmpty(Image.ImagePath))
-        {
-            imageURL = Image.ImagePath;
-            //Image.ImagePath = null;
-        }
-
         Selected = SelectedCategories.Select(x => new MultipleSelectorModel(x.Id.ToString(), x.Name)).ToList();
         NotSelected = NotSelectedCategories.Select(x => new MultipleSelectorModel(x.Id.ToString(), x.Name)).ToList();
     }
 
-    private void PictureSelected(string imageBase64)
+    Stream imageFile;
+    public async void OnChooseFile(InputFileChangeEventArgs e)
     {
-        Image.ImagePath = imageBase64;
-        imageURL = null;
-    }
+        try
+        {
+            // Get the selected file
+            var file = e.File;
 
+            // Check if the file is null then return from the method
+            if (file == null)
+                return;
+
+            // Validate the extension if requried (Client-Side)
+
+            // Set the value of the stream by calling OpenReadStream and pass the maximum number of bytes allowed because by default it only allows 512KB
+            // I used the value 2560000 which is about 2.5 MB
+            using (var stream = file.OpenReadStream(2560000))
+            {
+                imageFile = stream;
+                var fileName = file.Name;
+            }
+        }
+        catch (Exception ex)
+        {
+            await js.DisplayMessage(ex.Message + "\n ملاحظة: حجم الصورة ما لازم يتجاوز ال2 ميغا ونص");
+        }
+    }
 
 
     private async Task OnDataAnnotationsValidated()
     {
-        //await js.DisplayMessage("Validated");
-
-
+        if (imageFile == null && Image.ImagePath == null)
+        {
+            await js.DisplayMessage("خطء","الصورة مطلوبة",SweetAlertMessageType.error);
+            return;
+        }
         Image.StatusCategories = Selected
         .Select(x => new StatusCategories { CategoryId = int.Parse(x.Key) }).ToList();
 
-        if (!string.IsNullOrWhiteSpace(Image.ImagePath)) { imageURL = null; }
-
-
-        await OnValidSubmit.InvokeAsync(null);
+        await OnValidSubmit.InvokeAsync(imageFile);
     }
 
 }

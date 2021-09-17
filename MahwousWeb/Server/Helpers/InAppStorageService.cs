@@ -34,7 +34,7 @@ namespace MahwousWeb.Server.Helpers
         }
 
 
-        public async Task<string> EditFile(byte[] content, string extension, string fileRoute)
+        public async Task<string> EditFile(IFormFile content, string extension, string fileRoute)
         {
             var containerName = Path.GetFileName(Path.GetDirectoryName(fileRoute));
             if (!string.IsNullOrEmpty(fileRoute))
@@ -45,7 +45,7 @@ namespace MahwousWeb.Server.Helpers
             return await SaveFile(content, extension, containerName);
         }
 
-        public async Task<string> SaveFile(byte[] content, string extension, string containerName)
+        public async Task<string> SaveFile(IFormFile content, string extension, string containerName)
         {
             var fileName = $"{Guid.NewGuid()}.{extension}";
             string folder = Path.Combine(env.WebRootPath, "content", containerName);
@@ -56,7 +56,10 @@ namespace MahwousWeb.Server.Helpers
             }
 
             string savingPath = Path.Combine(folder, fileName);
-            await File.WriteAllBytesAsync(savingPath, content);
+            using (Stream fileStream = new FileStream(savingPath, FileMode.Create))
+            {
+                await content.CopyToAsync(fileStream);
+            }
 
             var currentUrl = $"{httpContextAccessor.HttpContext.Request.Scheme}://{httpContextAccessor.HttpContext.Request.Host}";
 
@@ -65,9 +68,29 @@ namespace MahwousWeb.Server.Helpers
 
             var pathForDatabase = myUri.AbsoluteUri;
             return pathForDatabase;
-
-            //return fileName;
         }
+
+        //public async Task<string> SaveFile(byte[] content, string extension, string containerName)
+        //{
+        //    var fileName = $"{Guid.NewGuid()}.{extension}";
+        //    string folder = Path.Combine(env.WebRootPath, "content", containerName);
+
+        //    if (!Directory.Exists(folder))
+        //    {
+        //        Directory.CreateDirectory(folder);
+        //    }
+
+        //    string savingPath = Path.Combine(folder, fileName);
+        //    await File.WriteAllBytesAsync(savingPath, content);
+
+        //    var currentUrl = $"{httpContextAccessor.HttpContext.Request.Scheme}://{httpContextAccessor.HttpContext.Request.Host}";
+
+        //    Uri baseUri = new Uri(currentUrl);
+        //    Uri myUri = new Uri(baseUri, $"content/{containerName}/{fileName}");
+
+        //    var pathForDatabase = myUri.AbsoluteUri;
+        //    return pathForDatabase;
+        //}
 
         public byte[] GetFile(string fileRoute)
         {

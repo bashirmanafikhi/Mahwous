@@ -39,11 +39,11 @@
         //await authorizer.SetAuthorizationAsync();
     }
 
-    async Task CreatePost()
+    async Task CreatePost(Stream imageFile)
     {
         try
         {
-            await repositories.PostsRepository.Add(post);
+            await repositories.PostsRepository.Add(post, imageFile);
             navigation.NavigateTo("administration/posts");
 
         }

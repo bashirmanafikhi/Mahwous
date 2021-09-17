@@ -1,17 +1,11 @@
-﻿using System;
-using Android.App;
-using Android.Content.PM;
+﻿using Android.App;
+using Android.Content;
+using Android.OS;
 using Android.Runtime;
 using Android.Views;
-using Android.Widget;
-using Android.OS;
-using MediaManager;
-using Android.Support.V4.App;
-using Android.Support.V4.Content;
-using Android.Gms.Ads;
-using Android.Content;
-using Plugin.LocalNotification;
 using AndroidX.Work;
+using Plugin.LocalNotification;
+using System;
 
 namespace MobileBase.Android
 {

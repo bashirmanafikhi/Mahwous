@@ -17,7 +17,7 @@ namespace MahwousWeb.Server.Controllers
 
     [ApiController]
     [Route("api/[controller]")]
-    public class NotificationsController : GenericControllerBase<Notification, NotificationFilter>
+    public class NotificationsController : GenericController<Notification, NotificationFilter>
     {
         public NotificationsController(ApplicationDbContext context, IFileStorageService fileStorageService)
             : base(context, fileStorageService) { }

@@ -1,6 +1,11 @@
 ﻿using MahwousMobile.Base.Helpers;
+using MahwousMobile.Base.Views;
+using MahwousWeb.Models.Models;
+using MahwousWeb.Service.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 
 namespace Mahwous
@@ -10,7 +15,31 @@ namespace Mahwous
         public App()
         {
             SetConfigurations();
-            MainPage = new AppShell();
+            MainPage = new WelcomeScreenPage();
+            //MainPage = new AppShell();
+
+
+        }
+
+        private async void register()
+        {
+            MahwousRepositories repos = new MahwousRepositories();
+            var res = await repos.AccountsRepository.Register(new MahwousWeb.Models.Models.RegisterUserInfo
+            {
+                Email = "",
+                Password = "",
+                ConfirmPassword = ""
+            });
+        }
+
+        private async void login()
+        {
+            MahwousRepositories repos = new MahwousRepositories();
+            var res = await repos.AccountsRepository.Login(new MahwousWeb.Models.Models.UserInfo
+            {
+                Email = "",
+                Password = ""
+            });
         }
 
         private void SetConfigurations()

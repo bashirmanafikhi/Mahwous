@@ -68,11 +68,11 @@
             ).ToList();
     }
 
-    async Task EditImage()
+    async Task EditImage(Stream imageFile)
     {
         try
         {
-            await repositories.ImagesRepository.Update(image);
+            await repositories.ImagesRepository.Update(image, imageFile);
             navigation.NavigateTo("administration/images");
 
         }

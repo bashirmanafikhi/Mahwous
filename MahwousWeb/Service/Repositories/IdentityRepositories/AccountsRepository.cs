@@ -18,6 +18,10 @@ namespace MahwousWeb.Service.Repositories
         {
             this.httpService = new HttpService(httpClient);
         }
+        public AccountsRepository(IHttpService httpService)
+        {
+            this.httpService = httpService;
+        }
 
 
         public async Task<UserToken> Register(RegisterUserInfo userInfo)

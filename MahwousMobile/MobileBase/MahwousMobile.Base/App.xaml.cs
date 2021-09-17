@@ -1,6 +1,9 @@
-﻿using MahwousMobile.Base.Styles.Themes;
+﻿using MahwousMobile.Base.Helpers;
+using MahwousMobile.Base.Styles.Themes;
 using MahwousWeb.Service.Repositories;
 using Plugin.LocalNotification;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -11,7 +14,7 @@ namespace MahwousMobile.Base
         public App()
         {
             InitializeComponent();
-
+            Device.SetFlags(new[] { "MediaElement_Experimental", "Brush_Experimental" });
             RegisterServices();
             CheckTheme();
             SetLocalNotificationsOptions();
@@ -29,6 +32,12 @@ namespace MahwousMobile.Base
         private void RegisterServices()
         {
             DependencyService.Register<MahwousRepositories>();
+            var token = Settings.Token;
+            if (token != null)
+            {
+                var repos = DependencyService.Get<MahwousRepositories>();
+                repos.Token = token;
+            }
         }
 
         private void SetLocalNotificationsOptions()
@@ -41,13 +50,13 @@ namespace MahwousMobile.Base
 
         }
 
-        private void OnLocalNotificationTapped(NotificationTappedEventArgs e)
+        private void OnLocalNotificationTapped(NotificationEventArgs e)
         {
             // your code goes here
             //DependencyService.Get<IMessage>().LongAlert("Tapped - " + e.Data);
         }
 
-        private void OnLocalNotificationReceived(NotificationReceivedEventArgs e)
+        private void OnLocalNotificationReceived(NotificationEventArgs e)
         {
             // your code goes here
             //DependencyService.Get<IMessage>().LongAlert("Received - " + e.Title);

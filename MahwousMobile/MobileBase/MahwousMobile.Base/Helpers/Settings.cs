@@ -64,5 +64,17 @@ namespace MahwousMobile.Base.Helpers
                 AppSettings.AddOrUpdateValue(nameof(AppTitle), value);
             }
         }
+
+        public static string Token
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(nameof(Token), null);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue(nameof(Token), value);
+            }
+        }
     }
 }

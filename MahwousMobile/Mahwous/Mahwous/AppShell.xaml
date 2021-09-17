@@ -68,12 +68,28 @@
         <ShellContent.Icon>
             <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Home}" FontFamily="FA-S" />
         </ShellContent.Icon>
-        
+
         <views:HomePage StatusType="{x:Null}" />
     </ShellContent>
+
+    <ShellContent Title="تسجيل الدخول">
+        <ShellContent.Icon>
+            <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Home}" FontFamily="FA-S" />
+        </ShellContent.Icon>
+
+        <views:LoginPage />
+    </ShellContent>
     
-    
-    <FlyoutItem Title="الصور" FlyoutDisplayOptions="AsMultipleItems">
+    <ShellContent Title="رفع صورة">
+        <ShellContent.Icon>
+            <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Home}" FontFamily="FA-S" />
+        </ShellContent.Icon>
+
+        <views:UploadImage />
+    </ShellContent>
+
+
+    <FlyoutItem Title="الصور" FlyoutDisplayOptions="AsSingleItem">
 
         <FlyoutItem.Icon>
             <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Image}" FontFamily="FA-S" />
@@ -148,7 +164,7 @@
     </FlyoutItem>
 
 
-    <FlyoutItem Title="الفيديو" FlyoutDisplayOptions="AsMultipleItems" >
+    <FlyoutItem Title="الفيديو" FlyoutDisplayOptions="AsSingleItem" >
 
         <FlyoutItem.Icon>
             <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Video}" FontFamily="FA-S" />
@@ -222,13 +238,11 @@
 
     </FlyoutItem>
 
-    <FlyoutItem Title="الفيديو" FlyoutDisplayOptions="AsMultipleItems" >
+    <FlyoutItem Title="الفيديو" FlyoutDisplayOptions="AsSingleItem" >
 
         <FlyoutItem.Icon>
             <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Video}" FontFamily="FA-S" />
         </FlyoutItem.Icon>
-
-
 
         <Tab Title="حالات كتابية">
 
@@ -335,7 +349,7 @@
     </FlyoutItem>
 
     <FlyoutItem Title="اخبار مهووس"
-                FlyoutDisplayOptions="AsMultipleItems">
+                FlyoutDisplayOptions="AsSingleItem">
 
         <FlyoutItem.Icon>
             <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Newspaper}" FontFamily="FA-S" />

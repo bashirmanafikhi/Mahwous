@@ -5,6 +5,7 @@ namespace MahwousWeb.Models.Models
 {
     public class App : ModelBase
     {
+        [Required]
         public string Name { get; set; }
 
         public string ImagePath { get; set; }

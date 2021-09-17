@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using System.Text.Json;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MahwousWeb.Server.Controllers
 {
@@ -18,42 +21,41 @@ namespace MahwousWeb.Server.Controllers
         public ImagesController(ApplicationDbContext context, IFileStorageService fileStorageService)
             : base(context, fileStorageService) { }
 
-
-        public override async Task<ActionResult<int>> Post(ImageStatus image)
+        [Authorize]
+        [HttpPost]
+        public async Task<ActionResult> Post([FromForm] string serializedObject, [FromForm] IFormFile imageFile)
         {
-            if (!string.IsNullOrWhiteSpace(image.ImagePath))
-            {
-                var categoryCover = Convert.FromBase64String(image.ImagePath);
-                image.ImagePath = await fileStorageService.SaveFile(categoryCover, "jpg", "images");
-            }
+            ImageStatus image = JsonSerializer.Deserialize<ImageStatus>(serializedObject);
+
+            if (imageFile == null)
+                return BadRequest("ملف الصورة مطلوب");
+
+            if (imageFile.Length > 0)
+                image.ImagePath = await fileStorageService.SaveFile(imageFile, "jpg", "images");
             else
-            {
                 image.ImagePath = noImage;
-            }
 
             context.Add(image);
-            await context.SaveChangesAsync();
-            return image.Id;
+            await context.SaveChangesAsync();   
+            return Ok(image.Id);
         }
 
 
-        public override async Task<IActionResult> Put(ImageStatus image)
+        [Authorize]
+        [HttpPut]
+        public async Task<IActionResult> Put([FromForm] string serializedObject, [FromForm] IFormFile imageFile)
         {
+            ImageStatus image = JsonSerializer.Deserialize<ImageStatus>(serializedObject);
+
             var oldImageStatus = await context.ImageStatuses.FirstOrDefaultAsync(c => c.Id == image.Id);
 
             if (oldImageStatus == null) { return NotFound(); }
 
-
-            if (image is ImageStatus &&
-                !string.IsNullOrWhiteSpace((image as ImageStatus).ImagePath) &&
-                !(image as ImageStatus).ImagePath.Equals((oldImageStatus as ImageStatus).ImagePath))
+            if(imageFile != null && imageFile.Length > 0)
             {
-                var coverPath = Convert.FromBase64String((image as ImageStatus).ImagePath);
-                (image as ImageStatus).ImagePath = await fileStorageService.EditFile(coverPath,
-                    "jpg", (oldImageStatus as ImageStatus).ImagePath);
+                image.ImagePath = await fileStorageService.EditFile(imageFile,
+                    "jpg", oldImageStatus.ImagePath);
             }
-
-
 
             await context.Database.ExecuteSqlInterpolatedAsync($"delete from StatusCategories where StatusId = {image.Id}");
 

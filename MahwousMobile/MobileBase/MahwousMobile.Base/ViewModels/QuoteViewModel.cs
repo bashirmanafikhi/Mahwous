@@ -36,7 +36,7 @@ namespace MahwousMobile.Base.ViewModels
             ShareQuoteWhatsCommand = new Command(async () => await ExecuteShareQuoteWhatsCommand());
             ShareQuoteFaceCommand = new Command(async () => await ExecuteShareQuoteFaceCommand());
 
-            Repositories.QuotesRepository.IncrementViews(Quote.Id);
+            Repositories.QuotesRepository.IncrementViews(Quote.Id).ConfigureAwait(false);
 
             MahwousSqliteDB<QuoteStatus> database = new MahwousSqliteDB<QuoteStatus>();
             Liked = database.Exists(Quote);

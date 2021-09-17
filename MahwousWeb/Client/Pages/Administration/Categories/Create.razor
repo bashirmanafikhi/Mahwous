@@ -44,11 +44,11 @@
         //await authorizer.SetAuthorizationAsync();
     }
 
-    async Task CreateCategory()
+    async Task CreateCategory(Stream imageFile)
     {
         try
         {
-            await repositories.CategoriesRepository.Add(category);
+            await repositories.CategoriesRepository.Add(category, imageFile);
             navigation.NavigateTo("administration/categories");
 
         }

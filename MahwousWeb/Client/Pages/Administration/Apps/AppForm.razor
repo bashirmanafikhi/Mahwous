@@ -1,88 +1,120 @@
-﻿
-
+﻿@inject IJSRuntime js
 
 @using System.IO
 
-    <EditForm Model="App" OnValidSubmit="@OnDataAnnotationsValidated">
+<EditForm Model="App" OnValidSubmit="@OnDataAnnotationsValidated">
 
-        <DataAnnotationsValidator />
+    <DataAnnotationsValidator />
 
-        <div class="form-group">
-            <label for="App.Name">عنوان التطبيق:</label>
-            <div>
-                <RadzenTextBox @bind-Value="App.Name" Placeholder="عنوان التطبيق" />
-                <span class="text-danger"><ValidationMessage For="@(() => App.Name)" /></span>
+    <div class="form-group">
+        <label for="App.Name">عنوان التطبيق:</label>
+        <div>
+            <RadzenTextBox @bind-Value="App.Name" Placeholder="عنوان التطبيق" />
+            <span class="text-danger"><ValidationMessage For="@(() => App.Name)" /></span>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label for="App.Description">وصف التطبيق:</label><br />
+        <RadzenTextArea Cols="30" Placeholder="اكتب الوصف هنا..." @bind-Value="@App.Description" />
+        <span class="text-danger"><ValidationMessage For="@(() => App.Description)" /></span>
+    </div>
+
+    <div class="form-group">
+        <label>صورة</label>
+        <InputFile OnChange="OnChooseFile" accept=".jpg,.jpeg,.png" />
+        <span class="text-danger"></span>
+    </div>
+    @if (App.ImagePath != null)
+    {
+        <div>
+            <div style="margin:10px">
+                <img src="@App.ImagePath" style="width: 400px;" />
             </div>
         </div>
+    }
 
 
-        <div class="form-group">
-            <label for="App.Description">وصف التطبيق:</label><br />
-            <RadzenTextArea Cols="30" Placeholder="اكتب الوصف هنا..." @bind-Value="@App.Description" />
-            <span class="text-danger"><ValidationMessage For="@(() => App.Description)" /></span>
+    <div class="form-group">
+        <label for="App.Package">اسم الحزمة Package Name:</label>
+        <div>
+            <RadzenTextBox @bind-Value="App.Package" Placeholder="اسم الحزمة" />
+            <span class="text-danger"><ValidationMessage For="@(() => App.Package)" /></span>
         </div>
+    </div>
 
-        <div class="form-group">
-            <InputImage Label="صورة التطبيق" OnSelectedImage="PictureSelected" />
-            <span class="text-danger"><ValidationMessage For="@(() => App.ImagePath)" /></span>
+
+    <div class="form-group">
+        <label for="App.PlayStoreLink">رابط جوجل بلاي ستور:</label>
+        <div>
+            <RadzenTextBox @bind-Value="App.PlayStoreLink" Placeholder="رابط متجر بلاي" />
+            <span class="text-danger"><ValidationMessage For="@(() => App.PlayStoreLink)" /></span>
         </div>
+    </div>
 
-
-        <div class="form-group">
-            <label for="App.Package">اسم الحزمة Package Name:</label>
-            <div>
-                <RadzenTextBox @bind-Value="App.Package" Placeholder="اسم الحزمة" />
-                <span class="text-danger"><ValidationMessage For="@(() => App.Package)" /></span>
-            </div>
+    <div class="form-group">
+        <label for="App.AppleStoreLink">رابط آبل ستور:</label>
+        <div>
+            <RadzenTextBox @bind-Value="App.AppleStoreLink" Placeholder="رابط متجر آيفون" />
+            <span class="text-danger"><ValidationMessage For="@(() => App.AppleStoreLink)" /></span>
         </div>
+    </div>
+
+    <br />
 
 
-        <div class="form-group">
-            <label for="App.PlayStoreLink">رابط جوجل بلاي ستور:</label>
-            <div>
-                <RadzenTextBox @bind-Value="App.PlayStoreLink" Placeholder="رابط متجر بلاي" />
-                <span class="text-danger"><ValidationMessage For="@(() => App.PlayStoreLink)" /></span>
-            </div>
-        </div>
+    <a href="administration/apps" class="btn btn-danger">
+        رجوع
+    </a>
 
-        <div class="form-group">
-            <label for="App.AppleStoreLink">رابط آبل ستور:</label>
-            <div>
-                <RadzenTextBox @bind-Value="App.AppleStoreLink" Placeholder="رابط متجر آيفون" />
-                <span class="text-danger"><ValidationMessage For="@(() => App.AppleStoreLink)" /></span>
-            </div>
-        </div>
+    <button type="submit" class="btn btn-info">
+        @ButtonText
+    </button>
 
-        <br />
-
-
-        <a href="administration/apps" class="btn btn-danger">
-            رجوع
-        </a>
-
-        <button type="submit" class="btn btn-info">
-            @ButtonText
-        </button>
-
-    </EditForm>
+</EditForm>
 
 @code {
     [Parameter] public MahwousWeb.Models.Models.App App { get; set; }
     [Parameter] public string ButtonText { get; set; } = "حفظ";
-    [Parameter] public EventCallback OnValidSubmit { get; set; }
+    [Parameter] public EventCallback<Stream> OnValidSubmit { get; set; }
 
     private async Task OnDataAnnotationsValidated()
     {
-        await OnValidSubmit.InvokeAsync(null);
+        if (imageFile == null && App.ImagePath == null)
+        {
+            await js.DisplayMessage("خطء", "صورة التطبيق مطلوبة", SweetAlertMessageType.error);
+            return;
+        }
+
+        await OnValidSubmit.InvokeAsync(imageFile);
     }
 
-    protected override void OnInitialized()
+    Stream imageFile;
+    public async void OnChooseFile(InputFileChangeEventArgs e)
     {
-        App.ImagePath = null;
-    }
+        try
+        {
+            // Get the selected file
+            var file = e.File;
 
-    private void PictureSelected(string imageBase64)
-    {
-        App.ImagePath = imageBase64;
+            // Check if the file is null then return from the method
+            if (file == null)
+                return;
+
+            // Validate the extension if requried (Client-Side)
+
+            // Set the value of the stream by calling OpenReadStream and pass the maximum number of bytes allowed because by default it only allows 512KB
+            // I used the value 2560000 which is about 2.5 MB
+            using (var stream = file.OpenReadStream(2560000))
+            {
+                imageFile = stream;
+                var fileName = file.Name;
+            }
+        }
+        catch (Exception ex)
+        {
+            await js.DisplayMessage(ex.Message + "\n ملاحظة: حجم الصورة ما لازم يتجاوز ال2 ميغا ونص");
+        }
     }
 }

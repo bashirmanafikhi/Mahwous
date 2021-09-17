@@ -1,4 +1,5 @@
 ﻿@using System.IO
+@inject IJSRuntime js
 
 
 <EditForm Model="Video" OnValidSubmit="OnDataAnnotationsValidated">
@@ -11,17 +12,27 @@
 
             <InputText @bind-Value="Video.Title" />
             <span class="text-danger"><ValidationMessage For="@(() => Video.Title)" /></span>
-</div>
+        </div>
     </div>
 
     <div class="form-group">
-        <InputImage Label="صورة الغلاف" OnSelectedImage="PictureSelected" />
-        <span class="text-danger"><ValidationMessage For="@(() => Video.CoverPath)" /></span>
-</div>
+        <label>صورة الغلاف</label>
+        <InputFile OnChange="OnChooseCover" accept=".jpg,.jpeg,.png" />
+        <span class="text-danger"></span>
+    </div>
+    @if (Video.CoverPath != null)
+    {
+        <div>
+            <div style="margin:10px">
+                <img src="@Video.CoverPath" style="width: 400px;" />
+            </div>
+        </div>
+    }
 
     <div class="form-group">
-        <InputVideo Label="الفيديو" OnSelectedVideo="VideoSelected" />
-        <span class="text-danger"><ValidationMessage For="@(() => Video.VideoPath)" /></span>
+        <label>الفيديو</label>
+        <InputFile OnChange="OnChooseVideo" accept="video/mp4,video/x-m4v,video/*" />
+        <span class="text-danger"></span>
     </div>
 
 
@@ -64,7 +75,7 @@
 
     [Parameter] public VideoStatus Video { get; set; }
     [Parameter] public string ButtonText { get; set; } = "حفظ الفيديو";
-    [Parameter] public EventCallback OnValidSubmit { get; set; }
+    [Parameter] public EventCallback<(Stream, Stream)> OnValidSubmit { get; set; }
 
 
 
@@ -86,16 +97,63 @@
         NotSelected = NotSelectedCategories.Select(x => new MultipleSelectorModel(x.Id.ToString(), x.Name)).ToList();
     }
 
-    private void PictureSelected(string imageBase64)
+
+
+    Stream imageFile;
+    public async void OnChooseCover(InputFileChangeEventArgs e)
     {
-        Video.CoverPath = imageBase64;
+        try
+        {
+            // Get the selected file
+            var file = e.File;
+
+            // Check if the file is null then return from the method
+            if (file == null)
+                return;
+
+            // Validate the extension if requried (Client-Side)
+
+            // Set the value of the stream by calling OpenReadStream and pass the maximum number of bytes allowed because by default it only allows 512KB
+            // I used the value 2560000 which is about 2.5 MB
+            using (var stream = file.OpenReadStream(2560000))
+            {
+                imageFile = stream;
+                var fileName = file.Name;
+            }
+        }
+        catch (Exception ex)
+        {
+            await js.DisplayMessage(ex.Message + "\n ملاحظة: حجم الصورة ما لازم يتجاوز ال2 ميغا ونص");
+        }
     }
 
-    private void VideoSelected(string videoBase64)
+    Stream videoFile;
+    public async void OnChooseVideo(InputFileChangeEventArgs e)
     {
-        Video.VideoPath = videoBase64;
-    }
+        try
+        {
+            // Get the selected file
+            var file = e.File;
 
+            // Check if the file is null then return from the method
+            if (file == null)
+                return;
+
+            // Validate the extension if requried (Client-Side)
+
+            // Set the value of the stream by calling OpenReadStream and pass the maximum number of bytes allowed because by default it only allows 512KB
+            // I used the value 5120000 which is about 5 MB
+            using (var stream = file.OpenReadStream(5120000))
+            {
+                videoFile = stream;
+                var fileName = file.Name;
+            }
+        }
+        catch (Exception ex)
+        {
+            await js.DisplayMessage(ex.Message + "\n ملاحظة: حجم الصورة ما لازم يتجاوز ال5 ميغا ");
+        }
+    }
 
 
     private async Task OnDataAnnotationsValidated()
@@ -103,12 +161,21 @@
         isWaiting = true;
         StateHasChanged();
 
+        if (imageFile == null && Video.CoverPath == null)
+        {
+            await js.DisplayMessage("خطء", "صورة الغلاف مطلوبة", SweetAlertMessageType.error);
+            return;
+        }
+
+        if (videoFile == null && Video.VideoPath == null)
+        {
+            await js.DisplayMessage("خطء", "ملف الفيديو مطلوب", SweetAlertMessageType.error);
+            return;
+        }
 
         Video.StatusCategories = Selected.Select(x => new StatusCategories { CategoryId = int.Parse(x.Key) }).ToList();
 
-
-
-        await OnValidSubmit.InvokeAsync(null);
+        await OnValidSubmit.InvokeAsync((imageFile, videoFile));
     }
 
 

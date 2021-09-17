@@ -38,46 +38,6 @@ namespace MahwousWeb.Server.Controllers.MyControllerBase
         }
         #endregion
 
-
-
-        [HttpPost]
-        [Authorize]
-        public virtual async Task<ActionResult<int>> Post(TModel entity)
-        {
-            try
-            {
-                context.Add(entity);
-                await context.SaveChangesAsync();
-                return entity.Id;
-            }
-            catch
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, "error while adding data.");
-            }
-        }
-
-
-        [HttpPut]
-        [Authorize]
-        public virtual async Task<IActionResult> Put(TModel entity)
-        {
-            try
-            {
-                var old = await table.FirstOrDefaultAsync(c => c.Id == entity.Id);
-
-                if (old == null) { return NotFound(); }
-
-                context.Entry(old).CurrentValues.SetValues(entity);
-
-                await context.SaveChangesAsync();
-                return NoContent();
-            }
-            catch
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, "error while updating data.");
-            }
-        }
-
         [HttpDelete("{id}")]
         [Authorize]
         public virtual async Task<IActionResult> Delete(int id)
@@ -159,9 +119,9 @@ namespace MahwousWeb.Server.Controllers.MyControllerBase
                 await HttpContext.InsertPaginationParametersInResponse(queryable, filter.Pagination);
                 return await queryable.Paginate(filter.Pagination).ToListAsync();
             }
-            catch
+            catch ( Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "error while getting filtered data.");
+                return StatusCode(StatusCodes.Status500InternalServerError, "error while getting filtered data. " + ex);
             }
         }
 

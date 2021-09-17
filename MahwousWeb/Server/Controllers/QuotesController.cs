@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MahwousWeb.Server.Controllers
 {
@@ -18,7 +19,9 @@ namespace MahwousWeb.Server.Controllers
             : base(context, fileStorageService) { }
 
 
-        public override async Task<ActionResult<int>> Post(QuoteStatus quote)
+        [Authorize]
+        [HttpPost]
+        public async Task<ActionResult<int>> Post(QuoteStatus quote)
         {
             context.Add(quote);
             await context.SaveChangesAsync();
@@ -26,14 +29,14 @@ namespace MahwousWeb.Server.Controllers
         }
 
 
-        
-        public override async Task<IActionResult> Put(QuoteStatus quote)
+
+        [Authorize]
+        [HttpPut]
+        public async Task<IActionResult> Put(QuoteStatus quote)
         {
             var oldQuote = await context.QuoteStatuses.FirstOrDefaultAsync(c => c.Id == quote.Id);
 
             if (oldQuote == null) { return NotFound(); }
-
-
 
             await context.Database.ExecuteSqlInterpolatedAsync($"delete from StatusCategories where StatusId = {quote.Id}");
 

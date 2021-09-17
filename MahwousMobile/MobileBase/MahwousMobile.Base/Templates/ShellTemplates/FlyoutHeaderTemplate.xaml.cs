@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MahwousMobile.Base.Helpers;
+using MahwousMobile.Base.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +17,19 @@ namespace MahwousMobile.Base.Templates.ShellTemplates
         public FlyoutHeaderTemplate()
         {
             InitializeComponent();
+        }
+
+        async void OnProfileImageTapped(object sender, EventArgs e)
+        {
+            try
+            {
+                LoginPage login = new LoginPage();
+                await Navigation.PushAsync(login);
+            }
+            catch (Exception ex)
+            {
+               DependencyService.Get<IMessage>().ShortAlert(ex.Message);
+            }
         }
     }
 }

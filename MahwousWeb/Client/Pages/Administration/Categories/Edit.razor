@@ -28,7 +28,7 @@
 
 
         <CategoryForm ButtonText="تعديل التصنيف" Category="category"
-                      OnValidSubmit="@EditCategory" />
+                      OnValidSubmit="EditCategory" />
 
     </div>
 </div>
@@ -48,11 +48,11 @@
         category = await repositories.CategoriesRepository.Get(categoryId);
     }
 
-    async Task EditCategory()
+    async Task EditCategory(Stream coverFile)
     {
         try
         {
-            await repositories.CategoriesRepository.Update(category);
+            await repositories.CategoriesRepository.Update(category, coverFile);
             navigation.NavigateTo("administration/categories");
 
         }

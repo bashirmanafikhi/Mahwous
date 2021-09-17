@@ -2,42 +2,25 @@
 using MahwousWeb.Models.Models;
 using MahwousWeb.Models.Pagination;
 using MahwousWeb.Service.Services;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace MahwousWeb.Service.Repositories
 {
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : ModelBase
+    public abstract class RepositoryBase<TEntity>: IRepository<TEntity> where TEntity : ModelBase
     {
         protected string url = "api/statuses";
 
         protected readonly IHttpService httpService;
 
-        public Repository(IHttpService httpService, string url)
+        public RepositoryBase(IHttpService httpService, string url)
         {
             this.httpService = httpService;
             this.url = url;
-        }
-
-        public async Task<int> Add(TEntity entity)
-        {
-            var response = await httpService.Post<TEntity, int>(url, entity);
-            if (!response.Success)
-            {
-                throw new ApplicationException(await response.GetBody());
-            }
-            return response.Response;
-        }
-
-        public async Task Update(TEntity entity)
-        {
-            var response = await httpService.Put(url, entity);
-            if (!response.Success)
-            {
-                throw new ApplicationException(await response.GetBody());
-            }
         }
 
         public async Task Delete(int id)

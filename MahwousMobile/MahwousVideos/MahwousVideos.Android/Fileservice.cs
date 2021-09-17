@@ -1,12 +1,5 @@
-﻿using Android;
-using Android.App;
-using Android.Content;
-using Android.Content.PM;
-using Android.Media;
+﻿using Android.Media;
 using Android.OS;
-using Android.Support.V4.App;
-using Android.Support.V4.Content;
-using Android.Widget;
 using MahwousMobile.Base.Helpers;
 using MahwousVideos.Droid;
 using System.Collections.Generic;

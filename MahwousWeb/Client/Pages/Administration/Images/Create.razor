@@ -27,14 +27,11 @@
 <div class="content">
     <div class="container-fluid">
 
-
-
         @if (NotSelectedCategories != null)
         {
             <ImageForm ButtonText="إضافة صورة" Image="image"
                        OnValidSubmit="CreateImage" NotSelectedCategories="NotSelectedCategories" />
         }
-
     </div>
 </div>
 
@@ -59,11 +56,12 @@
         //await authorizer.SetAuthorizationAsync();
     }
 
-    async Task CreateImage()
+    async Task CreateImage(Stream imageFile)
     {
         try
         {
-            await repositories.ImagesRepository.Add(image);
+            //await repositories.ImagesRepository.Add(image);
+            await repositories.ImagesRepository.Add(image, imageFile);
             navigation.NavigateTo("administration/images");
 
         }
@@ -72,4 +70,5 @@
             Console.WriteLine("Error: " + ex.Message);
         }
     }
+
 }

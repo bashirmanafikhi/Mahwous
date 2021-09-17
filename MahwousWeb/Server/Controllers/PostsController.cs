@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using System.Text.Json;
 
 namespace MahwousWeb.Server.Controllers
 {
@@ -18,13 +21,15 @@ namespace MahwousWeb.Server.Controllers
         public PostsController(ApplicationDbContext context, IFileStorageService fileStorageService)
             : base(context, fileStorageService) { }
 
-
-        public override async Task<ActionResult<int>> Post(Post post)
+        [Authorize]
+        [HttpPost]
+        public async Task<ActionResult<int>> Post([FromForm] string serializedObject, [FromForm] IFormFile coverFile)
         {
-            if (!string.IsNullOrWhiteSpace(post.ImagePath))
+            Post post = JsonSerializer.Deserialize<Post>(serializedObject);
+
+            if (coverFile != null && coverFile.Length > 0)
             {
-                var postCover = Convert.FromBase64String(post.ImagePath);
-                post.ImagePath = await fileStorageService.SaveFile(postCover, "jpg", "posts");
+                post.ImagePath = await fileStorageService.SaveFile(coverFile, "jpg", "posts");
             }
             else
             {
@@ -36,19 +41,18 @@ namespace MahwousWeb.Server.Controllers
             return post.Id;
         }
 
-
-        public override async Task<IActionResult> Put(Post post)
+        [Authorize]
+        [HttpPut]
+        public async Task<ActionResult<int>> Put([FromForm] string serializedObject, [FromForm] IFormFile coverFile)
         {
+            Post post = JsonSerializer.Deserialize<Post>(serializedObject);
             var oldPost = await context.Posts.FirstOrDefaultAsync(c => c.Id == post.Id);
 
             if (oldPost == null) { return NotFound(); }
 
-
-            if (!string.IsNullOrWhiteSpace(post.ImagePath) &&
-                !post.ImagePath.Equals(oldPost.ImagePath))
+            if (coverFile != null && coverFile.Length > 0)
             {
-                var postCover = Convert.FromBase64String(post.ImagePath);
-                post.ImagePath = await fileStorageService.EditFile(postCover,
+                post.ImagePath = await fileStorageService.EditFile(coverFile,
                     "jpg", oldPost.ImagePath);
             }
 
@@ -74,7 +78,5 @@ namespace MahwousWeb.Server.Controllers
             await context.SaveChangesAsync();
             return NoContent();
         }
-
-
     }
 }

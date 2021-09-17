@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MahwousWeb.Service.Repositories
 {
-    public class StatusRepository<TStatus> : Repository<TStatus> where TStatus : Status
+    public class StatusRepository<TStatus> : RepositoryBase<TStatus> where TStatus : Status
     {
         public StatusRepository(IHttpService httpService, string url) : base(httpService, url) { }
 

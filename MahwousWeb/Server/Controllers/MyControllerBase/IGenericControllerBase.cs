@@ -11,8 +11,8 @@ namespace MahwousWeb.Server.Controllers.MyControllerBase
         where TModel : ModelBase
         where TFilter : IFilter<TModel>
     {
-        Task<ActionResult<int>> Post(TModel entity);
-        Task<IActionResult> Put(TModel entity);
+        //Task<ActionResult<int>> Post(TModel entity);
+        //Task<IActionResult> Put(TModel entity);
         Task<IActionResult> Delete(int id);
 
         Task<ActionResult<TModel>> Get(int id);

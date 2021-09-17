@@ -18,12 +18,8 @@ namespace MahwousWeb.Server.Controllers.MyControllerBase
 
         public GenericStatusesControllerBase(ApplicationDbContext context, IFileStorageService fileStorageService)
             : base(context, fileStorageService)
-        {
+        { }
 
-        }
-
-
-        //[HttpGet("{id}")]
         public override async Task<ActionResult<TModel>> Get(int id)
         {
             var status = await table

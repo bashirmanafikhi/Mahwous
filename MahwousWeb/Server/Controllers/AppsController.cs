@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
+using System.Text.Json;
 
 namespace MahwousWeb.Server.Controllers
 {
@@ -18,13 +21,15 @@ namespace MahwousWeb.Server.Controllers
         public AppsController(ApplicationDbContext context, IFileStorageService fileStorageService)
             : base(context, fileStorageService) { }
 
-
-        public override async Task<ActionResult<int>> Post(App app)
+        [Authorize]
+        [HttpPost]
+        public async Task<ActionResult<int>> Post([FromForm] string serializedObject, [FromForm] IFormFile coverFile)
         {
-            if (!string.IsNullOrWhiteSpace(app.ImagePath))
+            App app = JsonSerializer.Deserialize<App>(serializedObject);
+
+            if (coverFile != null && coverFile.Length > 0)
             {
-                var appCover = Convert.FromBase64String(app.ImagePath);
-                app.ImagePath = await fileStorageService.SaveFile(appCover, "jpg", "apps");
+                app.ImagePath = await fileStorageService.SaveFile(coverFile, "jpg", "apps");
             }
             else
             {
@@ -36,18 +41,19 @@ namespace MahwousWeb.Server.Controllers
             return app.Id;
         }
 
-        public override async Task<IActionResult> Put(App app)
+        [Authorize]
+        [HttpPut]
+        public async Task<ActionResult<int>> Put([FromForm] string serializedObject, [FromForm] IFormFile coverFile)
         {
+            App app = JsonSerializer.Deserialize<App>(serializedObject);
             var oldApp = await context.Apps.FirstOrDefaultAsync(c => c.Id == app.Id);
 
             if (oldApp == null) { return NotFound(); }
 
 
-            if (!string.IsNullOrWhiteSpace(app.ImagePath) &&
-                !app.ImagePath.Equals(oldApp.ImagePath))
+            if (coverFile != null && coverFile.Length > 0)
             {
-                var appCover = Convert.FromBase64String(app.ImagePath);
-                app.ImagePath = await fileStorageService.EditFile(appCover,
+                app.ImagePath = await fileStorageService.EditFile(coverFile,
                     "jpg", oldApp.ImagePath);
             }
 

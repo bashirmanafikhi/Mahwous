@@ -47,11 +47,11 @@
         app = await repositories.AppsRepository.Get(appId);
     }
 
-    async Task EditApp()
+    async Task EditApp(Stream coverFile)
     {
         try
         {
-            await repositories.AppsRepository.Update(app);
+            await repositories.AppsRepository.Update(app, coverFile);
             navigation.NavigateTo("administration/apps");
 
         }

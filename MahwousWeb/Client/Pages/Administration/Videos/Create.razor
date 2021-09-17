@@ -31,7 +31,7 @@
         @if (NotSelectedCategories != null)
         {
             <VideoForm ButtonText="إضافة فيديو" Video="video"
-                       OnValidSubmit="CreateVideo" NotSelectedCategories="NotSelectedCategories" />
+                       OnValidSubmit="@((args)=> CreateVideo(args.Item1,args.Item2))" NotSelectedCategories="NotSelectedCategories" />
 
         }
 
@@ -65,13 +65,13 @@
         //await authorizer.SetAuthorizationAsync();
     }
 
-    async Task CreateVideo()
+    async Task CreateVideo(Stream coverFile,Stream videoFile)
     {
 
 
         try
         {
-            await repositories.VideosRepository.Add(video);
+            await repositories.VideosRepository.Add(video, coverFile, videoFile);
             navigation.NavigateTo("administration/videos");
 
         }

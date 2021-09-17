@@ -59,10 +59,13 @@ namespace MahwousMobile.Base.Helpers
                     NotificationId = notificationData.Id,
                     ReturningData = notificationData.ReturningData,
                     BadgeNumber = notificationData.BadgeNumber,
-                    NotifyTime = notificationData.IsScheduled ? notificationData.NotifyTime : null
+                    Schedule = new NotificationRequestSchedule
+                    {
+                        NotifyTime = notificationData.IsScheduled ? notificationData.NotifyTime : null
+                    }
                 };
 
-                NotificationCenter.Current.Show(notification);
+                await NotificationCenter.Current.Show(notification);
 
 
                 Preferences.Set("last_notification_id", notificationData.Id);

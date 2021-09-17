@@ -1,17 +1,14 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
+using Android.Content;
 using Android.Content.PM;
+using Android.Gms.Ads;
+using Android.OS;
 using Android.Runtime;
 using Android.Views;
-using Android.Widget;
-using Android.OS;
-using MediaManager;
-using Android.Support.V4.App;
-using Android.Support.V4.Content;
-using Android.Gms.Ads;
-using Android.Content;
-using Plugin.LocalNotification;
 using AndroidX.Work;
+using MediaManager;
+using Plugin.LocalNotification;
+using System;
 
 namespace MahwousVideos.Droid
 {
@@ -29,7 +26,8 @@ namespace MahwousVideos.Droid
 
             CrossMediaManager.Current.Init(this);
 
-            MobileAds.Initialize(ApplicationContext, "ca-app-pub-1685177955120006~8639773316");
+            MobileAds.Initialize(ApplicationContext);
+
 
             // Must create a Notification Channel when API >= 26
             // you can created multiple Notification Channels with different names.

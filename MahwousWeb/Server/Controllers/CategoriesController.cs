@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
+using System.Text.Json;
 
 namespace MahwousWeb.Server.Controllers
 {
@@ -19,36 +22,34 @@ namespace MahwousWeb.Server.Controllers
             : base(context, fileStorageService) { }
 
 
-        public override async Task<ActionResult<int>> Post(Category category)
+        [Authorize]
+        [HttpPost]
+        public async Task<ActionResult<int>> Post([FromForm] string serializedObject, [FromForm] IFormFile coverFile)
         {
-            if (!string.IsNullOrWhiteSpace(category.CoverPath))
-            {
-                var categoryCover = Convert.FromBase64String(category.CoverPath);
-                category.CoverPath = await fileStorageService.SaveFile(categoryCover, "jpg", "categories");
-            }
+            Category category = JsonSerializer.Deserialize<Category>(serializedObject);
+
+            if (coverFile != null && coverFile.Length > 0)
+                category.CoverPath = await fileStorageService.SaveFile(coverFile, "jpg", "categories");
             else
-            {
                 category.CoverPath = noImage;
-            }
 
             context.Add(category);
             await context.SaveChangesAsync();
             return category.Id;
         }
 
-
-        public override async Task<IActionResult> Put(Category category)
+        [Authorize]
+        [HttpPut]
+        public async Task<ActionResult<int>> Put([FromForm] string serializedObject, [FromForm] IFormFile coverFile)
         {
+            Category category = JsonSerializer.Deserialize<Category>(serializedObject);
             var oldCategory = await context.Categories.FirstOrDefaultAsync(c => c.Id == category.Id);
 
             if (oldCategory == null) { return NotFound(); }
 
-
-            if (!string.IsNullOrWhiteSpace(category.CoverPath) &&
-                !category.CoverPath.Equals(oldCategory.CoverPath))
+            if (coverFile != null && coverFile.Length > 0)
             {
-                var categoryCover = Convert.FromBase64String(category.CoverPath);
-                category.CoverPath = await fileStorageService.EditFile(categoryCover,
+                category.CoverPath = await fileStorageService.EditFile(coverFile,
                     "jpg", oldCategory.CoverPath);
             }
 
