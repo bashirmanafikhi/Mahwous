@@ -5148,6 +5148,7 @@ namespace MahwousImages.Droid
 			global::MarcTron.Plugin.Resource.Id.up = global::MahwousImages.Droid.Resource.Id.up;
 			global::MarcTron.Plugin.Resource.Id.useLogo = global::MahwousImages.Droid.Resource.Id.useLogo;
 			global::MarcTron.Plugin.Resource.Id.view_offset_helper = global::MahwousImages.Droid.Resource.Id.view_offset_helper;
+			global::MarcTron.Plugin.Resource.Id.view_tree_lifecycle_owner = global::MahwousImages.Droid.Resource.Id.view_tree_lifecycle_owner;
 			global::MarcTron.Plugin.Resource.Id.view_tree_saved_state_registry_owner = global::MahwousImages.Droid.Resource.Id.view_tree_saved_state_registry_owner;
 			global::MarcTron.Plugin.Resource.Id.visible = global::MahwousImages.Droid.Resource.Id.visible;
 			global::MarcTron.Plugin.Resource.Id.visible_removing_fragment_view_tag = global::MahwousImages.Droid.Resource.Id.visible_removing_fragment_view_tag;

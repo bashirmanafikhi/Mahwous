@@ -9403,6 +9403,7 @@ namespace MahwousQuotes.Droid
 			global::MarcTron.Plugin.Resource.Id.up = global::MahwousQuotes.Droid.Resource.Id.up;
 			global::MarcTron.Plugin.Resource.Id.useLogo = global::MahwousQuotes.Droid.Resource.Id.useLogo;
 			global::MarcTron.Plugin.Resource.Id.view_offset_helper = global::MahwousQuotes.Droid.Resource.Id.view_offset_helper;
+			global::MarcTron.Plugin.Resource.Id.view_tree_lifecycle_owner = global::MahwousQuotes.Droid.Resource.Id.view_tree_lifecycle_owner;
 			global::MarcTron.Plugin.Resource.Id.view_tree_saved_state_registry_owner = global::MahwousQuotes.Droid.Resource.Id.view_tree_saved_state_registry_owner;
 			global::MarcTron.Plugin.Resource.Id.visible = global::MahwousQuotes.Droid.Resource.Id.visible;
 			global::MarcTron.Plugin.Resource.Id.visible_removing_fragment_view_tag = global::MahwousQuotes.Droid.Resource.Id.visible_removing_fragment_view_tag;

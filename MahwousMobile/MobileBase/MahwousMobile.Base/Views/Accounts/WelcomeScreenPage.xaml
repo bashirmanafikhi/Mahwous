@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:vm="clr-namespace:MahwousMobile.Base.ViewModels"
              x:Class="MahwousMobile.Base.Views.WelcomeScreenPage">
     <ContentPage.BindingContext>
@@ -8,7 +9,8 @@
     </ContentPage.BindingContext>
 
     <Grid>
-
+        
+        <!--<xct:AvatarView />-->
         <!--<xct:MediaElement x:Name="BgVideo" Source="ms-appx:///welcomeVideo.mp4" ShowsPlaybackControls="False"
                       IsLooping="True" Aspect="AspectFill" AutoPlay="True"
                       HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>-->
@@ -46,6 +48,13 @@
                 </CarouselView.ItemTemplate>
             </CarouselView>
             <IndicatorView x:Name="LandingIndicator" Grid.Row="1" IndicatorsShape="Circle" IndicatorColor="#888888" SelectedIndicatorColor="#E7305E" />
+
+            <StackLayout Grid.Row="2" Orientation="Horizontal" Spacing="20" VerticalOptions="End">
+                <Button Text="تسجيل حساب" Command="{Binding RegisterCommand}" HeightRequest="50" WidthRequest="145"
+                        BackgroundColor="#E7305E" TextColor="White" CornerRadius="25" FontAttributes="Bold" />
+                <Button Text="تسجيل حساب" Command="{Binding RegisterCommand}" HeightRequest="50" WidthRequest="145"
+                        BackgroundColor="White" TextColor="#2E4159" CornerRadius="25" FontAttributes="Bold" />
+            </StackLayout>
         </Grid>
     </Grid>
 </ContentPage>
