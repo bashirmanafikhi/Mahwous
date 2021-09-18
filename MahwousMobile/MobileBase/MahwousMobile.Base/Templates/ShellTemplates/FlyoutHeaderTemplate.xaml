@@ -1,6 +1,7 @@
 ﻿<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MahwousMobile.Base.Templates.ShellTemplates.FlyoutHeaderTemplate"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:helpers="clr-namespace:MahwousMobile.Base.Helpers"
              HeightRequest="150">
 
@@ -16,17 +17,14 @@
                Aspect="AspectFill"
                Source="TransparentBlack.png" />
 
-        <Image  Grid.Column="1"
-               HorizontalOptions="CenterAndExpand"
+        <xct:AvatarView Text="AZ" Source="avater.png" Grid.Column="1"
+                        HorizontalOptions="CenterAndExpand"
                VerticalOptions="CenterAndExpand"
-               Aspect="AspectFill"
-               Source="TransparentBlack.png" >
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer
-                Tapped="OnProfileImageTapped"
-                NumberOfTapsRequired="1" />
-            </Image.GestureRecognizers>
-        </Image>
+               Aspect="AspectFill" >
+            <xct:AvatarView.GestureRecognizers>
+                <TapGestureRecognizer Tapped="GoToProfilePage" />
+            </xct:AvatarView.GestureRecognizers>
+        </xct:AvatarView>
 
         <!--<Label Grid.Column="1"
                Text="{x:Static helpers:Settings.AppTitle}"

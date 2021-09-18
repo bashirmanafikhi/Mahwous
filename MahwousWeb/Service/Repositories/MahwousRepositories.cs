@@ -26,7 +26,7 @@ namespace MahwousWeb.Service.Repositories
         private static readonly string local = @"http://192.168.0.113:60485/";
 
         public MahwousRepositories()
-            : this(local)
+            : this(url)
         {
         }
 

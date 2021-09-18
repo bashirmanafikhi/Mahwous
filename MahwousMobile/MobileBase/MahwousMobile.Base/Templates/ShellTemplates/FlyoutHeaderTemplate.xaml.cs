@@ -1,5 +1,6 @@
 ﻿using MahwousMobile.Base.Helpers;
 using MahwousMobile.Base.Views;
+using Microsoft.AppCenter.Crashes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,8 +29,14 @@ namespace MahwousMobile.Base.Templates.ShellTemplates
             }
             catch (Exception ex)
             {
-               DependencyService.Get<IMessage>().ShortAlert(ex.Message);
+                Crashes.TrackError(ex);
+                DependencyService.Get<IMessage>().ShortAlert(ex.Message);
             }
+        }
+
+        private void GoToProfilePage(object sender, EventArgs e)
+        {
+
         }
     }
 }

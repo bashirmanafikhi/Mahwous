@@ -1,6 +1,7 @@
 ﻿using MahwousMobile.Base.Helpers;
 using MahwousWeb.Models.Models;
 using MahwousWeb.Service.Repositories;
+using Microsoft.AppCenter.Crashes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +37,7 @@ namespace MahwousMobile.Base.Views
             }
             catch (Exception ex)
             {
+                Crashes.TrackError(ex);
                 DependencyService.Get<IMessage>().LongAlert(ex.Message);
             }
 

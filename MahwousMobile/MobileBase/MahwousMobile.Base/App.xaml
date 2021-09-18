@@ -11,7 +11,7 @@
     <Application.Resources>
 
 
-        <ResourceDictionary Source="/Styles/Themes/DarkTheme.xaml" />
+        <ResourceDictionary Source="/Styles/Themes/WhiteTheme.xaml" />
 
 
     </Application.Resources>

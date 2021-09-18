@@ -2,13 +2,8 @@
 using MahwousMobile.Base.Views;
 using MahwousWeb.Models.Models;
 using MarcTron.Plugin;
-using MediaManager;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

@@ -1,5 +1,7 @@
 ﻿using MahwousMobile.Base.Helpers;
 using MahwousMobile.Base.Views;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +23,17 @@ namespace Mahwous
 
         }
 
-        private void MenuItem_Exit_Clicked(object sender, EventArgs e)
+        private void MenuItem_Signout_Clicked(object sender, EventArgs e)
         {
-            Environment.Exit(0);
+            try
+            {
+                Settings.Token = null;
+            }
+            catch (Exception ex)
+            {
+                Crashes.TrackError(ex);
+                DependencyService.Get<IMessage>().LongAlert(ex.Message);
+            }
         }
 
         private async void MenuItem_Rate_Clicked(object sender, EventArgs e)

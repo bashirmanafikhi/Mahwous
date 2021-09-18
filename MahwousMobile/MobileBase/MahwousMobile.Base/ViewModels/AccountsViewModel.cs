@@ -1,6 +1,7 @@
 ﻿using MahwousMobile.Base.Helpers;
 using MahwousMobile.Base.Models;
 using MahwousWeb.Models.Models;
+using Microsoft.AppCenter.Crashes;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,8 +12,7 @@ namespace MahwousMobile.Base.ViewModels
 {
     class AccountsViewModel : BaseViewModel
     {
-        public Action DisplayInvalidLoginPrompt;
-        private string email;
+        public Action LoggedSuccessfully;
 
         // Welcome Screen
         public List<OnBoardItem> OnBoardList
@@ -41,22 +41,26 @@ namespace MahwousMobile.Base.ViewModels
         }
 
         // Properties
-        public string Logged => Settings.Token;
+        public bool Logged => Settings.Token != null;
 
+
+        private string email;
         public string Email
         {
             get { return email; }
             set { SetProperty(ref email, value); }
         }
-        private string password;
 
+
+        private string password;
         public string Password
         {
             get { return password; }
             set { SetProperty(ref password, value); }
         }
-        private string confirmPassword;
 
+
+        private string confirmPassword;
         public string ConfirmPassword
         {
             get { return confirmPassword; }
@@ -82,10 +86,12 @@ namespace MahwousMobile.Base.ViewModels
                     Password = password
                 });
                 Settings.Token = token.Token;
+                if(LoggedSuccessfully != null) LoggedSuccessfully.Invoke();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                DisplayInvalidLoginPrompt();
+                Crashes.TrackError(ex);
+                DependencyService.Get<IMessage>().LongAlert(ex.Message);
             }
         }
 
@@ -102,10 +108,12 @@ namespace MahwousMobile.Base.ViewModels
                         ConfirmPassword = ConfirmPassword
                     });
                 Settings.Token = token.Token;
+                if (LoggedSuccessfully != null) LoggedSuccessfully.Invoke();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                DisplayInvalidLoginPrompt();
+                Crashes.TrackError(ex);
+                DependencyService.Get<IMessage>().LongAlert(ex.Message);
             }
         }
     }

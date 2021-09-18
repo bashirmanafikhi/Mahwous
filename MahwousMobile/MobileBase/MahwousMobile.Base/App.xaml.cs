@@ -14,9 +14,9 @@ namespace MahwousMobile.Base
         public App()
         {
             InitializeComponent();
-            Device.SetFlags(new[] { "MediaElement_Experimental", "Brush_Experimental" });
+            //Device.SetFlags(new[] { "MediaElement_Experimental", "Brush_Experimental" });
             RegisterServices();
-            CheckTheme();
+            //CheckTheme();
             SetLocalNotificationsOptions();
         }
 

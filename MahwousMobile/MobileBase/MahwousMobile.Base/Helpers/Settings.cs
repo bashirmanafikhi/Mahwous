@@ -1,8 +1,10 @@
-﻿using Plugin.Settings;
+﻿using MahwousWeb.Service.Repositories;
+using Plugin.Settings;
 using Plugin.Settings.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Xamarin.Forms;
 
 namespace MahwousMobile.Base.Helpers
 {
@@ -26,6 +28,7 @@ namespace MahwousMobile.Base.Helpers
         private static readonly string SettingsDefault = string.Empty;
         public static readonly string TestInterstitialAdKey = "ca-app-pub-3940256099942544/1033173712";
         public static readonly string TestBannerAdKey = "ca-app-pub-3940256099942544/6300978111";
+        public static readonly string TestRewardedAdKey = "ca-app-pub-3940256099942544/5224354917";
 
         #endregion
 
@@ -38,6 +41,17 @@ namespace MahwousMobile.Base.Helpers
             set
             {
                 AppSettings.AddOrUpdateValue(nameof(BannerAdKey), value);
+            }
+        }
+        public static string RewardedAdKey
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(nameof(RewardedAdKey), TestRewardedAdKey);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue(nameof(RewardedAdKey), value);
             }
         }
 
@@ -69,12 +83,20 @@ namespace MahwousMobile.Base.Helpers
         {
             get
             {
-                return AppSettings.GetValueOrDefault(nameof(Token), null);
+                return Xamarin.Essentials.SecureStorage.GetAsync(nameof(Token)).Result;
             }
             set
             {
-                AppSettings.AddOrUpdateValue(nameof(Token), value);
+                if (value == null)
+                {
+                    Xamarin.Essentials.SecureStorage.Remove(nameof(Token));
+                    return;
+                }
+                DependencyService.Get<MahwousRepositories>().Token = value;
+                Xamarin.Essentials.SecureStorage.SetAsync(nameof(Token), value);
             }
         }
+
+        public static Shell MainShellWindow { get; set; }
     }
 }

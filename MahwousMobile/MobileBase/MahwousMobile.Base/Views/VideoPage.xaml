@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:mm="clr-namespace:MediaManager.Forms;assembly=MediaManager.Forms"
              xmlns:templates="clr-namespace:MahwousMobile.Base.Templates.DataTemplates"
-             xmlns:styles="clr-namespace:MahwousMobile.Base.Styles;assembly=MahwousMobile.Base"
+             xmlns:styles="clr-namespace:MahwousMobile.Base.Styles;assembly=MahwousMobile.Base" xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              mc:Ignorable="d"
              x:Class="MahwousMobile.Base.Views.VideoPage">
 
@@ -79,9 +79,9 @@
 
             <Grid>
 
-                <mm:VideoView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#141414" ShowControls="True" HeightRequest="400"/>
+                <xct:MediaElement Source="{Binding Video.VideoPath}" HeightRequest="400" AutoPlay="True" KeepScreenOn="True" BackgroundColor="{DynamicResource colBlack}"/>
             
-                <ActivityIndicator x:Name="loadingIndicator" IsRunning="True" IsVisible="true" HorizontalOptions="Center" VerticalOptions="Center" Color="{DynamicResource colRed}"/>
+                <!--<ActivityIndicator x:Name="loadingIndicator" IsRunning="True" IsVisible="true" HorizontalOptions="Center" VerticalOptions="Center" Color="{DynamicResource colRed}"/>-->
             
             </Grid>
 

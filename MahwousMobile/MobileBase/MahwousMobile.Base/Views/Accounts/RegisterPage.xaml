@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:vm="clr-namespace:MahwousMobile.Base.ViewModels"
-             x:Class="MahwousMobile.Base.Views.LoginPage">
-
+             x:Class="MahwousMobile.Base.Views.RegisterPage">
     <ContentPage.BindingContext>
         <vm:AccountsViewModel />
     </ContentPage.BindingContext>
@@ -24,49 +23,43 @@
             </BoxView.Background>
         </BoxView>
 
-
         <StackLayout Spacing="20" Margin="30,60"  VerticalOptions="End" Orientation="Vertical">
-            <Label Text="مرحباً بك" TextColor="{DynamicResource colRed}" FontSize="24" FontAttributes="Bold"
-                                   WidthRequest="220" HorizontalOptions="Start" />
-            <Label Text="تسجيل الدخول إلى حسابك" TextColor="White" FontSize="14" 
+            <Label Text="سوف تبدأ رحلتك من هنا" TextColor="{DynamicResource colRed}" FontSize="26" FontAttributes="Bold"
+                                   HorizontalOptions="Start" />
+            <Label Text="من فضلك أدخل التفاصيل" TextColor="White" FontSize="14" 
                                    WidthRequest="250" HorizontalOptions="Start" />
             <Frame
                 Padding="0"
                 CornerRadius     ="20"
                 IsClippedToBounds="True">
-                <Entry Placeholder="اسم المستخدم" Text="{Binding Email}" Background="Transparent" BackgroundColor="Transparent" WidthRequest="145"
+                <Entry Placeholder="اسم المستخدم" Text="{Binding Email}" Background="White" HeightRequest="50" WidthRequest="145"
                        TextColor="{DynamicResource colBlack}"/>
             </Frame>
             <Frame
                 Padding="0"
                 CornerRadius     ="20"
                 IsClippedToBounds="True">
-                <Entry Margin="0" Placeholder="كلمة المرور" IsPassword="True" Text="{Binding Password}" Background="White" 
+                <Entry Placeholder="كلمة المرور" Text="{Binding Password}" Background="White" HeightRequest="50" WidthRequest="145"
                         TextColor="{DynamicResource colBlack}" />
             </Frame>
-            <Button Text="تسجيل الدخول" Command="{Binding LoginCommand}" HeightRequest="40" WidthRequest="145"
+            <Frame
+                Padding="0"
+                CornerRadius ="20"
+                IsClippedToBounds="True">
+                <Entry Placeholder="تأكيد كلمة المرور" Text="{Binding ConfirmPassword}" Background="White" HeightRequest="50" WidthRequest="145"
+                        TextColor="{DynamicResource colBlack}" />
+            </Frame>
+            <Button Text="تسجيل حساب جديد" Command="{Binding RegisterCommand}" HeightRequest="50" WidthRequest="145"
                         BackgroundColor="{DynamicResource colRed}" TextColor="White" CornerRadius="25" FontAttributes="Bold" />
 
             <StackLayout Orientation="Horizontal" >
-                <Label Text="هل نسيت كلمة المرور؟" TextColor="White" FontSize="14" 
+                <Label Text="ألديك حساب من قبل؟ " TextColor="White" FontSize="14" 
                                    HorizontalOptions="Start" />
 
-                <Label Text="اعادة تعيين كلمة المرور" TextColor="{DynamicResource colRed}" FontSize="14"  TextDecorations="Underline"
+                <Label Text="تسجيل الدخول" TextColor="{DynamicResource colRed}" FontSize="14" TextDecorations="Underline"
                                    HorizontalOptions="Start" >
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer />
-                    </Label.GestureRecognizers>
-                </Label>
-            </StackLayout>
-            
-            <StackLayout Orientation="Horizontal" >
-                <Label Text="ليس لديك حساب؟" TextColor="White" FontSize="14" 
-                                   HorizontalOptions="Start" />
-
-                <Label Text="تسجيل حساب جديد" TextColor="{DynamicResource colRed}" FontSize="14"  TextDecorations="Underline"
-                                   HorizontalOptions="Start" >
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="GoToRegisterPage" />
+                        <TapGestureRecognizer Tapped="GoToLoginPage" />
                     </Label.GestureRecognizers>
                 </Label>
             </StackLayout>

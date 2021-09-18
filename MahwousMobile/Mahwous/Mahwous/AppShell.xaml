@@ -21,8 +21,6 @@
     <!--#region SHELL RESOURCES-->
     <Shell.Resources>
 
-
-
         <!--#region SHELL STYLES-->
         <Style
             x:Key="BaseStyle"
@@ -61,33 +59,48 @@
 
     </Shell.Resources>
 
-
-
-
-    <ShellContent Title="الرئيسية">
-        <ShellContent.Icon>
+    <FlyoutItem Title="الصور" FlyoutDisplayOptions="AsSingleItem">
+        <FlyoutItem.Icon>
             <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Home}" FontFamily="FA-S" />
-        </ShellContent.Icon>
+        </FlyoutItem.Icon>
 
-        <views:HomePage StatusType="{x:Null}" />
-    </ShellContent>
 
-    <ShellContent Title="تسجيل الدخول">
-        <ShellContent.Icon>
-            <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Home}" FontFamily="FA-S" />
-        </ShellContent.Icon>
+        <Tab  Title="الرئيسية">
+            <Tab.Icon>
+                <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Home}" FontFamily="FA-S" />
+            </Tab.Icon>
+            <ShellContent>
+                <views:HomePage StatusType="{x:Null}" />
+            </ShellContent>
+        </Tab>
+        
+        <Tab  Title="تطبيقاتنا">
+            <Tab.Icon>
+                <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.ThLarge}" FontFamily="FA-S" />
+            </Tab.Icon>
+            <ShellContent>
+                <views:AppsPage />
+            </ShellContent>
+        </Tab>
 
-        <views:LoginPage />
-    </ShellContent>
-    
-    <ShellContent Title="رفع صورة">
-        <ShellContent.Icon>
-            <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Home}" FontFamily="FA-S" />
-        </ShellContent.Icon>
+        <Tab  Title="الأخبار">
+            <Tab.Icon>
+                <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Newspaper}" FontFamily="FA-S" />
+            </Tab.Icon>
+            <ShellContent>
+                <views:PostsPage />
+            </ShellContent>
+        </Tab>
 
-        <views:UploadImage />
-    </ShellContent>
-
+        <Tab  Title="من نحن">
+            <Tab.Icon>
+                <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Question}" FontFamily="FA-S" />
+            </Tab.Icon>
+            <ShellContent>
+                <views:AboutPage />
+            </ShellContent>
+        </Tab>
+    </FlyoutItem>
 
     <FlyoutItem Title="الصور" FlyoutDisplayOptions="AsSingleItem">
 
@@ -238,10 +251,10 @@
 
     </FlyoutItem>
 
-    <FlyoutItem Title="الفيديو" FlyoutDisplayOptions="AsSingleItem" >
+    <FlyoutItem Title="حالات كتابية" FlyoutDisplayOptions="AsSingleItem" >
 
         <FlyoutItem.Icon>
-            <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Video}" FontFamily="FA-S" />
+            <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.QuoteRight}" FontFamily="FA-S" />
         </FlyoutItem.Icon>
 
         <Tab Title="حالات كتابية">
@@ -348,7 +361,7 @@
 
     </FlyoutItem>
 
-    <FlyoutItem Title="اخبار مهووس"
+    <!--<FlyoutItem Title="اخبار مهووس"
                 FlyoutDisplayOptions="AsSingleItem">
 
         <FlyoutItem.Icon>
@@ -356,34 +369,9 @@
         </FlyoutItem.Icon>
 
 
-        <Tab  Title="تطبيقاتنا">
-            <Tab.Icon>
-                <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.ThLarge}" FontFamily="FA-S" />
-            </Tab.Icon>
-            <ShellContent>
-                <views:AppsPage />
-            </ShellContent>
-        </Tab>
+        
 
-        <Tab  Title="الأخبار">
-            <Tab.Icon>
-                <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Newspaper}" FontFamily="FA-S" />
-            </Tab.Icon>
-            <ShellContent>
-                <views:PostsPage />
-            </ShellContent>
-        </Tab>
-
-        <Tab  Title="من نحن">
-            <Tab.Icon>
-                <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Question}" FontFamily="FA-S" />
-            </Tab.Icon>
-            <ShellContent>
-                <views:AboutPage />
-            </ShellContent>
-        </Tab>
-
-    </FlyoutItem>
+    </FlyoutItem>-->
 
 
     <MenuItem Text="تقييم التطبيق" Clicked="MenuItem_Rate_Clicked" >
@@ -398,10 +386,10 @@
         </MenuItem.IconImageSource>
     </MenuItem>
 
-    <!--<MenuItem Text="الخروج" Clicked="MenuItem_Exit_Clicked" >
+    <MenuItem Text="تسجيل الخروج" Clicked="MenuItem_Signout_Clicked" >
         <MenuItem.IconImageSource>
             <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.DoorOpen}" FontFamily="FA-S" />
         </MenuItem.IconImageSource>
-    </MenuItem>-->
+    </MenuItem>
 
 </Shell>

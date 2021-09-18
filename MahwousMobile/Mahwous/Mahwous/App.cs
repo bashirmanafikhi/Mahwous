@@ -1,12 +1,9 @@
 ﻿using MahwousMobile.Base.Helpers;
 using MahwousMobile.Base.Views;
-using MahwousWeb.Models.Models;
-using MahwousWeb.Service.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+using Xamarin.Forms;
 
 namespace Mahwous
 {
@@ -15,37 +12,32 @@ namespace Mahwous
         public App()
         {
             SetConfigurations();
-            MainPage = new WelcomeScreenPage();
-            //MainPage = new AppShell();
-
-
+            ShowPage();
         }
 
-        private async void register()
+        protected override void OnStart()
         {
-            MahwousRepositories repos = new MahwousRepositories();
-            var res = await repos.AccountsRepository.Register(new MahwousWeb.Models.Models.RegisterUserInfo
-            {
-                Email = "",
-                Password = "",
-                ConfirmPassword = ""
-            });
+            base.OnStart();
+            AppCenter.Start("android=933bf022-696a-44fa-97d1-cc448ce626fd;",
+                  typeof(Analytics), typeof(Crashes));
         }
 
-        private async void login()
+        private void ShowPage()
         {
-            MahwousRepositories repos = new MahwousRepositories();
-            var res = await repos.AccountsRepository.Login(new MahwousWeb.Models.Models.UserInfo
+            Settings.MainShellWindow = new AppShell();
+            if (Settings.Token == null)
             {
-                Email = "",
-                Password = ""
-            });
+                MainPage = new NavigationPage(new WelcomeScreenPage());
+                return;
+            }
+            MainPage = Settings.MainShellWindow;
         }
 
         private void SetConfigurations()
         {
             Settings.InterstitialAdKey = "ca-app-pub-1685177955120006/8885310508";
             Settings.BannerAdKey = "ca-app-pub-1685177955120006/6318038676";
+            Settings.RewardedAdKey = "ca-app-pub-1685177955120006/1783050149";
             Settings.AppTitle = "حالات";
         }
     }

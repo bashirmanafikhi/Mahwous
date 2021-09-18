@@ -13,9 +13,9 @@ using Xamarin.Forms.Xaml;
 namespace MahwousMobile.Base.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginPage : ContentPage
+    public partial class RegisterPage : ContentPage
     {
-        public LoginPage()
+        public RegisterPage()
         {
             try
             {
@@ -31,27 +31,11 @@ namespace MahwousMobile.Base.Views
                 Crashes.TrackError(ex);
                 DependencyService.Get<IMessage>().LongAlert(ex.Message);
             }
-
-            /*
-             var vm = new AccountsViewModel();
-            this.BindingContext = vm;
-            InitializeComponent();
-
-            Email.Completed += (object sender, EventArgs e) =>
-            {
-                Password.Focus();
-            };
-
-            Password.Completed += (object sender, EventArgs e) =>
-            {
-                vm.LoginCommand.Execute(null);
-            };
-             * */
         }
-        private async void GoToRegisterPage(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new RegisterPage());
 
+        private async void GoToLoginPage(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new LoginPage());
         }
     }
 }
