@@ -5,7 +5,7 @@ using Android.OS;
 namespace MobileBase.Android
 {
     [Activity(Theme = "@style/SplashTheme",
-                 MainLauncher = true,
+                 MainLauncher = false,
                  NoHistory = true,
                  ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class SplashActivity : Activity
