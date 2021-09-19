@@ -11,8 +11,16 @@ namespace Mahwous
     {
         public App()
         {
-            SetConfigurations();
-            ShowPage();
+            try
+            {
+                SetConfigurations();
+                ShowPage();
+            }
+            catch (System.Exception ex)
+            {
+                DependencyService.Get<IMessage>().LongAlert("Child: " + ex.Message);
+            }
+
         }
 
         protected override void OnStart()

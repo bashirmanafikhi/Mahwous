@@ -13,11 +13,18 @@ namespace MahwousMobile.Base
     {
         public App()
         {
-            InitializeComponent();
-            //Device.SetFlags(new[] { "MediaElement_Experimental", "Brush_Experimental" });
-            RegisterServices();
-            //CheckTheme();
-            SetLocalNotificationsOptions();
+            try
+            {
+                InitializeComponent();
+                //Device.SetFlags(new[] { "MediaElement_Experimental", "Brush_Experimental" });
+                RegisterServices();
+                CheckTheme();
+                SetLocalNotificationsOptions();
+            }
+            catch (System.Exception ex)
+            {
+                DependencyService.Get<IMessage>().LongAlert("Parent: " + ex.Message);
+            }
         }
 
 
