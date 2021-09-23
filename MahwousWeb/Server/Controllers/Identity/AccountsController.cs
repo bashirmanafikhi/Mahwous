@@ -14,7 +14,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MahwousWeb.Server.Controllers
+namespace MahwousWeb.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

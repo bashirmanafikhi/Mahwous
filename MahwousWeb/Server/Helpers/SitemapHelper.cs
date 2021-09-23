@@ -9,7 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace MahwousWeb.Server.Helpers
+namespace MahwousWeb.API.Helpers
 {
 
     public class SitemapHelper
@@ -134,7 +134,7 @@ namespace MahwousWeb.Server.Helpers
                 Url = urlHelper.AbsoluteContent("apps"),
                 Priority = 0.9
             });
-            var appIds = context.Apps.Select(x => x.Id);
+            var appIds = context.MobileApps.Select(x => x.Id);
             foreach (int appId in appIds)
             {
                 nodes.Add(

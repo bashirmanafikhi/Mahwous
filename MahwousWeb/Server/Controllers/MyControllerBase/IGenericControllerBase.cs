@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MahwousWeb.Server.Controllers.MyControllerBase
+namespace MahwousWeb.API.Controllers.MyControllerBase
 {
     public interface IGenericControllerBase<TModel, TFilter>
         where TModel : ModelBase

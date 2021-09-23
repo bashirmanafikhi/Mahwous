@@ -1,6 +1,6 @@
 ﻿using MahwousWeb.Persistent;
-using MahwousWeb.Server.Controllers.MyControllerBase;
-using MahwousWeb.Server.Helpers;
+using MahwousWeb.API.Controllers.MyControllerBase;
+using MahwousWeb.API.Helpers;
 using MahwousWeb.Models.Filters;
 using MahwousWeb.Models.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -11,12 +11,12 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authorization;
 using System.Text.Json;
 
-namespace MahwousWeb.Server.Controllers
+namespace MahwousWeb.API.Controllers
 {
 
     [ApiController]
     [Route("api/[controller]")]
-    public class AppsController : GenericControllerBase<App, AppFilter>
+    public class AppsController : GenericControllerBase<MobileApp, AppFilter>
     {
         public AppsController(ApplicationDbContext context, IFileStorageService fileStorageService)
             : base(context, fileStorageService) { }
@@ -25,7 +25,7 @@ namespace MahwousWeb.Server.Controllers
         [HttpPost]
         public async Task<ActionResult<int>> Post([FromForm] string serializedObject, [FromForm] IFormFile coverFile)
         {
-            App app = JsonSerializer.Deserialize<App>(serializedObject);
+            MobileApp app = JsonSerializer.Deserialize<MobileApp>(serializedObject);
 
             if (coverFile != null && coverFile.Length > 0)
             {
@@ -45,8 +45,8 @@ namespace MahwousWeb.Server.Controllers
         [HttpPut]
         public async Task<ActionResult<int>> Put([FromForm] string serializedObject, [FromForm] IFormFile coverFile)
         {
-            App app = JsonSerializer.Deserialize<App>(serializedObject);
-            var oldApp = await context.Apps.FirstOrDefaultAsync(c => c.Id == app.Id);
+            MobileApp app = JsonSerializer.Deserialize<MobileApp>(serializedObject);
+            var oldApp = await context.MobileApps.FirstOrDefaultAsync(c => c.Id == app.Id);
 
             if (oldApp == null) { return NotFound(); }
 
@@ -65,7 +65,7 @@ namespace MahwousWeb.Server.Controllers
 
         public override async Task<IActionResult> Delete(int id)
         {
-            var app = await context.Apps.FirstOrDefaultAsync(c => c.Id == id);
+            var app = await context.MobileApps.FirstOrDefaultAsync(c => c.Id == id);
 
             if (app == null) { return NotFound(); }
 

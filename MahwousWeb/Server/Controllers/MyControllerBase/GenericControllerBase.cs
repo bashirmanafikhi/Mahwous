@@ -1,5 +1,5 @@
 ﻿using MahwousWeb.Persistent;
-using MahwousWeb.Server.Helpers;
+using MahwousWeb.API.Helpers;
 using MahwousWeb.Models.Filters;
 using MahwousWeb.Models.Models;
 using MahwousWeb.Models.Pagination;
@@ -13,7 +13,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 
-namespace MahwousWeb.Server.Controllers.MyControllerBase
+namespace MahwousWeb.API.Controllers.MyControllerBase
 {
     public abstract class GenericControllerBase<TModel, TFilter> : ControllerBase, IGenericControllerBase<TModel, TFilter>
         where TModel : ModelBase

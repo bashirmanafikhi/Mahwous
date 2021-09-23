@@ -1,6 +1,6 @@
 ﻿using MahwousWeb.Persistent;
-using MahwousWeb.Server.Controllers.MyControllerBase;
-using MahwousWeb.Server.Helpers;
+using MahwousWeb.API.Controllers.MyControllerBase;
+using MahwousWeb.API.Helpers;
 using MahwousWeb.Models.Filters;
 using MahwousWeb.Models.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using System.Text.Json;
 
-namespace MahwousWeb.Server.Controllers
+namespace MahwousWeb.API.Controllers
 {
 
     [ApiController]

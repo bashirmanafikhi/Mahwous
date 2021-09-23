@@ -29,7 +29,7 @@ namespace MahwousMobile.Base.ViewModels
             get { return itemTreshold; }
             set { SetProperty(ref itemTreshold, value); }
         }
-        public ObservableCollection<MahwousWeb.Models.Models.App> Apps { get; set; }
+        public ObservableCollection<MahwousWeb.Models.Models.MobileApp> Apps { get; set; }
 
 
         public Command LoadAppsCommand { get; set; }
@@ -37,7 +37,7 @@ namespace MahwousMobile.Base.ViewModels
 
         public AppsViewModel()
         {
-            Apps = new ObservableCollection<MahwousWeb.Models.Models.App>();
+            Apps = new ObservableCollection<MahwousWeb.Models.Models.MobileApp>();
 
             LoadAppsCommand = new Command(async () => await ExecuteLoadAppsCommand());
         }

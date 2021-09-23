@@ -10,6 +10,6 @@ namespace  MahwousMobile.Base.Models
     public class VideoStatus : MahwousWeb.Models.Models.VideoStatus
     {
         [Ignore]
-        public override IList<StatusCategories> StatusCategories { get => base.StatusCategories; set => base.StatusCategories = value; }
+        public override IList<MahwousWeb.Models.Models.Category> Categories { get => base.Categories; set => base.Categories = value; }
     }
 }

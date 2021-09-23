@@ -1,6 +1,6 @@
 ﻿using MahwousWeb.Persistent;
 using MahwousWeb.Persistent.Models;
-using MahwousWeb.Server.Helpers;
+using MahwousWeb.API.Helpers;
 using MahwousWeb.Models.Models;
 using MahwousWeb.Models.Pagination;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -14,7 +14,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace MahwousWeb.Server.Controllers.Identity
+namespace MahwousWeb.API.Controllers.Identity
 {
     [ApiController]
     [Route("api/[controller]")]

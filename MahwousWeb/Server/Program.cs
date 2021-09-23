@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 
-namespace MahwousWeb.Server
+namespace MahwousWeb.API
 {
     public class Program
     {

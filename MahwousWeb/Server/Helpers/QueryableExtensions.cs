@@ -3,7 +3,7 @@ using MahwousWeb.Models.Models;
 using MahwousWeb.Models.Pagination;
 using System.Linq;
 
-namespace MahwousWeb.Server.Helpers
+namespace MahwousWeb.API.Helpers
 {
     public static class QueryableExtensions
     {

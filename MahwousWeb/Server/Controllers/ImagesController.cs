@@ -1,6 +1,6 @@
 ﻿using MahwousWeb.Persistent;
-using MahwousWeb.Server.Controllers.MyControllerBase;
-using MahwousWeb.Server.Helpers;
+using MahwousWeb.API.Controllers.MyControllerBase;
+using MahwousWeb.API.Helpers;
 using MahwousWeb.Models.Filters;
 using MahwousWeb.Models.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Http;
 using System.Text.Json;
 using Microsoft.AspNetCore.Authorization;
 
-namespace MahwousWeb.Server.Controllers
+namespace MahwousWeb.API.Controllers
 {
 
     [ApiController]
@@ -59,7 +59,7 @@ namespace MahwousWeb.Server.Controllers
 
             await context.Database.ExecuteSqlInterpolatedAsync($"delete from StatusCategories where StatusId = {image.Id}");
 
-            oldImageStatus.StatusCategories = image.StatusCategories;
+            oldImageStatus.Categories = image.Categories;
 
             context.Entry(oldImageStatus).CurrentValues.SetValues(image);
 

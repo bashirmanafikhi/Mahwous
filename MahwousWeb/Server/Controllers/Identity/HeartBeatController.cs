@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace MahwousWeb.Server.Controllers.Identity
+namespace MahwousWeb.API.Controllers.Identity
 {
     [Route("api/[controller]/[action]")]
     public class HeartBeatController : Controller

@@ -66,8 +66,8 @@
 
     private async Task OnDataAnnotationsValidated()
     {
-        Quote.StatusCategories = Selected
-            .Select(x => new StatusCategories { CategoryId = int.Parse(x.Key) }).ToList();
+        Quote.Categories = Selected
+            .Select(x => new Category { Id = int.Parse(x.Key) }).ToList();
 
 
         await OnValidSubmit.InvokeAsync(null);

@@ -1,6 +1,6 @@
 ﻿using MahwousWeb.Persistent;
-using MahwousWeb.Server.Controllers.MyControllerBase;
-using MahwousWeb.Server.Helpers;
+using MahwousWeb.API.Controllers.MyControllerBase;
+using MahwousWeb.API.Helpers;
 using MahwousWeb.Models.Filters;
 using MahwousWeb.Models.Models;
 using MahwousWeb.Models.Pagination;
@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MahwousWeb.Server.Controllers
+namespace MahwousWeb.API.Controllers
 {
 
     [ApiController]
@@ -32,7 +32,7 @@ namespace MahwousWeb.Server.Controllers
 
             await context.Database.ExecuteSqlInterpolatedAsync($"delete from NotificationApps where NotificationId = {entity.Id}");
 
-            old.NotificationApps = entity.NotificationApps;
+            old.Apps = entity.Apps;
 
 
             context.Entry(old).CurrentValues.SetValues(entity);
@@ -45,8 +45,7 @@ namespace MahwousWeb.Server.Controllers
         public override async Task<ActionResult<Notification>> Get(int id)
         {
             var notification = await table
-                .Include(q => q.NotificationApps)
-                .ThenInclude(sc => sc.App)
+                .Include(q => q.Apps)
                 .FirstOrDefaultAsync(q => q.Id == id);
 
             if (notification == null)
@@ -62,7 +61,7 @@ namespace MahwousWeb.Server.Controllers
         public async Task<ActionResult<Notification>> GetLastNotification(string packageName)
         {
             var notification = await table
-                .Where(n => n.NotificationApps.Any(na => na.App.Package == packageName))
+                .Where(n => n.Apps.Any(na => na.Package == packageName))
                 //.Include(q => q.NotificationApps)
                 //.ThenInclude(sc => sc.App)
                 .OrderByDescending(n => n.Id)

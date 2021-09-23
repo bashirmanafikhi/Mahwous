@@ -1,6 +1,6 @@
 ﻿using MahwousWeb.Persistent;
-using MahwousWeb.Server.Controllers.MyControllerBase;
-using MahwousWeb.Server.Helpers;
+using MahwousWeb.API.Controllers.MyControllerBase;
+using MahwousWeb.API.Helpers;
 using MahwousWeb.Models.Filters;
 using MahwousWeb.Models.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 
-namespace MahwousWeb.Server.Controllers
+namespace MahwousWeb.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -40,7 +40,7 @@ namespace MahwousWeb.Server.Controllers
 
             await context.Database.ExecuteSqlInterpolatedAsync($"delete from StatusCategories where StatusId = {quote.Id}");
 
-            oldQuote.StatusCategories = quote.StatusCategories;
+            oldQuote.Categories = quote.Categories;
 
             context.Entry(oldQuote).CurrentValues.SetValues(quote);
 

@@ -19,6 +19,6 @@ namespace MahwousWeb.Models.Models
         public DateTime? NotifyTime { get; set; }
 
 
-        public IList<NotificationApps> NotificationApps { get; set; }
+        public ICollection<MobileApp> Apps { get; set; }
     }
 }

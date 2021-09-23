@@ -88,7 +88,7 @@
 
 
 
-    public ICollection<MahwousWeb.Models.Models.App> Apps { get; set; }
+    public ICollection<MahwousWeb.Models.Models.MobileApp> Apps { get; set; }
 
     IEnumerable<int> selectedAppsIds = new int[] { };
 
@@ -103,9 +103,9 @@
 
     protected override void OnParametersSet()
     {
-        if (Notification?.NotificationApps != null)
+        if (Notification?.Apps != null)
         {
-            selectedAppsIds = Notification.NotificationApps.Select(na => na.AppId);
+            selectedAppsIds = Notification.Apps.Select(na => na.Id);
         }
     }
 
@@ -113,8 +113,8 @@
     private async Task OnDataAnnotationsValidated()
     {
 
-        Notification.NotificationApps = selectedAppsIds?
-        .Select(x => new NotificationApps { AppId = x })?.ToList();
+        Notification.Apps = selectedAppsIds?
+        .Select(x => new MobileApp { Id = x })?.ToList();
 
 
 

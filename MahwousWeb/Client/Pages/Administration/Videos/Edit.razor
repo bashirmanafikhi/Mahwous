@@ -53,7 +53,7 @@
     {
         video = await repositories.VideosRepository.Get(videoId);
 
-        SelectedCategories = video.StatusCategories.Select(sc => sc.Category).ToList();
+        SelectedCategories = video.Categories.ToList();
 
         CategoryFilter filter = new CategoryFilter();
         filter.ForVideos = true;

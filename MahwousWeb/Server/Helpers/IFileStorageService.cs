@@ -2,7 +2,7 @@
 using System.IO;
 using System.Threading.Tasks;
 
-namespace MahwousWeb.Server.Helpers
+namespace MahwousWeb.API.Helpers
 {
     public interface IFileStorageService
     {

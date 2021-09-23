@@ -11,6 +11,6 @@ namespace  MahwousMobile.Base.Models
     public class Category : MahwousWeb.Models.Models.Category
     {
         [Ignore]
-        public override IList<StatusCategories> StatusCategories { get => base.StatusCategories; set => base.StatusCategories = value; }
+        public override IList<MahwousWeb.Models.Models.Status> Statuses { get => base.Statuses; set => base.Statuses = value; }
     }
 }

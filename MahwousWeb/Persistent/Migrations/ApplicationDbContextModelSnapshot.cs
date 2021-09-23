@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace MahwousWeb.Persistent.Data.Migrations
+namespace MahwousWeb.Persistent.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -16,8 +16,227 @@ namespace MahwousWeb.Persistent.Data.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.4")
+                .HasAnnotation("ProductVersion", "5.0.10")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("CategoryStatus", b =>
+                {
+                    b.Property<int>("CategoriesId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StatusesId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CategoriesId", "StatusesId");
+
+                    b.HasIndex("StatusesId");
+
+                    b.ToTable("CategoryStatus");
+                });
+
+            modelBuilder.Entity("MahwousWeb.Models.Models.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CoverPath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("ForImages")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("ForQuotes")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("ForVideos")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ViewsCount")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Visible")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("MahwousWeb.Models.Models.MobileApp", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AppleStoreLink")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("AppleStoreOpenedCount")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImagePath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Package")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PlayStoreLink")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PlayStoreOpenedCount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ViewsCount")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Visible")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MobileApps");
+                });
+
+            modelBuilder.Entity("MahwousWeb.Models.Models.Notification", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BadgeNumber")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsScheduled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("NotifyTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("OpenedCount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RecivedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ReturningData")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ViewsCount")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Visible")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Notifications");
+                });
+
+            modelBuilder.Entity("MahwousWeb.Models.Models.Post", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("DownloadsCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ImagePath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("LikesCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ViewsCount")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Visible")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Posts");
+                });
+
+            modelBuilder.Entity("MahwousWeb.Models.Models.Status", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DownloadsCount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LikesCount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SharesCount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ViewsCount")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Visible")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Statuses");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Status");
+                });
 
             modelBuilder.Entity("MahwousWeb.Persistent.Models.ApplicationUser", b =>
                 {
@@ -91,235 +310,6 @@ namespace MahwousWeb.Persistent.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
-                });
-
-            modelBuilder.Entity("MahwousWeb.Models.Models.App", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("AppleStoreLink")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("AppleStoreOpenedCount")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImagePath")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Package")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PlayStoreLink")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PlayStoreOpenedCount")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ViewsCount")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("Visible")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Apps");
-                });
-
-            modelBuilder.Entity("MahwousWeb.Models.Models.Category", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("CoverPath")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("ForImages")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("ForQuotes")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("ForVideos")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ViewsCount")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("Visible")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Categories");
-                });
-
-            modelBuilder.Entity("MahwousWeb.Models.Models.Notification", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("BadgeNumber")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsScheduled")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("NotifyTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("OpenedCount")
-                        .HasColumnType("int");
-
-                    b.Property<int>("RecivedCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ReturningData")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ViewsCount")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("Visible")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Notifications");
-                });
-
-            modelBuilder.Entity("MahwousWeb.Models.Models.NotificationApps", b =>
-                {
-                    b.Property<int>("NotificationId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("AppId")
-                        .HasColumnType("int");
-
-                    b.HasKey("NotificationId", "AppId");
-
-                    b.HasIndex("AppId");
-
-                    b.ToTable("NotificationApps");
-                });
-
-            modelBuilder.Entity("MahwousWeb.Models.Models.Post", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Content")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("DownloadsCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ImagePath")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("LikesCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ViewsCount")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("Visible")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Posts");
-                });
-
-            modelBuilder.Entity("MahwousWeb.Models.Models.Status", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("DownloadsCount")
-                        .HasColumnType("int");
-
-                    b.Property<int>("LikesCount")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SharesCount")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ViewsCount")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("Visible")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Statuses");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Status");
-                });
-
-            modelBuilder.Entity("MahwousWeb.Models.Models.StatusCategories", b =>
-                {
-                    b.Property<int>("StatusId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
-                    b.HasKey("StatusId", "CategoryId");
-
-                    b.HasIndex("CategoryId");
-
-                    b.ToTable("StatusCategories");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -453,12 +443,26 @@ namespace MahwousWeb.Persistent.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("MobileAppNotification", b =>
+                {
+                    b.Property<int>("AppsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NotificationsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("AppsId", "NotificationsId");
+
+                    b.HasIndex("NotificationsId");
+
+                    b.ToTable("MobileAppNotification");
+                });
+
             modelBuilder.Entity("MahwousWeb.Models.Models.ImageStatus", b =>
                 {
                     b.HasBaseType("MahwousWeb.Models.Models.Status");
 
                     b.Property<string>("ImagePath")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("ImageStatus");
@@ -480,7 +484,6 @@ namespace MahwousWeb.Persistent.Data.Migrations
                     b.HasBaseType("MahwousWeb.Models.Models.Status");
 
                     b.Property<string>("CoverPath")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
@@ -488,48 +491,24 @@ namespace MahwousWeb.Persistent.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("VideoPath")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("VideoStatus");
                 });
 
-            modelBuilder.Entity("MahwousWeb.Models.Models.NotificationApps", b =>
+            modelBuilder.Entity("CategoryStatus", b =>
                 {
-                    b.HasOne("MahwousWeb.Models.Models.App", "App")
-                        .WithMany("NotificationApps")
-                        .HasForeignKey("AppId")
+                    b.HasOne("MahwousWeb.Models.Models.Category", null)
+                        .WithMany()
+                        .HasForeignKey("CategoriesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MahwousWeb.Models.Models.Notification", "Notification")
-                        .WithMany("NotificationApps")
-                        .HasForeignKey("NotificationId")
+                    b.HasOne("MahwousWeb.Models.Models.Status", null)
+                        .WithMany()
+                        .HasForeignKey("StatusesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("App");
-
-                    b.Navigation("Notification");
-                });
-
-            modelBuilder.Entity("MahwousWeb.Models.Models.StatusCategories", b =>
-                {
-                    b.HasOne("MahwousWeb.Models.Models.Category", "Category")
-                        .WithMany("StatusCategories")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MahwousWeb.Models.Models.Status", "Status")
-                        .WithMany("StatusCategories")
-                        .HasForeignKey("StatusId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Category");
-
-                    b.Navigation("Status");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -583,24 +562,19 @@ namespace MahwousWeb.Persistent.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("MahwousWeb.Models.Models.App", b =>
+            modelBuilder.Entity("MobileAppNotification", b =>
                 {
-                    b.Navigation("NotificationApps");
-                });
+                    b.HasOne("MahwousWeb.Models.Models.MobileApp", null)
+                        .WithMany()
+                        .HasForeignKey("AppsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-            modelBuilder.Entity("MahwousWeb.Models.Models.Category", b =>
-                {
-                    b.Navigation("StatusCategories");
-                });
-
-            modelBuilder.Entity("MahwousWeb.Models.Models.Notification", b =>
-                {
-                    b.Navigation("NotificationApps");
-                });
-
-            modelBuilder.Entity("MahwousWeb.Models.Models.Status", b =>
-                {
-                    b.Navigation("StatusCategories");
+                    b.HasOne("MahwousWeb.Models.Models.Notification", null)
+                        .WithMany()
+                        .HasForeignKey("NotificationsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

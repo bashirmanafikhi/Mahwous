@@ -5,7 +5,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MahwousWeb.Server.Helpers
+namespace MahwousWeb.API.Helpers
 {
     public static class HttpContextExtensions
     {

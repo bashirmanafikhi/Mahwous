@@ -55,7 +55,7 @@
 
 
         quote = await repositories.QuotesRepository.Get(quoteId);
-        SelectedCategories = quote.StatusCategories.Select(sc => sc.Category).ToList();
+        SelectedCategories = quote.Categories.Select(sc => sc).ToList();
         var categories = (await repositories.CategoriesRepository.GetFiltered(filter)).Response;
 
         NotSelectedCategories = categories.Where(c =>

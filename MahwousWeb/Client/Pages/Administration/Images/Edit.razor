@@ -56,7 +56,7 @@
         filter.ForImages = true;
         filter.Pagination.RecordsPerPage = 100;
 
-        SelectedCategories = image.StatusCategories.Select(sc => sc.Category).ToList();
+        SelectedCategories = image.Categories.ToList();
         var categories = (await repositories.CategoriesRepository.GetFiltered(
             filter
             )).Response;

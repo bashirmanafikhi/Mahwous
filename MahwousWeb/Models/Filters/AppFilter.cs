@@ -4,12 +4,12 @@ using System.Linq;
 
 namespace MahwousWeb.Models.Filters
 {
-    public class AppFilter : FilterBase<App>
+    public class AppFilter : FilterBase<MobileApp>
     {
         public string Name { get; set; }
 
 
-        public override IQueryable<App> Filter(IQueryable<App> queryable)
+        public override IQueryable<MobileApp> Filter(IQueryable<MobileApp> queryable)
         {
             queryable = base.Filter(queryable);
 

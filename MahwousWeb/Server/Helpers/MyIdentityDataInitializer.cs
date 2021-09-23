@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 
-namespace MahwousWeb.Server.Helpers
+namespace MahwousWeb.API.Helpers
 {
     public static class MyIdentityDataInitializer
     {

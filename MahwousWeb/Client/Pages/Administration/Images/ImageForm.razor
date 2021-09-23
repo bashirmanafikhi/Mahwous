@@ -109,8 +109,8 @@
             await js.DisplayMessage("خطء","الصورة مطلوبة",SweetAlertMessageType.error);
             return;
         }
-        Image.StatusCategories = Selected
-        .Select(x => new StatusCategories { CategoryId = int.Parse(x.Key) }).ToList();
+        Image.Categories = Selected
+        .Select(x => new Category { Id = int.Parse(x.Key) }).ToList();
 
         await OnValidSubmit.InvokeAsync(imageFile);
     }

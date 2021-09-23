@@ -4,11 +4,11 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iis": {
-      "applicationUrl": "http://bashir/MahwousWeb.Server",
+      "applicationUrl": "http://bashir/MahwousWeb.API",
       "sslPort": 0
     },
     "iisExpress": {
-      "applicationUrl": "http://192.168.0.113:60485",
+      "applicationUrl": "http://localhost:60485",
       "sslPort": 0
     }
   },
@@ -20,7 +20,7 @@
       },
       "inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}"
     },
-    "MahwousWeb.Server": {
+    "MahwousWeb.API": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

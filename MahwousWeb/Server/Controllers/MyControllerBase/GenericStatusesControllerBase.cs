@@ -1,5 +1,5 @@
 ﻿using MahwousWeb.Persistent;
-using MahwousWeb.Server.Helpers;
+using MahwousWeb.API.Helpers;
 using MahwousWeb.Models.Filters;
 using MahwousWeb.Models.Models;
 using Microsoft.AspNetCore.Http;
@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MahwousWeb.Server.Controllers.MyControllerBase
+namespace MahwousWeb.API.Controllers.MyControllerBase
 {
     public abstract class GenericStatusesControllerBase<TModel, TFilter> : GenericControllerBase<TModel, TFilter>
         where TModel : Status
@@ -23,8 +23,7 @@ namespace MahwousWeb.Server.Controllers.MyControllerBase
         public override async Task<ActionResult<TModel>> Get(int id)
         {
             var status = await table
-                .Include(q => q.StatusCategories)
-                .ThenInclude(sc => sc.Category)
+                .Include(q => q.Categories)
                 .FirstOrDefaultAsync(q => q.Id == id);
 
             if (status == null)
@@ -59,7 +58,7 @@ namespace MahwousWeb.Server.Controllers.MyControllerBase
                 informations.SharesCount = await statuses.SumAsync(s => (long)s.SharesCount);
                 informations.ViewsCount = await statuses.SumAsync(s => (long)s.ViewsCount);
 
-                var categoriesStatusCounts = context.Categories.Select(c => new KeyValuePair<string, int>(c.Name, c.StatusCategories.Count(sc => sc.Status is TModel)));
+                var categoriesStatusCounts = context.Categories.Select(c => new KeyValuePair<string, int>(c.Name, c.Statuses.Count()));
                 informations.CategoriesStatusCounts = new Dictionary<string, int>(categoriesStatusCounts);
 
                 return informations;

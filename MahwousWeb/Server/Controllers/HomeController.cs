@@ -1,5 +1,5 @@
 ﻿using MahwousWeb.Persistent;
-using MahwousWeb.Server.Helpers;
+using MahwousWeb.API.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Net.Mime;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MahwousWeb.Server.Controllers
+namespace MahwousWeb.API.Controllers
 {
     public class HomeController : ControllerBase
     {

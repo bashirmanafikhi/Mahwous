@@ -46,14 +46,14 @@ namespace MahwousWeb.Models.Filters
             // categories filter
             if (WithoutCategory)
             {
-                queryable = queryable.Where(v => v.StatusCategories == null || v.StatusCategories.Count == 0);
+                queryable = queryable.Where(v => v.Categories == null || v.Categories.Count == 0);
             }
             else if (Categories != null && Categories.Count > 0)
             {
                 int[] catIds = Categories.Select(c => c.Id).ToArray();
 
                 queryable = queryable.Where(video =>
-                    video.StatusCategories.Any(sc => catIds.Contains(sc.CategoryId))
+                    video.Categories.Any(sc => catIds.Contains(sc.Id))
                 );
             }
 
