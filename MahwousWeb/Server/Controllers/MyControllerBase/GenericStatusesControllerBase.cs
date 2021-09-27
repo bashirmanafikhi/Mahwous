@@ -1,7 +1,7 @@
-﻿using MahwousWeb.Persistent;
+﻿using Mahwous.Core.Models;
 using MahwousWeb.API.Helpers;
 using MahwousWeb.Models.Filters;
-using MahwousWeb.Models.Models;
+using MahwousWeb.Persistent;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

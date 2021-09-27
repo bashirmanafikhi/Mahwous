@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using MahwousWeb.Models.Filters;
-using MahwousWeb.Models.Models;
+using Mahwous.Core.Models;
 using MahwousWeb.Models.Pagination;
 using MahwousWeb.Service.Repositories;
 using Xamarin.Forms;

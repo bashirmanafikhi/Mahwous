@@ -1,12 +1,8 @@
-﻿using MahwousWeb.Models.Filters;
-using MahwousWeb.Models.Models;
-using MahwousWeb.Models.Pagination;
+﻿using Mahwous.Core.Models;
 using MahwousWeb.Service.Services;
-using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace MahwousWeb.Service.Repositories
@@ -29,7 +25,7 @@ namespace MahwousWeb.Service.Repositories
 
         public async Task Update(MobileApp app, Stream coverFile)
         {
-            var response = await httpService.PutMultipartContent(url, app, 
+            var response = await httpService.PutMultipartContent(url, app,
                 new KeyValuePair<string, Stream>("coverFile", coverFile));
 
             if (!response.Success)

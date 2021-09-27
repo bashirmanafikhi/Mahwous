@@ -1,6 +1,6 @@
 ﻿using MahwousMobile.Base.ViewModels;
 using MahwousWeb.Models.Filters;
-using MahwousWeb.Models.Models;
+using Mahwous.Core.Models;
 using MarcTron.Plugin;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

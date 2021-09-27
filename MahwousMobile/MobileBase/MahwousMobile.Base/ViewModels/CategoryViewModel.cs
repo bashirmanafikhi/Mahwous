@@ -1,5 +1,5 @@
 ﻿using MahwousMobile.Base.Models;
-using MahwousWeb.Models.Models;
+using Mahwous.Core.Models;
 
 namespace MahwousMobile.Base.ViewModels
 {

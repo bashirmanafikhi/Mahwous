@@ -1,4 +1,4 @@
-﻿using MahwousWeb.Models.Models;
+﻿using Mahwous.Core.Models;
 using System.Linq;
 
 namespace MahwousWeb.Models.Filters

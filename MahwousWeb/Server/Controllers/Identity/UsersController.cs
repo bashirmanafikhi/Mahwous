@@ -1,14 +1,12 @@
-﻿using MahwousWeb.Persistent;
-using MahwousWeb.Persistent.Models;
+﻿using Mahwous.Core.Dtos;
 using MahwousWeb.API.Helpers;
-using MahwousWeb.Models.Models;
 using MahwousWeb.Models.Pagination;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+using MahwousWeb.Persistent;
+using MahwousWeb.Persistent.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;

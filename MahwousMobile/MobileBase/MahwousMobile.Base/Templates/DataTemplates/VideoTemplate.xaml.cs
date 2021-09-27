@@ -1,6 +1,5 @@
 ﻿using MahwousMobile.Base.ViewModels;
 using MahwousMobile.Base.Views;
-using MahwousWeb.Models.Models;
 using MarcTron.Plugin;
 using System;
 using System.Linq;

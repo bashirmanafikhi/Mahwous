@@ -1,4 +1,4 @@
-﻿using MahwousWeb.Models.Models;
+﻿using Mahwous.Core.Models;
 using MahwousWeb.Models.Pagination;
 using System;
 using System.Linq;

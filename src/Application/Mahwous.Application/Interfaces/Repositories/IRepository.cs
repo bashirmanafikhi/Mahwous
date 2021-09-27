@@ -1,16 +1,15 @@
-﻿using System;
+﻿using Mahwous.Core.Models;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Mahwous.Application.Interfaces
 {
-    public interface IRepository<T> where T : class
+    public interface IRepository<T> where T : ModelBase
     {
-        Task<T> GetByIdAsync(Guid id);
+        Task<T> GetByIdAsync(int id);
         Task<IReadOnlyList<T>> ListAllAsync();
         Task<T> AddAsync(T entity);
         Task UpdateAsync(T entity);
-        Task DeleteAsync(T entity);
+        Task DeleteAsync(int id);
     }
 }

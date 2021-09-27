@@ -1,17 +1,15 @@
-﻿using MahwousWeb.Models.Filters;
-using MahwousWeb.Models.Models;
+﻿using Mahwous.Core.Models;
+using MahwousWeb.Models.Filters;
 using MahwousWeb.Models.Pagination;
 using MahwousWeb.Service.Services;
-using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace MahwousWeb.Service.Repositories
 {
-    public abstract class RepositoryBase<TEntity>: IRepository<TEntity> where TEntity : ModelBase
+    public abstract class RepositoryBase<TEntity> : IRepository<TEntity> where TEntity : ModelBase
     {
         protected string url = "api/statuses";
 

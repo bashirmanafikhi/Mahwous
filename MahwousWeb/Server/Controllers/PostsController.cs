@@ -1,15 +1,14 @@
-﻿using MahwousWeb.Persistent;
+﻿using Mahwous.Core.Models;
 using MahwousWeb.API.Controllers.MyControllerBase;
 using MahwousWeb.API.Helpers;
 using MahwousWeb.Models.Filters;
-using MahwousWeb.Models.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Threading.Tasks;
+using MahwousWeb.Persistent;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace MahwousWeb.API.Controllers
 {
@@ -46,7 +45,7 @@ namespace MahwousWeb.API.Controllers
         public async Task<ActionResult<int>> Put([FromForm] string serializedObject, [FromForm] IFormFile coverFile)
         {
             Post post = JsonSerializer.Deserialize<Post>(serializedObject);
-            var oldPost = await context.Posts.FirstOrDefaultAsync(c => c.Id == post.Id);
+            var oldPost = await context.Posts.FirstOrDefaultAsync(/*c => c.Id == post.Id*/);
 
             if (oldPost == null) { return NotFound(); }
 
@@ -65,7 +64,7 @@ namespace MahwousWeb.API.Controllers
 
         public override async Task<IActionResult> Delete(int id)
         {
-            var post = await context.Posts.FirstOrDefaultAsync(c => c.Id == id);
+            var post = await context.Posts.FirstOrDefaultAsync(/* c => c.Id == id */);
 
             if (post == null) { return NotFound(); }
 

@@ -1,5 +1,4 @@
-﻿using MahwousWeb.Models.Models;
-using MahwousWeb.Models.Pagination;
+﻿using Mahwous.Core.Models;
 using System.Linq;
 
 namespace MahwousWeb.Models.Filters

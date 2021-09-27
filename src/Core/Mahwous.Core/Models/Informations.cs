@@ -2,7 +2,6 @@
 
 namespace Mahwous.Core.Models
 {
-
     public class Informations
     {
         public int Count { get; set; }
@@ -12,10 +11,6 @@ namespace Mahwous.Core.Models
         public long SharesCount { get; set; }
         public long ViewsCount { get; set; }
 
-
-        /// <summary>
-        /// Dictionary<CategoryName, StatusesCounts>
-        /// </summary>
         public Dictionary<string, int> CategoriesStatusCounts { get; set; }
     }
 }

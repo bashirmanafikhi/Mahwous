@@ -1,23 +1,23 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿//using System.Collections.Generic;
+//using System.ComponentModel.DataAnnotations;
 
-namespace MahwousWeb.Models.Models
-{
+//namespace MahwousWeb.Models.Models
+//{
 
-    public class Category : ModelBase
-    {
-        [Required(ErrorMessage = "هذا الحقل مطلوب")]
-        public string Name { get; set; }
+//    public class Category : ModelBase
+//    {
+//        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+//        public string Name { get; set; }
 
-        public string CoverPath { get; set; }
+//        public string CoverPath { get; set; }
 
-        public bool ForVideos { get; set; } = true;
-        public bool ForImages { get; set; } = true;
-        public bool ForQuotes { get; set; } = true;
+//        public bool ForVideos { get; set; } = true;
+//        public bool ForImages { get; set; } = true;
+//        public bool ForQuotes { get; set; } = true;
 
 
-        // [Ignore] // this attribute for sqlite in xamarin
-        public virtual IList<Status> Statuses { get; set; }
+//        // [Ignore] // this attribute for sqlite in xamarin
+//        public virtual IList<Status> Statuses { get; set; }
 
-    }
-}
+//    }
+//}

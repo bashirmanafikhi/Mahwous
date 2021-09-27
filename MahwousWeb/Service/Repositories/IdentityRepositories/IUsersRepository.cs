@@ -1,8 +1,6 @@
-﻿using MahwousWeb.Models.Models;
+﻿using Mahwous.Core.Dtos;
 using MahwousWeb.Models.Pagination;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace MahwousWeb.Service.Repositories

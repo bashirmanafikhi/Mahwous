@@ -1,5 +1,5 @@
-﻿using MahwousWeb.Models.Models;
-using MahwousWeb.Models.Models;
+﻿using Mahwous.Core.Models;
+using Mahwous.Core.Models;
 using SQLite;
 using System;
 using System.Collections.Generic;

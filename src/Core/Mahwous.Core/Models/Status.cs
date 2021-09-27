@@ -8,7 +8,6 @@ namespace Mahwous.Core.Models
         public int LikesCount { get; set; }
         public int SharesCount { get; set; }
 
-        public virtual IList<StatusCategories> StatusCategories { get; set; }
-
+        public virtual IList<Category> Categories { get; set; }
     }
 }

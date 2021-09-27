@@ -1,8 +1,8 @@
-﻿using MahwousWeb.Persistent;
+﻿using Mahwous.Core.Models;
 using MahwousWeb.API.Controllers.MyControllerBase;
 using MahwousWeb.API.Helpers;
 using MahwousWeb.Models.Filters;
-using MahwousWeb.Models.Models;
+using MahwousWeb.Persistent;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MahwousWeb.API.Controllers

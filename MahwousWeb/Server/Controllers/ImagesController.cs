@@ -1,15 +1,14 @@
-﻿using MahwousWeb.Persistent;
+﻿using Mahwous.Core.Models;
 using MahwousWeb.API.Controllers.MyControllerBase;
 using MahwousWeb.API.Helpers;
 using MahwousWeb.Models.Filters;
-using MahwousWeb.Models.Models;
+using MahwousWeb.Persistent;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using System.Text.Json;
-using Microsoft.AspNetCore.Authorization;
+using System.Threading.Tasks;
 
 namespace MahwousWeb.API.Controllers
 {
@@ -36,7 +35,7 @@ namespace MahwousWeb.API.Controllers
                 image.ImagePath = noImage;
 
             context.Add(image);
-            await context.SaveChangesAsync();   
+            await context.SaveChangesAsync();
             return Ok(image.Id);
         }
 
@@ -51,7 +50,7 @@ namespace MahwousWeb.API.Controllers
 
             if (oldImageStatus == null) { return NotFound(); }
 
-            if(imageFile != null && imageFile.Length > 0)
+            if (imageFile != null && imageFile.Length > 0)
             {
                 image.ImagePath = await fileStorageService.EditFile(imageFile,
                     "jpg", oldImageStatus.ImagePath);
@@ -95,7 +94,7 @@ namespace MahwousWeb.API.Controllers
 
             byte[] file = fileStorageService.GetFile(image.ImagePath);
 
-            return File(file, "application/octet-stream", "Mahwous Image " + image.Id+".jpg");
+            return File(file, "application/octet-stream", "Mahwous Image " + image.Id + ".jpg");
         }
 
     }

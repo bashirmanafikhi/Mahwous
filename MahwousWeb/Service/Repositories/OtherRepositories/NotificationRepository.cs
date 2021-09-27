@@ -1,8 +1,6 @@
-﻿using MahwousWeb.Models.Models;
+﻿using Mahwous.Core.Models;
 using MahwousWeb.Service.Services;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MahwousWeb.Service.Repositories

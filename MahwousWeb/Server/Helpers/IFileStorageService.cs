@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Http;
-using System.IO;
 using System.Threading.Tasks;
 
 namespace MahwousWeb.API.Helpers

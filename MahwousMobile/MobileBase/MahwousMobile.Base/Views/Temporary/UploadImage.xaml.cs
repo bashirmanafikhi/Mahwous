@@ -1,5 +1,5 @@
 ﻿using MahwousMobile.Base.Helpers;
-using MahwousWeb.Models.Models;
+using Mahwous.Core.Models;
 using MahwousWeb.Service.Repositories;
 using Microsoft.AppCenter.Crashes;
 using System;

@@ -1,7 +1,4 @@
-﻿using MahwousWeb.Models.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Mahwous.Core.Dtos;
 using System.Threading.Tasks;
 
 namespace MahwousWeb.Client.Auth

@@ -1,4 +1,4 @@
-﻿using MahwousWeb.Models.Models;
+﻿using Mahwous.Core.Models;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;

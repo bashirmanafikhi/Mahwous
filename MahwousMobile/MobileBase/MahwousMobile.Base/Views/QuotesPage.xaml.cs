@@ -3,7 +3,7 @@ using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using MahwousMobile.Base.ViewModels;
-using MahwousWeb.Models.Models;
+using Mahwous.Core.Models;
 using MahwousWeb.Models.Filters;
 using System.Linq;
 using MarcTron.Plugin;

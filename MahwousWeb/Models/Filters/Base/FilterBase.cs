@@ -1,9 +1,7 @@
-﻿using MahwousWeb.Models.Models;
+﻿using Mahwous.Core.Models;
 using MahwousWeb.Models.Pagination;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace MahwousWeb.Models.Filters
 {
@@ -48,7 +46,7 @@ namespace MahwousWeb.Models.Filters
 
             queryable = queryable.Where(v => v.ViewsCount >= ViewsCount.From && v.ViewsCount <= ViewsCount.To);
 
-            queryable = queryable.Where(v => v.Date.Date >= Date.From.Date && v.Date.Date <= Date.To.Date);
+            queryable = queryable.Where(v => v.CreatedDate.Date >= Date.From.Date && v.CreatedDate.Date <= Date.To.Date);
 
             if (Visible.HasValue)
             {
@@ -59,10 +57,10 @@ namespace MahwousWeb.Models.Filters
             switch (SortType)
             {
                 case SortType.Newest:
-                    queryable = queryable.OrderByDescending(v => v.Date);
+                    queryable = queryable.OrderByDescending(v => v.CreatedDate);
                     break;
                 case SortType.Oldest:
-                    queryable = queryable.OrderBy(v => v.Date);
+                    queryable = queryable.OrderBy(v => v.CreatedDate);
                     break;
                 case SortType.Views:
                     queryable = queryable.OrderByDescending(v => v.ViewsCount);

@@ -1,8 +1,7 @@
-﻿using MahwousWeb.Models.Filters;
-using MahwousWeb.Models.Models;
+﻿using Mahwous.Core.Models;
+using MahwousWeb.Models.Filters;
 using MahwousWeb.Models.Pagination;
 using System.Collections.Generic;
-using System.IO;
 using System.Threading.Tasks;
 
 namespace MahwousWeb.Service.Repositories

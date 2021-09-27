@@ -1,17 +1,16 @@
-﻿using MahwousWeb.Persistent;
+﻿using Mahwous.Core.Models;
 using MahwousWeb.API.Helpers;
 using MahwousWeb.Models.Filters;
-using MahwousWeb.Models.Models;
 using MahwousWeb.Models.Pagination;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+using MahwousWeb.Persistent;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 
 namespace MahwousWeb.API.Controllers.MyControllerBase
 {
@@ -119,7 +118,7 @@ namespace MahwousWeb.API.Controllers.MyControllerBase
                 await HttpContext.InsertPaginationParametersInResponse(queryable, filter.Pagination);
                 return await queryable.Paginate(filter.Pagination).ToListAsync();
             }
-            catch ( Exception ex)
+            catch (Exception ex)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "error while getting filtered data. " + ex);
             }

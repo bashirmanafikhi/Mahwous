@@ -1,6 +1,6 @@
 ﻿using MahwousMobile.Base.Models;
 using MahwousWeb.Models.Filters;
-using MahwousWeb.Models.Models;
+using Mahwous.Core.Models;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;

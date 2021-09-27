@@ -1,11 +1,8 @@
-﻿using System;
+﻿using MahwousMobile.Base.Models;
+using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using MahwousWeb.Models.Filters;
-using MahwousWeb.Models.Models;
-using MahwousWeb.Models.Pagination;
-using MahwousWeb.Service.Repositories;
 using Xamarin.Forms;
 
 namespace MahwousMobile.Base.ViewModels

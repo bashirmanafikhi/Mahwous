@@ -36,7 +36,7 @@ namespace MahwousWeb.Persistent.Migrations
                     b.ToTable("CategoryStatus");
                 });
 
-            modelBuilder.Entity("MahwousWeb.Models.Models.Category", b =>
+            modelBuilder.Entity("Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -73,7 +73,7 @@ namespace MahwousWeb.Persistent.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("MahwousWeb.Models.Models.MobileApp", b =>
+            modelBuilder.Entity("MobileApp", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -119,7 +119,7 @@ namespace MahwousWeb.Persistent.Migrations
                     b.ToTable("MobileApps");
                 });
 
-            modelBuilder.Entity("MahwousWeb.Models.Models.Notification", b =>
+            modelBuilder.Entity("Notification", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -166,7 +166,7 @@ namespace MahwousWeb.Persistent.Migrations
                     b.ToTable("Notifications");
                 });
 
-            modelBuilder.Entity("MahwousWeb.Models.Models.Post", b =>
+            modelBuilder.Entity("Post", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -204,7 +204,7 @@ namespace MahwousWeb.Persistent.Migrations
                     b.ToTable("Posts");
                 });
 
-            modelBuilder.Entity("MahwousWeb.Models.Models.Status", b =>
+            modelBuilder.Entity("Status", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -460,9 +460,9 @@ namespace MahwousWeb.Persistent.Migrations
                     b.ToTable("MobileAppNotification");
                 });
 
-            modelBuilder.Entity("MahwousWeb.Models.Models.ImageStatus", b =>
+            modelBuilder.Entity("ImageStatus", b =>
                 {
-                    b.HasBaseType("MahwousWeb.Models.Models.Status");
+                    b.HasBaseType("Status");
 
                     b.Property<string>("ImagePath")
                         .HasColumnType("nvarchar(max)");
@@ -470,9 +470,9 @@ namespace MahwousWeb.Persistent.Migrations
                     b.HasDiscriminator().HasValue("ImageStatus");
                 });
 
-            modelBuilder.Entity("MahwousWeb.Models.Models.QuoteStatus", b =>
+            modelBuilder.Entity("QuoteStatus", b =>
                 {
-                    b.HasBaseType("MahwousWeb.Models.Models.Status");
+                    b.HasBaseType("Status");
 
                     b.Property<string>("Content")
                         .IsRequired()
@@ -481,9 +481,9 @@ namespace MahwousWeb.Persistent.Migrations
                     b.HasDiscriminator().HasValue("QuoteStatus");
                 });
 
-            modelBuilder.Entity("MahwousWeb.Models.Models.VideoStatus", b =>
+            modelBuilder.Entity("VideoStatus", b =>
                 {
-                    b.HasBaseType("MahwousWeb.Models.Models.Status");
+                    b.HasBaseType("Status");
 
                     b.Property<string>("CoverPath")
                         .HasColumnType("nvarchar(max)");
@@ -500,13 +500,13 @@ namespace MahwousWeb.Persistent.Migrations
 
             modelBuilder.Entity("CategoryStatus", b =>
                 {
-                    b.HasOne("MahwousWeb.Models.Models.Category", null)
+                    b.HasOne("Category", null)
                         .WithMany()
                         .HasForeignKey("CategoriesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MahwousWeb.Models.Models.Status", null)
+                    b.HasOne("Status", null)
                         .WithMany()
                         .HasForeignKey("StatusesId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -566,13 +566,13 @@ namespace MahwousWeb.Persistent.Migrations
 
             modelBuilder.Entity("MobileAppNotification", b =>
                 {
-                    b.HasOne("MahwousWeb.Models.Models.MobileApp", null)
+                    b.HasOne("MobileApp", null)
                         .WithMany()
                         .HasForeignKey("AppsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MahwousWeb.Models.Models.Notification", null)
+                    b.HasOne("Notification", null)
                         .WithMany()
                         .HasForeignKey("NotificationsId")
                         .OnDelete(DeleteBehavior.Cascade)

@@ -1,4 +1,4 @@
-﻿using MahwousWeb.Models.Models;
+﻿using Mahwous.Core.Models;
 using MahwousWeb.Service.Services;
 using System;
 using System.Net.Http;

@@ -1,12 +1,8 @@
-﻿using MahwousWeb.Models.Filters;
-using MahwousWeb.Models.Models;
-using MahwousWeb.Models.Pagination;
+﻿using Mahwous.Core.Models;
 using MahwousWeb.Service.Services;
-using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace MahwousWeb.Service.Repositories
@@ -29,7 +25,7 @@ namespace MahwousWeb.Service.Repositories
 
         public async Task Update(ImageStatus image, Stream imageFile)
         {
-            var response = await httpService.PutMultipartContent(url, image, 
+            var response = await httpService.PutMultipartContent(url, image,
                 new KeyValuePair<string, Stream>("imageFile", imageFile));
 
             if (!response.Success)

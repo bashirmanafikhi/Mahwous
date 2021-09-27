@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using MahwousMobile.Base.ViewModels;
 using MahwousWeb.Models.Filters;
-using MahwousWeb.Models.Models;
+using Mahwous.Core.Models;
 using MahwousWeb.Models.Pagination;
 using Xamarin.Forms;
 

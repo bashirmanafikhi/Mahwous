@@ -1,7 +1,5 @@
-﻿using MahwousWeb.Persistent.Models;
-using MahwousWeb.Models.Models;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
+﻿using Mahwous.Core.Dtos;
+using MahwousWeb.Persistent.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -61,7 +59,7 @@ namespace MahwousWeb.API.Controllers
             }
             else
             {
-                return BadRequest(result.Errors.Select(e=> e.Description));
+                return BadRequest(result.Errors.Select(e => e.Description));
             }
         }
 

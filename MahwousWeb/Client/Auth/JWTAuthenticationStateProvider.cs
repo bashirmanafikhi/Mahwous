@@ -1,6 +1,5 @@
-﻿using MahwousWeb.Client.Helpers;
-using MahwousWeb.Models.Models;
-using MahwousWeb.Service.Repositories;
+﻿using Mahwous.Core.Dtos;
+using MahwousWeb.Client.Helpers;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.JSInterop;
 using System;
@@ -8,7 +7,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Runtime.InteropServices;
 using System.Security.Claims;
 using System.Text.Json;
 using System.Threading.Tasks;

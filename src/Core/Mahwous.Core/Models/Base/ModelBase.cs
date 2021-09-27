@@ -4,18 +4,19 @@ namespace Mahwous.Core.Models
 {
     public abstract class ModelBase
     {
-        //[Key]
         public int Id { get; set; }
-        public bool Visible { get; set; } 
+        public bool Visible { get; set; }
         public int ViewsCount { get; set; }
 
-        //[DataType(DataType.Date)]
-        public DateTime Date { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public int CreatedById { get; set; }
+        public DateTime? LastModifiedDate { get; set; }
+        public int? LastModifiedById { get; set; }
+
 
         public ModelBase()
         {
-            Date = DateTime.Now;
-            Date = Date.AddSeconds(-Date.Second);
+            CreatedDate = DateTime.Now;
             Visible = true;
         }
     }

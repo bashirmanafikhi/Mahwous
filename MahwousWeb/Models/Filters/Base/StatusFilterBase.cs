@@ -1,5 +1,4 @@
-﻿using MahwousWeb.Models.Models;
-using MahwousWeb.Models.Pagination;
+﻿using Mahwous.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -69,10 +68,10 @@ namespace MahwousWeb.Models.Filters
             switch (SortType)
             {
                 case StatusSortType.Newest:
-                    queryable = queryable.OrderByDescending(v => v.Date);
+                    queryable = queryable.OrderByDescending(v => v.CreatedDate);
                     break;
                 case StatusSortType.Oldest:
-                    queryable = queryable.OrderBy(v => v.Date);
+                    queryable = queryable.OrderBy(v => v.CreatedDate);
                     break;
                 case StatusSortType.Views:
                     queryable = queryable.OrderByDescending(v => v.ViewsCount);

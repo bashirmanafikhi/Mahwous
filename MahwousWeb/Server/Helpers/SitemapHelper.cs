@@ -1,12 +1,10 @@
 ﻿using MahwousWeb.Persistent;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Routing;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace MahwousWeb.API.Helpers
@@ -117,7 +115,7 @@ namespace MahwousWeb.API.Helpers
                 Priority = 0.9
             });
             var postIds = context.Posts.Select(x => x.Id);
-            foreach (int postId in postIds)
+            foreach (var postId in postIds)
             {
                 nodes.Add(
                    new SitemapNode()

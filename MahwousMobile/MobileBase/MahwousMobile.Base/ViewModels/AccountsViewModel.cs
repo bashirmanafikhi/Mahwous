@@ -1,10 +1,9 @@
-﻿using MahwousMobile.Base.Helpers;
+﻿using Mahwous.Core.Dtos;
+using MahwousMobile.Base.Helpers;
 using MahwousMobile.Base.Models;
-using MahwousWeb.Models.Models;
 using Microsoft.AppCenter.Crashes;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 
