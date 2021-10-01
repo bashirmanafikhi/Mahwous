@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Application\Mahwous.Application\Mahwous.Application.csproj" />
+    <ProjectReference Include="..\..\Core\Mahwous.Core\Mahwous.Core.csproj" />
   </ItemGroup>
 
 </Project>

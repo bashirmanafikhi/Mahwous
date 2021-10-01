@@ -22,7 +22,6 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\Infrastructure\Mahwous.DependencyInjection\Mahwous.DependencyInjection.csproj" />
-	  <ProjectReference Include="..\..\Infrastructure\Mahwous.Persistence\Mahwous.Persistence.csproj" />
 	  <ProjectReference Include="..\..\UI\Mahwous.UI\Mahwous.UI.csproj" />
 	</ItemGroup>
 

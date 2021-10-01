@@ -1,6 +1,6 @@
 using Mahwous.API.Helpers;
 using Mahwous.Application.Features.Posts;
-using Mahwous.Application.Interfaces.Repositories;
+using Mahwous.Core.Interfaces.Repositories;
 using Mahwous.DependencyInjection;
 using MahwousWeb.Persistent;
 using MahwousWeb.Persistent.Models;

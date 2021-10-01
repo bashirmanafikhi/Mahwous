@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Mahwous.Application.Behaviors;
 using Mahwous.Application.Features.Posts;
-using Mahwous.Application.Interfaces;
-using Mahwous.Application.Interfaces.Repositories;
+using Mahwous.Core.Interfaces;
+using Mahwous.Core.Interfaces.Repositories;
 using Mahwous.Application.Mappings;
 using Mahwous.Core.Entities;
 using MahwousWeb.Persistent.Repositories;

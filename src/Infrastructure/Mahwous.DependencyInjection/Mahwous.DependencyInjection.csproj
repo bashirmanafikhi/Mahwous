@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Application\Mahwous.Application\Mahwous.Application.csproj" />
     <ProjectReference Include="..\Mahwous.Persistence\Mahwous.Persistence.csproj" />
   </ItemGroup>
 

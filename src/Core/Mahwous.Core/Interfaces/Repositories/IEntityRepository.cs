@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Mahwous.Application.Interfaces
+namespace Mahwous.Core.Interfaces
 {
     public interface IEntityRepository<T> where T : BaseEntity
     {

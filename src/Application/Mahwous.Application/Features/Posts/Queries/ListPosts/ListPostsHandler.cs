@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Mahwous.Application.Exceptions;
-using Mahwous.Application.Interfaces.Repositories;
+using Mahwous.Core.Interfaces.Repositories;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;

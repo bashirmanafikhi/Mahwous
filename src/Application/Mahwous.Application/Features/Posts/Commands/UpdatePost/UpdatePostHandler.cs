@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using FluentValidation;
-using Mahwous.Application.Interfaces.Repositories;
+using Mahwous.Core.Interfaces.Repositories;
 using Mahwous.Core.Entities;
 using MediatR;
 using System.Linq;

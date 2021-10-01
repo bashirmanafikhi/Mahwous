@@ -1,4 +1,4 @@
-﻿using Mahwous.Application.Interfaces;
+﻿using Mahwous.Core.Interfaces;
 using Mahwous.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
