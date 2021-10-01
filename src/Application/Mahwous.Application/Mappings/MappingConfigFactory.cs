@@ -8,13 +8,8 @@ namespace Mahwous.Application.Mappings
 {
     public class MapConfigurationFactory
     {
-        // how to use
-        //Set up code for automapper configuration 
-        //MapConfigurationFactory.Scan<Startup>();
-        public static void Scan<TType>(Func<AssemblyName, bool> assemblyFilter = null)
+        public static MapperConfiguration Scan(Assembly target, Func<AssemblyName, bool> assemblyFilter = null)
         {
-            var target = typeof(TType).Assembly;
-
             bool LoadAllFilter(AssemblyName x) => true;
 
             var assembliesToLoad = target.GetReferencedAssemblies()
@@ -24,45 +19,49 @@ namespace Mahwous.Application.Mappings
 
             assembliesToLoad.Add(target);
 
-            LoadMapsFromAssemblies(assembliesToLoad.ToArray());
+            return LoadMapsFromAssemblies(assembliesToLoad.ToArray());
         }
 
-        public static void LoadMapsFromAssemblies(params Assembly[] assemblies)
+        public static MapperConfiguration LoadMapsFromAssemblies(params Assembly[] assemblies)
         {
             var types = assemblies.SelectMany(a => a.GetExportedTypes()).ToArray();
-            LoadAllMappings(types);
+            return LoadAllMappings(types);
         }
 
 
-        public static void LoadAllMappings(IList<Type> types)
+        private static MapperConfiguration LoadAllMappings(IList<Type> types)
         {
-            var config = new MapperConfiguration(cfg =>
+            return new MapperConfiguration(config =>
             {
-                cfg.AllowNullDestinationValues = false;
+                config.AllowNullDestinationValues = false;
 
-                LoadStandardMappings(cfg, types);
-                LoadCustomMappings(cfg, types);
+                LoadMappingFrom(config, types);
+                LoadMappingTo(config, types);
+                LoadCustomMappings(config, types);
             });
         }
 
-
-        public static void LoadCustomMappings(IMapperConfigurationExpression config, IList<Type> types)
+        private static void LoadMappingTo(IMapperConfigurationExpression config, IList<Type> types)
         {
-            var instancesToMap = (from t in types
-                                  from i in t.GetInterfaces()
-                                  where typeof(IHaveCustomMappings).IsAssignableFrom(t) &&
-                                        !t.IsAbstract &&
-                                        !t.IsInterface
-                                  select (IHaveCustomMappings)Activator.CreateInstance(t)).ToArray();
+            var mapsTo = (from t in types
+                          from i in t.GetInterfaces()
+                          where i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IMapTo<>) &&
+                                !t.IsAbstract &&
+                                !t.IsInterface
+                          select new
+                          {
+                              Source = t,
+                              Destination = i.GetGenericArguments()[0]
+                          }).ToArray();
 
 
-            foreach (var map in instancesToMap)
+            foreach (var map in mapsTo)
             {
-                map.CreateMappings(config);
+                config.CreateMap(map.Source, map.Destination);
             }
         }
 
-        public static void LoadStandardMappings(IMapperConfigurationExpression config, IList<Type> types)
+        private static void LoadMappingFrom(IMapperConfigurationExpression config, IList<Type> types)
         {
             var mapsFrom = (from t in types
                             from i in t.GetInterfaces()
@@ -80,42 +79,23 @@ namespace Mahwous.Application.Mappings
             {
                 config.CreateMap(map.Source, map.Destination);
             }
+        }
+
+        private static void LoadCustomMappings(IMapperConfigurationExpression config, IList<Type> types)
+        {
+            var instancesToMap = (from t in types
+                                  from i in t.GetInterfaces()
+                                  where typeof(IHaveCustomMappings).IsAssignableFrom(t) &&
+                                        !t.IsAbstract &&
+                                        !t.IsInterface
+                                  select (IHaveCustomMappings)Activator.CreateInstance(t)).ToArray();
 
 
-            var mapsTo = (from t in types
-                          from i in t.GetInterfaces()
-                          where i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IMapTo<>) &&
-                                !t.IsAbstract &&
-                                !t.IsInterface
-                          select new
-                          {
-                              Source = i.GetGenericArguments()[0],
-                              Destination = t
-                          }).ToArray();
-
-
-            foreach (var map in mapsTo)
+            foreach (var map in instancesToMap)
             {
-                config.CreateMap(map.Source, map.Destination);
+                map.CreateMappings(config);
             }
         }
 
-
-        // Bashir
-
-
-        public static void Scan(Assembly target, Func<AssemblyName, bool> assemblyFilter = null)
-        {
-            bool LoadAllFilter(AssemblyName x) => true;
-
-            var assembliesToLoad = target.GetReferencedAssemblies()
-                .Where(assemblyFilter ?? LoadAllFilter)
-                .Select(Assembly.Load)
-                .ToList();
-
-            assembliesToLoad.Add(target);
-
-            LoadMapsFromAssemblies(assembliesToLoad.ToArray());
-        }
     }
 }

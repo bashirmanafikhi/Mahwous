@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Mahwous.Application.Exceptions;
 using Mahwous.Application.Interfaces.Repositories;
 using MediatR;
 using System.Threading;
@@ -20,7 +21,6 @@ namespace Mahwous.Application.Features.Posts
         public async Task<ListPostsResponse> Handle(ListPostsQuery request, CancellationToken cancellationToken)
         {
             var posts = await postRepository.ListAllAsync();
-
             var response = mapper.Map<ListPostsResponse>(posts);
             return response;
         }

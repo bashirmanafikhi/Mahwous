@@ -1,8 +1,8 @@
-﻿using Mahwous.Core.Models;
+﻿using Mahwous.Core.Entities;
 
 namespace Mahwous.Application.Interfaces.Repositories
 {
-    public interface IPostRepository : IRepository<Post>
+    public interface IPostRepository : IEntityRepository<Post>
     {
 
     }

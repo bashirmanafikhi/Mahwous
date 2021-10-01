@@ -1,5 +1,5 @@
 ﻿using Mahwous.Application.Mappings;
-using Mahwous.Core.Models;
+using Mahwous.Core.Entities;
 
 namespace Mahwous.Application.Features.Posts
 {

@@ -1,8 +1,8 @@
-﻿using Mahwous.Core.Models;
+﻿using Mahwous.Core.Entities;
 
 namespace Mahwous.Application.Interfaces.Repositories
 {
-    public interface ICategoryRepository : IRepository<Category>
+    public interface ICategoryRepository : IEntityRepository<Category>
     {
 
     }

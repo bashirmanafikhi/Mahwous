@@ -3,57 +3,53 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29911.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{4CF24F5B-0AB5-41F6-B711-1EA8C46D0306}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mahwous.API", "src\API\Mahwous.API\Mahwous.API.csproj", "{C434BD5B-C254-469F-9F01-BE0579793689}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahwousWeb.API", "MahwousWeb\Server\MahwousWeb.API.csproj", "{C434BD5B-C254-469F-9F01-BE0579793689}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mahwous.UI", "src\UI\Mahwous.UI\Mahwous.UI.csproj", "{004DE2C0-598B-440D-AAEE-3093380201A9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahwousWeb.Client", "MahwousWeb\Client\MahwousWeb.Client.csproj", "{004DE2C0-598B-440D-AAEE-3093380201A9}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mobile", "Mobile", "{249323A2-1BED-4E22-9A81-D0BF9877B337}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mobile", "mobile", "{249323A2-1BED-4E22-9A81-D0BF9877B337}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "QuotesApp", "QuotesApp", "{DA2ECCBF-D38D-491A-A073-4DB46D882F09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahwousQuotes.Android", "MahwousMobile\MahwousQuotes\MahwousQuotes.Android\MahwousQuotes.Android.csproj", "{01E54A01-366D-4AF0-8E1E-D896BAEF4775}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahwousQuotes.Android", "mobile\MahwousQuotes\MahwousQuotes.Android\MahwousQuotes.Android.csproj", "{01E54A01-366D-4AF0-8E1E-D896BAEF4775}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahwousQuotes.iOS", "MahwousMobile\MahwousQuotes\MahwousQuotes.iOS\MahwousQuotes.iOS.csproj", "{5BD79099-63E7-43AB-AD82-3FAFF5F0D804}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahwousQuotes.iOS", "mobile\MahwousQuotes\MahwousQuotes.iOS\MahwousQuotes.iOS.csproj", "{5BD79099-63E7-43AB-AD82-3FAFF5F0D804}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahwousQuotes", "MahwousMobile\MahwousQuotes\MahwousQuotes\MahwousQuotes.csproj", "{5AE58CFB-3D20-46F8-B927-5C1A22FF0BC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahwousQuotes", "mobile\MahwousQuotes\MahwousQuotes\MahwousQuotes.csproj", "{5AE58CFB-3D20-46F8-B927-5C1A22FF0BC9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VideosApp", "VideosApp", "{41B3B5AD-15E9-4083-9580-E4847A7F8EF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahwousVideos.Android", "MahwousMobile\MahwousVideos\MahwousVideos.Android\MahwousVideos.Android.csproj", "{1DCC40D2-1C58-40A6-A41A-0C616E188569}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahwousVideos.Android", "mobile\MahwousVideos\MahwousVideos.Android\MahwousVideos.Android.csproj", "{1DCC40D2-1C58-40A6-A41A-0C616E188569}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahwousVideos.iOS", "MahwousMobile\MahwousVideos\MahwousVideos.iOS\MahwousVideos.iOS.csproj", "{8927ED03-8CEA-4BA9-A13A-5B6AAB86FDCD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahwousVideos.iOS", "mobile\MahwousVideos\MahwousVideos.iOS\MahwousVideos.iOS.csproj", "{8927ED03-8CEA-4BA9-A13A-5B6AAB86FDCD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahwousVideos", "MahwousMobile\MahwousVideos\MahwousVideos\MahwousVideos.csproj", "{ABE386F9-E836-41C1-8D48-5193D9250907}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahwousVideos", "mobile\MahwousVideos\MahwousVideos\MahwousVideos.csproj", "{ABE386F9-E836-41C1-8D48-5193D9250907}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ImagesApp", "ImagesApp", "{51CD8EC1-364C-46F1-BBA7-E0B83016C292}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahwousMobile.Base", "MahwousMobile\MobileBase\MahwousMobile.Base\MahwousMobile.Base.csproj", "{E5B98B9E-9C2E-4E02-BA96-4811FC662F74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahwousMobile.Base", "mobile\MobileBase\MahwousMobile.Base\MahwousMobile.Base.csproj", "{E5B98B9E-9C2E-4E02-BA96-4811FC662F74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahwousImages.Android", "MahwousMobile\MahwousImages\MahwousImages.Android\MahwousImages.Android.csproj", "{A2A9623F-48B2-49B7-B8FB-06753BD18C73}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahwousImages.Android", "mobile\MahwousImages\MahwousImages.Android\MahwousImages.Android.csproj", "{A2A9623F-48B2-49B7-B8FB-06753BD18C73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahwousImages.iOS", "MahwousMobile\MahwousImages\MahwousImages.iOS\MahwousImages.iOS.csproj", "{2B7477A4-01E3-4740-9686-3D4B3BDF50F4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahwousImages.iOS", "mobile\MahwousImages\MahwousImages.iOS\MahwousImages.iOS.csproj", "{2B7477A4-01E3-4740-9686-3D4B3BDF50F4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahwousImages", "MahwousMobile\MahwousImages\MahwousImages\MahwousImages.csproj", "{0FD05829-E582-4AB9-A08F-45B5A994586B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahwousImages", "mobile\MahwousImages\MahwousImages\MahwousImages.csproj", "{0FD05829-E582-4AB9-A08F-45B5A994586B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahwousWeb.Persistent", "MahwousWeb\Persistent\MahwousWeb.Persistent.csproj", "{0F73631A-AC32-47DD-A74F-702BF1D01DAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mahwous.Persistence", "src\Infrastructure\Mahwous.Persistence\Mahwous.Persistence.csproj", "{0F73631A-AC32-47DD-A74F-702BF1D01DAF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahwousWeb.Models", "MahwousWeb\Models\MahwousWeb.Models.csproj", "{C21F8053-D603-4E6D-A9DA-8CEA0E1423B5}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahwousWeb.Service", "MahwousWeb\Service\MahwousWeb.Service.csproj", "{E1593E2F-04A0-476A-9F81-EE1BC5BF4D0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mahwous.Service", "src\Services\Mahwous.Service\Mahwous.Service.csproj", "{E1593E2F-04A0-476A-9F81-EE1BC5BF4D0A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MahwousApp", "MahwousApp", "{5E12A225-DE29-4F03-9646-98B39A3AF0A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mahwous.Android", "MahwousMobile\Mahwous\Mahwous.Android\Mahwous.Android.csproj", "{A4E80A95-08C5-47C8-98F6-9E36DB959BF2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mahwous.Android", "mobile\Mahwous\Mahwous.Android\Mahwous.Android.csproj", "{A4E80A95-08C5-47C8-98F6-9E36DB959BF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mahwous.iOS", "MahwousMobile\Mahwous\Mahwous.iOS\Mahwous.iOS.csproj", "{E542C639-665B-47AD-ABFE-86D8EEE706CB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mahwous.iOS", "mobile\Mahwous\Mahwous.iOS\Mahwous.iOS.csproj", "{E542C639-665B-47AD-ABFE-86D8EEE706CB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mahwous", "MahwousMobile\Mahwous\Mahwous\Mahwous.csproj", "{D65A8E54-8B91-4B5A-8C82-C5A4BB84A0F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mahwous", "mobile\Mahwous\Mahwous\Mahwous.csproj", "{D65A8E54-8B91-4B5A-8C82-C5A4BB84A0F3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MobileBase", "MobileBase", "{09DCEDBE-E8D6-4E0F-A38F-76378E25C814}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileBase.Android", "MahwousMobile\MobileBase\MobileBase.Android\MobileBase.Android.csproj", "{57BB6394-2F90-4EE6-93D4-BFE466EEF1C7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileBase.Android", "mobile\MobileBase\MobileBase.Android\MobileBase.Android.csproj", "{57BB6394-2F90-4EE6-93D4-BFE466EEF1C7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7ACFF8EF-68B3-4DD4-9BB3-25025498BF20}"
 EndProject
@@ -72,6 +68,12 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mahwous.Application", "src\Application\Mahwous.Application\Mahwous.Application.csproj", "{6B3CF09E-E869-4162-9824-FD4E28D116A7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{0D480C71-1C9C-4A11-8187-2BE5E12A5A83}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{C7426637-E3A6-4743-B66D-42E4B4E993BA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mahwous.Test", "tests\Mahwous.Test\Mahwous.Test.csproj", "{3519A74C-33B9-4375-B718-46DC2F8A44C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mahwous.DependencyInjection", "src\Infrastructure\Mahwous.DependencyInjection\Mahwous.DependencyInjection.csproj", "{E153145F-6BA9-4148-87B8-C5F92AEC54DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -413,30 +415,6 @@ Global
 		{0F73631A-AC32-47DD-A74F-702BF1D01DAF}.Release|x64.Build.0 = Release|Any CPU
 		{0F73631A-AC32-47DD-A74F-702BF1D01DAF}.Release|x86.ActiveCfg = Release|Any CPU
 		{0F73631A-AC32-47DD-A74F-702BF1D01DAF}.Release|x86.Build.0 = Release|Any CPU
-		{C21F8053-D603-4E6D-A9DA-8CEA0E1423B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C21F8053-D603-4E6D-A9DA-8CEA0E1423B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C21F8053-D603-4E6D-A9DA-8CEA0E1423B5}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{C21F8053-D603-4E6D-A9DA-8CEA0E1423B5}.Debug|ARM.Build.0 = Debug|Any CPU
-		{C21F8053-D603-4E6D-A9DA-8CEA0E1423B5}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{C21F8053-D603-4E6D-A9DA-8CEA0E1423B5}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{C21F8053-D603-4E6D-A9DA-8CEA0E1423B5}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{C21F8053-D603-4E6D-A9DA-8CEA0E1423B5}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{C21F8053-D603-4E6D-A9DA-8CEA0E1423B5}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{C21F8053-D603-4E6D-A9DA-8CEA0E1423B5}.Debug|x64.Build.0 = Debug|Any CPU
-		{C21F8053-D603-4E6D-A9DA-8CEA0E1423B5}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{C21F8053-D603-4E6D-A9DA-8CEA0E1423B5}.Debug|x86.Build.0 = Debug|Any CPU
-		{C21F8053-D603-4E6D-A9DA-8CEA0E1423B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C21F8053-D603-4E6D-A9DA-8CEA0E1423B5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C21F8053-D603-4E6D-A9DA-8CEA0E1423B5}.Release|ARM.ActiveCfg = Release|Any CPU
-		{C21F8053-D603-4E6D-A9DA-8CEA0E1423B5}.Release|ARM.Build.0 = Release|Any CPU
-		{C21F8053-D603-4E6D-A9DA-8CEA0E1423B5}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{C21F8053-D603-4E6D-A9DA-8CEA0E1423B5}.Release|iPhone.Build.0 = Release|Any CPU
-		{C21F8053-D603-4E6D-A9DA-8CEA0E1423B5}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{C21F8053-D603-4E6D-A9DA-8CEA0E1423B5}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
-		{C21F8053-D603-4E6D-A9DA-8CEA0E1423B5}.Release|x64.ActiveCfg = Release|Any CPU
-		{C21F8053-D603-4E6D-A9DA-8CEA0E1423B5}.Release|x64.Build.0 = Release|Any CPU
-		{C21F8053-D603-4E6D-A9DA-8CEA0E1423B5}.Release|x86.ActiveCfg = Release|Any CPU
-		{C21F8053-D603-4E6D-A9DA-8CEA0E1423B5}.Release|x86.Build.0 = Release|Any CPU
 		{E1593E2F-04A0-476A-9F81-EE1BC5BF4D0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E1593E2F-04A0-476A-9F81-EE1BC5BF4D0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1593E2F-04A0-476A-9F81-EE1BC5BF4D0A}.Debug|ARM.ActiveCfg = Debug|Any CPU
@@ -609,13 +587,61 @@ Global
 		{6B3CF09E-E869-4162-9824-FD4E28D116A7}.Release|x64.Build.0 = Release|Any CPU
 		{6B3CF09E-E869-4162-9824-FD4E28D116A7}.Release|x86.ActiveCfg = Release|Any CPU
 		{6B3CF09E-E869-4162-9824-FD4E28D116A7}.Release|x86.Build.0 = Release|Any CPU
+		{3519A74C-33B9-4375-B718-46DC2F8A44C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3519A74C-33B9-4375-B718-46DC2F8A44C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3519A74C-33B9-4375-B718-46DC2F8A44C1}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{3519A74C-33B9-4375-B718-46DC2F8A44C1}.Debug|ARM.Build.0 = Debug|Any CPU
+		{3519A74C-33B9-4375-B718-46DC2F8A44C1}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{3519A74C-33B9-4375-B718-46DC2F8A44C1}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{3519A74C-33B9-4375-B718-46DC2F8A44C1}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{3519A74C-33B9-4375-B718-46DC2F8A44C1}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{3519A74C-33B9-4375-B718-46DC2F8A44C1}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3519A74C-33B9-4375-B718-46DC2F8A44C1}.Debug|x64.Build.0 = Debug|Any CPU
+		{3519A74C-33B9-4375-B718-46DC2F8A44C1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3519A74C-33B9-4375-B718-46DC2F8A44C1}.Debug|x86.Build.0 = Debug|Any CPU
+		{3519A74C-33B9-4375-B718-46DC2F8A44C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3519A74C-33B9-4375-B718-46DC2F8A44C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3519A74C-33B9-4375-B718-46DC2F8A44C1}.Release|ARM.ActiveCfg = Release|Any CPU
+		{3519A74C-33B9-4375-B718-46DC2F8A44C1}.Release|ARM.Build.0 = Release|Any CPU
+		{3519A74C-33B9-4375-B718-46DC2F8A44C1}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{3519A74C-33B9-4375-B718-46DC2F8A44C1}.Release|iPhone.Build.0 = Release|Any CPU
+		{3519A74C-33B9-4375-B718-46DC2F8A44C1}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{3519A74C-33B9-4375-B718-46DC2F8A44C1}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{3519A74C-33B9-4375-B718-46DC2F8A44C1}.Release|x64.ActiveCfg = Release|Any CPU
+		{3519A74C-33B9-4375-B718-46DC2F8A44C1}.Release|x64.Build.0 = Release|Any CPU
+		{3519A74C-33B9-4375-B718-46DC2F8A44C1}.Release|x86.ActiveCfg = Release|Any CPU
+		{3519A74C-33B9-4375-B718-46DC2F8A44C1}.Release|x86.Build.0 = Release|Any CPU
+		{E153145F-6BA9-4148-87B8-C5F92AEC54DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E153145F-6BA9-4148-87B8-C5F92AEC54DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E153145F-6BA9-4148-87B8-C5F92AEC54DA}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{E153145F-6BA9-4148-87B8-C5F92AEC54DA}.Debug|ARM.Build.0 = Debug|Any CPU
+		{E153145F-6BA9-4148-87B8-C5F92AEC54DA}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{E153145F-6BA9-4148-87B8-C5F92AEC54DA}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{E153145F-6BA9-4148-87B8-C5F92AEC54DA}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{E153145F-6BA9-4148-87B8-C5F92AEC54DA}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{E153145F-6BA9-4148-87B8-C5F92AEC54DA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E153145F-6BA9-4148-87B8-C5F92AEC54DA}.Debug|x64.Build.0 = Debug|Any CPU
+		{E153145F-6BA9-4148-87B8-C5F92AEC54DA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E153145F-6BA9-4148-87B8-C5F92AEC54DA}.Debug|x86.Build.0 = Debug|Any CPU
+		{E153145F-6BA9-4148-87B8-C5F92AEC54DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E153145F-6BA9-4148-87B8-C5F92AEC54DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E153145F-6BA9-4148-87B8-C5F92AEC54DA}.Release|ARM.ActiveCfg = Release|Any CPU
+		{E153145F-6BA9-4148-87B8-C5F92AEC54DA}.Release|ARM.Build.0 = Release|Any CPU
+		{E153145F-6BA9-4148-87B8-C5F92AEC54DA}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{E153145F-6BA9-4148-87B8-C5F92AEC54DA}.Release|iPhone.Build.0 = Release|Any CPU
+		{E153145F-6BA9-4148-87B8-C5F92AEC54DA}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{E153145F-6BA9-4148-87B8-C5F92AEC54DA}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{E153145F-6BA9-4148-87B8-C5F92AEC54DA}.Release|x64.ActiveCfg = Release|Any CPU
+		{E153145F-6BA9-4148-87B8-C5F92AEC54DA}.Release|x64.Build.0 = Release|Any CPU
+		{E153145F-6BA9-4148-87B8-C5F92AEC54DA}.Release|x86.ActiveCfg = Release|Any CPU
+		{E153145F-6BA9-4148-87B8-C5F92AEC54DA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{C434BD5B-C254-469F-9F01-BE0579793689} = {4CF24F5B-0AB5-41F6-B711-1EA8C46D0306}
-		{004DE2C0-598B-440D-AAEE-3093380201A9} = {4CF24F5B-0AB5-41F6-B711-1EA8C46D0306}
+		{C434BD5B-C254-469F-9F01-BE0579793689} = {F8641F9B-BE4F-4B8F-842D-A7E9311FA2C2}
+		{004DE2C0-598B-440D-AAEE-3093380201A9} = {642543CC-B5B0-4042-9F09-23C7AC023053}
 		{DA2ECCBF-D38D-491A-A073-4DB46D882F09} = {249323A2-1BED-4E22-9A81-D0BF9877B337}
 		{01E54A01-366D-4AF0-8E1E-D896BAEF4775} = {DA2ECCBF-D38D-491A-A073-4DB46D882F09}
 		{5BD79099-63E7-43AB-AD82-3FAFF5F0D804} = {DA2ECCBF-D38D-491A-A073-4DB46D882F09}
@@ -630,8 +656,7 @@ Global
 		{2B7477A4-01E3-4740-9686-3D4B3BDF50F4} = {51CD8EC1-364C-46F1-BBA7-E0B83016C292}
 		{0FD05829-E582-4AB9-A08F-45B5A994586B} = {51CD8EC1-364C-46F1-BBA7-E0B83016C292}
 		{0F73631A-AC32-47DD-A74F-702BF1D01DAF} = {37CC05A6-26C2-43B1-8A22-2927E4A9D8F2}
-		{C21F8053-D603-4E6D-A9DA-8CEA0E1423B5} = {4CF24F5B-0AB5-41F6-B711-1EA8C46D0306}
-		{E1593E2F-04A0-476A-9F81-EE1BC5BF4D0A} = {4CF24F5B-0AB5-41F6-B711-1EA8C46D0306}
+		{E1593E2F-04A0-476A-9F81-EE1BC5BF4D0A} = {C7426637-E3A6-4743-B66D-42E4B4E993BA}
 		{5E12A225-DE29-4F03-9646-98B39A3AF0A0} = {249323A2-1BED-4E22-9A81-D0BF9877B337}
 		{A4E80A95-08C5-47C8-98F6-9E36DB959BF2} = {5E12A225-DE29-4F03-9646-98B39A3AF0A0}
 		{E542C639-665B-47AD-ABFE-86D8EEE706CB} = {5E12A225-DE29-4F03-9646-98B39A3AF0A0}
@@ -645,6 +670,9 @@ Global
 		{FA7081FE-E79A-4BEA-8ECE-9764C69B3BE7} = {7ACFF8EF-68B3-4DD4-9BB3-25025498BF20}
 		{E2DA9DC7-DC06-4FE2-A556-6496137CF24E} = {FA7081FE-E79A-4BEA-8ECE-9764C69B3BE7}
 		{6B3CF09E-E869-4162-9824-FD4E28D116A7} = {B1837922-F7AB-4D07-A41F-D1466DE69CA9}
+		{C7426637-E3A6-4743-B66D-42E4B4E993BA} = {7ACFF8EF-68B3-4DD4-9BB3-25025498BF20}
+		{3519A74C-33B9-4375-B718-46DC2F8A44C1} = {0D480C71-1C9C-4A11-8187-2BE5E12A5A83}
+		{E153145F-6BA9-4148-87B8-C5F92AEC54DA} = {37CC05A6-26C2-43B1-8A22-2927E4A9D8F2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C8679901-039A-40C5-A272-FC1A2B47CEE5}

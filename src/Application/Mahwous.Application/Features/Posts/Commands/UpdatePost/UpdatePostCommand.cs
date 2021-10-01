@@ -1,5 +1,5 @@
 ﻿using Mahwous.Application.Mappings;
-using Mahwous.Core.Models;
+using Mahwous.Core.Entities;
 using MediatR;
 
 namespace Mahwous.Application.Features.Posts

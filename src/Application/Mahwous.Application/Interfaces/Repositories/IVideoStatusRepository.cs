@@ -1,4 +1,4 @@
-﻿using Mahwous.Core.Models;
+﻿using Mahwous.Core.Entities;
 
 namespace Mahwous.Application.Interfaces.Repositories
 {

@@ -1,0 +1,325 @@
+﻿
+
+@inject IJSRuntime js
+@inject NavigationManager navigation
+@inject MahwousRepositories repositories
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <!-- /.col -->
+        <div class="col-lg-9">
+
+            <div class="card">
+                <div class="card-header">
+                    <Pagination CurrentPage="@imageFilter.Pagination.Page" TotalAmountPages="totalAmountPages"
+                                SelectedPage="SelectedPage" />
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+
+                    <div>
+                        @if (images == null)
+                        {
+                            <p>جاري تحميل الصور .. </p>
+                        }
+                        else if (images.Count == 0)
+                        {
+                            <p> لا يوجد صور! </p>
+                        }
+                        else
+                        {
+                            <div class="card-columns">
+                                @foreach (ImageStatus image in images)
+                                {
+                                    <div class="card card-chart">
+                                        <a href="images/@image.Id" class="text-dark card-text">
+                                            <div class="card-body card-header-success p-0">
+                                                <img src="@image.ImagePath" class="m-1" style="height:auto; width:100%; object-fit:cover" />
+                                            </div>
+                                        </a>
+
+                                        <AuthorizeView>
+                                            <Authorized>
+                                                <div class="card-footer">
+                                                    <div class="stats">
+                                                        <button class="btn btn-danger" @onclick="@(() => DeleteImage(image.Id))">حذف</button>
+                                                        <a class="btn btn-info" href="administration/images/edit/@image.Id">تعديل</a>
+                                                    </div>
+                                                </div>
+                                            </Authorized>
+                                        </AuthorizeView>
+                                    </div>
+                                }
+                            </div>
+
+                        }
+                    </div>
+
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                    <Pagination CurrentPage="@imageFilter.Pagination.Page" TotalAmountPages="totalAmountPages"
+                                SelectedPage="SelectedPage" />
+                </div>
+                <!-- /.card-footer -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+        <div class="col-lg-3">
+            <AuthorizeView>
+                <Authorized>
+                    <a href="administration/images/create" class="btn btn-primary btn-block mb-3">اضافة صورة جديدة</a>
+                </Authorized>
+            </AuthorizeView>
+
+
+
+            <EditForm Model="imageFilter">
+                <div class="card my-2">
+                    <div class="card-header">
+                        <h3 class="card-title">فلترة</h3>
+                    </div>
+
+
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="ViewsCountFrom"> عدد المشاهدات من</label>
+                            <input type="number" class="form-control" id="ViewsCountFrom"
+                                   @bind-value="imageFilter.ViewsCount.From" @bind-value:event="oninput" />
+                            <label for="ViewsCountTo">إلى</label>
+                            <input type="number" class="form-control" id="ViewsCountFromTo"
+                                   @bind-value="imageFilter.ViewsCount.To" @bind-value:event="oninput" />
+                        </div>
+                        <div class="form-group">
+                            <label for="LikesCountFrom">عدد اللايكات من</label>
+                            <input type="number" class="form-control" id="LikesCountFrom"
+                                   @bind-value="imageFilter.LikesCount.From" @bind-value:event="oninput" />
+                            <label for="LikesCountTo">إلى</label>
+                            <input type="number" class="form-control" id="LikesCounttFromTo"
+                                   @bind-value="imageFilter.LikesCount.To" @bind-value:event="oninput" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="DownloadsCountFrom">عدد التحميلات من</label>
+                            <input type="number" class="form-control" id="DownloadsCountFrom"
+                                   @bind-value="imageFilter.DownloadsCount.From" @bind-value:event="oninput" />
+                            <label for="DownloadsCountTo">إلى</label>
+                            <input type="number" class="form-control" id="DownloadsCountTo"
+                                   @bind-value="imageFilter.DownloadsCount.To" @bind-value:event="oninput" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="DateFrom">من تاريخ</label>
+                            <input type="date" class="form-control" id="DateFrom" placeholder="DateFrom"
+                                   @bind-value="imageFilter.CreatedDate.From" @bind-value:event="oninput" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="DateTo">إلى تاريخ</label>
+                            <input type="date" class="form-control" id="DateTo" placeholder="DateTo"
+                                   @bind-value="imageFilter.CreatedDate.To" @bind-value:event="oninput" />
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="WithoutCategory" @bind="imageFilter.WithoutCategory" />
+                            <label class="form-check-label" for="WithoutCategory">بدون تصنيف فقط</label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Categories">تصنيفات</label>
+                            <RadzenDropDown class="form-control" Disabled="@imageFilter.WithoutCategory" AllowClear="false" AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" @bind-Value="selectedCategoriesIds" Multiple="true" Placeholder="إختر تصنيفات.." Data="@categories" TextProperty="Name" ValueProperty="Id"
+                                            Change="@(args => Change(args))" />
+                        </div>
+
+
+
+
+                        <div class="form-group">
+
+                            <label for="sortType">نوع الترتيب</label>
+
+                            <InputSelect class="form-control" id="SortType" @bind-Value="imageFilter.SortType">
+
+                                @foreach (var sortType in Enum.GetValues(typeof(StatusSortType)))
+                                {
+                                    <option value="@sortType">@sortType</option>
+                                }
+
+                            </InputSelect>
+
+                        </div>
+
+
+
+                        <AuthorizeView>
+                            <Authorized Context="authorized">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="Visible" @bind="imageFilter.Visible" />
+                                    <label class="form-check-label" for="Visible">مرئي</label>
+                                </div>
+                            </Authorized>
+                        </AuthorizeView>
+
+                    </div>
+
+                    <div class="card-footer">
+                        @*<button type="submit" class="btn btn-primary">Submit</button>*@
+                        <button type="button" class="btn btn-primary" @onclick="SearchForImages">فلترة</button>
+                        <button type="button" class="btn btn-link text-danger" @onclick="Clear">حذف الفلتر <i class="fas fa-backspace"></i></button>
+                    </div>
+                </div>
+            </EditForm>
+            <!-- /.card -->
+            <div class="card my-2">
+                <div class="card-header">
+                    <h3 class="card-title">احصاءات</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body p-0">
+                    @if (informations != null)
+                    {
+                        <p class="ml-auto ml-md-0"></p>
+                        <ul class="nav nav-pills flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link"><i class="far fa-circle text-danger"></i> عدد الصور: @informations.Count</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"><i class="far fa-circle text-warning"></i> مجموع المشاهدات: @informations.ViewsCount</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"><i class="far fa-circle text-primary"></i> مجموع التحميلات: @informations.DownloadsCount</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"><i class="far fa-circle text-primary"></i> مجموع اللايكات: @informations.LikesCount</a>
+                            </li>
+                        </ul>
+                    }
+
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+    <!-- /.row -->
+</div>
+
+
+
+
+@code {
+    private ImageFilter imageFilter = new ImageFilter();
+
+    ICollection<ImageStatus> images { get; set; }
+    ICollection<Category> categories { get; set; }
+    Informations informations;
+
+
+    private int totalAmountPages;
+
+
+    protected async override Task OnInitializedAsync()
+    {
+        //await authorizer.SetAuthorizationAsync();
+        imageFilter.SortType = StatusSortType.Newest;
+        informations = await repositories.ImagesRepository.GetInformations();
+        await LoadImages();
+        await LoadCategories();
+    }
+
+
+
+    IEnumerable<int> selectedCategoriesIds = new int[] { };
+
+    void Change(object value)
+    {
+        StateHasChanged();
+    }
+
+    async Task LoadCategories()
+    {
+        try
+        {
+
+            CategoryFilter filter = new CategoryFilter();
+            filter.ForImages = true;
+            filter.Pagination.RecordsPerPage = 100;
+
+            var paginatedResponse = await repositories.CategoriesRepository.GetFiltered(filter);
+            categories = paginatedResponse.Response;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
+        }
+    }
+
+
+
+    async Task LoadImages()
+    {
+        try
+        {
+            var paginatedResponse = await repositories.ImagesRepository.GetFiltered(imageFilter);
+            images = paginatedResponse.Response;
+            totalAmountPages = paginatedResponse.TotalAmountPages;
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
+        }
+    }
+
+    async Task DeleteImage(int imageId)
+    {
+        var video = images.First(i => i.Id == imageId);
+        if (await js.Confirm("تأكيد", $"هل أنت متأكد أنك تريد أن تحذف هذه الصورة؟", SweetAlertMessageType.error))
+        {
+            await repositories.ImagesRepository.Delete(imageId);
+            await LoadImages();
+        }
+    }
+
+    private async Task SelectedPage(int page)
+    {
+        imageFilter.Pagination.Page = page;
+        await LoadImages();
+    }
+
+
+    private async Task SearchForImages()
+    {
+        imageFilter.Categories.Clear();
+        foreach (int id in selectedCategoriesIds ?? new int[] { })
+        {
+            imageFilter.Categories.Add(categories.First(c => c.Id == id));
+        }
+
+
+        await LoadImages();
+    }
+
+    private async Task Clear()
+    {
+        imageFilter = new ImageFilter();
+        selectedCategoriesIds = new int[] { };
+        imageFilter.SortType = StatusSortType.Newest;
+
+        await LoadImages();
+    }
+
+    private async Task NameKeyPress(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            await SearchForImages();
+        }
+    }
+}
+

@@ -1,0 +1,345 @@
+﻿
+@inject IJSRuntime js
+@inject NavigationManager navigation
+@inject MahwousRepositories repositories
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="card">
+                <div class="card-header">
+                    <Pagination CurrentPage="@quoteFilter.Pagination.Page" TotalAmountPages="totalAmountPages"
+                                SelectedPage="SelectedPage" />
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+
+                    <div>
+                        @if (quotes == null)
+                        {
+                            <p>جاري تحميل الحالات .. </p>
+                        }
+                        else if (quotes.Count == 0)
+                        {
+                            <p> لا يوجد حالات! </p>
+                        }
+                        else
+                        {
+
+                            <div class="card-columns">
+                                @foreach (var quote in quotes)
+                                {
+                                    <div class="card">
+                                        <a href="quotes/@quote.Id" class="text-dark card-text">
+                                            <div class="card-body">
+
+                                                <p class="card-text">
+                                                    @quote.Content
+
+                                                </p>
+                                            </div>
+                                        </a>
+                                        <AuthorizeView>
+                                            <Authorized>
+                                                <div class="card-footer">
+                                                    <div class="stats">
+                                                        <button class="btn btn-danger" @onclick="@(() => DeleteQuote(quote.Id))">حذف</button>
+                                                        <a class="btn btn-info" href="administration/quotes/edit/@quote.Id">تعديل</a>
+                                                    </div>
+                                                </div>
+                                            </Authorized>
+                                        </AuthorizeView>
+                                    </div>
+                                }
+                            </div>
+
+                        }
+                    </div>
+
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                    <Pagination CurrentPage="@quoteFilter.Pagination.Page" TotalAmountPages="totalAmountPages"
+                                SelectedPage="SelectedPage" />
+                </div>
+                <!-- /.card-footer -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+        <div class="col-lg-3">
+
+            <AuthorizeView>
+                <Authorized>
+                    <a href="administration/quotes/create" class="btn btn-primary btn-block mb-3">اضافة حالة جديدة</a>
+                </Authorized>
+            </AuthorizeView>
+
+            <EditForm Model="quoteFilter">
+                <div class="card my-2">
+                    <div class="card-header">
+                        <h3 class="card-title">فلترة</h3>
+                    </div>
+
+                    <div class="card-body">
+
+
+                        <div class="form-group">
+                            <label for="Content">Content</label>
+                            <input type="text" class="form-control" id="title" placeholder="Quote Content"
+                                   @bind-value="quoteFilter.Content" @bind-value:event="oninput"
+                                   @onkeypress="@((KeyboardEventArgs e) => NameKeyPress(e))" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ViewsCountFrom"> عدد المشاهدات من</label>
+                            <input type="number" class="form-control" id="ViewsCountFrom"
+                                   @bind-value="quoteFilter.ViewsCount.From" @bind-value:event="oninput" />
+                            <label for="ViewsCountTo">إلى</label>
+                            <input type="number" class="form-control" id="ViewsCountFromTo"
+                                   @bind-value="quoteFilter.ViewsCount.To" @bind-value:event="oninput" />
+                        </div>
+                        <div class="form-group">
+                            <label for="LikesCountFrom">عدد اللايكات من</label>
+                            <input type="number" class="form-control" id="LikesCountFrom"
+                                   @bind-value="quoteFilter.LikesCount.From" @bind-value:event="oninput" />
+                            <label for="LikesCountTo">إلى</label>
+                            <input type="number" class="form-control" id="LikesCounttFromTo"
+                                   @bind-value="quoteFilter.LikesCount.To" @bind-value:event="oninput" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="DownloadsCountFrom">عدد التحميلات من</label>
+                            <input type="number" class="form-control" id="DownloadsCountFrom"
+                                   @bind-value="quoteFilter.DownloadsCount.From" @bind-value:event="oninput" />
+                            <label for="DownloadsCountTo">إلى</label>
+                            <input type="number" class="form-control" id="DownloadsCountTo"
+                                   @bind-value="quoteFilter.DownloadsCount.To" @bind-value:event="oninput" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="DateFrom">من تاريخ</label>
+                            <input type="date" class="form-control" id="DateFrom" placeholder="DateFrom"
+                                   @bind-value="quoteFilter.CreatedDate.From" @bind-value:event="oninput" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="DateTo">إلى تاريخ</label>
+                            <input type="date" class="form-control" id="DateTo" placeholder="DateTo"
+                                   @bind-value="quoteFilter.CreatedDate.To" @bind-value:event="oninput" />
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="WithoutCategory" @bind="quoteFilter.WithoutCategory" />
+                            <label class="form-check-label" for="WithoutCategory">بدون تصنيف فقط</label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Categories">تصنيفات</label>
+                            <RadzenDropDown class="form-control"
+                                            Disabled="@quoteFilter.WithoutCategory"
+                                            AllowClear="true"
+                                            AllowFiltering="true"
+                                            FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+                                            @bind-Value="selectedCategoriesIds"
+                                            Multiple="true"
+                                            Placeholder="Select..."
+                                            Data="@categories"
+                                            TextProperty="Name"
+                                            ValueProperty="Id"
+                                            Change="@(args => Change(args))" />
+                        </div>
+
+
+
+
+                        <div class="form-group">
+
+                            <label for="sortType">نوع الترتيب</label>
+
+                            <InputSelect class="form-control" id="SortType" @bind-Value="quoteFilter.SortType">
+
+                                @foreach (var sortType in Enum.GetValues(typeof(StatusSortType)))
+                                {
+                                    <option value="@sortType">@sortType</option>
+                                }
+
+                            </InputSelect>
+
+                        </div>
+
+                        <AuthorizeView>
+                            <Authorized Context="authorized">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="Visible" @bind="quoteFilter.Visible" />
+                                    <label class="form-check-label" for="Visible">مرئي</label>
+                                </div>
+                            </Authorized>
+                        </AuthorizeView>
+
+
+
+                    </div>
+
+                    <div class="card-footer">
+                        @*<button type="submit" class="btn btn-primary">Submit</button>*@
+                        <button type="button" class="btn btn-primary" @onclick="SearchForQuotes">فلترة</button>
+                        <button type="button" class="btn btn-link text-danger" @onclick="Clear">حذف الفلتر <i class="fas fa-backspace"></i></button>
+                    </div>
+                </div>
+            </EditForm>
+            <!-- /.card -->
+            <div class="card my-2">
+                <div class="card-header">
+                    <h3 class="card-title">احصاءات</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body p-0">
+                    @if (informations != null)
+                    {
+                        <p class="ml-auto ml-md-0"></p>
+                        <ul class="nav nav-pills flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link"><i class="far fa-circle text-danger"></i> عدد الحالات الكتابية: @informations.Count</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"><i class="far fa-circle text-warning"></i> مجموع المشاهدات: @informations.ViewsCount</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"><i class="far fa-circle text-primary"></i> مجموع التحميلات: @informations.DownloadsCount</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"><i class="far fa-circle text-primary"></i> مجموع اللايكات: @informations.LikesCount</a>
+                            </li>
+                        </ul>
+                    }
+
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</div><!-- /.container-fluid -->
+
+
+
+
+
+
+
+
+
+@code {
+    private QuoteFilter quoteFilter = new QuoteFilter();
+
+    ICollection<QuoteStatus> quotes { get; set; }
+    ICollection<Category> categories { get; set; }
+    Informations informations;
+
+
+    private int totalAmountPages;
+
+
+    protected async override Task OnInitializedAsync()
+    {
+        //await authorizer.SetAuthorizationAsync();
+        quoteFilter.SortType = StatusSortType.Newest;
+        informations = await repositories.QuotesRepository.GetInformations();
+        await LoadQuotes();
+        await LoadCategories();
+    }
+
+
+
+    IEnumerable<int> selectedCategoriesIds = new int[] { };
+
+    void Change(object value)
+    {
+        //StateHasChanged();
+    }
+
+
+    async Task LoadCategories()
+    {
+        try
+        {
+            CategoryFilter filter = new CategoryFilter();
+            filter.ForQuotes = true;
+            filter.Pagination.RecordsPerPage = 100;
+
+            var paginatedResponse = await repositories.CategoriesRepository.GetFiltered(filter);
+            categories = paginatedResponse.Response;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
+        }
+    }
+
+
+
+    async Task LoadQuotes()
+    {
+        try
+        {
+            var paginatedResponse = await repositories.QuotesRepository.GetFiltered(quoteFilter);
+            quotes = paginatedResponse.Response;
+            totalAmountPages = paginatedResponse.TotalAmountPages;
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
+        }
+    }
+
+    async Task DeleteQuote(int quoteId)
+    {
+        //var quote = quotes.First(i => i.Id == quoteId);
+        if (await js.Confirm("تأكيد", $"هل أنت متأكد أنك تريد أن تحذف هذه الصورة؟", SweetAlertMessageType.error))
+        {
+            await repositories.QuotesRepository.Delete(quoteId);
+            await LoadQuotes();
+        }
+    }
+
+    private async Task SelectedPage(int page)
+    {
+        quoteFilter.Pagination.Page = page;
+        await LoadQuotes();
+    }
+
+
+
+    private async Task SearchForQuotes()
+    {
+        quoteFilter.Categories.Clear();
+        foreach (int id in selectedCategoriesIds ?? new int[] { })
+        {
+            quoteFilter.Categories.Add(categories.First(c => c.Id == id));
+        }
+
+
+        await LoadQuotes();
+    }
+
+    private async Task Clear()
+    {
+        quoteFilter = new QuoteFilter();
+        selectedCategoriesIds = new int[] { };
+        quoteFilter.SortType = StatusSortType.Newest;
+
+        await LoadQuotes();
+    }
+
+    private async Task NameKeyPress(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            await SearchForQuotes();
+        }
+    }
+}

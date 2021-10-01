@@ -1,0 +1,16 @@
+﻿@page "/accounts/logout"
+
+@inject ILoginService loginService
+@inject NavigationManager navigationManager
+
+@using Mahwous.UI.Auth
+
+<div class="container pt-5"><text>جاري تسجيل الخروج...</text></div>
+
+@code{
+    protected async override Task OnInitializedAsync()
+    {
+        await loginService.Logout();
+        navigationManager.NavigateTo("");
+    }
+}
