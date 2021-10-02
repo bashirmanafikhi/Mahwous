@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Mahwous.Core.Extentions;
+using Mahwous.Core.Interfaces;
 
 namespace Mahwous.API.Controllers.MyControllerBase
 {

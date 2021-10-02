@@ -8,7 +8,24 @@ namespace Mahwous.Application.Mappings
 {
     public class MapConfigurationFactory
     {
-        public static MapperConfiguration Scan(Assembly target, Func<AssemblyName, bool> assemblyFilter = null)
+        public static MapperConfiguration GetConfigurationObject(Assembly target)
+        {
+            // Get all referenced assemblies
+            var assemblies = GetReferencedAssembles(target);
+
+            // Add current assembly to the assemblies list
+            assemblies.Add(target);
+
+            // Get all types of all assemblies
+            var types = assemblies.SelectMany(a => a.GetExportedTypes()).ToArray();
+
+            // Get mapper configuration
+            var configuration = LoadAllMappingsAndGetMapperConfiguration(types);
+
+            return configuration;
+        }
+
+        public static List<Assembly> GetReferencedAssembles(Assembly target, Func<AssemblyName, bool> assemblyFilter = null)
         {
             bool LoadAllFilter(AssemblyName x) => true;
 
@@ -16,20 +33,10 @@ namespace Mahwous.Application.Mappings
                 .Where(assemblyFilter ?? LoadAllFilter)
                 .Select(Assembly.Load)
                 .ToList();
-
-            assembliesToLoad.Add(target);
-
-            return LoadMapsFromAssemblies(assembliesToLoad.ToArray());
+            return assembliesToLoad;
         }
 
-        public static MapperConfiguration LoadMapsFromAssemblies(params Assembly[] assemblies)
-        {
-            var types = assemblies.SelectMany(a => a.GetExportedTypes()).ToArray();
-            return LoadAllMappings(types);
-        }
-
-
-        private static MapperConfiguration LoadAllMappings(IList<Type> types)
+        private static MapperConfiguration LoadAllMappingsAndGetMapperConfiguration(IList<Type> types)
         {
             return new MapperConfiguration(config =>
             {

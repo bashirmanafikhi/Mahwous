@@ -1,7 +1,6 @@
 ﻿using Mahwous.Core.Entities;
 using Mahwous.Core.Filters;
 using Mahwous.API.Controllers.MyControllerBase;
-using Mahwous.API.Helpers;
 using MahwousWeb.Persistent;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -9,6 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Mahwous.Core.Interfaces;
+using Mahwous.Application.Extensions;
 
 namespace Mahwous.API.Controllers
 {
@@ -28,7 +29,7 @@ namespace Mahwous.API.Controllers
 
             if (coverFile != null && coverFile.Length > 0)
             {
-                app.ImagePath = await fileStorageService.SaveFile(coverFile, "jpg", "apps");
+                app.ImagePath = await fileStorageService.SaveFile(coverFile.ToMemoryStream(), Core.Enums.FileType.Image);
             }
             else
             {
@@ -52,8 +53,7 @@ namespace Mahwous.API.Controllers
 
             if (coverFile != null && coverFile.Length > 0)
             {
-                app.ImagePath = await fileStorageService.EditFile(coverFile,
-                    "jpg", oldApp.ImagePath);
+                app.ImagePath = await fileStorageService.EditFile(oldApp.ImagePath, coverFile.ToMemoryStream(), Core.Enums.FileType.Image);
             }
 
             context.Entry(oldApp).CurrentValues.SetValues(app);
@@ -71,7 +71,7 @@ namespace Mahwous.API.Controllers
 
             if (!string.IsNullOrWhiteSpace(app.ImagePath))
             {
-                await fileStorageService.DeleteFile(app.ImagePath);
+                fileStorageService.DeleteFile(app.ImagePath);
             }
 
             context.Remove(app);

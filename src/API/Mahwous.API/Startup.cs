@@ -1,5 +1,6 @@
 using Mahwous.API.Helpers;
 using Mahwous.Application.Features.Posts;
+using Mahwous.Core.Interfaces;
 using Mahwous.Core.Interfaces.Repositories;
 using Mahwous.DependencyInjection;
 using MahwousWeb.Persistent;
@@ -39,10 +40,6 @@ namespace Mahwous.API
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-
-            services.AddScoped<IFileStorageService, InAppStorageService>();
-
 
             services.AddControllersWithViews()
                 .AddNewtonsoftJson(options =>

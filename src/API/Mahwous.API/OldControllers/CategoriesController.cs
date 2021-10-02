@@ -1,7 +1,6 @@
 ﻿using Mahwous.Core.Entities;
 using Mahwous.Core.Filters;
 using Mahwous.API.Controllers.MyControllerBase;
-using Mahwous.API.Helpers;
 using MahwousWeb.Persistent;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -9,6 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Mahwous.Core.Interfaces;
+using Mahwous.Application.Extensions;
 
 namespace Mahwous.API.Controllers
 {
@@ -28,7 +29,7 @@ namespace Mahwous.API.Controllers
             Category category = JsonSerializer.Deserialize<Category>(serializedObject);
 
             if (coverFile != null && coverFile.Length > 0)
-                category.CoverPath = await fileStorageService.SaveFile(coverFile, "jpg", "categories");
+                category.CoverPath = await fileStorageService.SaveFile(coverFile.ToMemoryStream(), Core.Enums.FileType.Image);
             else
                 category.CoverPath = noImage;
 
@@ -48,8 +49,7 @@ namespace Mahwous.API.Controllers
 
             if (coverFile != null && coverFile.Length > 0)
             {
-                category.CoverPath = await fileStorageService.EditFile(coverFile,
-                    "jpg", oldCategory.CoverPath);
+                category.CoverPath = await fileStorageService.EditFile(oldCategory.CoverPath, coverFile.ToMemoryStream(), Core.Enums.FileType.Image);
             }
 
             context.Entry(oldCategory).CurrentValues.SetValues(category);

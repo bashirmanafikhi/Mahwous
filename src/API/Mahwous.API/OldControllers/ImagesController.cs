@@ -1,7 +1,6 @@
 ﻿using Mahwous.Core.Entities;
 using Mahwous.Core.Filters;
 using Mahwous.API.Controllers.MyControllerBase;
-using Mahwous.API.Helpers;
 using MahwousWeb.Persistent;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -9,6 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Mahwous.Core.Interfaces;
+using Mahwous.Application.Extensions;
 
 namespace Mahwous.API.Controllers
 {
@@ -30,7 +31,7 @@ namespace Mahwous.API.Controllers
                 return BadRequest("ملف الصورة مطلوب");
 
             if (imageFile.Length > 0)
-                image.ImagePath = await fileStorageService.SaveFile(imageFile, "jpg", "images");
+                image.ImagePath = await fileStorageService.SaveFile(imageFile.ToMemoryStream(), Core.Enums.FileType.Image);
             else
                 image.ImagePath = noImage;
 
@@ -52,8 +53,7 @@ namespace Mahwous.API.Controllers
 
             if (imageFile != null && imageFile.Length > 0)
             {
-                image.ImagePath = await fileStorageService.EditFile(imageFile,
-                    "jpg", oldImageStatus.ImagePath);
+                image.ImagePath = await fileStorageService.EditFile(oldImageStatus.ImagePath, imageFile.ToMemoryStream(), Core.Enums.FileType.Image);
             }
 
             await context.Database.ExecuteSqlInterpolatedAsync($"delete from StatusCategories where StatusId = {image.Id}");

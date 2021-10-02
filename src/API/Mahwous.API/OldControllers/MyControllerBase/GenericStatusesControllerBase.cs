@@ -2,7 +2,6 @@
 using Mahwous.Core.Filters;
 using Mahwous.Core.General;
 using Mahwous.Core.Extentions;
-using Mahwous.API.Helpers;
 using MahwousWeb.Persistent;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Mahwous.Core.Interfaces;
 
 namespace Mahwous.API.Controllers.MyControllerBase
 {

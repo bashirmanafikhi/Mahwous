@@ -10,6 +10,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Application\Mahwous.Application\Mahwous.Application.csproj" />
+    <ProjectReference Include="..\Mahwous.EmailServices\Mahwous.EmailServices.csproj" />
+    <ProjectReference Include="..\Mahwous.FileStorageServices\Mahwous.FileStorageServices.csproj" />
     <ProjectReference Include="..\Mahwous.Persistence\Mahwous.Persistence.csproj" />
   </ItemGroup>
 

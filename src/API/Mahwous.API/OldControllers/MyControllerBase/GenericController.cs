@@ -1,12 +1,12 @@
 ﻿using Mahwous.Core.Entities;
 using Mahwous.Core.Filters;
-using Mahwous.API.Helpers;
 using MahwousWeb.Persistent;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
+using Mahwous.Core.Interfaces;
 
 namespace Mahwous.API.Controllers.MyControllerBase
 {

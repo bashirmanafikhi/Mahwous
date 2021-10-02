@@ -14,7 +14,8 @@ using System.Reflection;
 using System.Text;
 using System.Linq;
 using System.Runtime.CompilerServices;
-
+using Mahwous.FileStorageServices;
+using Mahwous.EmailServices;
 
 namespace Mahwous.DependencyInjection
 {
@@ -25,8 +26,26 @@ namespace Mahwous.DependencyInjection
             RegisterMediator(services);
             RegisterAutoMapper(services);
             RegisterRepositories(services);
-
+            RegisterOtherServices(services);
             return services;
+        }
+
+        private static void RegisterMediator(IServiceCollection services)
+        {
+            // Mediator
+            services.AddMediatR(typeof(Mahwous.Application.Startup));
+
+            // Behaviors
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ExceptionBehavior<,>));
+        }
+
+        private static void RegisterAutoMapper(IServiceCollection services)
+        {
+            var executingAssembly = Assembly.GetExecutingAssembly();
+            var config = MapConfigurationFactory.GetConfigurationObject(executingAssembly);
+            var mapper = config.CreateMapper();
+            services.AddSingleton<IMapper>(sp => mapper);
         }
 
         private static void RegisterRepositories(IServiceCollection services)
@@ -45,26 +64,15 @@ namespace Mahwous.DependencyInjection
             // GenericRepositories
             services.AddTransient(typeof(IEntityRepository<>), typeof(EntityRepository<>));
             services.AddTransient(typeof(IStatusRepository<>), typeof(StatusRepository<>));
-            //services.AddScoped<IEntityRepository<BaseEntity>, EntityRepository<BaseEntity>>();
-            //services.AddScoped<IEntityRepository<Status>, EntityRepository<Status>>();
-            //services.AddScoped<IStatusRepository<Status>, StatusRepository<Status>>();
         }
 
-        private static void RegisterAutoMapper(IServiceCollection services)
+        private static void RegisterOtherServices(IServiceCollection services)
         {
-            var config = MapConfigurationFactory.Scan(Assembly.GetExecutingAssembly());
-            var mapper = config.CreateMapper();
-            services.AddSingleton<IMapper>(sp => mapper);
-        }
+            // File Storage Services
+            services.AddScoped<IFileStorageService, InAppStorageService>();
 
-        private static void RegisterMediator(IServiceCollection services)
-        {
-            // Mediator
-            services.AddMediatR(typeof(Mahwous.Application.Startup));
-
-            // Behaviors
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ExceptionBehavior<,>));
+            // Email Services
+            services.AddScoped<IEmailService, EmailService>();
         }
     }
 }

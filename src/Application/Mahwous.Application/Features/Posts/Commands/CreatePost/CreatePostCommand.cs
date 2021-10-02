@@ -11,9 +11,6 @@ namespace Mahwous.Application.Features.Posts
         public string Title { get; set; }
         public string Content { get; set; }
 
-        public int DownloadsCount { get; set; }
-        public int LikesCount { get; set; }
-
         public IFormFile cover { get; set; }
     }
 }
