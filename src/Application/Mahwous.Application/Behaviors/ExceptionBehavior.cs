@@ -33,7 +33,8 @@ namespace Mahwous.Application.Behaviors
             }
             catch (Exception ex)
             {
-                _logger.LogCritical("not catched error: " +ex.Message);
+                throw ex;
+                //_logger.LogCritical("not catched error: " +ex.Message);
             }
 
             return default(TResponse);

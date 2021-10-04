@@ -48,9 +48,9 @@
 
 
     <div class="form-check">
-        <InputCheckbox @bind-Value="Category.Visible" />
+        <InputCheckbox @bind-Value="Category.IsHidden" />
         <label class="form-check-label" for="Visible">مرئي</label>
-        <span class="text-danger"><ValidationMessage For="@(() => Category.Visible)" /></span>
+        <span class="text-danger"><ValidationMessage For="@(() => Category.IsHidden)" /></span>
     </div>
 
 

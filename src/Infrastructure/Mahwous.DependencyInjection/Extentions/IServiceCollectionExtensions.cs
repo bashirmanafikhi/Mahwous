@@ -16,6 +16,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using Mahwous.FileStorageServices;
 using Mahwous.EmailServices;
+using FluentValidation;
 
 namespace Mahwous.DependencyInjection
 {
@@ -23,11 +24,18 @@ namespace Mahwous.DependencyInjection
     {
         public static IServiceCollection AddMahwousServices(this IServiceCollection services)
         {
+            RegisterValidators(services);
             RegisterMediator(services);
             RegisterAutoMapper(services);
             RegisterRepositories(services);
             RegisterOtherServices(services);
             return services;
+        }
+
+        private static void RegisterValidators(IServiceCollection services)
+        {
+            // For all the validators in the application project, register them with dependency injection as scoped
+            services.AddValidatorsFromAssemblyContaining<Application.Startup>();
         }
 
         private static void RegisterMediator(IServiceCollection services)
@@ -38,6 +46,7 @@ namespace Mahwous.DependencyInjection
             // Behaviors
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ExceptionBehavior<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
         }
 
         private static void RegisterAutoMapper(IServiceCollection services)

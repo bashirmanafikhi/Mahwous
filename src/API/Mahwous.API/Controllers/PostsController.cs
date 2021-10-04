@@ -1,27 +1,19 @@
-﻿using Mahwous.Core.Entities;
-using Mahwous.Core.Filters;
-using Mahwous.API.Controllers.MyControllerBase;
-using Mahwous.API.Helpers;
-using MahwousWeb.Persistent;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Text.Json;
-using System.Threading.Tasks;
+﻿using Mahwous.Application.Features.Posts;
 using MediatR;
-using Mahwous.Application.Features.Posts;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace Mahwous.API.Controllers
 {
 
     [ApiController]
     [Route("api/[controller]")]
-    public class AAPostsController : ControllerBase
+    public class PostsController : ControllerBase
     {
         private readonly IMediator mediator;
 
-        public AAPostsController(IMediator mediator)
+        public PostsController(IMediator mediator)
         {
             this.mediator = mediator;
         }
@@ -30,25 +22,37 @@ namespace Mahwous.API.Controllers
         [HttpPost]
         public async Task<ActionResult<int>> CreatePost([FromForm] CreatePostCommand command)
         {
-            var result = await mediator.Send(command);
-            return result;
+            return await mediator.Send(command);
         }
 
-
-        [HttpGet("list")]
-        public async Task<ActionResult<ListPostsResponse>> list(ListPostsQuery query)
+        [Authorize]
+        [HttpPut]
+        public async Task<ActionResult<int>> UpdatePost([FromForm] UpdatePostCommand command)
         {
-            var result = await mediator.Send(query);
-            return result;
+            return await mediator.Send(command);
+        }
+
+        [Authorize]
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeletePost(int id)
+        {
+            var command = new DeletePostCommand { Id = id };
+            await mediator.Send(command);
+            return Ok();
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<GetPostDetailsResponse>> details(int id, GetPostDetailsQuery query)
+        public async Task<ActionResult<GetPostDetailsResponse>> details(int id)
         {
-            query.Id = id;
+            var query = new GetPostDetailsQuery { Id = id };
+            return await mediator.Send(query);
+        }
+
+        [HttpGet("test")]
+        public async Task<ActionResult<ListPostsResponse>> list([FromQuery]ListPostsQuery query)
+        {
             var result = await mediator.Send(query);
             return result;
         }
-
     }
 }

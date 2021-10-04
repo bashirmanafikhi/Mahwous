@@ -29,14 +29,6 @@ namespace Mahwous.Application.Features.Posts
 
         public async Task<int> Handle(CreatePostCommand request, CancellationToken cancellationToken)
         {
-            // Validation
-            CreatePostCommandValidator validator = new CreatePostCommandValidator();
-            var result = await validator.ValidateAsync(request);
-            if (result.Errors.Any())
-            {
-                throw new ValidationException(result.Errors);
-            }
-
             // Mapping
             Post post = mapper.Map<Post>(request);
 

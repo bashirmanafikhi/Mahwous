@@ -15,7 +15,7 @@ namespace Mahwous.Core.Filters
     {
         PaginationDetails Pagination { get; set; }
 
-        bool? Visible { get; set; }
+        bool? IsHidden { get; set; }
 
         EntitySortType SortType { get; set; }
 

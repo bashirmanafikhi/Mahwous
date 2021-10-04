@@ -11,6 +11,8 @@ namespace Mahwous.Core.Filters
         public bool ForImages { get; set; }
         public bool ForQuotes { get; set; }
 
+        public override string Query => base.Query;
+
         public override IQueryable<Category> FilterOtherEntityProperties(IQueryable<Category> queryable)
         {
             if (!string.IsNullOrWhiteSpace(Name))

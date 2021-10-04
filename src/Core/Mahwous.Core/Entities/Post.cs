@@ -10,8 +10,8 @@ namespace Mahwous.Core.Entities
         public string Content { get; set; }
         public string ImagePath { get; set; }
 
-        public int DownloadsCount { get; set; }
         public int LikesCount { get; set; }
+        public int SharesCount { get; set; }
 
         // Get Properties
         public new Type FilterType => typeof(PostFilter);

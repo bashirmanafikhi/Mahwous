@@ -11,7 +11,7 @@ namespace Mahwous.Core.Filters
     public abstract class EntityFilter<T> : IFilter<T> where T : BaseEntity
     {
         // Filter Properties
-        public bool? Visible { get; set; }
+        public bool? IsHidden { get; set; }
         public Range<int?> ViewsCount { get; set; }
         public Range<DateTime> CreatedDate { get; set; }
 
@@ -26,7 +26,7 @@ namespace Mahwous.Core.Filters
         // Constructor
         public EntityFilter()
         {
-            Visible = true;
+            IsHidden = true;
             ViewsCount = new Range<int?>();
             Pagination = new PaginationDetails();
             CreatedDate = new Range<DateTime>();
@@ -34,7 +34,6 @@ namespace Mahwous.Core.Filters
 
             CreatedDate.From = new DateTime(2020, 01, 01);
             CreatedDate.To = DateTime.UtcNow;
-
 
             ViewsCount.To = int.MaxValue;
         }
@@ -55,9 +54,9 @@ namespace Mahwous.Core.Filters
                 queryable = queryable.Where(v => v.CreatedDate.Date <= CreatedDate.To.Date);
 
 
-            if (Visible.HasValue)
+            if (IsHidden.HasValue)
             {
-                queryable = queryable.Where(v => v.Visible == Visible);
+                queryable = queryable.Where(v => v.IsHidden == IsHidden);
             }
 
 
@@ -90,6 +89,14 @@ namespace Mahwous.Core.Filters
             queryable.Paginate(Pagination);
 
             return queryable;
+        }
+
+        public virtual string Query
+        {
+            get
+            {
+                return "";
+            }
         }
 
 
