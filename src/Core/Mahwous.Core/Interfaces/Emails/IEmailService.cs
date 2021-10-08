@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Mahwous.Core.Interfaces
+﻿namespace Mahwous.Core.Interfaces
 {
     public interface IEmailService
     {

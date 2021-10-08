@@ -51,8 +51,6 @@
     {
         CategoryFilter filter = new CategoryFilter();
         filter.ForQuotes = true;
-        filter.Pagination.RecordsPerPage = 100;
-
 
         quote = await repositories.QuotesRepository.Get(quoteId);
         SelectedCategories = quote.Categories.Select(sc => sc).ToList();

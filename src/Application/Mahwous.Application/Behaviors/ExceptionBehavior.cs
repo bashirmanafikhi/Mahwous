@@ -1,9 +1,6 @@
-﻿using Mahwous.Application.Exceptions;
-using MediatR;
+﻿using MediatR;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -27,10 +24,10 @@ namespace Mahwous.Application.Behaviors
             {
                 return await next();
             }
-            catch (NotFoundException ex)
-            {
-                _logger.LogError(ex, requestType + ' ' + ex.Message);
-            }
+            //catch (NotFoundException ex)
+            //{
+            //    _logger.LogError(ex, requestType + ' ' + ex.Message);
+            //}
             catch (Exception ex)
             {
                 throw ex;

@@ -3,7 +3,6 @@ using Mahwous.Core.Interfaces;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using System;
-using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -15,6 +14,9 @@ namespace Mahwous.FileStorageServices
         private readonly IHttpContextAccessor httpContextAccessor;
         private string wwwroot => env.WebRootPath;
         private string currentUrl => $"{httpContextAccessor.HttpContext.Request.Scheme}://{httpContextAccessor.HttpContext.Request.Host}";
+
+        private const string noImage = "no_image.jpg";
+        private const string noVideo = "no_video.jpg";
 
         public InAppStorageService(IWebHostEnvironment env,
             IHttpContextAccessor httpContextAccessor
@@ -37,6 +39,7 @@ namespace Mahwous.FileStorageServices
                     return "other";
             }
         }
+
         private string GetNewFileName(FileType fileType)
         {
             var fileName = Guid.NewGuid().ToString();
@@ -88,12 +91,30 @@ namespace Mahwous.FileStorageServices
 
         public async Task<string> SaveFile(MemoryStream file, FileType fileType)
         {
-            // Get file info
+            // Init file info
             string fileName = GetNewFileName(fileType);
             string folderName = GetContainerName(fileType);
 
             string folderPath = Path.Combine(wwwroot, "content", folderName);
             string filePath = Path.Combine(folderPath, fileName);
+
+            // Generate URL for the file
+            Uri baseUri = new Uri(currentUrl);
+            Uri myUri = new Uri(baseUri, $"content/{folderName}/{fileName}");
+            var pathForDatabase = myUri.AbsoluteUri;
+
+            // return if file is empty
+            if (file == null || file.Length <= 0)
+            {
+                if (fileType == FileType.Image)
+                {
+                    return (new Uri(baseUri, $"website/{folderName}/{noImage}")).AbsoluteUri;
+                }
+                else if (fileType == FileType.Video)
+                {
+                    return (new Uri(baseUri, $"website/{folderName}/{noVideo}")).AbsoluteUri;
+                }
+            }
 
             // Insure directory is exist
             if (!Directory.Exists(folderPath))
@@ -104,14 +125,10 @@ namespace Mahwous.FileStorageServices
             // Save the file
             using (Stream fileStream = new FileStream(filePath, FileMode.Create))
             {
-                await file.CopyToAsync(fileStream);
+                file.WriteTo(fileStream);
+                file.Close();
             }
 
-            // Generate URL for the file
-            Uri baseUri = new Uri(currentUrl);
-            Uri myUri = new Uri(baseUri, $"content/{folderName}/{fileName}");
-
-            var pathForDatabase = myUri.AbsoluteUri;
             return pathForDatabase;
         }
 
@@ -120,7 +137,6 @@ namespace Mahwous.FileStorageServices
             if (!string.IsNullOrEmpty(fileRoute))
                 await DeleteFile(fileRoute);
 
-            var containerName = Path.GetFileName(Path.GetDirectoryName(fileRoute));
             return await SaveFile(newFile, fileType);
         }
 

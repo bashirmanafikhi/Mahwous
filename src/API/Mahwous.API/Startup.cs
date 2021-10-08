@@ -1,12 +1,7 @@
 using Mahwous.API.Helpers;
-using Mahwous.Application.Features.Posts;
-using Mahwous.Core.Interfaces;
-using Mahwous.Core.Interfaces.Repositories;
 using Mahwous.DependencyInjection;
 using MahwousWeb.Persistent;
 using MahwousWeb.Persistent.Models;
-using MahwousWeb.Persistent.Repositories;
-using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -18,7 +13,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
-using System.Reflection;
 using System.Text;
 
 namespace Mahwous.API

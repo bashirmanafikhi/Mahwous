@@ -2,7 +2,6 @@
 using Mahwous.Core.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Http;
-using System;
 
 namespace Mahwous.Application.Features.Posts
 {

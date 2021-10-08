@@ -20,7 +20,6 @@ namespace Mahwous.Application.Features.Posts
         public async Task<GetPostDetailsResponse> Handle(GetPostDetailsQuery request, CancellationToken cancellationToken)
         {
             var post = await postRepository.GetByIdAsync(request.Id);
-
             var response = mapper.Map<GetPostDetailsResponse>(post);
             return response;
         }

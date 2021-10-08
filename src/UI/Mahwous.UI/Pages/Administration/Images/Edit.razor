@@ -54,7 +54,6 @@
 
         CategoryFilter filter = new CategoryFilter();
         filter.ForImages = true;
-        filter.Pagination.RecordsPerPage = 100;
 
         SelectedCategories = image.Categories.ToList();
         var categories = (await repositories.CategoriesRepository.GetFiltered(

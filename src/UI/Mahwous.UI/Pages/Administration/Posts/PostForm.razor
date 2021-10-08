@@ -25,11 +25,11 @@
         <InputFile OnChange="OnChooseFile" accept=".jpg,.jpeg,.png" />
         <span class="text-danger"></span>
     </div>
-    @if (Post.ImagePath != null)
+    @if (Post.CoverPath != null)
     {
         <div>
             <div style="margin:10px">
-                <img src="@Post.ImagePath" style="width: 400px;" />
+                <img src="@Post.CoverPath" style="width: 400px;" />
             </div>
         </div>
     }
@@ -60,7 +60,7 @@
 
     private async Task OnDataAnnotationsValidated()
     {
-        if (imageFile == null && Post.ImagePath == null)
+        if (imageFile == null && Post.CoverPath == null)
         {
             await js.DisplayMessage("خطء", "صورة المنشور مطلوبة", SweetAlertMessageType.error);
             return;

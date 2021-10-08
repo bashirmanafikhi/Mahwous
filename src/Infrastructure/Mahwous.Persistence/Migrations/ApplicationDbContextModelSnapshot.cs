@@ -62,6 +62,9 @@ namespace MahwousWeb.Persistent.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("IsHidden")
+                        .HasColumnType("bit");
+
                     b.Property<int?>("LastModifiedById")
                         .HasColumnType("int");
 
@@ -73,9 +76,6 @@ namespace MahwousWeb.Persistent.Migrations
 
                     b.Property<int>("ViewsCount")
                         .HasColumnType("int");
-
-                    b.Property<bool>("Visible")
-                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -95,6 +95,9 @@ namespace MahwousWeb.Persistent.Migrations
                     b.Property<int>("AppleStoreOpenedCount")
                         .HasColumnType("int");
 
+                    b.Property<string>("CoverPath")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("CreatedById")
                         .HasColumnType("int");
 
@@ -104,10 +107,10 @@ namespace MahwousWeb.Persistent.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImagePath")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsHidden")
                         .HasColumnType("bit");
 
                     b.Property<int?>("LastModifiedById")
@@ -131,15 +134,12 @@ namespace MahwousWeb.Persistent.Migrations
                     b.Property<int>("ViewsCount")
                         .HasColumnType("int");
 
-                    b.Property<bool>("Visible")
-                        .HasColumnType("bit");
-
                     b.HasKey("Id");
 
                     b.ToTable("MobileApps");
                 });
 
-            modelBuilder.Entity("Mahwous.Core.Entities.Notification", b =>
+            modelBuilder.Entity("Mahwous.Core.Entities.MobileNotification", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -159,6 +159,9 @@ namespace MahwousWeb.Persistent.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsHidden")
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsScheduled")
@@ -188,12 +191,9 @@ namespace MahwousWeb.Persistent.Migrations
                     b.Property<int>("ViewsCount")
                         .HasColumnType("int");
 
-                    b.Property<bool>("Visible")
-                        .HasColumnType("bit");
-
                     b.HasKey("Id");
 
-                    b.ToTable("Notifications");
+                    b.ToTable("MobileNotifications");
                 });
 
             modelBuilder.Entity("Mahwous.Core.Entities.Post", b =>
@@ -207,19 +207,19 @@ namespace MahwousWeb.Persistent.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("CoverPath")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("CreatedById")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("DownloadsCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ImagePath")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsHidden")
                         .HasColumnType("bit");
 
                     b.Property<int?>("LastModifiedById")
@@ -231,15 +231,15 @@ namespace MahwousWeb.Persistent.Migrations
                     b.Property<int>("LikesCount")
                         .HasColumnType("int");
 
+                    b.Property<int>("SharesCount")
+                        .HasColumnType("int");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ViewsCount")
                         .HasColumnType("int");
-
-                    b.Property<bool>("Visible")
-                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -269,6 +269,9 @@ namespace MahwousWeb.Persistent.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("IsHidden")
+                        .HasColumnType("bit");
+
                     b.Property<int?>("LastModifiedById")
                         .HasColumnType("int");
 
@@ -283,9 +286,6 @@ namespace MahwousWeb.Persistent.Migrations
 
                     b.Property<int>("ViewsCount")
                         .HasColumnType("int");
-
-                    b.Property<bool>("Visible")
-                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -499,7 +499,7 @@ namespace MahwousWeb.Persistent.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("MobileAppNotification", b =>
+            modelBuilder.Entity("MobileAppMobileNotification", b =>
                 {
                     b.Property<int>("AppsId")
                         .HasColumnType("int");
@@ -511,7 +511,7 @@ namespace MahwousWeb.Persistent.Migrations
 
                     b.HasIndex("NotificationsId");
 
-                    b.ToTable("MobileAppNotification");
+                    b.ToTable("MobileAppMobileNotification");
                 });
 
             modelBuilder.Entity("Mahwous.Core.Entities.ImageStatus", b =>
@@ -616,7 +616,7 @@ namespace MahwousWeb.Persistent.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("MobileAppNotification", b =>
+            modelBuilder.Entity("MobileAppMobileNotification", b =>
                 {
                     b.HasOne("Mahwous.Core.Entities.MobileApp", null)
                         .WithMany()
@@ -624,7 +624,7 @@ namespace MahwousWeb.Persistent.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Mahwous.Core.Entities.Notification", null)
+                    b.HasOne("Mahwous.Core.Entities.MobileNotification", null)
                         .WithMany()
                         .HasForeignKey("NotificationsId")
                         .OnDelete(DeleteBehavior.Cascade)

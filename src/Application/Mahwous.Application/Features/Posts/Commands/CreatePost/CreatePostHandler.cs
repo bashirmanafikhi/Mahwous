@@ -1,14 +1,11 @@
 ﻿using AutoMapper;
-using FluentValidation;
-using Mahwous.Core.Interfaces.Repositories;
+using Mahwous.Application.Extensions;
 using Mahwous.Core.Entities;
+using Mahwous.Core.Interfaces;
+using Mahwous.Core.Interfaces.Repositories;
 using MediatR;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Mahwous.Core.Interfaces;
-using System.IO;
-using Mahwous.Application.Extensions;
 
 namespace Mahwous.Application.Features.Posts
 {
@@ -34,7 +31,7 @@ namespace Mahwous.Application.Features.Posts
 
             // Save Files
             var coverFile = request.cover.ToMemoryStream();
-            post.ImagePath = await fileService.SaveFile(coverFile, Core.Enums.FileType.Image);
+            post.CoverPath = await fileService.SaveFile(coverFile, Core.Enums.FileType.Image);
 
             // Save Data
             await postRepository.AddAsync(post);

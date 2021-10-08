@@ -24,7 +24,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <Pagination CurrentPage="@filter.Pagination.Page" TotalAmountPages="totalAmountPages"
+                    <Pagination CurrentPage="@Pagination.PageIndex" TotalAmountPages="totalAmountPages"
                                 SelectedPage="SelectedPage" />
                 </div>
 
@@ -75,7 +75,7 @@
                 </div>
 
                 <div class="card-footer">
-                    <Pagination CurrentPage="@filter.Pagination.Page" TotalAmountPages="totalAmountPages"
+                    <Pagination CurrentPage="@Pagination.PageIndex" TotalAmountPages="totalAmountPages"
                                 SelectedPage="SelectedPage" />
                 </div>
             </div>
@@ -94,9 +94,10 @@
 
 @code {
 
-    ICollection<Notification> notifications { get; set; }
+    ICollection<MobileNotification> notifications { get; set; }
 
-    NotificationFilter filter = new NotificationFilter();
+    MobileNotificationFilter filter = new MobileNotificationFilter();
+    private PaginationDetails Pagination = new PaginationDetails();
 
     int totalAmountPages;
 
@@ -114,7 +115,7 @@
 
             var paginatedResponse = await repositories.NotificationsRepository.GetFiltered(filter);
             notifications = paginatedResponse.Response;
-            totalAmountPages = paginatedResponse.TotalAmountPages;
+            totalAmountPages = paginatedResponse.TotalPages;
         }
         catch (Exception ex)
         {
@@ -134,7 +135,7 @@ x.Id == notificationId);
 
     private async Task SelectedPage(int page)
     {
-        filter.Pagination.Page = page;
+        Pagination.PageIndex = page;
         await LoadNotifications();
     }
 }

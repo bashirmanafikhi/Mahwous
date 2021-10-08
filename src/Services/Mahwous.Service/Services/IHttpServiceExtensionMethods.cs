@@ -23,25 +23,25 @@ namespace MahwousWeb.Service.Services
             string newURL = "";
             if (url.Contains("?"))
             {
-                newURL = $"{url}&page={pagination.Page}&recordsPerPage={pagination.RecordsPerPage}";
+                newURL = $"{url}&page={pagination.PageIndex}&PageSize={pagination.PageSize}";
             }
             else
             {
-                newURL = $"{url}?page={pagination.Page}&recordsPerPage={pagination.RecordsPerPage}";
+                newURL = $"{url}?page={pagination.PageIndex}&PageSize={pagination.PageSize}";
             }
 
             var httpResponse = await httpService.Get<T>(newURL);
             var totalAmountPages = int.Parse(httpResponse.HttpResponseMessage.Headers.GetValues("totalAmountPages").FirstOrDefault());
-            var recordsPerPage = int.Parse(httpResponse.HttpResponseMessage.Headers.GetValues("recordsPerPage").FirstOrDefault());
+            var PageSize = int.Parse(httpResponse.HttpResponseMessage.Headers.GetValues("PageSize").FirstOrDefault());
             var currentPage = int.Parse(httpResponse.HttpResponseMessage.Headers.GetValues("currentPage").FirstOrDefault());
             var paginatedResponse = new PaginatedResponse<T>
             {
                 Response = httpResponse.Response,
-                TotalAmountPages = totalAmountPages,
+                TotalPages = totalAmountPages,
                 Pagination = new PaginationDetails
                 {
-                    Page = currentPage,
-                    RecordsPerPage = recordsPerPage
+                    PageIndex = currentPage,
+                    PageSize = PageSize
                 }
             };
             return paginatedResponse;

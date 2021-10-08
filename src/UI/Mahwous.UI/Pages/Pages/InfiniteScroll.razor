@@ -63,6 +63,7 @@
 
 
     private QuoteFilter quoteFilter = new QuoteFilter();
+    private PaginationDetails Pagination = new PaginationDetails();
 
 
     bool IsLoading { get; set; } = false;
@@ -75,7 +76,7 @@
 
     protected async override Task OnInitializedAsync()
     {
-        quoteFilter.Pagination.RecordsPerPage = 25;
+        Pagination.PageSize = 25;
         //await authorizer.SetAuthorizationAsync();
         await InitJsListenerAsync();
         await LoadQuotes();
@@ -102,8 +103,8 @@
         {
             var paginatedResponse = await repositories.QuotesRepository.GetFiltered(quoteFilter);
             quotes.AddRange(paginatedResponse.Response);
-            totalAmountPages = paginatedResponse.TotalAmountPages;
-            quoteFilter.Pagination.Page++;
+            totalAmountPages = paginatedResponse.TotalPages;
+            Pagination.PageIndex++;
         }
         catch (Exception ex)
         {
@@ -118,7 +119,7 @@
     [JSInvokable]
     public async Task LoadMore()
     {
-        if (quoteFilter.Pagination.Page <= totalAmountPages)
+        if (Pagination.PageIndex <= totalAmountPages)
             await LoadQuotes();
         else
             await StopListener();

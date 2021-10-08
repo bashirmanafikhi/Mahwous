@@ -15,10 +15,10 @@ namespace Mahwous.API.Helpers
             if (httpContext == null) { throw new ArgumentNullException(nameof(httpContext)); }
 
             int count = await queryable.CountAsync();
-            double totalAmountPages = Math.Ceiling((double)count / pagination.RecordsPerPage);
+            double totalAmountPages = Math.Ceiling((double)count / pagination.PageSize);
             httpContext.Response.Headers.Add("totalAmountPages", totalAmountPages.ToString());
-            httpContext.Response.Headers.Add("recordsPerPage", pagination.RecordsPerPage.ToString());
-            httpContext.Response.Headers.Add("currentPage", pagination.Page.ToString());
+            httpContext.Response.Headers.Add("PageSize", pagination.PageSize.ToString());
+            httpContext.Response.Headers.Add("currentPage", pagination.PageIndex.ToString());
         }
     }
 }

@@ -26,11 +26,11 @@
         <InputFile OnChange="OnChooseFile" accept=".jpg,.jpeg,.png" />
         <span class="text-danger"></span>
     </div>
-    @if (App.ImagePath != null)
+    @if (App.CoverPath != null)
     {
         <div>
             <div style="margin:10px">
-                <img src="@App.ImagePath" style="width: 400px;" />
+                <img src="@App.CoverPath" style="width: 400px;" />
             </div>
         </div>
     }
@@ -81,7 +81,7 @@
 
     private async Task OnDataAnnotationsValidated()
     {
-        if (imageFile == null && App.ImagePath == null)
+        if (imageFile == null && App.CoverPath == null)
         {
             await js.DisplayMessage("خطء", "صورة التطبيق مطلوبة", SweetAlertMessageType.error);
             return;

@@ -1,8 +1,7 @@
-﻿using AutoMapper;
-using FluentValidation;
+﻿using Mahwous.Application.Exceptions;
+using Mahwous.Core.Interfaces;
 using Mahwous.Core.Interfaces.Repositories;
 using MediatR;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -12,24 +11,26 @@ namespace Mahwous.Application.Features.Posts
     {
 
         private readonly IPostRepository postRepository;
-        private readonly IMapper mapper;
+        private readonly IFileStorageService fileService;
 
-        public DeletePostHandler(IPostRepository postRepository, IMapper mapper)
+        public DeletePostHandler(IPostRepository postRepository, IFileStorageService fileService)
         {
             this.postRepository = postRepository;
-            this.mapper = mapper;
+            this.fileService = fileService;
         }
 
         public async Task<Unit> Handle(DeletePostCommand request, CancellationToken cancellationToken)
         {
-            DeletePostCommandValidator validator = new DeletePostCommandValidator();
-            var result = await validator.ValidateAsync(request);
-            if (result.Errors.Any())
-            {
-                throw new ValidationException(result.Errors);
-            }
+            // get the entity to check existence and to take files urls from it
+            var post = await postRepository.GetByIdAsync(request.Id);
+            if (post == null)
+                throw new NotFoundException("The post is not exist");
 
-            await postRepository.DeleteAsync(request.Id);
+            // Delete Files
+            await fileService.DeleteFile(post.CoverPath);
+
+            // Delete data
+            await postRepository.DeleteAsync(post.Id);
             return Unit.Value;
         }
     }

@@ -1,8 +1,9 @@
 ﻿using Mahwous.Core.Entities;
+using Mahwous.Core.Filters;
 
 namespace Mahwous.Core.Interfaces.Repositories
 {
-    public interface INotificationRepository : IEntityRepository<Notification>
+    public interface INotificationRepository : IEntityRepository<MobileNotification, MobileNotificationFilter>
     {
 
     }

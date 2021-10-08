@@ -1,9 +1,10 @@
 ﻿using AutoMapper;
-using FluentValidation;
-using Mahwous.Core.Interfaces.Repositories;
+using Mahwous.Application.Exceptions;
+using Mahwous.Application.Extensions;
 using Mahwous.Core.Entities;
+using Mahwous.Core.Interfaces;
+using Mahwous.Core.Interfaces.Repositories;
 using MediatR;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -13,27 +14,40 @@ namespace Mahwous.Application.Features.Posts
     {
 
         private readonly IPostRepository postRepository;
+        private readonly IFileStorageService fileService;
         private readonly IMapper mapper;
 
-        public UpdatePostHandler(IPostRepository postRepository, IMapper mapper)
+        public UpdatePostHandler(IPostRepository postRepository, IFileStorageService fileService, IMapper mapper)
         {
             this.postRepository = postRepository;
+            this.fileService = fileService;
             this.mapper = mapper;
         }
 
 
         public async Task<int> Handle(UpdatePostCommand request, CancellationToken cancellationToken)
         {
-            UpdatePostCommandValidator validator = new UpdatePostCommandValidator();
-            var result = await validator.ValidateAsync(request);
-            if (result.Errors.Any())
+            // get the original object to check existence and to take files urls from it
+            var oldPost = await postRepository.GetByIdAsync(request.Id);
+            if (oldPost == null)
+                throw new NotFoundException("The post is not exist");
+
+            // Mapping
+            Post newPost = mapper.Map<Post>(request);
+
+            // Map the old files urls
+            newPost.CoverPath = oldPost.CoverPath;
+
+            // Save Files if a new file comes
+            if (request.Cover != null && request.Cover.Length > 0)
             {
-                throw new ValidationException(result.Errors);
+                var coverFile = request.Cover.ToMemoryStream();
+                newPost.CoverPath = await fileService.EditFile(newPost.CoverPath, coverFile, Core.Enums.FileType.Image);
             }
 
-            Post post = mapper.Map<Post>(request);
-            await postRepository.UpdateAsync(post);
-            return post.Id;
+            // Save Data
+            await postRepository.UpdateAsync(newPost);
+            return newPost.Id;
         }
     }
 }

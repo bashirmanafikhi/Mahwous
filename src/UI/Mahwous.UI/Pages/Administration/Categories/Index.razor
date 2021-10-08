@@ -23,7 +23,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <Pagination CurrentPage="@categoryFilter.Pagination.Page" TotalAmountPages="totalAmountPages"
+                    <Pagination CurrentPage="@Pagination.PageIndex" TotalAmountPages="totalAmountPages"
                                 SelectedPage="SelectedPage" />
                 </div>
                 <!-- /.card-header -->
@@ -74,7 +74,7 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                    <Pagination CurrentPage="@categoryFilter.Pagination.Page" TotalAmountPages="totalAmountPages"
+                    <Pagination CurrentPage="@Pagination.PageIndex" TotalAmountPages="totalAmountPages"
                                 SelectedPage="SelectedPage" />
                 </div>
                 <!-- /.card-footer -->
@@ -142,6 +142,7 @@
 
 @code {
     private CategoryFilter categoryFilter = new CategoryFilter();
+    private PaginationDetails Pagination = new PaginationDetails();
 
 
 
@@ -153,7 +154,7 @@
     protected async override Task OnInitializedAsync()
     {
         //await authorizer.SetAuthorizationAsync();
-        
+
 
         await LoadCategories();
     }
@@ -164,7 +165,7 @@
         {
             var paginatedResponse = await repositories.CategoriesRepository.GetFiltered(categoryFilter);
             categories = paginatedResponse.Response;
-            totalAmountPages = paginatedResponse.TotalAmountPages;
+            totalAmountPages = paginatedResponse.TotalPages;
         }
         catch (Exception ex)
         {
@@ -184,7 +185,7 @@
 
     private async Task SelectedPage(int page)
     {
-        categoryFilter.Pagination.Page = page;
+        Pagination.PageIndex = page;
         await LoadCategories();
     }
 

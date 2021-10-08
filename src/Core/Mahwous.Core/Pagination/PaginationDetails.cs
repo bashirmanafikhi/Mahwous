@@ -2,7 +2,19 @@
 {
     public class PaginationDetails
     {
-        public int Page { get; set; } = 1;
-        public int RecordsPerPage { get; set; } = 10;
+        public int PageIndex { get; set; }
+        public int PageSize { get; set; }
+
+        public PaginationDetails()
+        {
+            PageIndex = 1;
+            PageSize = 10;
+        }
+
+        public PaginationDetails(int pageIndex, int pageSize)
+        {
+            PageIndex = pageIndex;
+            PageSize = pageSize;
+        }
     }
 }

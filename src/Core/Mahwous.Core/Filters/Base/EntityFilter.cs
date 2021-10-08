@@ -1,8 +1,6 @@
 ﻿using Mahwous.Core.Entities;
 using Mahwous.Core.Enums;
-using Mahwous.Core.Extentions;
 using Mahwous.Core.General;
-using Mahwous.Core.Pagination;
 using System;
 using System.Linq;
 
@@ -19,16 +17,12 @@ namespace Mahwous.Core.Filters
         // Sorting
         public EntitySortType SortType { get; set; }
 
-        // Paginations
-        public PaginationDetails Pagination { get; set; }
-
 
         // Constructor
         public EntityFilter()
         {
             IsHidden = true;
             ViewsCount = new Range<int?>();
-            Pagination = new PaginationDetails();
             CreatedDate = new Range<DateTime>();
             SortType = EntitySortType.Random;
 
@@ -82,11 +76,7 @@ namespace Mahwous.Core.Filters
                     break;
             }
 
-
             queryable = FilterOtherEntityProperties(queryable);
-
-            // Paginating
-            queryable.Paginate(Pagination);
 
             return queryable;
         }

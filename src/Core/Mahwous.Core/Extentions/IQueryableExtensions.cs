@@ -7,13 +7,13 @@ namespace Mahwous.Core.Extentions
 {
     public static class IQueryableExtensions
     {
-        public static IQueryable<T> Paginate<T>(this IQueryable<T> queryable, PaginationDetails paginationDTO)
+        public static IQueryable<T> Paginate<T>(this IQueryable<T> queryable, PaginationDetails pagination)
         {
-            if (paginationDTO != null)
+            if (pagination != null)
             {
                 queryable = queryable
-                    .Skip((paginationDTO.Page - 1) * paginationDTO.RecordsPerPage)
-                    .Take(paginationDTO.RecordsPerPage);
+                    .Skip((pagination.PageIndex - 1) * pagination.PageSize)
+                    .Take(pagination.PageSize);
             }
 
             return queryable;

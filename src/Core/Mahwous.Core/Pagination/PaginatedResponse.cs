@@ -4,7 +4,7 @@
     {
         public T Response { get; set; }
 
-        public int TotalAmountPages { get; set; }
+        public int TotalPages { get; set; }
 
         public PaginationDetails Pagination { get; set; }
     }

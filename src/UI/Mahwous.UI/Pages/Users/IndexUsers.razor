@@ -3,7 +3,7 @@
 @attribute [Authorize(Roles = "مدير")]
 @layout AdminLayout
 
-<Pagination CurrentPage="@paginationDTO.Page" SelectedPage="SelectedPage"
+<Pagination CurrentPage="@paginationDTO.PageIndex" SelectedPage="SelectedPage"
             TotalAmountPages="totalAmountOfPages"></Pagination>
 
 
@@ -48,7 +48,7 @@
 
     private async Task SelectedPage(int page)
     {
-        paginationDTO.Page = page;
+        paginationDTO.PageIndex = page;
         await LoadUsers();
     }
 
@@ -56,6 +56,6 @@
     {
         var paginatedResponse = await usersRepository.GetUsers(paginationDTO);
         Users = paginatedResponse.Response;
-        totalAmountOfPages = paginatedResponse.TotalAmountPages;
+        totalAmountOfPages = paginatedResponse.TotalPages;
     }
 }

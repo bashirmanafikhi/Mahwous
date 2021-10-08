@@ -58,8 +58,6 @@
 
         CategoryFilter filter = new CategoryFilter();
         filter.ForQuotes = true;
-        filter.Pagination.RecordsPerPage = 100;
-
 
 
         var paginatedResponse = await repositories.CategoriesRepository.GetFiltered(filter);

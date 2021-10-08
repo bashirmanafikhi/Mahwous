@@ -46,7 +46,6 @@
     {
         CategoryFilter filter = new CategoryFilter();
         filter.ForImages = true;
-        filter.Pagination.RecordsPerPage = 100;
 
         var paginatedResponse = await repositories.CategoriesRepository.GetFiltered(filter);
         NotSelectedCategories = paginatedResponse.Response.ToList();

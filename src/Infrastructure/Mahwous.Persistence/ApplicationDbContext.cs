@@ -30,6 +30,6 @@ namespace MahwousWeb.Persistent
         public DbSet<QuoteStatus> QuoteStatuses { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<MobileApp> MobileApps { get; set; }
-        public DbSet<Notification> Notifications { get; set; }
+        public DbSet<MobileNotification> MobileNotifications { get; set; }
     }
 }

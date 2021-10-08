@@ -1,7 +1,6 @@
 ﻿using Mahwous.Core.Entities;
 using Mahwous.Core.Enums;
 using Mahwous.Core.General;
-using Mahwous.Core.Pagination;
 using System;
 using System.Linq;
 
@@ -13,8 +12,6 @@ namespace Mahwous.Core.Filters
     /// <typeparam name="T">Class Type</typeparam>
     public interface IFilter<T> where T : BaseEntity
     {
-        PaginationDetails Pagination { get; set; }
-
         bool? IsHidden { get; set; }
 
         EntitySortType SortType { get; set; }

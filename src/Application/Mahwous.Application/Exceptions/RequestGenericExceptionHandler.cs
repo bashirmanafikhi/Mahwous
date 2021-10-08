@@ -1,8 +1,6 @@
 ﻿using MediatR.Pipeline;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -25,9 +23,9 @@ namespace Mahwous.Application.Exceptions
             RequestExceptionHandlerState<TResponse> state,
             CancellationToken cancellationToken)
         {
-            if(exception is NotFoundException)
+            if (exception is NotFoundException)
             {
-                var requestName  = typeof(TRequest).Name;
+                var requestName = typeof(TRequest).Name;
                 _logger.LogWarning(requestName + ' ' + exception.Message);
             }
 

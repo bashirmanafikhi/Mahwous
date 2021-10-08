@@ -5,15 +5,15 @@ using System.Threading.Tasks;
 
 namespace MahwousWeb.Service.Repositories
 {
-    public class NotificationRepository : Repository<Notification>
+    public class NotificationRepository : Repository<MobileNotification>
     {
         public NotificationRepository(IHttpService httpService, string url) : base(httpService, url) { }
 
-        public async Task<Notification> GetLastNotification(string packageName)
+        public async Task<MobileNotification> GetLastNotification(string packageName)
         {
             try
             {
-                var response = await httpService.Get<Notification>($"{url}/getLastNotification?packageName={packageName}");
+                var response = await httpService.Get<MobileNotification>($"{url}/getLastNotification?packageName={packageName}");
                 if (!response.Success)
                 {
                     throw new ApplicationException(await response.GetBody());

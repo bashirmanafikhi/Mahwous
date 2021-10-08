@@ -20,7 +20,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <Pagination CurrentPage="@pagination.Page" TotalAmountPages="totalAmountPages"
+                    <Pagination CurrentPage="@Pagination.PageIndex" TotalAmountPages="totalAmountPages"
                                 SelectedPage="SelectedPage" />
                 </div>
 
@@ -44,7 +44,7 @@
                                     <div class="card">
                                         <a href="apps/@app.Id" class="text-dark card-text">
                                             <div class="card-header p-0">
-                                                <img src="@app.ImagePath" style="height:auto; width:100%; object-fit:cover" />
+                                                <img src="@app.CoverPath" style="height:auto; width:100%; object-fit:cover" />
                                             </div>
                                             <div class="card-body">
                                                 <h4 class="card-title">@app.Name</h4>
@@ -70,7 +70,7 @@
                 </div>
 
                 <div class="card-footer">
-                    <Pagination CurrentPage="@pagination.Page" TotalAmountPages="totalAmountPages"
+                    <Pagination CurrentPage="@Pagination.PageIndex" TotalAmountPages="totalAmountPages"
                                 SelectedPage="SelectedPage" />
                 </div>
             </div>
@@ -86,7 +86,7 @@
 
     ICollection<MobileApp> apps { get; set; }
 
-    PaginationDetails pagination = new PaginationDetails();
+    PaginationDetails Pagination = new PaginationDetails();
     int totalAmountPages;
 
 
@@ -103,7 +103,7 @@
             MobileAppFilter appFilter = new MobileAppFilter() { SortType = EntitySortType.Random, IsHidden = true };
             var paginatedResponse = await repositories.AppsRepository.GetFiltered(appFilter);
             apps = paginatedResponse.Response;
-            totalAmountPages = paginatedResponse.TotalAmountPages;
+            totalAmountPages = paginatedResponse.TotalPages;
 
         }
         catch (Exception ex)

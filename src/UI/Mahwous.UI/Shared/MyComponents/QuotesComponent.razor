@@ -8,7 +8,7 @@
         <div class="col-lg-9">
             <div class="card">
                 <div class="card-header">
-                    <Pagination CurrentPage="@quoteFilter.Pagination.Page" TotalAmountPages="totalAmountPages"
+                    <Pagination CurrentPage="@Pagination.PageIndex" TotalAmountPages="totalAmountPages"
                                 SelectedPage="SelectedPage" />
                 </div>
                 <!-- /.card-header -->
@@ -59,7 +59,7 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                    <Pagination CurrentPage="@quoteFilter.Pagination.Page" TotalAmountPages="totalAmountPages"
+                    <Pagination CurrentPage="@Pagination.PageIndex" TotalAmountPages="totalAmountPages"
                                 SelectedPage="SelectedPage" />
                 </div>
                 <!-- /.card-footer -->
@@ -234,6 +234,7 @@
 
 @code {
     private QuoteFilter quoteFilter = new QuoteFilter();
+    private PaginationDetails Pagination = new PaginationDetails();
 
     ICollection<QuoteStatus> quotes { get; set; }
     ICollection<Category> categories { get; set; }
@@ -268,7 +269,7 @@
         {
             CategoryFilter filter = new CategoryFilter();
             filter.ForQuotes = true;
-            filter.Pagination.RecordsPerPage = 100;
+            Pagination.PageSize = 100;
 
             var paginatedResponse = await repositories.CategoriesRepository.GetFiltered(filter);
             categories = paginatedResponse.Response;
@@ -287,7 +288,7 @@
         {
             var paginatedResponse = await repositories.QuotesRepository.GetFiltered(quoteFilter);
             quotes = paginatedResponse.Response;
-            totalAmountPages = paginatedResponse.TotalAmountPages;
+            totalAmountPages = paginatedResponse.TotalPages;
 
         }
         catch (Exception ex)
@@ -308,7 +309,7 @@
 
     private async Task SelectedPage(int page)
     {
-        quoteFilter.Pagination.Page = page;
+        Pagination.PageIndex = page;
         await LoadQuotes();
     }
 

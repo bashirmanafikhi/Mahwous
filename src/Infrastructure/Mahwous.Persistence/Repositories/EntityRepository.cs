@@ -1,12 +1,19 @@
-﻿using Mahwous.Core.Interfaces;
-using Mahwous.Core.Entities;
+﻿using Mahwous.Core.Entities;
+using Mahwous.Core.Extentions;
+using Mahwous.Core.Filters;
+using Mahwous.Core.Interfaces;
+using Mahwous.Core.Pagination;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace MahwousWeb.Persistent.Repositories
 {
-    public partial class EntityRepository<T> : IEntityRepository<T> where T : BaseEntity
+    public partial class EntityRepository<T, F> : IEntityRepository<T, F>
+        where T : BaseEntity
+        where F : EntityFilter<T>
     {
         protected readonly ApplicationDbContext _context;
 
@@ -15,14 +22,19 @@ namespace MahwousWeb.Persistent.Repositories
             _context = dbContext;
         }
 
-        public virtual async Task<T> GetByIdAsync(int id)
+        public async Task<T> GetByIdAsync(int id)
         {
-            return await _context.Set<T>().FindAsync(id);
+            return await _context.Set<T>().AsNoTracking().FirstAsync(x => x.Id == id);
         }
 
-        public async Task<IReadOnlyList<T>> ListAllAsync()
+        public async Task<T> GetRandomAsync()
         {
-            return await _context.Set<T>().ToListAsync();
+            return await _context.Set<T>().AsNoTracking().OrderBy(v => Guid.NewGuid()).FirstOrDefaultAsync();
+        }
+
+        public async Task<List<T>> ListAllAsync()
+        {
+            return await _context.Set<T>().AsNoTracking().ToListAsync();
         }
 
         public async Task<T> AddAsync(T entity)
@@ -41,14 +53,34 @@ namespace MahwousWeb.Persistent.Repositories
 
         public async Task DeleteAsync(int id)
         {
-            //T entity = new T() { Id = id };
-            //_context.Set<T>().Attach(entity);
-            //_context.Set<T>().Remove(entity);
-            //await _context.SaveChangesAsync();
-
             var entity = await _context.Set<T>().FirstAsync(x => x.Id == id);
             _context.Set<T>().Remove(entity);
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<PaginatedList<T>> SearchAsync(F filter, PaginationDetails pagination)
+        {
+            var query = _context.Set<T>().AsNoTracking();
+
+            var filteredQuery = query.Filter(filter);
+
+            var totalCount = filteredQuery.Count();
+
+            var paginatedQuery = filteredQuery.Paginate(pagination);
+
+            var list = await paginatedQuery.ToListAsync();
+
+            var paginatedList = new PaginatedList<T>(list, totalCount, pagination);
+
+            return paginatedList;
+        }
+
+        public async Task<List<T>> ListAllAsync(F filter)
+        {
+            return await _context.Set<T>()
+                                 .AsNoTracking()
+                                 .Filter(filter)
+                                 .ToListAsync();
         }
     }
 }

@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace MahwousWeb.Persistent.Configurations
 {
-    internal class NotificationConfiguration : BaseEntityConfiguration<Notification>
+    internal class NotificationConfiguration : BaseEntityConfiguration<MobileNotification>
     {
-        public override void ConfigureOtherProperties(EntityTypeBuilder<Notification> builder)
+        public override void ConfigureOtherProperties(EntityTypeBuilder<MobileNotification> builder)
         {
 
         }

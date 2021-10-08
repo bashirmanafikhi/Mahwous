@@ -63,7 +63,7 @@ namespace MahwousWeb.Service.Repositories
             var paginatedResponse = new PaginatedResponse<ICollection<TEntity>>()
             {
                 Response = responseHTTP.Response,
-                TotalAmountPages = totalAmountPages
+                TotalPages = totalAmountPages
             };
 
             return paginatedResponse;

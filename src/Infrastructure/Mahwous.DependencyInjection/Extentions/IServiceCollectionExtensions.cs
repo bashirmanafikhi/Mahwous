@@ -1,22 +1,15 @@
 ﻿using AutoMapper;
+using FluentValidation;
 using Mahwous.Application.Behaviors;
-using Mahwous.Application.Features.Posts;
+using Mahwous.Application.Mappings;
 using Mahwous.Core.Interfaces;
 using Mahwous.Core.Interfaces.Repositories;
-using Mahwous.Application.Mappings;
-using Mahwous.Core.Entities;
+using Mahwous.EmailServices;
+using Mahwous.FileStorageServices;
 using MahwousWeb.Persistent.Repositories;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using Mahwous.FileStorageServices;
-using Mahwous.EmailServices;
-using FluentValidation;
 
 namespace Mahwous.DependencyInjection
 {
@@ -71,8 +64,8 @@ namespace Mahwous.DependencyInjection
             services.AddScoped<IQuoteStatusRepository, QuoteStatusRepository>();
 
             // GenericRepositories
-            services.AddTransient(typeof(IEntityRepository<>), typeof(EntityRepository<>));
-            services.AddTransient(typeof(IStatusRepository<>), typeof(StatusRepository<>));
+            services.AddTransient(typeof(IEntityRepository<,>), typeof(EntityRepository<,>));
+            services.AddTransient(typeof(IStatusRepository<,>), typeof(StatusRepository<,>));
         }
 
         private static void RegisterOtherServices(IServiceCollection services)

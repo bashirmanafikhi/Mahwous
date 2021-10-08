@@ -15,7 +15,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <Pagination CurrentPage="@imageFilter.Pagination.Page" TotalAmountPages="totalAmountPages"
+                    <Pagination CurrentPage="@Pagination.PageIndex" TotalAmountPages="totalAmountPages"
                                 SelectedPage="SelectedPage" />
                 </div>
                 <!-- /.card-header -->
@@ -62,7 +62,7 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                    <Pagination CurrentPage="@imageFilter.Pagination.Page" TotalAmountPages="totalAmountPages"
+                    <Pagination CurrentPage="@Pagination.PageIndex" TotalAmountPages="totalAmountPages"
                                 SelectedPage="SelectedPage" />
                 </div>
                 <!-- /.card-footer -->
@@ -214,6 +214,7 @@
 
 @code {
     private ImageFilter imageFilter = new ImageFilter();
+    private PaginationDetails Pagination = new PaginationDetails();
 
     ICollection<ImageStatus> images { get; set; }
     ICollection<Category> categories { get; set; }
@@ -248,7 +249,7 @@
 
             CategoryFilter filter = new CategoryFilter();
             filter.ForImages = true;
-            filter.Pagination.RecordsPerPage = 100;
+            Pagination.PageSize = 100;
 
             var paginatedResponse = await repositories.CategoriesRepository.GetFiltered(filter);
             categories = paginatedResponse.Response;
@@ -267,7 +268,7 @@
         {
             var paginatedResponse = await repositories.ImagesRepository.GetFiltered(imageFilter);
             images = paginatedResponse.Response;
-            totalAmountPages = paginatedResponse.TotalAmountPages;
+            totalAmountPages = paginatedResponse.TotalPages;
 
         }
         catch (Exception ex)
@@ -288,7 +289,7 @@
 
     private async Task SelectedPage(int page)
     {
-        imageFilter.Pagination.Page = page;
+        Pagination.PageIndex = page;
         await LoadImages();
     }
 
