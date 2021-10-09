@@ -157,7 +157,7 @@
 
                             <label for="sortType">نوع الترتيب</label>
 
-                            <InputSelect class="form-control" id="SortType" @bind-Value="quoteFilter.SortType">
+                            <InputSelect class="form-control" id="SortType" @bind-Value="sortType">
 
                                 @foreach (var sortType in Enum.GetValues(typeof(StatusSortType)))
                                 {
@@ -235,6 +235,7 @@
 @code {
     private QuoteFilter quoteFilter = new QuoteFilter();
     private PaginationDetails Pagination = new PaginationDetails();
+    private StatusSortType sortType = StatusSortType.Random;
 
     ICollection<QuoteStatus> quotes { get; set; }
     ICollection<Category> categories { get; set; }
@@ -247,7 +248,7 @@
     protected async override Task OnInitializedAsync()
     {
         //await authorizer.SetAuthorizationAsync();
-        quoteFilter.SortType = StatusSortType.Newest;
+        sortType = StatusSortType.Newest;
         informations = await repositories.QuotesRepository.GetInformations();
         await LoadQuotes();
         await LoadCategories();
@@ -323,7 +324,6 @@
             quoteFilter.Categories.Add(categories.First(c => c.Id == id));
         }
 
-
         await LoadQuotes();
     }
 
@@ -331,7 +331,7 @@
     {
         quoteFilter = new QuoteFilter();
         selectedCategoriesIds = new int[] { };
-        quoteFilter.SortType = StatusSortType.Newest;
+        sortType = StatusSortType.Newest;
 
         await LoadQuotes();
     }

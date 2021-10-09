@@ -5,11 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Features\ImageStatuses\" />
-    <Folder Include="Features\MobileApps\" />
-    <Folder Include="Features\MobileNotifications\" />
-    <Folder Include="Features\VideoStatuses\" />
-    <Folder Include="Features\QuoteStatuses\" />
     <Folder Include="Models\" />
   </ItemGroup>
 

@@ -84,7 +84,6 @@
 
                     <div class="card-body">
 
-
                         <div class="form-group">
                             <label for="Content">Content</label>
                             <input type="text" class="form-control" id="title" placeholder="Video Content"
@@ -141,14 +140,11 @@
                                             Change="@(args => Change(args))" />
                         </div>
 
-
-
-
                         <div class="form-group">
 
                             <label for="sortType">نوع الترتيب</label>
 
-                            <InputSelect class="form-control" id="SortType" @bind-Value="videoFilter.SortType">
+                            <InputSelect class="form-control" id="SortType" @bind-Value="sortType">
 
                                 @foreach (var sortType in Enum.GetValues(typeof(StatusSortType)))
                                 {
@@ -158,8 +154,6 @@
                             </InputSelect>
 
                         </div>
-
-
 
                         <AuthorizeView>
                             <Authorized Context="authorized">
@@ -218,30 +212,21 @@
 
 </div><!-- /.container-fluid -->
 
-
-
-
-
-
-
-
-
 @code {
     private VideoFilter videoFilter = new VideoFilter();
     private PaginationDetails Pagination = new PaginationDetails();
+    private StatusSortType sortType = StatusSortType.Random;
 
     ICollection<VideoStatus> videos { get; set; }
     ICollection<Category> categories { get; set; }
     Informations informations;
 
-
     private int totalAmountPages;
-
 
     protected async override Task OnInitializedAsync()
     {
         //await authorizer.SetAuthorizationAsync();
-        videoFilter.SortType = StatusSortType.Newest;
+        sortType = StatusSortType.Newest;
         informations = await repositories.VideosRepository.GetInformations();
         await LoadVideos();
         await LoadCategories();
@@ -307,8 +292,6 @@
         await LoadVideos();
     }
 
-
-
     private async Task SearchForVideos()
     {
         videoFilter.Categories.Clear();
@@ -325,7 +308,7 @@
     {
         videoFilter = new VideoFilter();
         selectedCategoriesIds = new int[] { };
-        videoFilter.SortType = StatusSortType.Newest;
+        sortType = StatusSortType.Newest;
 
         await LoadVideos();
     }

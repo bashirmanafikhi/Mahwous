@@ -98,6 +98,7 @@
 
     MobileNotificationFilter filter = new MobileNotificationFilter();
     private PaginationDetails Pagination = new PaginationDetails();
+    private EntitySortType sortType = EntitySortType.Random;
 
     int totalAmountPages;
 
@@ -111,8 +112,6 @@
     {
         try
         {
-            filter.SortType = EntitySortType.Newest;
-
             var paginatedResponse = await repositories.NotificationsRepository.GetFiltered(filter);
             notifications = paginatedResponse.Response;
             totalAmountPages = paginatedResponse.TotalPages;

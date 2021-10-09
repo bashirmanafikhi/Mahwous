@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Mahwous.Application.Exceptions;
 using Mahwous.Application.Extensions;
 using Mahwous.Core.Entities;
 using Mahwous.Core.Interfaces;
@@ -15,6 +16,7 @@ namespace Mahwous.Application.Features.Categories
         private readonly ICategoryRepository categoryRepository;
         private readonly IFileStorageService fileService;
         private readonly IMapper mapper;
+
         public UpdateCategoryHandler(ICategoryRepository categoryRepository, IFileStorageService fileService, IMapper mapper)
         {
             this.categoryRepository = categoryRepository;
@@ -25,16 +27,27 @@ namespace Mahwous.Application.Features.Categories
 
         public async Task<int> Handle(UpdateCategoryCommand request, CancellationToken cancellationToken)
         {
-            // Mapping
-            Category category = mapper.Map<Category>(request);
+            // get the original object to check existence and to take files urls from it
+            var oldCategory = await categoryRepository.GetByIdAsync(request.Id);
+            if (oldCategory == null)
+                throw new NotFoundException("The category is not exist");
 
-            // Save Files
-            var coverFile = request.cover.ToMemoryStream();
-            category.CoverPath = await fileService.SaveFile(coverFile, Core.Enums.FileType.Image);
+            // Mapping
+            Category newCategory = mapper.Map<Category>(request);
+
+            // Map the old files urls
+            newCategory.CoverPath = oldCategory.CoverPath;
+
+            // Save Files if a new file comes
+            if (request.Cover != null && request.Cover.Length > 0)
+            {
+                var coverFile = request.Cover.ToMemoryStream();
+                newCategory.CoverPath = await fileService.EditFile(newCategory.CoverPath, coverFile, Core.Enums.FileType.Image);
+            }
 
             // Save Data
-            await categoryRepository.UpdateAsync(category);
-            return category.Id;
+            await categoryRepository.UpdateAsync(newCategory);
+            return newCategory.Id;
         }
     }
 }

@@ -21,7 +21,7 @@ namespace Mahwous.Application.Features.Posts
         public async Task<SearchPostsResponse> Handle(SearchPostsQuery request, CancellationToken cancellationToken)
         {
             var filter = mapper.Map<PostFilter>(request);
-            var posts = await postRepository.SearchAsync(filter, request.Pagination);
+            var posts = await postRepository.SearchAsync(filter, request.Pagination, request.SortType);
             var response = mapper.Map<SearchPostsResponse>(posts);
             return response;
         }

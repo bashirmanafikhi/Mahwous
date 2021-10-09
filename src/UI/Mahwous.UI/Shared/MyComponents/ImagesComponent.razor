@@ -143,7 +143,7 @@
 
                             <label for="sortType">نوع الترتيب</label>
 
-                            <InputSelect class="form-control" id="SortType" @bind-Value="imageFilter.SortType">
+                            <InputSelect class="form-control" id="SortType" @bind-Value="sortType">
 
                                 @foreach (var sortType in Enum.GetValues(typeof(StatusSortType)))
                                 {
@@ -215,6 +215,7 @@
 @code {
     private ImageFilter imageFilter = new ImageFilter();
     private PaginationDetails Pagination = new PaginationDetails();
+    private StatusSortType sortType = StatusSortType.Random;
 
     ICollection<ImageStatus> images { get; set; }
     ICollection<Category> categories { get; set; }
@@ -226,8 +227,6 @@
 
     protected async override Task OnInitializedAsync()
     {
-        //await authorizer.SetAuthorizationAsync();
-        imageFilter.SortType = StatusSortType.Newest;
         informations = await repositories.ImagesRepository.GetInformations();
         await LoadImages();
         await LoadCategories();
@@ -310,7 +309,6 @@
     {
         imageFilter = new ImageFilter();
         selectedCategoriesIds = new int[] { };
-        imageFilter.SortType = StatusSortType.Newest;
 
         await LoadImages();
     }

@@ -1,4 +1,5 @@
 ﻿using Mahwous.Core.Entities;
+using Mahwous.Core.Enums;
 using Mahwous.Core.Extentions;
 using Mahwous.Core.Filters;
 using Mahwous.Core.Interfaces;
@@ -7,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace MahwousWeb.Persistent.Repositories
@@ -58,7 +60,7 @@ namespace MahwousWeb.Persistent.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task<PaginatedList<T>> SearchAsync(F filter, PaginationDetails pagination)
+        public async Task<PaginatedList<T>> SearchAsync(F filter, PaginationDetails pagination, EntitySortType sortType)
         {
             var query = _context.Set<T>().AsNoTracking();
 
@@ -66,7 +68,9 @@ namespace MahwousWeb.Persistent.Repositories
 
             var totalCount = filteredQuery.Count();
 
-            var paginatedQuery = filteredQuery.Paginate(pagination);
+            var sortedQuery = filteredQuery.Sort(sortType);
+
+            var paginatedQuery = sortedQuery.Paginate(pagination);
 
             var list = await paginatedQuery.ToListAsync();
 
@@ -81,6 +85,11 @@ namespace MahwousWeb.Persistent.Repositories
                                  .AsNoTracking()
                                  .Filter(filter)
                                  .ToListAsync();
+        }
+
+        public async Task<bool> AnyAsync(Expression<Func<T, bool>> predicate)
+        {
+            return await _context.Set<T>().AnyAsync(predicate);
         }
     }
 }

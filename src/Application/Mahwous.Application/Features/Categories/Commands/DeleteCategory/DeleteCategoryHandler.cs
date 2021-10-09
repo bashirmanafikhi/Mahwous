@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using Mahwous.Application.Exceptions;
+using Mahwous.Core.Interfaces;
 using Mahwous.Core.Interfaces.Repositories;
 using MediatR;
 using System.Threading;
@@ -10,17 +11,26 @@ namespace Mahwous.Application.Features.Categories
     {
 
         private readonly ICategoryRepository categoryRepository;
-        private readonly IMapper mapper;
+        private readonly IFileStorageService fileService;
 
-        public DeleteCategoryHandler(ICategoryRepository categoryRepository, IMapper mapper)
+        public DeleteCategoryHandler(ICategoryRepository categoryRepository, IFileStorageService fileService)
         {
             this.categoryRepository = categoryRepository;
-            this.mapper = mapper;
+            this.fileService = fileService;
         }
 
         public async Task<Unit> Handle(DeleteCategoryCommand request, CancellationToken cancellationToken)
         {
-            await categoryRepository.DeleteAsync(request.Id);
+            // get the entity to check existence and to take files urls from it
+            var category = await categoryRepository.GetByIdAsync(request.Id);
+            if (category == null)
+                throw new NotFoundException("The category is not exist");
+
+            // Delete Files
+            await fileService.DeleteFile(category.CoverPath);
+
+            // Delete data
+            await categoryRepository.DeleteAsync(category.Id);
             return Unit.Value;
         }
     }

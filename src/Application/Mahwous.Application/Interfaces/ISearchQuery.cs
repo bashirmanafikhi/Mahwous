@@ -1,4 +1,6 @@
 ﻿using Mahwous.Application.Mappings;
+using Mahwous.Core.Enums;
+using Mahwous.Core.Filters;
 using Mahwous.Core.Pagination;
 using MediatR;
 
@@ -8,5 +10,8 @@ namespace Mahwous.Application.Interfaces
     {
         // Paginations
         public PaginationDetails Pagination { get; set; }
+
+        // Sorting
+        public EntitySortType SortType { get; set; }
     }
 }

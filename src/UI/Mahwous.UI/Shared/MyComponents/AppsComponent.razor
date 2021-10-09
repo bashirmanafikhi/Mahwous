@@ -100,7 +100,7 @@
     {
         try
         {
-            MobileAppFilter appFilter = new MobileAppFilter() { SortType = EntitySortType.Random, IsHidden = true };
+            MobileAppFilter appFilter = new MobileAppFilter() { IsHidden = true };
             var paginatedResponse = await repositories.AppsRepository.GetFiltered(appFilter);
             apps = paginatedResponse.Response;
             totalAmountPages = paginatedResponse.TotalPages;

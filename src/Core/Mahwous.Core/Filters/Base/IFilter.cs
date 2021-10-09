@@ -14,8 +14,6 @@ namespace Mahwous.Core.Filters
     {
         bool? IsHidden { get; set; }
 
-        EntitySortType SortType { get; set; }
-
         Range<int?> ViewsCount { get; set; }
 
         Range<DateTime> CreatedDate { get; set; }

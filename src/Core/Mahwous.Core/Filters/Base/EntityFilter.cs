@@ -14,17 +14,12 @@ namespace Mahwous.Core.Filters
         public Range<DateTime> CreatedDate { get; set; }
 
 
-        // Sorting
-        public EntitySortType SortType { get; set; }
-
-
         // Constructor
         public EntityFilter()
         {
             IsHidden = true;
             ViewsCount = new Range<int?>();
             CreatedDate = new Range<DateTime>();
-            SortType = EntitySortType.Random;
 
             CreatedDate.From = new DateTime(2020, 01, 01);
             CreatedDate.To = DateTime.UtcNow;
@@ -53,28 +48,6 @@ namespace Mahwous.Core.Filters
                 queryable = queryable.Where(v => v.IsHidden == IsHidden);
             }
 
-
-            // sorting
-            switch (SortType)
-            {
-                case EntitySortType.Newest:
-                    queryable = queryable.OrderByDescending(v => v.CreatedDate);
-                    break;
-                case EntitySortType.Oldest:
-                    queryable = queryable.OrderBy(v => v.CreatedDate);
-                    break;
-                case EntitySortType.MostViewed:
-                    queryable = queryable.OrderByDescending(v => v.ViewsCount);
-                    break;
-                case EntitySortType.LeastViewed:
-                    queryable = queryable.OrderBy(v => v.ViewsCount);
-                    break;
-                case EntitySortType.Random:
-                    queryable = queryable.OrderBy(v => Guid.NewGuid());
-                    break;
-                default:
-                    break;
-            }
 
             queryable = FilterOtherEntityProperties(queryable);
 
