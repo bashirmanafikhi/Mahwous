@@ -118,8 +118,8 @@
 //            try
 //            {
 //                var queryable = table.Filter(filter);
-//                await HttpContext.InsertPaginationParametersInResponse(queryable, filter.Pagination);
-//                return await queryable.Paginate(filter.Pagination).ToListAsync();
+//                await HttpContext.InsertPaginationParametersInResponse(queryable, pagination);
+//                return await queryable.Paginate(pagination).ToListAsync();
 //            }
 //            catch (Exception ex)
 //            {

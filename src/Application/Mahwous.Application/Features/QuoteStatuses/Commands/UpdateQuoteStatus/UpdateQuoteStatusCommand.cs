@@ -8,7 +8,6 @@ namespace Mahwous.Application.Features.QuoteStatuses
     public class UpdateQuoteStatusCommand : IRequest<int>, IMapTo<QuoteStatus>
     {
         public int Id { get; set; }
-        public string Title { get; set; }
         public string Content { get; set; }
 
         public IFormFile Cover { get; set; }

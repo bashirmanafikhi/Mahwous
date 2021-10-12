@@ -46,7 +46,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\MahwousWeb\Service\MahwousWeb.Service.csproj" />
+    <ProjectReference Include="..\..\..\src\Services\Mahwous.Service\Mahwous.Service.csproj" />
   </ItemGroup>
 
   <ItemGroup>

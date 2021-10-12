@@ -1,5 +1,5 @@
 ﻿using MahwousMobile.Base.Models;
-using Mahwous.Core.Models;
+using Mahwous.Core.Entities;
 
 namespace MahwousMobile.Base.ViewModels
 {
@@ -22,7 +22,7 @@ namespace MahwousMobile.Base.ViewModels
             StatusType = statusType;
             StatusCount = statusCount;
             Category = category;
-            //Category = Repositories.CategoryRepository.GetCategoriesFiltered(new CategoryFilter() { RecordsPerPage = 1 }).Result.Response[0];
+            //Category = Repositories.CategoryRepository.GetCategoriesFiltered(new CategoryFilter() { PageSize = 1 }).Result.Response[0];
         }
     }
 }

@@ -3,18 +3,21 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using MahwousMobile.Base.ViewModels;
-using MahwousWeb.Models.Filters;
-using Mahwous.Core.Models;
-using MahwousWeb.Models.Pagination;
+using Mahwous.Core.Filters;
+using Mahwous.Core.Entities;
+using Mahwous.Core.Pagination;
 using Xamarin.Forms;
+using Mahwous.Core.Pagination;
+using Mahwous.Core.Filters;
 
 namespace MahwousMobile.Base.ViewModels
 {
 
     public class AppsViewModel : BaseViewModel
     {
-        readonly PaginationDetails paginationDetails = new PaginationDetails() { RecordsPerPage = 200 };
+        readonly PaginationDetails paginationDetails = new PaginationDetails() { PageSize = 200 };
 
+        private PaginationDetails pagination;
 
         bool isLoadingMore = false;
         public bool IsLoadingMore
@@ -49,8 +52,8 @@ namespace MahwousMobile.Base.ViewModels
             try
             {
                 Apps.Clear();
-                AppFilter filter = new AppFilter();
-                filter.Pagination = paginationDetails;
+                AppFilter filter = new MobileAppFilter();
+                pagination = paginationDetails;
                 filter.SortType = SortType.Random;
 
                 var paginatedResponse = await Repositories.AppsRepository.GetFiltered(filter);

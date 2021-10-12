@@ -7,9 +7,12 @@ namespace Mahwous.Application.Features.Categories
 {
     public class CreateCategoryCommand : IRequest<int>, IMapTo<Category>
     {
-        public string Title { get; set; }
-        public string Content { get; set; }
+        public string Name { get; set; }
 
-        public IFormFile cover { get; set; }
+        public bool ForVideos { get; set; } = true;
+        public bool ForImages { get; set; } = true;
+        public bool ForQuotes { get; set; } = true;
+
+        public IFormFile Cover { get; set; }
     }
 }

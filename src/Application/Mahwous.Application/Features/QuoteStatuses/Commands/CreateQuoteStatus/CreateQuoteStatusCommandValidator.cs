@@ -6,8 +6,7 @@ namespace Mahwous.Application.Features.QuoteStatuses
     {
         public CreateQuoteStatusCommandValidator()
         {
-            RuleFor(x => x.Title).NotEmpty().MaximumLength(50);
-            RuleFor(x => x.Content).NotEmpty().MaximumLength(300);
+            RuleFor(x => x.Content).NotEmpty().MaximumLength(500);
         }
     }
 }

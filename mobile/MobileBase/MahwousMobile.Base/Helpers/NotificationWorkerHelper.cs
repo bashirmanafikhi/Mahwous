@@ -1,4 +1,4 @@
-﻿using Mahwous.Core.Models;
+﻿using Mahwous.Core.Entities;
 using MahwousWeb.Service.Repositories;
 using Plugin.LocalNotification;
 using System;
@@ -32,7 +32,7 @@ namespace MahwousMobile.Base.Helpers
 
                 MahwousRepositories repositories = new MahwousRepositories();
 
-                Notification notificationData = await repositories.NotificationsRepository.GetLastNotification(packageName);
+                MobileNotification notificationData = await repositories.NotificationsRepository.GetLastNotification(packageName);
 
                 if (notificationData == null)
                 {

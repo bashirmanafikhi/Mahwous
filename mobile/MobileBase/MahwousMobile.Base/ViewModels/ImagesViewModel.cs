@@ -1,11 +1,10 @@
-﻿using System;
+﻿using Mahwous.Core.Entities;
+using Mahwous.Core.Enums;
+using Mahwous.Core.Filters;
+using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using MahwousWeb.Models.Filters;
-using Mahwous.Core.Models;
-using MahwousWeb.Models.Pagination;
-using MahwousWeb.Service.Repositories;
 using Xamarin.Forms;
 
 namespace MahwousMobile.Base.ViewModels
@@ -61,9 +60,9 @@ namespace MahwousMobile.Base.ViewModels
 
                 try
                 {
-                    if (Filter.Pagination.Page < totalAmountPages)
+                    if (pagination.Page < totalAmountPages)
                     {
-                        Filter.Pagination.Page++;
+                        pagination.Page++;
                         var paginatedResponse = await Repositories.ImagesRepository.GetFiltered(Filter);
                         foreach (var image in paginatedResponse.Response)
                             Images.Add(image);
@@ -93,7 +92,7 @@ namespace MahwousMobile.Base.ViewModels
                 try
                 {
                     Images.Clear();
-                    filter.Pagination.Page = 1;
+                    pagination.Page = 1;
 
                     var paginatedResponse = await Repositories.ImagesRepository.GetFiltered(Filter);
                     totalAmountPages = paginatedResponse.TotalAmountPages;

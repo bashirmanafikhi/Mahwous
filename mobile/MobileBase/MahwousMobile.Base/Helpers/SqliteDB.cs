@@ -1,5 +1,6 @@
-﻿using Mahwous.Core.Models;
-using Mahwous.Core.Models;
+﻿using Mahwous.Core.Entities;
+using Mahwous.Core.Entities;
+using Mahwous.Core.Entities;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Linq;
 
 namespace MahwousMobile.Base.Helpers
 {
-    public class MahwousSqliteDB<T> : IDisposable where T : ModelBase, new()
+    public class MahwousSqliteDB<T> : IDisposable where T : BaseEntity, new()
     {
 
         private const string dbFileName = "Mahwous.db3";

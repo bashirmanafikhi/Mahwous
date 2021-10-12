@@ -30,7 +30,7 @@ namespace Mahwous.Application.Features.ImageStatuses
             ImageStatus image = mapper.Map<ImageStatus>(request);
 
             // Save Files
-            var coverFile = request.cover.ToMemoryStream();
+            var coverFile = request.Image.ToMemoryStream();
             image.ImagePath = await fileService.SaveFile(coverFile, Core.Enums.FileType.Image);
 
             // Save Data

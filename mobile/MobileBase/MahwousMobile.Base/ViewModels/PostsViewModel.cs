@@ -3,9 +3,9 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using MahwousMobile.Base.ViewModels;
-using MahwousWeb.Models.Filters;
-using Mahwous.Core.Models;
-using MahwousWeb.Models.Pagination;
+using Mahwous.Core.Filters;
+using Mahwous.Core.Entities;
+using Mahwous.Core.Pagination;
 using Xamarin.Forms;
 
 namespace MahwousMobile.Base.ViewModels

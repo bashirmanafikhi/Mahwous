@@ -1,5 +1,5 @@
 ﻿using MahwousMobile.Base.ViewModels;
-using MahwousWeb.Models.Filters;
+using Mahwous.Core.Filters;
 using System.ComponentModel;
 using Xamarin.Forms;
 

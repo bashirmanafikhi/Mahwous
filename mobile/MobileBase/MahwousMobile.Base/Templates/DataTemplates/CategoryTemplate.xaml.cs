@@ -1,6 +1,6 @@
 ﻿using MahwousMobile.Base.ViewModels;
 using MahwousMobile.Base.Views;
-using MahwousWeb.Models.Filters;
+using Mahwous.Core.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -2,9 +2,9 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using MahwousWeb.Models.Filters;
-using Mahwous.Core.Models;
-using MahwousWeb.Models.Pagination;
+using Mahwous.Core.Filters;
+using Mahwous.Core.Entities;
+using Mahwous.Core.Pagination;
 using MahwousWeb.Service.Repositories;
 using Xamarin.Forms;
 
@@ -14,6 +14,7 @@ namespace MahwousMobile.Base.ViewModels
     public class QuotesViewModel : BaseViewModel
     {
         private QuoteFilter filter;
+        private PaginationDetails pagination;
         private int totalAmountPages;
 
 
@@ -61,9 +62,9 @@ namespace MahwousMobile.Base.ViewModels
 
                 try
                 {
-                    if (Filter.Pagination.Page < totalAmountPages)
+                    if (pagination.Page < totalAmountPages)
                     {
-                        Filter.Pagination.Page++;
+                        pagination.Page++;
                         var paginatedResponse = await Repositories.QuotesRepository.GetFiltered(Filter);
                         foreach (var quote in paginatedResponse.Response)
                             Quotes.Add(new QuoteViewModel(quote));
@@ -93,7 +94,7 @@ namespace MahwousMobile.Base.ViewModels
             try
             {
                 Quotes.Clear();
-                filter.Pagination.Page = 1;
+                pagination.Page = 1;
 
                 var paginatedResponse = await Repositories.QuotesRepository.GetFiltered(Filter);
                 totalAmountPages = paginatedResponse.TotalAmountPages;

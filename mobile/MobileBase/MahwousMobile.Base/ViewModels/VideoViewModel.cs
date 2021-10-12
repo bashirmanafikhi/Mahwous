@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using MahwousMobile.Base.Helpers;
 using MahwousMobile.Base.Models;
-using MahwousWeb.Models.Filters;
+using Mahwous.Core.Filters;
 using Plugin.LocalNotification;
 using System;
 using System.Collections.Generic;

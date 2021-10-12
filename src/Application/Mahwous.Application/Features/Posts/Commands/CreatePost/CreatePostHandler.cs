@@ -30,7 +30,7 @@ namespace Mahwous.Application.Features.Posts
             Post post = mapper.Map<Post>(request);
 
             // Save Files
-            var coverFile = request.cover.ToMemoryStream();
+            var coverFile = request.Cover.ToMemoryStream();
             post.CoverPath = await fileService.SaveFile(coverFile, Core.Enums.FileType.Image);
 
             // Save Data

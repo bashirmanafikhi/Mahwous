@@ -8,7 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using MahwousMobile.Base.Views;
 using MahwousMobile.Base.ViewModels;
-using Mahwous.Core.Models;
+using Mahwous.Core.Entities;
 using MahwousMobile.Base.Models;
 
 namespace MahwousMobile.Base.Views

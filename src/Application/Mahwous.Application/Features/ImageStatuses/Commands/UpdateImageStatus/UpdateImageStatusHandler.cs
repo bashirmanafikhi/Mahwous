@@ -39,10 +39,10 @@ namespace Mahwous.Application.Features.ImageStatuses
             newImageStatus.ImagePath = oldImageStatus.ImagePath;
 
             // Save Files if a new file comes
-            if (request.Cover != null && request.Cover.Length > 0)
+            if (request.Image != null && request.Image.Length > 0)
             {
-                var coverFile = request.Cover.ToMemoryStream();
-                newImageStatus.ImagePath = await fileService.EditFile(newImageStatus.ImagePath, coverFile, Core.Enums.FileType.Image);
+                var imageFile = request.Image.ToMemoryStream();
+                newImageStatus.ImagePath = await fileService.EditFile(newImageStatus.ImagePath, imageFile, Core.Enums.FileType.Image);
             }
 
             // Save Data

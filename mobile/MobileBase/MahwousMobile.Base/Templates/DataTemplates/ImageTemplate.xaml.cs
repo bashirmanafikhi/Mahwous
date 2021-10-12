@@ -1,4 +1,4 @@
-﻿using Mahwous.Core.Models;
+﻿using Mahwous.Core.Entities;
 using MahwousMobile.Base.ViewModels;
 using MahwousMobile.Base.Views;
 using MarcTron.Plugin;

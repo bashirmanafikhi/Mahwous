@@ -1,4 +1,4 @@
-﻿using Mahwous.Core.Models;
+﻿using Mahwous.Core.Entities;
 using SQLite;
 using System;
 using System.Collections.Generic;

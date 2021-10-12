@@ -1,4 +1,4 @@
-﻿using Mahwous.Core.Models;
+﻿using Mahwous.Core.Entities;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;

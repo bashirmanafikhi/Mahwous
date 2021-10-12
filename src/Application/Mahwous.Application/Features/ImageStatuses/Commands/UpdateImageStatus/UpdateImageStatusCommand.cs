@@ -8,9 +8,6 @@ namespace Mahwous.Application.Features.ImageStatuses
     public class UpdateImageStatusCommand : IRequest<int>, IMapTo<ImageStatus>
     {
         public int Id { get; set; }
-        public string Title { get; set; }
-        public string Content { get; set; }
-
-        public IFormFile Cover { get; set; }
+        public IFormFile Image { get; set; }
     }
 }

@@ -8,8 +8,12 @@ namespace Mahwous.Application.Features.Categories
     public class UpdateCategoryCommand : IRequest<int>, IMapTo<Category>
     {
         public int Id { get; set; }
-        public string Title { get; set; }
-        public string Content { get; set; }
+
+        public string Name { get; set; }
+
+        public bool ForVideos { get; set; } = true;
+        public bool ForImages { get; set; } = true;
+        public bool ForQuotes { get; set; } = true;
 
         public IFormFile Cover { get; set; }
     }

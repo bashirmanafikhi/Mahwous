@@ -1,4 +1,6 @@
-﻿using MahwousMobile.Base.Models;
+﻿using Mahwous.Core.Filters;
+using Mahwous.Core.Pagination;
+using MahwousMobile.Base.Models;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -11,6 +13,7 @@ namespace MahwousMobile.Base.ViewModels
     public class VideosViewModel : BaseViewModel
     {
         private VideoFilter filter;
+        private PaginationDetails pagination;
         private int totalAmountPages;
 
 
@@ -58,9 +61,9 @@ namespace MahwousMobile.Base.ViewModels
 
                 try
                 {
-                    if (Filter.Pagination.Page < totalAmountPages)
+                    if (pagination.Page < totalAmountPages)
                     {
-                        Filter.Pagination.Page++;
+                        pagination.Page++;
                         var paginatedResponse = await Repositories.VideosRepository.GetFiltered(Filter);
                         foreach (var video in paginatedResponse.Response)
                             Videos.Add(video);
@@ -90,7 +93,7 @@ namespace MahwousMobile.Base.ViewModels
                 try
                 {
                     Videos.Clear();
-                    filter.Pagination.Page = 1;
+                    pagination.Page = 1;
 
                     var paginatedResponse = await Repositories.VideosRepository.GetFiltered(Filter);
                     totalAmountPages = paginatedResponse.TotalAmountPages;

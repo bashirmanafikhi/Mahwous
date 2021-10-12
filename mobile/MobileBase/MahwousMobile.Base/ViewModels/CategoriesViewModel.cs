@@ -1,6 +1,6 @@
 ﻿using MahwousMobile.Base.Models;
-using MahwousWeb.Models.Filters;
-using Mahwous.Core.Models;
+using Mahwous.Core.Filters;
+using Mahwous.Core.Entities;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
+using Mahwous.Core.Pagination;
 
 namespace MahwousMobile.Base.ViewModels
 {
@@ -37,6 +38,7 @@ namespace MahwousMobile.Base.ViewModels
             {
                 Categories.Clear();
                 CategoryFilter filter = new CategoryFilter();
+                PaginationDetails pagination = new PaginationDetails(); ;
 
                 switch (StatusType)
                 {
@@ -54,7 +56,7 @@ namespace MahwousMobile.Base.ViewModels
                 }
 
 
-                filter.Pagination.RecordsPerPage = 500;
+                pagination.PageSize = 500;
 
 
                 var paginatedResponse = await Repositories.CategoriesRepository.GetFiltered(filter);

@@ -6,8 +6,7 @@ namespace Mahwous.Application.Features.Categories
     {
         public CreateCategoryCommandValidator()
         {
-            RuleFor(x => x.Title).NotEmpty().MaximumLength(50);
-            RuleFor(x => x.Content).NotEmpty().MaximumLength(300);
+            RuleFor(x => x.Name).NotEmpty().MaximumLength(50);
         }
     }
 }

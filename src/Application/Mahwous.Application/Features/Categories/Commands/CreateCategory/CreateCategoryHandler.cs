@@ -30,7 +30,7 @@ namespace Mahwous.Application.Features.Categories
             Category category = mapper.Map<Category>(request);
 
             // Save Files
-            var coverFile = request.cover.ToMemoryStream();
+            var coverFile = request.Cover.ToMemoryStream();
             category.CoverPath = await fileService.SaveFile(coverFile, Core.Enums.FileType.Image);
 
             // Save Data

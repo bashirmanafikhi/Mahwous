@@ -1,6 +1,6 @@
 ﻿using MahwousMobile.Base.ViewModels;
-using MahwousWeb.Models.Filters;
-using Mahwous.Core.Models;
+using Mahwous.Core.Filters;
+using Mahwous.Core.Entities;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
