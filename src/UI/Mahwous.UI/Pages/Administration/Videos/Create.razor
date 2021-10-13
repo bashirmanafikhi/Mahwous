@@ -3,6 +3,7 @@
 @attribute [Authorize]
 @inject MahwousRepositories repositories
 @inject NavigationManager navigation
+@using Mahwous.Service.ViewModels.VideoStatuses;
 
 
 <!-- Content Header (Page header) -->
@@ -70,7 +71,12 @@
 
         try
         {
-            await repositories.VideosRepository.Add(video, coverFile, videoFile);
+            var request = new CreateVideoStatusCommand();
+            request.Title = video.Title;
+            request.Cover = coverFile;
+            request.Video = videoFile;
+            await repositories.VideosRepository.Add(request);
+            //await repositories.VideosRepository.Add(video, coverFile, videoFile);
             navigation.NavigateTo("administration/videos");
 
         }

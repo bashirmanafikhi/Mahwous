@@ -1,5 +1,5 @@
+using Mahwous.Service.Repositories;
 using Mahwous.UI.Auth;
-using MahwousWeb.Service.Repositories;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;

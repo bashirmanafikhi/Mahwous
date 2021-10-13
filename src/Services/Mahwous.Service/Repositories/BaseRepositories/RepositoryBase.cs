@@ -2,13 +2,13 @@
 using Mahwous.Core.Filters;
 using Mahwous.Core.General;
 using Mahwous.Core.Pagination;
-using MahwousWeb.Service.Services;
+using Mahwous.Service.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MahwousWeb.Service.Repositories
+namespace Mahwous.Service.Repositories
 {
     public abstract class RepositoryBase<TEntity> : IRepository<TEntity> where TEntity : BaseEntity
     {

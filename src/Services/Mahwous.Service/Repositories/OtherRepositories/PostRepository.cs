@@ -1,11 +1,10 @@
 ﻿using Mahwous.Core.Entities;
-using MahwousWeb.Service.Services;
+using Mahwous.Service.Services;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace MahwousWeb.Service.Repositories
+namespace Mahwous.Service.Repositories
 {
     public class PostRepository : RepositoryBase<Post>
     {
@@ -14,8 +13,7 @@ namespace MahwousWeb.Service.Repositories
 
         public async Task<int> Add(Post post, Stream imageFile)
         {
-            var response = await httpService.PostMultipartContent<Post, int>(url, post,
-                new KeyValuePair<string, Stream>("coverFile", imageFile));
+            var response = await httpService.PostMultipartContent<Post, int>(url, post);
 
             if (!response.Success)
                 throw new ApplicationException(await response.GetBody());
@@ -25,8 +23,7 @@ namespace MahwousWeb.Service.Repositories
 
         public async Task Update(Post post, Stream imageFile)
         {
-            var response = await httpService.PutMultipartContent(url, post,
-                new KeyValuePair<string, Stream>("coverFile", imageFile));
+            var response = await httpService.PutMultipartContent(url, post);
 
             if (!response.Success)
                 throw new ApplicationException(await response.GetBody());

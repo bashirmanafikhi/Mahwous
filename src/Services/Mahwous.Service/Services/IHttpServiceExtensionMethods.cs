@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MahwousWeb.Service.Services
+namespace Mahwous.Service.Services
 {
     public static class IHttpServiceExtensionMethods
     {

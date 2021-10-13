@@ -1,5 +1,4 @@
 ﻿using Mahwous.Core.Entities;
-using Mahwous.Core.Enums;
 using Mahwous.Core.General;
 using System;
 using System.Linq;
@@ -17,14 +16,11 @@ namespace Mahwous.Core.Filters
         // Constructor
         public EntityFilter()
         {
-            IsHidden = true;
             ViewsCount = new Range<int?>();
             CreatedDate = new Range<DateTime>();
 
             CreatedDate.From = new DateTime(2020, 01, 01);
             CreatedDate.To = DateTime.UtcNow;
-
-            ViewsCount.To = int.MaxValue;
         }
 
         public IQueryable<T> Filter(IQueryable<T> queryable)

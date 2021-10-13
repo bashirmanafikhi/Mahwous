@@ -3,6 +3,7 @@
 @attribute [Authorize]
 @inject MahwousRepositories repositories
 @inject NavigationManager navigation
+@using Mahwous.Service.ViewModels.Posts
 
 <div class="content-header">
     <div class="container-fluid">
@@ -43,7 +44,11 @@
     {
         try
         {
-            await repositories.PostsRepository.Add(post, imageFile);
+            CreatePostCommand command = new CreatePostCommand();
+            command.Content = post.Content;
+            command.Title = post.Title;
+            command.Cover = imageFile;
+            await repositories.PostsRepository.Add(command);
             navigation.NavigateTo("administration/posts");
 
         }

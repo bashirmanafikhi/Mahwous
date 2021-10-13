@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
+using System.Reflection;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace MahwousWeb.Service.Services
+namespace Mahwous.Service.Services
 {
     public class HttpService : IHttpService
     {
@@ -71,21 +71,22 @@ namespace MahwousWeb.Service.Services
             return new HttpResponseWrapper<object>(null, response.IsSuccessStatusCode, response);
         }
 
-        public async Task<HttpResponseWrapper<object>> PutMultipartContent<T>(string url, T data, params KeyValuePair<string, Stream>[] files)
+        public async Task<HttpResponseWrapper<object>> PutMultipartContent<T>(string url, T data)
         {
-            var dataJson = JsonSerializer.Serialize(data, data.GetType());
-            var stringContent = new StringContent(dataJson);
+            //var dataJson = JsonSerializer.Serialize(data, data.GetType());
+            //var stringContent = new StringContent(dataJson);
 
-            var multipartContent = new MultipartFormDataContent();
+            //var multipartContent = new MultipartFormDataContent();
 
-            multipartContent.Headers.ContentType.MediaType = "multipart/form-data";
-            multipartContent.Add(stringContent, "serializedObject");
-            foreach (var file in files)
-            {
-                if (file.Value != null && file.Value.Length > 0)
-                    multipartContent.Add(new StreamContent(file.Value), file.Key, file.Key);
-            }
+            //multipartContent.Headers.ContentType.MediaType = "multipart/form-data";
+            //multipartContent.Add(stringContent, "serializedObject");
+            //foreach (var file in files)
+            //{
+            //    if (file.Value != null && file.Value.Length > 0)
+            //        multipartContent.Add(new StreamContent(file.Value), file.Key, file.Key);
+            //}
 
+            var multipartContent = CreateMultipartFormDataContent(data);
             var response = await httpClient.PutAsync(url, multipartContent);
             return new HttpResponseWrapper<object>(null, response.IsSuccessStatusCode, response);
         }
@@ -103,21 +104,22 @@ namespace MahwousWeb.Service.Services
             return new HttpResponseWrapper<TResponse>(default, false, response);
         }
 
-        public async Task<HttpResponseWrapper<TResponse>> PostMultipartContent<T, TResponse>(string url, T data, params KeyValuePair<string, Stream>[] files)
+        public async Task<HttpResponseWrapper<TResponse>> PostMultipartContent<T, TResponse>(string url, T data)
         {
-            var dataJson = JsonSerializer.Serialize(data, data.GetType());
-            var stringContent = new StringContent(dataJson);
+            //var dataJson = JsonSerializer.Serialize(data, data.GetType());
+            //var stringContent = new StringContent(dataJson);
 
-            var multipartContent = new MultipartFormDataContent();
+            //var multipartContent = CreateMultipartFormDataContent(data);
 
-            multipartContent.Headers.ContentType.MediaType = "multipart/form-data";
-            multipartContent.Add(stringContent, "serializedObject");
-            foreach (var file in files)
-            {
-                if (file.Value != null && file.Value.Length > 0)
-                    multipartContent.Add(new StreamContent(file.Value), file.Key, file.Key);
-            }
+            //multipartContent.Headers.ContentType.MediaType = "multipart/form-data";
+            //multipartContent.Add(stringContent, "serializedObject");
+            //foreach (var file in files)
+            //{
+            //    if (file.Value != null && file.Value.Length > 0)
+            //        multipartContent.Add(new StreamContent(file.Value), file.Key, file.Key);
+            //}
 
+            var multipartContent = CreateMultipartFormDataContent(data);
             var response = await httpClient.PostAsync(url, multipartContent);
             if (response.IsSuccessStatusCode)
             {
@@ -166,6 +168,39 @@ namespace MahwousWeb.Service.Services
             {
                 return null;
             }
+        }
+
+
+
+        /// <summary>
+        /// Builds a MultipartFormDataContent from a request object
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public MultipartFormDataContent CreateMultipartFormDataContent<T>(T request)
+        {
+            MultipartFormDataContent multipartContent = new MultipartFormDataContent();
+            multipartContent.Headers.ContentType.MediaType = "multipart/form-data";
+
+            Type type = request.GetType();
+            PropertyInfo[] properties = type.GetProperties();
+            foreach (PropertyInfo property in properties)
+            {
+                if (property.PropertyType == typeof(Stream))
+                {
+                    Stream file = (Stream)property.GetValue(request, null);
+                    if (file != null && file.Length > 0)
+                        multipartContent.Add(new StreamContent(file), property.Name, property.Name);
+                }
+                else
+                {
+                    var stringContent = new StringContent(String.Format("{0}", property.GetValue(request, null)));
+                    multipartContent.Add(stringContent, property.Name);
+                }
+            }
+
+            return multipartContent;
         }
     }
 }

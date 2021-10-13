@@ -1,10 +1,10 @@
 ﻿using Mahwous.Core.Dtos;
-using MahwousWeb.Service.Services;
+using Mahwous.Service.Services;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace MahwousWeb.Service.Repositories
+namespace Mahwous.Service.Repositories
 {
     public class AccountsRepository : IAccountsRepository
     {

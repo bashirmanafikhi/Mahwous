@@ -3,7 +3,7 @@ using Mahwous.Core.Pagination;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MahwousWeb.Service.Repositories
+namespace Mahwous.Service.Repositories
 {
     public interface IUsersRepository
     {

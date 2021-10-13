@@ -16,8 +16,8 @@ namespace MahwousWeb.Persistent.Repositories
         where F : StatusFilter<T>
     {
         public StatusRepository(ApplicationDbContext context) : base(context)
-        { 
-        
+        {
+
         }
 
         public async Task<PaginatedList<T>> SearchAsync(F filter, PaginationDetails pagination, StatusSortType sortType)

@@ -1,7 +1,7 @@
 ﻿using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace MahwousWeb.Service.Services
+namespace Mahwous.Service.Services
 {
     public class HttpResponseWrapper<T>
     {

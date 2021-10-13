@@ -1,11 +1,10 @@
 ﻿using Mahwous.Core.Entities;
-using MahwousWeb.Service.Services;
+using Mahwous.Service.Services;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace MahwousWeb.Service.Repositories
+namespace Mahwous.Service.Repositories
 {
     public class ImageRepository : StatusRepository<ImageStatus>
     {
@@ -14,8 +13,7 @@ namespace MahwousWeb.Service.Repositories
 
         public async Task<int> Add(ImageStatus image, Stream imageFile)
         {
-            var response = await httpService.PostMultipartContent<ImageStatus, int>(url, image,
-                new KeyValuePair<string, Stream>("imageFile", imageFile));
+            var response = await httpService.PostMultipartContent<ImageStatus, int>(url, image);
 
             if (!response.Success)
                 throw new ApplicationException(await response.GetBody());
@@ -25,8 +23,7 @@ namespace MahwousWeb.Service.Repositories
 
         public async Task Update(ImageStatus image, Stream imageFile)
         {
-            var response = await httpService.PutMultipartContent(url, image,
-                new KeyValuePair<string, Stream>("imageFile", imageFile));
+            var response = await httpService.PutMultipartContent(url, image);
 
             if (!response.Success)
                 throw new ApplicationException(await response.GetBody());

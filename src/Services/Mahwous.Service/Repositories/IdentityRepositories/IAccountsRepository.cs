@@ -1,7 +1,7 @@
 ﻿using Mahwous.Core.Dtos;
 using System.Threading.Tasks;
 
-namespace MahwousWeb.Service.Repositories
+namespace Mahwous.Service.Repositories
 {
     public interface IAccountsRepository
     {

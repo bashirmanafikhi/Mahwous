@@ -1,9 +1,9 @@
 ﻿using Mahwous.Core.Entities;
-using MahwousWeb.Service.Services;
+using Mahwous.Service.Services;
 using System;
 using System.Threading.Tasks;
 
-namespace MahwousWeb.Service.Repositories
+namespace Mahwous.Service.Repositories
 {
     public class NotificationRepository : Repository<MobileNotification>
     {

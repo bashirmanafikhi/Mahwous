@@ -1,10 +1,10 @@
 ﻿using Mahwous.Core.Entities;
-using MahwousWeb.Service.Services;
+using Mahwous.Service.Services;
 using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
 
-namespace MahwousWeb.Service.Repositories
+namespace Mahwous.Service.Repositories
 {
     internal static class Constants
     {
@@ -106,14 +106,14 @@ namespace MahwousWeb.Service.Repositories
         }
 
 
-        private PostRepository postsRepository;
-        public PostRepository PostsRepository
+        private NewRepositores.PostRepository postsRepository;
+        public NewRepositores.PostRepository PostsRepository
         {
             get
             {
                 if (postsRepository == null)
                 {
-                    postsRepository = new PostRepository(httpService, Constants.PostsUrl);
+                    postsRepository = new NewRepositores.PostRepository(httpService, Constants.PostsUrl);
                 }
                 return postsRepository;
             }

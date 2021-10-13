@@ -1,12 +1,12 @@
 ﻿using Mahwous.Core.Dtos;
 using Mahwous.Core.Pagination;
-using MahwousWeb.Service.Services;
+using Mahwous.Service.Services;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace MahwousWeb.Service.Repositories
+namespace Mahwous.Service.Repositories
 {
     public class UserRepository : IUsersRepository
     {

@@ -1,11 +1,10 @@
 ﻿using Mahwous.Core.Entities;
-using MahwousWeb.Service.Services;
+using Mahwous.Service.Services;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace MahwousWeb.Service.Repositories
+namespace Mahwous.Service.Repositories
 {
     public class CategoryRepository : RepositoryBase<Category>
     {
@@ -14,8 +13,7 @@ namespace MahwousWeb.Service.Repositories
 
         public async Task<int> Add(Category category, Stream coverFile)
         {
-            var response = await httpService.PostMultipartContent<Category, int>(url, category,
-                new KeyValuePair<string, Stream>("coverFile", coverFile));
+            var response = await httpService.PostMultipartContent<Category, int>(url, category);
 
             if (!response.Success)
                 throw new ApplicationException(await response.GetBody());
@@ -25,8 +23,7 @@ namespace MahwousWeb.Service.Repositories
 
         public async Task Update(Category category, Stream coverFile)
         {
-            var response = await httpService.PutMultipartContent(url, category,
-                new KeyValuePair<string, Stream>("coverFile", coverFile));
+            var response = await httpService.PutMultipartContent(url, category);
 
             if (!response.Success)
                 throw new ApplicationException(await response.GetBody());
