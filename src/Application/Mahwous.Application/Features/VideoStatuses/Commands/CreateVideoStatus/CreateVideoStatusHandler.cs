@@ -33,6 +33,9 @@ namespace Mahwous.Application.Features.VideoStatuses
             var coverFile = request.Cover.ToMemoryStream();
             video.CoverPath = await fileService.SaveFile(coverFile, Core.Enums.FileType.Image);
 
+            var videoFile = request.Video.ToMemoryStream();
+            video.VideoPath = await fileService.SaveFile(videoFile, Core.Enums.FileType.Video);
+
             // Save Data
             await videoRepository.AddAsync(video);
             return video.Id;

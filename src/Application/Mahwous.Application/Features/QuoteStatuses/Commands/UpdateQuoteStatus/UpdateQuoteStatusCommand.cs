@@ -9,7 +9,5 @@ namespace Mahwous.Application.Features.QuoteStatuses
     {
         public int Id { get; set; }
         public string Content { get; set; }
-
-        public IFormFile Cover { get; set; }
     }
 }

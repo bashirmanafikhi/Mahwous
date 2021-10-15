@@ -48,7 +48,7 @@
             command.Content = post.Content;
             command.Title = post.Title;
             command.Cover = imageFile;
-            await repositories.PostsRepository.Add(command);
+            await repositories.PostRepository.Create(command);
             navigation.NavigateTo("administration/posts");
 
         }

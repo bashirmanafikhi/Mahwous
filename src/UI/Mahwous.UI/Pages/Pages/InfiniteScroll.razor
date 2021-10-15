@@ -2,6 +2,7 @@
 @inject IJSRuntime JsRuntime
 @implements IDisposable
 @inject MahwousRepositories repositories
+@using Mahwous.Service.ViewModels.QuoteStatuses
 
 
 <div class="container">
@@ -63,7 +64,7 @@
 
 
     private QuoteFilter quoteFilter = new QuoteFilter();
-    private PaginationDetails Pagination = new PaginationDetails();
+    private PaginationDetails pagination = new PaginationDetails();
 
 
     bool IsLoading { get; set; } = false;
@@ -76,7 +77,7 @@
 
     protected async override Task OnInitializedAsync()
     {
-        Pagination.PageSize = 25;
+        pagination.PageSize = 25;
         //await authorizer.SetAuthorizationAsync();
         await InitJsListenerAsync();
         await LoadQuotes();
@@ -101,10 +102,10 @@
 
         try
         {
-            var paginatedResponse = await repositories.QuotesRepository.GetFiltered(quoteFilter);
-            quotes.AddRange(paginatedResponse.Response);
+            var paginatedResponse = await repositories.QuoteStatusRepository.Search(pagination, quoteFilter);
+            quotes.AddRange(paginatedResponse.Items);
             totalAmountPages = paginatedResponse.TotalPages;
-            Pagination.PageIndex++;
+            pagination.PageIndex++;
         }
         catch (Exception ex)
         {
@@ -119,7 +120,7 @@
     [JSInvokable]
     public async Task LoadMore()
     {
-        if (Pagination.PageIndex <= totalAmountPages)
+        if (pagination.PageIndex <= totalAmountPages)
             await LoadQuotes();
         else
             await StopListener();

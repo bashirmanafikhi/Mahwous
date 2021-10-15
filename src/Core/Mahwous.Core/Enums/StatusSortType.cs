@@ -2,12 +2,12 @@
 {
     public enum StatusSortType
     {
+        Random,
         Newest,
         Oldest,
         Views,
         Downloads,
         Likes,
-        Shares,
-        Random
+        Shares
     }
 }

@@ -3,6 +3,7 @@
 @attribute [Authorize]
 @inject MahwousRepositories repositories
 @inject NavigationManager navigation
+@using Mahwous.Service.ViewModels.MobileApps
 
 <!-- Content Header (Page header) -->
 <div class="content-header">
@@ -44,14 +45,20 @@
 
     protected async override Task OnParametersSetAsync()
     {
-        app = await repositories.AppsRepository.Get(appId);
+        app = await repositories.MobileAppsRepository.GetDetails(appId);
     }
 
     async Task EditApp(Stream coverFile)
     {
         try
         {
-            await repositories.AppsRepository.Update(app, coverFile);
+            // todo complete this properties
+            UpdateMobileAppCommand command = new UpdateMobileAppCommand
+            {
+                Id = app.Id,
+                Cover = coverFile
+            };
+        await repositories.MobileAppsRepository.Update(command);
             navigation.NavigateTo("administration/apps");
 
         }

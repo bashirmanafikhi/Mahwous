@@ -28,6 +28,7 @@ namespace Mahwous.Application.Features.VideoStatuses
 
             // Delete Files
             await fileService.DeleteFile(video.CoverPath);
+            await fileService.DeleteFile(video.VideoPath);
 
             // Delete data
             await videoRepository.DeleteAsync(video.Id);

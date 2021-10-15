@@ -3,6 +3,7 @@
 @attribute [Authorize]
 @inject MahwousRepositories repositories
 @inject NavigationManager navigation
+@using Mahwous.Service.ViewModels.ImageStatuses
 
 
 <!-- Content Header (Page header) -->
@@ -45,11 +46,8 @@
     protected override async Task OnInitializedAsync()
     {
         CategoryFilter filter = new CategoryFilter();
-        filter.ForImages = true;
-
-        var paginatedResponse = await repositories.CategoriesRepository.GetFiltered(filter);
-        NotSelectedCategories = paginatedResponse.Response.ToList();
-
+        filter.ForQuotes = true;
+        NotSelectedCategories = await repositories.CategoriesRepository.List(filter);
 
         // to give tokens to api :)
         //await authorizer.SetAuthorizationAsync();
@@ -59,8 +57,11 @@
     {
         try
         {
-            //await repositories.ImagesRepository.Add(image);
-            await repositories.ImagesRepository.Add(image, imageFile);
+            var command = new CreateImageStatusCommand
+            {
+                Image = imageFile
+            };
+            await repositories.ImageStatusRepository.Create(command);
             navigation.NavigateTo("administration/images");
 
         }

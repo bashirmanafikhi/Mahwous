@@ -315,11 +315,11 @@
 
     protected async override Task OnInitializedAsync()
     {
-        quoteInformations = await repositories.QuotesRepository.GetInformations();
-        videoInformations = await repositories.VideosRepository.GetInformations();
-        imageInformations = await repositories.ImagesRepository.GetInformations();
+        quoteInformations = new Informations();// await repositories.QuoteStatusRepository.GetInformations();
+        videoInformations = new Informations();//await repositories.VideoStatusRepository.GetInformations();
+        imageInformations = new Informations();// await repositories.ImageStatusRepository.GetInformations();
 
-        generalInformations = await repositories.StatusesRepository.GetInformations();
+        generalInformations = new Informations();//await repositories.StatusesRepository.GetInformations();
 
         informations[nameof(quoteInformations)] = new DataItem[] {
                 new DataItem("العدد",quoteInformations.Count),

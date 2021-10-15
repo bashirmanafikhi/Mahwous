@@ -3,6 +3,7 @@
 @attribute [Authorize]
 @inject MahwousRepositories repositories
 @inject NavigationManager navigation
+@using Mahwous.Service.ViewModels.MobileNotifications
 
 <div class="content-header">
     <div class="container-fluid">
@@ -43,14 +44,20 @@
 
     protected async override Task OnParametersSetAsync()
     {
-        notification = await repositories.NotificationsRepository.Get(notificationId);
+        notification = await repositories.MobileNotificationsRepository.GetDetails(notificationId);
     }
 
     async Task EditNotification()
     {
         try
         {
-            await repositories.NotificationsRepository.Update(notification);
+            // Todo complete properties
+            UpdateMobileNotificationCommand command = new UpdateMobileNotificationCommand
+            {
+                Id = notification.Id,
+
+            };
+            await repositories.MobileNotificationsRepository.Update(command);
             navigation.NavigateTo("administration/notifications");
 
         }

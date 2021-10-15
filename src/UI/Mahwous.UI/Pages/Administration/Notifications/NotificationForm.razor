@@ -98,7 +98,7 @@
 
     protected async override Task OnInitializedAsync()
     {
-        Apps = await repositories.AppsRepository.GetAll();
+        Apps = await repositories.MobileAppsRepository.List(new Service.ViewModels.MobileApps.ListMobileAppsQuery());
     }
 
     protected override void OnParametersSet()

@@ -48,6 +48,6 @@
 
     protected async override Task OnParametersSetAsync()
     {
-        image = await repositories.ImagesRepository.Get(id);
+        image = await repositories.ImageStatusRepository.GetDetails(id);
     }
 }

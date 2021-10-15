@@ -48,7 +48,15 @@
     {
         try
         {
-            await repositories.CategoriesRepository.Add(category, imageFile);
+            CreateCategoryCommand command = new CreateCategoryCommand
+            {
+                Name = category.Name,
+                Cover = imageFile,
+                ForImages = category.ForImages,
+                ForQuotes = category.ForQuotes,
+                ForVideos = category.ForVideos,
+            };
+            await repositories.CategoriesRepository.Create(command);
             navigation.NavigateTo("administration/categories");
 
         }

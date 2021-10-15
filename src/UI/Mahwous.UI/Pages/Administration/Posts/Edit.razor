@@ -3,6 +3,7 @@
 @attribute [Authorize]
 @inject MahwousRepositories repositories
 @inject NavigationManager navigation
+@using Mahwous.Service.ViewModels.Posts
 
 
 
@@ -46,14 +47,19 @@
 
     protected async override Task OnParametersSetAsync()
     {
-        post = await repositories.PostsRepository.Get(postId);
+        post = await repositories.PostRepository.GetDetails(postId);
     }
 
     async Task EditPost(Stream imageFile)
     {
         try
         {
-            await repositories.PostsRepository.Update(post, imageFile);
+            UpdatePostCommand command = new UpdatePostCommand();
+            command.Id = post.Id;
+            command.Title = post.Title;
+            command.Content = post.Content;
+            command.Cover = imageFile;
+            await repositories.PostRepository.Update(command);
             navigation.NavigateTo("administration/posts");
 
         }

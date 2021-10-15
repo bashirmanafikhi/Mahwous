@@ -9,6 +9,7 @@
 @*@inject HttpAuthorizer authorizer*@
 @inject MahwousRepositories repositories
 @inject MahwousRepositories repositories
+@using Mahwous.Service.ViewModels.MobileNotifications
 
 <ol class="breadcrumb mb-4">
     <li class="breadcrumb-item"><a href="">الصفحة الرئيسية</a></li>
@@ -24,7 +25,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <Pagination CurrentPage="@Pagination.PageIndex" TotalAmountPages="totalAmountPages"
+                    <Pagination CurrentPage="@pagination.PageIndex" TotalAmountPages="totalAmountPages"
                                 SelectedPage="SelectedPage" />
                 </div>
 
@@ -75,7 +76,7 @@
                 </div>
 
                 <div class="card-footer">
-                    <Pagination CurrentPage="@Pagination.PageIndex" TotalAmountPages="totalAmountPages"
+                    <Pagination CurrentPage="@pagination.PageIndex" TotalAmountPages="totalAmountPages"
                                 SelectedPage="SelectedPage" />
                 </div>
             </div>
@@ -97,7 +98,7 @@
     ICollection<MobileNotification> notifications { get; set; }
 
     MobileNotificationFilter filter = new MobileNotificationFilter();
-    private PaginationDetails Pagination = new PaginationDetails();
+    private PaginationDetails pagination = new PaginationDetails();
     private EntitySortType sortType = EntitySortType.Random;
 
     int totalAmountPages;
@@ -112,8 +113,8 @@
     {
         try
         {
-            var paginatedResponse = await repositories.NotificationsRepository.GetFiltered(filter);
-            notifications = paginatedResponse.Response;
+            var paginatedResponse = await repositories.MobileNotificationsRepository.Search(pagination, filter);
+            notifications = paginatedResponse.Items.ToList();
             totalAmountPages = paginatedResponse.TotalPages;
         }
         catch (Exception ex)
@@ -127,14 +128,14 @@
 x.Id == notificationId);
         if (await js.Confirm("تأكيد", $"هل أنت متأكد أنك تريد أن تحذف {notification.Title} ؟", SweetAlertMessageType.error))
         {
-            await repositories.NotificationsRepository.Delete(notificationId);
+            await repositories.MobileNotificationsRepository.Delete(notificationId);
             await LoadNotifications();
         }
     }
 
     private async Task SelectedPage(int page)
     {
-        Pagination.PageIndex = page;
+        pagination.PageIndex = page;
         await LoadNotifications();
     }
 }

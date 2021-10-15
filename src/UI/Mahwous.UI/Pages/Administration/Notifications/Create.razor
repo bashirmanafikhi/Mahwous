@@ -3,6 +3,7 @@
 @attribute [Authorize]
 @inject MahwousRepositories repositories
 @inject NavigationManager navigation
+@using Mahwous.Service.ViewModels.MobileNotifications
 
 <div class="content-header">
     <div class="container-fluid">
@@ -37,7 +38,12 @@
     {
         try
         {
-            await repositories.NotificationsRepository.Add(notification);
+            // Todo complete properties
+            CreateMobileNotificationCommand command = new CreateMobileNotificationCommand
+            {
+                Title = notification.Title
+            };
+            await repositories.MobileNotificationsRepository.Create(command);
             navigation.NavigateTo("administration/notifications");
 
         }

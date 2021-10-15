@@ -3,7 +3,7 @@
 @attribute [Authorize]
 @inject MahwousRepositories repositories
 @inject NavigationManager navigation
-
+@using Mahwous.Service.ViewModels.VideoStatuses
 
 <!-- Content Header (Page header) -->
 <div class="content-header">
@@ -51,7 +51,7 @@
 
     protected async override Task OnParametersSetAsync()
     {
-        video = await repositories.VideosRepository.Get(videoId);
+        video = await repositories.VideoStatusRepository.GetDetails(videoId);
 
         SelectedCategories = video.Categories.ToList();
 
@@ -59,8 +59,8 @@
         filter.ForVideos = true;
 
 
-        var categories = (await repositories.CategoriesRepository.GetFiltered(
-        filter)).Response;
+        var categories = (await repositories.CategoriesRepository.List(
+        filter));
 
         NotSelectedCategories = categories.Where(c =>
                 !SelectedCategories
@@ -73,7 +73,16 @@
     {
         try
         {
-            await repositories.VideosRepository.Update(video, coverFile, videoFile);
+            UpdateVideoStatusCommand command = new UpdateVideoStatusCommand()
+            {
+                Id = video.Id,
+                Cover = coverFile,
+                Video = videoFile,
+                Title = video.Title
+            };
+            command.Id = video.Id;
+
+            await repositories.VideoStatusRepository.Update(command);
             navigation.NavigateTo("administration/videos");
 
         }

@@ -1,5 +1,4 @@
-﻿using Mahwous.Core.Entities;
-using Mahwous.Service.Services;
+﻿using Mahwous.Service.Services;
 using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -8,14 +7,14 @@ namespace Mahwous.Service.Repositories
 {
     internal static class Constants
     {
-        public static string AppsUrl = "api/apps";
+        public static string MobileAppsUrl = "api/mobileApps";
         public static string CategoriesUrl = "api/categories";
-        public static string NotificationsUrl = "api/notifications";
+        public static string NotificationsUrl = "api/mobileNotifications";
         public static string PostsUrl = "api/posts";
         public static string StatusesUrl = "api/statuses";
-        public static string VideosUrl = "api/videos";
-        public static string ImagesUrl = "api/images";
-        public static string QuotesUrl = "api/quotes";
+        public static string VideosUrl = "api/videoStatuses";
+        public static string ImagesUrl = "api/imageStatuses";
+        public static string QuotesUrl = "api/quoteStatuses";
         public static string AccountsUrl = "api/accounts";
     }
 
@@ -65,16 +64,14 @@ namespace Mahwous.Service.Repositories
         #region Repositories
 
 
-        private AppRepository appsRepository;
-        public AppRepository AppsRepository
+        private MobileAppRepository mobileAppsRepository;
+        public MobileAppRepository MobileAppsRepository
         {
             get
             {
-                if (appsRepository == null)
-                {
-                    appsRepository = new AppRepository(httpService, Constants.AppsUrl);
-                }
-                return appsRepository;
+                if (mobileAppsRepository == null)
+                    mobileAppsRepository = new MobileAppRepository(httpService, Constants.MobileAppsUrl);
+                return mobileAppsRepository;
             }
         }
 
@@ -85,37 +82,31 @@ namespace Mahwous.Service.Repositories
             get
             {
                 if (categoriesRepository == null)
-                {
                     categoriesRepository = new CategoryRepository(httpService, Constants.CategoriesUrl);
-                }
                 return categoriesRepository;
             }
         }
 
-        private NotificationRepository notificationsRepository;
-        public NotificationRepository NotificationsRepository
+        private MobileNotificationRepository mobileNotificationsRepository;
+        public MobileNotificationRepository MobileNotificationsRepository
         {
             get
             {
-                if (notificationsRepository == null)
-                {
-                    notificationsRepository = new NotificationRepository(httpService, Constants.NotificationsUrl);
-                }
-                return notificationsRepository;
+                if (mobileNotificationsRepository == null)
+                    mobileNotificationsRepository = new MobileNotificationRepository(httpService, Constants.NotificationsUrl);
+                return mobileNotificationsRepository;
             }
         }
 
 
-        private NewRepositores.PostRepository postsRepository;
-        public NewRepositores.PostRepository PostsRepository
+        private PostRepository postRepository;
+        public PostRepository PostRepository
         {
             get
             {
-                if (postsRepository == null)
-                {
-                    postsRepository = new NewRepositores.PostRepository(httpService, Constants.PostsUrl);
-                }
-                return postsRepository;
+                if (postRepository == null)
+                    postRepository = new PostRepository(httpService, Constants.PostsUrl);
+                return postRepository;
             }
         }
 
@@ -125,66 +116,56 @@ namespace Mahwous.Service.Repositories
             get
             {
                 if (accountsRepository == null)
-                {
                     accountsRepository = new AccountsRepository(httpService);
-                }
                 return accountsRepository;
             }
         }
 
 
-        private StatusRepository<Status> statusesRepository;
-        public StatusRepository<Status> StatusesRepository
+        //private StatusRepository<Status> statusesRepository;
+        //public StatusRepository<Status> StatusesRepository
+        //{
+        //    get
+        //    {
+        //        if (statusesRepository == null)
+        //            statusesRepository = new StatusRepository<Status>(httpService, Constants.StatusesUrl);
+        //        return statusesRepository;
+        //    }
+        //}
+
+
+        private VideoStatusRepository videoStatusRepository;
+        public VideoStatusRepository VideoStatusRepository
         {
             get
             {
-                if (statusesRepository == null)
-                {
-                    statusesRepository = new StatusRepository<Status>(httpService, Constants.StatusesUrl);
-                }
-                return statusesRepository;
+                if (videoStatusRepository == null)
+                    videoStatusRepository = new VideoStatusRepository(httpService, Constants.VideosUrl);
+                return videoStatusRepository;
             }
         }
 
 
-        private VideoRepository videosRepository;
-        public VideoRepository VideosRepository
+        private ImageStatusRepository imageStatusRepository;
+        public ImageStatusRepository ImageStatusRepository
         {
             get
             {
-                if (videosRepository == null)
-                {
-                    videosRepository = new VideoRepository(httpService, Constants.VideosUrl);
-                }
-                return videosRepository;
+                if (imageStatusRepository == null)
+                    imageStatusRepository = new ImageStatusRepository(httpService, Constants.ImagesUrl);
+                return imageStatusRepository;
             }
         }
 
 
-        private ImageRepository imagesRepository;
-        public ImageRepository ImagesRepository
+        private QuoteStatusRepository quoteStatusRepository;
+        public QuoteStatusRepository QuoteStatusRepository
         {
             get
             {
-                if (imagesRepository == null)
-                {
-                    imagesRepository = new ImageRepository(httpService, Constants.ImagesUrl);
-                }
-                return imagesRepository;
-            }
-        }
-
-
-        private QuoteRepository quotesRepository;
-        public QuoteRepository QuotesRepository
-        {
-            get
-            {
-                if (quotesRepository == null)
-                {
-                    quotesRepository = new QuoteRepository(httpService, Constants.QuotesUrl);
-                }
-                return quotesRepository;
+                if (quoteStatusRepository == null)
+                    quoteStatusRepository = new QuoteStatusRepository(httpService, Constants.QuotesUrl);
+                return quoteStatusRepository;
             }
         }
 

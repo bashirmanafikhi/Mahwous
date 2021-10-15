@@ -1,10 +1,8 @@
 ﻿
-
-
 @inject IJSRuntime js
 @inject NavigationManager navigation
 @inject MahwousRepositories repositories
-
+@using Mahwous.Service.ViewModels.MobileApps
 
 
 
@@ -20,7 +18,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <Pagination CurrentPage="@Pagination.PageIndex" TotalAmountPages="totalAmountPages"
+                    <Pagination CurrentPage="@pagination.PageIndex" TotalAmountPages="totalAmountPages"
                                 SelectedPage="SelectedPage" />
                 </div>
 
@@ -70,7 +68,7 @@
                 </div>
 
                 <div class="card-footer">
-                    <Pagination CurrentPage="@Pagination.PageIndex" TotalAmountPages="totalAmountPages"
+                    <Pagination CurrentPage="@pagination.PageIndex" TotalAmountPages="totalAmountPages"
                                 SelectedPage="SelectedPage" />
                 </div>
             </div>
@@ -86,7 +84,7 @@
 
     ICollection<MobileApp> apps { get; set; }
 
-    PaginationDetails Pagination = new PaginationDetails();
+    PaginationDetails pagination = new PaginationDetails();
     int totalAmountPages;
 
 
@@ -100,10 +98,11 @@
     {
         try
         {
-            MobileAppFilter appFilter = new MobileAppFilter() { IsHidden = true };
-            var paginatedResponse = await repositories.AppsRepository.GetFiltered(appFilter);
-            apps = paginatedResponse.Response;
-            totalAmountPages = paginatedResponse.TotalPages;
+            SearchMobileAppsQuery query = new SearchMobileAppsQuery();
+            query.Pagination = pagination;
+            var response = await repositories.MobileAppsRepository.Search(query);
+            apps = response.Items.ToList();
+            totalAmountPages = response.TotalPages;
 
         }
         catch (Exception ex)
@@ -117,13 +116,14 @@
         var app = apps.First(x => x.Id == appId);
         if (await js.Confirm("تأكيد", $"هل أنت متأكد أنك تريد أن تحذف {app.Name} ؟", SweetAlertMessageType.error))
         {
-            await repositories.AppsRepository.Delete(appId);
+            await repositories.MobileAppsRepository.Delete(appId);
             await LoadApps();
         }
     }
 
     private async Task SelectedPage(int page)
     {
+        pagination.PageIndex = page;
         await LoadApps();
     }
 }

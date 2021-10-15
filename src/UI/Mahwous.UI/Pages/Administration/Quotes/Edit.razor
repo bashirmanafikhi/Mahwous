@@ -3,6 +3,7 @@
 @attribute [Authorize]
 @inject MahwousRepositories repositories
 @inject NavigationManager navigation
+@using Mahwous.Service.ViewModels.QuoteStatuses
 
 
 <!-- Content Header (Page header) -->
@@ -51,10 +52,10 @@
     {
         CategoryFilter filter = new CategoryFilter();
         filter.ForQuotes = true;
+        var categories = await repositories.CategoriesRepository.List(filter);
 
-        quote = await repositories.QuotesRepository.Get(quoteId);
+        quote = await repositories.QuoteStatusRepository.GetDetails(quoteId);
         SelectedCategories = quote.Categories.Select(sc => sc).ToList();
-        var categories = (await repositories.CategoriesRepository.GetFiltered(filter)).Response;
 
         NotSelectedCategories = categories.Where(c =>
                 !SelectedCategories
@@ -69,7 +70,12 @@
     {
         try
         {
-            await repositories.QuotesRepository.Update(quote);
+            UpdateQuoteStatusCommand command = new UpdateQuoteStatusCommand
+            {
+                Id = quote.Id,
+                Content = quote.Content
+            };
+            await repositories.QuoteStatusRepository.Update(command);
 
             navigation.NavigateTo("administration/quotes");
 

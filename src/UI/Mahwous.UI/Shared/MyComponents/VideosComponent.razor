@@ -1,14 +1,14 @@
 ﻿@inject IJSRuntime js
 @inject NavigationManager navigation
 @inject MahwousRepositories repositories
-
+@using Mahwous.Service.ViewModels.VideoStatuses 
 <div class="container">
 
     <div class="row">
         <div class="col-lg-9">
             <div class="card">
                 <div class="card-header">
-                    <Pagination CurrentPage="@Pagination.PageIndex" TotalAmountPages="totalAmountPages"
+                    <Pagination CurrentPage="@pagination.PageIndex" TotalAmountPages="totalAmountPages"
                                 SelectedPage="SelectedPage" />
                 </div>
                 <!-- /.card-header -->
@@ -59,7 +59,7 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                    <Pagination CurrentPage="@Pagination.PageIndex" TotalAmountPages="totalAmountPages"
+                    <Pagination CurrentPage="@pagination.PageIndex" TotalAmountPages="totalAmountPages"
                                 SelectedPage="SelectedPage" />
                 </div>
                 <!-- /.card-footer -->
@@ -214,7 +214,7 @@
 
 @code {
     private VideoFilter videoFilter = new VideoFilter();
-    private PaginationDetails Pagination = new PaginationDetails();
+    private PaginationDetails pagination = new PaginationDetails();
     private StatusSortType sortType = StatusSortType.Random;
 
     ICollection<VideoStatus> videos { get; set; }
@@ -227,7 +227,7 @@
     {
         //await authorizer.SetAuthorizationAsync();
         sortType = StatusSortType.Newest;
-        informations = await repositories.VideosRepository.GetInformations();
+        informations = new Informations();//await repositories.VideoStatusRepository.GetInformations();
         await LoadVideos();
         await LoadCategories();
     }
@@ -248,10 +248,8 @@
 
             CategoryFilter filter = new CategoryFilter();
             filter.ForVideos = true;
-            Pagination.PageSize = 100;
-
-            var paginatedResponse = await repositories.CategoriesRepository.GetFiltered(filter);
-            categories = paginatedResponse.Response;
+            var paginatedResponse = await repositories.CategoriesRepository.List(filter);
+            categories = paginatedResponse.ToList();
         }
         catch (Exception ex)
         {
@@ -265,8 +263,8 @@
     {
         try
         {
-            var paginatedResponse = await repositories.VideosRepository.GetFiltered(videoFilter);
-            videos = paginatedResponse.Response;
+            var paginatedResponse = await repositories.VideoStatusRepository.Search(pagination, videoFilter, sortType);
+            videos = paginatedResponse.Items.ToList();
             totalAmountPages = paginatedResponse.TotalPages;
 
         }
@@ -281,14 +279,14 @@
         //var video = videos.First(i => i.Id == videoId);
         if (await js.Confirm("تأكيد", $"هل أنت متأكد أنك تريد أن تحذف هذه الصورة؟", SweetAlertMessageType.error))
         {
-            await repositories.VideosRepository.Delete(videoId);
+            await repositories.VideoStatusRepository.Delete(videoId);
             await LoadVideos();
         }
     }
 
     private async Task SelectedPage(int page)
     {
-        Pagination.PageIndex = page;
+        pagination.PageIndex = page;
         await LoadVideos();
     }
 

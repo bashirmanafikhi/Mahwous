@@ -3,6 +3,7 @@
 @inject IJSRuntime js
 @inject NavigationManager navigation
 @inject MahwousRepositories repositories
+@using Mahwous.Service.ViewModels.ImageStatuses
 
 
 
@@ -15,7 +16,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <Pagination CurrentPage="@Pagination.PageIndex" TotalAmountPages="totalAmountPages"
+                    <Pagination CurrentPage="@pagination.PageIndex" TotalAmountPages="totalAmountPages"
                                 SelectedPage="SelectedPage" />
                 </div>
                 <!-- /.card-header -->
@@ -62,7 +63,7 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                    <Pagination CurrentPage="@Pagination.PageIndex" TotalAmountPages="totalAmountPages"
+                    <Pagination CurrentPage="@pagination.PageIndex" TotalAmountPages="totalAmountPages"
                                 SelectedPage="SelectedPage" />
                 </div>
                 <!-- /.card-footer -->
@@ -214,7 +215,7 @@
 
 @code {
     private ImageFilter imageFilter = new ImageFilter();
-    private PaginationDetails Pagination = new PaginationDetails();
+    private PaginationDetails pagination = new PaginationDetails();
     private StatusSortType sortType = StatusSortType.Random;
 
     ICollection<ImageStatus> images { get; set; }
@@ -227,7 +228,7 @@
 
     protected async override Task OnInitializedAsync()
     {
-        informations = await repositories.ImagesRepository.GetInformations();
+        informations = new Informations();//await repositories.ImageStatusRepository.GetInformations();
         await LoadImages();
         await LoadCategories();
     }
@@ -245,13 +246,10 @@
     {
         try
         {
-
             CategoryFilter filter = new CategoryFilter();
             filter.ForImages = true;
-            Pagination.PageSize = 100;
-
-            var paginatedResponse = await repositories.CategoriesRepository.GetFiltered(filter);
-            categories = paginatedResponse.Response;
+            var paginatedResponse = await repositories.CategoriesRepository.List(filter);
+            categories = paginatedResponse.ToList();
         }
         catch (Exception ex)
         {
@@ -265,8 +263,8 @@
     {
         try
         {
-            var paginatedResponse = await repositories.ImagesRepository.GetFiltered(imageFilter);
-            images = paginatedResponse.Response;
+            var paginatedResponse = await repositories.ImageStatusRepository.Search(pagination, imageFilter, sortType);
+            images = paginatedResponse.Items.ToList();
             totalAmountPages = paginatedResponse.TotalPages;
 
         }
@@ -281,14 +279,14 @@
         var video = images.First(i => i.Id == imageId);
         if (await js.Confirm("تأكيد", $"هل أنت متأكد أنك تريد أن تحذف هذه الصورة؟", SweetAlertMessageType.error))
         {
-            await repositories.ImagesRepository.Delete(imageId);
+            await repositories.ImageStatusRepository.Delete(imageId);
             await LoadImages();
         }
     }
 
     private async Task SelectedPage(int page)
     {
-        Pagination.PageIndex = page;
+        pagination.PageIndex = page;
         await LoadImages();
     }
 

@@ -9,7 +9,7 @@ namespace Mahwous.Service.Repositories
     {
         Task AssignRole(EditRoleDTO editRole);
         Task<List<RoleDTO>> GetRoles();
-        Task<PaginatedResponse<List<UserDTO>>> GetUsers(PaginationDetails paginationDTO);
+        Task<PaginatedResponse<List<UserDTO>>> GetUsers(PaginationDetails pagination);
         Task RemoveRole(EditRoleDTO editRole);
     }
 }

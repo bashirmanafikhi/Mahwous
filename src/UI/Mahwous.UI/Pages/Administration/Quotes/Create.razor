@@ -4,6 +4,7 @@
 @inject IJSRuntime js
 @inject MahwousRepositories repositories
 @inject NavigationManager navigation
+@using Mahwous.Service.ViewModels.QuoteStatuses 
 
 
 <!-- Content Header (Page header) -->
@@ -55,13 +56,9 @@
 
     protected async override Task OnInitializedAsync()
     {
-
         CategoryFilter filter = new CategoryFilter();
         filter.ForQuotes = true;
-
-
-        var paginatedResponse = await repositories.CategoriesRepository.GetFiltered(filter);
-        NotSelectedCategories = paginatedResponse.Response.ToList();
+        NotSelectedCategories = await repositories.CategoriesRepository.List(filter);
 
 
 
@@ -74,8 +71,11 @@
 
         try
         {
-
-            await repositories.QuotesRepository.Add(quote);
+            CreateQuoteStatusCommand command = new CreateQuoteStatusCommand
+            {
+                Content = quote.Content
+            };
+            await repositories.QuoteStatusRepository.Create(command);
             navigation.NavigateTo("administration/quotes");
 
         }

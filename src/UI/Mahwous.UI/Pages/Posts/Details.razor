@@ -52,6 +52,6 @@
 
     protected async override Task OnParametersSetAsync()
     {
-        post = await repositories.PostsRepository.Get(id);
+        post = await repositories.PostRepository.GetDetails(id);
     }
 }

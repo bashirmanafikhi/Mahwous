@@ -2,13 +2,14 @@
 @inject IJSRuntime js
 @inject NavigationManager navigation
 @inject MahwousRepositories repositories
+@using Mahwous.Service.ViewModels.QuoteStatuses
 
 <div class="container">
     <div class="row">
         <div class="col-lg-9">
             <div class="card">
                 <div class="card-header">
-                    <Pagination CurrentPage="@Pagination.PageIndex" TotalAmountPages="totalAmountPages"
+                    <Pagination CurrentPage="@pagination.PageIndex" TotalAmountPages="totalAmountPages"
                                 SelectedPage="SelectedPage" />
                 </div>
                 <!-- /.card-header -->
@@ -59,7 +60,7 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                    <Pagination CurrentPage="@Pagination.PageIndex" TotalAmountPages="totalAmountPages"
+                    <Pagination CurrentPage="@pagination.PageIndex" TotalAmountPages="totalAmountPages"
                                 SelectedPage="SelectedPage" />
                 </div>
                 <!-- /.card-footer -->
@@ -234,7 +235,7 @@
 
 @code {
     private QuoteFilter quoteFilter = new QuoteFilter();
-    private PaginationDetails Pagination = new PaginationDetails();
+    private PaginationDetails pagination = new PaginationDetails();
     private StatusSortType sortType = StatusSortType.Random;
 
     ICollection<QuoteStatus> quotes { get; set; }
@@ -249,7 +250,7 @@
     {
         //await authorizer.SetAuthorizationAsync();
         sortType = StatusSortType.Newest;
-        informations = await repositories.QuotesRepository.GetInformations();
+        informations = new Informations();//await repositories.QuoteStatusRepository.GetInformations();
         await LoadQuotes();
         await LoadCategories();
     }
@@ -270,10 +271,8 @@
         {
             CategoryFilter filter = new CategoryFilter();
             filter.ForQuotes = true;
-            Pagination.PageSize = 100;
-
-            var paginatedResponse = await repositories.CategoriesRepository.GetFiltered(filter);
-            categories = paginatedResponse.Response;
+            var paginatedResponse = await repositories.CategoriesRepository.List(filter);
+            categories = paginatedResponse.ToList();
         }
         catch (Exception ex)
         {
@@ -287,8 +286,8 @@
     {
         try
         {
-            var paginatedResponse = await repositories.QuotesRepository.GetFiltered(quoteFilter);
-            quotes = paginatedResponse.Response;
+            var paginatedResponse = await repositories.QuoteStatusRepository.Search(pagination, quoteFilter, sortType);
+            quotes = paginatedResponse.Items.ToList() ;
             totalAmountPages = paginatedResponse.TotalPages;
 
         }
@@ -303,14 +302,14 @@
         //var quote = quotes.First(i => i.Id == quoteId);
         if (await js.Confirm("تأكيد", $"هل أنت متأكد أنك تريد أن تحذف هذه الصورة؟", SweetAlertMessageType.error))
         {
-            await repositories.QuotesRepository.Delete(quoteId);
+            await repositories.QuoteStatusRepository.Delete(quoteId);
             await LoadQuotes();
         }
     }
 
     private async Task SelectedPage(int page)
     {
-        Pagination.PageIndex = page;
+        pagination.PageIndex = page;
         await LoadQuotes();
     }
 

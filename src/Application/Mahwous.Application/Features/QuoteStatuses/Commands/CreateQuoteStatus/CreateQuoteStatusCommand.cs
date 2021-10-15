@@ -8,7 +8,5 @@ namespace Mahwous.Application.Features.QuoteStatuses
     public class CreateQuoteStatusCommand : IRequest<int>, IMapTo<QuoteStatus>
     {
         public string Content { get; set; }
-
-        public IFormFile Cover { get; set; }
     }
 }

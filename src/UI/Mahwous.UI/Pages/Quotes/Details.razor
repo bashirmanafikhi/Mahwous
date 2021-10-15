@@ -56,6 +56,6 @@
 
     protected async override Task OnParametersSetAsync()
     {
-        quote = await repositories.QuotesRepository.Get(id);
+        quote = await repositories.QuoteStatusRepository.GetDetails(id);
     }
 }

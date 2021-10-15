@@ -45,14 +45,23 @@
 
     protected async override Task OnParametersSetAsync()
     {
-        category = await repositories.CategoriesRepository.Get(categoryId);
+        category = await repositories.CategoriesRepository.GetDetails(categoryId);
     }
 
     async Task EditCategory(Stream coverFile)
     {
         try
         {
-            await repositories.CategoriesRepository.Update(category, coverFile);
+            var command = new UpdateCategoryCommand
+            {
+                Cover = coverFile,
+                ForImages = category.ForImages,
+                ForVideos = category.ForVideos,
+                ForQuotes = category.ForQuotes,
+                Id = category.Id,
+                Name = category.Name
+            };
+            await repositories.CategoriesRepository.Update(command);
             navigation.NavigateTo("administration/categories");
 
         }

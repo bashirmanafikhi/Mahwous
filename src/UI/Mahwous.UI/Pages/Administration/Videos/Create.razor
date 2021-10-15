@@ -56,9 +56,7 @@
     {
         CategoryFilter filter = new CategoryFilter();
         filter.ForVideos = true;
-
-        var paginatedResponse = await repositories.CategoriesRepository.GetFiltered(filter);
-        NotSelectedCategories = paginatedResponse.Response.ToList();
+        NotSelectedCategories = await repositories.CategoriesRepository.List(filter);
 
 
         // to give tokens to api :)
@@ -71,12 +69,13 @@
 
         try
         {
-            var request = new CreateVideoStatusCommand();
-            request.Title = video.Title;
-            request.Cover = coverFile;
-            request.Video = videoFile;
-            await repositories.VideosRepository.Add(request);
-            //await repositories.VideosRepository.Add(video, coverFile, videoFile);
+            CreateVideoStatusCommand command = new CreateVideoStatusCommand()
+            {
+                Cover = coverFile,
+                Video = videoFile,
+                Title = video.Title
+            };
+            await repositories.VideoStatusRepository.Create(command);
             navigation.NavigateTo("administration/videos");
 
         }

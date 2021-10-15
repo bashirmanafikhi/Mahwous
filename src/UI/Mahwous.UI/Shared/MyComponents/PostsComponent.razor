@@ -101,7 +101,7 @@
         {
             var query = new SearchPostsQuery();
             query.Pagination = Pagination;
-            var response = await repositories.PostsRepository.Search(query);
+            var response = await repositories.PostRepository.Search(query);
             posts = response.Items.ToList();
             totalAmountPages = response.TotalPages;
 
@@ -121,7 +121,7 @@
         var post = posts.First(x => x.Id == postId);
         if (await js.Confirm("تأكيد", $"هل أنت متأكد أنك تريد أن تحذف هذا المنشور ؟", SweetAlertMessageType.error))
         {
-            await repositories.PostsRepository.Delete(postId);
+            await repositories.PostRepository.Delete(postId);
             await LoadPosts();
         }
     }
