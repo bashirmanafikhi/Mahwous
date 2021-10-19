@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using MahwousMobile.Base.Views;
+﻿using MahwousMobile.Base.Models;
 using MahwousMobile.Base.ViewModels;
-using Mahwous.Core.Entities;
-using MahwousMobile.Base.Models;
+using System.ComponentModel;
+using Xamarin.Forms;
 
 namespace MahwousMobile.Base.Views
 {

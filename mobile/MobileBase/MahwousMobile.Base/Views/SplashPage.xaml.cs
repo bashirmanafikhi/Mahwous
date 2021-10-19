@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -50,7 +45,7 @@ namespace MahwousMobile.Base.Views
             await splashImage.ScaleTo(0.5, 100, Easing.Linear);
             await splashImage.ScaleTo(2, 500, Easing.Linear);
 
-           // Application.Current.MainPage = new AppShell();    //After loading  MainPage it gets Navigated to our new Page
+            // Application.Current.MainPage = new AppShell();    //After loading  MainPage it gets Navigated to our new Page
         }
     }
 }

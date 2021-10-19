@@ -1,6 +1,7 @@
-﻿using Mahwous.Core.Filters;
+﻿using Mahwous.Core.Entities;
+using Mahwous.Core.Enums;
+using Mahwous.Core.Filters;
 using Mahwous.Core.Pagination;
-using MahwousMobile.Base.Models;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -13,7 +14,8 @@ namespace MahwousMobile.Base.ViewModels
     public class VideosViewModel : BaseViewModel
     {
         private VideoFilter filter;
-        private PaginationDetails pagination;
+        private StatusSortType sortType;
+        private PaginationDetails pagination = new PaginationDetails();
         private int totalAmountPages;
 
 
@@ -38,6 +40,7 @@ namespace MahwousMobile.Base.ViewModels
         public Command LoadVideosCommand { get; set; }
         public Command LoadMoreVideosCommand { get; set; }
         public VideoFilter Filter { get => filter; set => filter = value; }
+        public StatusSortType SortType { get => sortType; set => sortType = value; }
 
         public VideosViewModel(VideoFilter filter)
         {
@@ -50,7 +53,7 @@ namespace MahwousMobile.Base.ViewModels
             LoadMoreVideosCommand = new Command(async () => await ExecuteLoadMoreVideosCommand());
         }
 
-        public VideosViewModel() : this(new VideoFilter {SortType=StatusSortType.Random}) { }
+        public VideosViewModel() : this(new VideoFilter ()) { }
 
         async Task ExecuteLoadMoreVideosCommand()
         {
@@ -61,11 +64,11 @@ namespace MahwousMobile.Base.ViewModels
 
                 try
                 {
-                    if (pagination.Page < totalAmountPages)
+                    if (pagination.PageIndex < totalAmountPages)
                     {
-                        pagination.Page++;
-                        var paginatedResponse = await Repositories.VideosRepository.GetFiltered(Filter);
-                        foreach (var video in paginatedResponse.Response)
+                        pagination.PageIndex++;
+                        var paginatedResponse = await Repositories.VideoStatusRepository.Search(pagination, Filter, SortType);
+                        foreach (var video in paginatedResponse.Items)
                             Videos.Add(video);
                     }
                     else
@@ -88,29 +91,29 @@ namespace MahwousMobile.Base.ViewModels
 
         async Task ExecuteLoadVideosCommand()
         {
-                IsBusy = true;
+            IsBusy = true;
 
-                try
-                {
-                    Videos.Clear();
-                    pagination.Page = 1;
+            try
+            {
+                Videos.Clear();
+                pagination.PageIndex = 1;
 
-                    var paginatedResponse = await Repositories.VideosRepository.GetFiltered(Filter);
-                    totalAmountPages = paginatedResponse.TotalAmountPages;
-                    var videos = paginatedResponse.Response;
-                    foreach (var video in videos)
-                    {
-                        Videos.Add(video);
-                    }
-                }
-                catch (Exception ex)
+                var paginatedResponse = await Repositories.VideoStatusRepository.Search(pagination, Filter, SortType);
+                totalAmountPages = paginatedResponse.TotalPages;
+                var videos = paginatedResponse.Items;
+                foreach (var video in videos)
                 {
-                    Debug.WriteLine(ex);
+                    Videos.Add(video);
                 }
-                finally
-                {
-                    IsBusy = false;
-                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
     }
 }

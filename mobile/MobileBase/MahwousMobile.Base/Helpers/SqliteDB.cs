@@ -1,6 +1,4 @@
 ﻿using Mahwous.Core.Entities;
-using Mahwous.Core.Entities;
-using Mahwous.Core.Entities;
 using SQLite;
 using System;
 using System.Collections.Generic;

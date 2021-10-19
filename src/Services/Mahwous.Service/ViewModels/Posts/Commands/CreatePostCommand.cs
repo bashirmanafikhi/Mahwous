@@ -1,9 +1,8 @@
-﻿using Mahwous.Core.Entities;
-using System.IO;
+﻿using System.IO;
 
 namespace Mahwous.Service.ViewModels.Posts
 {
-    public class CreatePostCommand 
+    public class CreatePostCommand
     {
         public string Title { get; set; }
         public string Content { get; set; }

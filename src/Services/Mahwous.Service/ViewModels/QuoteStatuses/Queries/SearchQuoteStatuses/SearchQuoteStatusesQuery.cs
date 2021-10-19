@@ -1,7 +1,6 @@
 ﻿using Mahwous.Core.Enums;
 using Mahwous.Core.Filters;
 using Mahwous.Core.Pagination;
-using System;
 using System.Collections.Generic;
 
 namespace Mahwous.Service.ViewModels.QuoteStatuses

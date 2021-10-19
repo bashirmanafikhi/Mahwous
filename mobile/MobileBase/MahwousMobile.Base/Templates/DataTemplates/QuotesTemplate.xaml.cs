@@ -1,6 +1,6 @@
-﻿using MahwousMobile.Base.ViewModels;
-using Mahwous.Core.Filters;
-using Mahwous.Core.Entities;
+﻿using Mahwous.Core.Entities;
+using Mahwous.Core.Enums;
+using MahwousMobile.Base.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,9 +10,10 @@ namespace MahwousMobile.Base.Templates.DataTemplates
     public partial class QuotesTemplate : ContentView
     {
         QuotesViewModel viewModel;
+        StatusSortType sortType;
         public StatusSortType SortType
         {
-            get => viewModel.Filter.SortType;
+            get => viewModel.SortType;
             set
             {
                 if (viewModel.Quotes.Count > 0)
@@ -20,7 +21,7 @@ namespace MahwousMobile.Base.Templates.DataTemplates
                     return;
                 }
 
-                viewModel.Filter.SortType = value;
+                viewModel.SortType = value;
                 viewModel.LoadQuotesCommand.Execute(null);
             }
         }

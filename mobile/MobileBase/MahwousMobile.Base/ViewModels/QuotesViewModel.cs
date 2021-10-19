@@ -1,11 +1,10 @@
-﻿using System;
+﻿using Mahwous.Core.Enums;
+using Mahwous.Core.Filters;
+using Mahwous.Core.Pagination;
+using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using Mahwous.Core.Filters;
-using Mahwous.Core.Entities;
-using Mahwous.Core.Pagination;
-using MahwousWeb.Service.Repositories;
 using Xamarin.Forms;
 
 namespace MahwousMobile.Base.ViewModels
@@ -14,7 +13,8 @@ namespace MahwousMobile.Base.ViewModels
     public class QuotesViewModel : BaseViewModel
     {
         private QuoteFilter filter;
-        private PaginationDetails pagination;
+        private StatusSortType sortType;
+        private PaginationDetails pagination = new PaginationDetails();
         private int totalAmountPages;
 
 
@@ -39,6 +39,7 @@ namespace MahwousMobile.Base.ViewModels
         public Command LoadQuotesCommand { get; set; }
         public Command LoadMoreQuotesCommand { get; set; }
         public QuoteFilter Filter { get => filter; set => filter = value; }
+        public StatusSortType SortType { get => sortType; set => sortType = value; }
 
         public QuotesViewModel(QuoteFilter filter)
         {
@@ -51,7 +52,7 @@ namespace MahwousMobile.Base.ViewModels
             LoadMoreQuotesCommand = new Command(async () => await ExecuteLoadMoreQuotesCommand());
         }
 
-        public QuotesViewModel() : this(new QuoteFilter { SortType = StatusSortType.Random }) { }
+        public QuotesViewModel() : this(new QuoteFilter()) { }
 
         async Task ExecuteLoadMoreQuotesCommand()
         {
@@ -62,11 +63,11 @@ namespace MahwousMobile.Base.ViewModels
 
                 try
                 {
-                    if (pagination.Page < totalAmountPages)
+                    if (pagination.PageIndex < totalAmountPages)
                     {
-                        pagination.Page++;
-                        var paginatedResponse = await Repositories.QuotesRepository.GetFiltered(Filter);
-                        foreach (var quote in paginatedResponse.Response)
+                        pagination.PageIndex++;
+                        var paginatedResponse = await Repositories.QuoteStatusRepository.Search(pagination, Filter, SortType);
+                        foreach (var quote in paginatedResponse.Items)
                             Quotes.Add(new QuoteViewModel(quote));
                     }
                     else
@@ -94,11 +95,11 @@ namespace MahwousMobile.Base.ViewModels
             try
             {
                 Quotes.Clear();
-                pagination.Page = 1;
+                pagination.PageIndex = 1;
 
-                var paginatedResponse = await Repositories.QuotesRepository.GetFiltered(Filter);
-                totalAmountPages = paginatedResponse.TotalAmountPages;
-                var quotes = paginatedResponse.Response;
+                var paginatedResponse = await Repositories.QuoteStatusRepository.Search(pagination, Filter, SortType);
+                totalAmountPages = paginatedResponse.TotalPages;
+                var quotes = paginatedResponse.Items;
                 foreach (var quote in quotes)
                 {
                     Quotes.Add(new QuoteViewModel(quote));

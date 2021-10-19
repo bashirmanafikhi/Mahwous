@@ -1,9 +1,6 @@
-﻿using MahwousWeb.Service.Repositories;
+﻿using Mahwous.Service.Repositories;
 using Plugin.Settings;
 using Plugin.Settings.Abstractions;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xamarin.Forms;
 
 namespace MahwousMobile.Base.Helpers

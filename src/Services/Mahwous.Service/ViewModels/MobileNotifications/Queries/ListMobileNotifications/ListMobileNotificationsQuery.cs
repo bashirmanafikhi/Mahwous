@@ -7,7 +7,7 @@ namespace Mahwous.Service.ViewModels.MobileNotifications
     public class ListMobileNotificationsQuery
     {
         public MobileNotificationFilter Filter { get; set; }
-        public EntitySortType? SortType { get; set; } 
+        public EntitySortType? SortType { get; set; }
 
 
         public string Query

@@ -1,15 +1,9 @@
-﻿using Mahwous.Core.Entities;
-using MahwousMobile.Base.ViewModels;
+﻿using MahwousMobile.Base.ViewModels;
 using MahwousMobile.Base.Views;
 using MarcTron.Plugin;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xamarin.Essentials;
 using Xamarin.Forms;
-using AutoMapper;
 using Xamarin.Forms.Xaml;
 
 namespace MahwousMobile.Base.Templates.DataTemplates
@@ -30,7 +24,7 @@ namespace MahwousMobile.Base.Templates.DataTemplates
             var layout = (BindableObject)sender;
             var viewModel = (QuoteViewModel)layout.BindingContext;
 
-           QuotePage page = new QuotePage(viewModel);
+            QuotePage page = new QuotePage(viewModel);
 
             var previousPage = Navigation.NavigationStack.LastOrDefault();
             await Navigation.PushAsync(page);

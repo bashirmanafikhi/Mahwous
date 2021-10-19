@@ -2,10 +2,6 @@
 using MahwousMobile.Base.ViewModels;
 using MarcTron.Plugin;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -31,7 +27,7 @@ namespace MahwousMobile.Base.Views
         {
             try
             {
-                await ((ImageViewModel)BindingContext).Repositories.ImagesRepository.IncrementViews(((ImageViewModel)BindingContext).Image.Id);
+                //await ((ImageViewModel)BindingContext).Repositories.ImageStatusRepository.IncrementViews(((ImageViewModel)BindingContext).Image.Id);
             }
             catch
             { }

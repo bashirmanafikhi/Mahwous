@@ -1,6 +1,7 @@
 ﻿using Mahwous.Core.Entities;
 using Mahwous.Core.Enums;
 using Mahwous.Core.Filters;
+using Mahwous.Core.Pagination;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -13,6 +14,7 @@ namespace MahwousMobile.Base.ViewModels
     public class ImagesViewModel : BaseViewModel
     {
         private ImageFilter filter;
+        private StatusSortType sortType;
         private int totalAmountPages;
 
 
@@ -24,6 +26,8 @@ namespace MahwousMobile.Base.ViewModels
         }
 
         private int itemTreshold = 3;
+        private PaginationDetails pagination = new PaginationDetails();
+
         public int ItemTreshold
         {
             get { return itemTreshold; }
@@ -37,6 +41,7 @@ namespace MahwousMobile.Base.ViewModels
         public Command LoadImagesCommand { get; set; }
         public Command LoadMoreImagesCommand { get; set; }
         public ImageFilter Filter { get => filter; set => filter = value; }
+        public StatusSortType SortType { get => sortType; set => sortType = value; }
 
         public ImagesViewModel(ImageFilter filter)
         {
@@ -49,7 +54,7 @@ namespace MahwousMobile.Base.ViewModels
             LoadMoreImagesCommand = new Command(async () => await ExecuteLoadMoreImagesCommand());
         }
 
-        public ImagesViewModel() : this(new ImageFilter {SortType=StatusSortType.Random}) { }
+        public ImagesViewModel() : this(new ImageFilter ()) { }
 
         async Task ExecuteLoadMoreImagesCommand()
         {
@@ -60,11 +65,11 @@ namespace MahwousMobile.Base.ViewModels
 
                 try
                 {
-                    if (pagination.Page < totalAmountPages)
+                    if (pagination.PageIndex < totalAmountPages)
                     {
-                        pagination.Page++;
-                        var paginatedResponse = await Repositories.ImagesRepository.GetFiltered(Filter);
-                        foreach (var image in paginatedResponse.Response)
+                        pagination.PageIndex++;
+                        var paginatedResponse = await Repositories.ImageStatusRepository.Search(pagination, Filter, SortType);
+                        foreach (var image in paginatedResponse.Items)
                             Images.Add(image);
                     }
                     else
@@ -87,29 +92,29 @@ namespace MahwousMobile.Base.ViewModels
 
         async Task ExecuteLoadImagesCommand()
         {
-                IsBusy = true;
+            IsBusy = true;
 
-                try
-                {
-                    Images.Clear();
-                    pagination.Page = 1;
+            try
+            {
+                Images.Clear();
+                pagination.PageIndex = 1;
 
-                    var paginatedResponse = await Repositories.ImagesRepository.GetFiltered(Filter);
-                    totalAmountPages = paginatedResponse.TotalAmountPages;
-                    var images = paginatedResponse.Response;
-                    foreach (var image in images)
-                    {
-                        Images.Add(image);
-                    }
-                }
-                catch (Exception ex)
+                var paginatedResponse = await Repositories.ImageStatusRepository.Search(pagination, Filter, SortType);
+                totalAmountPages = paginatedResponse.TotalPages;
+                var images = paginatedResponse.Items;
+                foreach (var image in images)
                 {
-                    Debug.WriteLine(ex);
+                    Images.Add(image);
                 }
-                finally
-                {
-                    IsBusy = false;
-                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
     }
 }

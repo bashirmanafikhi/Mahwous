@@ -1,12 +1,11 @@
 ﻿using MahwousMobile.Base.Models;
-using Mahwous.Core.Entities;
 
 namespace MahwousMobile.Base.ViewModels
 {
     // Todo: initialize category count
     public class CategoryViewModel : BaseViewModel
     {
-        public MahwousWeb.Models.Models.Category Category { get; set; }
+        public Mahwous.Core.Entities.Category Category { get; set; }
 
         int statusCount;
         public int StatusCount
@@ -17,7 +16,7 @@ namespace MahwousMobile.Base.ViewModels
 
         public StatusType? StatusType { get; set; }
 
-        public CategoryViewModel(MahwousWeb.Models.Models.Category category, int statusCount, StatusType? statusType = null)
+        public CategoryViewModel(Mahwous.Core.Entities.Category category, int statusCount, StatusType? statusType = null)
         {
             StatusType = statusType;
             StatusCount = statusCount;

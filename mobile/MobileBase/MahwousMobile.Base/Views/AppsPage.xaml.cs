@@ -1,10 +1,9 @@
 ﻿using MahwousMobile.Base.ViewModels;
-using System;
 using System.ComponentModel;
 using Xamarin.Forms;
 
 namespace MahwousMobile.Base.Views
-{ 
+{
     [DesignTimeVisible(false)]
     public partial class AppsPage : ContentPage
     {

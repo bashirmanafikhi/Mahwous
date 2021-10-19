@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -19,8 +15,8 @@ namespace MahwousMobile.Base.Templates.DataTemplates
 
         private async void Item_Tapped(object sender, EventArgs e)
         {
-            var app = BindingContext as MahwousWeb.Models.Models.MobileApp ;
-            if(!string.IsNullOrEmpty(app.PlayStoreLink))
+            var app = BindingContext as Mahwous.Core.Entities.MobileApp;
+            if (!string.IsNullOrEmpty(app.PlayStoreLink))
                 await Browser.OpenAsync(app.PlayStoreLink);
         }
     }

@@ -1,12 +1,8 @@
 ﻿using Mahwous.Core.Entities;
-using MahwousWeb.Service.Repositories;
+using Mahwous.Service.Repositories;
 using Plugin.LocalNotification;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
-using Xamarin.Forms;
 
 namespace MahwousMobile.Base.Helpers
 {
@@ -32,7 +28,8 @@ namespace MahwousMobile.Base.Helpers
 
                 MahwousRepositories repositories = new MahwousRepositories();
 
-                MobileNotification notificationData = await repositories.NotificationsRepository.GetLastNotification(packageName);
+                MobileNotification notificationData = new MobileNotification();
+                //MobileNotification notificationData = await repositories.MobileNotificationsRepository.GetLastNotification(packageName);
 
                 if (notificationData == null)
                 {
@@ -70,7 +67,7 @@ namespace MahwousMobile.Base.Helpers
 
                 Preferences.Set("last_notification_id", notificationData.Id);
 
-                await repositories.NotificationsRepository.IncrementRecived(notificationData.Id);
+                //await repositories.MobileNotificationsRepository.IncrementRecived(notificationData.Id);
 
 
             }

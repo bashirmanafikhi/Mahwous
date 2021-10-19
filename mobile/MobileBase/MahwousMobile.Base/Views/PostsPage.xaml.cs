@@ -1,5 +1,4 @@
 ﻿using MahwousMobile.Base.ViewModels;
-using System;
 using System.ComponentModel;
 using Xamarin.Forms;
 

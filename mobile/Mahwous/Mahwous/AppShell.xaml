@@ -59,7 +59,7 @@
 
     </Shell.Resources>
 
-    <FlyoutItem Title="الصور" FlyoutDisplayOptions="AsSingleItem">
+    <FlyoutItem Title="الصفحة الرئيسية" FlyoutDisplayOptions="AsSingleItem">
         <FlyoutItem.Icon>
             <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Home}" FontFamily="FA-S" />
         </FlyoutItem.Icon>
@@ -386,10 +386,10 @@
         </MenuItem.IconImageSource>
     </MenuItem>
 
-    <MenuItem Text="تسجيل الخروج" Clicked="MenuItem_Signout_Clicked" >
+    <!--<MenuItem Text="تسجيل الخروج" Clicked="MenuItem_Signout_Clicked" >
         <MenuItem.IconImageSource>
             <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.DoorOpen}" FontFamily="FA-S" />
         </MenuItem.IconImageSource>
-    </MenuItem>
+    </MenuItem>-->
 
 </Shell>

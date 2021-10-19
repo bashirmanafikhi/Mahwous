@@ -1,11 +1,9 @@
-﻿using System;
+﻿using Mahwous.Core.Entities;
+using Mahwous.Core.Pagination;
+using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using MahwousMobile.Base.ViewModels;
-using Mahwous.Core.Filters;
-using Mahwous.Core.Entities;
-using Mahwous.Core.Pagination;
 using Xamarin.Forms;
 
 namespace MahwousMobile.Base.ViewModels
@@ -56,11 +54,11 @@ namespace MahwousMobile.Base.ViewModels
 
                 try
                 {
-                    if (paginationDetails.Page < totalAmountPages)
+                    if (paginationDetails.PageIndex < totalAmountPages)
                     {
-                        paginationDetails.Page++;
-                        var paginatedResponse = await Repositories.PostsRepository.GetPaginated(paginationDetails);
-                        foreach (var post in paginatedResponse.Response)
+                        paginationDetails.PageIndex++;
+                        var paginatedResponse = await Repositories.PostRepository.Search(paginationDetails);
+                        foreach (var post in paginatedResponse.Items)
                             Posts.Add(post);
                     }
                     else
@@ -93,11 +91,11 @@ namespace MahwousMobile.Base.ViewModels
             try
             {
                 Posts.Clear();
-                paginationDetails.Page = 1;
+                paginationDetails.PageIndex = 1;
 
-                var paginatedResponse = await Repositories.PostsRepository.GetPaginated(paginationDetails);
-                totalAmountPages = paginatedResponse.TotalAmountPages;
-                var posts = paginatedResponse.Response;
+                var paginatedResponse = await Repositories.PostRepository.Search(paginationDetails);
+                totalAmountPages = paginatedResponse.TotalPages;
+                var posts = paginatedResponse.Items;
                 foreach (var post in posts)
                 {
                     Posts.Add(post);

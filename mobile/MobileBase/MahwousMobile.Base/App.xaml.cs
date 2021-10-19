@@ -1,9 +1,7 @@
-﻿using MahwousMobile.Base.Helpers;
+﻿using Mahwous.Service.Repositories;
+using MahwousMobile.Base.Helpers;
 using MahwousMobile.Base.Styles.Themes;
-using MahwousWeb.Service.Repositories;
 using Plugin.LocalNotification;
-using System.Net.Http;
-using System.Net.Http.Headers;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 

@@ -9,7 +9,7 @@ namespace Mahwous.Service.ViewModels.ImageStatuses
     {
         public ImageFilter Filter { get; set; }
         public PaginationDetails Pagination { get; set; } = new PaginationDetails();
-        public StatusSortType? SortType { get; set; } 
+        public StatusSortType? SortType { get; set; }
 
 
 

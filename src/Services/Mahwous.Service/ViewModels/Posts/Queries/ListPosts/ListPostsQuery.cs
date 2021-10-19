@@ -7,7 +7,7 @@ namespace Mahwous.Service.ViewModels.Posts
     public class ListPostsQuery
     {
         public PostFilter Filter { get; set; }
-        public EntitySortType? SortType { get; set; } 
+        public EntitySortType? SortType { get; set; }
 
 
         public string Query

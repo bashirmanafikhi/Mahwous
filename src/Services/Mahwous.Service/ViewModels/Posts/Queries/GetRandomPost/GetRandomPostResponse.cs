@@ -1,6 +1,4 @@
-﻿using Mahwous.Core.Entities;
-
-namespace Mahwous.Service.ViewModels.Posts
+﻿namespace Mahwous.Service.ViewModels.Posts
 {
     public class GetRandomPostResponse : GetPostDetailsResponse
     {

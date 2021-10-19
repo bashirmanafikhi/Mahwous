@@ -85,7 +85,7 @@ namespace MahwousMobile.Base.ViewModels
                     Password = password
                 });
                 Settings.Token = token.Token;
-                if(LoggedSuccessfully != null) LoggedSuccessfully.Invoke();
+                if (LoggedSuccessfully != null) LoggedSuccessfully.Invoke();
             }
             catch (Exception ex)
             {

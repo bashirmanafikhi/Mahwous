@@ -1,6 +1,6 @@
 ﻿namespace Mahwous.Service.ViewModels.MobileNotifications
 {
-    public class GetRandomMobileNotificationQuery 
+    public class GetRandomMobileNotificationQuery
     {
 
     }

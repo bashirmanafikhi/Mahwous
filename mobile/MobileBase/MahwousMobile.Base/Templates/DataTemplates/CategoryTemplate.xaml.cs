@@ -1,11 +1,7 @@
-﻿using MahwousMobile.Base.ViewModels;
+﻿using Mahwous.Core.Filters;
+using MahwousMobile.Base.ViewModels;
 using MahwousMobile.Base.Views;
-using Mahwous.Core.Filters;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

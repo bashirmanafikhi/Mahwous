@@ -1,12 +1,9 @@
-﻿using MahwousMobile.Base.Helpers;
-using Mahwous.Core.Entities;
-using MahwousWeb.Service.Repositories;
+﻿using Mahwous.Core.Entities;
+using Mahwous.Service.Repositories;
+using Mahwous.Service.ViewModels.ImageStatuses;
+using MahwousMobile.Base.Helpers;
 using Microsoft.AppCenter.Crashes;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -32,7 +29,11 @@ namespace MahwousMobile.Base.Views
                     return;
 
                 var stream = await file.OpenReadAsync();
-                var id = await Repositories.ImagesRepository.Add(new ImageStatus(), stream);
+                CreateImageStatusCommand command = new CreateImageStatusCommand
+                {
+                    Image = stream
+                };
+                var id = await Repositories.ImageStatusRepository.Create(command);
 
             }
             catch (Exception ex)

@@ -1,23 +1,18 @@
-﻿using System;
+﻿using Mahwous.Core.Enums;
+using Mahwous.Core.Filters;
+using Mahwous.Core.Pagination;
+using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using MahwousMobile.Base.ViewModels;
-using Mahwous.Core.Filters;
-using Mahwous.Core.Entities;
-using Mahwous.Core.Pagination;
 using Xamarin.Forms;
-using Mahwous.Core.Pagination;
-using Mahwous.Core.Filters;
 
 namespace MahwousMobile.Base.ViewModels
 {
 
     public class AppsViewModel : BaseViewModel
     {
-        readonly PaginationDetails paginationDetails = new PaginationDetails() { PageSize = 200 };
-
-        private PaginationDetails pagination;
+        private PaginationDetails pagination = new PaginationDetails();
 
         bool isLoadingMore = false;
         public bool IsLoadingMore
@@ -32,7 +27,7 @@ namespace MahwousMobile.Base.ViewModels
             get { return itemTreshold; }
             set { SetProperty(ref itemTreshold, value); }
         }
-        public ObservableCollection<MahwousWeb.Models.Models.MobileApp> Apps { get; set; }
+        public ObservableCollection<Mahwous.Core.Entities.MobileApp> Apps { get; set; }
 
 
         public Command LoadAppsCommand { get; set; }
@@ -40,7 +35,7 @@ namespace MahwousMobile.Base.ViewModels
 
         public AppsViewModel()
         {
-            Apps = new ObservableCollection<MahwousWeb.Models.Models.MobileApp>();
+            Apps = new ObservableCollection<Mahwous.Core.Entities.MobileApp>();
 
             LoadAppsCommand = new Command(async () => await ExecuteLoadAppsCommand());
         }
@@ -52,12 +47,10 @@ namespace MahwousMobile.Base.ViewModels
             try
             {
                 Apps.Clear();
-                AppFilter filter = new MobileAppFilter();
-                pagination = paginationDetails;
-                filter.SortType = SortType.Random;
+                MobileAppFilter filter = new MobileAppFilter();
 
-                var paginatedResponse = await Repositories.AppsRepository.GetFiltered(filter);
-                var apps = paginatedResponse.Response;
+                var paginatedResponse = await Repositories.MobileAppsRepository.Search(pagination, filter);
+                var apps = paginatedResponse.Items;
                 foreach (var app in apps)
                 {
                     Apps.Add(app);

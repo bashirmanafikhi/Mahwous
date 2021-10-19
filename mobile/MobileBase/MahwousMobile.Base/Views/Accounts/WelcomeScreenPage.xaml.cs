@@ -29,7 +29,7 @@ namespace MahwousMobile.Base.Views
             {
                 Device.BeginInvokeOnMainThread(() =>
                 {
-                    if(cvOnBoardList.Position == 2)
+                    if (cvOnBoardList.Position == 2)
                     {
                         cvOnBoardList.Position = 0;
                         return;

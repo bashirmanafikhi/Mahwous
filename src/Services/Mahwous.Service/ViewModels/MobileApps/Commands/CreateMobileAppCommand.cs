@@ -1,9 +1,8 @@
-﻿using Mahwous.Core.Entities;
-using System.IO;
+﻿using System.IO;
 
 namespace Mahwous.Service.ViewModels.MobileApps
 {
-    public class CreateMobileAppCommand 
+    public class CreateMobileAppCommand
     {
         public string Name { get; set; }
         public string Description { get; set; }

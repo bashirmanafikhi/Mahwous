@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using MahwousMobile.Base.Helpers;
 using MahwousMobile.Base.Models;
-using MahwousMobile.Base.ViewModels;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
@@ -19,11 +18,11 @@ namespace MahwousMobile.Base.ViewModels
         public QuoteStatus Quote => quote;
 
 
-        public QuoteViewModel(MahwousWeb.Models.Models.QuoteStatus quote)
+        public QuoteViewModel(Mahwous.Core.Entities.QuoteStatus quote)
         {
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<MahwousWeb.Models.Models.QuoteStatus, QuoteStatus>();
+                cfg.CreateMap<Mahwous.Core.Entities.QuoteStatus, QuoteStatus>();
             });
 
             IMapper mapper = config.CreateMapper();
@@ -36,7 +35,7 @@ namespace MahwousMobile.Base.ViewModels
             ShareQuoteWhatsCommand = new Command(async () => await ExecuteShareQuoteWhatsCommand());
             ShareQuoteFaceCommand = new Command(async () => await ExecuteShareQuoteFaceCommand());
 
-            Repositories.QuotesRepository.IncrementViews(Quote.Id).ConfigureAwait(false);
+            //Repositories.QuoteStatusRepository.IncrementViews(Quote.Id).ConfigureAwait(false);
 
             MahwousSqliteDB<QuoteStatus> database = new MahwousSqliteDB<QuoteStatus>();
             Liked = database.Exists(Quote);
@@ -120,7 +119,7 @@ namespace MahwousMobile.Base.ViewModels
                 {
                     LikesCount--;
                     Liked = false;
-                    await Repositories.QuotesRepository.DecrementLikes(quote.Id);
+                    //await Repositories.QuoteStatusRepository.DecrementLikes(quote.Id);
 
                     using (MahwousSqliteDB<QuoteStatus> database = new MahwousSqliteDB<QuoteStatus>())
                     {
@@ -141,7 +140,7 @@ namespace MahwousMobile.Base.ViewModels
                 {
                     LikesCount++;
                     Liked = true;
-                    await Repositories.QuotesRepository.IncrementLikes(quote.Id);
+                    //await Repositories.QuoteStatusRepository.IncrementLikes(quote.Id);
 
                     using (MahwousSqliteDB<QuoteStatus> database = new MahwousSqliteDB<QuoteStatus>())
                     {
@@ -212,7 +211,7 @@ namespace MahwousMobile.Base.ViewModels
         {
             try
             {
-                await Repositories.QuotesRepository.IncrementDownloads(quote.Id);
+                //await Repositories.QuoteStatusRepository.IncrementDownloads(quote.Id);
             }
             catch (Exception ex)
             {

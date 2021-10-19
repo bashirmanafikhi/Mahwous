@@ -1,12 +1,10 @@
-﻿using Mahwous.Core.Entities;
+﻿using Mahwous.Core.General;
+using MahwousMobile.Base.Models;
 using System;
 using System.Diagnostics;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
-using MahwousMobile.Base.Helpers;
-using MahwousMobile.Base.Models;
 
 namespace MahwousMobile.Base.ViewModels
 {
@@ -37,7 +35,8 @@ namespace MahwousMobile.Base.ViewModels
         public Informations Informations
         {
             get { return informations; }
-            set { 
+            set
+            {
                 SetProperty(ref informations, value);
             }
         }
@@ -51,22 +50,22 @@ namespace MahwousMobile.Base.ViewModels
             try
             {
                 //await initRandomImage();
-                switch (StatusType)
-                {
-                    case Models.StatusType.Image:
-                        Informations = await Repositories.ImagesRepository.GetInformations();
-                        break;
-                    case Models.StatusType.Video:
-                        Informations = await Repositories.VideosRepository.GetInformations();
-                        break;
-                    case Models.StatusType.Quote:
-                        Informations = await Repositories.QuotesRepository.GetInformations();
-                        break;
-                    default:
-                        Informations = await Repositories.StatusesRepository.GetInformations();
-                        break;
-                }
-
+                //switch (StatusType)
+                //{
+                //    case Models.StatusType.Image:
+                //        Informations = await Repositories.ImageStatusRepository.GetInformations();
+                //        break;
+                //    case Models.StatusType.Video:
+                //        Informations = await Repositories.VideoStatusRepository.GetInformations();
+                //        break;
+                //    case Models.StatusType.Quote:
+                //        Informations = await Repositories.QuoteStatusRepository.GetInformations();
+                //        break;
+                //    default:
+                //        Informations = await Repositories.StatusRepository.GetInformations();
+                //        break;
+                //}
+                Informations = new Informations();
             }
             catch (Exception ex)
             {

@@ -1,6 +1,7 @@
-﻿using MahwousMobile.Base.Models;
-using Mahwous.Core.Filters;
-using Mahwous.Core.Entities;
+﻿using Mahwous.Core.Filters;
+using Mahwous.Core.General;
+using Mahwous.Core.Pagination;
+using MahwousMobile.Base.Models;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -8,7 +9,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
-using Mahwous.Core.Pagination;
 
 namespace MahwousMobile.Base.ViewModels
 {
@@ -59,8 +59,8 @@ namespace MahwousMobile.Base.ViewModels
                 pagination.PageSize = 500;
 
 
-                var paginatedResponse = await Repositories.CategoriesRepository.GetFiltered(filter);
-                var categories = paginatedResponse.Response;
+                var paginatedResponse = await Repositories.CategoriesRepository.Search(pagination, filter);
+                var categories = paginatedResponse.Items;
 
 
                 // randomize
@@ -99,21 +99,22 @@ namespace MahwousMobile.Base.ViewModels
             IsBusy = true;
             try
             {
-                switch (StatusType)
-                {
-                    case Models.StatusType.Image:
-                        Informations = await Repositories.ImagesRepository.GetInformations();
-                        break;
-                    case Models.StatusType.Video:
-                        Informations = await Repositories.VideosRepository.GetInformations();
-                        break;
-                    case Models.StatusType.Quote:
-                        Informations = await Repositories.QuotesRepository.GetInformations();
-                        break;
-                    default:
-                        Informations = await Repositories.StatusesRepository.GetInformations();
-                        break;
-                }
+                //switch (StatusType)
+                //{
+                //    case Models.StatusType.Image:
+                //        Informations = await Repositories.ImageStatusRepository.GetInformations();
+                //        break;
+                //    case Models.StatusType.Video:
+                //        Informations = await Repositories.VideoStatusRepository.GetInformations();
+                //        break;
+                //    case Models.StatusType.Quote:
+                //        Informations = await Repositories.QuoteStatusRepository.GetInformations();
+                //        break;
+                //    default:
+                //        Informations = await Repositories.StatusRepository.GetInformations();
+                //        break;
+                //}
+                Informations = new Informations();
 
             }
             catch (Exception ex)

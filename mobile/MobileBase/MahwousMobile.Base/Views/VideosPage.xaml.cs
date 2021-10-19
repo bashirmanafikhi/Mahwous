@@ -1,13 +1,11 @@
-﻿using System;
-using System.ComponentModel;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using MahwousMobile.Base.ViewModels;
-using Mahwous.Core.Entities;
-using Mahwous.Core.Filters;
-using System.Linq;
-using MarcTron.Plugin;
+﻿using Mahwous.Core.Enums;
 using MahwousMobile.Base.Helpers;
+using MahwousMobile.Base.ViewModels;
+using MarcTron.Plugin;
+using System;
+using System.ComponentModel;
+using System.Linq;
+using Xamarin.Forms;
 
 namespace MahwousMobile.Base.Views
 {

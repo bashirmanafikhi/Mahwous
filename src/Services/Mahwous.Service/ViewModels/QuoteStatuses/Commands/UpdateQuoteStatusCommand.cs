@@ -1,5 +1,4 @@
-﻿using Mahwous.Core.Entities;
-using System.IO;
+﻿using System.IO;
 
 namespace Mahwous.Service.ViewModels.QuoteStatuses
 {

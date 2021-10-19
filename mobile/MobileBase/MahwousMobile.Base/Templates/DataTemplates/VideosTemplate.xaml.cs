@@ -1,7 +1,6 @@
-﻿using MahwousMobile.Base.ViewModels;
-using Mahwous.Core.Filters;
-using Mahwous.Core.Entities;
-using MarcTron.Plugin;
+﻿using Mahwous.Core.Entities;
+using Mahwous.Core.Enums;
+using MahwousMobile.Base.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,7 +12,7 @@ namespace MahwousMobile.Base.Templates.DataTemplates
         VideosViewModel viewModel;
         public StatusSortType SortType
         {
-            get => viewModel.Filter.SortType;
+            get => viewModel.SortType;
             set
             {
                 if (viewModel.Videos.Count > 0)
@@ -21,7 +20,7 @@ namespace MahwousMobile.Base.Templates.DataTemplates
                     return;
                 }
 
-                viewModel.Filter.SortType = value;
+                viewModel.SortType = value;
                 viewModel.IsBusy = true;
             }
         }

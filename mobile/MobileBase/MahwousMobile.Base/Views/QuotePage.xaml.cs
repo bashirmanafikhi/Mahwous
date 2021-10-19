@@ -1,5 +1,5 @@
-﻿using MahwousMobile.Base.ViewModels;
-using Mahwous.Core.Filters;
+﻿using Mahwous.Core.Enums;
+using MahwousMobile.Base.ViewModels;
 using System.ComponentModel;
 using Xamarin.Forms;
 
@@ -20,8 +20,6 @@ namespace MahwousMobile.Base.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
-            myQuotesTemplate.SortType = StatusSortType.Random; //this will excute load quotes command
         }
 
     }

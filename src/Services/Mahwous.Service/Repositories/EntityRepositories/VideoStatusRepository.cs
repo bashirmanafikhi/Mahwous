@@ -1,14 +1,9 @@
-﻿using Mahwous.Core.Entities;
-using Mahwous.Core.Enums;
+﻿using Mahwous.Core.Enums;
 using Mahwous.Core.Filters;
-using Mahwous.Core.General;
 using Mahwous.Core.Pagination;
 using Mahwous.Service.Services;
 using Mahwous.Service.ViewModels.VideoStatuses;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Mahwous.Service.Repositories
@@ -118,6 +113,11 @@ namespace Mahwous.Service.Repositories
             {
                 throw new ApplicationException(await response.GetBody());
             }
+        }
+
+        public Task<byte[]> Download(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

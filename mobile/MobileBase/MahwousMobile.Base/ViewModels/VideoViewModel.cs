@@ -1,14 +1,10 @@
 ﻿using AutoMapper;
 using MahwousMobile.Base.Helpers;
 using MahwousMobile.Base.Models;
-using Mahwous.Core.Filters;
 using Plugin.LocalNotification;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
@@ -22,10 +18,11 @@ namespace MahwousMobile.Base.ViewModels
 
         public VideoStatus Video => video;
 
-        public VideoViewModel(MahwousWeb.Models.Models.VideoStatus video)
+        public VideoViewModel(Mahwous.Core.Entities.VideoStatus video)
         {
-            var config = new MapperConfiguration(cfg => {
-                cfg.CreateMap<MahwousWeb.Models.Models.VideoStatus, VideoStatus>();
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<Mahwous.Core.Entities.VideoStatus, VideoStatus>();
             });
 
             IMapper mapper = config.CreateMapper();
@@ -80,7 +77,7 @@ namespace MahwousMobile.Base.ViewModels
                 {
                     LikesCount--;
                     Liked = false;
-                    await Repositories.VideosRepository.DecrementLikes(video.Id);
+                    //await Repositories.VideoStatusRepository.DecrementLikes(video.Id);
 
                     using (MahwousSqliteDB<VideoStatus> database = new MahwousSqliteDB<VideoStatus>())
                     {
@@ -101,7 +98,7 @@ namespace MahwousMobile.Base.ViewModels
                 {
                     LikesCount++;
                     Liked = true;
-                    await Repositories.VideosRepository.IncrementLikes(video.Id);
+                    //await Repositories.VideoStatusRepository.IncrementLikes(video.Id);
 
                     using (MahwousSqliteDB<VideoStatus> database = new MahwousSqliteDB<VideoStatus>())
                     {
@@ -132,9 +129,9 @@ namespace MahwousMobile.Base.ViewModels
             {
                 DependencyService.Get<IMessage>().LongAlert("جاري تحميل الفيديو");
 
-                byte[] fileByteArray = await Repositories.VideosRepository.Download(video.Id);
+                byte[] fileByteArray = await Repositories.VideoStatusRepository.Download(video.Id);
 
-                bool result =  await DependencyService.Get<IFileService>().SaveVideo(fileByteArray, video.Title);
+                bool result = await DependencyService.Get<IFileService>().SaveVideo(fileByteArray, video.Title);
                 if (result)
                 {
                     //DependencyService.Get<IMessage>().ShortAlert("تم تحميل الفيديو بنجاح");
@@ -151,7 +148,7 @@ namespace MahwousMobile.Base.ViewModels
 
 
 
-                    await Repositories.VideosRepository.IncrementDownloads(video.Id);
+                    //await Repositories.VideoStatusRepository.IncrementDownloads(video.Id);
 
 
                 }
@@ -179,19 +176,19 @@ namespace MahwousMobile.Base.ViewModels
                 DependencyService.Get<IMessage>().ShortAlert("جاري تحميل الفيديو للمشاركة");
 
 
-                byte[] fileByteArray = await Repositories.VideosRepository.Download(video.Id);
+                byte[] fileByteArray = await Repositories.VideoStatusRepository.Download(video.Id);
 
                 string path = Path.Combine(FileSystem.CacheDirectory, "video.mp4");
-                
+
                 File.WriteAllBytes(path, fileByteArray);
-                
+
                 await Share.RequestAsync(new ShareFileRequest
                 {
                     Title = "مشاركة فيديو مهووس",
                     File = new ShareFile(path)
                 });
 
-                await Repositories.VideosRepository.IncrementDownloads(video.Id);
+                //await Repositories.VideoStatusRepository.IncrementDownloads(video.Id);
             }
             catch (Exception ex)
             {
