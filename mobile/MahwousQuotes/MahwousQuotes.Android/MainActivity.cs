@@ -1,11 +1,6 @@
 ﻿using Android.App;
-using Android.Content;
 using Android.Content.PM;
-using Android.Gms.Ads;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Plugin.LocalNotification;
 
 namespace MahwousQuotes.Droid
 {

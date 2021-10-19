@@ -1,5 +1,4 @@
-﻿using Mahwous.Core.Enums;
-using MahwousMobile.Base.ViewModels;
+﻿using MahwousMobile.Base.ViewModels;
 using System.ComponentModel;
 using Xamarin.Forms;
 

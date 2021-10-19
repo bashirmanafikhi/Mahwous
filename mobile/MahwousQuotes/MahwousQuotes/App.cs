@@ -1,8 +1,4 @@
 ﻿using MahwousMobile.Base.Helpers;
-using MahwousWeb.Service.Repositories;
-using System.Diagnostics;
-using Xamarin.Essentials;
-using Xamarin.Forms;
 
 namespace MahwousQuotes
 {

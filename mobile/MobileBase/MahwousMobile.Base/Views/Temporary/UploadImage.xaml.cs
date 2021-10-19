@@ -1,5 +1,4 @@
-﻿using Mahwous.Core.Entities;
-using Mahwous.Service.Repositories;
+﻿using Mahwous.Service.Repositories;
 using Mahwous.Service.ViewModels.ImageStatuses;
 using MahwousMobile.Base.Helpers;
 using Microsoft.AppCenter.Crashes;

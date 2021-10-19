@@ -54,7 +54,7 @@ namespace MahwousMobile.Base.ViewModels
             LoadMoreImagesCommand = new Command(async () => await ExecuteLoadMoreImagesCommand());
         }
 
-        public ImagesViewModel() : this(new ImageFilter ()) { }
+        public ImagesViewModel() : this(new ImageFilter()) { }
 
         async Task ExecuteLoadMoreImagesCommand()
         {

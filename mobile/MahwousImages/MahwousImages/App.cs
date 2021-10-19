@@ -1,7 +1,4 @@
 ﻿using MahwousMobile.Base.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MahwousImages
 {

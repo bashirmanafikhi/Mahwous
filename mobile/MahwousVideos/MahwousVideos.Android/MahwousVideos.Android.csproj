@@ -97,10 +97,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Fileservice.cs" />
     <Compile Include="MainActivity.cs" />
-    <Compile Include="MessageAndroid.cs" />
-    <Compile Include="NotificationWorker.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SplashActivity.cs" />
@@ -127,6 +124,10 @@
       <Project>{e5b98b9e-9c2e-4e02-ba96-4811fc662f74}</Project>
       <Name>MahwousMobile.Base</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\MobileBase\MobileBase.Android\MobileBase.Android.csproj">
+      <Project>{57bb6394-2f90-4ee6-93d4-bfe466eef1c7}</Project>
+      <Name>MobileBase.Android</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MahwousVideos\MahwousVideos.csproj">
       <Project>{9A7E1E23-783D-42A2-8466-D3CF8F038816}</Project>
       <Name>MahwousVideos</Name>
@@ -147,9 +148,7 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\SplashScreen.xml" />
   </ItemGroup>

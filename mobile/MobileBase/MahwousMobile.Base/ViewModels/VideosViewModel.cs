@@ -53,7 +53,7 @@ namespace MahwousMobile.Base.ViewModels
             LoadMoreVideosCommand = new Command(async () => await ExecuteLoadMoreVideosCommand());
         }
 
-        public VideosViewModel() : this(new VideoFilter ()) { }
+        public VideosViewModel() : this(new VideoFilter()) { }
 
         async Task ExecuteLoadMoreVideosCommand()
         {
