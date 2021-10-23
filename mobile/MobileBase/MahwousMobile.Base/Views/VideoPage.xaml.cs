@@ -17,7 +17,8 @@ namespace MahwousMobile.Base.Views
             InitializeComponent();
             BindingContext = viewModel;
 
-            CrossMTAdmob.Current.LoadRewardedVideo(Settings.RewardedAdKey);
+            if (Device.RuntimePlatform == Device.iOS || Device.RuntimePlatform == Device.Android)
+                CrossMTAdmob.Current.LoadRewardedVideo(Settings.RewardedAdKey);
         }
 
         protected override async void OnAppearing()
@@ -32,7 +33,8 @@ namespace MahwousMobile.Base.Views
 
         private void DownloadButton_Clicked(object sender, EventArgs e)
         {
-            CrossMTAdmob.Current.ShowRewardedVideo();
+            if (Device.RuntimePlatform == Device.iOS || Device.RuntimePlatform == Device.Android)
+                CrossMTAdmob.Current.ShowRewardedVideo();
         }
     }
 }

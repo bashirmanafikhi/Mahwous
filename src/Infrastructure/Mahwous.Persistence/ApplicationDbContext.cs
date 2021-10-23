@@ -1,10 +1,10 @@
 ﻿using Mahwous.Core.Entities;
-using MahwousWeb.Persistent.Models;
+using Mahwous.Persistence.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
-namespace MahwousWeb.Persistent
+namespace Mahwous.Persistence
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser/*, IdentityRole ,Guid*/>
     {

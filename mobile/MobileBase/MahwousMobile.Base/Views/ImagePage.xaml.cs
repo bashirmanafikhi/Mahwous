@@ -19,7 +19,8 @@ namespace MahwousMobile.Base.Views
 
 
 
-            CrossMTAdmob.Current.LoadInterstitial(Settings.InterstitialAdKey);
+            if (Device.RuntimePlatform == Device.iOS || Device.RuntimePlatform == Device.Android)
+                CrossMTAdmob.Current.LoadInterstitial(Settings.InterstitialAdKey);
 
         }
 
@@ -35,7 +36,8 @@ namespace MahwousMobile.Base.Views
 
         private void ShowInterstitialAd(object sender, EventArgs e)
         {
-            CrossMTAdmob.Current.ShowInterstitial();
+            if (Device.RuntimePlatform == Device.iOS || Device.RuntimePlatform == Device.Android)
+                CrossMTAdmob.Current.ShowInterstitial();
         }
     }
 }

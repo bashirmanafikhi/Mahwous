@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace MahwousWeb.Persistent.Migrations
+namespace Mahwous.Persistence.Migrations
 {
     public partial class UpdateBaseEntityProperties : Migration
     {

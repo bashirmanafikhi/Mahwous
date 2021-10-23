@@ -2,7 +2,7 @@
 using Mahwous.Core.Filters;
 using Mahwous.Core.Interfaces.Repositories;
 
-namespace MahwousWeb.Persistent.Repositories
+namespace Mahwous.Persistence.Repositories
 {
     public class QuoteStatusRepository : StatusRepository<QuoteStatus, QuoteFilter>, IQuoteStatusRepository
     {

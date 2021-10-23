@@ -1,6 +1,8 @@
 ﻿using Mahwous.Core.Entities;
 using Mahwous.Core.Enums;
 using MahwousMobile.Base.ViewModels;
+using System.Collections;
+using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -37,7 +39,23 @@ namespace MahwousMobile.Base.Templates.DataTemplates
         }
 
 
+        private void CollectionView_OnScrolled(object sender, ItemsViewScrolledEventArgs e)
+        {
+            if (Device.RuntimePlatform != Device.UWP)
+            {
+                return;
+            }
 
+            if (sender is CollectionView cv)
+            {
+                var count = cv.ItemsSource.Cast<ICollection>().Sum(c => c.Count);
+                if (e.LastVisibleItemIndex + 1 - count + cv.RemainingItemsThreshold >= 0)
+                {
+                    if (cv.RemainingItemsThresholdReachedCommand.CanExecute(null))
+                        cv.RemainingItemsThresholdReachedCommand.Execute(null);
+                }
+            }
+        }
         public ImagesTemplate() : this(new ImagesViewModel()) { }
 
         public ImagesTemplate(ImagesViewModel viewModel)

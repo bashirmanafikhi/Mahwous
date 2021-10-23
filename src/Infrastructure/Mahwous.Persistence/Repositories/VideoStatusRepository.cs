@@ -2,7 +2,7 @@
 using Mahwous.Core.Filters;
 using Mahwous.Core.Interfaces.Repositories;
 
-namespace MahwousWeb.Persistent.Repositories
+namespace Mahwous.Persistence.Repositories
 {
     public class VideoStatusRepository : StatusRepository<VideoStatus, VideoFilter>, IVideoStatusRepository
     {

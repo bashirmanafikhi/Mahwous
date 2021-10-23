@@ -15,6 +15,7 @@
 
         <StackLayout>
             <CollectionView x:Name="ItemsCollectionView"
+                            Scrolled="CollectionView_OnScrolled"
                             RemainingItemsThreshold="{Binding ItemTreshold}"
                             RemainingItemsThresholdReachedCommand="{Binding LoadMoreImagesCommand}"
                             ItemTemplate="{DataTemplate templates:ImageTemplate}"

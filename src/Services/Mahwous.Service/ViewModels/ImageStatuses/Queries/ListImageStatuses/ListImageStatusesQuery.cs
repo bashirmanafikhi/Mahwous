@@ -23,7 +23,7 @@ namespace Mahwous.Service.ViewModels.ImageStatuses
                     // Todo: filter query
                 }
 
-                return string.Join('&', conditions);
+                return string.Join("&", conditions);
             }
         }
     }

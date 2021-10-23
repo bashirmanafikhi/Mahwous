@@ -20,7 +20,8 @@ namespace MahwousMobile.Base.Templates.DataTemplates
 
         private async void Item_Tapped(object sender, EventArgs e)
         {
-            CrossMTAdmob.Current.ShowInterstitial();
+            if (Device.RuntimePlatform == Device.iOS || Device.RuntimePlatform == Device.Android)
+                CrossMTAdmob.Current.ShowInterstitial();
 
             var layout = (BindableObject)sender;
             var image = (ImageStatus)layout.BindingContext;

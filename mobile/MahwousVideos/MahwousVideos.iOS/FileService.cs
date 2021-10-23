@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MahwousVideos.iOS;
+using System;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Foundation;
-using MahwousVideos.Helpers;
-using MahwousVideos.iOS;
-using UIKit;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(FileService))]

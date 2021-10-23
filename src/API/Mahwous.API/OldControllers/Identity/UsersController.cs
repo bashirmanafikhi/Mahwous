@@ -2,8 +2,8 @@
 using Mahwous.Core.Dtos;
 using Mahwous.Core.Extentions;
 using Mahwous.Core.Pagination;
-using MahwousWeb.Persistent;
-using MahwousWeb.Persistent.Models;
+using Mahwous.Persistence;
+using Mahwous.Persistence.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;

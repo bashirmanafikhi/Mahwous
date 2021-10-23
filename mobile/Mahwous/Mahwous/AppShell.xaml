@@ -73,7 +73,7 @@
                 <views:HomePage StatusType="{x:Null}" />
             </ShellContent>
         </Tab>
-        
+
         <Tab  Title="تطبيقاتنا">
             <Tab.Icon>
                 <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.ThLarge}" FontFamily="FA-S" />

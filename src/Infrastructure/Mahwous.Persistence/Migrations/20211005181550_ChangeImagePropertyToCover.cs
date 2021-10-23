@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 
-namespace MahwousWeb.Persistent.Migrations
+namespace Mahwous.Persistence.Migrations
 {
     public partial class ChangeImagePropertyToCover : Migration
     {

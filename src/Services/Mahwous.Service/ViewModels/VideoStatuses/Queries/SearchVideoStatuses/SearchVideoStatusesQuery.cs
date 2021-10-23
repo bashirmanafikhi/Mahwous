@@ -31,7 +31,7 @@ namespace Mahwous.Service.ViewModels.VideoStatuses
                 {
                     // Todo: filter query
                 }
-                return string.Join('&', conditions);
+                return string.Join("&", conditions);
                 //return this.ToQueryString("&");
             }
         }

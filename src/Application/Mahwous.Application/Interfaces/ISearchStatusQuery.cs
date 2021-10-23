@@ -8,9 +8,9 @@ namespace Mahwous.Application.Interfaces
     interface ISearchStatusQuery<TFilter, TResponse> : IMapTo<TFilter>, IRequest<TResponse>
     {
         // Paginations
-        public PaginationDetails Pagination { get; set; }
+        PaginationDetails Pagination { get; set; }
 
         // Sorting
-        public StatusSortType SortType { get; set; }
+        StatusSortType SortType { get; set; }
     }
 }

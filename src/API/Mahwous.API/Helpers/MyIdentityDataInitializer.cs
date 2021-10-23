@@ -1,4 +1,4 @@
-﻿using MahwousWeb.Persistent.Models;
+﻿using Mahwous.Persistence.Models;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 

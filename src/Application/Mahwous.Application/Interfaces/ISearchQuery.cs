@@ -8,9 +8,9 @@ namespace Mahwous.Application.Interfaces
     interface ISearchQuery<TFilter, TResponse> : IMapTo<TFilter>, IRequest<TResponse>
     {
         // Paginations
-        public PaginationDetails Pagination { get; set; }
+        PaginationDetails Pagination { get; set; }
 
         // Sorting
-        public EntitySortType SortType { get; set; }
+        EntitySortType SortType { get; set; }
     }
 }

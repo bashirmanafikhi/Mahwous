@@ -34,7 +34,8 @@ namespace MahwousMobile.Base.Views
 
             viewModel.QuotesFinished += OnQuotesFinished;
 
-            CrossMTAdmob.Current.LoadInterstitial(Settings.InterstitialAdKey);
+            if (Device.RuntimePlatform == Device.iOS || Device.RuntimePlatform == Device.Android)
+                CrossMTAdmob.Current.LoadInterstitial(Settings.InterstitialAdKey);
 
         }
 

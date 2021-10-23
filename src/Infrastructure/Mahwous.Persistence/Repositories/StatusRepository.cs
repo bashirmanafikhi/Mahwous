@@ -9,7 +9,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MahwousWeb.Persistent.Repositories
+namespace Mahwous.Persistence.Repositories
 {
     public class StatusRepository<T, F> : EntityRepository<T, F>, IStatusRepository<T, F>
         where T : Status

@@ -12,5 +12,10 @@ namespace Mahwous.Core.General
         public long ViewsCount { get; set; }
 
         public Dictionary<string, int> CategoriesStatusCounts { get; set; }
+
+        public Informations()
+        {
+            CategoriesStatusCounts = new Dictionary<string, int>();
+        }
     }
 }

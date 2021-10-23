@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿
 using Foundation;
-using MahwousQuotes.Helpers;
 using MahwousQuotes.iOS;
 using UIKit;
 

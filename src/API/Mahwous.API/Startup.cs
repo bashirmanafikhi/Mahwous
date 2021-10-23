@@ -1,7 +1,8 @@
 using Mahwous.API.Helpers;
+using Mahwous.Chat.Hubs;
 using Mahwous.DependencyInjection;
-using MahwousWeb.Persistent;
-using MahwousWeb.Persistent.Models;
+using Mahwous.Persistence;
+using Mahwous.Persistence.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -165,6 +166,7 @@ namespace Mahwous.API
                 endpoints.MapRazorPages();
                 endpoints.MapControllers();
                 endpoints.MapFallbackToFile("index.html");
+                endpoints.MapHub<ChatHub>("ChatHub");
             });
         }
     }

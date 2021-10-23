@@ -31,7 +31,7 @@ namespace Mahwous.Service.ViewModels.QuoteStatuses
                     // Todo: filter query
                 }
 
-                return string.Join('&', conditions);
+                return string.Join("&", conditions);
             }
         }
     }

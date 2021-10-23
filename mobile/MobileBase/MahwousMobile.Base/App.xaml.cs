@@ -47,11 +47,15 @@ namespace MahwousMobile.Base
 
         private void SetLocalNotificationsOptions()
         {
-            // Local Notification tap event listener
-            NotificationCenter.Current.NotificationTapped += OnLocalNotificationTapped;
 
-            // Local Notification received event listener
-            NotificationCenter.Current.NotificationReceived += OnLocalNotificationReceived;
+            if (Device.RuntimePlatform == Device.iOS || Device.RuntimePlatform == Device.Android)
+            {
+                // Local Notification tap event listener
+                NotificationCenter.Current.NotificationTapped += OnLocalNotificationTapped;
+
+                // Local Notification received event listener
+                NotificationCenter.Current.NotificationReceived += OnLocalNotificationReceived;
+            }
 
         }
 

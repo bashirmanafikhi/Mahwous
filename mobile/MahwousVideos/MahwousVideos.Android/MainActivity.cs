@@ -1,13 +1,6 @@
 ﻿using Android.App;
-using Android.Content;
 using Android.Content.PM;
-using Android.Gms.Ads;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using AndroidX.Work;
-using Plugin.LocalNotification;
-using System;
 
 namespace MahwousVideos.Droid
 {

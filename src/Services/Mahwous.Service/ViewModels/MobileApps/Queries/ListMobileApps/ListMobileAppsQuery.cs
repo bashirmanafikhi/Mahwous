@@ -24,7 +24,7 @@ namespace Mahwous.Service.ViewModels.MobileApps
                     // Todo: filter query
                 }
 
-                return string.Join('&', conditions);
+                return string.Join("&", conditions);
             }
         }
     }

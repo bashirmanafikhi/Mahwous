@@ -23,7 +23,7 @@ namespace Mahwous.Service.ViewModels.Categories
                     // Todo: filter query
                 }
 
-                return string.Join('&', conditions);
+                return string.Join("&", conditions);
             }
         }
     }

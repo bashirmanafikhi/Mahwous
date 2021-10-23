@@ -11,7 +11,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace MahwousWeb.Persistent.Repositories
+namespace Mahwous.Persistence.Repositories
 {
     public partial class EntityRepository<T, F> : IEntityRepository<T, F>
         where T : BaseEntity

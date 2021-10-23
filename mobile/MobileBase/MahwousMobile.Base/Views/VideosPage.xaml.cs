@@ -35,7 +35,8 @@ namespace MahwousMobile.Base.Views
 
             viewModel.VideosFinished += OnVideosFinished;
 
-            CrossMTAdmob.Current.LoadRewardedVideo(Settings.InterstitialAdKey);
+            if (Device.RuntimePlatform == Device.iOS || Device.RuntimePlatform == Device.Android)
+                CrossMTAdmob.Current.LoadRewardedVideo(Settings.InterstitialAdKey);
 
         }
 

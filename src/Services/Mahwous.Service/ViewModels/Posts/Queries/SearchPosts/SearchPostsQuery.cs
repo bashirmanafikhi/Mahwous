@@ -32,7 +32,7 @@ namespace Mahwous.Service.ViewModels.Posts
                     // Todo: filter query
                 }
 
-                return string.Join('&', conditions);
+                return string.Join("&", conditions);
             }
         }
     }

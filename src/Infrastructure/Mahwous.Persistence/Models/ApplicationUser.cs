@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace MahwousWeb.Persistent.Models
+namespace Mahwous.Persistence.Models
 {
     public class ApplicationUser : IdentityUser/*<Guid>*/
     {

@@ -6,7 +6,7 @@ using Mahwous.Core.Interfaces;
 using Mahwous.Core.Interfaces.Repositories;
 using Mahwous.EmailServices;
 using Mahwous.FileStorageServices;
-using MahwousWeb.Persistent.Repositories;
+using Mahwous.Persistence.Repositories;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
@@ -21,8 +21,14 @@ namespace Mahwous.DependencyInjection
             RegisterMediator(services);
             RegisterAutoMapper(services);
             RegisterRepositories(services);
+            RegisterSignalR(services);
             RegisterOtherServices(services);
             return services;
+        }
+
+        private static void RegisterSignalR(IServiceCollection services)
+        {
+            services.AddSignalR();
         }
 
         private static void RegisterValidators(IServiceCollection services)

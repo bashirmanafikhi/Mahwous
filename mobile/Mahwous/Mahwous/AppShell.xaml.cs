@@ -32,7 +32,7 @@ namespace Mahwous
 
         private async void MenuItem_Rate_Clicked(object sender, EventArgs e)
         {
-            string Uri = "https://play.google.com/store/apps/details?id=com.mahwous.Mahwous";
+            string Uri = @"https://play.google.com/store/apps/details?id=com.mahwous.mahwous";
             await Browser.OpenAsync(Uri);
         }
 
@@ -40,7 +40,7 @@ namespace Mahwous
         {
             await Share.RequestAsync(new ShareTextRequest
             {
-                Uri = "https://play.google.com/store/apps/details?id=com.mahwous.Mahwous",
+                Uri = @"https://play.google.com/store/apps/details?id=com.mahwous.mahwous",
                 Title = "مشاركة تطبيق مهووس"
             });
         }

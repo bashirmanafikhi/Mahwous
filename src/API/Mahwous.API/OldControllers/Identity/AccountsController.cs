@@ -1,5 +1,5 @@
 ﻿using Mahwous.Core.Dtos;
-using MahwousWeb.Persistent.Models;
+using Mahwous.Persistence.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
