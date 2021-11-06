@@ -1,4 +1,5 @@
-﻿using MahwousVideos.iOS;
+﻿using MahwousMobile.Base.Helpers;
+using MahwousVideos.iOS;
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -11,6 +12,11 @@ namespace MahwousVideos.iOS
     public class FileService : IFileService
     {
         public void SaveImage(Stream data, string name, string location = "صور")
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> SaveImage(byte[] data, string name, string location = "صور")
         {
             throw new NotImplementedException();
         }

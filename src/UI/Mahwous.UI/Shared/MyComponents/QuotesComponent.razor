@@ -317,11 +317,7 @@
 
     private async Task SearchForQuotes()
     {
-        quoteFilter.Categories.Clear();
-        foreach (int id in selectedCategoriesIds ?? new int[] { })
-        {
-            quoteFilter.Categories.Add(categories.First(c => c.Id == id));
-        }
+        quoteFilter.CategoryIds = selectedCategoriesIds.ToList();
 
         await LoadQuotes();
     }

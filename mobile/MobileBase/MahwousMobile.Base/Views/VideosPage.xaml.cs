@@ -46,9 +46,9 @@ namespace MahwousMobile.Base.Views
         {
             base.OnAppearing();
 
-            if (myVideosTemplate.VideosCount == 0 && viewModel.Filter.Categories.Count > 0)
+            if (myVideosTemplate.VideosCount == 0 && viewModel.Filter.CategoryIds.Count > 0)
             {
-                myVideosTemplate.SetCategories(viewModel.Filter.Categories.ToArray());
+                myVideosTemplate.SetCategories(viewModel.Filter.CategoryIds.ToArray());
                 //myVideosTemplate.SortType = SortType.Random;
                 //return;
             }

@@ -20,12 +20,9 @@ namespace Mahwous.API
 {
     public class Startup
     {
-        private readonly IWebHostEnvironment environment;
-
-        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
+        public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            this.environment = environment;
         }
 
         public IConfiguration Configuration { get; }
@@ -166,7 +163,7 @@ namespace Mahwous.API
                 endpoints.MapRazorPages();
                 endpoints.MapControllers();
                 endpoints.MapFallbackToFile("index.html");
-                endpoints.MapHub<ChatHub>("ChatHub");
+                endpoints.MapMahwousServices();
             });
         }
     }

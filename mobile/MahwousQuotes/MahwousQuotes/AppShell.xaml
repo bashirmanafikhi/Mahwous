@@ -209,10 +209,4 @@
         </MenuItem.IconImageSource>
     </MenuItem>
 
-    <MenuItem Text="الخروج" Clicked="MenuItem_Exit_Clicked" >
-        <MenuItem.IconImageSource>
-            <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.DoorOpen}" FontFamily="FA-S" />
-        </MenuItem.IconImageSource>
-    </MenuItem>
-
 </Shell>

@@ -12,4 +12,8 @@
     <ProjectReference Include="..\..\Core\Mahwous.Core\Mahwous.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\Chat\" />
+  </ItemGroup>
+
 </Project>

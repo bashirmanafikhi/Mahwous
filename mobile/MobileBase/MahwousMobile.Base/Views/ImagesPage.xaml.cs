@@ -45,9 +45,9 @@ namespace MahwousMobile.Base.Views
         {
             base.OnAppearing();
 
-            if (myImagesTemplate.ImagesCount == 0 && viewModel.Filter.Categories.Count > 0)
+            if (myImagesTemplate.ImagesCount == 0 && viewModel.Filter.CategoryIds.Count > 0)
             {
-                myImagesTemplate.SetCategories(viewModel.Filter.Categories.ToArray());
+                myImagesTemplate.SetCategories(viewModel.Filter.CategoryIds.ToArray());
             }
 
             myImagesTemplate.SortType = this.SortType;

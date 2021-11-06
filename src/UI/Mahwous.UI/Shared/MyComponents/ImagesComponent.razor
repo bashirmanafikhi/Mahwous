@@ -293,11 +293,7 @@
 
     private async Task SearchForImages()
     {
-        imageFilter.Categories.Clear();
-        foreach (int id in selectedCategoriesIds ?? new int[] { })
-        {
-            imageFilter.Categories.Add(categories.First(c => c.Id == id));
-        }
+        imageFilter.CategoryIds = selectedCategoriesIds.ToList();
 
 
         await LoadImages();

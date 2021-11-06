@@ -132,11 +132,15 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2083" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
+    <ProjectReference Include="..\..\MobileBase\MahwousMobile.Base\MahwousMobile.Base.csproj">
+      <Project>{E5B98B9E-9C2E-4E02-BA96-4811FC662F74}</Project>
+      <Name>MahwousMobile.Base</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MahwousImages\MahwousImages.csproj">
       <Project>{F1321387-0B35-4EEA-98CA-BD7894F830D4}</Project>
       <Name>MahwousImages</Name>

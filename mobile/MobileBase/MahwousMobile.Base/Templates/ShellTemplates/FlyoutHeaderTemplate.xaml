@@ -15,7 +15,7 @@
         <Image HorizontalOptions="CenterAndExpand"
                VerticalOptions="CenterAndExpand"
                Aspect="AspectFill"
-               Source="TransparentBlack.png" />
+               Source="{AppThemeBinding Light=TransparentBlack.png, Dark=TransparentWhite.png}" />
 
         <xct:AvatarView Text="AZ" Source="avater.png" Grid.Column="1"
                         HorizontalOptions="CenterAndExpand"

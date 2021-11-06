@@ -10,10 +10,11 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.10" PrivateAssets="all" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="5.0.10" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0" />
-    <PackageReference Include="Radzen.Blazor" Version="3.9.10" />
+    <PackageReference Include="Radzen.Blazor" Version="3.11.10" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Services\Mahwous.Service.Chat\Mahwous.Service.Chat.csproj" />
     <ProjectReference Include="..\..\Services\Mahwous.Service\Mahwous.Service.csproj" />
   </ItemGroup>
 

@@ -45,9 +45,9 @@ namespace MahwousMobile.Base.Views
         {
             base.OnAppearing();
 
-            if (myQuotesTemplate.QuotesCount == 0 && viewModel.Filter.Categories.Count > 0)
+            if (myQuotesTemplate.QuotesCount == 0 && viewModel.Filter.CategoryIds.Count > 0)
             {
-                myQuotesTemplate.SetCategories(viewModel.Filter.Categories.ToArray());
+                myQuotesTemplate.SetCategories(viewModel.Filter.CategoryIds.ToArray());
             }
 
             myQuotesTemplate.SortType = this.SortType;

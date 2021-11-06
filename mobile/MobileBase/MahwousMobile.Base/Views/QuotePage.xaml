@@ -31,8 +31,13 @@
         </ResourceDictionary>
 
     </ContentPage.Resources>
-    
-    
+
+    <Shell.TitleView>
+        <ContentView>
+            <Label Text="قراءة الحالة" />
+        </ContentView>
+    </Shell.TitleView>
+
     <ContentPage.Content>
         <ScrollView>
             

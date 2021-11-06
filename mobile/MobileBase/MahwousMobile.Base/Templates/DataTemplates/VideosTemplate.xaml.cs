@@ -1,6 +1,7 @@
 ﻿using Mahwous.Core.Entities;
 using Mahwous.Core.Enums;
 using MahwousMobile.Base.ViewModels;
+using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -27,13 +28,9 @@ namespace MahwousMobile.Base.Templates.DataTemplates
 
         public int VideosCount { get => viewModel.Videos.Count; }
 
-        public void SetCategories(params Category[] categories)
+        public void SetCategories(params int[] categories)
         {
-            viewModel.Filter.Categories.Clear();
-            foreach (var category in categories)
-            {
-                viewModel.Filter.Categories.Add(category);
-            }
+            viewModel.Filter.CategoryIds = categories;
         }
 
 

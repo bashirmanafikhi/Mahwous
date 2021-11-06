@@ -21,16 +21,6 @@ namespace MahwousMobile.Base.Views
                 CrossMTAdmob.Current.LoadRewardedVideo(Settings.RewardedAdKey);
         }
 
-        protected override async void OnAppearing()
-        {
-            try
-            {
-                //await ((VideoViewModel)BindingContext).Repositories.VideoStatusRepository.IncrementViews(((VideoViewModel)BindingContext).Video.Id);
-            }
-            catch
-            { }
-        }
-
         private void DownloadButton_Clicked(object sender, EventArgs e)
         {
             if (Device.RuntimePlatform == Device.iOS || Device.RuntimePlatform == Device.Android)

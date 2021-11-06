@@ -21,8 +21,8 @@ namespace MahwousQuotes.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            BackgroundAggregator.Init(this);
-            Forms.SetFlags("Brush_Experimental");
+            //BackgroundAggregator.Init(this);
+            //Forms.SetFlags("Brush_Experimental");
 
             // Ask the user for permission to show notifications on iOS 10.0+ at startup.
             // If not asked at startup, user will be asked when showing the first notification.

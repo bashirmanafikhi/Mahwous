@@ -1,4 +1,5 @@
 ﻿using Mahwous.Service.Repositories;
+using MahwousMobile.Base.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +11,7 @@ namespace MahwousMobile.Base.ViewModels
     public class BaseViewModel : INotifyPropertyChanged
     {
         public MahwousRepositories Repositories => DependencyService.Get<MahwousRepositories>();
+        public IMessage MessageService => DependencyService.Get<IMessage>();
 
         bool isBusy = false;
         public bool IsBusy

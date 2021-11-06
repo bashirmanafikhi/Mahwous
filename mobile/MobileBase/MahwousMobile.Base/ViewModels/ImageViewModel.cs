@@ -42,14 +42,8 @@ namespace MahwousMobile.Base.ViewModels
         private bool liked;
         public bool Liked
         {
-            get
-            {
-                return liked;
-            }
-            set
-            {
-                SetProperty(ref liked, value);
-            }
+            get => liked;
+            set => SetProperty(ref liked, value);
         }
 
         public int LikesCount

@@ -1,5 +1,6 @@
 ﻿
 using Foundation;
+using MahwousMobile.Base.Helpers;
 using MahwousQuotes.iOS;
 using UIKit;
 

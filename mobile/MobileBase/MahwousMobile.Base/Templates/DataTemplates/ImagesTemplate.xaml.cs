@@ -29,13 +29,9 @@ namespace MahwousMobile.Base.Templates.DataTemplates
 
         public int ImagesCount { get => viewModel.Images.Count; }
 
-        public void SetCategories(params Category[] categories)
+        public void SetCategories(params int[] categories)
         {
-            viewModel.Filter.Categories.Clear();
-            foreach (var category in categories)
-            {
-                viewModel.Filter.Categories.Add(category);
-            }
+            viewModel.Filter.CategoryIds = categories;
         }
 
 
@@ -48,7 +44,7 @@ namespace MahwousMobile.Base.Templates.DataTemplates
 
             if (sender is CollectionView cv)
             {
-                var count = cv.ItemsSource.Cast<ICollection>().Sum(c => c.Count);
+                var count = cv.ItemsSource.Cast<object>().Count();
                 if (e.LastVisibleItemIndex + 1 - count + cv.RemainingItemsThreshold >= 0)
                 {
                     if (cv.RemainingItemsThresholdReachedCommand.CanExecute(null))

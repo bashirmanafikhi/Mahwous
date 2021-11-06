@@ -7,7 +7,7 @@ namespace MahwousVideos.Droid
     [Activity(Theme = "@style/SplashTheme",
                  MainLauncher = true,
                  NoHistory = true,
-                 ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+                 ConfigurationChanges = ConfigChanges.ScreenSize| ConfigChanges.Orientation | ConfigChanges.UiMode)]
     public class SplashActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)

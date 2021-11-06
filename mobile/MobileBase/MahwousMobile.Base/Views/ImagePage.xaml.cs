@@ -16,22 +16,9 @@ namespace MahwousMobile.Base.Views
             InitializeComponent();
             BindingContext = viewModel;
 
-
-
-
             if (Device.RuntimePlatform == Device.iOS || Device.RuntimePlatform == Device.Android)
                 CrossMTAdmob.Current.LoadInterstitial(Settings.InterstitialAdKey);
 
-        }
-
-        protected override async void OnAppearing()
-        {
-            try
-            {
-                //await ((ImageViewModel)BindingContext).Repositories.ImageStatusRepository.IncrementViews(((ImageViewModel)BindingContext).Image.Id);
-            }
-            catch
-            { }
         }
 
         private void ShowInterstitialAd(object sender, EventArgs e)

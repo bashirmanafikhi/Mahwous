@@ -16,10 +16,5 @@ namespace MahwousMobile.Base.Views
             BindingContext = this.viewModel = viewModel;
         }
 
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-        }
-
     }
 }

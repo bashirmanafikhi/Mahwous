@@ -43,7 +43,7 @@ namespace MahwousMobile.Base.Views
         {
             try
             {
-                await Navigation.PushModalAsync(new RegisterPage());
+                await Navigation.PushAsync(new RegisterPage());
             }
             catch (Exception ex)
             {
@@ -55,7 +55,7 @@ namespace MahwousMobile.Base.Views
         {
             try
             {
-                await Navigation.PushModalAsync(new LoginPage());
+                await Navigation.PushAsync(new LoginPage());
             }
             catch (Exception ex)
             {

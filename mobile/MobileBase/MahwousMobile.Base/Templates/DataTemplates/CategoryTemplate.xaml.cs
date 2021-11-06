@@ -25,21 +25,21 @@ namespace MahwousMobile.Base.Templates.DataTemplates
                 case Models.StatusType.Image:
                     {
                         ImageFilter filter = new ImageFilter();
-                        filter.Categories.Add(viewModel.Category);
+                        filter.CategoryIds.Add(viewModel.Category.Id);
                         await Navigation.PushAsync(new ImagesPage(new ImagesViewModel(filter)));
                     }
                     break;
                 case Models.StatusType.Video:
                     {
                         VideoFilter filter = new VideoFilter();
-                        filter.Categories.Add(viewModel.Category);
+                        filter.CategoryIds.Add(viewModel.Category.Id);
                         await Navigation.PushAsync(new VideosPage(new VideosViewModel(filter)));
                     }
                     break;
                 case Models.StatusType.Quote:
                     {
                         QuoteFilter filter = new QuoteFilter();
-                        filter.Categories.Add(viewModel.Category);
+                        filter.CategoryIds.Add(viewModel.Category.Id);
                         await Navigation.PushAsync(new QuotesPage(new QuotesViewModel(filter)));
                     }
                     break;

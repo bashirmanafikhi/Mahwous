@@ -115,9 +115,11 @@ namespace Mahwous.Service.Repositories
             }
         }
 
-        public Task<byte[]> Download(int id)
+        public async Task<byte[]> Download(int id)
         {
-            throw new NotImplementedException();
+            string urlWithId = $"{url}/download/{id}";
+            var response = await httpService.GetFile(urlWithId);
+            return response;
         }
     }
 }

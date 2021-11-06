@@ -63,6 +63,7 @@ namespace Mahwous.DependencyInjection
             services.AddScoped<IMobileAppRepository, MobileAppRepository>();
             services.AddScoped<INotificationRepository, NotificationRepository>();
 
+            services.AddScoped<IChatRoomRepository, ChatRoomRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
 
             services.AddScoped<IVideoStatusRepository, VideoStatusRepository>();

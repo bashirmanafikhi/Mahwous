@@ -1,6 +1,10 @@
-﻿using Mahwous.Service.Repositories;
+﻿using AppSettingsPoC.Models;
+using Mahwous.Service.Repositories;
 using Plugin.Settings;
 using Plugin.Settings.Abstractions;
+using System.IO;
+using System.Reflection;
+using System.Text.Json;
 using Xamarin.Forms;
 
 namespace MahwousMobile.Base.Helpers
@@ -20,14 +24,44 @@ namespace MahwousMobile.Base.Helpers
             }
         }
 
+        private static AppSettings appSettings;
+        public static AppSettings Configuration
+        {
+            get
+            {
+                if (appSettings == null)
+                    LoadAppSettings();
+
+                return appSettings;
+            }
+        }
+        private static void LoadAppSettings()
+        {
+#if RELEASE
+            var appSettingsResourceStream = Assembly.GetAssembly(typeof(AppSettings)).GetManifestResourceStream("MahwousMobile.Base.Configuration.appsettings.release.json");
+#else
+            var appSettingsResourceStream = Assembly.GetAssembly(typeof(AppSettings)).GetManifestResourceStream("MahwousMobile.Base.Configuration.appsettings.debug.json");
+#endif
+            if (appSettingsResourceStream == null)
+                return;
+
+            using (var streamReader = new StreamReader(appSettingsResourceStream))
+            {
+                var jsonString = streamReader.ReadToEnd();
+                appSettings = JsonSerializer.Deserialize<AppSettings>(jsonString);
+            }
+        }
+
         #region Setting Constants
 
         private static readonly string SettingsDefault = string.Empty;
         public static readonly string TestInterstitialAdKey = "ca-app-pub-3940256099942544/1033173712";
         public static readonly string TestBannerAdKey = "ca-app-pub-3940256099942544/6300978111";
         public static readonly string TestRewardedAdKey = "ca-app-pub-3940256099942544/5224354917";
+        //public static readonly string URL = @"https://www.mahwous.com/";
 
         #endregion
+
 
         public static string BannerAdKey
         {
@@ -46,10 +80,7 @@ namespace MahwousMobile.Base.Helpers
             {
                 return AppSettings.GetValueOrDefault(nameof(RewardedAdKey), TestRewardedAdKey);
             }
-            set
-            {
-                AppSettings.AddOrUpdateValue(nameof(RewardedAdKey), value);
-            }
+            set => AppSettings.AddOrUpdateValue(nameof(RewardedAdKey), value);
         }
 
         public static string InterstitialAdKey

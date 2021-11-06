@@ -24,7 +24,7 @@ namespace MahwousImages
 
         private async void MenuItem_Rate_Clicked(object sender, EventArgs e)
         {
-            string Uri = "https://play.google.com/store/apps/details?id=com.mahwous.MahwousImages";
+            string Uri = "https://play.google.com/store/apps/details?id=com.mahwous.mahwousimages";
             await Browser.OpenAsync(Uri);
         }
 

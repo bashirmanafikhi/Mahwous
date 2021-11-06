@@ -20,6 +20,13 @@ namespace Mahwous.Service.ViewModels.Categories
 
                 if (Filter != null)
                 {
+                    if (Filter.ForImages)
+                        conditions.Add($"{nameof(Filter)}.{nameof(Filter.ForImages)}={Filter.ForImages}");
+                    if (Filter.ForQuotes)
+                        conditions.Add($"{nameof(Filter)}.{nameof(Filter.ForQuotes)}={Filter.ForQuotes}");
+                    if (Filter.ForVideos)
+                        conditions.Add($"{nameof(Filter)}.{nameof(Filter.ForVideos)}={Filter.ForVideos}");
+
                     // Todo: filter query
                 }
 

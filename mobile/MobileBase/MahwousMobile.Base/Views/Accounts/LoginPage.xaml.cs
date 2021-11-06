@@ -46,7 +46,7 @@ namespace MahwousMobile.Base.Views
         }
         private async void GoToRegisterPage(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new RegisterPage());
+            await Navigation.PushAsync(new RegisterPage());
 
         }
     }

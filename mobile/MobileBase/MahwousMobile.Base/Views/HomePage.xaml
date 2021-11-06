@@ -58,7 +58,7 @@
                                     HeightRequest="200"
                                WidthRequest="200"
                                     Aspect="AspectFill"
-                                    Source="TransparentBlack.png" />
+                                    Source="{AppThemeBinding Light=TransparentBlack.png, Dark=TransparentWhite.png}" />
 
                         <!--<Frame  CornerRadius="15" 
                        Margin="50,10" 

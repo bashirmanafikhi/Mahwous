@@ -11,21 +11,23 @@ namespace Mahwous.Service.Repositories
         public static string CategoriesUrl = "api/categories";
         public static string NotificationsUrl = "api/mobileNotifications";
         public static string PostsUrl = "api/posts";
+        public static string ChatRoomsUrl = "api/chatRooms";
         public static string StatusesUrl = "api/statuses";
         public static string VideosUrl = "api/videoStatuses";
         public static string ImagesUrl = "api/imageStatuses";
         public static string QuotesUrl = "api/quoteStatuses";
         public static string AccountsUrl = "api/accounts";
+        public static readonly string URL = @"https://www.mahwous.com/";
+        //public static readonly string IP = @"http://192.168.0.113:60485/";
+        //public static readonly string Localhost = @"http://localhost:60485/";
     }
 
     public class MahwousRepositories
     {
         private IHttpService httpService;
-        private static readonly string url = @"https://www.mahwous.com/";
-        private static readonly string local = @"http://192.168.0.113:60485/";
 
         public MahwousRepositories()
-            : this(url)
+            : this(Constants.URL)
         {
         }
 
@@ -56,7 +58,7 @@ namespace Mahwous.Service.Repositories
 
         public void Initialize()
         {
-            var uri = new Uri(url);
+            var uri = new Uri(Constants.URL);
             var httpClient = new HttpClient { BaseAddress = uri };
             httpService = new HttpService(httpClient);
         }
@@ -107,6 +109,18 @@ namespace Mahwous.Service.Repositories
                 if (postRepository == null)
                     postRepository = new PostRepository(httpService, Constants.PostsUrl);
                 return postRepository;
+            }
+        }
+
+
+        private ChatRoomRepository chatRoomRepository;
+        public ChatRoomRepository ChatRoomRepository
+        {
+            get
+            {
+                if (chatRoomRepository == null)
+                    chatRoomRepository = new ChatRoomRepository(httpService, Constants.ChatRoomsUrl);
+                return chatRoomRepository;
             }
         }
 

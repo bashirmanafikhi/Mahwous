@@ -9,7 +9,7 @@ namespace Mahwous.Core.Filters
     {
         public StatusFilter()
         {
-            Categories = new List<Category>();
+            CategoryIds = new List<int>();
 
             DownloadsCount = new Range<int>();
             DownloadsCount.To = int.MaxValue;
@@ -23,7 +23,7 @@ namespace Mahwous.Core.Filters
             WithoutCategory = false;
         }
 
-        public IList<Category> Categories { get; set; }
+        public IList<int> CategoryIds { get; set; }
 
         public Range<int> DownloadsCount { get; set; }
         public Range<int> LikesCount { get; set; }
@@ -40,12 +40,10 @@ namespace Mahwous.Core.Filters
             {
                 queryable = queryable.Where(v => v.Categories == null || v.Categories.Count == 0);
             }
-            else if (Categories != null && Categories.Count > 0)
+            else if (CategoryIds != null && CategoryIds.Count > 0)
             {
-                int[] catIds = Categories.Select(c => c.Id).ToArray();
-
                 queryable = queryable.Where(video =>
-                    video.Categories.Any(sc => catIds.Contains(sc.Id))
+                    video.Categories.Any(sc => CategoryIds.Contains(sc.Id))
                 );
             }
 

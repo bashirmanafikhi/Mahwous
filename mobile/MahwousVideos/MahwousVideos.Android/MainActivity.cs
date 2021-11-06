@@ -4,7 +4,7 @@ using Android.OS;
 
 namespace MahwousVideos.Droid
 {
-    [Activity(Label = "حالات فيديو 2021", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "حالات فيديو 2021", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize| ConfigChanges.Orientation | ConfigChanges.UiMode)]
     public class MainActivity : MobileBase.Android.MainActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)

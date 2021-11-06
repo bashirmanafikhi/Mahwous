@@ -6,7 +6,7 @@ namespace Mahwous.Application.Features.ImageStatuses
     {
         public CreateImageStatusCommandValidator()
         {
-            RuleFor(x => x.Image).Must(x => x.Length > 0);
+            RuleFor(x => x.Image).Must(x => x.Length > 0).When(x => x.Image != null);
         }
     }
 }

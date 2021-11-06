@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:templates="clr-namespace:MahwousMobile.Base.Templates.DataTemplates"
+             xmlns:vm="clr-namespace:MahwousMobile.Base.ViewModels"
+             mc:Ignorable="d"
+             x:Class="MahwousMobile.Base.Views.ChatRoomsPage"
+             Visual="Material"
+             Title="{Binding Name}">
+
+    <ContentPage.BindingContext>
+        <vm:ChatRoomsViewModel />
+    </ContentPage.BindingContext>
+
+
+
+    <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding LoadChatRoomsCommand}">
+        <StackLayout>
+            <CollectionView x:Name="ItemsCollectionView"
+                            RemainingItemsThreshold="{Binding ItemTreshold}"
+                            RemainingItemsThresholdReachedCommand="{Binding LoadMoreChatRoomsCommand}"
+                            ItemTemplate="{DataTemplate templates:ChatRoomTemplate}"
+                ItemsSource="{Binding ChatRooms}">
+
+            </CollectionView>
+            <ActivityIndicator IsRunning="{Binding IsLoadingMore}"  IsVisible="{Binding IsLoadingMore}" />
+
+
+        </StackLayout>
+    </RefreshView>
+
+
+</ContentPage>

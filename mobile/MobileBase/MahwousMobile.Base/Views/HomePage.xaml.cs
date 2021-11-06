@@ -15,13 +15,8 @@ namespace MahwousMobile.Base.Views
         {
             InitializeComponent();
 
-            //CrossMediaManager.Current.StateChanged += MediaPlayer_StateChanged;
-
-            if (Preferences.Get("dark_mode", true))
-            {
-                homePageImage.Source = ImageSource.FromFile("TransparentWhite.png");
+            if (Application.Current.RequestedTheme == OSAppTheme.Dark)
                 darkSwitch.IsToggled = true;
-            }
         }
 
         public StatusType? StatusType
@@ -35,19 +30,9 @@ namespace MahwousMobile.Base.Views
         private void Switch_Toggled(object sender, ToggledEventArgs e)
         {
             if (e.Value == true)
-            {
                 Application.Current.Resources = new DarkTheme();
-                homePageImage.Source = ImageSource.FromFile("TransparentWhite.png");
-
-                Preferences.Set("dark_mode", true);
-            }
             else
-            {
                 Application.Current.Resources = new WhiteTheme();
-                homePageImage.Source = ImageSource.FromFile("TransparentBlack.png");
-
-                Preferences.Set("dark_mode", false);
-            }
         }
     }
 }

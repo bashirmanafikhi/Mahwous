@@ -16,8 +16,6 @@
              FlyoutBackgroundColor="{DynamicResource colBackground}" >
 
 
-
-
     <!--#region SHELL RESOURCES-->
     <Shell.Resources>
 
@@ -58,49 +56,6 @@
             ApplyToDerivedTypes="True" />
 
     </Shell.Resources>
-
-    <FlyoutItem Title="الصفحة الرئيسية" FlyoutDisplayOptions="AsSingleItem">
-        <FlyoutItem.Icon>
-            <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Home}" FontFamily="FA-S" />
-        </FlyoutItem.Icon>
-
-
-        <Tab  Title="الرئيسية">
-            <Tab.Icon>
-                <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Home}" FontFamily="FA-S" />
-            </Tab.Icon>
-            <ShellContent>
-                <views:HomePage StatusType="{x:Null}" />
-            </ShellContent>
-        </Tab>
-
-        <Tab  Title="تطبيقاتنا">
-            <Tab.Icon>
-                <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.ThLarge}" FontFamily="FA-S" />
-            </Tab.Icon>
-            <ShellContent>
-                <views:AppsPage />
-            </ShellContent>
-        </Tab>
-
-        <Tab  Title="الأخبار">
-            <Tab.Icon>
-                <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Newspaper}" FontFamily="FA-S" />
-            </Tab.Icon>
-            <ShellContent>
-                <views:PostsPage />
-            </ShellContent>
-        </Tab>
-
-        <Tab  Title="من نحن">
-            <Tab.Icon>
-                <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Question}" FontFamily="FA-S" />
-            </Tab.Icon>
-            <ShellContent>
-                <views:AboutPage />
-            </ShellContent>
-        </Tab>
-    </FlyoutItem>
 
     <FlyoutItem Title="الصور" FlyoutDisplayOptions="AsSingleItem">
 
@@ -175,7 +130,6 @@
 
 
     </FlyoutItem>
-
 
     <FlyoutItem Title="الفيديو" FlyoutDisplayOptions="AsSingleItem" >
 
@@ -323,6 +277,59 @@
 
     </FlyoutItem>
 
+    <FlyoutItem Title="الصفحة الرئيسية" FlyoutDisplayOptions="AsMultipleItems">
+        <!--<FlyoutItem.Icon>
+            <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Home}" FontFamily="FA-S" />
+        </FlyoutItem.Icon>-->
+
+
+        <!--<Tab  Title="الرئيسية">
+            <Tab.Icon>
+                <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Home}" FontFamily="FA-S" />
+            </Tab.Icon>
+            <ShellContent>
+                <views:HomePage StatusType="{x:Null}" />
+            </ShellContent>
+        </Tab>-->
+
+        <Tab  Title="غرف الدردشة">
+            <Tab.Icon>
+                <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Comments}" FontFamily="FA-S" />
+            </Tab.Icon>
+            <ShellContent>
+                <views:ChatRoomsPage />
+            </ShellContent>
+        </Tab>
+
+        <Tab  Title="تطبيقاتنا">
+            <Tab.Icon>
+                <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.ThLarge}" FontFamily="FA-S" />
+            </Tab.Icon>
+            <ShellContent>
+                <views:AppsPage />
+            </ShellContent>
+        </Tab>
+
+        <Tab  Title="الأخبار">
+            <Tab.Icon>
+                <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Newspaper}" FontFamily="FA-S" />
+            </Tab.Icon>
+            <ShellContent>
+                <views:PostsPage />
+            </ShellContent>
+        </Tab>
+
+        <Tab  Title="من نحن">
+            <Tab.Icon>
+                <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Question}" FontFamily="FA-S" />
+            </Tab.Icon>
+            <ShellContent>
+                <views:AboutPage />
+            </ShellContent>
+        </Tab>
+    </FlyoutItem>
+
+    
     <FlyoutItem Title="حالات اعجبتك" >
 
         <FlyoutItem.Icon>

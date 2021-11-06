@@ -65,5 +65,13 @@ namespace Mahwous.API.Controllers
         {
             return await mediator.Send(query);
         }
+
+        [HttpGet("download/{id}")]
+        public async Task<IActionResult> Download([FromRoute] int id)
+        {
+            var query = new DownloadImageStatusQuery { Id = id };
+            var response = await mediator.Send(query);
+            return File(response.ImageFile, "application/octet-stream", response.FileName);
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Mahwous.Service.Repositories;
+﻿using Mahwous.Service.Chat;
+using Mahwous.Service.Repositories;
 using MahwousMobile.Base.Helpers;
 using MahwousMobile.Base.Styles.Themes;
 using Plugin.LocalNotification;
@@ -28,15 +29,26 @@ namespace MahwousMobile.Base
 
         private void CheckTheme()
         {
-            if (Preferences.Get("dark_mode", true))
-            {
+            // Set CurrentTheme
+            SetTheme(Current.RequestedTheme);
+
+            // On System Theme Changed
+            Current.RequestedThemeChanged += (_, args) =>
+                SetTheme(args.RequestedTheme);
+        }
+        private void SetTheme(OSAppTheme requestedTheme)
+        {
+            if (requestedTheme == OSAppTheme.Dark)
                 Current.Resources = new DarkTheme();
-            }
+            else if (requestedTheme == OSAppTheme.Light)
+                Current.Resources = new WhiteTheme();
         }
 
         private void RegisterServices()
         {
-            DependencyService.Register<MahwousRepositories>();
+            var url = Settings.Configuration.UrlBase;
+            DependencyService.RegisterSingleton<IChatService>(new ChatService(url));
+            DependencyService.RegisterSingleton(new MahwousRepositories(url));
             var token = Settings.Token;
             if (token != null)
             {

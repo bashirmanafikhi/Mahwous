@@ -28,11 +28,15 @@
         <i class="fas fa-mobile-alt"></i> تطبيقاتنا
     </NavLink>
 
+    <NavLink class="list-group-item list-group-item-mine" href="chatRooms">
+        <i class="fas fa-facebook-messenger"></i> غرف الدردشة
+    </NavLink>
+
     <NavLink class="list-group-item list-group-item-mine" href="statistics">
         <i class="fas fa-chart-line"></i> احصائيات
     </NavLink>
 
-    <AuthorizeView Roles="مدير">
+    <AuthorizeView Roles="مدير,محرر">
         <NavLink class="list-group-item list-group-item-mine" href="administration">
             <i class="fas fa-user-cog"></i> الإدارة
         </NavLink>

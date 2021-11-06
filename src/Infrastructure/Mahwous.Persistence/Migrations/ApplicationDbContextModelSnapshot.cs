@@ -74,12 +74,65 @@ namespace Mahwous.Persistence.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<int>("ViewsCount")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("Mahwous.Core.Entities.ChatRoom", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CoverPath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CreatedById")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsHidden")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("LastModifiedById")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("LastModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("ViewsCount")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ChatRooms");
                 });
 
             modelBuilder.Entity("Mahwous.Core.Entities.MobileApp", b =>
@@ -131,10 +184,15 @@ namespace Mahwous.Persistence.Migrations
                     b.Property<int>("PlayStoreOpenedCount")
                         .HasColumnType("int");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<int>("ViewsCount")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("MobileApps");
                 });
@@ -188,6 +246,9 @@ namespace Mahwous.Persistence.Migrations
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("ViewsCount")
                         .HasColumnType("int");
 
@@ -238,10 +299,15 @@ namespace Mahwous.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<int>("ViewsCount")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Posts");
                 });
@@ -283,6 +349,9 @@ namespace Mahwous.Persistence.Migrations
 
                     b.Property<int>("SharesCount")
                         .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("ViewsCount")
                         .HasColumnType("int");
@@ -521,6 +590,8 @@ namespace Mahwous.Persistence.Migrations
                     b.Property<string>("ImagePath")
                         .HasColumnType("nvarchar(max)");
 
+                    b.HasIndex("UserId");
+
                     b.HasDiscriminator().HasValue("ImageStatus");
                 });
 
@@ -530,6 +601,8 @@ namespace Mahwous.Persistence.Migrations
 
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
+
+                    b.HasIndex("UserId");
 
                     b.HasDiscriminator().HasValue("QuoteStatus");
                 });
@@ -547,6 +620,8 @@ namespace Mahwous.Persistence.Migrations
                     b.Property<string>("VideoPath")
                         .HasColumnType("nvarchar(max)");
 
+                    b.HasIndex("UserId");
+
                     b.HasDiscriminator().HasValue("VideoStatus");
                 });
 
@@ -563,6 +638,38 @@ namespace Mahwous.Persistence.Migrations
                         .HasForeignKey("StatusesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Mahwous.Core.Entities.Category", b =>
+                {
+                    b.HasOne("Mahwous.Persistence.Models.ApplicationUser", null)
+                        .WithMany("Categories")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.SetNull);
+                });
+
+            modelBuilder.Entity("Mahwous.Core.Entities.ChatRoom", b =>
+                {
+                    b.HasOne("Mahwous.Persistence.Models.ApplicationUser", null)
+                        .WithMany("ChatRooms")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.SetNull);
+                });
+
+            modelBuilder.Entity("Mahwous.Core.Entities.MobileApp", b =>
+                {
+                    b.HasOne("Mahwous.Persistence.Models.ApplicationUser", null)
+                        .WithMany("MobileApps")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.SetNull);
+                });
+
+            modelBuilder.Entity("Mahwous.Core.Entities.Post", b =>
+                {
+                    b.HasOne("Mahwous.Persistence.Models.ApplicationUser", null)
+                        .WithMany("Posts")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.SetNull);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -629,6 +736,47 @@ namespace Mahwous.Persistence.Migrations
                         .HasForeignKey("NotificationsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Mahwous.Core.Entities.ImageStatus", b =>
+                {
+                    b.HasOne("Mahwous.Persistence.Models.ApplicationUser", null)
+                        .WithMany("ImageStatuses")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.SetNull);
+                });
+
+            modelBuilder.Entity("Mahwous.Core.Entities.QuoteStatus", b =>
+                {
+                    b.HasOne("Mahwous.Persistence.Models.ApplicationUser", null)
+                        .WithMany("QuoteStatuses")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.SetNull);
+                });
+
+            modelBuilder.Entity("Mahwous.Core.Entities.VideoStatus", b =>
+                {
+                    b.HasOne("Mahwous.Persistence.Models.ApplicationUser", null)
+                        .WithMany("VideoStatuses")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.SetNull);
+                });
+
+            modelBuilder.Entity("Mahwous.Persistence.Models.ApplicationUser", b =>
+                {
+                    b.Navigation("Categories");
+
+                    b.Navigation("ChatRooms");
+
+                    b.Navigation("ImageStatuses");
+
+                    b.Navigation("MobileApps");
+
+                    b.Navigation("Posts");
+
+                    b.Navigation("QuoteStatuses");
+
+                    b.Navigation("VideoStatuses");
                 });
 #pragma warning restore 612, 618
         }

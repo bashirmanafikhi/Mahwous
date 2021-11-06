@@ -38,7 +38,6 @@ namespace MahwousMobile.Base.ViewModels
             {
                 Categories.Clear();
                 CategoryFilter filter = new CategoryFilter();
-                PaginationDetails pagination = new PaginationDetails(); ;
 
                 switch (StatusType)
                 {
@@ -55,12 +54,8 @@ namespace MahwousMobile.Base.ViewModels
                         break;
                 }
 
-
-                pagination.PageSize = 500;
-
-
-                var paginatedResponse = await Repositories.CategoriesRepository.Search(pagination, filter);
-                var categories = paginatedResponse.Items;
+                var paginatedResponse = await Repositories.CategoriesRepository.List(filter);
+                var categories = paginatedResponse.ToList();
 
 
                 // randomize
@@ -70,7 +65,7 @@ namespace MahwousMobile.Base.ViewModels
                 // add to the list
                 foreach (var category in categories)
                 {
-                    Categories.Add(new CategoryViewModel(category, Informations.CategoriesStatusCounts[category.Name], StatusType));
+                    Categories.Add(new CategoryViewModel(category, 0, StatusType));
                 }
 
             }

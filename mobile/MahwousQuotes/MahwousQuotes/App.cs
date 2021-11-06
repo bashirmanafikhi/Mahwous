@@ -12,9 +12,8 @@ namespace MahwousQuotes
 
         private void SetConfigurations()
         {
-            // Todo: replace adds keys
-            //Settings.InterstitialAdKey = "ca-app-pub-1685177955120006/6453640828";
-            //Settings.BannerAdKey = "ca-app-pub-1685177955120006/3389381831";
+            Settings.InterstitialAdKey = "ca-app-pub-1685177955120006/8482065686";
+            Settings.BannerAdKey = "ca-app-pub-1685177955120006/7988077793";
             Settings.AppTitle = "حالات كتابية";
         }
     }

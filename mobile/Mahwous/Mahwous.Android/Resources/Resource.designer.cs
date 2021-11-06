@@ -563,6 +563,7 @@ namespace Mahwous.Droid
 			global::MobileBase.Android.Resource.Attribute.navigationMode = global::Mahwous.Droid.Resource.Attribute.navigationMode;
 			global::MobileBase.Android.Resource.Attribute.navigationViewStyle = global::Mahwous.Droid.Resource.Attribute.navigationViewStyle;
 			global::MobileBase.Android.Resource.Attribute.negativeButtonText = global::Mahwous.Droid.Resource.Attribute.negativeButtonText;
+			global::MobileBase.Android.Resource.Attribute.nestedScrollViewStyle = global::Mahwous.Droid.Resource.Attribute.nestedScrollViewStyle;
 			global::MobileBase.Android.Resource.Attribute.nullable = global::Mahwous.Droid.Resource.Attribute.nullable;
 			global::MobileBase.Android.Resource.Attribute.number = global::Mahwous.Droid.Resource.Attribute.number;
 			global::MobileBase.Android.Resource.Attribute.numericModifiers = global::Mahwous.Droid.Resource.Attribute.numericModifiers;
@@ -615,6 +616,7 @@ namespace Mahwous.Droid
 			global::MobileBase.Android.Resource.Attribute.progressBarStyle = global::Mahwous.Droid.Resource.Attribute.progressBarStyle;
 			global::MobileBase.Android.Resource.Attribute.queryBackground = global::Mahwous.Droid.Resource.Attribute.queryBackground;
 			global::MobileBase.Android.Resource.Attribute.queryHint = global::Mahwous.Droid.Resource.Attribute.queryHint;
+			global::MobileBase.Android.Resource.Attribute.queryPatterns = global::Mahwous.Droid.Resource.Attribute.queryPatterns;
 			global::MobileBase.Android.Resource.Attribute.radioButtonStyle = global::Mahwous.Droid.Resource.Attribute.radioButtonStyle;
 			global::MobileBase.Android.Resource.Attribute.rangeFillColor = global::Mahwous.Droid.Resource.Attribute.rangeFillColor;
 			global::MobileBase.Android.Resource.Attribute.ratingBarStyle = global::Mahwous.Droid.Resource.Attribute.ratingBarStyle;
@@ -642,6 +644,7 @@ namespace Mahwous.Droid
 			global::MobileBase.Android.Resource.Attribute.shapeAppearanceMediumComponent = global::Mahwous.Droid.Resource.Attribute.shapeAppearanceMediumComponent;
 			global::MobileBase.Android.Resource.Attribute.shapeAppearanceOverlay = global::Mahwous.Droid.Resource.Attribute.shapeAppearanceOverlay;
 			global::MobileBase.Android.Resource.Attribute.shapeAppearanceSmallComponent = global::Mahwous.Droid.Resource.Attribute.shapeAppearanceSmallComponent;
+			global::MobileBase.Android.Resource.Attribute.shortcutMatchRequired = global::Mahwous.Droid.Resource.Attribute.shortcutMatchRequired;
 			global::MobileBase.Android.Resource.Attribute.shouldDisableView = global::Mahwous.Droid.Resource.Attribute.shouldDisableView;
 			global::MobileBase.Android.Resource.Attribute.showAsAction = global::Mahwous.Droid.Resource.Attribute.showAsAction;
 			global::MobileBase.Android.Resource.Attribute.showDividers = global::Mahwous.Droid.Resource.Attribute.showDividers;
@@ -2068,6 +2071,7 @@ namespace Mahwous.Droid
 			global::MobileBase.Android.Resource.String.abc_shareactionprovider_share_with = global::Mahwous.Droid.Resource.String.abc_shareactionprovider_share_with;
 			global::MobileBase.Android.Resource.String.abc_shareactionprovider_share_with_application = global::Mahwous.Droid.Resource.String.abc_shareactionprovider_share_with_application;
 			global::MobileBase.Android.Resource.String.abc_toolbar_collapse_description = global::Mahwous.Droid.Resource.String.abc_toolbar_collapse_description;
+			global::MobileBase.Android.Resource.String.androidx_startup = global::Mahwous.Droid.Resource.String.androidx_startup;
 			global::MobileBase.Android.Resource.String.appbar_scrolling_view_behavior = global::Mahwous.Droid.Resource.String.appbar_scrolling_view_behavior;
 			global::MobileBase.Android.Resource.String.app_name = global::Mahwous.Droid.Resource.String.app_name;
 			global::MobileBase.Android.Resource.String.bottom_sheet_behavior = global::Mahwous.Droid.Resource.String.bottom_sheet_behavior;
@@ -3192,6 +3196,9 @@ namespace Mahwous.Droid
 			global::MobileBase.Android.Resource.Styleable.BottomSheetBehavior_Layout_shapeAppearanceOverlay = global::Mahwous.Droid.Resource.Styleable.BottomSheetBehavior_Layout_shapeAppearanceOverlay;
 			global::MobileBase.Android.Resource.Styleable.ButtonBarLayout = global::Mahwous.Droid.Resource.Styleable.ButtonBarLayout;
 			global::MobileBase.Android.Resource.Styleable.ButtonBarLayout_allowStacking = global::Mahwous.Droid.Resource.Styleable.ButtonBarLayout_allowStacking;
+			global::MobileBase.Android.Resource.Styleable.Capability = global::Mahwous.Droid.Resource.Styleable.Capability;
+			global::MobileBase.Android.Resource.Styleable.Capability_queryPatterns = global::Mahwous.Droid.Resource.Styleable.Capability_queryPatterns;
+			global::MobileBase.Android.Resource.Styleable.Capability_shortcutMatchRequired = global::Mahwous.Droid.Resource.Styleable.Capability_shortcutMatchRequired;
 			global::MobileBase.Android.Resource.Styleable.CardView = global::Mahwous.Droid.Resource.Styleable.CardView;
 			global::MobileBase.Android.Resource.Styleable.CardView_android_minHeight = global::Mahwous.Droid.Resource.Styleable.CardView_android_minHeight;
 			global::MobileBase.Android.Resource.Styleable.CardView_android_minWidth = global::Mahwous.Droid.Resource.Styleable.CardView_android_minWidth;
@@ -4042,9 +4049,13 @@ namespace Mahwous.Droid
 			global::Plugin.LocalNotification.Resource.Attribute.fontProviderFetchTimeout = global::Mahwous.Droid.Resource.Attribute.fontProviderFetchTimeout;
 			global::Plugin.LocalNotification.Resource.Attribute.fontProviderPackage = global::Mahwous.Droid.Resource.Attribute.fontProviderPackage;
 			global::Plugin.LocalNotification.Resource.Attribute.fontProviderQuery = global::Mahwous.Droid.Resource.Attribute.fontProviderQuery;
+			global::Plugin.LocalNotification.Resource.Attribute.fontProviderSystemFontFamily = global::Mahwous.Droid.Resource.Attribute.fontProviderSystemFontFamily;
 			global::Plugin.LocalNotification.Resource.Attribute.fontStyle = global::Mahwous.Droid.Resource.Attribute.fontStyle;
 			global::Plugin.LocalNotification.Resource.Attribute.fontVariationSettings = global::Mahwous.Droid.Resource.Attribute.fontVariationSettings;
 			global::Plugin.LocalNotification.Resource.Attribute.fontWeight = global::Mahwous.Droid.Resource.Attribute.fontWeight;
+			global::Plugin.LocalNotification.Resource.Attribute.nestedScrollViewStyle = global::Mahwous.Droid.Resource.Attribute.nestedScrollViewStyle;
+			global::Plugin.LocalNotification.Resource.Attribute.queryPatterns = global::Mahwous.Droid.Resource.Attribute.queryPatterns;
+			global::Plugin.LocalNotification.Resource.Attribute.shortcutMatchRequired = global::Mahwous.Droid.Resource.Attribute.shortcutMatchRequired;
 			global::Plugin.LocalNotification.Resource.Attribute.ttcIndex = global::Mahwous.Droid.Resource.Attribute.ttcIndex;
 			global::Plugin.LocalNotification.Resource.Color.androidx_core_ripple_material_light = global::Mahwous.Droid.Resource.Color.androidx_core_ripple_material_light;
 			global::Plugin.LocalNotification.Resource.Color.androidx_core_secondary_text_default_material_light = global::Mahwous.Droid.Resource.Color.androidx_core_secondary_text_default_material_light;
@@ -4143,10 +4154,15 @@ namespace Mahwous.Droid
 			global::Plugin.LocalNotification.Resource.Id.tag_accessibility_clickable_spans = global::Mahwous.Droid.Resource.Id.tag_accessibility_clickable_spans;
 			global::Plugin.LocalNotification.Resource.Id.tag_accessibility_heading = global::Mahwous.Droid.Resource.Id.tag_accessibility_heading;
 			global::Plugin.LocalNotification.Resource.Id.tag_accessibility_pane_title = global::Mahwous.Droid.Resource.Id.tag_accessibility_pane_title;
+			global::Plugin.LocalNotification.Resource.Id.tag_on_apply_window_listener = global::Mahwous.Droid.Resource.Id.tag_on_apply_window_listener;
+			global::Plugin.LocalNotification.Resource.Id.tag_on_receive_content_listener = global::Mahwous.Droid.Resource.Id.tag_on_receive_content_listener;
+			global::Plugin.LocalNotification.Resource.Id.tag_on_receive_content_mime_types = global::Mahwous.Droid.Resource.Id.tag_on_receive_content_mime_types;
 			global::Plugin.LocalNotification.Resource.Id.tag_screen_reader_focusable = global::Mahwous.Droid.Resource.Id.tag_screen_reader_focusable;
+			global::Plugin.LocalNotification.Resource.Id.tag_state_description = global::Mahwous.Droid.Resource.Id.tag_state_description;
 			global::Plugin.LocalNotification.Resource.Id.tag_transition_group = global::Mahwous.Droid.Resource.Id.tag_transition_group;
 			global::Plugin.LocalNotification.Resource.Id.tag_unhandled_key_event_manager = global::Mahwous.Droid.Resource.Id.tag_unhandled_key_event_manager;
 			global::Plugin.LocalNotification.Resource.Id.tag_unhandled_key_listeners = global::Mahwous.Droid.Resource.Id.tag_unhandled_key_listeners;
+			global::Plugin.LocalNotification.Resource.Id.tag_window_insets_animation_callback = global::Mahwous.Droid.Resource.Id.tag_window_insets_animation_callback;
 			global::Plugin.LocalNotification.Resource.Id.text = global::Mahwous.Droid.Resource.Id.text;
 			global::Plugin.LocalNotification.Resource.Id.text2 = global::Mahwous.Droid.Resource.Id.text2;
 			global::Plugin.LocalNotification.Resource.Id.time = global::Mahwous.Droid.Resource.Id.time;
@@ -4168,6 +4184,9 @@ namespace Mahwous.Droid
 			global::Plugin.LocalNotification.Resource.Style.TextAppearance_Compat_Notification_Title = global::Mahwous.Droid.Resource.Style.TextAppearance_Compat_Notification_Title;
 			global::Plugin.LocalNotification.Resource.Style.Widget_Compat_NotificationActionContainer = global::Mahwous.Droid.Resource.Style.Widget_Compat_NotificationActionContainer;
 			global::Plugin.LocalNotification.Resource.Style.Widget_Compat_NotificationActionText = global::Mahwous.Droid.Resource.Style.Widget_Compat_NotificationActionText;
+			global::Plugin.LocalNotification.Resource.Styleable.Capability = global::Mahwous.Droid.Resource.Styleable.Capability;
+			global::Plugin.LocalNotification.Resource.Styleable.Capability_queryPatterns = global::Mahwous.Droid.Resource.Styleable.Capability_queryPatterns;
+			global::Plugin.LocalNotification.Resource.Styleable.Capability_shortcutMatchRequired = global::Mahwous.Droid.Resource.Styleable.Capability_shortcutMatchRequired;
 			global::Plugin.LocalNotification.Resource.Styleable.ColorStateListItem = global::Mahwous.Droid.Resource.Styleable.ColorStateListItem;
 			global::Plugin.LocalNotification.Resource.Styleable.ColorStateListItem_alpha = global::Mahwous.Droid.Resource.Styleable.ColorStateListItem_alpha;
 			global::Plugin.LocalNotification.Resource.Styleable.ColorStateListItem_android_alpha = global::Mahwous.Droid.Resource.Styleable.ColorStateListItem_android_alpha;
@@ -4190,6 +4209,7 @@ namespace Mahwous.Droid
 			global::Plugin.LocalNotification.Resource.Styleable.FontFamily_fontProviderFetchTimeout = global::Mahwous.Droid.Resource.Styleable.FontFamily_fontProviderFetchTimeout;
 			global::Plugin.LocalNotification.Resource.Styleable.FontFamily_fontProviderPackage = global::Mahwous.Droid.Resource.Styleable.FontFamily_fontProviderPackage;
 			global::Plugin.LocalNotification.Resource.Styleable.FontFamily_fontProviderQuery = global::Mahwous.Droid.Resource.Styleable.FontFamily_fontProviderQuery;
+			global::Plugin.LocalNotification.Resource.Styleable.FontFamily_fontProviderSystemFontFamily = global::Mahwous.Droid.Resource.Styleable.FontFamily_fontProviderSystemFontFamily;
 			global::Plugin.LocalNotification.Resource.Styleable.GradientColor = global::Mahwous.Droid.Resource.Styleable.GradientColor;
 			global::Plugin.LocalNotification.Resource.Styleable.GradientColorItem = global::Mahwous.Droid.Resource.Styleable.GradientColorItem;
 			global::Plugin.LocalNotification.Resource.Styleable.GradientColorItem_android_color = global::Mahwous.Droid.Resource.Styleable.GradientColorItem_android_color;
@@ -4245,6 +4265,12 @@ namespace Mahwous.Droid
 			global::MarcTron.Plugin.Resource.Animator.design_appbar_state_list_animator = global::Mahwous.Droid.Resource.Animator.design_appbar_state_list_animator;
 			global::MarcTron.Plugin.Resource.Animator.design_fab_hide_motion_spec = global::Mahwous.Droid.Resource.Animator.design_fab_hide_motion_spec;
 			global::MarcTron.Plugin.Resource.Animator.design_fab_show_motion_spec = global::Mahwous.Droid.Resource.Animator.design_fab_show_motion_spec;
+			global::MarcTron.Plugin.Resource.Animator.fragment_close_enter = global::Mahwous.Droid.Resource.Animator.fragment_close_enter;
+			global::MarcTron.Plugin.Resource.Animator.fragment_close_exit = global::Mahwous.Droid.Resource.Animator.fragment_close_exit;
+			global::MarcTron.Plugin.Resource.Animator.fragment_fade_enter = global::Mahwous.Droid.Resource.Animator.fragment_fade_enter;
+			global::MarcTron.Plugin.Resource.Animator.fragment_fade_exit = global::Mahwous.Droid.Resource.Animator.fragment_fade_exit;
+			global::MarcTron.Plugin.Resource.Animator.fragment_open_enter = global::Mahwous.Droid.Resource.Animator.fragment_open_enter;
+			global::MarcTron.Plugin.Resource.Animator.fragment_open_exit = global::Mahwous.Droid.Resource.Animator.fragment_open_exit;
 			global::MarcTron.Plugin.Resource.Animator.mtrl_btn_state_list_anim = global::Mahwous.Droid.Resource.Animator.mtrl_btn_state_list_anim;
 			global::MarcTron.Plugin.Resource.Animator.mtrl_btn_unelevated_state_list_anim = global::Mahwous.Droid.Resource.Animator.mtrl_btn_unelevated_state_list_anim;
 			global::MarcTron.Plugin.Resource.Animator.mtrl_card_state_list_anim = global::Mahwous.Droid.Resource.Animator.mtrl_card_state_list_anim;
@@ -5786,6 +5812,7 @@ namespace Mahwous.Droid
 			global::MarcTron.Plugin.Resource.Id.snap = global::Mahwous.Droid.Resource.Id.snap;
 			global::MarcTron.Plugin.Resource.Id.snapMargins = global::Mahwous.Droid.Resource.Id.snapMargins;
 			global::MarcTron.Plugin.Resource.Id.spacer = global::Mahwous.Droid.Resource.Id.spacer;
+			global::MarcTron.Plugin.Resource.Id.special_effects_controller_view_tag = global::Mahwous.Droid.Resource.Id.special_effects_controller_view_tag;
 			global::MarcTron.Plugin.Resource.Id.split_action_bar = global::Mahwous.Droid.Resource.Id.split_action_bar;
 			global::MarcTron.Plugin.Resource.Id.src_atop = global::Mahwous.Droid.Resource.Id.src_atop;
 			global::MarcTron.Plugin.Resource.Id.src_in = global::Mahwous.Droid.Resource.Id.src_in;
@@ -5841,6 +5868,7 @@ namespace Mahwous.Droid
 			global::MarcTron.Plugin.Resource.Id.view_offset_helper = global::Mahwous.Droid.Resource.Id.view_offset_helper;
 			global::MarcTron.Plugin.Resource.Id.view_tree_lifecycle_owner = global::Mahwous.Droid.Resource.Id.view_tree_lifecycle_owner;
 			global::MarcTron.Plugin.Resource.Id.view_tree_saved_state_registry_owner = global::Mahwous.Droid.Resource.Id.view_tree_saved_state_registry_owner;
+			global::MarcTron.Plugin.Resource.Id.view_tree_view_model_store_owner = global::Mahwous.Droid.Resource.Id.view_tree_view_model_store_owner;
 			global::MarcTron.Plugin.Resource.Id.visible = global::Mahwous.Droid.Resource.Id.visible;
 			global::MarcTron.Plugin.Resource.Id.visible_removing_fragment_view_tag = global::Mahwous.Droid.Resource.Id.visible_removing_fragment_view_tag;
 			global::MarcTron.Plugin.Resource.Id.withText = global::Mahwous.Droid.Resource.Id.withText;
@@ -7705,9 +7733,19 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Animation.mtrl_bottom_sheet_slide_in = global::Mahwous.Droid.Resource.Animation.mtrl_bottom_sheet_slide_in;
 			global::Xamarin.CommunityToolkit.Resource.Animation.mtrl_bottom_sheet_slide_out = global::Mahwous.Droid.Resource.Animation.mtrl_bottom_sheet_slide_out;
 			global::Xamarin.CommunityToolkit.Resource.Animation.mtrl_card_lowers_interpolator = global::Mahwous.Droid.Resource.Animation.mtrl_card_lowers_interpolator;
+			global::Xamarin.CommunityToolkit.Resource.Animation.nav_default_enter_anim = global::Mahwous.Droid.Resource.Animation.nav_default_enter_anim;
+			global::Xamarin.CommunityToolkit.Resource.Animation.nav_default_exit_anim = global::Mahwous.Droid.Resource.Animation.nav_default_exit_anim;
+			global::Xamarin.CommunityToolkit.Resource.Animation.nav_default_pop_enter_anim = global::Mahwous.Droid.Resource.Animation.nav_default_pop_enter_anim;
+			global::Xamarin.CommunityToolkit.Resource.Animation.nav_default_pop_exit_anim = global::Mahwous.Droid.Resource.Animation.nav_default_pop_exit_anim;
 			global::Xamarin.CommunityToolkit.Resource.Animator.design_appbar_state_list_animator = global::Mahwous.Droid.Resource.Animator.design_appbar_state_list_animator;
 			global::Xamarin.CommunityToolkit.Resource.Animator.design_fab_hide_motion_spec = global::Mahwous.Droid.Resource.Animator.design_fab_hide_motion_spec;
 			global::Xamarin.CommunityToolkit.Resource.Animator.design_fab_show_motion_spec = global::Mahwous.Droid.Resource.Animator.design_fab_show_motion_spec;
+			global::Xamarin.CommunityToolkit.Resource.Animator.fragment_close_enter = global::Mahwous.Droid.Resource.Animator.fragment_close_enter;
+			global::Xamarin.CommunityToolkit.Resource.Animator.fragment_close_exit = global::Mahwous.Droid.Resource.Animator.fragment_close_exit;
+			global::Xamarin.CommunityToolkit.Resource.Animator.fragment_fade_enter = global::Mahwous.Droid.Resource.Animator.fragment_fade_enter;
+			global::Xamarin.CommunityToolkit.Resource.Animator.fragment_fade_exit = global::Mahwous.Droid.Resource.Animator.fragment_fade_exit;
+			global::Xamarin.CommunityToolkit.Resource.Animator.fragment_open_enter = global::Mahwous.Droid.Resource.Animator.fragment_open_enter;
+			global::Xamarin.CommunityToolkit.Resource.Animator.fragment_open_exit = global::Mahwous.Droid.Resource.Animator.fragment_open_exit;
 			global::Xamarin.CommunityToolkit.Resource.Animator.mtrl_btn_state_list_anim = global::Mahwous.Droid.Resource.Animator.mtrl_btn_state_list_anim;
 			global::Xamarin.CommunityToolkit.Resource.Animator.mtrl_btn_unelevated_state_list_anim = global::Mahwous.Droid.Resource.Animator.mtrl_btn_unelevated_state_list_anim;
 			global::Xamarin.CommunityToolkit.Resource.Animator.mtrl_card_state_list_anim = global::Mahwous.Droid.Resource.Animator.mtrl_card_state_list_anim;
@@ -7720,6 +7758,11 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Animator.mtrl_fab_show_motion_spec = global::Mahwous.Droid.Resource.Animator.mtrl_fab_show_motion_spec;
 			global::Xamarin.CommunityToolkit.Resource.Animator.mtrl_fab_transformation_sheet_collapse_spec = global::Mahwous.Droid.Resource.Animator.mtrl_fab_transformation_sheet_collapse_spec;
 			global::Xamarin.CommunityToolkit.Resource.Animator.mtrl_fab_transformation_sheet_expand_spec = global::Mahwous.Droid.Resource.Animator.mtrl_fab_transformation_sheet_expand_spec;
+			global::Xamarin.CommunityToolkit.Resource.Animator.nav_default_enter_anim = global::Mahwous.Droid.Resource.Animator.nav_default_enter_anim;
+			global::Xamarin.CommunityToolkit.Resource.Animator.nav_default_exit_anim = global::Mahwous.Droid.Resource.Animator.nav_default_exit_anim;
+			global::Xamarin.CommunityToolkit.Resource.Animator.nav_default_pop_enter_anim = global::Mahwous.Droid.Resource.Animator.nav_default_pop_enter_anim;
+			global::Xamarin.CommunityToolkit.Resource.Animator.nav_default_pop_exit_anim = global::Mahwous.Droid.Resource.Animator.nav_default_pop_exit_anim;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.action = global::Mahwous.Droid.Resource.Attribute.action;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.actionBarDivider = global::Mahwous.Droid.Resource.Attribute.actionBarDivider;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.actionBarItemBackground = global::Mahwous.Droid.Resource.Attribute.actionBarItemBackground;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.actionBarPopupTheme = global::Mahwous.Droid.Resource.Attribute.actionBarPopupTheme;
@@ -7755,15 +7798,20 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Attribute.actionTextColorAlpha = global::Mahwous.Droid.Resource.Attribute.actionTextColorAlpha;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.actionViewClass = global::Mahwous.Droid.Resource.Attribute.actionViewClass;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.activityChooserViewStyle = global::Mahwous.Droid.Resource.Attribute.activityChooserViewStyle;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.adjustable = global::Mahwous.Droid.Resource.Attribute.adjustable;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.alertDialogButtonGroupStyle = global::Mahwous.Droid.Resource.Attribute.alertDialogButtonGroupStyle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.alertDialogCenterButtons = global::Mahwous.Droid.Resource.Attribute.alertDialogCenterButtons;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.alertDialogStyle = global::Mahwous.Droid.Resource.Attribute.alertDialogStyle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.alertDialogTheme = global::Mahwous.Droid.Resource.Attribute.alertDialogTheme;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.allowDividerAbove = global::Mahwous.Droid.Resource.Attribute.allowDividerAbove;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.allowDividerAfterLastItem = global::Mahwous.Droid.Resource.Attribute.allowDividerAfterLastItem;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.allowDividerBelow = global::Mahwous.Droid.Resource.Attribute.allowDividerBelow;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.allowStacking = global::Mahwous.Droid.Resource.Attribute.allowStacking;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.alpha = global::Mahwous.Droid.Resource.Attribute.alpha;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.alphabeticModifiers = global::Mahwous.Droid.Resource.Attribute.alphabeticModifiers;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.animationMode = global::Mahwous.Droid.Resource.Attribute.animationMode;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.appBarLayoutStyle = global::Mahwous.Droid.Resource.Attribute.appBarLayoutStyle;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.argType = global::Mahwous.Droid.Resource.Attribute.argType;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.arrowHeadLength = global::Mahwous.Droid.Resource.Attribute.arrowHeadLength;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.arrowShaftLength = global::Mahwous.Droid.Resource.Attribute.arrowShaftLength;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.autoCompleteTextViewStyle = global::Mahwous.Droid.Resource.Attribute.autoCompleteTextViewStyle;
@@ -7789,6 +7837,7 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Attribute.barLength = global::Mahwous.Droid.Resource.Attribute.barLength;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.behavior_autoHide = global::Mahwous.Droid.Resource.Attribute.behavior_autoHide;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.behavior_autoShrink = global::Mahwous.Droid.Resource.Attribute.behavior_autoShrink;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.behavior_draggable = global::Mahwous.Droid.Resource.Attribute.behavior_draggable;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.behavior_expandedOffset = global::Mahwous.Droid.Resource.Attribute.behavior_expandedOffset;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.behavior_fitToContents = global::Mahwous.Droid.Resource.Attribute.behavior_fitToContents;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.behavior_halfExpandedRatio = global::Mahwous.Droid.Resource.Attribute.behavior_halfExpandedRatio;
@@ -7811,6 +7860,7 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Attribute.boxCornerRadiusTopEnd = global::Mahwous.Droid.Resource.Attribute.boxCornerRadiusTopEnd;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.boxCornerRadiusTopStart = global::Mahwous.Droid.Resource.Attribute.boxCornerRadiusTopStart;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.boxStrokeColor = global::Mahwous.Droid.Resource.Attribute.boxStrokeColor;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.boxStrokeErrorColor = global::Mahwous.Droid.Resource.Attribute.boxStrokeErrorColor;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.boxStrokeWidth = global::Mahwous.Droid.Resource.Attribute.boxStrokeWidth;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.boxStrokeWidthFocused = global::Mahwous.Droid.Resource.Attribute.boxStrokeWidthFocused;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.buttonBarButtonStyle = global::Mahwous.Droid.Resource.Attribute.buttonBarButtonStyle;
@@ -7834,6 +7884,7 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Attribute.cardPreventCornerOverlap = global::Mahwous.Droid.Resource.Attribute.cardPreventCornerOverlap;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.cardUseCompatPadding = global::Mahwous.Droid.Resource.Attribute.cardUseCompatPadding;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.cardViewStyle = global::Mahwous.Droid.Resource.Attribute.cardViewStyle;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.checkBoxPreferenceStyle = global::Mahwous.Droid.Resource.Attribute.checkBoxPreferenceStyle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.checkboxStyle = global::Mahwous.Droid.Resource.Attribute.checkboxStyle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.checkedButton = global::Mahwous.Droid.Resource.Attribute.checkedButton;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.checkedChip = global::Mahwous.Droid.Resource.Attribute.checkedChip;
@@ -7931,14 +7982,25 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Attribute.counterTextAppearance = global::Mahwous.Droid.Resource.Attribute.counterTextAppearance;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.counterTextColor = global::Mahwous.Droid.Resource.Attribute.counterTextColor;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.customNavigationLayout = global::Mahwous.Droid.Resource.Attribute.customNavigationLayout;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.data = global::Mahwous.Droid.Resource.Attribute.data;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.dataPattern = global::Mahwous.Droid.Resource.Attribute.dataPattern;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.dayInvalidStyle = global::Mahwous.Droid.Resource.Attribute.dayInvalidStyle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.daySelectedStyle = global::Mahwous.Droid.Resource.Attribute.daySelectedStyle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.dayStyle = global::Mahwous.Droid.Resource.Attribute.dayStyle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.dayTodayStyle = global::Mahwous.Droid.Resource.Attribute.dayTodayStyle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.defaultQueryHint = global::Mahwous.Droid.Resource.Attribute.defaultQueryHint;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.defaultValue = global::Mahwous.Droid.Resource.Attribute.defaultValue;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.dependency = global::Mahwous.Droid.Resource.Attribute.dependency;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.destination = global::Mahwous.Droid.Resource.Attribute.destination;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.dialogCornerRadius = global::Mahwous.Droid.Resource.Attribute.dialogCornerRadius;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.dialogIcon = global::Mahwous.Droid.Resource.Attribute.dialogIcon;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.dialogLayout = global::Mahwous.Droid.Resource.Attribute.dialogLayout;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.dialogMessage = global::Mahwous.Droid.Resource.Attribute.dialogMessage;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.dialogPreferenceStyle = global::Mahwous.Droid.Resource.Attribute.dialogPreferenceStyle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.dialogPreferredPadding = global::Mahwous.Droid.Resource.Attribute.dialogPreferredPadding;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.dialogTheme = global::Mahwous.Droid.Resource.Attribute.dialogTheme;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.dialogTitle = global::Mahwous.Droid.Resource.Attribute.dialogTitle;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.disableDependentsState = global::Mahwous.Droid.Resource.Attribute.disableDependentsState;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.displayOptions = global::Mahwous.Droid.Resource.Attribute.displayOptions;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.divider = global::Mahwous.Droid.Resource.Attribute.divider;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.dividerHorizontal = global::Mahwous.Droid.Resource.Attribute.dividerHorizontal;
@@ -7957,12 +8019,16 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Attribute.drawerLayoutStyle = global::Mahwous.Droid.Resource.Attribute.drawerLayoutStyle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.dropdownListPreferredItemHeight = global::Mahwous.Droid.Resource.Attribute.dropdownListPreferredItemHeight;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.dropDownListViewStyle = global::Mahwous.Droid.Resource.Attribute.dropDownListViewStyle;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.dropdownPreferenceStyle = global::Mahwous.Droid.Resource.Attribute.dropdownPreferenceStyle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.editTextBackground = global::Mahwous.Droid.Resource.Attribute.editTextBackground;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.editTextColor = global::Mahwous.Droid.Resource.Attribute.editTextColor;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.editTextPreferenceStyle = global::Mahwous.Droid.Resource.Attribute.editTextPreferenceStyle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.editTextStyle = global::Mahwous.Droid.Resource.Attribute.editTextStyle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.elevation = global::Mahwous.Droid.Resource.Attribute.elevation;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.elevationOverlayColor = global::Mahwous.Droid.Resource.Attribute.elevationOverlayColor;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.elevationOverlayEnabled = global::Mahwous.Droid.Resource.Attribute.elevationOverlayEnabled;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.enableCopying = global::Mahwous.Droid.Resource.Attribute.enableCopying;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.enabled = global::Mahwous.Droid.Resource.Attribute.enabled;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.endIconCheckable = global::Mahwous.Droid.Resource.Attribute.endIconCheckable;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.endIconContentDescription = global::Mahwous.Droid.Resource.Attribute.endIconContentDescription;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.endIconDrawable = global::Mahwous.Droid.Resource.Attribute.endIconDrawable;
@@ -7972,12 +8038,17 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Attribute.enforceMaterialTheme = global::Mahwous.Droid.Resource.Attribute.enforceMaterialTheme;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.enforceTextAppearance = global::Mahwous.Droid.Resource.Attribute.enforceTextAppearance;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.ensureMinTouchTargetSize = global::Mahwous.Droid.Resource.Attribute.ensureMinTouchTargetSize;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.enterAnim = global::Mahwous.Droid.Resource.Attribute.enterAnim;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.entries = global::Mahwous.Droid.Resource.Attribute.entries;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.entryValues = global::Mahwous.Droid.Resource.Attribute.entryValues;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.errorContentDescription = global::Mahwous.Droid.Resource.Attribute.errorContentDescription;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.errorEnabled = global::Mahwous.Droid.Resource.Attribute.errorEnabled;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.errorIconDrawable = global::Mahwous.Droid.Resource.Attribute.errorIconDrawable;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.errorIconTint = global::Mahwous.Droid.Resource.Attribute.errorIconTint;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.errorIconTintMode = global::Mahwous.Droid.Resource.Attribute.errorIconTintMode;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.errorTextAppearance = global::Mahwous.Droid.Resource.Attribute.errorTextAppearance;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.errorTextColor = global::Mahwous.Droid.Resource.Attribute.errorTextColor;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.exitAnim = global::Mahwous.Droid.Resource.Attribute.exitAnim;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.expandActivityOverflowButtonDrawable = global::Mahwous.Droid.Resource.Attribute.expandActivityOverflowButtonDrawable;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.expanded = global::Mahwous.Droid.Resource.Attribute.expanded;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.expandedTitleGravity = global::Mahwous.Droid.Resource.Attribute.expandedTitleGravity;
@@ -8015,8 +8086,13 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Attribute.fontVariationSettings = global::Mahwous.Droid.Resource.Attribute.fontVariationSettings;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.fontWeight = global::Mahwous.Droid.Resource.Attribute.fontWeight;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.foregroundInsidePadding = global::Mahwous.Droid.Resource.Attribute.foregroundInsidePadding;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.fragment = global::Mahwous.Droid.Resource.Attribute.fragment;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.gapBetweenBars = global::Mahwous.Droid.Resource.Attribute.gapBetweenBars;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.gestureInsetBottomIgnored = global::Mahwous.Droid.Resource.Attribute.gestureInsetBottomIgnored;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.goIcon = global::Mahwous.Droid.Resource.Attribute.goIcon;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.graph = global::Mahwous.Droid.Resource.Attribute.graph;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.haloColor = global::Mahwous.Droid.Resource.Attribute.haloColor;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.haloRadius = global::Mahwous.Droid.Resource.Attribute.haloRadius;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.headerLayout = global::Mahwous.Droid.Resource.Attribute.headerLayout;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.height = global::Mahwous.Droid.Resource.Attribute.height;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.helperText = global::Mahwous.Droid.Resource.Attribute.helperText;
@@ -8032,6 +8108,7 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Attribute.hintTextColor = global::Mahwous.Droid.Resource.Attribute.hintTextColor;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.homeAsUpIndicator = global::Mahwous.Droid.Resource.Attribute.homeAsUpIndicator;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.homeLayout = global::Mahwous.Droid.Resource.Attribute.homeLayout;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.horizontalOffset = global::Mahwous.Droid.Resource.Attribute.horizontalOffset;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.hoveredFocusedTranslationZ = global::Mahwous.Droid.Resource.Attribute.hoveredFocusedTranslationZ;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.icon = global::Mahwous.Droid.Resource.Attribute.icon;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.iconEndPadding = global::Mahwous.Droid.Resource.Attribute.iconEndPadding;
@@ -8039,15 +8116,18 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Attribute.iconifiedByDefault = global::Mahwous.Droid.Resource.Attribute.iconifiedByDefault;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.iconPadding = global::Mahwous.Droid.Resource.Attribute.iconPadding;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.iconSize = global::Mahwous.Droid.Resource.Attribute.iconSize;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.iconSpaceReserved = global::Mahwous.Droid.Resource.Attribute.iconSpaceReserved;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.iconStartPadding = global::Mahwous.Droid.Resource.Attribute.iconStartPadding;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.iconTint = global::Mahwous.Droid.Resource.Attribute.iconTint;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.iconTintMode = global::Mahwous.Droid.Resource.Attribute.iconTintMode;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.imageButtonStyle = global::Mahwous.Droid.Resource.Attribute.imageButtonStyle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.indeterminateProgressStyle = global::Mahwous.Droid.Resource.Attribute.indeterminateProgressStyle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.initialActivityCount = global::Mahwous.Droid.Resource.Attribute.initialActivityCount;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.initialExpandedChildrenCount = global::Mahwous.Droid.Resource.Attribute.initialExpandedChildrenCount;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.insetForeground = global::Mahwous.Droid.Resource.Attribute.insetForeground;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.isLightTheme = global::Mahwous.Droid.Resource.Attribute.isLightTheme;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.isMaterialTheme = global::Mahwous.Droid.Resource.Attribute.isMaterialTheme;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.isPreferenceVisible = global::Mahwous.Droid.Resource.Attribute.isPreferenceVisible;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.itemBackground = global::Mahwous.Droid.Resource.Attribute.itemBackground;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.itemFillColor = global::Mahwous.Droid.Resource.Attribute.itemFillColor;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.itemHorizontalPadding = global::Mahwous.Droid.Resource.Attribute.itemHorizontalPadding;
@@ -8072,9 +8152,13 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Attribute.itemTextAppearanceActive = global::Mahwous.Droid.Resource.Attribute.itemTextAppearanceActive;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.itemTextAppearanceInactive = global::Mahwous.Droid.Resource.Attribute.itemTextAppearanceInactive;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.itemTextColor = global::Mahwous.Droid.Resource.Attribute.itemTextColor;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.key = global::Mahwous.Droid.Resource.Attribute.key;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.keylines = global::Mahwous.Droid.Resource.Attribute.keylines;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.labelBehavior = global::Mahwous.Droid.Resource.Attribute.labelBehavior;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.labelStyle = global::Mahwous.Droid.Resource.Attribute.labelStyle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.labelVisibilityMode = global::Mahwous.Droid.Resource.Attribute.labelVisibilityMode;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.lastBaselineToBottomHeight = global::Mahwous.Droid.Resource.Attribute.lastBaselineToBottomHeight;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.launchSingleTop = global::Mahwous.Droid.Resource.Attribute.launchSingleTop;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.layout = global::Mahwous.Droid.Resource.Attribute.layout;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.layoutManager = global::Mahwous.Droid.Resource.Attribute.layoutManager;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.layout_anchor = global::Mahwous.Droid.Resource.Attribute.layout_anchor;
@@ -8131,20 +8215,33 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Attribute.maxActionInlineWidth = global::Mahwous.Droid.Resource.Attribute.maxActionInlineWidth;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.maxButtonHeight = global::Mahwous.Droid.Resource.Attribute.maxButtonHeight;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.maxCharacterCount = global::Mahwous.Droid.Resource.Attribute.maxCharacterCount;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.maxHeight = global::Mahwous.Droid.Resource.Attribute.maxHeight;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.maxImageSize = global::Mahwous.Droid.Resource.Attribute.maxImageSize;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.maxLines = global::Mahwous.Droid.Resource.Attribute.maxLines;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.maxWidth = global::Mahwous.Droid.Resource.Attribute.maxWidth;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.measureWithLargestChild = global::Mahwous.Droid.Resource.Attribute.measureWithLargestChild;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.menu = global::Mahwous.Droid.Resource.Attribute.menu;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.mimeType = global::Mahwous.Droid.Resource.Attribute.mimeType;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.min = global::Mahwous.Droid.Resource.Attribute.min;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.minTouchTargetSize = global::Mahwous.Droid.Resource.Attribute.minTouchTargetSize;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.multiChoiceItemLayout = global::Mahwous.Droid.Resource.Attribute.multiChoiceItemLayout;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.navGraph = global::Mahwous.Droid.Resource.Attribute.navGraph;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.navigationContentDescription = global::Mahwous.Droid.Resource.Attribute.navigationContentDescription;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.navigationIcon = global::Mahwous.Droid.Resource.Attribute.navigationIcon;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.navigationMode = global::Mahwous.Droid.Resource.Attribute.navigationMode;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.navigationViewStyle = global::Mahwous.Droid.Resource.Attribute.navigationViewStyle;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.negativeButtonText = global::Mahwous.Droid.Resource.Attribute.negativeButtonText;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.nullable = global::Mahwous.Droid.Resource.Attribute.nullable;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.number = global::Mahwous.Droid.Resource.Attribute.number;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.numericModifiers = global::Mahwous.Droid.Resource.Attribute.numericModifiers;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.order = global::Mahwous.Droid.Resource.Attribute.order;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.orderingFromXml = global::Mahwous.Droid.Resource.Attribute.orderingFromXml;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.overlapAnchor = global::Mahwous.Droid.Resource.Attribute.overlapAnchor;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.paddingBottomNoButtons = global::Mahwous.Droid.Resource.Attribute.paddingBottomNoButtons;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.paddingBottomSystemWindowInsets = global::Mahwous.Droid.Resource.Attribute.paddingBottomSystemWindowInsets;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.paddingEnd = global::Mahwous.Droid.Resource.Attribute.paddingEnd;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.paddingLeftSystemWindowInsets = global::Mahwous.Droid.Resource.Attribute.paddingLeftSystemWindowInsets;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.paddingRightSystemWindowInsets = global::Mahwous.Droid.Resource.Attribute.paddingRightSystemWindowInsets;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.paddingStart = global::Mahwous.Droid.Resource.Attribute.paddingStart;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.paddingTopNoTitle = global::Mahwous.Droid.Resource.Attribute.paddingTopNoTitle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.panelBackground = global::Mahwous.Droid.Resource.Attribute.panelBackground;
@@ -8155,10 +8252,31 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Attribute.passwordToggleEnabled = global::Mahwous.Droid.Resource.Attribute.passwordToggleEnabled;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.passwordToggleTint = global::Mahwous.Droid.Resource.Attribute.passwordToggleTint;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.passwordToggleTintMode = global::Mahwous.Droid.Resource.Attribute.passwordToggleTintMode;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.persistent = global::Mahwous.Droid.Resource.Attribute.persistent;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.placeholderText = global::Mahwous.Droid.Resource.Attribute.placeholderText;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.placeholderTextAppearance = global::Mahwous.Droid.Resource.Attribute.placeholderTextAppearance;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.placeholderTextColor = global::Mahwous.Droid.Resource.Attribute.placeholderTextColor;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.popEnterAnim = global::Mahwous.Droid.Resource.Attribute.popEnterAnim;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.popExitAnim = global::Mahwous.Droid.Resource.Attribute.popExitAnim;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.popupMenuBackground = global::Mahwous.Droid.Resource.Attribute.popupMenuBackground;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.popupMenuStyle = global::Mahwous.Droid.Resource.Attribute.popupMenuStyle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.popupTheme = global::Mahwous.Droid.Resource.Attribute.popupTheme;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.popUpTo = global::Mahwous.Droid.Resource.Attribute.popUpTo;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.popUpToInclusive = global::Mahwous.Droid.Resource.Attribute.popUpToInclusive;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.popupWindowStyle = global::Mahwous.Droid.Resource.Attribute.popupWindowStyle;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.positiveButtonText = global::Mahwous.Droid.Resource.Attribute.positiveButtonText;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.preferenceCategoryStyle = global::Mahwous.Droid.Resource.Attribute.preferenceCategoryStyle;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.preferenceCategoryTitleTextAppearance = global::Mahwous.Droid.Resource.Attribute.preferenceCategoryTitleTextAppearance;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.preferenceFragmentCompatStyle = global::Mahwous.Droid.Resource.Attribute.preferenceFragmentCompatStyle;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.preferenceFragmentListStyle = global::Mahwous.Droid.Resource.Attribute.preferenceFragmentListStyle;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.preferenceFragmentStyle = global::Mahwous.Droid.Resource.Attribute.preferenceFragmentStyle;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.preferenceInformationStyle = global::Mahwous.Droid.Resource.Attribute.preferenceInformationStyle;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.preferenceScreenStyle = global::Mahwous.Droid.Resource.Attribute.preferenceScreenStyle;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.preferenceStyle = global::Mahwous.Droid.Resource.Attribute.preferenceStyle;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.preferenceTheme = global::Mahwous.Droid.Resource.Attribute.preferenceTheme;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.prefixText = global::Mahwous.Droid.Resource.Attribute.prefixText;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.prefixTextAppearance = global::Mahwous.Droid.Resource.Attribute.prefixTextAppearance;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.prefixTextColor = global::Mahwous.Droid.Resource.Attribute.prefixTextColor;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.preserveIconSpacing = global::Mahwous.Droid.Resource.Attribute.preserveIconSpacing;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.pressedTranslationZ = global::Mahwous.Droid.Resource.Attribute.pressedTranslationZ;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.progressBarPadding = global::Mahwous.Droid.Resource.Attribute.progressBarPadding;
@@ -8180,25 +8298,34 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Attribute.searchHintIcon = global::Mahwous.Droid.Resource.Attribute.searchHintIcon;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.searchIcon = global::Mahwous.Droid.Resource.Attribute.searchIcon;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.searchViewStyle = global::Mahwous.Droid.Resource.Attribute.searchViewStyle;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.seekBarIncrement = global::Mahwous.Droid.Resource.Attribute.seekBarIncrement;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.seekBarPreferenceStyle = global::Mahwous.Droid.Resource.Attribute.seekBarPreferenceStyle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.seekBarStyle = global::Mahwous.Droid.Resource.Attribute.seekBarStyle;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.selectable = global::Mahwous.Droid.Resource.Attribute.selectable;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.selectableItemBackground = global::Mahwous.Droid.Resource.Attribute.selectableItemBackground;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.selectableItemBackgroundBorderless = global::Mahwous.Droid.Resource.Attribute.selectableItemBackgroundBorderless;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.selectionRequired = global::Mahwous.Droid.Resource.Attribute.selectionRequired;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.shapeAppearance = global::Mahwous.Droid.Resource.Attribute.shapeAppearance;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.shapeAppearanceLargeComponent = global::Mahwous.Droid.Resource.Attribute.shapeAppearanceLargeComponent;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.shapeAppearanceMediumComponent = global::Mahwous.Droid.Resource.Attribute.shapeAppearanceMediumComponent;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.shapeAppearanceOverlay = global::Mahwous.Droid.Resource.Attribute.shapeAppearanceOverlay;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.shapeAppearanceSmallComponent = global::Mahwous.Droid.Resource.Attribute.shapeAppearanceSmallComponent;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.shouldDisableView = global::Mahwous.Droid.Resource.Attribute.shouldDisableView;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.showAsAction = global::Mahwous.Droid.Resource.Attribute.showAsAction;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.showDividers = global::Mahwous.Droid.Resource.Attribute.showDividers;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.showMotionSpec = global::Mahwous.Droid.Resource.Attribute.showMotionSpec;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.showSeekBarValue = global::Mahwous.Droid.Resource.Attribute.showSeekBarValue;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.showText = global::Mahwous.Droid.Resource.Attribute.showText;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.showTitle = global::Mahwous.Droid.Resource.Attribute.showTitle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.shrinkMotionSpec = global::Mahwous.Droid.Resource.Attribute.shrinkMotionSpec;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.singleChoiceItemLayout = global::Mahwous.Droid.Resource.Attribute.singleChoiceItemLayout;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.singleLine = global::Mahwous.Droid.Resource.Attribute.singleLine;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.singleLineTitle = global::Mahwous.Droid.Resource.Attribute.singleLineTitle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.singleSelection = global::Mahwous.Droid.Resource.Attribute.singleSelection;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.sliderStyle = global::Mahwous.Droid.Resource.Attribute.sliderStyle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.snackbarButtonStyle = global::Mahwous.Droid.Resource.Attribute.snackbarButtonStyle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.snackbarStyle = global::Mahwous.Droid.Resource.Attribute.snackbarStyle;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.snackbarTextViewStyle = global::Mahwous.Droid.Resource.Attribute.snackbarTextViewStyle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.spanCount = global::Mahwous.Droid.Resource.Attribute.spanCount;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.spinBars = global::Mahwous.Droid.Resource.Attribute.spinBars;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.spinnerDropDownItemStyle = global::Mahwous.Droid.Resource.Attribute.spinnerDropDownItemStyle;
@@ -8206,6 +8333,7 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Attribute.splitTrack = global::Mahwous.Droid.Resource.Attribute.splitTrack;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.srcCompat = global::Mahwous.Droid.Resource.Attribute.srcCompat;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.stackFromEnd = global::Mahwous.Droid.Resource.Attribute.stackFromEnd;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.startDestination = global::Mahwous.Droid.Resource.Attribute.startDestination;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.startIconCheckable = global::Mahwous.Droid.Resource.Attribute.startIconCheckable;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.startIconContentDescription = global::Mahwous.Droid.Resource.Attribute.startIconContentDescription;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.startIconDrawable = global::Mahwous.Droid.Resource.Attribute.startIconDrawable;
@@ -8228,12 +8356,22 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Attribute.subtitleTextAppearance = global::Mahwous.Droid.Resource.Attribute.subtitleTextAppearance;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.subtitleTextColor = global::Mahwous.Droid.Resource.Attribute.subtitleTextColor;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.subtitleTextStyle = global::Mahwous.Droid.Resource.Attribute.subtitleTextStyle;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.suffixText = global::Mahwous.Droid.Resource.Attribute.suffixText;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.suffixTextAppearance = global::Mahwous.Droid.Resource.Attribute.suffixTextAppearance;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.suffixTextColor = global::Mahwous.Droid.Resource.Attribute.suffixTextColor;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.suggestionRowLayout = global::Mahwous.Droid.Resource.Attribute.suggestionRowLayout;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.summary = global::Mahwous.Droid.Resource.Attribute.summary;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.summaryOff = global::Mahwous.Droid.Resource.Attribute.summaryOff;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.summaryOn = global::Mahwous.Droid.Resource.Attribute.summaryOn;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.swipeRefreshLayoutProgressSpinnerBackgroundColor = global::Mahwous.Droid.Resource.Attribute.swipeRefreshLayoutProgressSpinnerBackgroundColor;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.switchMinWidth = global::Mahwous.Droid.Resource.Attribute.switchMinWidth;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.switchPadding = global::Mahwous.Droid.Resource.Attribute.switchPadding;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.switchPreferenceCompatStyle = global::Mahwous.Droid.Resource.Attribute.switchPreferenceCompatStyle;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.switchPreferenceStyle = global::Mahwous.Droid.Resource.Attribute.switchPreferenceStyle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.switchStyle = global::Mahwous.Droid.Resource.Attribute.switchStyle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.switchTextAppearance = global::Mahwous.Droid.Resource.Attribute.switchTextAppearance;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.switchTextOff = global::Mahwous.Droid.Resource.Attribute.switchTextOff;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.switchTextOn = global::Mahwous.Droid.Resource.Attribute.switchTextOn;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.tabBackground = global::Mahwous.Droid.Resource.Attribute.tabBackground;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.tabContentStart = global::Mahwous.Droid.Resource.Attribute.tabContentStart;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.tabGravity = global::Mahwous.Droid.Resource.Attribute.tabGravity;
@@ -8260,6 +8398,7 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Attribute.tabTextAppearance = global::Mahwous.Droid.Resource.Attribute.tabTextAppearance;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.tabTextColor = global::Mahwous.Droid.Resource.Attribute.tabTextColor;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.tabUnboundedRipple = global::Mahwous.Droid.Resource.Attribute.tabUnboundedRipple;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.targetPackage = global::Mahwous.Droid.Resource.Attribute.targetPackage;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.textAllCaps = global::Mahwous.Droid.Resource.Attribute.textAllCaps;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.textAppearanceBody1 = global::Mahwous.Droid.Resource.Attribute.textAppearanceBody1;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.textAppearanceBody2 = global::Mahwous.Droid.Resource.Attribute.textAppearanceBody2;
@@ -8286,15 +8425,22 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Attribute.textColorAlertDialogListItem = global::Mahwous.Droid.Resource.Attribute.textColorAlertDialogListItem;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.textColorSearchUrl = global::Mahwous.Droid.Resource.Attribute.textColorSearchUrl;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.textEndPadding = global::Mahwous.Droid.Resource.Attribute.textEndPadding;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.textInputLayoutFocusedRectEnabled = global::Mahwous.Droid.Resource.Attribute.textInputLayoutFocusedRectEnabled;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.textInputStyle = global::Mahwous.Droid.Resource.Attribute.textInputStyle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.textLocale = global::Mahwous.Droid.Resource.Attribute.textLocale;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.textStartPadding = global::Mahwous.Droid.Resource.Attribute.textStartPadding;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.theme = global::Mahwous.Droid.Resource.Attribute.theme;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.themeLineHeight = global::Mahwous.Droid.Resource.Attribute.themeLineHeight;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.thickness = global::Mahwous.Droid.Resource.Attribute.thickness;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.thumbColor = global::Mahwous.Droid.Resource.Attribute.thumbColor;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.thumbElevation = global::Mahwous.Droid.Resource.Attribute.thumbElevation;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.thumbRadius = global::Mahwous.Droid.Resource.Attribute.thumbRadius;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.thumbTextPadding = global::Mahwous.Droid.Resource.Attribute.thumbTextPadding;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.thumbTint = global::Mahwous.Droid.Resource.Attribute.thumbTint;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.thumbTintMode = global::Mahwous.Droid.Resource.Attribute.thumbTintMode;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.tickColor = global::Mahwous.Droid.Resource.Attribute.tickColor;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.tickColorActive = global::Mahwous.Droid.Resource.Attribute.tickColorActive;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.tickColorInactive = global::Mahwous.Droid.Resource.Attribute.tickColorInactive;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.tickMark = global::Mahwous.Droid.Resource.Attribute.tickMark;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.tickMarkTint = global::Mahwous.Droid.Resource.Attribute.tickMarkTint;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.tickMarkTintMode = global::Mahwous.Droid.Resource.Attribute.tickMarkTintMode;
@@ -8316,15 +8462,27 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Attribute.toolbarStyle = global::Mahwous.Droid.Resource.Attribute.toolbarStyle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.tooltipForegroundColor = global::Mahwous.Droid.Resource.Attribute.tooltipForegroundColor;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.tooltipFrameBackground = global::Mahwous.Droid.Resource.Attribute.tooltipFrameBackground;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.tooltipStyle = global::Mahwous.Droid.Resource.Attribute.tooltipStyle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.tooltipText = global::Mahwous.Droid.Resource.Attribute.tooltipText;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.track = global::Mahwous.Droid.Resource.Attribute.track;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.trackColor = global::Mahwous.Droid.Resource.Attribute.trackColor;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.trackColorActive = global::Mahwous.Droid.Resource.Attribute.trackColorActive;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.trackColorInactive = global::Mahwous.Droid.Resource.Attribute.trackColorInactive;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.trackHeight = global::Mahwous.Droid.Resource.Attribute.trackHeight;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.trackTint = global::Mahwous.Droid.Resource.Attribute.trackTint;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.trackTintMode = global::Mahwous.Droid.Resource.Attribute.trackTintMode;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.transitionShapeAppearance = global::Mahwous.Droid.Resource.Attribute.transitionShapeAppearance;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.ttcIndex = global::Mahwous.Droid.Resource.Attribute.ttcIndex;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.updatesContinuously = global::Mahwous.Droid.Resource.Attribute.updatesContinuously;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.uri = global::Mahwous.Droid.Resource.Attribute.uri;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.useCompatPadding = global::Mahwous.Droid.Resource.Attribute.useCompatPadding;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.useMaterialThemeColors = global::Mahwous.Droid.Resource.Attribute.useMaterialThemeColors;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.useSimpleSummaryProvider = global::Mahwous.Droid.Resource.Attribute.useSimpleSummaryProvider;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.values = global::Mahwous.Droid.Resource.Attribute.values;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.verticalOffset = global::Mahwous.Droid.Resource.Attribute.verticalOffset;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.viewInflaterClass = global::Mahwous.Droid.Resource.Attribute.viewInflaterClass;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.voiceIcon = global::Mahwous.Droid.Resource.Attribute.voiceIcon;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.widgetLayout = global::Mahwous.Droid.Resource.Attribute.widgetLayout;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.windowActionBar = global::Mahwous.Droid.Resource.Attribute.windowActionBar;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.windowActionBarOverlay = global::Mahwous.Droid.Resource.Attribute.windowActionBarOverlay;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.windowActionModeOverlay = global::Mahwous.Droid.Resource.Attribute.windowActionModeOverlay;
@@ -8341,6 +8499,7 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Boolean.abc_action_bar_embed_tabs = global::Mahwous.Droid.Resource.Boolean.abc_action_bar_embed_tabs;
 			global::Xamarin.CommunityToolkit.Resource.Boolean.abc_allow_stacked_button_bar = global::Mahwous.Droid.Resource.Boolean.abc_allow_stacked_button_bar;
 			global::Xamarin.CommunityToolkit.Resource.Boolean.abc_config_actionMenuItemAllCaps = global::Mahwous.Droid.Resource.Boolean.abc_config_actionMenuItemAllCaps;
+			global::Xamarin.CommunityToolkit.Resource.Boolean.config_materialPreferenceIconSpaceReserved = global::Mahwous.Droid.Resource.Boolean.config_materialPreferenceIconSpaceReserved;
 			global::Xamarin.CommunityToolkit.Resource.Boolean.mtrl_btn_textappearance_all_caps = global::Mahwous.Droid.Resource.Boolean.mtrl_btn_textappearance_all_caps;
 			global::Xamarin.CommunityToolkit.Resource.Color.abc_background_cache_hint_selector_material_dark = global::Mahwous.Droid.Resource.Color.abc_background_cache_hint_selector_material_dark;
 			global::Xamarin.CommunityToolkit.Resource.Color.abc_background_cache_hint_selector_material_light = global::Mahwous.Droid.Resource.Color.abc_background_cache_hint_selector_material_light;
@@ -8461,6 +8620,13 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Color.material_on_surface_disabled = global::Mahwous.Droid.Resource.Color.material_on_surface_disabled;
 			global::Xamarin.CommunityToolkit.Resource.Color.material_on_surface_emphasis_high_type = global::Mahwous.Droid.Resource.Color.material_on_surface_emphasis_high_type;
 			global::Xamarin.CommunityToolkit.Resource.Color.material_on_surface_emphasis_medium = global::Mahwous.Droid.Resource.Color.material_on_surface_emphasis_medium;
+			global::Xamarin.CommunityToolkit.Resource.Color.material_on_surface_stroke = global::Mahwous.Droid.Resource.Color.material_on_surface_stroke;
+			global::Xamarin.CommunityToolkit.Resource.Color.material_slider_active_tick_marks_color = global::Mahwous.Droid.Resource.Color.material_slider_active_tick_marks_color;
+			global::Xamarin.CommunityToolkit.Resource.Color.material_slider_active_track_color = global::Mahwous.Droid.Resource.Color.material_slider_active_track_color;
+			global::Xamarin.CommunityToolkit.Resource.Color.material_slider_halo_color = global::Mahwous.Droid.Resource.Color.material_slider_halo_color;
+			global::Xamarin.CommunityToolkit.Resource.Color.material_slider_inactive_tick_marks_color = global::Mahwous.Droid.Resource.Color.material_slider_inactive_tick_marks_color;
+			global::Xamarin.CommunityToolkit.Resource.Color.material_slider_inactive_track_color = global::Mahwous.Droid.Resource.Color.material_slider_inactive_track_color;
+			global::Xamarin.CommunityToolkit.Resource.Color.material_slider_thumb_color = global::Mahwous.Droid.Resource.Color.material_slider_thumb_color;
 			global::Xamarin.CommunityToolkit.Resource.Color.mtrl_bottom_nav_colored_item_tint = global::Mahwous.Droid.Resource.Color.mtrl_bottom_nav_colored_item_tint;
 			global::Xamarin.CommunityToolkit.Resource.Color.mtrl_bottom_nav_colored_ripple_color = global::Mahwous.Droid.Resource.Color.mtrl_bottom_nav_colored_ripple_color;
 			global::Xamarin.CommunityToolkit.Resource.Color.mtrl_bottom_nav_item_tint = global::Mahwous.Droid.Resource.Color.mtrl_bottom_nav_item_tint;
@@ -8486,6 +8652,8 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Color.mtrl_choice_chip_ripple_color = global::Mahwous.Droid.Resource.Color.mtrl_choice_chip_ripple_color;
 			global::Xamarin.CommunityToolkit.Resource.Color.mtrl_choice_chip_text_color = global::Mahwous.Droid.Resource.Color.mtrl_choice_chip_text_color;
 			global::Xamarin.CommunityToolkit.Resource.Color.mtrl_error = global::Mahwous.Droid.Resource.Color.mtrl_error;
+			global::Xamarin.CommunityToolkit.Resource.Color.mtrl_fab_bg_color_selector = global::Mahwous.Droid.Resource.Color.mtrl_fab_bg_color_selector;
+			global::Xamarin.CommunityToolkit.Resource.Color.mtrl_fab_icon_text_color_selector = global::Mahwous.Droid.Resource.Color.mtrl_fab_icon_text_color_selector;
 			global::Xamarin.CommunityToolkit.Resource.Color.mtrl_fab_ripple_color = global::Mahwous.Droid.Resource.Color.mtrl_fab_ripple_color;
 			global::Xamarin.CommunityToolkit.Resource.Color.mtrl_filled_background_color = global::Mahwous.Droid.Resource.Color.mtrl_filled_background_color;
 			global::Xamarin.CommunityToolkit.Resource.Color.mtrl_filled_icon_tint = global::Mahwous.Droid.Resource.Color.mtrl_filled_icon_tint;
@@ -8513,6 +8681,7 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Color.notification_action_color_filter = global::Mahwous.Droid.Resource.Color.notification_action_color_filter;
 			global::Xamarin.CommunityToolkit.Resource.Color.notification_icon_bg_color = global::Mahwous.Droid.Resource.Color.notification_icon_bg_color;
 			global::Xamarin.CommunityToolkit.Resource.Color.notification_material_background_media_default_color = global::Mahwous.Droid.Resource.Color.notification_material_background_media_default_color;
+			global::Xamarin.CommunityToolkit.Resource.Color.preference_fallback_accent_color = global::Mahwous.Droid.Resource.Color.preference_fallback_accent_color;
 			global::Xamarin.CommunityToolkit.Resource.Color.primary_dark_material_dark = global::Mahwous.Droid.Resource.Color.primary_dark_material_dark;
 			global::Xamarin.CommunityToolkit.Resource.Color.primary_dark_material_light = global::Mahwous.Droid.Resource.Color.primary_dark_material_light;
 			global::Xamarin.CommunityToolkit.Resource.Color.primary_material_dark = global::Mahwous.Droid.Resource.Color.primary_material_dark;
@@ -8521,6 +8690,7 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Color.primary_text_default_material_light = global::Mahwous.Droid.Resource.Color.primary_text_default_material_light;
 			global::Xamarin.CommunityToolkit.Resource.Color.primary_text_disabled_material_dark = global::Mahwous.Droid.Resource.Color.primary_text_disabled_material_dark;
 			global::Xamarin.CommunityToolkit.Resource.Color.primary_text_disabled_material_light = global::Mahwous.Droid.Resource.Color.primary_text_disabled_material_light;
+			global::Xamarin.CommunityToolkit.Resource.Color.radiobutton_themeable_attribute_color = global::Mahwous.Droid.Resource.Color.radiobutton_themeable_attribute_color;
 			global::Xamarin.CommunityToolkit.Resource.Color.ripple_material_dark = global::Mahwous.Droid.Resource.Color.ripple_material_dark;
 			global::Xamarin.CommunityToolkit.Resource.Color.ripple_material_light = global::Mahwous.Droid.Resource.Color.ripple_material_light;
 			global::Xamarin.CommunityToolkit.Resource.Color.secondary_text_default_material_dark = global::Mahwous.Droid.Resource.Color.secondary_text_default_material_dark;
@@ -8785,6 +8955,7 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_card_spacing = global::Mahwous.Droid.Resource.Dimension.mtrl_card_spacing;
 			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_chip_pressed_translation_z = global::Mahwous.Droid.Resource.Dimension.mtrl_chip_pressed_translation_z;
 			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_chip_text_size = global::Mahwous.Droid.Resource.Dimension.mtrl_chip_text_size;
+			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_edittext_rectangle_top_offset = global::Mahwous.Droid.Resource.Dimension.mtrl_edittext_rectangle_top_offset;
 			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_exposed_dropdown_menu_popup_elevation = global::Mahwous.Droid.Resource.Dimension.mtrl_exposed_dropdown_menu_popup_elevation;
 			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_exposed_dropdown_menu_popup_vertical_offset = global::Mahwous.Droid.Resource.Dimension.mtrl_exposed_dropdown_menu_popup_vertical_offset;
 			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_exposed_dropdown_menu_popup_vertical_padding = global::Mahwous.Droid.Resource.Dimension.mtrl_exposed_dropdown_menu_popup_vertical_padding;
@@ -8828,6 +8999,16 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_shape_corner_size_large_component = global::Mahwous.Droid.Resource.Dimension.mtrl_shape_corner_size_large_component;
 			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_shape_corner_size_medium_component = global::Mahwous.Droid.Resource.Dimension.mtrl_shape_corner_size_medium_component;
 			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_shape_corner_size_small_component = global::Mahwous.Droid.Resource.Dimension.mtrl_shape_corner_size_small_component;
+			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_slider_halo_radius = global::Mahwous.Droid.Resource.Dimension.mtrl_slider_halo_radius;
+			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_slider_label_padding = global::Mahwous.Droid.Resource.Dimension.mtrl_slider_label_padding;
+			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_slider_label_radius = global::Mahwous.Droid.Resource.Dimension.mtrl_slider_label_radius;
+			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_slider_label_square_side = global::Mahwous.Droid.Resource.Dimension.mtrl_slider_label_square_side;
+			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_slider_thumb_elevation = global::Mahwous.Droid.Resource.Dimension.mtrl_slider_thumb_elevation;
+			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_slider_thumb_radius = global::Mahwous.Droid.Resource.Dimension.mtrl_slider_thumb_radius;
+			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_slider_track_height = global::Mahwous.Droid.Resource.Dimension.mtrl_slider_track_height;
+			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_slider_track_side_padding = global::Mahwous.Droid.Resource.Dimension.mtrl_slider_track_side_padding;
+			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_slider_track_top = global::Mahwous.Droid.Resource.Dimension.mtrl_slider_track_top;
+			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_slider_widget_height = global::Mahwous.Droid.Resource.Dimension.mtrl_slider_widget_height;
 			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_snackbar_action_text_color_alpha = global::Mahwous.Droid.Resource.Dimension.mtrl_snackbar_action_text_color_alpha;
 			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_snackbar_background_corner_radius = global::Mahwous.Droid.Resource.Dimension.mtrl_snackbar_background_corner_radius;
 			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_snackbar_background_overlay_color_alpha = global::Mahwous.Droid.Resource.Dimension.mtrl_snackbar_background_overlay_color_alpha;
@@ -8838,10 +9019,17 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_textinput_box_label_cutout_padding = global::Mahwous.Droid.Resource.Dimension.mtrl_textinput_box_label_cutout_padding;
 			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_textinput_box_stroke_width_default = global::Mahwous.Droid.Resource.Dimension.mtrl_textinput_box_stroke_width_default;
 			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_textinput_box_stroke_width_focused = global::Mahwous.Droid.Resource.Dimension.mtrl_textinput_box_stroke_width_focused;
+			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_textinput_counter_margin_start = global::Mahwous.Droid.Resource.Dimension.mtrl_textinput_counter_margin_start;
 			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_textinput_end_icon_margin_start = global::Mahwous.Droid.Resource.Dimension.mtrl_textinput_end_icon_margin_start;
 			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_textinput_outline_box_expanded_padding = global::Mahwous.Droid.Resource.Dimension.mtrl_textinput_outline_box_expanded_padding;
 			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_textinput_start_icon_margin_end = global::Mahwous.Droid.Resource.Dimension.mtrl_textinput_start_icon_margin_end;
 			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_toolbar_default_height = global::Mahwous.Droid.Resource.Dimension.mtrl_toolbar_default_height;
+			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_tooltip_arrowSize = global::Mahwous.Droid.Resource.Dimension.mtrl_tooltip_arrowSize;
+			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_tooltip_cornerSize = global::Mahwous.Droid.Resource.Dimension.mtrl_tooltip_cornerSize;
+			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_tooltip_minHeight = global::Mahwous.Droid.Resource.Dimension.mtrl_tooltip_minHeight;
+			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_tooltip_minWidth = global::Mahwous.Droid.Resource.Dimension.mtrl_tooltip_minWidth;
+			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_tooltip_padding = global::Mahwous.Droid.Resource.Dimension.mtrl_tooltip_padding;
+			global::Xamarin.CommunityToolkit.Resource.Dimension.mtrl_transition_shared_axis_slide_distance = global::Mahwous.Droid.Resource.Dimension.mtrl_transition_shared_axis_slide_distance;
 			global::Xamarin.CommunityToolkit.Resource.Dimension.notification_action_icon_size = global::Mahwous.Droid.Resource.Dimension.notification_action_icon_size;
 			global::Xamarin.CommunityToolkit.Resource.Dimension.notification_action_text_size = global::Mahwous.Droid.Resource.Dimension.notification_action_text_size;
 			global::Xamarin.CommunityToolkit.Resource.Dimension.notification_big_circle_margin = global::Mahwous.Droid.Resource.Dimension.notification_big_circle_margin;
@@ -8857,6 +9045,11 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Dimension.notification_subtext_size = global::Mahwous.Droid.Resource.Dimension.notification_subtext_size;
 			global::Xamarin.CommunityToolkit.Resource.Dimension.notification_top_pad = global::Mahwous.Droid.Resource.Dimension.notification_top_pad;
 			global::Xamarin.CommunityToolkit.Resource.Dimension.notification_top_pad_large_text = global::Mahwous.Droid.Resource.Dimension.notification_top_pad_large_text;
+			global::Xamarin.CommunityToolkit.Resource.Dimension.preference_dropdown_padding_start = global::Mahwous.Droid.Resource.Dimension.preference_dropdown_padding_start;
+			global::Xamarin.CommunityToolkit.Resource.Dimension.preference_icon_minWidth = global::Mahwous.Droid.Resource.Dimension.preference_icon_minWidth;
+			global::Xamarin.CommunityToolkit.Resource.Dimension.preference_seekbar_padding_horizontal = global::Mahwous.Droid.Resource.Dimension.preference_seekbar_padding_horizontal;
+			global::Xamarin.CommunityToolkit.Resource.Dimension.preference_seekbar_padding_vertical = global::Mahwous.Droid.Resource.Dimension.preference_seekbar_padding_vertical;
+			global::Xamarin.CommunityToolkit.Resource.Dimension.preference_seekbar_value_minWidth = global::Mahwous.Droid.Resource.Dimension.preference_seekbar_value_minWidth;
 			global::Xamarin.CommunityToolkit.Resource.Dimension.test_mtrl_calendar_day_cornerSize = global::Mahwous.Droid.Resource.Dimension.test_mtrl_calendar_day_cornerSize;
 			global::Xamarin.CommunityToolkit.Resource.Dimension.tooltip_corner_radius = global::Mahwous.Droid.Resource.Dimension.tooltip_corner_radius;
 			global::Xamarin.CommunityToolkit.Resource.Dimension.tooltip_horizontal_padding = global::Mahwous.Droid.Resource.Dimension.tooltip_horizontal_padding;
@@ -8968,10 +9161,18 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Drawable.design_ic_visibility_off = global::Mahwous.Droid.Resource.Drawable.design_ic_visibility_off;
 			global::Xamarin.CommunityToolkit.Resource.Drawable.design_password_eye = global::Mahwous.Droid.Resource.Drawable.design_password_eye;
 			global::Xamarin.CommunityToolkit.Resource.Drawable.design_snackbar_background = global::Mahwous.Droid.Resource.Drawable.design_snackbar_background;
+			global::Xamarin.CommunityToolkit.Resource.Drawable.ic_arrow_down_24dp = global::Mahwous.Droid.Resource.Drawable.ic_arrow_down_24dp;
 			global::Xamarin.CommunityToolkit.Resource.Drawable.ic_mtrl_checked_circle = global::Mahwous.Droid.Resource.Drawable.ic_mtrl_checked_circle;
 			global::Xamarin.CommunityToolkit.Resource.Drawable.ic_mtrl_chip_checked_black = global::Mahwous.Droid.Resource.Drawable.ic_mtrl_chip_checked_black;
 			global::Xamarin.CommunityToolkit.Resource.Drawable.ic_mtrl_chip_checked_circle = global::Mahwous.Droid.Resource.Drawable.ic_mtrl_chip_checked_circle;
 			global::Xamarin.CommunityToolkit.Resource.Drawable.ic_mtrl_chip_close_circle = global::Mahwous.Droid.Resource.Drawable.ic_mtrl_chip_close_circle;
+			global::Xamarin.CommunityToolkit.Resource.Drawable.material_ic_calendar_black_24dp = global::Mahwous.Droid.Resource.Drawable.material_ic_calendar_black_24dp;
+			global::Xamarin.CommunityToolkit.Resource.Drawable.material_ic_clear_black_24dp = global::Mahwous.Droid.Resource.Drawable.material_ic_clear_black_24dp;
+			global::Xamarin.CommunityToolkit.Resource.Drawable.material_ic_edit_black_24dp = global::Mahwous.Droid.Resource.Drawable.material_ic_edit_black_24dp;
+			global::Xamarin.CommunityToolkit.Resource.Drawable.material_ic_keyboard_arrow_left_black_24dp = global::Mahwous.Droid.Resource.Drawable.material_ic_keyboard_arrow_left_black_24dp;
+			global::Xamarin.CommunityToolkit.Resource.Drawable.material_ic_keyboard_arrow_right_black_24dp = global::Mahwous.Droid.Resource.Drawable.material_ic_keyboard_arrow_right_black_24dp;
+			global::Xamarin.CommunityToolkit.Resource.Drawable.material_ic_menu_arrow_down_black_24dp = global::Mahwous.Droid.Resource.Drawable.material_ic_menu_arrow_down_black_24dp;
+			global::Xamarin.CommunityToolkit.Resource.Drawable.material_ic_menu_arrow_up_black_24dp = global::Mahwous.Droid.Resource.Drawable.material_ic_menu_arrow_up_black_24dp;
 			global::Xamarin.CommunityToolkit.Resource.Drawable.mtrl_dialog_background = global::Mahwous.Droid.Resource.Drawable.mtrl_dialog_background;
 			global::Xamarin.CommunityToolkit.Resource.Drawable.mtrl_dropdown_arrow = global::Mahwous.Droid.Resource.Drawable.mtrl_dropdown_arrow;
 			global::Xamarin.CommunityToolkit.Resource.Drawable.mtrl_ic_arrow_drop_down = global::Mahwous.Droid.Resource.Drawable.mtrl_ic_arrow_drop_down;
@@ -8994,6 +9195,7 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Drawable.notification_template_icon_low_bg = global::Mahwous.Droid.Resource.Drawable.notification_template_icon_low_bg;
 			global::Xamarin.CommunityToolkit.Resource.Drawable.notification_tile_bg = global::Mahwous.Droid.Resource.Drawable.notification_tile_bg;
 			global::Xamarin.CommunityToolkit.Resource.Drawable.notify_panel_notification_icon_bg = global::Mahwous.Droid.Resource.Drawable.notify_panel_notification_icon_bg;
+			global::Xamarin.CommunityToolkit.Resource.Drawable.preference_list_divider_material = global::Mahwous.Droid.Resource.Drawable.preference_list_divider_material;
 			global::Xamarin.CommunityToolkit.Resource.Drawable.test_custom_background = global::Mahwous.Droid.Resource.Drawable.test_custom_background;
 			global::Xamarin.CommunityToolkit.Resource.Drawable.tooltip_frame_dark = global::Mahwous.Droid.Resource.Drawable.tooltip_frame_dark;
 			global::Xamarin.CommunityToolkit.Resource.Drawable.tooltip_frame_light = global::Mahwous.Droid.Resource.Drawable.tooltip_frame_light;
@@ -9079,6 +9281,9 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Id.checkbox = global::Mahwous.Droid.Resource.Id.checkbox;
 			global::Xamarin.CommunityToolkit.Resource.Id.@checked = global::Mahwous.Droid.Resource.Id.@checked;
 			global::Xamarin.CommunityToolkit.Resource.Id.chip = global::Mahwous.Droid.Resource.Id.chip;
+			global::Xamarin.CommunityToolkit.Resource.Id.chip1 = global::Mahwous.Droid.Resource.Id.chip1;
+			global::Xamarin.CommunityToolkit.Resource.Id.chip2 = global::Mahwous.Droid.Resource.Id.chip2;
+			global::Xamarin.CommunityToolkit.Resource.Id.chip3 = global::Mahwous.Droid.Resource.Id.chip3;
 			global::Xamarin.CommunityToolkit.Resource.Id.chip_group = global::Mahwous.Droid.Resource.Id.chip_group;
 			global::Xamarin.CommunityToolkit.Resource.Id.chronometer = global::Mahwous.Droid.Resource.Id.chronometer;
 			global::Xamarin.CommunityToolkit.Resource.Id.clear_text = global::Mahwous.Droid.Resource.Id.clear_text;
@@ -9120,17 +9325,20 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Id.fill_vertical = global::Mahwous.Droid.Resource.Id.fill_vertical;
 			global::Xamarin.CommunityToolkit.Resource.Id.fitToContents = global::Mahwous.Droid.Resource.Id.fitToContents;
 			global::Xamarin.CommunityToolkit.Resource.Id.@fixed = global::Mahwous.Droid.Resource.Id.@fixed;
+			global::Xamarin.CommunityToolkit.Resource.Id.floating = global::Mahwous.Droid.Resource.Id.floating;
 			global::Xamarin.CommunityToolkit.Resource.Id.flyoutcontent_appbar = global::Mahwous.Droid.Resource.Id.flyoutcontent_appbar;
 			global::Xamarin.CommunityToolkit.Resource.Id.forever = global::Mahwous.Droid.Resource.Id.forever;
 			global::Xamarin.CommunityToolkit.Resource.Id.fragment_container_view_tag = global::Mahwous.Droid.Resource.Id.fragment_container_view_tag;
 			global::Xamarin.CommunityToolkit.Resource.Id.FUNCTION = global::Mahwous.Droid.Resource.Id.FUNCTION;
 			global::Xamarin.CommunityToolkit.Resource.Id.ghost_view = global::Mahwous.Droid.Resource.Id.ghost_view;
 			global::Xamarin.CommunityToolkit.Resource.Id.ghost_view_holder = global::Mahwous.Droid.Resource.Id.ghost_view_holder;
+			global::Xamarin.CommunityToolkit.Resource.Id.gone = global::Mahwous.Droid.Resource.Id.gone;
 			global::Xamarin.CommunityToolkit.Resource.Id.group_divider = global::Mahwous.Droid.Resource.Id.group_divider;
 			global::Xamarin.CommunityToolkit.Resource.Id.hideable = global::Mahwous.Droid.Resource.Id.hideable;
 			global::Xamarin.CommunityToolkit.Resource.Id.home = global::Mahwous.Droid.Resource.Id.home;
 			global::Xamarin.CommunityToolkit.Resource.Id.homeAsUp = global::Mahwous.Droid.Resource.Id.homeAsUp;
 			global::Xamarin.CommunityToolkit.Resource.Id.icon = global::Mahwous.Droid.Resource.Id.icon;
+			global::Xamarin.CommunityToolkit.Resource.Id.icon_frame = global::Mahwous.Droid.Resource.Id.icon_frame;
 			global::Xamarin.CommunityToolkit.Resource.Id.icon_group = global::Mahwous.Droid.Resource.Id.icon_group;
 			global::Xamarin.CommunityToolkit.Resource.Id.ifRoom = global::Mahwous.Droid.Resource.Id.ifRoom;
 			global::Xamarin.CommunityToolkit.Resource.Id.image = global::Mahwous.Droid.Resource.Id.image;
@@ -9172,6 +9380,7 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Id.mtrl_card_checked_layer_id = global::Mahwous.Droid.Resource.Id.mtrl_card_checked_layer_id;
 			global::Xamarin.CommunityToolkit.Resource.Id.mtrl_child_content_container = global::Mahwous.Droid.Resource.Id.mtrl_child_content_container;
 			global::Xamarin.CommunityToolkit.Resource.Id.mtrl_internal_children_alpha_tag = global::Mahwous.Droid.Resource.Id.mtrl_internal_children_alpha_tag;
+			global::Xamarin.CommunityToolkit.Resource.Id.mtrl_motion_snapshot_view = global::Mahwous.Droid.Resource.Id.mtrl_motion_snapshot_view;
 			global::Xamarin.CommunityToolkit.Resource.Id.mtrl_picker_fullscreen = global::Mahwous.Droid.Resource.Id.mtrl_picker_fullscreen;
 			global::Xamarin.CommunityToolkit.Resource.Id.mtrl_picker_header = global::Mahwous.Droid.Resource.Id.mtrl_picker_header;
 			global::Xamarin.CommunityToolkit.Resource.Id.mtrl_picker_header_selection_text = global::Mahwous.Droid.Resource.Id.mtrl_picker_header_selection_text;
@@ -9183,6 +9392,7 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Id.mtrl_picker_title_text = global::Mahwous.Droid.Resource.Id.mtrl_picker_title_text;
 			global::Xamarin.CommunityToolkit.Resource.Id.multiply = global::Mahwous.Droid.Resource.Id.multiply;
 			global::Xamarin.CommunityToolkit.Resource.Id.navigation_header_container = global::Mahwous.Droid.Resource.Id.navigation_header_container;
+			global::Xamarin.CommunityToolkit.Resource.Id.nav_controller_view_tag = global::Mahwous.Droid.Resource.Id.nav_controller_view_tag;
 			global::Xamarin.CommunityToolkit.Resource.Id.never = global::Mahwous.Droid.Resource.Id.never;
 			global::Xamarin.CommunityToolkit.Resource.Id.none = global::Mahwous.Droid.Resource.Id.none;
 			global::Xamarin.CommunityToolkit.Resource.Id.normal = global::Mahwous.Droid.Resource.Id.normal;
@@ -9202,10 +9412,12 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Id.progress_circular = global::Mahwous.Droid.Resource.Id.progress_circular;
 			global::Xamarin.CommunityToolkit.Resource.Id.progress_horizontal = global::Mahwous.Droid.Resource.Id.progress_horizontal;
 			global::Xamarin.CommunityToolkit.Resource.Id.radio = global::Mahwous.Droid.Resource.Id.radio;
+			global::Xamarin.CommunityToolkit.Resource.Id.recycler_view = global::Mahwous.Droid.Resource.Id.recycler_view;
 			global::Xamarin.CommunityToolkit.Resource.Id.right = global::Mahwous.Droid.Resource.Id.right;
 			global::Xamarin.CommunityToolkit.Resource.Id.right_icon = global::Mahwous.Droid.Resource.Id.right_icon;
 			global::Xamarin.CommunityToolkit.Resource.Id.right_side = global::Mahwous.Droid.Resource.Id.right_side;
 			global::Xamarin.CommunityToolkit.Resource.Id.rounded = global::Mahwous.Droid.Resource.Id.rounded;
+			global::Xamarin.CommunityToolkit.Resource.Id.row_index_key = global::Mahwous.Droid.Resource.Id.row_index_key;
 			global::Xamarin.CommunityToolkit.Resource.Id.save_non_transition_alpha = global::Mahwous.Droid.Resource.Id.save_non_transition_alpha;
 			global::Xamarin.CommunityToolkit.Resource.Id.save_overlay_view = global::Mahwous.Droid.Resource.Id.save_overlay_view;
 			global::Xamarin.CommunityToolkit.Resource.Id.scale = global::Mahwous.Droid.Resource.Id.scale;
@@ -9225,6 +9437,8 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Id.search_plate = global::Mahwous.Droid.Resource.Id.search_plate;
 			global::Xamarin.CommunityToolkit.Resource.Id.search_src_text = global::Mahwous.Droid.Resource.Id.search_src_text;
 			global::Xamarin.CommunityToolkit.Resource.Id.search_voice_btn = global::Mahwous.Droid.Resource.Id.search_voice_btn;
+			global::Xamarin.CommunityToolkit.Resource.Id.seekbar = global::Mahwous.Droid.Resource.Id.seekbar;
+			global::Xamarin.CommunityToolkit.Resource.Id.seekbar_value = global::Mahwous.Droid.Resource.Id.seekbar_value;
 			global::Xamarin.CommunityToolkit.Resource.Id.selected = global::Mahwous.Droid.Resource.Id.selected;
 			global::Xamarin.CommunityToolkit.Resource.Id.select_dialog_listview = global::Mahwous.Droid.Resource.Id.select_dialog_listview;
 			global::Xamarin.CommunityToolkit.Resource.Id.shellcontent_appbar = global::Mahwous.Droid.Resource.Id.shellcontent_appbar;
@@ -9243,6 +9457,8 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Id.snap = global::Mahwous.Droid.Resource.Id.snap;
 			global::Xamarin.CommunityToolkit.Resource.Id.snapMargins = global::Mahwous.Droid.Resource.Id.snapMargins;
 			global::Xamarin.CommunityToolkit.Resource.Id.spacer = global::Mahwous.Droid.Resource.Id.spacer;
+			global::Xamarin.CommunityToolkit.Resource.Id.special_effects_controller_view_tag = global::Mahwous.Droid.Resource.Id.special_effects_controller_view_tag;
+			global::Xamarin.CommunityToolkit.Resource.Id.spinner = global::Mahwous.Droid.Resource.Id.spinner;
 			global::Xamarin.CommunityToolkit.Resource.Id.split_action_bar = global::Mahwous.Droid.Resource.Id.split_action_bar;
 			global::Xamarin.CommunityToolkit.Resource.Id.src_atop = global::Mahwous.Droid.Resource.Id.src_atop;
 			global::Xamarin.CommunityToolkit.Resource.Id.src_in = global::Mahwous.Droid.Resource.Id.src_in;
@@ -9252,6 +9468,7 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Id.stretch = global::Mahwous.Droid.Resource.Id.stretch;
 			global::Xamarin.CommunityToolkit.Resource.Id.submenuarrow = global::Mahwous.Droid.Resource.Id.submenuarrow;
 			global::Xamarin.CommunityToolkit.Resource.Id.submit_area = global::Mahwous.Droid.Resource.Id.submit_area;
+			global::Xamarin.CommunityToolkit.Resource.Id.switchWidget = global::Mahwous.Droid.Resource.Id.switchWidget;
 			global::Xamarin.CommunityToolkit.Resource.Id.SYM = global::Mahwous.Droid.Resource.Id.SYM;
 			global::Xamarin.CommunityToolkit.Resource.Id.tabMode = global::Mahwous.Droid.Resource.Id.tabMode;
 			global::Xamarin.CommunityToolkit.Resource.Id.tag_accessibility_actions = global::Mahwous.Droid.Resource.Id.tag_accessibility_actions;
@@ -9264,12 +9481,17 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Id.tag_unhandled_key_listeners = global::Mahwous.Droid.Resource.Id.tag_unhandled_key_listeners;
 			global::Xamarin.CommunityToolkit.Resource.Id.test_checkbox_android_button_tint = global::Mahwous.Droid.Resource.Id.test_checkbox_android_button_tint;
 			global::Xamarin.CommunityToolkit.Resource.Id.test_checkbox_app_button_tint = global::Mahwous.Droid.Resource.Id.test_checkbox_app_button_tint;
+			global::Xamarin.CommunityToolkit.Resource.Id.test_radiobutton_android_button_tint = global::Mahwous.Droid.Resource.Id.test_radiobutton_android_button_tint;
+			global::Xamarin.CommunityToolkit.Resource.Id.test_radiobutton_app_button_tint = global::Mahwous.Droid.Resource.Id.test_radiobutton_app_button_tint;
 			global::Xamarin.CommunityToolkit.Resource.Id.text = global::Mahwous.Droid.Resource.Id.text;
 			global::Xamarin.CommunityToolkit.Resource.Id.text2 = global::Mahwous.Droid.Resource.Id.text2;
 			global::Xamarin.CommunityToolkit.Resource.Id.textEnd = global::Mahwous.Droid.Resource.Id.textEnd;
 			global::Xamarin.CommunityToolkit.Resource.Id.textinput_counter = global::Mahwous.Droid.Resource.Id.textinput_counter;
 			global::Xamarin.CommunityToolkit.Resource.Id.textinput_error = global::Mahwous.Droid.Resource.Id.textinput_error;
 			global::Xamarin.CommunityToolkit.Resource.Id.textinput_helper_text = global::Mahwous.Droid.Resource.Id.textinput_helper_text;
+			global::Xamarin.CommunityToolkit.Resource.Id.textinput_placeholder = global::Mahwous.Droid.Resource.Id.textinput_placeholder;
+			global::Xamarin.CommunityToolkit.Resource.Id.textinput_prefix_text = global::Mahwous.Droid.Resource.Id.textinput_prefix_text;
+			global::Xamarin.CommunityToolkit.Resource.Id.textinput_suffix_text = global::Mahwous.Droid.Resource.Id.textinput_suffix_text;
 			global::Xamarin.CommunityToolkit.Resource.Id.textSpacerNoButtons = global::Mahwous.Droid.Resource.Id.textSpacerNoButtons;
 			global::Xamarin.CommunityToolkit.Resource.Id.textSpacerNoTitle = global::Mahwous.Droid.Resource.Id.textSpacerNoTitle;
 			global::Xamarin.CommunityToolkit.Resource.Id.textStart = global::Mahwous.Droid.Resource.Id.textStart;
@@ -9296,16 +9518,21 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Id.up = global::Mahwous.Droid.Resource.Id.up;
 			global::Xamarin.CommunityToolkit.Resource.Id.useLogo = global::Mahwous.Droid.Resource.Id.useLogo;
 			global::Xamarin.CommunityToolkit.Resource.Id.view_offset_helper = global::Mahwous.Droid.Resource.Id.view_offset_helper;
+			global::Xamarin.CommunityToolkit.Resource.Id.view_tree_lifecycle_owner = global::Mahwous.Droid.Resource.Id.view_tree_lifecycle_owner;
 			global::Xamarin.CommunityToolkit.Resource.Id.view_tree_saved_state_registry_owner = global::Mahwous.Droid.Resource.Id.view_tree_saved_state_registry_owner;
+			global::Xamarin.CommunityToolkit.Resource.Id.view_tree_view_model_store_owner = global::Mahwous.Droid.Resource.Id.view_tree_view_model_store_owner;
 			global::Xamarin.CommunityToolkit.Resource.Id.visible = global::Mahwous.Droid.Resource.Id.visible;
 			global::Xamarin.CommunityToolkit.Resource.Id.visible_removing_fragment_view_tag = global::Mahwous.Droid.Resource.Id.visible_removing_fragment_view_tag;
+			global::Xamarin.CommunityToolkit.Resource.Id.withinBounds = global::Mahwous.Droid.Resource.Id.withinBounds;
 			global::Xamarin.CommunityToolkit.Resource.Id.withText = global::Mahwous.Droid.Resource.Id.withText;
 			global::Xamarin.CommunityToolkit.Resource.Id.wrap_content = global::Mahwous.Droid.Resource.Id.wrap_content;
+			global::Xamarin.CommunityToolkit.Resource.Id.zero_corner_chip = global::Mahwous.Droid.Resource.Id.zero_corner_chip;
 			global::Xamarin.CommunityToolkit.Resource.Integer.abc_config_activityDefaultDur = global::Mahwous.Droid.Resource.Integer.abc_config_activityDefaultDur;
 			global::Xamarin.CommunityToolkit.Resource.Integer.abc_config_activityShortDur = global::Mahwous.Droid.Resource.Integer.abc_config_activityShortDur;
 			global::Xamarin.CommunityToolkit.Resource.Integer.app_bar_elevation_anim_duration = global::Mahwous.Droid.Resource.Integer.app_bar_elevation_anim_duration;
 			global::Xamarin.CommunityToolkit.Resource.Integer.bottom_sheet_slide_duration = global::Mahwous.Droid.Resource.Integer.bottom_sheet_slide_duration;
 			global::Xamarin.CommunityToolkit.Resource.Integer.cancel_button_image_alpha = global::Mahwous.Droid.Resource.Integer.cancel_button_image_alpha;
+			global::Xamarin.CommunityToolkit.Resource.Integer.config_navAnimTime = global::Mahwous.Droid.Resource.Integer.config_navAnimTime;
 			global::Xamarin.CommunityToolkit.Resource.Integer.config_tooltipAnimTime = global::Mahwous.Droid.Resource.Integer.config_tooltipAnimTime;
 			global::Xamarin.CommunityToolkit.Resource.Integer.design_snackbar_text_max_lines = global::Mahwous.Droid.Resource.Integer.design_snackbar_text_max_lines;
 			global::Xamarin.CommunityToolkit.Resource.Integer.design_tab_indicator_anim_duration_ms = global::Mahwous.Droid.Resource.Integer.design_tab_indicator_anim_duration_ms;
@@ -9381,9 +9608,11 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Layout.design_navigation_menu_item = global::Mahwous.Droid.Resource.Layout.design_navigation_menu_item;
 			global::Xamarin.CommunityToolkit.Resource.Layout.design_text_input_end_icon = global::Mahwous.Droid.Resource.Layout.design_text_input_end_icon;
 			global::Xamarin.CommunityToolkit.Resource.Layout.design_text_input_start_icon = global::Mahwous.Droid.Resource.Layout.design_text_input_start_icon;
+			global::Xamarin.CommunityToolkit.Resource.Layout.expand_button = global::Mahwous.Droid.Resource.Layout.expand_button;
 			global::Xamarin.CommunityToolkit.Resource.Layout.FallbackTabbarDoNotUse = global::Mahwous.Droid.Resource.Layout.FallbackTabbarDoNotUse;
 			global::Xamarin.CommunityToolkit.Resource.Layout.FallbackToolbarDoNotUse = global::Mahwous.Droid.Resource.Layout.FallbackToolbarDoNotUse;
 			global::Xamarin.CommunityToolkit.Resource.Layout.FlyoutContent = global::Mahwous.Droid.Resource.Layout.FlyoutContent;
+			global::Xamarin.CommunityToolkit.Resource.Layout.image_frame = global::Mahwous.Droid.Resource.Layout.image_frame;
 			global::Xamarin.CommunityToolkit.Resource.Layout.mtrl_alert_dialog = global::Mahwous.Droid.Resource.Layout.mtrl_alert_dialog;
 			global::Xamarin.CommunityToolkit.Resource.Layout.mtrl_alert_dialog_actions = global::Mahwous.Droid.Resource.Layout.mtrl_alert_dialog_actions;
 			global::Xamarin.CommunityToolkit.Resource.Layout.mtrl_alert_dialog_title = global::Mahwous.Droid.Resource.Layout.mtrl_alert_dialog_title;
@@ -9427,6 +9656,22 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Layout.notification_template_media_custom = global::Mahwous.Droid.Resource.Layout.notification_template_media_custom;
 			global::Xamarin.CommunityToolkit.Resource.Layout.notification_template_part_chronometer = global::Mahwous.Droid.Resource.Layout.notification_template_part_chronometer;
 			global::Xamarin.CommunityToolkit.Resource.Layout.notification_template_part_time = global::Mahwous.Droid.Resource.Layout.notification_template_part_time;
+			global::Xamarin.CommunityToolkit.Resource.Layout.preference = global::Mahwous.Droid.Resource.Layout.preference;
+			global::Xamarin.CommunityToolkit.Resource.Layout.preference_category = global::Mahwous.Droid.Resource.Layout.preference_category;
+			global::Xamarin.CommunityToolkit.Resource.Layout.preference_category_material = global::Mahwous.Droid.Resource.Layout.preference_category_material;
+			global::Xamarin.CommunityToolkit.Resource.Layout.preference_dialog_edittext = global::Mahwous.Droid.Resource.Layout.preference_dialog_edittext;
+			global::Xamarin.CommunityToolkit.Resource.Layout.preference_dropdown = global::Mahwous.Droid.Resource.Layout.preference_dropdown;
+			global::Xamarin.CommunityToolkit.Resource.Layout.preference_dropdown_material = global::Mahwous.Droid.Resource.Layout.preference_dropdown_material;
+			global::Xamarin.CommunityToolkit.Resource.Layout.preference_information = global::Mahwous.Droid.Resource.Layout.preference_information;
+			global::Xamarin.CommunityToolkit.Resource.Layout.preference_information_material = global::Mahwous.Droid.Resource.Layout.preference_information_material;
+			global::Xamarin.CommunityToolkit.Resource.Layout.preference_list_fragment = global::Mahwous.Droid.Resource.Layout.preference_list_fragment;
+			global::Xamarin.CommunityToolkit.Resource.Layout.preference_material = global::Mahwous.Droid.Resource.Layout.preference_material;
+			global::Xamarin.CommunityToolkit.Resource.Layout.preference_recyclerview = global::Mahwous.Droid.Resource.Layout.preference_recyclerview;
+			global::Xamarin.CommunityToolkit.Resource.Layout.preference_widget_checkbox = global::Mahwous.Droid.Resource.Layout.preference_widget_checkbox;
+			global::Xamarin.CommunityToolkit.Resource.Layout.preference_widget_seekbar = global::Mahwous.Droid.Resource.Layout.preference_widget_seekbar;
+			global::Xamarin.CommunityToolkit.Resource.Layout.preference_widget_seekbar_material = global::Mahwous.Droid.Resource.Layout.preference_widget_seekbar_material;
+			global::Xamarin.CommunityToolkit.Resource.Layout.preference_widget_switch = global::Mahwous.Droid.Resource.Layout.preference_widget_switch;
+			global::Xamarin.CommunityToolkit.Resource.Layout.preference_widget_switch_compat = global::Mahwous.Droid.Resource.Layout.preference_widget_switch_compat;
 			global::Xamarin.CommunityToolkit.Resource.Layout.RootLayout = global::Mahwous.Droid.Resource.Layout.RootLayout;
 			global::Xamarin.CommunityToolkit.Resource.Layout.select_dialog_item_material = global::Mahwous.Droid.Resource.Layout.select_dialog_item_material;
 			global::Xamarin.CommunityToolkit.Resource.Layout.select_dialog_multichoice_material = global::Mahwous.Droid.Resource.Layout.select_dialog_multichoice_material;
@@ -9435,7 +9680,9 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Layout.support_simple_spinner_dropdown_item = global::Mahwous.Droid.Resource.Layout.support_simple_spinner_dropdown_item;
 			global::Xamarin.CommunityToolkit.Resource.Layout.Tabbar = global::Mahwous.Droid.Resource.Layout.Tabbar;
 			global::Xamarin.CommunityToolkit.Resource.Layout.test_action_chip = global::Mahwous.Droid.Resource.Layout.test_action_chip;
+			global::Xamarin.CommunityToolkit.Resource.Layout.test_chip_zero_corner_radius = global::Mahwous.Droid.Resource.Layout.test_chip_zero_corner_radius;
 			global::Xamarin.CommunityToolkit.Resource.Layout.test_design_checkbox = global::Mahwous.Droid.Resource.Layout.test_design_checkbox;
+			global::Xamarin.CommunityToolkit.Resource.Layout.test_design_radiobutton = global::Mahwous.Droid.Resource.Layout.test_design_radiobutton;
 			global::Xamarin.CommunityToolkit.Resource.Layout.test_reflow_chipgroup = global::Mahwous.Droid.Resource.Layout.test_reflow_chipgroup;
 			global::Xamarin.CommunityToolkit.Resource.Layout.test_toolbar = global::Mahwous.Droid.Resource.Layout.test_toolbar;
 			global::Xamarin.CommunityToolkit.Resource.Layout.test_toolbar_custom_background = global::Mahwous.Droid.Resource.Layout.test_toolbar_custom_background;
@@ -9482,8 +9729,10 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.String.character_counter_pattern = global::Mahwous.Droid.Resource.String.character_counter_pattern;
 			global::Xamarin.CommunityToolkit.Resource.String.chip_text = global::Mahwous.Droid.Resource.String.chip_text;
 			global::Xamarin.CommunityToolkit.Resource.String.clear_text_end_icon_content_description = global::Mahwous.Droid.Resource.String.clear_text_end_icon_content_description;
+			global::Xamarin.CommunityToolkit.Resource.String.copy = global::Mahwous.Droid.Resource.String.copy;
 			global::Xamarin.CommunityToolkit.Resource.String.copy_toast_msg = global::Mahwous.Droid.Resource.String.copy_toast_msg;
 			global::Xamarin.CommunityToolkit.Resource.String.error_icon_content_description = global::Mahwous.Droid.Resource.String.error_icon_content_description;
+			global::Xamarin.CommunityToolkit.Resource.String.expand_button_title = global::Mahwous.Droid.Resource.String.expand_button_title;
 			global::Xamarin.CommunityToolkit.Resource.String.exposed_dropdown_menu_content_description = global::Mahwous.Droid.Resource.String.exposed_dropdown_menu_content_description;
 			global::Xamarin.CommunityToolkit.Resource.String.fab_transformation_scrim_behavior = global::Mahwous.Droid.Resource.String.fab_transformation_scrim_behavior;
 			global::Xamarin.CommunityToolkit.Resource.String.fab_transformation_sheet_behavior = global::Mahwous.Droid.Resource.String.fab_transformation_sheet_behavior;
@@ -9492,8 +9741,12 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.String.fallback_menu_item_share_link = global::Mahwous.Droid.Resource.String.fallback_menu_item_share_link;
 			global::Xamarin.CommunityToolkit.Resource.String.hide_bottom_view_on_scroll_behavior = global::Mahwous.Droid.Resource.String.hide_bottom_view_on_scroll_behavior;
 			global::Xamarin.CommunityToolkit.Resource.String.icon_content_description = global::Mahwous.Droid.Resource.String.icon_content_description;
+			global::Xamarin.CommunityToolkit.Resource.String.item_view_role_description = global::Mahwous.Droid.Resource.String.item_view_role_description;
+			global::Xamarin.CommunityToolkit.Resource.String.material_slider_range_end = global::Mahwous.Droid.Resource.String.material_slider_range_end;
+			global::Xamarin.CommunityToolkit.Resource.String.material_slider_range_start = global::Mahwous.Droid.Resource.String.material_slider_range_start;
 			global::Xamarin.CommunityToolkit.Resource.String.mtrl_badge_numberless_content_description = global::Mahwous.Droid.Resource.String.mtrl_badge_numberless_content_description;
 			global::Xamarin.CommunityToolkit.Resource.String.mtrl_chip_close_icon_content_description = global::Mahwous.Droid.Resource.String.mtrl_chip_close_icon_content_description;
+			global::Xamarin.CommunityToolkit.Resource.String.mtrl_exceed_max_badge_number_content_description = global::Mahwous.Droid.Resource.String.mtrl_exceed_max_badge_number_content_description;
 			global::Xamarin.CommunityToolkit.Resource.String.mtrl_exceed_max_badge_number_suffix = global::Mahwous.Droid.Resource.String.mtrl_exceed_max_badge_number_suffix;
 			global::Xamarin.CommunityToolkit.Resource.String.mtrl_picker_a11y_next_month = global::Mahwous.Droid.Resource.String.mtrl_picker_a11y_next_month;
 			global::Xamarin.CommunityToolkit.Resource.String.mtrl_picker_a11y_prev_month = global::Mahwous.Droid.Resource.String.mtrl_picker_a11y_prev_month;
@@ -9526,16 +9779,24 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.String.mtrl_picker_toggle_to_day_selection = global::Mahwous.Droid.Resource.String.mtrl_picker_toggle_to_day_selection;
 			global::Xamarin.CommunityToolkit.Resource.String.mtrl_picker_toggle_to_text_input_mode = global::Mahwous.Droid.Resource.String.mtrl_picker_toggle_to_text_input_mode;
 			global::Xamarin.CommunityToolkit.Resource.String.mtrl_picker_toggle_to_year_selection = global::Mahwous.Droid.Resource.String.mtrl_picker_toggle_to_year_selection;
+			global::Xamarin.CommunityToolkit.Resource.String.nav_app_bar_navigate_up_description = global::Mahwous.Droid.Resource.String.nav_app_bar_navigate_up_description;
+			global::Xamarin.CommunityToolkit.Resource.String.nav_app_bar_open_drawer_description = global::Mahwous.Droid.Resource.String.nav_app_bar_open_drawer_description;
+			global::Xamarin.CommunityToolkit.Resource.String.not_set = global::Mahwous.Droid.Resource.String.not_set;
 			global::Xamarin.CommunityToolkit.Resource.String.overflow_tab_title = global::Mahwous.Droid.Resource.String.overflow_tab_title;
 			global::Xamarin.CommunityToolkit.Resource.String.password_toggle_content_description = global::Mahwous.Droid.Resource.String.password_toggle_content_description;
 			global::Xamarin.CommunityToolkit.Resource.String.path_password_eye = global::Mahwous.Droid.Resource.String.path_password_eye;
 			global::Xamarin.CommunityToolkit.Resource.String.path_password_eye_mask_strike_through = global::Mahwous.Droid.Resource.String.path_password_eye_mask_strike_through;
 			global::Xamarin.CommunityToolkit.Resource.String.path_password_eye_mask_visible = global::Mahwous.Droid.Resource.String.path_password_eye_mask_visible;
 			global::Xamarin.CommunityToolkit.Resource.String.path_password_strike_through = global::Mahwous.Droid.Resource.String.path_password_strike_through;
+			global::Xamarin.CommunityToolkit.Resource.String.preference_copied = global::Mahwous.Droid.Resource.String.preference_copied;
 			global::Xamarin.CommunityToolkit.Resource.String.search_menu_title = global::Mahwous.Droid.Resource.String.search_menu_title;
 			global::Xamarin.CommunityToolkit.Resource.String.status_bar_notification_info_overflow = global::Mahwous.Droid.Resource.String.status_bar_notification_info_overflow;
+			global::Xamarin.CommunityToolkit.Resource.String.summary_collapsed_preference_list = global::Mahwous.Droid.Resource.String.summary_collapsed_preference_list;
+			global::Xamarin.CommunityToolkit.Resource.String.v7_preference_off = global::Mahwous.Droid.Resource.String.v7_preference_off;
+			global::Xamarin.CommunityToolkit.Resource.String.v7_preference_on = global::Mahwous.Droid.Resource.String.v7_preference_on;
 			global::Xamarin.CommunityToolkit.Resource.Style.AlertDialog_AppCompat = global::Mahwous.Droid.Resource.Style.AlertDialog_AppCompat;
 			global::Xamarin.CommunityToolkit.Resource.Style.AlertDialog_AppCompat_Light = global::Mahwous.Droid.Resource.Style.AlertDialog_AppCompat_Light;
+			global::Xamarin.CommunityToolkit.Resource.Style.AndroidThemeColorAccentYellow = global::Mahwous.Droid.Resource.Style.AndroidThemeColorAccentYellow;
 			global::Xamarin.CommunityToolkit.Resource.Style.Animation_AppCompat_Dialog = global::Mahwous.Droid.Resource.Style.Animation_AppCompat_Dialog;
 			global::Xamarin.CommunityToolkit.Resource.Style.Animation_AppCompat_DropDownUp = global::Mahwous.Droid.Resource.Style.Animation_AppCompat_DropDownUp;
 			global::Xamarin.CommunityToolkit.Resource.Style.Animation_AppCompat_Tooltip = global::Mahwous.Droid.Resource.Style.Animation_AppCompat_Tooltip;
@@ -9614,6 +9875,8 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Style.Base_ThemeOverlay_AppCompat_Light = global::Mahwous.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_Light;
 			global::Xamarin.CommunityToolkit.Resource.Style.Base_ThemeOverlay_MaterialComponents_Dialog = global::Mahwous.Droid.Resource.Style.Base_ThemeOverlay_MaterialComponents_Dialog;
 			global::Xamarin.CommunityToolkit.Resource.Style.Base_ThemeOverlay_MaterialComponents_Dialog_Alert = global::Mahwous.Droid.Resource.Style.Base_ThemeOverlay_MaterialComponents_Dialog_Alert;
+			global::Xamarin.CommunityToolkit.Resource.Style.Base_ThemeOverlay_MaterialComponents_Dialog_Alert_Framework = global::Mahwous.Droid.Resource.Style.Base_ThemeOverlay_MaterialComponents_Dialog_Alert_Framework;
+			global::Xamarin.CommunityToolkit.Resource.Style.Base_ThemeOverlay_MaterialComponents_Light_Dialog_Alert_Framework = global::Mahwous.Droid.Resource.Style.Base_ThemeOverlay_MaterialComponents_Light_Dialog_Alert_Framework;
 			global::Xamarin.CommunityToolkit.Resource.Style.Base_ThemeOverlay_MaterialComponents_MaterialAlertDialog = global::Mahwous.Droid.Resource.Style.Base_ThemeOverlay_MaterialComponents_MaterialAlertDialog;
 			global::Xamarin.CommunityToolkit.Resource.Style.Base_Theme_AppCompat = global::Mahwous.Droid.Resource.Style.Base_Theme_AppCompat;
 			global::Xamarin.CommunityToolkit.Resource.Style.Base_Theme_AppCompat_CompactMenu = global::Mahwous.Droid.Resource.Style.Base_Theme_AppCompat_CompactMenu;
@@ -9665,6 +9928,10 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Style.Base_V21_Theme_AppCompat_Dialog = global::Mahwous.Droid.Resource.Style.Base_V21_Theme_AppCompat_Dialog;
 			global::Xamarin.CommunityToolkit.Resource.Style.Base_V21_Theme_AppCompat_Light = global::Mahwous.Droid.Resource.Style.Base_V21_Theme_AppCompat_Light;
 			global::Xamarin.CommunityToolkit.Resource.Style.Base_V21_Theme_AppCompat_Light_Dialog = global::Mahwous.Droid.Resource.Style.Base_V21_Theme_AppCompat_Light_Dialog;
+			global::Xamarin.CommunityToolkit.Resource.Style.Base_V21_Theme_MaterialComponents = global::Mahwous.Droid.Resource.Style.Base_V21_Theme_MaterialComponents;
+			global::Xamarin.CommunityToolkit.Resource.Style.Base_V21_Theme_MaterialComponents_Dialog = global::Mahwous.Droid.Resource.Style.Base_V21_Theme_MaterialComponents_Dialog;
+			global::Xamarin.CommunityToolkit.Resource.Style.Base_V21_Theme_MaterialComponents_Light = global::Mahwous.Droid.Resource.Style.Base_V21_Theme_MaterialComponents_Light;
+			global::Xamarin.CommunityToolkit.Resource.Style.Base_V21_Theme_MaterialComponents_Light_Dialog = global::Mahwous.Droid.Resource.Style.Base_V21_Theme_MaterialComponents_Light_Dialog;
 			global::Xamarin.CommunityToolkit.Resource.Style.Base_V22_Theme_AppCompat = global::Mahwous.Droid.Resource.Style.Base_V22_Theme_AppCompat;
 			global::Xamarin.CommunityToolkit.Resource.Style.Base_V22_Theme_AppCompat_Light = global::Mahwous.Droid.Resource.Style.Base_V22_Theme_AppCompat_Light;
 			global::Xamarin.CommunityToolkit.Resource.Style.Base_V23_Theme_AppCompat = global::Mahwous.Droid.Resource.Style.Base_V23_Theme_AppCompat;
@@ -9748,6 +10015,7 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Style.Base_Widget_MaterialComponents_PopupMenu_ContextMenu = global::Mahwous.Droid.Resource.Style.Base_Widget_MaterialComponents_PopupMenu_ContextMenu;
 			global::Xamarin.CommunityToolkit.Resource.Style.Base_Widget_MaterialComponents_PopupMenu_ListPopupWindow = global::Mahwous.Droid.Resource.Style.Base_Widget_MaterialComponents_PopupMenu_ListPopupWindow;
 			global::Xamarin.CommunityToolkit.Resource.Style.Base_Widget_MaterialComponents_PopupMenu_Overflow = global::Mahwous.Droid.Resource.Style.Base_Widget_MaterialComponents_PopupMenu_Overflow;
+			global::Xamarin.CommunityToolkit.Resource.Style.Base_Widget_MaterialComponents_Slider = global::Mahwous.Droid.Resource.Style.Base_Widget_MaterialComponents_Slider;
 			global::Xamarin.CommunityToolkit.Resource.Style.Base_Widget_MaterialComponents_TextInputEditText = global::Mahwous.Droid.Resource.Style.Base_Widget_MaterialComponents_TextInputEditText;
 			global::Xamarin.CommunityToolkit.Resource.Style.Base_Widget_MaterialComponents_TextInputLayout = global::Mahwous.Droid.Resource.Style.Base_Widget_MaterialComponents_TextInputLayout;
 			global::Xamarin.CommunityToolkit.Resource.Style.Base_Widget_MaterialComponents_TextView = global::Mahwous.Droid.Resource.Style.Base_Widget_MaterialComponents_TextView;
@@ -9782,6 +10050,37 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Style.Platform_V25_AppCompat = global::Mahwous.Droid.Resource.Style.Platform_V25_AppCompat;
 			global::Xamarin.CommunityToolkit.Resource.Style.Platform_V25_AppCompat_Light = global::Mahwous.Droid.Resource.Style.Platform_V25_AppCompat_Light;
 			global::Xamarin.CommunityToolkit.Resource.Style.Platform_Widget_AppCompat_Spinner = global::Mahwous.Droid.Resource.Style.Platform_Widget_AppCompat_Spinner;
+			global::Xamarin.CommunityToolkit.Resource.Style.Preference = global::Mahwous.Droid.Resource.Style.Preference;
+			global::Xamarin.CommunityToolkit.Resource.Style.PreferenceCategoryTitleTextStyle = global::Mahwous.Droid.Resource.Style.PreferenceCategoryTitleTextStyle;
+			global::Xamarin.CommunityToolkit.Resource.Style.PreferenceFragment = global::Mahwous.Droid.Resource.Style.PreferenceFragment;
+			global::Xamarin.CommunityToolkit.Resource.Style.PreferenceFragmentList = global::Mahwous.Droid.Resource.Style.PreferenceFragmentList;
+			global::Xamarin.CommunityToolkit.Resource.Style.PreferenceFragmentList_Material = global::Mahwous.Droid.Resource.Style.PreferenceFragmentList_Material;
+			global::Xamarin.CommunityToolkit.Resource.Style.PreferenceFragment_Material = global::Mahwous.Droid.Resource.Style.PreferenceFragment_Material;
+			global::Xamarin.CommunityToolkit.Resource.Style.PreferenceSummaryTextStyle = global::Mahwous.Droid.Resource.Style.PreferenceSummaryTextStyle;
+			global::Xamarin.CommunityToolkit.Resource.Style.PreferenceThemeOverlay = global::Mahwous.Droid.Resource.Style.PreferenceThemeOverlay;
+			global::Xamarin.CommunityToolkit.Resource.Style.PreferenceThemeOverlay_v14 = global::Mahwous.Droid.Resource.Style.PreferenceThemeOverlay_v14;
+			global::Xamarin.CommunityToolkit.Resource.Style.PreferenceThemeOverlay_v14_Material = global::Mahwous.Droid.Resource.Style.PreferenceThemeOverlay_v14_Material;
+			global::Xamarin.CommunityToolkit.Resource.Style.Preference_Category = global::Mahwous.Droid.Resource.Style.Preference_Category;
+			global::Xamarin.CommunityToolkit.Resource.Style.Preference_Category_Material = global::Mahwous.Droid.Resource.Style.Preference_Category_Material;
+			global::Xamarin.CommunityToolkit.Resource.Style.Preference_CheckBoxPreference = global::Mahwous.Droid.Resource.Style.Preference_CheckBoxPreference;
+			global::Xamarin.CommunityToolkit.Resource.Style.Preference_CheckBoxPreference_Material = global::Mahwous.Droid.Resource.Style.Preference_CheckBoxPreference_Material;
+			global::Xamarin.CommunityToolkit.Resource.Style.Preference_DialogPreference = global::Mahwous.Droid.Resource.Style.Preference_DialogPreference;
+			global::Xamarin.CommunityToolkit.Resource.Style.Preference_DialogPreference_EditTextPreference = global::Mahwous.Droid.Resource.Style.Preference_DialogPreference_EditTextPreference;
+			global::Xamarin.CommunityToolkit.Resource.Style.Preference_DialogPreference_EditTextPreference_Material = global::Mahwous.Droid.Resource.Style.Preference_DialogPreference_EditTextPreference_Material;
+			global::Xamarin.CommunityToolkit.Resource.Style.Preference_DialogPreference_Material = global::Mahwous.Droid.Resource.Style.Preference_DialogPreference_Material;
+			global::Xamarin.CommunityToolkit.Resource.Style.Preference_DropDown = global::Mahwous.Droid.Resource.Style.Preference_DropDown;
+			global::Xamarin.CommunityToolkit.Resource.Style.Preference_DropDown_Material = global::Mahwous.Droid.Resource.Style.Preference_DropDown_Material;
+			global::Xamarin.CommunityToolkit.Resource.Style.Preference_Information = global::Mahwous.Droid.Resource.Style.Preference_Information;
+			global::Xamarin.CommunityToolkit.Resource.Style.Preference_Information_Material = global::Mahwous.Droid.Resource.Style.Preference_Information_Material;
+			global::Xamarin.CommunityToolkit.Resource.Style.Preference_Material = global::Mahwous.Droid.Resource.Style.Preference_Material;
+			global::Xamarin.CommunityToolkit.Resource.Style.Preference_PreferenceScreen = global::Mahwous.Droid.Resource.Style.Preference_PreferenceScreen;
+			global::Xamarin.CommunityToolkit.Resource.Style.Preference_PreferenceScreen_Material = global::Mahwous.Droid.Resource.Style.Preference_PreferenceScreen_Material;
+			global::Xamarin.CommunityToolkit.Resource.Style.Preference_SeekBarPreference = global::Mahwous.Droid.Resource.Style.Preference_SeekBarPreference;
+			global::Xamarin.CommunityToolkit.Resource.Style.Preference_SeekBarPreference_Material = global::Mahwous.Droid.Resource.Style.Preference_SeekBarPreference_Material;
+			global::Xamarin.CommunityToolkit.Resource.Style.Preference_SwitchPreference = global::Mahwous.Droid.Resource.Style.Preference_SwitchPreference;
+			global::Xamarin.CommunityToolkit.Resource.Style.Preference_SwitchPreferenceCompat = global::Mahwous.Droid.Resource.Style.Preference_SwitchPreferenceCompat;
+			global::Xamarin.CommunityToolkit.Resource.Style.Preference_SwitchPreferenceCompat_Material = global::Mahwous.Droid.Resource.Style.Preference_SwitchPreferenceCompat_Material;
+			global::Xamarin.CommunityToolkit.Resource.Style.Preference_SwitchPreference_Material = global::Mahwous.Droid.Resource.Style.Preference_SwitchPreference_Material;
 			global::Xamarin.CommunityToolkit.Resource.Style.RtlOverlay_DialogWindowTitle_AppCompat = global::Mahwous.Droid.Resource.Style.RtlOverlay_DialogWindowTitle_AppCompat;
 			global::Xamarin.CommunityToolkit.Resource.Style.RtlOverlay_Widget_AppCompat_ActionBar_TitleItem = global::Mahwous.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_ActionBar_TitleItem;
 			global::Xamarin.CommunityToolkit.Resource.Style.RtlOverlay_Widget_AppCompat_DialogTitle_Icon = global::Mahwous.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_DialogTitle_Icon;
@@ -9821,6 +10120,7 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Style.ShapeAppearance_MaterialComponents_MediumComponent = global::Mahwous.Droid.Resource.Style.ShapeAppearance_MaterialComponents_MediumComponent;
 			global::Xamarin.CommunityToolkit.Resource.Style.ShapeAppearance_MaterialComponents_SmallComponent = global::Mahwous.Droid.Resource.Style.ShapeAppearance_MaterialComponents_SmallComponent;
 			global::Xamarin.CommunityToolkit.Resource.Style.ShapeAppearance_MaterialComponents_Test = global::Mahwous.Droid.Resource.Style.ShapeAppearance_MaterialComponents_Test;
+			global::Xamarin.CommunityToolkit.Resource.Style.ShapeAppearance_MaterialComponents_Tooltip = global::Mahwous.Droid.Resource.Style.ShapeAppearance_MaterialComponents_Tooltip;
 			global::Xamarin.CommunityToolkit.Resource.Style.TestStyleWithLineHeight = global::Mahwous.Droid.Resource.Style.TestStyleWithLineHeight;
 			global::Xamarin.CommunityToolkit.Resource.Style.TestStyleWithLineHeightAppearance = global::Mahwous.Droid.Resource.Style.TestStyleWithLineHeightAppearance;
 			global::Xamarin.CommunityToolkit.Resource.Style.TestStyleWithoutLineHeight = global::Mahwous.Droid.Resource.Style.TestStyleWithoutLineHeight;
@@ -9896,7 +10196,10 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Style.TextAppearance_Design_Error = global::Mahwous.Droid.Resource.Style.TextAppearance_Design_Error;
 			global::Xamarin.CommunityToolkit.Resource.Style.TextAppearance_Design_HelperText = global::Mahwous.Droid.Resource.Style.TextAppearance_Design_HelperText;
 			global::Xamarin.CommunityToolkit.Resource.Style.TextAppearance_Design_Hint = global::Mahwous.Droid.Resource.Style.TextAppearance_Design_Hint;
+			global::Xamarin.CommunityToolkit.Resource.Style.TextAppearance_Design_Placeholder = global::Mahwous.Droid.Resource.Style.TextAppearance_Design_Placeholder;
+			global::Xamarin.CommunityToolkit.Resource.Style.TextAppearance_Design_Prefix = global::Mahwous.Droid.Resource.Style.TextAppearance_Design_Prefix;
 			global::Xamarin.CommunityToolkit.Resource.Style.TextAppearance_Design_Snackbar_Message = global::Mahwous.Droid.Resource.Style.TextAppearance_Design_Snackbar_Message;
+			global::Xamarin.CommunityToolkit.Resource.Style.TextAppearance_Design_Suffix = global::Mahwous.Droid.Resource.Style.TextAppearance_Design_Suffix;
 			global::Xamarin.CommunityToolkit.Resource.Style.TextAppearance_Design_Tab = global::Mahwous.Droid.Resource.Style.TextAppearance_Design_Tab;
 			global::Xamarin.CommunityToolkit.Resource.Style.TextAppearance_MaterialComponents_Badge = global::Mahwous.Droid.Resource.Style.TextAppearance_MaterialComponents_Badge;
 			global::Xamarin.CommunityToolkit.Resource.Style.TextAppearance_MaterialComponents_Body1 = global::Mahwous.Droid.Resource.Style.TextAppearance_MaterialComponents_Body1;
@@ -9913,9 +10216,11 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Style.TextAppearance_MaterialComponents_Overline = global::Mahwous.Droid.Resource.Style.TextAppearance_MaterialComponents_Overline;
 			global::Xamarin.CommunityToolkit.Resource.Style.TextAppearance_MaterialComponents_Subtitle1 = global::Mahwous.Droid.Resource.Style.TextAppearance_MaterialComponents_Subtitle1;
 			global::Xamarin.CommunityToolkit.Resource.Style.TextAppearance_MaterialComponents_Subtitle2 = global::Mahwous.Droid.Resource.Style.TextAppearance_MaterialComponents_Subtitle2;
+			global::Xamarin.CommunityToolkit.Resource.Style.TextAppearance_MaterialComponents_Tooltip = global::Mahwous.Droid.Resource.Style.TextAppearance_MaterialComponents_Tooltip;
 			global::Xamarin.CommunityToolkit.Resource.Style.TextAppearance_Widget_AppCompat_ExpandedMenu_Item = global::Mahwous.Droid.Resource.Style.TextAppearance_Widget_AppCompat_ExpandedMenu_Item;
 			global::Xamarin.CommunityToolkit.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Subtitle = global::Mahwous.Droid.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Subtitle;
 			global::Xamarin.CommunityToolkit.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Title = global::Mahwous.Droid.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Title;
+			global::Xamarin.CommunityToolkit.Resource.Style.ThemeOverlayColorAccentRed = global::Mahwous.Droid.Resource.Style.ThemeOverlayColorAccentRed;
 			global::Xamarin.CommunityToolkit.Resource.Style.ThemeOverlay_AppCompat = global::Mahwous.Droid.Resource.Style.ThemeOverlay_AppCompat;
 			global::Xamarin.CommunityToolkit.Resource.Style.ThemeOverlay_AppCompat_ActionBar = global::Mahwous.Droid.Resource.Style.ThemeOverlay_AppCompat_ActionBar;
 			global::Xamarin.CommunityToolkit.Resource.Style.ThemeOverlay_AppCompat_Dark = global::Mahwous.Droid.Resource.Style.ThemeOverlay_AppCompat_Dark;
@@ -9943,8 +10248,10 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Style.ThemeOverlay_MaterialComponents_DayNight_BottomSheetDialog = global::Mahwous.Droid.Resource.Style.ThemeOverlay_MaterialComponents_DayNight_BottomSheetDialog;
 			global::Xamarin.CommunityToolkit.Resource.Style.ThemeOverlay_MaterialComponents_Dialog = global::Mahwous.Droid.Resource.Style.ThemeOverlay_MaterialComponents_Dialog;
 			global::Xamarin.CommunityToolkit.Resource.Style.ThemeOverlay_MaterialComponents_Dialog_Alert = global::Mahwous.Droid.Resource.Style.ThemeOverlay_MaterialComponents_Dialog_Alert;
+			global::Xamarin.CommunityToolkit.Resource.Style.ThemeOverlay_MaterialComponents_Dialog_Alert_Framework = global::Mahwous.Droid.Resource.Style.ThemeOverlay_MaterialComponents_Dialog_Alert_Framework;
 			global::Xamarin.CommunityToolkit.Resource.Style.ThemeOverlay_MaterialComponents_Light = global::Mahwous.Droid.Resource.Style.ThemeOverlay_MaterialComponents_Light;
 			global::Xamarin.CommunityToolkit.Resource.Style.ThemeOverlay_MaterialComponents_Light_BottomSheetDialog = global::Mahwous.Droid.Resource.Style.ThemeOverlay_MaterialComponents_Light_BottomSheetDialog;
+			global::Xamarin.CommunityToolkit.Resource.Style.ThemeOverlay_MaterialComponents_Light_Dialog_Alert_Framework = global::Mahwous.Droid.Resource.Style.ThemeOverlay_MaterialComponents_Light_Dialog_Alert_Framework;
 			global::Xamarin.CommunityToolkit.Resource.Style.ThemeOverlay_MaterialComponents_MaterialAlertDialog = global::Mahwous.Droid.Resource.Style.ThemeOverlay_MaterialComponents_MaterialAlertDialog;
 			global::Xamarin.CommunityToolkit.Resource.Style.ThemeOverlay_MaterialComponents_MaterialAlertDialog_Centered = global::Mahwous.Droid.Resource.Style.ThemeOverlay_MaterialComponents_MaterialAlertDialog_Centered;
 			global::Xamarin.CommunityToolkit.Resource.Style.ThemeOverlay_MaterialComponents_MaterialAlertDialog_Picker_Date = global::Mahwous.Droid.Resource.Style.ThemeOverlay_MaterialComponents_MaterialAlertDialog_Picker_Date;
@@ -10122,6 +10429,7 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Style.Widget_Design_ScrimInsetsFrameLayout = global::Mahwous.Droid.Resource.Style.Widget_Design_ScrimInsetsFrameLayout;
 			global::Xamarin.CommunityToolkit.Resource.Style.Widget_Design_Snackbar = global::Mahwous.Droid.Resource.Style.Widget_Design_Snackbar;
 			global::Xamarin.CommunityToolkit.Resource.Style.Widget_Design_TabLayout = global::Mahwous.Droid.Resource.Style.Widget_Design_TabLayout;
+			global::Xamarin.CommunityToolkit.Resource.Style.Widget_Design_TextInputEditText = global::Mahwous.Droid.Resource.Style.Widget_Design_TextInputEditText;
 			global::Xamarin.CommunityToolkit.Resource.Style.Widget_Design_TextInputLayout = global::Mahwous.Droid.Resource.Style.Widget_Design_TextInputLayout;
 			global::Xamarin.CommunityToolkit.Resource.Style.Widget_MaterialComponents_ActionBar_Primary = global::Mahwous.Droid.Resource.Style.Widget_MaterialComponents_ActionBar_Primary;
 			global::Xamarin.CommunityToolkit.Resource.Style.Widget_MaterialComponents_ActionBar_PrimarySurface = global::Mahwous.Droid.Resource.Style.Widget_MaterialComponents_ActionBar_PrimarySurface;
@@ -10193,8 +10501,11 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Style.Widget_MaterialComponents_PopupMenu_ContextMenu = global::Mahwous.Droid.Resource.Style.Widget_MaterialComponents_PopupMenu_ContextMenu;
 			global::Xamarin.CommunityToolkit.Resource.Style.Widget_MaterialComponents_PopupMenu_ListPopupWindow = global::Mahwous.Droid.Resource.Style.Widget_MaterialComponents_PopupMenu_ListPopupWindow;
 			global::Xamarin.CommunityToolkit.Resource.Style.Widget_MaterialComponents_PopupMenu_Overflow = global::Mahwous.Droid.Resource.Style.Widget_MaterialComponents_PopupMenu_Overflow;
+			global::Xamarin.CommunityToolkit.Resource.Style.Widget_MaterialComponents_ShapeableImageView = global::Mahwous.Droid.Resource.Style.Widget_MaterialComponents_ShapeableImageView;
+			global::Xamarin.CommunityToolkit.Resource.Style.Widget_MaterialComponents_Slider = global::Mahwous.Droid.Resource.Style.Widget_MaterialComponents_Slider;
 			global::Xamarin.CommunityToolkit.Resource.Style.Widget_MaterialComponents_Snackbar = global::Mahwous.Droid.Resource.Style.Widget_MaterialComponents_Snackbar;
 			global::Xamarin.CommunityToolkit.Resource.Style.Widget_MaterialComponents_Snackbar_FullWidth = global::Mahwous.Droid.Resource.Style.Widget_MaterialComponents_Snackbar_FullWidth;
+			global::Xamarin.CommunityToolkit.Resource.Style.Widget_MaterialComponents_Snackbar_TextView = global::Mahwous.Droid.Resource.Style.Widget_MaterialComponents_Snackbar_TextView;
 			global::Xamarin.CommunityToolkit.Resource.Style.Widget_MaterialComponents_TabLayout = global::Mahwous.Droid.Resource.Style.Widget_MaterialComponents_TabLayout;
 			global::Xamarin.CommunityToolkit.Resource.Style.Widget_MaterialComponents_TabLayout_Colored = global::Mahwous.Droid.Resource.Style.Widget_MaterialComponents_TabLayout_Colored;
 			global::Xamarin.CommunityToolkit.Resource.Style.Widget_MaterialComponents_TabLayout_PrimarySurface = global::Mahwous.Droid.Resource.Style.Widget_MaterialComponents_TabLayout_PrimarySurface;
@@ -10215,6 +10526,7 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Style.Widget_MaterialComponents_Toolbar_Primary = global::Mahwous.Droid.Resource.Style.Widget_MaterialComponents_Toolbar_Primary;
 			global::Xamarin.CommunityToolkit.Resource.Style.Widget_MaterialComponents_Toolbar_PrimarySurface = global::Mahwous.Droid.Resource.Style.Widget_MaterialComponents_Toolbar_PrimarySurface;
 			global::Xamarin.CommunityToolkit.Resource.Style.Widget_MaterialComponents_Toolbar_Surface = global::Mahwous.Droid.Resource.Style.Widget_MaterialComponents_Toolbar_Surface;
+			global::Xamarin.CommunityToolkit.Resource.Style.Widget_MaterialComponents_Tooltip = global::Mahwous.Droid.Resource.Style.Widget_MaterialComponents_Tooltip;
 			global::Xamarin.CommunityToolkit.Resource.Style.Widget_Support_CoordinatorLayout = global::Mahwous.Droid.Resource.Style.Widget_Support_CoordinatorLayout;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ActionBar = global::Mahwous.Droid.Resource.Styleable.ActionBar;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ActionBarLayout = global::Mahwous.Droid.Resource.Styleable.ActionBarLayout;
@@ -10261,6 +10573,12 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ActivityChooserView = global::Mahwous.Droid.Resource.Styleable.ActivityChooserView;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ActivityChooserView_expandActivityOverflowButtonDrawable = global::Mahwous.Droid.Resource.Styleable.ActivityChooserView_expandActivityOverflowButtonDrawable;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ActivityChooserView_initialActivityCount = global::Mahwous.Droid.Resource.Styleable.ActivityChooserView_initialActivityCount;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.ActivityNavigator = global::Mahwous.Droid.Resource.Styleable.ActivityNavigator;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.ActivityNavigator_action = global::Mahwous.Droid.Resource.Styleable.ActivityNavigator_action;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.ActivityNavigator_android_name = global::Mahwous.Droid.Resource.Styleable.ActivityNavigator_android_name;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.ActivityNavigator_data = global::Mahwous.Droid.Resource.Styleable.ActivityNavigator_data;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.ActivityNavigator_dataPattern = global::Mahwous.Droid.Resource.Styleable.ActivityNavigator_dataPattern;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.ActivityNavigator_targetPackage = global::Mahwous.Droid.Resource.Styleable.ActivityNavigator_targetPackage;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.AlertDialog = global::Mahwous.Droid.Resource.Styleable.AlertDialog;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.AlertDialog_android_layout = global::Mahwous.Droid.Resource.Styleable.AlertDialog_android_layout;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.AlertDialog_buttonIconDimen = global::Mahwous.Droid.Resource.Styleable.AlertDialog_buttonIconDimen;
@@ -10468,12 +10786,17 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Styleable.AppCompatTheme_windowMinWidthMajor = global::Mahwous.Droid.Resource.Styleable.AppCompatTheme_windowMinWidthMajor;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.AppCompatTheme_windowMinWidthMinor = global::Mahwous.Droid.Resource.Styleable.AppCompatTheme_windowMinWidthMinor;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.AppCompatTheme_windowNoTitle = global::Mahwous.Droid.Resource.Styleable.AppCompatTheme_windowNoTitle;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.BackgroundStyle = global::Mahwous.Droid.Resource.Styleable.BackgroundStyle;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.BackgroundStyle_android_selectableItemBackground = global::Mahwous.Droid.Resource.Styleable.BackgroundStyle_android_selectableItemBackground;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.BackgroundStyle_selectableItemBackground = global::Mahwous.Droid.Resource.Styleable.BackgroundStyle_selectableItemBackground;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.Badge = global::Mahwous.Droid.Resource.Styleable.Badge;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.Badge_backgroundColor = global::Mahwous.Droid.Resource.Styleable.Badge_backgroundColor;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.Badge_badgeGravity = global::Mahwous.Droid.Resource.Styleable.Badge_badgeGravity;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.Badge_badgeTextColor = global::Mahwous.Droid.Resource.Styleable.Badge_badgeTextColor;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Badge_horizontalOffset = global::Mahwous.Droid.Resource.Styleable.Badge_horizontalOffset;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.Badge_maxCharacterCount = global::Mahwous.Droid.Resource.Styleable.Badge_maxCharacterCount;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.Badge_number = global::Mahwous.Droid.Resource.Styleable.Badge_number;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Badge_verticalOffset = global::Mahwous.Droid.Resource.Styleable.Badge_verticalOffset;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomAppBar = global::Mahwous.Droid.Resource.Styleable.BottomAppBar;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomAppBar_backgroundTint = global::Mahwous.Droid.Resource.Styleable.BottomAppBar_backgroundTint;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomAppBar_elevation = global::Mahwous.Droid.Resource.Styleable.BottomAppBar_elevation;
@@ -10483,6 +10806,9 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomAppBar_fabCradleRoundedCornerRadius = global::Mahwous.Droid.Resource.Styleable.BottomAppBar_fabCradleRoundedCornerRadius;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomAppBar_fabCradleVerticalOffset = global::Mahwous.Droid.Resource.Styleable.BottomAppBar_fabCradleVerticalOffset;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomAppBar_hideOnScroll = global::Mahwous.Droid.Resource.Styleable.BottomAppBar_hideOnScroll;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomAppBar_paddingBottomSystemWindowInsets = global::Mahwous.Droid.Resource.Styleable.BottomAppBar_paddingBottomSystemWindowInsets;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomAppBar_paddingLeftSystemWindowInsets = global::Mahwous.Droid.Resource.Styleable.BottomAppBar_paddingLeftSystemWindowInsets;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomAppBar_paddingRightSystemWindowInsets = global::Mahwous.Droid.Resource.Styleable.BottomAppBar_paddingRightSystemWindowInsets;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomNavigationView = global::Mahwous.Droid.Resource.Styleable.BottomNavigationView;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomNavigationView_backgroundTint = global::Mahwous.Droid.Resource.Styleable.BottomNavigationView_backgroundTint;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomNavigationView_elevation = global::Mahwous.Droid.Resource.Styleable.BottomNavigationView_elevation;
@@ -10499,6 +10825,7 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomSheetBehavior_Layout = global::Mahwous.Droid.Resource.Styleable.BottomSheetBehavior_Layout;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomSheetBehavior_Layout_android_elevation = global::Mahwous.Droid.Resource.Styleable.BottomSheetBehavior_Layout_android_elevation;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomSheetBehavior_Layout_backgroundTint = global::Mahwous.Droid.Resource.Styleable.BottomSheetBehavior_Layout_backgroundTint;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomSheetBehavior_Layout_behavior_draggable = global::Mahwous.Droid.Resource.Styleable.BottomSheetBehavior_Layout_behavior_draggable;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomSheetBehavior_Layout_behavior_expandedOffset = global::Mahwous.Droid.Resource.Styleable.BottomSheetBehavior_Layout_behavior_expandedOffset;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomSheetBehavior_Layout_behavior_fitToContents = global::Mahwous.Droid.Resource.Styleable.BottomSheetBehavior_Layout_behavior_fitToContents;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomSheetBehavior_Layout_behavior_halfExpandedRatio = global::Mahwous.Droid.Resource.Styleable.BottomSheetBehavior_Layout_behavior_halfExpandedRatio;
@@ -10506,6 +10833,7 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomSheetBehavior_Layout_behavior_peekHeight = global::Mahwous.Droid.Resource.Styleable.BottomSheetBehavior_Layout_behavior_peekHeight;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomSheetBehavior_Layout_behavior_saveFlags = global::Mahwous.Droid.Resource.Styleable.BottomSheetBehavior_Layout_behavior_saveFlags;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomSheetBehavior_Layout_behavior_skipCollapsed = global::Mahwous.Droid.Resource.Styleable.BottomSheetBehavior_Layout_behavior_skipCollapsed;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomSheetBehavior_Layout_gestureInsetBottomIgnored = global::Mahwous.Droid.Resource.Styleable.BottomSheetBehavior_Layout_gestureInsetBottomIgnored;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomSheetBehavior_Layout_shapeAppearance = global::Mahwous.Droid.Resource.Styleable.BottomSheetBehavior_Layout_shapeAppearance;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomSheetBehavior_Layout_shapeAppearanceOverlay = global::Mahwous.Droid.Resource.Styleable.BottomSheetBehavior_Layout_shapeAppearanceOverlay;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ButtonBarLayout = global::Mahwous.Droid.Resource.Styleable.ButtonBarLayout;
@@ -10524,12 +10852,20 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Styleable.CardView_contentPaddingLeft = global::Mahwous.Droid.Resource.Styleable.CardView_contentPaddingLeft;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.CardView_contentPaddingRight = global::Mahwous.Droid.Resource.Styleable.CardView_contentPaddingRight;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.CardView_contentPaddingTop = global::Mahwous.Droid.Resource.Styleable.CardView_contentPaddingTop;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.CheckBoxPreference = global::Mahwous.Droid.Resource.Styleable.CheckBoxPreference;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.CheckBoxPreference_android_disableDependentsState = global::Mahwous.Droid.Resource.Styleable.CheckBoxPreference_android_disableDependentsState;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.CheckBoxPreference_android_summaryOff = global::Mahwous.Droid.Resource.Styleable.CheckBoxPreference_android_summaryOff;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.CheckBoxPreference_android_summaryOn = global::Mahwous.Droid.Resource.Styleable.CheckBoxPreference_android_summaryOn;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.CheckBoxPreference_disableDependentsState = global::Mahwous.Droid.Resource.Styleable.CheckBoxPreference_disableDependentsState;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.CheckBoxPreference_summaryOff = global::Mahwous.Droid.Resource.Styleable.CheckBoxPreference_summaryOff;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.CheckBoxPreference_summaryOn = global::Mahwous.Droid.Resource.Styleable.CheckBoxPreference_summaryOn;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.Chip = global::Mahwous.Droid.Resource.Styleable.Chip;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ChipGroup = global::Mahwous.Droid.Resource.Styleable.ChipGroup;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ChipGroup_checkedChip = global::Mahwous.Droid.Resource.Styleable.ChipGroup_checkedChip;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ChipGroup_chipSpacing = global::Mahwous.Droid.Resource.Styleable.ChipGroup_chipSpacing;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ChipGroup_chipSpacingHorizontal = global::Mahwous.Droid.Resource.Styleable.ChipGroup_chipSpacingHorizontal;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ChipGroup_chipSpacingVertical = global::Mahwous.Droid.Resource.Styleable.ChipGroup_chipSpacingVertical;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.ChipGroup_selectionRequired = global::Mahwous.Droid.Resource.Styleable.ChipGroup_selectionRequired;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ChipGroup_singleLine = global::Mahwous.Droid.Resource.Styleable.ChipGroup_singleLine;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ChipGroup_singleSelection = global::Mahwous.Droid.Resource.Styleable.ChipGroup_singleSelection;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.Chip_android_checkable = global::Mahwous.Droid.Resource.Styleable.Chip_android_checkable;
@@ -10540,6 +10876,7 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Styleable.Chip_android_textColor = global::Mahwous.Droid.Resource.Styleable.Chip_android_textColor;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.Chip_checkedIcon = global::Mahwous.Droid.Resource.Styleable.Chip_checkedIcon;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.Chip_checkedIconEnabled = global::Mahwous.Droid.Resource.Styleable.Chip_checkedIconEnabled;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Chip_checkedIconTint = global::Mahwous.Droid.Resource.Styleable.Chip_checkedIconTint;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.Chip_checkedIconVisible = global::Mahwous.Droid.Resource.Styleable.Chip_checkedIconVisible;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.Chip_chipBackgroundColor = global::Mahwous.Droid.Resource.Styleable.Chip_chipBackgroundColor;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.Chip_chipCornerRadius = global::Mahwous.Droid.Resource.Styleable.Chip_chipCornerRadius;
@@ -10586,6 +10923,7 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Styleable.CollapsingToolbarLayout_Layout = global::Mahwous.Droid.Resource.Styleable.CollapsingToolbarLayout_Layout;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.CollapsingToolbarLayout_Layout_layout_collapseMode = global::Mahwous.Droid.Resource.Styleable.CollapsingToolbarLayout_Layout_layout_collapseMode;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.CollapsingToolbarLayout_Layout_layout_collapseParallaxMultiplier = global::Mahwous.Droid.Resource.Styleable.CollapsingToolbarLayout_Layout_layout_collapseParallaxMultiplier;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.CollapsingToolbarLayout_maxLines = global::Mahwous.Droid.Resource.Styleable.CollapsingToolbarLayout_maxLines;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.CollapsingToolbarLayout_scrimAnimationDuration = global::Mahwous.Droid.Resource.Styleable.CollapsingToolbarLayout_scrimAnimationDuration;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.CollapsingToolbarLayout_scrimVisibleHeightTrigger = global::Mahwous.Droid.Resource.Styleable.CollapsingToolbarLayout_scrimVisibleHeightTrigger;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.CollapsingToolbarLayout_statusBarScrim = global::Mahwous.Droid.Resource.Styleable.CollapsingToolbarLayout_statusBarScrim;
@@ -10612,6 +10950,19 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Styleable.CoordinatorLayout_Layout_layout_insetEdge = global::Mahwous.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_insetEdge;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.CoordinatorLayout_Layout_layout_keyline = global::Mahwous.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_keyline;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.CoordinatorLayout_statusBarBackground = global::Mahwous.Droid.Resource.Styleable.CoordinatorLayout_statusBarBackground;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.DialogPreference = global::Mahwous.Droid.Resource.Styleable.DialogPreference;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.DialogPreference_android_dialogIcon = global::Mahwous.Droid.Resource.Styleable.DialogPreference_android_dialogIcon;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.DialogPreference_android_dialogLayout = global::Mahwous.Droid.Resource.Styleable.DialogPreference_android_dialogLayout;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.DialogPreference_android_dialogMessage = global::Mahwous.Droid.Resource.Styleable.DialogPreference_android_dialogMessage;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.DialogPreference_android_dialogTitle = global::Mahwous.Droid.Resource.Styleable.DialogPreference_android_dialogTitle;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.DialogPreference_android_negativeButtonText = global::Mahwous.Droid.Resource.Styleable.DialogPreference_android_negativeButtonText;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.DialogPreference_android_positiveButtonText = global::Mahwous.Droid.Resource.Styleable.DialogPreference_android_positiveButtonText;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.DialogPreference_dialogIcon = global::Mahwous.Droid.Resource.Styleable.DialogPreference_dialogIcon;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.DialogPreference_dialogLayout = global::Mahwous.Droid.Resource.Styleable.DialogPreference_dialogLayout;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.DialogPreference_dialogMessage = global::Mahwous.Droid.Resource.Styleable.DialogPreference_dialogMessage;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.DialogPreference_dialogTitle = global::Mahwous.Droid.Resource.Styleable.DialogPreference_dialogTitle;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.DialogPreference_negativeButtonText = global::Mahwous.Droid.Resource.Styleable.DialogPreference_negativeButtonText;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.DialogPreference_positiveButtonText = global::Mahwous.Droid.Resource.Styleable.DialogPreference_positiveButtonText;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.DrawerArrowToggle = global::Mahwous.Droid.Resource.Styleable.DrawerArrowToggle;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.DrawerArrowToggle_arrowHeadLength = global::Mahwous.Droid.Resource.Styleable.DrawerArrowToggle_arrowHeadLength;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.DrawerArrowToggle_arrowShaftLength = global::Mahwous.Droid.Resource.Styleable.DrawerArrowToggle_arrowShaftLength;
@@ -10623,6 +10974,8 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Styleable.DrawerArrowToggle_thickness = global::Mahwous.Droid.Resource.Styleable.DrawerArrowToggle_thickness;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.DrawerLayout = global::Mahwous.Droid.Resource.Styleable.DrawerLayout;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.DrawerLayout_elevation = global::Mahwous.Droid.Resource.Styleable.DrawerLayout_elevation;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.EditTextPreference = global::Mahwous.Droid.Resource.Styleable.EditTextPreference;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.EditTextPreference_useSimpleSummaryProvider = global::Mahwous.Droid.Resource.Styleable.EditTextPreference_useSimpleSummaryProvider;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ExtendedFloatingActionButton = global::Mahwous.Droid.Resource.Styleable.ExtendedFloatingActionButton;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ExtendedFloatingActionButton_Behavior_Layout = global::Mahwous.Droid.Resource.Styleable.ExtendedFloatingActionButton_Behavior_Layout;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ExtendedFloatingActionButton_Behavior_Layout_behavior_autoHide = global::Mahwous.Droid.Resource.Styleable.ExtendedFloatingActionButton_Behavior_Layout_behavior_autoHide;
@@ -10633,6 +10986,7 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ExtendedFloatingActionButton_showMotionSpec = global::Mahwous.Droid.Resource.Styleable.ExtendedFloatingActionButton_showMotionSpec;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ExtendedFloatingActionButton_shrinkMotionSpec = global::Mahwous.Droid.Resource.Styleable.ExtendedFloatingActionButton_shrinkMotionSpec;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.FloatingActionButton = global::Mahwous.Droid.Resource.Styleable.FloatingActionButton;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.FloatingActionButton_android_enabled = global::Mahwous.Droid.Resource.Styleable.FloatingActionButton_android_enabled;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.FloatingActionButton_backgroundTint = global::Mahwous.Droid.Resource.Styleable.FloatingActionButton_backgroundTint;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.FloatingActionButton_backgroundTintMode = global::Mahwous.Droid.Resource.Styleable.FloatingActionButton_backgroundTintMode;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.FloatingActionButton_Behavior_Layout = global::Mahwous.Droid.Resource.Styleable.FloatingActionButton_Behavior_Layout;
@@ -10699,6 +11053,10 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Styleable.GradientColor_android_startY = global::Mahwous.Droid.Resource.Styleable.GradientColor_android_startY;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.GradientColor_android_tileMode = global::Mahwous.Droid.Resource.Styleable.GradientColor_android_tileMode;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.GradientColor_android_type = global::Mahwous.Droid.Resource.Styleable.GradientColor_android_type;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Insets = global::Mahwous.Droid.Resource.Styleable.Insets;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Insets_paddingBottomSystemWindowInsets = global::Mahwous.Droid.Resource.Styleable.Insets_paddingBottomSystemWindowInsets;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Insets_paddingLeftSystemWindowInsets = global::Mahwous.Droid.Resource.Styleable.Insets_paddingLeftSystemWindowInsets;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Insets_paddingRightSystemWindowInsets = global::Mahwous.Droid.Resource.Styleable.Insets_paddingRightSystemWindowInsets;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ItemsViewRendererTheme = global::Mahwous.Droid.Resource.Styleable.ItemsViewRendererTheme;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ItemsViewRendererTheme_collectionViewStyle = global::Mahwous.Droid.Resource.Styleable.ItemsViewRendererTheme_collectionViewStyle;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.LinearLayoutCompat = global::Mahwous.Droid.Resource.Styleable.LinearLayoutCompat;
@@ -10719,6 +11077,12 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ListPopupWindow = global::Mahwous.Droid.Resource.Styleable.ListPopupWindow;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ListPopupWindow_android_dropDownHorizontalOffset = global::Mahwous.Droid.Resource.Styleable.ListPopupWindow_android_dropDownHorizontalOffset;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ListPopupWindow_android_dropDownVerticalOffset = global::Mahwous.Droid.Resource.Styleable.ListPopupWindow_android_dropDownVerticalOffset;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.ListPreference = global::Mahwous.Droid.Resource.Styleable.ListPreference;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.ListPreference_android_entries = global::Mahwous.Droid.Resource.Styleable.ListPreference_android_entries;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.ListPreference_android_entryValues = global::Mahwous.Droid.Resource.Styleable.ListPreference_android_entryValues;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.ListPreference_entries = global::Mahwous.Droid.Resource.Styleable.ListPreference_entries;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.ListPreference_entryValues = global::Mahwous.Droid.Resource.Styleable.ListPreference_entryValues;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.ListPreference_useSimpleSummaryProvider = global::Mahwous.Droid.Resource.Styleable.ListPreference_useSimpleSummaryProvider;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.MaterialAlertDialog = global::Mahwous.Droid.Resource.Styleable.MaterialAlertDialog;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.MaterialAlertDialogTheme = global::Mahwous.Droid.Resource.Styleable.MaterialAlertDialogTheme;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.MaterialAlertDialogTheme_materialAlertDialogBodyTextStyle = global::Mahwous.Droid.Resource.Styleable.MaterialAlertDialogTheme_materialAlertDialogBodyTextStyle;
@@ -10730,10 +11094,14 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Styleable.MaterialAlertDialog_backgroundInsetEnd = global::Mahwous.Droid.Resource.Styleable.MaterialAlertDialog_backgroundInsetEnd;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.MaterialAlertDialog_backgroundInsetStart = global::Mahwous.Droid.Resource.Styleable.MaterialAlertDialog_backgroundInsetStart;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.MaterialAlertDialog_backgroundInsetTop = global::Mahwous.Droid.Resource.Styleable.MaterialAlertDialog_backgroundInsetTop;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.MaterialAutoCompleteTextView = global::Mahwous.Droid.Resource.Styleable.MaterialAutoCompleteTextView;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.MaterialAutoCompleteTextView_android_inputType = global::Mahwous.Droid.Resource.Styleable.MaterialAutoCompleteTextView_android_inputType;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.MaterialButton = global::Mahwous.Droid.Resource.Styleable.MaterialButton;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.MaterialButtonToggleGroup = global::Mahwous.Droid.Resource.Styleable.MaterialButtonToggleGroup;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.MaterialButtonToggleGroup_checkedButton = global::Mahwous.Droid.Resource.Styleable.MaterialButtonToggleGroup_checkedButton;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.MaterialButtonToggleGroup_selectionRequired = global::Mahwous.Droid.Resource.Styleable.MaterialButtonToggleGroup_selectionRequired;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.MaterialButtonToggleGroup_singleSelection = global::Mahwous.Droid.Resource.Styleable.MaterialButtonToggleGroup_singleSelection;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.MaterialButton_android_background = global::Mahwous.Droid.Resource.Styleable.MaterialButton_android_background;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.MaterialButton_android_checkable = global::Mahwous.Droid.Resource.Styleable.MaterialButton_android_checkable;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.MaterialButton_android_insetBottom = global::Mahwous.Droid.Resource.Styleable.MaterialButton_android_insetBottom;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.MaterialButton_android_insetLeft = global::Mahwous.Droid.Resource.Styleable.MaterialButton_android_insetLeft;
@@ -10790,6 +11158,7 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Styleable.MaterialCheckBox_buttonTint = global::Mahwous.Droid.Resource.Styleable.MaterialCheckBox_buttonTint;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.MaterialCheckBox_useMaterialThemeColors = global::Mahwous.Droid.Resource.Styleable.MaterialCheckBox_useMaterialThemeColors;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.MaterialRadioButton = global::Mahwous.Droid.Resource.Styleable.MaterialRadioButton;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.MaterialRadioButton_buttonTint = global::Mahwous.Droid.Resource.Styleable.MaterialRadioButton_buttonTint;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.MaterialRadioButton_useMaterialThemeColors = global::Mahwous.Droid.Resource.Styleable.MaterialRadioButton_useMaterialThemeColors;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.MaterialShape = global::Mahwous.Droid.Resource.Styleable.MaterialShape;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.MaterialShape_shapeAppearance = global::Mahwous.Droid.Resource.Styleable.MaterialShape_shapeAppearance;
@@ -10842,6 +11211,35 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Styleable.MenuView_android_windowAnimationStyle = global::Mahwous.Droid.Resource.Styleable.MenuView_android_windowAnimationStyle;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.MenuView_preserveIconSpacing = global::Mahwous.Droid.Resource.Styleable.MenuView_preserveIconSpacing;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.MenuView_subMenuArrow = global::Mahwous.Droid.Resource.Styleable.MenuView_subMenuArrow;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.MultiSelectListPreference = global::Mahwous.Droid.Resource.Styleable.MultiSelectListPreference;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.MultiSelectListPreference_android_entries = global::Mahwous.Droid.Resource.Styleable.MultiSelectListPreference_android_entries;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.MultiSelectListPreference_android_entryValues = global::Mahwous.Droid.Resource.Styleable.MultiSelectListPreference_android_entryValues;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.MultiSelectListPreference_entries = global::Mahwous.Droid.Resource.Styleable.MultiSelectListPreference_entries;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.MultiSelectListPreference_entryValues = global::Mahwous.Droid.Resource.Styleable.MultiSelectListPreference_entryValues;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.NavAction = global::Mahwous.Droid.Resource.Styleable.NavAction;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.NavAction_android_id = global::Mahwous.Droid.Resource.Styleable.NavAction_android_id;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.NavAction_destination = global::Mahwous.Droid.Resource.Styleable.NavAction_destination;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.NavAction_enterAnim = global::Mahwous.Droid.Resource.Styleable.NavAction_enterAnim;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.NavAction_exitAnim = global::Mahwous.Droid.Resource.Styleable.NavAction_exitAnim;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.NavAction_launchSingleTop = global::Mahwous.Droid.Resource.Styleable.NavAction_launchSingleTop;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.NavAction_popEnterAnim = global::Mahwous.Droid.Resource.Styleable.NavAction_popEnterAnim;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.NavAction_popExitAnim = global::Mahwous.Droid.Resource.Styleable.NavAction_popExitAnim;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.NavAction_popUpTo = global::Mahwous.Droid.Resource.Styleable.NavAction_popUpTo;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.NavAction_popUpToInclusive = global::Mahwous.Droid.Resource.Styleable.NavAction_popUpToInclusive;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.NavArgument = global::Mahwous.Droid.Resource.Styleable.NavArgument;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.NavArgument_android_defaultValue = global::Mahwous.Droid.Resource.Styleable.NavArgument_android_defaultValue;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.NavArgument_android_name = global::Mahwous.Droid.Resource.Styleable.NavArgument_android_name;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.NavArgument_argType = global::Mahwous.Droid.Resource.Styleable.NavArgument_argType;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.NavArgument_nullable = global::Mahwous.Droid.Resource.Styleable.NavArgument_nullable;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.NavDeepLink = global::Mahwous.Droid.Resource.Styleable.NavDeepLink;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.NavDeepLink_action = global::Mahwous.Droid.Resource.Styleable.NavDeepLink_action;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.NavDeepLink_android_autoVerify = global::Mahwous.Droid.Resource.Styleable.NavDeepLink_android_autoVerify;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.NavDeepLink_mimeType = global::Mahwous.Droid.Resource.Styleable.NavDeepLink_mimeType;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.NavDeepLink_uri = global::Mahwous.Droid.Resource.Styleable.NavDeepLink_uri;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.NavGraphNavigator = global::Mahwous.Droid.Resource.Styleable.NavGraphNavigator;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.NavGraphNavigator_startDestination = global::Mahwous.Droid.Resource.Styleable.NavGraphNavigator_startDestination;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.NavHost = global::Mahwous.Droid.Resource.Styleable.NavHost;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.NavHost_navGraph = global::Mahwous.Droid.Resource.Styleable.NavHost_navGraph;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.NavigationView = global::Mahwous.Droid.Resource.Styleable.NavigationView;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.NavigationView_android_background = global::Mahwous.Droid.Resource.Styleable.NavigationView_android_background;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.NavigationView_android_fitsSystemWindows = global::Mahwous.Droid.Resource.Styleable.NavigationView_android_fitsSystemWindows;
@@ -10864,12 +11262,92 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Styleable.NavigationView_itemTextAppearance = global::Mahwous.Droid.Resource.Styleable.NavigationView_itemTextAppearance;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.NavigationView_itemTextColor = global::Mahwous.Droid.Resource.Styleable.NavigationView_itemTextColor;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.NavigationView_menu = global::Mahwous.Droid.Resource.Styleable.NavigationView_menu;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Navigator = global::Mahwous.Droid.Resource.Styleable.Navigator;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Navigator_android_id = global::Mahwous.Droid.Resource.Styleable.Navigator_android_id;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Navigator_android_label = global::Mahwous.Droid.Resource.Styleable.Navigator_android_label;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.NavInclude = global::Mahwous.Droid.Resource.Styleable.NavInclude;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.NavInclude_graph = global::Mahwous.Droid.Resource.Styleable.NavInclude_graph;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.PopupWindow = global::Mahwous.Droid.Resource.Styleable.PopupWindow;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.PopupWindowBackgroundState = global::Mahwous.Droid.Resource.Styleable.PopupWindowBackgroundState;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.PopupWindowBackgroundState_state_above_anchor = global::Mahwous.Droid.Resource.Styleable.PopupWindowBackgroundState_state_above_anchor;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.PopupWindow_android_popupAnimationStyle = global::Mahwous.Droid.Resource.Styleable.PopupWindow_android_popupAnimationStyle;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.PopupWindow_android_popupBackground = global::Mahwous.Droid.Resource.Styleable.PopupWindow_android_popupBackground;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.PopupWindow_overlapAnchor = global::Mahwous.Droid.Resource.Styleable.PopupWindow_overlapAnchor;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference = global::Mahwous.Droid.Resource.Styleable.Preference;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceFragment = global::Mahwous.Droid.Resource.Styleable.PreferenceFragment;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceFragmentCompat = global::Mahwous.Droid.Resource.Styleable.PreferenceFragmentCompat;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceFragmentCompat_allowDividerAfterLastItem = global::Mahwous.Droid.Resource.Styleable.PreferenceFragmentCompat_allowDividerAfterLastItem;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceFragmentCompat_android_divider = global::Mahwous.Droid.Resource.Styleable.PreferenceFragmentCompat_android_divider;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceFragmentCompat_android_dividerHeight = global::Mahwous.Droid.Resource.Styleable.PreferenceFragmentCompat_android_dividerHeight;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceFragmentCompat_android_layout = global::Mahwous.Droid.Resource.Styleable.PreferenceFragmentCompat_android_layout;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceFragment_allowDividerAfterLastItem = global::Mahwous.Droid.Resource.Styleable.PreferenceFragment_allowDividerAfterLastItem;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceFragment_android_divider = global::Mahwous.Droid.Resource.Styleable.PreferenceFragment_android_divider;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceFragment_android_dividerHeight = global::Mahwous.Droid.Resource.Styleable.PreferenceFragment_android_dividerHeight;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceFragment_android_layout = global::Mahwous.Droid.Resource.Styleable.PreferenceFragment_android_layout;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceGroup = global::Mahwous.Droid.Resource.Styleable.PreferenceGroup;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceGroup_android_orderingFromXml = global::Mahwous.Droid.Resource.Styleable.PreferenceGroup_android_orderingFromXml;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceGroup_initialExpandedChildrenCount = global::Mahwous.Droid.Resource.Styleable.PreferenceGroup_initialExpandedChildrenCount;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceGroup_orderingFromXml = global::Mahwous.Droid.Resource.Styleable.PreferenceGroup_orderingFromXml;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceImageView = global::Mahwous.Droid.Resource.Styleable.PreferenceImageView;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceImageView_android_maxHeight = global::Mahwous.Droid.Resource.Styleable.PreferenceImageView_android_maxHeight;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceImageView_android_maxWidth = global::Mahwous.Droid.Resource.Styleable.PreferenceImageView_android_maxWidth;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceImageView_maxHeight = global::Mahwous.Droid.Resource.Styleable.PreferenceImageView_maxHeight;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceImageView_maxWidth = global::Mahwous.Droid.Resource.Styleable.PreferenceImageView_maxWidth;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceTheme = global::Mahwous.Droid.Resource.Styleable.PreferenceTheme;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceTheme_checkBoxPreferenceStyle = global::Mahwous.Droid.Resource.Styleable.PreferenceTheme_checkBoxPreferenceStyle;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceTheme_dialogPreferenceStyle = global::Mahwous.Droid.Resource.Styleable.PreferenceTheme_dialogPreferenceStyle;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceTheme_dropdownPreferenceStyle = global::Mahwous.Droid.Resource.Styleable.PreferenceTheme_dropdownPreferenceStyle;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceTheme_editTextPreferenceStyle = global::Mahwous.Droid.Resource.Styleable.PreferenceTheme_editTextPreferenceStyle;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceTheme_preferenceCategoryStyle = global::Mahwous.Droid.Resource.Styleable.PreferenceTheme_preferenceCategoryStyle;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceTheme_preferenceCategoryTitleTextAppearance = global::Mahwous.Droid.Resource.Styleable.PreferenceTheme_preferenceCategoryTitleTextAppearance;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceTheme_preferenceFragmentCompatStyle = global::Mahwous.Droid.Resource.Styleable.PreferenceTheme_preferenceFragmentCompatStyle;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceTheme_preferenceFragmentListStyle = global::Mahwous.Droid.Resource.Styleable.PreferenceTheme_preferenceFragmentListStyle;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceTheme_preferenceFragmentStyle = global::Mahwous.Droid.Resource.Styleable.PreferenceTheme_preferenceFragmentStyle;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceTheme_preferenceInformationStyle = global::Mahwous.Droid.Resource.Styleable.PreferenceTheme_preferenceInformationStyle;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceTheme_preferenceScreenStyle = global::Mahwous.Droid.Resource.Styleable.PreferenceTheme_preferenceScreenStyle;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceTheme_preferenceStyle = global::Mahwous.Droid.Resource.Styleable.PreferenceTheme_preferenceStyle;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceTheme_preferenceTheme = global::Mahwous.Droid.Resource.Styleable.PreferenceTheme_preferenceTheme;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceTheme_seekBarPreferenceStyle = global::Mahwous.Droid.Resource.Styleable.PreferenceTheme_seekBarPreferenceStyle;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceTheme_switchPreferenceCompatStyle = global::Mahwous.Droid.Resource.Styleable.PreferenceTheme_switchPreferenceCompatStyle;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.PreferenceTheme_switchPreferenceStyle = global::Mahwous.Droid.Resource.Styleable.PreferenceTheme_switchPreferenceStyle;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_allowDividerAbove = global::Mahwous.Droid.Resource.Styleable.Preference_allowDividerAbove;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_allowDividerBelow = global::Mahwous.Droid.Resource.Styleable.Preference_allowDividerBelow;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_android_defaultValue = global::Mahwous.Droid.Resource.Styleable.Preference_android_defaultValue;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_android_dependency = global::Mahwous.Droid.Resource.Styleable.Preference_android_dependency;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_android_enabled = global::Mahwous.Droid.Resource.Styleable.Preference_android_enabled;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_android_fragment = global::Mahwous.Droid.Resource.Styleable.Preference_android_fragment;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_android_icon = global::Mahwous.Droid.Resource.Styleable.Preference_android_icon;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_android_iconSpaceReserved = global::Mahwous.Droid.Resource.Styleable.Preference_android_iconSpaceReserved;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_android_key = global::Mahwous.Droid.Resource.Styleable.Preference_android_key;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_android_layout = global::Mahwous.Droid.Resource.Styleable.Preference_android_layout;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_android_order = global::Mahwous.Droid.Resource.Styleable.Preference_android_order;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_android_persistent = global::Mahwous.Droid.Resource.Styleable.Preference_android_persistent;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_android_selectable = global::Mahwous.Droid.Resource.Styleable.Preference_android_selectable;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_android_shouldDisableView = global::Mahwous.Droid.Resource.Styleable.Preference_android_shouldDisableView;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_android_singleLineTitle = global::Mahwous.Droid.Resource.Styleable.Preference_android_singleLineTitle;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_android_summary = global::Mahwous.Droid.Resource.Styleable.Preference_android_summary;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_android_title = global::Mahwous.Droid.Resource.Styleable.Preference_android_title;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_android_widgetLayout = global::Mahwous.Droid.Resource.Styleable.Preference_android_widgetLayout;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_defaultValue = global::Mahwous.Droid.Resource.Styleable.Preference_defaultValue;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_dependency = global::Mahwous.Droid.Resource.Styleable.Preference_dependency;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_enableCopying = global::Mahwous.Droid.Resource.Styleable.Preference_enableCopying;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_enabled = global::Mahwous.Droid.Resource.Styleable.Preference_enabled;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_fragment = global::Mahwous.Droid.Resource.Styleable.Preference_fragment;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_icon = global::Mahwous.Droid.Resource.Styleable.Preference_icon;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_iconSpaceReserved = global::Mahwous.Droid.Resource.Styleable.Preference_iconSpaceReserved;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_isPreferenceVisible = global::Mahwous.Droid.Resource.Styleable.Preference_isPreferenceVisible;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_key = global::Mahwous.Droid.Resource.Styleable.Preference_key;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_layout = global::Mahwous.Droid.Resource.Styleable.Preference_layout;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_order = global::Mahwous.Droid.Resource.Styleable.Preference_order;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_persistent = global::Mahwous.Droid.Resource.Styleable.Preference_persistent;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_selectable = global::Mahwous.Droid.Resource.Styleable.Preference_selectable;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_shouldDisableView = global::Mahwous.Droid.Resource.Styleable.Preference_shouldDisableView;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_singleLineTitle = global::Mahwous.Droid.Resource.Styleable.Preference_singleLineTitle;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_summary = global::Mahwous.Droid.Resource.Styleable.Preference_summary;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_title = global::Mahwous.Droid.Resource.Styleable.Preference_title;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Preference_widgetLayout = global::Mahwous.Droid.Resource.Styleable.Preference_widgetLayout;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.RangeSlider = global::Mahwous.Droid.Resource.Styleable.RangeSlider;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.RangeSlider_values = global::Mahwous.Droid.Resource.Styleable.RangeSlider_values;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.RecycleListView = global::Mahwous.Droid.Resource.Styleable.RecycleListView;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.RecycleListView_paddingBottomNoButtons = global::Mahwous.Droid.Resource.Styleable.RecycleListView_paddingBottomNoButtons;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.RecycleListView_paddingTopNoTitle = global::Mahwous.Droid.Resource.Styleable.RecycleListView_paddingTopNoTitle;
@@ -10910,6 +11388,19 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Styleable.SearchView_submitBackground = global::Mahwous.Droid.Resource.Styleable.SearchView_submitBackground;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.SearchView_suggestionRowLayout = global::Mahwous.Droid.Resource.Styleable.SearchView_suggestionRowLayout;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.SearchView_voiceIcon = global::Mahwous.Droid.Resource.Styleable.SearchView_voiceIcon;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.SeekBarPreference = global::Mahwous.Droid.Resource.Styleable.SeekBarPreference;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.SeekBarPreference_adjustable = global::Mahwous.Droid.Resource.Styleable.SeekBarPreference_adjustable;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.SeekBarPreference_android_layout = global::Mahwous.Droid.Resource.Styleable.SeekBarPreference_android_layout;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.SeekBarPreference_android_max = global::Mahwous.Droid.Resource.Styleable.SeekBarPreference_android_max;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.SeekBarPreference_min = global::Mahwous.Droid.Resource.Styleable.SeekBarPreference_min;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.SeekBarPreference_seekBarIncrement = global::Mahwous.Droid.Resource.Styleable.SeekBarPreference_seekBarIncrement;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.SeekBarPreference_showSeekBarValue = global::Mahwous.Droid.Resource.Styleable.SeekBarPreference_showSeekBarValue;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.SeekBarPreference_updatesContinuously = global::Mahwous.Droid.Resource.Styleable.SeekBarPreference_updatesContinuously;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.ShapeableImageView = global::Mahwous.Droid.Resource.Styleable.ShapeableImageView;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.ShapeableImageView_shapeAppearance = global::Mahwous.Droid.Resource.Styleable.ShapeableImageView_shapeAppearance;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.ShapeableImageView_shapeAppearanceOverlay = global::Mahwous.Droid.Resource.Styleable.ShapeableImageView_shapeAppearanceOverlay;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.ShapeableImageView_strokeColor = global::Mahwous.Droid.Resource.Styleable.ShapeableImageView_strokeColor;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.ShapeableImageView_strokeWidth = global::Mahwous.Droid.Resource.Styleable.ShapeableImageView_strokeWidth;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ShapeAppearance = global::Mahwous.Droid.Resource.Styleable.ShapeAppearance;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ShapeAppearance_cornerFamily = global::Mahwous.Droid.Resource.Styleable.ShapeAppearance_cornerFamily;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ShapeAppearance_cornerFamilyBottomLeft = global::Mahwous.Droid.Resource.Styleable.ShapeAppearance_cornerFamilyBottomLeft;
@@ -10921,16 +11412,39 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ShapeAppearance_cornerSizeBottomRight = global::Mahwous.Droid.Resource.Styleable.ShapeAppearance_cornerSizeBottomRight;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ShapeAppearance_cornerSizeTopLeft = global::Mahwous.Droid.Resource.Styleable.ShapeAppearance_cornerSizeTopLeft;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ShapeAppearance_cornerSizeTopRight = global::Mahwous.Droid.Resource.Styleable.ShapeAppearance_cornerSizeTopRight;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Slider = global::Mahwous.Droid.Resource.Styleable.Slider;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Slider_android_enabled = global::Mahwous.Droid.Resource.Styleable.Slider_android_enabled;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Slider_android_stepSize = global::Mahwous.Droid.Resource.Styleable.Slider_android_stepSize;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Slider_android_value = global::Mahwous.Droid.Resource.Styleable.Slider_android_value;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Slider_android_valueFrom = global::Mahwous.Droid.Resource.Styleable.Slider_android_valueFrom;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Slider_android_valueTo = global::Mahwous.Droid.Resource.Styleable.Slider_android_valueTo;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Slider_haloColor = global::Mahwous.Droid.Resource.Styleable.Slider_haloColor;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Slider_haloRadius = global::Mahwous.Droid.Resource.Styleable.Slider_haloRadius;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Slider_labelBehavior = global::Mahwous.Droid.Resource.Styleable.Slider_labelBehavior;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Slider_labelStyle = global::Mahwous.Droid.Resource.Styleable.Slider_labelStyle;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Slider_thumbColor = global::Mahwous.Droid.Resource.Styleable.Slider_thumbColor;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Slider_thumbElevation = global::Mahwous.Droid.Resource.Styleable.Slider_thumbElevation;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Slider_thumbRadius = global::Mahwous.Droid.Resource.Styleable.Slider_thumbRadius;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Slider_tickColor = global::Mahwous.Droid.Resource.Styleable.Slider_tickColor;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Slider_tickColorActive = global::Mahwous.Droid.Resource.Styleable.Slider_tickColorActive;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Slider_tickColorInactive = global::Mahwous.Droid.Resource.Styleable.Slider_tickColorInactive;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Slider_trackColor = global::Mahwous.Droid.Resource.Styleable.Slider_trackColor;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Slider_trackColorActive = global::Mahwous.Droid.Resource.Styleable.Slider_trackColorActive;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Slider_trackColorInactive = global::Mahwous.Droid.Resource.Styleable.Slider_trackColorInactive;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Slider_trackHeight = global::Mahwous.Droid.Resource.Styleable.Slider_trackHeight;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.Snackbar = global::Mahwous.Droid.Resource.Styleable.Snackbar;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.SnackbarLayout = global::Mahwous.Droid.Resource.Styleable.SnackbarLayout;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.SnackbarLayout_actionTextColorAlpha = global::Mahwous.Droid.Resource.Styleable.SnackbarLayout_actionTextColorAlpha;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.SnackbarLayout_android_maxWidth = global::Mahwous.Droid.Resource.Styleable.SnackbarLayout_android_maxWidth;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.SnackbarLayout_animationMode = global::Mahwous.Droid.Resource.Styleable.SnackbarLayout_animationMode;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.SnackbarLayout_backgroundOverlayColorAlpha = global::Mahwous.Droid.Resource.Styleable.SnackbarLayout_backgroundOverlayColorAlpha;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.SnackbarLayout_backgroundTint = global::Mahwous.Droid.Resource.Styleable.SnackbarLayout_backgroundTint;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.SnackbarLayout_backgroundTintMode = global::Mahwous.Droid.Resource.Styleable.SnackbarLayout_backgroundTintMode;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.SnackbarLayout_elevation = global::Mahwous.Droid.Resource.Styleable.SnackbarLayout_elevation;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.SnackbarLayout_maxActionInlineWidth = global::Mahwous.Droid.Resource.Styleable.SnackbarLayout_maxActionInlineWidth;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.Snackbar_snackbarButtonStyle = global::Mahwous.Droid.Resource.Styleable.Snackbar_snackbarButtonStyle;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.Snackbar_snackbarStyle = global::Mahwous.Droid.Resource.Styleable.Snackbar_snackbarStyle;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Snackbar_snackbarTextViewStyle = global::Mahwous.Droid.Resource.Styleable.Snackbar_snackbarTextViewStyle;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.Spinner = global::Mahwous.Droid.Resource.Styleable.Spinner;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.Spinner_android_dropDownWidth = global::Mahwous.Droid.Resource.Styleable.Spinner_android_dropDownWidth;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.Spinner_android_entries = global::Mahwous.Droid.Resource.Styleable.Spinner_android_entries;
@@ -10965,6 +11479,28 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Styleable.SwitchCompat_trackTintMode = global::Mahwous.Droid.Resource.Styleable.SwitchCompat_trackTintMode;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.SwitchMaterial = global::Mahwous.Droid.Resource.Styleable.SwitchMaterial;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.SwitchMaterial_useMaterialThemeColors = global::Mahwous.Droid.Resource.Styleable.SwitchMaterial_useMaterialThemeColors;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.SwitchPreference = global::Mahwous.Droid.Resource.Styleable.SwitchPreference;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.SwitchPreferenceCompat = global::Mahwous.Droid.Resource.Styleable.SwitchPreferenceCompat;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.SwitchPreferenceCompat_android_disableDependentsState = global::Mahwous.Droid.Resource.Styleable.SwitchPreferenceCompat_android_disableDependentsState;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.SwitchPreferenceCompat_android_summaryOff = global::Mahwous.Droid.Resource.Styleable.SwitchPreferenceCompat_android_summaryOff;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.SwitchPreferenceCompat_android_summaryOn = global::Mahwous.Droid.Resource.Styleable.SwitchPreferenceCompat_android_summaryOn;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.SwitchPreferenceCompat_android_switchTextOff = global::Mahwous.Droid.Resource.Styleable.SwitchPreferenceCompat_android_switchTextOff;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.SwitchPreferenceCompat_android_switchTextOn = global::Mahwous.Droid.Resource.Styleable.SwitchPreferenceCompat_android_switchTextOn;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.SwitchPreferenceCompat_disableDependentsState = global::Mahwous.Droid.Resource.Styleable.SwitchPreferenceCompat_disableDependentsState;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.SwitchPreferenceCompat_summaryOff = global::Mahwous.Droid.Resource.Styleable.SwitchPreferenceCompat_summaryOff;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.SwitchPreferenceCompat_summaryOn = global::Mahwous.Droid.Resource.Styleable.SwitchPreferenceCompat_summaryOn;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.SwitchPreferenceCompat_switchTextOff = global::Mahwous.Droid.Resource.Styleable.SwitchPreferenceCompat_switchTextOff;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.SwitchPreferenceCompat_switchTextOn = global::Mahwous.Droid.Resource.Styleable.SwitchPreferenceCompat_switchTextOn;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.SwitchPreference_android_disableDependentsState = global::Mahwous.Droid.Resource.Styleable.SwitchPreference_android_disableDependentsState;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.SwitchPreference_android_summaryOff = global::Mahwous.Droid.Resource.Styleable.SwitchPreference_android_summaryOff;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.SwitchPreference_android_summaryOn = global::Mahwous.Droid.Resource.Styleable.SwitchPreference_android_summaryOn;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.SwitchPreference_android_switchTextOff = global::Mahwous.Droid.Resource.Styleable.SwitchPreference_android_switchTextOff;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.SwitchPreference_android_switchTextOn = global::Mahwous.Droid.Resource.Styleable.SwitchPreference_android_switchTextOn;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.SwitchPreference_disableDependentsState = global::Mahwous.Droid.Resource.Styleable.SwitchPreference_disableDependentsState;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.SwitchPreference_summaryOff = global::Mahwous.Droid.Resource.Styleable.SwitchPreference_summaryOff;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.SwitchPreference_summaryOn = global::Mahwous.Droid.Resource.Styleable.SwitchPreference_summaryOn;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.SwitchPreference_switchTextOff = global::Mahwous.Droid.Resource.Styleable.SwitchPreference_switchTextOff;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.SwitchPreference_switchTextOn = global::Mahwous.Droid.Resource.Styleable.SwitchPreference_switchTextOn;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.TabItem = global::Mahwous.Droid.Resource.Styleable.TabItem;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.TabItem_android_icon = global::Mahwous.Droid.Resource.Styleable.TabItem_android_icon;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.TabItem_android_layout = global::Mahwous.Droid.Resource.Styleable.TabItem_android_layout;
@@ -11012,7 +11548,10 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Styleable.TextAppearance_fontVariationSettings = global::Mahwous.Droid.Resource.Styleable.TextAppearance_fontVariationSettings;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.TextAppearance_textAllCaps = global::Mahwous.Droid.Resource.Styleable.TextAppearance_textAllCaps;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.TextAppearance_textLocale = global::Mahwous.Droid.Resource.Styleable.TextAppearance_textLocale;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputEditText = global::Mahwous.Droid.Resource.Styleable.TextInputEditText;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputEditText_textInputLayoutFocusedRectEnabled = global::Mahwous.Droid.Resource.Styleable.TextInputEditText_textInputLayoutFocusedRectEnabled;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout = global::Mahwous.Droid.Resource.Styleable.TextInputLayout;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_android_enabled = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_android_enabled;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_android_hint = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_android_hint;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_android_textColorHint = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_android_textColorHint;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_boxBackgroundColor = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_boxBackgroundColor;
@@ -11023,6 +11562,7 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_boxCornerRadiusTopEnd = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_boxCornerRadiusTopEnd;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_boxCornerRadiusTopStart = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_boxCornerRadiusTopStart;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_boxStrokeColor = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_boxStrokeColor;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_boxStrokeErrorColor = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_boxStrokeErrorColor;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_boxStrokeWidth = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_boxStrokeWidth;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_boxStrokeWidthFocused = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_boxStrokeWidthFocused;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_counterEnabled = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_counterEnabled;
@@ -11037,6 +11577,7 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_endIconMode = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_endIconMode;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_endIconTint = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_endIconTint;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_endIconTintMode = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_endIconTintMode;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_errorContentDescription = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_errorContentDescription;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_errorEnabled = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_errorEnabled;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_errorIconDrawable = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_errorIconDrawable;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_errorIconTint = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_errorIconTint;
@@ -11056,6 +11597,12 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_passwordToggleEnabled = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_passwordToggleEnabled;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_passwordToggleTint = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_passwordToggleTint;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_passwordToggleTintMode = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_passwordToggleTintMode;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_placeholderText = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_placeholderText;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_placeholderTextAppearance = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_placeholderTextAppearance;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_placeholderTextColor = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_placeholderTextColor;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_prefixText = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_prefixText;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_prefixTextAppearance = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_prefixTextAppearance;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_prefixTextColor = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_prefixTextColor;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_shapeAppearance = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_shapeAppearance;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_shapeAppearanceOverlay = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_shapeAppearanceOverlay;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_startIconCheckable = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_startIconCheckable;
@@ -11063,6 +11610,9 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_startIconDrawable = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_startIconDrawable;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_startIconTint = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_startIconTint;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_startIconTintMode = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_startIconTintMode;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_suffixText = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_suffixText;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_suffixTextAppearance = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_suffixTextAppearance;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.TextInputLayout_suffixTextColor = global::Mahwous.Droid.Resource.Styleable.TextInputLayout_suffixTextColor;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ThemeEnforcement = global::Mahwous.Droid.Resource.Styleable.ThemeEnforcement;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ThemeEnforcement_android_textAppearance = global::Mahwous.Droid.Resource.Styleable.ThemeEnforcement_android_textAppearance;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ThemeEnforcement_enforceMaterialTheme = global::Mahwous.Droid.Resource.Styleable.ThemeEnforcement_enforceMaterialTheme;
@@ -11098,6 +11648,14 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Styleable.Toolbar_titleMarginTop = global::Mahwous.Droid.Resource.Styleable.Toolbar_titleMarginTop;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.Toolbar_titleTextAppearance = global::Mahwous.Droid.Resource.Styleable.Toolbar_titleTextAppearance;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.Toolbar_titleTextColor = global::Mahwous.Droid.Resource.Styleable.Toolbar_titleTextColor;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Tooltip = global::Mahwous.Droid.Resource.Styleable.Tooltip;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Tooltip_android_layout_margin = global::Mahwous.Droid.Resource.Styleable.Tooltip_android_layout_margin;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Tooltip_android_minHeight = global::Mahwous.Droid.Resource.Styleable.Tooltip_android_minHeight;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Tooltip_android_minWidth = global::Mahwous.Droid.Resource.Styleable.Tooltip_android_minWidth;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Tooltip_android_padding = global::Mahwous.Droid.Resource.Styleable.Tooltip_android_padding;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Tooltip_android_text = global::Mahwous.Droid.Resource.Styleable.Tooltip_android_text;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Tooltip_android_textAppearance = global::Mahwous.Droid.Resource.Styleable.Tooltip_android_textAppearance;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Tooltip_backgroundTint = global::Mahwous.Droid.Resource.Styleable.Tooltip_backgroundTint;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.View = global::Mahwous.Droid.Resource.Styleable.View;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ViewBackgroundHelper = global::Mahwous.Droid.Resource.Styleable.ViewBackgroundHelper;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ViewBackgroundHelper_android_background = global::Mahwous.Droid.Resource.Styleable.ViewBackgroundHelper_android_background;
@@ -11119,6 +11677,7 @@ namespace Mahwous.Droid
 			global::Xamarin.CommunityToolkit.Resource.Xml.standalone_badge_gravity_bottom_end = global::Mahwous.Droid.Resource.Xml.standalone_badge_gravity_bottom_end;
 			global::Xamarin.CommunityToolkit.Resource.Xml.standalone_badge_gravity_bottom_start = global::Mahwous.Droid.Resource.Xml.standalone_badge_gravity_bottom_start;
 			global::Xamarin.CommunityToolkit.Resource.Xml.standalone_badge_gravity_top_start = global::Mahwous.Droid.Resource.Xml.standalone_badge_gravity_top_start;
+			global::Xamarin.CommunityToolkit.Resource.Xml.standalone_badge_offset = global::Mahwous.Droid.Resource.Xml.standalone_badge_offset;
 			global::Xamarin.Essentials.Resource.Attribute.alpha = global::Mahwous.Droid.Resource.Attribute.alpha;
 			global::Xamarin.Essentials.Resource.Attribute.font = global::Mahwous.Droid.Resource.Attribute.font;
 			global::Xamarin.Essentials.Resource.Attribute.fontProviderAuthority = global::Mahwous.Droid.Resource.Attribute.fontProviderAuthority;
@@ -11346,9 +11905,19 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Animation.mtrl_bottom_sheet_slide_in = global::Mahwous.Droid.Resource.Animation.mtrl_bottom_sheet_slide_in;
 			global::Xamarin.Forms.Platform.Android.Resource.Animation.mtrl_bottom_sheet_slide_out = global::Mahwous.Droid.Resource.Animation.mtrl_bottom_sheet_slide_out;
 			global::Xamarin.Forms.Platform.Android.Resource.Animation.mtrl_card_lowers_interpolator = global::Mahwous.Droid.Resource.Animation.mtrl_card_lowers_interpolator;
+			global::Xamarin.Forms.Platform.Android.Resource.Animation.nav_default_enter_anim = global::Mahwous.Droid.Resource.Animation.nav_default_enter_anim;
+			global::Xamarin.Forms.Platform.Android.Resource.Animation.nav_default_exit_anim = global::Mahwous.Droid.Resource.Animation.nav_default_exit_anim;
+			global::Xamarin.Forms.Platform.Android.Resource.Animation.nav_default_pop_enter_anim = global::Mahwous.Droid.Resource.Animation.nav_default_pop_enter_anim;
+			global::Xamarin.Forms.Platform.Android.Resource.Animation.nav_default_pop_exit_anim = global::Mahwous.Droid.Resource.Animation.nav_default_pop_exit_anim;
 			global::Xamarin.Forms.Platform.Android.Resource.Animator.design_appbar_state_list_animator = global::Mahwous.Droid.Resource.Animator.design_appbar_state_list_animator;
 			global::Xamarin.Forms.Platform.Android.Resource.Animator.design_fab_hide_motion_spec = global::Mahwous.Droid.Resource.Animator.design_fab_hide_motion_spec;
 			global::Xamarin.Forms.Platform.Android.Resource.Animator.design_fab_show_motion_spec = global::Mahwous.Droid.Resource.Animator.design_fab_show_motion_spec;
+			global::Xamarin.Forms.Platform.Android.Resource.Animator.fragment_close_enter = global::Mahwous.Droid.Resource.Animator.fragment_close_enter;
+			global::Xamarin.Forms.Platform.Android.Resource.Animator.fragment_close_exit = global::Mahwous.Droid.Resource.Animator.fragment_close_exit;
+			global::Xamarin.Forms.Platform.Android.Resource.Animator.fragment_fade_enter = global::Mahwous.Droid.Resource.Animator.fragment_fade_enter;
+			global::Xamarin.Forms.Platform.Android.Resource.Animator.fragment_fade_exit = global::Mahwous.Droid.Resource.Animator.fragment_fade_exit;
+			global::Xamarin.Forms.Platform.Android.Resource.Animator.fragment_open_enter = global::Mahwous.Droid.Resource.Animator.fragment_open_enter;
+			global::Xamarin.Forms.Platform.Android.Resource.Animator.fragment_open_exit = global::Mahwous.Droid.Resource.Animator.fragment_open_exit;
 			global::Xamarin.Forms.Platform.Android.Resource.Animator.mtrl_btn_state_list_anim = global::Mahwous.Droid.Resource.Animator.mtrl_btn_state_list_anim;
 			global::Xamarin.Forms.Platform.Android.Resource.Animator.mtrl_btn_unelevated_state_list_anim = global::Mahwous.Droid.Resource.Animator.mtrl_btn_unelevated_state_list_anim;
 			global::Xamarin.Forms.Platform.Android.Resource.Animator.mtrl_card_state_list_anim = global::Mahwous.Droid.Resource.Animator.mtrl_card_state_list_anim;
@@ -11361,6 +11930,11 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Animator.mtrl_fab_show_motion_spec = global::Mahwous.Droid.Resource.Animator.mtrl_fab_show_motion_spec;
 			global::Xamarin.Forms.Platform.Android.Resource.Animator.mtrl_fab_transformation_sheet_collapse_spec = global::Mahwous.Droid.Resource.Animator.mtrl_fab_transformation_sheet_collapse_spec;
 			global::Xamarin.Forms.Platform.Android.Resource.Animator.mtrl_fab_transformation_sheet_expand_spec = global::Mahwous.Droid.Resource.Animator.mtrl_fab_transformation_sheet_expand_spec;
+			global::Xamarin.Forms.Platform.Android.Resource.Animator.nav_default_enter_anim = global::Mahwous.Droid.Resource.Animator.nav_default_enter_anim;
+			global::Xamarin.Forms.Platform.Android.Resource.Animator.nav_default_exit_anim = global::Mahwous.Droid.Resource.Animator.nav_default_exit_anim;
+			global::Xamarin.Forms.Platform.Android.Resource.Animator.nav_default_pop_enter_anim = global::Mahwous.Droid.Resource.Animator.nav_default_pop_enter_anim;
+			global::Xamarin.Forms.Platform.Android.Resource.Animator.nav_default_pop_exit_anim = global::Mahwous.Droid.Resource.Animator.nav_default_pop_exit_anim;
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.action = global::Mahwous.Droid.Resource.Attribute.action;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarDivider = global::Mahwous.Droid.Resource.Attribute.actionBarDivider;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarItemBackground = global::Mahwous.Droid.Resource.Attribute.actionBarItemBackground;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarPopupTheme = global::Mahwous.Droid.Resource.Attribute.actionBarPopupTheme;
@@ -11405,6 +11979,7 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.alphabeticModifiers = global::Mahwous.Droid.Resource.Attribute.alphabeticModifiers;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.animationMode = global::Mahwous.Droid.Resource.Attribute.animationMode;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.appBarLayoutStyle = global::Mahwous.Droid.Resource.Attribute.appBarLayoutStyle;
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.argType = global::Mahwous.Droid.Resource.Attribute.argType;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.arrowHeadLength = global::Mahwous.Droid.Resource.Attribute.arrowHeadLength;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.arrowShaftLength = global::Mahwous.Droid.Resource.Attribute.arrowShaftLength;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.autoCompleteTextViewStyle = global::Mahwous.Droid.Resource.Attribute.autoCompleteTextViewStyle;
@@ -11574,11 +12149,14 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.counterTextAppearance = global::Mahwous.Droid.Resource.Attribute.counterTextAppearance;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.counterTextColor = global::Mahwous.Droid.Resource.Attribute.counterTextColor;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.customNavigationLayout = global::Mahwous.Droid.Resource.Attribute.customNavigationLayout;
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.data = global::Mahwous.Droid.Resource.Attribute.data;
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.dataPattern = global::Mahwous.Droid.Resource.Attribute.dataPattern;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.dayInvalidStyle = global::Mahwous.Droid.Resource.Attribute.dayInvalidStyle;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.daySelectedStyle = global::Mahwous.Droid.Resource.Attribute.daySelectedStyle;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.dayStyle = global::Mahwous.Droid.Resource.Attribute.dayStyle;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.dayTodayStyle = global::Mahwous.Droid.Resource.Attribute.dayTodayStyle;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.defaultQueryHint = global::Mahwous.Droid.Resource.Attribute.defaultQueryHint;
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.destination = global::Mahwous.Droid.Resource.Attribute.destination;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.dialogCornerRadius = global::Mahwous.Droid.Resource.Attribute.dialogCornerRadius;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.dialogPreferredPadding = global::Mahwous.Droid.Resource.Attribute.dialogPreferredPadding;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.dialogTheme = global::Mahwous.Droid.Resource.Attribute.dialogTheme;
@@ -11615,6 +12193,7 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.enforceMaterialTheme = global::Mahwous.Droid.Resource.Attribute.enforceMaterialTheme;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.enforceTextAppearance = global::Mahwous.Droid.Resource.Attribute.enforceTextAppearance;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.ensureMinTouchTargetSize = global::Mahwous.Droid.Resource.Attribute.ensureMinTouchTargetSize;
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.enterAnim = global::Mahwous.Droid.Resource.Attribute.enterAnim;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.errorContentDescription = global::Mahwous.Droid.Resource.Attribute.errorContentDescription;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.errorEnabled = global::Mahwous.Droid.Resource.Attribute.errorEnabled;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.errorIconDrawable = global::Mahwous.Droid.Resource.Attribute.errorIconDrawable;
@@ -11622,6 +12201,7 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.errorIconTintMode = global::Mahwous.Droid.Resource.Attribute.errorIconTintMode;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.errorTextAppearance = global::Mahwous.Droid.Resource.Attribute.errorTextAppearance;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.errorTextColor = global::Mahwous.Droid.Resource.Attribute.errorTextColor;
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.exitAnim = global::Mahwous.Droid.Resource.Attribute.exitAnim;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.expandActivityOverflowButtonDrawable = global::Mahwous.Droid.Resource.Attribute.expandActivityOverflowButtonDrawable;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.expanded = global::Mahwous.Droid.Resource.Attribute.expanded;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.expandedTitleGravity = global::Mahwous.Droid.Resource.Attribute.expandedTitleGravity;
@@ -11662,6 +12242,7 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.gapBetweenBars = global::Mahwous.Droid.Resource.Attribute.gapBetweenBars;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.gestureInsetBottomIgnored = global::Mahwous.Droid.Resource.Attribute.gestureInsetBottomIgnored;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.goIcon = global::Mahwous.Droid.Resource.Attribute.goIcon;
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.graph = global::Mahwous.Droid.Resource.Attribute.graph;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.haloColor = global::Mahwous.Droid.Resource.Attribute.haloColor;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.haloRadius = global::Mahwous.Droid.Resource.Attribute.haloRadius;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.headerLayout = global::Mahwous.Droid.Resource.Attribute.headerLayout;
@@ -11725,6 +12306,7 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.labelStyle = global::Mahwous.Droid.Resource.Attribute.labelStyle;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.labelVisibilityMode = global::Mahwous.Droid.Resource.Attribute.labelVisibilityMode;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.lastBaselineToBottomHeight = global::Mahwous.Droid.Resource.Attribute.lastBaselineToBottomHeight;
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.launchSingleTop = global::Mahwous.Droid.Resource.Attribute.launchSingleTop;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.layout = global::Mahwous.Droid.Resource.Attribute.layout;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.layoutManager = global::Mahwous.Droid.Resource.Attribute.layoutManager;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.layout_anchor = global::Mahwous.Droid.Resource.Attribute.layout_anchor;
@@ -11785,12 +12367,15 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.maxLines = global::Mahwous.Droid.Resource.Attribute.maxLines;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.measureWithLargestChild = global::Mahwous.Droid.Resource.Attribute.measureWithLargestChild;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.menu = global::Mahwous.Droid.Resource.Attribute.menu;
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.mimeType = global::Mahwous.Droid.Resource.Attribute.mimeType;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.minTouchTargetSize = global::Mahwous.Droid.Resource.Attribute.minTouchTargetSize;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.multiChoiceItemLayout = global::Mahwous.Droid.Resource.Attribute.multiChoiceItemLayout;
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.navGraph = global::Mahwous.Droid.Resource.Attribute.navGraph;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.navigationContentDescription = global::Mahwous.Droid.Resource.Attribute.navigationContentDescription;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.navigationIcon = global::Mahwous.Droid.Resource.Attribute.navigationIcon;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.navigationMode = global::Mahwous.Droid.Resource.Attribute.navigationMode;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.navigationViewStyle = global::Mahwous.Droid.Resource.Attribute.navigationViewStyle;
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.nullable = global::Mahwous.Droid.Resource.Attribute.nullable;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.number = global::Mahwous.Droid.Resource.Attribute.number;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.numericModifiers = global::Mahwous.Droid.Resource.Attribute.numericModifiers;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.overlapAnchor = global::Mahwous.Droid.Resource.Attribute.overlapAnchor;
@@ -11812,9 +12397,13 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.placeholderText = global::Mahwous.Droid.Resource.Attribute.placeholderText;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.placeholderTextAppearance = global::Mahwous.Droid.Resource.Attribute.placeholderTextAppearance;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.placeholderTextColor = global::Mahwous.Droid.Resource.Attribute.placeholderTextColor;
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.popEnterAnim = global::Mahwous.Droid.Resource.Attribute.popEnterAnim;
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.popExitAnim = global::Mahwous.Droid.Resource.Attribute.popExitAnim;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.popupMenuBackground = global::Mahwous.Droid.Resource.Attribute.popupMenuBackground;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.popupMenuStyle = global::Mahwous.Droid.Resource.Attribute.popupMenuStyle;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.popupTheme = global::Mahwous.Droid.Resource.Attribute.popupTheme;
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.popUpTo = global::Mahwous.Droid.Resource.Attribute.popUpTo;
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.popUpToInclusive = global::Mahwous.Droid.Resource.Attribute.popUpToInclusive;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.popupWindowStyle = global::Mahwous.Droid.Resource.Attribute.popupWindowStyle;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.prefixText = global::Mahwous.Droid.Resource.Attribute.prefixText;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.prefixTextAppearance = global::Mahwous.Droid.Resource.Attribute.prefixTextAppearance;
@@ -11869,6 +12458,7 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.splitTrack = global::Mahwous.Droid.Resource.Attribute.splitTrack;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.srcCompat = global::Mahwous.Droid.Resource.Attribute.srcCompat;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.stackFromEnd = global::Mahwous.Droid.Resource.Attribute.stackFromEnd;
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.startDestination = global::Mahwous.Droid.Resource.Attribute.startDestination;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.startIconCheckable = global::Mahwous.Droid.Resource.Attribute.startIconCheckable;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.startIconContentDescription = global::Mahwous.Droid.Resource.Attribute.startIconContentDescription;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.startIconDrawable = global::Mahwous.Droid.Resource.Attribute.startIconDrawable;
@@ -11926,6 +12516,7 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.tabTextAppearance = global::Mahwous.Droid.Resource.Attribute.tabTextAppearance;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.tabTextColor = global::Mahwous.Droid.Resource.Attribute.tabTextColor;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.tabUnboundedRipple = global::Mahwous.Droid.Resource.Attribute.tabUnboundedRipple;
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.targetPackage = global::Mahwous.Droid.Resource.Attribute.targetPackage;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.textAllCaps = global::Mahwous.Droid.Resource.Attribute.textAllCaps;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.textAppearanceBody1 = global::Mahwous.Droid.Resource.Attribute.textAppearanceBody1;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.textAppearanceBody2 = global::Mahwous.Droid.Resource.Attribute.textAppearanceBody2;
@@ -12000,6 +12591,7 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.trackTintMode = global::Mahwous.Droid.Resource.Attribute.trackTintMode;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.transitionShapeAppearance = global::Mahwous.Droid.Resource.Attribute.transitionShapeAppearance;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.ttcIndex = global::Mahwous.Droid.Resource.Attribute.ttcIndex;
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.uri = global::Mahwous.Droid.Resource.Attribute.uri;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.useCompatPadding = global::Mahwous.Droid.Resource.Attribute.useCompatPadding;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.useMaterialThemeColors = global::Mahwous.Droid.Resource.Attribute.useMaterialThemeColors;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.values = global::Mahwous.Droid.Resource.Attribute.values;
@@ -12893,6 +13485,7 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Id.mtrl_picker_title_text = global::Mahwous.Droid.Resource.Id.mtrl_picker_title_text;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.multiply = global::Mahwous.Droid.Resource.Id.multiply;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.navigation_header_container = global::Mahwous.Droid.Resource.Id.navigation_header_container;
+			global::Xamarin.Forms.Platform.Android.Resource.Id.nav_controller_view_tag = global::Mahwous.Droid.Resource.Id.nav_controller_view_tag;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.never = global::Mahwous.Droid.Resource.Id.never;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.none = global::Mahwous.Droid.Resource.Id.none;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.normal = global::Mahwous.Droid.Resource.Id.normal;
@@ -12954,6 +13547,7 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Id.snap = global::Mahwous.Droid.Resource.Id.snap;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.snapMargins = global::Mahwous.Droid.Resource.Id.snapMargins;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.spacer = global::Mahwous.Droid.Resource.Id.spacer;
+			global::Xamarin.Forms.Platform.Android.Resource.Id.special_effects_controller_view_tag = global::Mahwous.Droid.Resource.Id.special_effects_controller_view_tag;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.split_action_bar = global::Mahwous.Droid.Resource.Id.split_action_bar;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.src_atop = global::Mahwous.Droid.Resource.Id.src_atop;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.src_in = global::Mahwous.Droid.Resource.Id.src_in;
@@ -13012,7 +13606,9 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Id.up = global::Mahwous.Droid.Resource.Id.up;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.useLogo = global::Mahwous.Droid.Resource.Id.useLogo;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.view_offset_helper = global::Mahwous.Droid.Resource.Id.view_offset_helper;
+			global::Xamarin.Forms.Platform.Android.Resource.Id.view_tree_lifecycle_owner = global::Mahwous.Droid.Resource.Id.view_tree_lifecycle_owner;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.view_tree_saved_state_registry_owner = global::Mahwous.Droid.Resource.Id.view_tree_saved_state_registry_owner;
+			global::Xamarin.Forms.Platform.Android.Resource.Id.view_tree_view_model_store_owner = global::Mahwous.Droid.Resource.Id.view_tree_view_model_store_owner;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.visible = global::Mahwous.Droid.Resource.Id.visible;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.visible_removing_fragment_view_tag = global::Mahwous.Droid.Resource.Id.visible_removing_fragment_view_tag;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.withinBounds = global::Mahwous.Droid.Resource.Id.withinBounds;
@@ -13024,6 +13620,7 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Integer.app_bar_elevation_anim_duration = global::Mahwous.Droid.Resource.Integer.app_bar_elevation_anim_duration;
 			global::Xamarin.Forms.Platform.Android.Resource.Integer.bottom_sheet_slide_duration = global::Mahwous.Droid.Resource.Integer.bottom_sheet_slide_duration;
 			global::Xamarin.Forms.Platform.Android.Resource.Integer.cancel_button_image_alpha = global::Mahwous.Droid.Resource.Integer.cancel_button_image_alpha;
+			global::Xamarin.Forms.Platform.Android.Resource.Integer.config_navAnimTime = global::Mahwous.Droid.Resource.Integer.config_navAnimTime;
 			global::Xamarin.Forms.Platform.Android.Resource.Integer.config_tooltipAnimTime = global::Mahwous.Droid.Resource.Integer.config_tooltipAnimTime;
 			global::Xamarin.Forms.Platform.Android.Resource.Integer.design_snackbar_text_max_lines = global::Mahwous.Droid.Resource.Integer.design_snackbar_text_max_lines;
 			global::Xamarin.Forms.Platform.Android.Resource.Integer.design_tab_indicator_anim_duration_ms = global::Mahwous.Droid.Resource.Integer.design_tab_indicator_anim_duration_ms;
@@ -13243,6 +13840,8 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.String.mtrl_picker_toggle_to_day_selection = global::Mahwous.Droid.Resource.String.mtrl_picker_toggle_to_day_selection;
 			global::Xamarin.Forms.Platform.Android.Resource.String.mtrl_picker_toggle_to_text_input_mode = global::Mahwous.Droid.Resource.String.mtrl_picker_toggle_to_text_input_mode;
 			global::Xamarin.Forms.Platform.Android.Resource.String.mtrl_picker_toggle_to_year_selection = global::Mahwous.Droid.Resource.String.mtrl_picker_toggle_to_year_selection;
+			global::Xamarin.Forms.Platform.Android.Resource.String.nav_app_bar_navigate_up_description = global::Mahwous.Droid.Resource.String.nav_app_bar_navigate_up_description;
+			global::Xamarin.Forms.Platform.Android.Resource.String.nav_app_bar_open_drawer_description = global::Mahwous.Droid.Resource.String.nav_app_bar_open_drawer_description;
 			global::Xamarin.Forms.Platform.Android.Resource.String.overflow_tab_title = global::Mahwous.Droid.Resource.String.overflow_tab_title;
 			global::Xamarin.Forms.Platform.Android.Resource.String.password_toggle_content_description = global::Mahwous.Droid.Resource.String.password_toggle_content_description;
 			global::Xamarin.Forms.Platform.Android.Resource.String.path_password_eye = global::Mahwous.Droid.Resource.String.path_password_eye;
@@ -13999,6 +14598,12 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Styleable.ActivityChooserView = global::Mahwous.Droid.Resource.Styleable.ActivityChooserView;
 			global::Xamarin.Forms.Platform.Android.Resource.Styleable.ActivityChooserView_expandActivityOverflowButtonDrawable = global::Mahwous.Droid.Resource.Styleable.ActivityChooserView_expandActivityOverflowButtonDrawable;
 			global::Xamarin.Forms.Platform.Android.Resource.Styleable.ActivityChooserView_initialActivityCount = global::Mahwous.Droid.Resource.Styleable.ActivityChooserView_initialActivityCount;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.ActivityNavigator = global::Mahwous.Droid.Resource.Styleable.ActivityNavigator;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.ActivityNavigator_action = global::Mahwous.Droid.Resource.Styleable.ActivityNavigator_action;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.ActivityNavigator_android_name = global::Mahwous.Droid.Resource.Styleable.ActivityNavigator_android_name;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.ActivityNavigator_data = global::Mahwous.Droid.Resource.Styleable.ActivityNavigator_data;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.ActivityNavigator_dataPattern = global::Mahwous.Droid.Resource.Styleable.ActivityNavigator_dataPattern;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.ActivityNavigator_targetPackage = global::Mahwous.Droid.Resource.Styleable.ActivityNavigator_targetPackage;
 			global::Xamarin.Forms.Platform.Android.Resource.Styleable.AlertDialog = global::Mahwous.Droid.Resource.Styleable.AlertDialog;
 			global::Xamarin.Forms.Platform.Android.Resource.Styleable.AlertDialog_android_layout = global::Mahwous.Droid.Resource.Styleable.AlertDialog_android_layout;
 			global::Xamarin.Forms.Platform.Android.Resource.Styleable.AlertDialog_buttonIconDimen = global::Mahwous.Droid.Resource.Styleable.AlertDialog_buttonIconDimen;
@@ -14600,6 +15205,30 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Styleable.MenuView_android_windowAnimationStyle = global::Mahwous.Droid.Resource.Styleable.MenuView_android_windowAnimationStyle;
 			global::Xamarin.Forms.Platform.Android.Resource.Styleable.MenuView_preserveIconSpacing = global::Mahwous.Droid.Resource.Styleable.MenuView_preserveIconSpacing;
 			global::Xamarin.Forms.Platform.Android.Resource.Styleable.MenuView_subMenuArrow = global::Mahwous.Droid.Resource.Styleable.MenuView_subMenuArrow;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.NavAction = global::Mahwous.Droid.Resource.Styleable.NavAction;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.NavAction_android_id = global::Mahwous.Droid.Resource.Styleable.NavAction_android_id;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.NavAction_destination = global::Mahwous.Droid.Resource.Styleable.NavAction_destination;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.NavAction_enterAnim = global::Mahwous.Droid.Resource.Styleable.NavAction_enterAnim;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.NavAction_exitAnim = global::Mahwous.Droid.Resource.Styleable.NavAction_exitAnim;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.NavAction_launchSingleTop = global::Mahwous.Droid.Resource.Styleable.NavAction_launchSingleTop;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.NavAction_popEnterAnim = global::Mahwous.Droid.Resource.Styleable.NavAction_popEnterAnim;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.NavAction_popExitAnim = global::Mahwous.Droid.Resource.Styleable.NavAction_popExitAnim;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.NavAction_popUpTo = global::Mahwous.Droid.Resource.Styleable.NavAction_popUpTo;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.NavAction_popUpToInclusive = global::Mahwous.Droid.Resource.Styleable.NavAction_popUpToInclusive;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.NavArgument = global::Mahwous.Droid.Resource.Styleable.NavArgument;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.NavArgument_android_defaultValue = global::Mahwous.Droid.Resource.Styleable.NavArgument_android_defaultValue;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.NavArgument_android_name = global::Mahwous.Droid.Resource.Styleable.NavArgument_android_name;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.NavArgument_argType = global::Mahwous.Droid.Resource.Styleable.NavArgument_argType;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.NavArgument_nullable = global::Mahwous.Droid.Resource.Styleable.NavArgument_nullable;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.NavDeepLink = global::Mahwous.Droid.Resource.Styleable.NavDeepLink;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.NavDeepLink_action = global::Mahwous.Droid.Resource.Styleable.NavDeepLink_action;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.NavDeepLink_android_autoVerify = global::Mahwous.Droid.Resource.Styleable.NavDeepLink_android_autoVerify;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.NavDeepLink_mimeType = global::Mahwous.Droid.Resource.Styleable.NavDeepLink_mimeType;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.NavDeepLink_uri = global::Mahwous.Droid.Resource.Styleable.NavDeepLink_uri;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.NavGraphNavigator = global::Mahwous.Droid.Resource.Styleable.NavGraphNavigator;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.NavGraphNavigator_startDestination = global::Mahwous.Droid.Resource.Styleable.NavGraphNavigator_startDestination;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.NavHost = global::Mahwous.Droid.Resource.Styleable.NavHost;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.NavHost_navGraph = global::Mahwous.Droid.Resource.Styleable.NavHost_navGraph;
 			global::Xamarin.Forms.Platform.Android.Resource.Styleable.NavigationView = global::Mahwous.Droid.Resource.Styleable.NavigationView;
 			global::Xamarin.Forms.Platform.Android.Resource.Styleable.NavigationView_android_background = global::Mahwous.Droid.Resource.Styleable.NavigationView_android_background;
 			global::Xamarin.Forms.Platform.Android.Resource.Styleable.NavigationView_android_fitsSystemWindows = global::Mahwous.Droid.Resource.Styleable.NavigationView_android_fitsSystemWindows;
@@ -14622,6 +15251,11 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Styleable.NavigationView_itemTextAppearance = global::Mahwous.Droid.Resource.Styleable.NavigationView_itemTextAppearance;
 			global::Xamarin.Forms.Platform.Android.Resource.Styleable.NavigationView_itemTextColor = global::Mahwous.Droid.Resource.Styleable.NavigationView_itemTextColor;
 			global::Xamarin.Forms.Platform.Android.Resource.Styleable.NavigationView_menu = global::Mahwous.Droid.Resource.Styleable.NavigationView_menu;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.Navigator = global::Mahwous.Droid.Resource.Styleable.Navigator;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.Navigator_android_id = global::Mahwous.Droid.Resource.Styleable.Navigator_android_id;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.Navigator_android_label = global::Mahwous.Droid.Resource.Styleable.Navigator_android_label;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.NavInclude = global::Mahwous.Droid.Resource.Styleable.NavInclude;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.NavInclude_graph = global::Mahwous.Droid.Resource.Styleable.NavInclude_graph;
 			global::Xamarin.Forms.Platform.Android.Resource.Styleable.PopupWindow = global::Mahwous.Droid.Resource.Styleable.PopupWindow;
 			global::Xamarin.Forms.Platform.Android.Resource.Styleable.PopupWindowBackgroundState = global::Mahwous.Droid.Resource.Styleable.PopupWindowBackgroundState;
 			global::Xamarin.Forms.Platform.Android.Resource.Styleable.PopupWindowBackgroundState_state_above_anchor = global::Mahwous.Droid.Resource.Styleable.PopupWindowBackgroundState_state_above_anchor;
@@ -14965,9 +15599,19 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Resource.Animation.mtrl_bottom_sheet_slide_in = global::Mahwous.Droid.Resource.Animation.mtrl_bottom_sheet_slide_in;
 			global::Xamarin.Forms.Platform.Resource.Animation.mtrl_bottom_sheet_slide_out = global::Mahwous.Droid.Resource.Animation.mtrl_bottom_sheet_slide_out;
 			global::Xamarin.Forms.Platform.Resource.Animation.mtrl_card_lowers_interpolator = global::Mahwous.Droid.Resource.Animation.mtrl_card_lowers_interpolator;
+			global::Xamarin.Forms.Platform.Resource.Animation.nav_default_enter_anim = global::Mahwous.Droid.Resource.Animation.nav_default_enter_anim;
+			global::Xamarin.Forms.Platform.Resource.Animation.nav_default_exit_anim = global::Mahwous.Droid.Resource.Animation.nav_default_exit_anim;
+			global::Xamarin.Forms.Platform.Resource.Animation.nav_default_pop_enter_anim = global::Mahwous.Droid.Resource.Animation.nav_default_pop_enter_anim;
+			global::Xamarin.Forms.Platform.Resource.Animation.nav_default_pop_exit_anim = global::Mahwous.Droid.Resource.Animation.nav_default_pop_exit_anim;
 			global::Xamarin.Forms.Platform.Resource.Animator.design_appbar_state_list_animator = global::Mahwous.Droid.Resource.Animator.design_appbar_state_list_animator;
 			global::Xamarin.Forms.Platform.Resource.Animator.design_fab_hide_motion_spec = global::Mahwous.Droid.Resource.Animator.design_fab_hide_motion_spec;
 			global::Xamarin.Forms.Platform.Resource.Animator.design_fab_show_motion_spec = global::Mahwous.Droid.Resource.Animator.design_fab_show_motion_spec;
+			global::Xamarin.Forms.Platform.Resource.Animator.fragment_close_enter = global::Mahwous.Droid.Resource.Animator.fragment_close_enter;
+			global::Xamarin.Forms.Platform.Resource.Animator.fragment_close_exit = global::Mahwous.Droid.Resource.Animator.fragment_close_exit;
+			global::Xamarin.Forms.Platform.Resource.Animator.fragment_fade_enter = global::Mahwous.Droid.Resource.Animator.fragment_fade_enter;
+			global::Xamarin.Forms.Platform.Resource.Animator.fragment_fade_exit = global::Mahwous.Droid.Resource.Animator.fragment_fade_exit;
+			global::Xamarin.Forms.Platform.Resource.Animator.fragment_open_enter = global::Mahwous.Droid.Resource.Animator.fragment_open_enter;
+			global::Xamarin.Forms.Platform.Resource.Animator.fragment_open_exit = global::Mahwous.Droid.Resource.Animator.fragment_open_exit;
 			global::Xamarin.Forms.Platform.Resource.Animator.mtrl_btn_state_list_anim = global::Mahwous.Droid.Resource.Animator.mtrl_btn_state_list_anim;
 			global::Xamarin.Forms.Platform.Resource.Animator.mtrl_btn_unelevated_state_list_anim = global::Mahwous.Droid.Resource.Animator.mtrl_btn_unelevated_state_list_anim;
 			global::Xamarin.Forms.Platform.Resource.Animator.mtrl_card_state_list_anim = global::Mahwous.Droid.Resource.Animator.mtrl_card_state_list_anim;
@@ -14980,6 +15624,11 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Resource.Animator.mtrl_fab_show_motion_spec = global::Mahwous.Droid.Resource.Animator.mtrl_fab_show_motion_spec;
 			global::Xamarin.Forms.Platform.Resource.Animator.mtrl_fab_transformation_sheet_collapse_spec = global::Mahwous.Droid.Resource.Animator.mtrl_fab_transformation_sheet_collapse_spec;
 			global::Xamarin.Forms.Platform.Resource.Animator.mtrl_fab_transformation_sheet_expand_spec = global::Mahwous.Droid.Resource.Animator.mtrl_fab_transformation_sheet_expand_spec;
+			global::Xamarin.Forms.Platform.Resource.Animator.nav_default_enter_anim = global::Mahwous.Droid.Resource.Animator.nav_default_enter_anim;
+			global::Xamarin.Forms.Platform.Resource.Animator.nav_default_exit_anim = global::Mahwous.Droid.Resource.Animator.nav_default_exit_anim;
+			global::Xamarin.Forms.Platform.Resource.Animator.nav_default_pop_enter_anim = global::Mahwous.Droid.Resource.Animator.nav_default_pop_enter_anim;
+			global::Xamarin.Forms.Platform.Resource.Animator.nav_default_pop_exit_anim = global::Mahwous.Droid.Resource.Animator.nav_default_pop_exit_anim;
+			global::Xamarin.Forms.Platform.Resource.Attribute.action = global::Mahwous.Droid.Resource.Attribute.action;
 			global::Xamarin.Forms.Platform.Resource.Attribute.actionBarDivider = global::Mahwous.Droid.Resource.Attribute.actionBarDivider;
 			global::Xamarin.Forms.Platform.Resource.Attribute.actionBarItemBackground = global::Mahwous.Droid.Resource.Attribute.actionBarItemBackground;
 			global::Xamarin.Forms.Platform.Resource.Attribute.actionBarPopupTheme = global::Mahwous.Droid.Resource.Attribute.actionBarPopupTheme;
@@ -15024,6 +15673,7 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Resource.Attribute.alphabeticModifiers = global::Mahwous.Droid.Resource.Attribute.alphabeticModifiers;
 			global::Xamarin.Forms.Platform.Resource.Attribute.animationMode = global::Mahwous.Droid.Resource.Attribute.animationMode;
 			global::Xamarin.Forms.Platform.Resource.Attribute.appBarLayoutStyle = global::Mahwous.Droid.Resource.Attribute.appBarLayoutStyle;
+			global::Xamarin.Forms.Platform.Resource.Attribute.argType = global::Mahwous.Droid.Resource.Attribute.argType;
 			global::Xamarin.Forms.Platform.Resource.Attribute.arrowHeadLength = global::Mahwous.Droid.Resource.Attribute.arrowHeadLength;
 			global::Xamarin.Forms.Platform.Resource.Attribute.arrowShaftLength = global::Mahwous.Droid.Resource.Attribute.arrowShaftLength;
 			global::Xamarin.Forms.Platform.Resource.Attribute.autoCompleteTextViewStyle = global::Mahwous.Droid.Resource.Attribute.autoCompleteTextViewStyle;
@@ -15193,11 +15843,14 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Resource.Attribute.counterTextAppearance = global::Mahwous.Droid.Resource.Attribute.counterTextAppearance;
 			global::Xamarin.Forms.Platform.Resource.Attribute.counterTextColor = global::Mahwous.Droid.Resource.Attribute.counterTextColor;
 			global::Xamarin.Forms.Platform.Resource.Attribute.customNavigationLayout = global::Mahwous.Droid.Resource.Attribute.customNavigationLayout;
+			global::Xamarin.Forms.Platform.Resource.Attribute.data = global::Mahwous.Droid.Resource.Attribute.data;
+			global::Xamarin.Forms.Platform.Resource.Attribute.dataPattern = global::Mahwous.Droid.Resource.Attribute.dataPattern;
 			global::Xamarin.Forms.Platform.Resource.Attribute.dayInvalidStyle = global::Mahwous.Droid.Resource.Attribute.dayInvalidStyle;
 			global::Xamarin.Forms.Platform.Resource.Attribute.daySelectedStyle = global::Mahwous.Droid.Resource.Attribute.daySelectedStyle;
 			global::Xamarin.Forms.Platform.Resource.Attribute.dayStyle = global::Mahwous.Droid.Resource.Attribute.dayStyle;
 			global::Xamarin.Forms.Platform.Resource.Attribute.dayTodayStyle = global::Mahwous.Droid.Resource.Attribute.dayTodayStyle;
 			global::Xamarin.Forms.Platform.Resource.Attribute.defaultQueryHint = global::Mahwous.Droid.Resource.Attribute.defaultQueryHint;
+			global::Xamarin.Forms.Platform.Resource.Attribute.destination = global::Mahwous.Droid.Resource.Attribute.destination;
 			global::Xamarin.Forms.Platform.Resource.Attribute.dialogCornerRadius = global::Mahwous.Droid.Resource.Attribute.dialogCornerRadius;
 			global::Xamarin.Forms.Platform.Resource.Attribute.dialogPreferredPadding = global::Mahwous.Droid.Resource.Attribute.dialogPreferredPadding;
 			global::Xamarin.Forms.Platform.Resource.Attribute.dialogTheme = global::Mahwous.Droid.Resource.Attribute.dialogTheme;
@@ -15234,6 +15887,7 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Resource.Attribute.enforceMaterialTheme = global::Mahwous.Droid.Resource.Attribute.enforceMaterialTheme;
 			global::Xamarin.Forms.Platform.Resource.Attribute.enforceTextAppearance = global::Mahwous.Droid.Resource.Attribute.enforceTextAppearance;
 			global::Xamarin.Forms.Platform.Resource.Attribute.ensureMinTouchTargetSize = global::Mahwous.Droid.Resource.Attribute.ensureMinTouchTargetSize;
+			global::Xamarin.Forms.Platform.Resource.Attribute.enterAnim = global::Mahwous.Droid.Resource.Attribute.enterAnim;
 			global::Xamarin.Forms.Platform.Resource.Attribute.errorContentDescription = global::Mahwous.Droid.Resource.Attribute.errorContentDescription;
 			global::Xamarin.Forms.Platform.Resource.Attribute.errorEnabled = global::Mahwous.Droid.Resource.Attribute.errorEnabled;
 			global::Xamarin.Forms.Platform.Resource.Attribute.errorIconDrawable = global::Mahwous.Droid.Resource.Attribute.errorIconDrawable;
@@ -15241,6 +15895,7 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Resource.Attribute.errorIconTintMode = global::Mahwous.Droid.Resource.Attribute.errorIconTintMode;
 			global::Xamarin.Forms.Platform.Resource.Attribute.errorTextAppearance = global::Mahwous.Droid.Resource.Attribute.errorTextAppearance;
 			global::Xamarin.Forms.Platform.Resource.Attribute.errorTextColor = global::Mahwous.Droid.Resource.Attribute.errorTextColor;
+			global::Xamarin.Forms.Platform.Resource.Attribute.exitAnim = global::Mahwous.Droid.Resource.Attribute.exitAnim;
 			global::Xamarin.Forms.Platform.Resource.Attribute.expandActivityOverflowButtonDrawable = global::Mahwous.Droid.Resource.Attribute.expandActivityOverflowButtonDrawable;
 			global::Xamarin.Forms.Platform.Resource.Attribute.expanded = global::Mahwous.Droid.Resource.Attribute.expanded;
 			global::Xamarin.Forms.Platform.Resource.Attribute.expandedTitleGravity = global::Mahwous.Droid.Resource.Attribute.expandedTitleGravity;
@@ -15281,6 +15936,7 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Resource.Attribute.gapBetweenBars = global::Mahwous.Droid.Resource.Attribute.gapBetweenBars;
 			global::Xamarin.Forms.Platform.Resource.Attribute.gestureInsetBottomIgnored = global::Mahwous.Droid.Resource.Attribute.gestureInsetBottomIgnored;
 			global::Xamarin.Forms.Platform.Resource.Attribute.goIcon = global::Mahwous.Droid.Resource.Attribute.goIcon;
+			global::Xamarin.Forms.Platform.Resource.Attribute.graph = global::Mahwous.Droid.Resource.Attribute.graph;
 			global::Xamarin.Forms.Platform.Resource.Attribute.haloColor = global::Mahwous.Droid.Resource.Attribute.haloColor;
 			global::Xamarin.Forms.Platform.Resource.Attribute.haloRadius = global::Mahwous.Droid.Resource.Attribute.haloRadius;
 			global::Xamarin.Forms.Platform.Resource.Attribute.headerLayout = global::Mahwous.Droid.Resource.Attribute.headerLayout;
@@ -15344,6 +16000,7 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Resource.Attribute.labelStyle = global::Mahwous.Droid.Resource.Attribute.labelStyle;
 			global::Xamarin.Forms.Platform.Resource.Attribute.labelVisibilityMode = global::Mahwous.Droid.Resource.Attribute.labelVisibilityMode;
 			global::Xamarin.Forms.Platform.Resource.Attribute.lastBaselineToBottomHeight = global::Mahwous.Droid.Resource.Attribute.lastBaselineToBottomHeight;
+			global::Xamarin.Forms.Platform.Resource.Attribute.launchSingleTop = global::Mahwous.Droid.Resource.Attribute.launchSingleTop;
 			global::Xamarin.Forms.Platform.Resource.Attribute.layout = global::Mahwous.Droid.Resource.Attribute.layout;
 			global::Xamarin.Forms.Platform.Resource.Attribute.layoutManager = global::Mahwous.Droid.Resource.Attribute.layoutManager;
 			global::Xamarin.Forms.Platform.Resource.Attribute.layout_anchor = global::Mahwous.Droid.Resource.Attribute.layout_anchor;
@@ -15404,12 +16061,15 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Resource.Attribute.maxLines = global::Mahwous.Droid.Resource.Attribute.maxLines;
 			global::Xamarin.Forms.Platform.Resource.Attribute.measureWithLargestChild = global::Mahwous.Droid.Resource.Attribute.measureWithLargestChild;
 			global::Xamarin.Forms.Platform.Resource.Attribute.menu = global::Mahwous.Droid.Resource.Attribute.menu;
+			global::Xamarin.Forms.Platform.Resource.Attribute.mimeType = global::Mahwous.Droid.Resource.Attribute.mimeType;
 			global::Xamarin.Forms.Platform.Resource.Attribute.minTouchTargetSize = global::Mahwous.Droid.Resource.Attribute.minTouchTargetSize;
 			global::Xamarin.Forms.Platform.Resource.Attribute.multiChoiceItemLayout = global::Mahwous.Droid.Resource.Attribute.multiChoiceItemLayout;
+			global::Xamarin.Forms.Platform.Resource.Attribute.navGraph = global::Mahwous.Droid.Resource.Attribute.navGraph;
 			global::Xamarin.Forms.Platform.Resource.Attribute.navigationContentDescription = global::Mahwous.Droid.Resource.Attribute.navigationContentDescription;
 			global::Xamarin.Forms.Platform.Resource.Attribute.navigationIcon = global::Mahwous.Droid.Resource.Attribute.navigationIcon;
 			global::Xamarin.Forms.Platform.Resource.Attribute.navigationMode = global::Mahwous.Droid.Resource.Attribute.navigationMode;
 			global::Xamarin.Forms.Platform.Resource.Attribute.navigationViewStyle = global::Mahwous.Droid.Resource.Attribute.navigationViewStyle;
+			global::Xamarin.Forms.Platform.Resource.Attribute.nullable = global::Mahwous.Droid.Resource.Attribute.nullable;
 			global::Xamarin.Forms.Platform.Resource.Attribute.number = global::Mahwous.Droid.Resource.Attribute.number;
 			global::Xamarin.Forms.Platform.Resource.Attribute.numericModifiers = global::Mahwous.Droid.Resource.Attribute.numericModifiers;
 			global::Xamarin.Forms.Platform.Resource.Attribute.overlapAnchor = global::Mahwous.Droid.Resource.Attribute.overlapAnchor;
@@ -15431,9 +16091,13 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Resource.Attribute.placeholderText = global::Mahwous.Droid.Resource.Attribute.placeholderText;
 			global::Xamarin.Forms.Platform.Resource.Attribute.placeholderTextAppearance = global::Mahwous.Droid.Resource.Attribute.placeholderTextAppearance;
 			global::Xamarin.Forms.Platform.Resource.Attribute.placeholderTextColor = global::Mahwous.Droid.Resource.Attribute.placeholderTextColor;
+			global::Xamarin.Forms.Platform.Resource.Attribute.popEnterAnim = global::Mahwous.Droid.Resource.Attribute.popEnterAnim;
+			global::Xamarin.Forms.Platform.Resource.Attribute.popExitAnim = global::Mahwous.Droid.Resource.Attribute.popExitAnim;
 			global::Xamarin.Forms.Platform.Resource.Attribute.popupMenuBackground = global::Mahwous.Droid.Resource.Attribute.popupMenuBackground;
 			global::Xamarin.Forms.Platform.Resource.Attribute.popupMenuStyle = global::Mahwous.Droid.Resource.Attribute.popupMenuStyle;
 			global::Xamarin.Forms.Platform.Resource.Attribute.popupTheme = global::Mahwous.Droid.Resource.Attribute.popupTheme;
+			global::Xamarin.Forms.Platform.Resource.Attribute.popUpTo = global::Mahwous.Droid.Resource.Attribute.popUpTo;
+			global::Xamarin.Forms.Platform.Resource.Attribute.popUpToInclusive = global::Mahwous.Droid.Resource.Attribute.popUpToInclusive;
 			global::Xamarin.Forms.Platform.Resource.Attribute.popupWindowStyle = global::Mahwous.Droid.Resource.Attribute.popupWindowStyle;
 			global::Xamarin.Forms.Platform.Resource.Attribute.prefixText = global::Mahwous.Droid.Resource.Attribute.prefixText;
 			global::Xamarin.Forms.Platform.Resource.Attribute.prefixTextAppearance = global::Mahwous.Droid.Resource.Attribute.prefixTextAppearance;
@@ -15488,6 +16152,7 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Resource.Attribute.splitTrack = global::Mahwous.Droid.Resource.Attribute.splitTrack;
 			global::Xamarin.Forms.Platform.Resource.Attribute.srcCompat = global::Mahwous.Droid.Resource.Attribute.srcCompat;
 			global::Xamarin.Forms.Platform.Resource.Attribute.stackFromEnd = global::Mahwous.Droid.Resource.Attribute.stackFromEnd;
+			global::Xamarin.Forms.Platform.Resource.Attribute.startDestination = global::Mahwous.Droid.Resource.Attribute.startDestination;
 			global::Xamarin.Forms.Platform.Resource.Attribute.startIconCheckable = global::Mahwous.Droid.Resource.Attribute.startIconCheckable;
 			global::Xamarin.Forms.Platform.Resource.Attribute.startIconContentDescription = global::Mahwous.Droid.Resource.Attribute.startIconContentDescription;
 			global::Xamarin.Forms.Platform.Resource.Attribute.startIconDrawable = global::Mahwous.Droid.Resource.Attribute.startIconDrawable;
@@ -15545,6 +16210,7 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Resource.Attribute.tabTextAppearance = global::Mahwous.Droid.Resource.Attribute.tabTextAppearance;
 			global::Xamarin.Forms.Platform.Resource.Attribute.tabTextColor = global::Mahwous.Droid.Resource.Attribute.tabTextColor;
 			global::Xamarin.Forms.Platform.Resource.Attribute.tabUnboundedRipple = global::Mahwous.Droid.Resource.Attribute.tabUnboundedRipple;
+			global::Xamarin.Forms.Platform.Resource.Attribute.targetPackage = global::Mahwous.Droid.Resource.Attribute.targetPackage;
 			global::Xamarin.Forms.Platform.Resource.Attribute.textAllCaps = global::Mahwous.Droid.Resource.Attribute.textAllCaps;
 			global::Xamarin.Forms.Platform.Resource.Attribute.textAppearanceBody1 = global::Mahwous.Droid.Resource.Attribute.textAppearanceBody1;
 			global::Xamarin.Forms.Platform.Resource.Attribute.textAppearanceBody2 = global::Mahwous.Droid.Resource.Attribute.textAppearanceBody2;
@@ -15619,6 +16285,7 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Resource.Attribute.trackTintMode = global::Mahwous.Droid.Resource.Attribute.trackTintMode;
 			global::Xamarin.Forms.Platform.Resource.Attribute.transitionShapeAppearance = global::Mahwous.Droid.Resource.Attribute.transitionShapeAppearance;
 			global::Xamarin.Forms.Platform.Resource.Attribute.ttcIndex = global::Mahwous.Droid.Resource.Attribute.ttcIndex;
+			global::Xamarin.Forms.Platform.Resource.Attribute.uri = global::Mahwous.Droid.Resource.Attribute.uri;
 			global::Xamarin.Forms.Platform.Resource.Attribute.useCompatPadding = global::Mahwous.Droid.Resource.Attribute.useCompatPadding;
 			global::Xamarin.Forms.Platform.Resource.Attribute.useMaterialThemeColors = global::Mahwous.Droid.Resource.Attribute.useMaterialThemeColors;
 			global::Xamarin.Forms.Platform.Resource.Attribute.values = global::Mahwous.Droid.Resource.Attribute.values;
@@ -16512,6 +17179,7 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Resource.Id.mtrl_picker_title_text = global::Mahwous.Droid.Resource.Id.mtrl_picker_title_text;
 			global::Xamarin.Forms.Platform.Resource.Id.multiply = global::Mahwous.Droid.Resource.Id.multiply;
 			global::Xamarin.Forms.Platform.Resource.Id.navigation_header_container = global::Mahwous.Droid.Resource.Id.navigation_header_container;
+			global::Xamarin.Forms.Platform.Resource.Id.nav_controller_view_tag = global::Mahwous.Droid.Resource.Id.nav_controller_view_tag;
 			global::Xamarin.Forms.Platform.Resource.Id.never = global::Mahwous.Droid.Resource.Id.never;
 			global::Xamarin.Forms.Platform.Resource.Id.none = global::Mahwous.Droid.Resource.Id.none;
 			global::Xamarin.Forms.Platform.Resource.Id.normal = global::Mahwous.Droid.Resource.Id.normal;
@@ -16573,6 +17241,7 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Resource.Id.snap = global::Mahwous.Droid.Resource.Id.snap;
 			global::Xamarin.Forms.Platform.Resource.Id.snapMargins = global::Mahwous.Droid.Resource.Id.snapMargins;
 			global::Xamarin.Forms.Platform.Resource.Id.spacer = global::Mahwous.Droid.Resource.Id.spacer;
+			global::Xamarin.Forms.Platform.Resource.Id.special_effects_controller_view_tag = global::Mahwous.Droid.Resource.Id.special_effects_controller_view_tag;
 			global::Xamarin.Forms.Platform.Resource.Id.split_action_bar = global::Mahwous.Droid.Resource.Id.split_action_bar;
 			global::Xamarin.Forms.Platform.Resource.Id.src_atop = global::Mahwous.Droid.Resource.Id.src_atop;
 			global::Xamarin.Forms.Platform.Resource.Id.src_in = global::Mahwous.Droid.Resource.Id.src_in;
@@ -16631,7 +17300,9 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Resource.Id.up = global::Mahwous.Droid.Resource.Id.up;
 			global::Xamarin.Forms.Platform.Resource.Id.useLogo = global::Mahwous.Droid.Resource.Id.useLogo;
 			global::Xamarin.Forms.Platform.Resource.Id.view_offset_helper = global::Mahwous.Droid.Resource.Id.view_offset_helper;
+			global::Xamarin.Forms.Platform.Resource.Id.view_tree_lifecycle_owner = global::Mahwous.Droid.Resource.Id.view_tree_lifecycle_owner;
 			global::Xamarin.Forms.Platform.Resource.Id.view_tree_saved_state_registry_owner = global::Mahwous.Droid.Resource.Id.view_tree_saved_state_registry_owner;
+			global::Xamarin.Forms.Platform.Resource.Id.view_tree_view_model_store_owner = global::Mahwous.Droid.Resource.Id.view_tree_view_model_store_owner;
 			global::Xamarin.Forms.Platform.Resource.Id.visible = global::Mahwous.Droid.Resource.Id.visible;
 			global::Xamarin.Forms.Platform.Resource.Id.visible_removing_fragment_view_tag = global::Mahwous.Droid.Resource.Id.visible_removing_fragment_view_tag;
 			global::Xamarin.Forms.Platform.Resource.Id.withinBounds = global::Mahwous.Droid.Resource.Id.withinBounds;
@@ -16643,6 +17314,7 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Resource.Integer.app_bar_elevation_anim_duration = global::Mahwous.Droid.Resource.Integer.app_bar_elevation_anim_duration;
 			global::Xamarin.Forms.Platform.Resource.Integer.bottom_sheet_slide_duration = global::Mahwous.Droid.Resource.Integer.bottom_sheet_slide_duration;
 			global::Xamarin.Forms.Platform.Resource.Integer.cancel_button_image_alpha = global::Mahwous.Droid.Resource.Integer.cancel_button_image_alpha;
+			global::Xamarin.Forms.Platform.Resource.Integer.config_navAnimTime = global::Mahwous.Droid.Resource.Integer.config_navAnimTime;
 			global::Xamarin.Forms.Platform.Resource.Integer.config_tooltipAnimTime = global::Mahwous.Droid.Resource.Integer.config_tooltipAnimTime;
 			global::Xamarin.Forms.Platform.Resource.Integer.design_snackbar_text_max_lines = global::Mahwous.Droid.Resource.Integer.design_snackbar_text_max_lines;
 			global::Xamarin.Forms.Platform.Resource.Integer.design_tab_indicator_anim_duration_ms = global::Mahwous.Droid.Resource.Integer.design_tab_indicator_anim_duration_ms;
@@ -16862,6 +17534,8 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Resource.String.mtrl_picker_toggle_to_day_selection = global::Mahwous.Droid.Resource.String.mtrl_picker_toggle_to_day_selection;
 			global::Xamarin.Forms.Platform.Resource.String.mtrl_picker_toggle_to_text_input_mode = global::Mahwous.Droid.Resource.String.mtrl_picker_toggle_to_text_input_mode;
 			global::Xamarin.Forms.Platform.Resource.String.mtrl_picker_toggle_to_year_selection = global::Mahwous.Droid.Resource.String.mtrl_picker_toggle_to_year_selection;
+			global::Xamarin.Forms.Platform.Resource.String.nav_app_bar_navigate_up_description = global::Mahwous.Droid.Resource.String.nav_app_bar_navigate_up_description;
+			global::Xamarin.Forms.Platform.Resource.String.nav_app_bar_open_drawer_description = global::Mahwous.Droid.Resource.String.nav_app_bar_open_drawer_description;
 			global::Xamarin.Forms.Platform.Resource.String.overflow_tab_title = global::Mahwous.Droid.Resource.String.overflow_tab_title;
 			global::Xamarin.Forms.Platform.Resource.String.password_toggle_content_description = global::Mahwous.Droid.Resource.String.password_toggle_content_description;
 			global::Xamarin.Forms.Platform.Resource.String.path_password_eye = global::Mahwous.Droid.Resource.String.path_password_eye;
@@ -17618,6 +18292,12 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Resource.Styleable.ActivityChooserView = global::Mahwous.Droid.Resource.Styleable.ActivityChooserView;
 			global::Xamarin.Forms.Platform.Resource.Styleable.ActivityChooserView_expandActivityOverflowButtonDrawable = global::Mahwous.Droid.Resource.Styleable.ActivityChooserView_expandActivityOverflowButtonDrawable;
 			global::Xamarin.Forms.Platform.Resource.Styleable.ActivityChooserView_initialActivityCount = global::Mahwous.Droid.Resource.Styleable.ActivityChooserView_initialActivityCount;
+			global::Xamarin.Forms.Platform.Resource.Styleable.ActivityNavigator = global::Mahwous.Droid.Resource.Styleable.ActivityNavigator;
+			global::Xamarin.Forms.Platform.Resource.Styleable.ActivityNavigator_action = global::Mahwous.Droid.Resource.Styleable.ActivityNavigator_action;
+			global::Xamarin.Forms.Platform.Resource.Styleable.ActivityNavigator_android_name = global::Mahwous.Droid.Resource.Styleable.ActivityNavigator_android_name;
+			global::Xamarin.Forms.Platform.Resource.Styleable.ActivityNavigator_data = global::Mahwous.Droid.Resource.Styleable.ActivityNavigator_data;
+			global::Xamarin.Forms.Platform.Resource.Styleable.ActivityNavigator_dataPattern = global::Mahwous.Droid.Resource.Styleable.ActivityNavigator_dataPattern;
+			global::Xamarin.Forms.Platform.Resource.Styleable.ActivityNavigator_targetPackage = global::Mahwous.Droid.Resource.Styleable.ActivityNavigator_targetPackage;
 			global::Xamarin.Forms.Platform.Resource.Styleable.AlertDialog = global::Mahwous.Droid.Resource.Styleable.AlertDialog;
 			global::Xamarin.Forms.Platform.Resource.Styleable.AlertDialog_android_layout = global::Mahwous.Droid.Resource.Styleable.AlertDialog_android_layout;
 			global::Xamarin.Forms.Platform.Resource.Styleable.AlertDialog_buttonIconDimen = global::Mahwous.Droid.Resource.Styleable.AlertDialog_buttonIconDimen;
@@ -18219,6 +18899,30 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Resource.Styleable.MenuView_android_windowAnimationStyle = global::Mahwous.Droid.Resource.Styleable.MenuView_android_windowAnimationStyle;
 			global::Xamarin.Forms.Platform.Resource.Styleable.MenuView_preserveIconSpacing = global::Mahwous.Droid.Resource.Styleable.MenuView_preserveIconSpacing;
 			global::Xamarin.Forms.Platform.Resource.Styleable.MenuView_subMenuArrow = global::Mahwous.Droid.Resource.Styleable.MenuView_subMenuArrow;
+			global::Xamarin.Forms.Platform.Resource.Styleable.NavAction = global::Mahwous.Droid.Resource.Styleable.NavAction;
+			global::Xamarin.Forms.Platform.Resource.Styleable.NavAction_android_id = global::Mahwous.Droid.Resource.Styleable.NavAction_android_id;
+			global::Xamarin.Forms.Platform.Resource.Styleable.NavAction_destination = global::Mahwous.Droid.Resource.Styleable.NavAction_destination;
+			global::Xamarin.Forms.Platform.Resource.Styleable.NavAction_enterAnim = global::Mahwous.Droid.Resource.Styleable.NavAction_enterAnim;
+			global::Xamarin.Forms.Platform.Resource.Styleable.NavAction_exitAnim = global::Mahwous.Droid.Resource.Styleable.NavAction_exitAnim;
+			global::Xamarin.Forms.Platform.Resource.Styleable.NavAction_launchSingleTop = global::Mahwous.Droid.Resource.Styleable.NavAction_launchSingleTop;
+			global::Xamarin.Forms.Platform.Resource.Styleable.NavAction_popEnterAnim = global::Mahwous.Droid.Resource.Styleable.NavAction_popEnterAnim;
+			global::Xamarin.Forms.Platform.Resource.Styleable.NavAction_popExitAnim = global::Mahwous.Droid.Resource.Styleable.NavAction_popExitAnim;
+			global::Xamarin.Forms.Platform.Resource.Styleable.NavAction_popUpTo = global::Mahwous.Droid.Resource.Styleable.NavAction_popUpTo;
+			global::Xamarin.Forms.Platform.Resource.Styleable.NavAction_popUpToInclusive = global::Mahwous.Droid.Resource.Styleable.NavAction_popUpToInclusive;
+			global::Xamarin.Forms.Platform.Resource.Styleable.NavArgument = global::Mahwous.Droid.Resource.Styleable.NavArgument;
+			global::Xamarin.Forms.Platform.Resource.Styleable.NavArgument_android_defaultValue = global::Mahwous.Droid.Resource.Styleable.NavArgument_android_defaultValue;
+			global::Xamarin.Forms.Platform.Resource.Styleable.NavArgument_android_name = global::Mahwous.Droid.Resource.Styleable.NavArgument_android_name;
+			global::Xamarin.Forms.Platform.Resource.Styleable.NavArgument_argType = global::Mahwous.Droid.Resource.Styleable.NavArgument_argType;
+			global::Xamarin.Forms.Platform.Resource.Styleable.NavArgument_nullable = global::Mahwous.Droid.Resource.Styleable.NavArgument_nullable;
+			global::Xamarin.Forms.Platform.Resource.Styleable.NavDeepLink = global::Mahwous.Droid.Resource.Styleable.NavDeepLink;
+			global::Xamarin.Forms.Platform.Resource.Styleable.NavDeepLink_action = global::Mahwous.Droid.Resource.Styleable.NavDeepLink_action;
+			global::Xamarin.Forms.Platform.Resource.Styleable.NavDeepLink_android_autoVerify = global::Mahwous.Droid.Resource.Styleable.NavDeepLink_android_autoVerify;
+			global::Xamarin.Forms.Platform.Resource.Styleable.NavDeepLink_mimeType = global::Mahwous.Droid.Resource.Styleable.NavDeepLink_mimeType;
+			global::Xamarin.Forms.Platform.Resource.Styleable.NavDeepLink_uri = global::Mahwous.Droid.Resource.Styleable.NavDeepLink_uri;
+			global::Xamarin.Forms.Platform.Resource.Styleable.NavGraphNavigator = global::Mahwous.Droid.Resource.Styleable.NavGraphNavigator;
+			global::Xamarin.Forms.Platform.Resource.Styleable.NavGraphNavigator_startDestination = global::Mahwous.Droid.Resource.Styleable.NavGraphNavigator_startDestination;
+			global::Xamarin.Forms.Platform.Resource.Styleable.NavHost = global::Mahwous.Droid.Resource.Styleable.NavHost;
+			global::Xamarin.Forms.Platform.Resource.Styleable.NavHost_navGraph = global::Mahwous.Droid.Resource.Styleable.NavHost_navGraph;
 			global::Xamarin.Forms.Platform.Resource.Styleable.NavigationView = global::Mahwous.Droid.Resource.Styleable.NavigationView;
 			global::Xamarin.Forms.Platform.Resource.Styleable.NavigationView_android_background = global::Mahwous.Droid.Resource.Styleable.NavigationView_android_background;
 			global::Xamarin.Forms.Platform.Resource.Styleable.NavigationView_android_fitsSystemWindows = global::Mahwous.Droid.Resource.Styleable.NavigationView_android_fitsSystemWindows;
@@ -18241,6 +18945,11 @@ namespace Mahwous.Droid
 			global::Xamarin.Forms.Platform.Resource.Styleable.NavigationView_itemTextAppearance = global::Mahwous.Droid.Resource.Styleable.NavigationView_itemTextAppearance;
 			global::Xamarin.Forms.Platform.Resource.Styleable.NavigationView_itemTextColor = global::Mahwous.Droid.Resource.Styleable.NavigationView_itemTextColor;
 			global::Xamarin.Forms.Platform.Resource.Styleable.NavigationView_menu = global::Mahwous.Droid.Resource.Styleable.NavigationView_menu;
+			global::Xamarin.Forms.Platform.Resource.Styleable.Navigator = global::Mahwous.Droid.Resource.Styleable.Navigator;
+			global::Xamarin.Forms.Platform.Resource.Styleable.Navigator_android_id = global::Mahwous.Droid.Resource.Styleable.Navigator_android_id;
+			global::Xamarin.Forms.Platform.Resource.Styleable.Navigator_android_label = global::Mahwous.Droid.Resource.Styleable.Navigator_android_label;
+			global::Xamarin.Forms.Platform.Resource.Styleable.NavInclude = global::Mahwous.Droid.Resource.Styleable.NavInclude;
+			global::Xamarin.Forms.Platform.Resource.Styleable.NavInclude_graph = global::Mahwous.Droid.Resource.Styleable.NavInclude_graph;
 			global::Xamarin.Forms.Platform.Resource.Styleable.PopupWindow = global::Mahwous.Droid.Resource.Styleable.PopupWindow;
 			global::Xamarin.Forms.Platform.Resource.Styleable.PopupWindowBackgroundState = global::Mahwous.Droid.Resource.Styleable.PopupWindowBackgroundState;
 			global::Xamarin.Forms.Platform.Resource.Styleable.PopupWindowBackgroundState_state_above_anchor = global::Mahwous.Droid.Resource.Styleable.PopupWindowBackgroundState_state_above_anchor;
@@ -20194,799 +20903,808 @@ namespace Mahwous.Droid
 			public const int negativeButtonText = 2130903512;
 			
 			// aapt resource value: 0x7F0301D9
-			public const int nullable = 2130903513;
+			public const int nestedScrollViewStyle = 2130903513;
 			
 			// aapt resource value: 0x7F0301DA
-			public const int number = 2130903514;
+			public const int nullable = 2130903514;
 			
 			// aapt resource value: 0x7F0301DB
-			public const int numericModifiers = 2130903515;
+			public const int number = 2130903515;
 			
 			// aapt resource value: 0x7F0301DC
-			public const int order = 2130903516;
+			public const int numericModifiers = 2130903516;
 			
 			// aapt resource value: 0x7F0301DD
-			public const int orderingFromXml = 2130903517;
+			public const int order = 2130903517;
 			
 			// aapt resource value: 0x7F0301DE
-			public const int overlapAnchor = 2130903518;
+			public const int orderingFromXml = 2130903518;
 			
 			// aapt resource value: 0x7F0301DF
-			public const int paddingBottomNoButtons = 2130903519;
+			public const int overlapAnchor = 2130903519;
 			
 			// aapt resource value: 0x7F0301E0
-			public const int paddingBottomSystemWindowInsets = 2130903520;
+			public const int paddingBottomNoButtons = 2130903520;
 			
 			// aapt resource value: 0x7F0301E1
-			public const int paddingEnd = 2130903521;
+			public const int paddingBottomSystemWindowInsets = 2130903521;
 			
 			// aapt resource value: 0x7F0301E2
-			public const int paddingLeftSystemWindowInsets = 2130903522;
+			public const int paddingEnd = 2130903522;
 			
 			// aapt resource value: 0x7F0301E3
-			public const int paddingRightSystemWindowInsets = 2130903523;
+			public const int paddingLeftSystemWindowInsets = 2130903523;
 			
 			// aapt resource value: 0x7F0301E4
-			public const int paddingStart = 2130903524;
+			public const int paddingRightSystemWindowInsets = 2130903524;
 			
 			// aapt resource value: 0x7F0301E5
-			public const int paddingTopNoTitle = 2130903525;
+			public const int paddingStart = 2130903525;
 			
 			// aapt resource value: 0x7F0301E6
-			public const int panelBackground = 2130903526;
+			public const int paddingTopNoTitle = 2130903526;
 			
 			// aapt resource value: 0x7F0301E7
-			public const int panelMenuListTheme = 2130903527;
+			public const int panelBackground = 2130903527;
 			
 			// aapt resource value: 0x7F0301E8
-			public const int panelMenuListWidth = 2130903528;
+			public const int panelMenuListTheme = 2130903528;
 			
 			// aapt resource value: 0x7F0301E9
-			public const int passwordToggleContentDescription = 2130903529;
+			public const int panelMenuListWidth = 2130903529;
 			
 			// aapt resource value: 0x7F0301EA
-			public const int passwordToggleDrawable = 2130903530;
+			public const int passwordToggleContentDescription = 2130903530;
 			
 			// aapt resource value: 0x7F0301EB
-			public const int passwordToggleEnabled = 2130903531;
+			public const int passwordToggleDrawable = 2130903531;
 			
 			// aapt resource value: 0x7F0301EC
-			public const int passwordToggleTint = 2130903532;
+			public const int passwordToggleEnabled = 2130903532;
 			
 			// aapt resource value: 0x7F0301ED
-			public const int passwordToggleTintMode = 2130903533;
+			public const int passwordToggleTint = 2130903533;
 			
 			// aapt resource value: 0x7F0301EE
-			public const int persistent = 2130903534;
+			public const int passwordToggleTintMode = 2130903534;
 			
 			// aapt resource value: 0x7F0301EF
-			public const int placeholderText = 2130903535;
+			public const int persistent = 2130903535;
 			
 			// aapt resource value: 0x7F0301F0
-			public const int placeholderTextAppearance = 2130903536;
+			public const int placeholderText = 2130903536;
 			
 			// aapt resource value: 0x7F0301F1
-			public const int placeholderTextColor = 2130903537;
+			public const int placeholderTextAppearance = 2130903537;
 			
 			// aapt resource value: 0x7F0301F2
-			public const int popEnterAnim = 2130903538;
+			public const int placeholderTextColor = 2130903538;
 			
 			// aapt resource value: 0x7F0301F3
-			public const int popExitAnim = 2130903539;
-			
-			// aapt resource value: 0x7F0301F6
-			public const int popupMenuBackground = 2130903542;
-			
-			// aapt resource value: 0x7F0301F7
-			public const int popupMenuStyle = 2130903543;
-			
-			// aapt resource value: 0x7F0301F8
-			public const int popupTheme = 2130903544;
+			public const int popEnterAnim = 2130903539;
 			
 			// aapt resource value: 0x7F0301F4
-			public const int popUpTo = 2130903540;
+			public const int popExitAnim = 2130903540;
 			
-			// aapt resource value: 0x7F0301F5
-			public const int popUpToInclusive = 2130903541;
+			// aapt resource value: 0x7F0301F7
+			public const int popupMenuBackground = 2130903543;
+			
+			// aapt resource value: 0x7F0301F8
+			public const int popupMenuStyle = 2130903544;
 			
 			// aapt resource value: 0x7F0301F9
-			public const int popupWindowStyle = 2130903545;
+			public const int popupTheme = 2130903545;
+			
+			// aapt resource value: 0x7F0301F5
+			public const int popUpTo = 2130903541;
+			
+			// aapt resource value: 0x7F0301F6
+			public const int popUpToInclusive = 2130903542;
 			
 			// aapt resource value: 0x7F0301FA
-			public const int positiveButtonText = 2130903546;
+			public const int popupWindowStyle = 2130903546;
 			
 			// aapt resource value: 0x7F0301FB
-			public const int preferenceCategoryStyle = 2130903547;
+			public const int positiveButtonText = 2130903547;
 			
 			// aapt resource value: 0x7F0301FC
-			public const int preferenceCategoryTitleTextAppearance = 2130903548;
+			public const int preferenceCategoryStyle = 2130903548;
 			
 			// aapt resource value: 0x7F0301FD
-			public const int preferenceFragmentCompatStyle = 2130903549;
+			public const int preferenceCategoryTitleTextAppearance = 2130903549;
 			
 			// aapt resource value: 0x7F0301FE
-			public const int preferenceFragmentListStyle = 2130903550;
+			public const int preferenceFragmentCompatStyle = 2130903550;
 			
 			// aapt resource value: 0x7F0301FF
-			public const int preferenceFragmentStyle = 2130903551;
+			public const int preferenceFragmentListStyle = 2130903551;
 			
 			// aapt resource value: 0x7F030200
-			public const int preferenceInformationStyle = 2130903552;
+			public const int preferenceFragmentStyle = 2130903552;
 			
 			// aapt resource value: 0x7F030201
-			public const int preferenceScreenStyle = 2130903553;
+			public const int preferenceInformationStyle = 2130903553;
 			
 			// aapt resource value: 0x7F030202
-			public const int preferenceStyle = 2130903554;
+			public const int preferenceScreenStyle = 2130903554;
 			
 			// aapt resource value: 0x7F030203
-			public const int preferenceTheme = 2130903555;
+			public const int preferenceStyle = 2130903555;
 			
 			// aapt resource value: 0x7F030204
-			public const int prefixText = 2130903556;
+			public const int preferenceTheme = 2130903556;
 			
 			// aapt resource value: 0x7F030205
-			public const int prefixTextAppearance = 2130903557;
+			public const int prefixText = 2130903557;
 			
 			// aapt resource value: 0x7F030206
-			public const int prefixTextColor = 2130903558;
+			public const int prefixTextAppearance = 2130903558;
 			
 			// aapt resource value: 0x7F030207
-			public const int preserveIconSpacing = 2130903559;
+			public const int prefixTextColor = 2130903559;
 			
 			// aapt resource value: 0x7F030208
-			public const int pressedTranslationZ = 2130903560;
+			public const int preserveIconSpacing = 2130903560;
 			
 			// aapt resource value: 0x7F030209
-			public const int progressBarPadding = 2130903561;
+			public const int pressedTranslationZ = 2130903561;
 			
 			// aapt resource value: 0x7F03020A
-			public const int progressBarStyle = 2130903562;
+			public const int progressBarPadding = 2130903562;
 			
 			// aapt resource value: 0x7F03020B
-			public const int queryBackground = 2130903563;
+			public const int progressBarStyle = 2130903563;
 			
 			// aapt resource value: 0x7F03020C
-			public const int queryHint = 2130903564;
+			public const int queryBackground = 2130903564;
 			
 			// aapt resource value: 0x7F03020D
-			public const int radioButtonStyle = 2130903565;
+			public const int queryHint = 2130903565;
 			
 			// aapt resource value: 0x7F03020E
-			public const int rangeFillColor = 2130903566;
+			public const int queryPatterns = 2130903566;
 			
 			// aapt resource value: 0x7F03020F
-			public const int ratingBarStyle = 2130903567;
+			public const int radioButtonStyle = 2130903567;
 			
 			// aapt resource value: 0x7F030210
-			public const int ratingBarStyleIndicator = 2130903568;
+			public const int rangeFillColor = 2130903568;
 			
 			// aapt resource value: 0x7F030211
-			public const int ratingBarStyleSmall = 2130903569;
+			public const int ratingBarStyle = 2130903569;
 			
 			// aapt resource value: 0x7F030212
-			public const int recyclerViewStyle = 2130903570;
+			public const int ratingBarStyleIndicator = 2130903570;
 			
 			// aapt resource value: 0x7F030213
-			public const int reverseLayout = 2130903571;
+			public const int ratingBarStyleSmall = 2130903571;
 			
 			// aapt resource value: 0x7F030214
-			public const int rippleColor = 2130903572;
+			public const int recyclerViewStyle = 2130903572;
 			
 			// aapt resource value: 0x7F030215
-			public const int scrimAnimationDuration = 2130903573;
+			public const int reverseLayout = 2130903573;
 			
 			// aapt resource value: 0x7F030216
-			public const int scrimBackground = 2130903574;
+			public const int rippleColor = 2130903574;
 			
 			// aapt resource value: 0x7F030217
-			public const int scrimVisibleHeightTrigger = 2130903575;
+			public const int scrimAnimationDuration = 2130903575;
 			
 			// aapt resource value: 0x7F030218
-			public const int scrollViewStyle = 2130903576;
+			public const int scrimBackground = 2130903576;
 			
 			// aapt resource value: 0x7F030219
-			public const int searchHintIcon = 2130903577;
+			public const int scrimVisibleHeightTrigger = 2130903577;
 			
 			// aapt resource value: 0x7F03021A
-			public const int searchIcon = 2130903578;
+			public const int scrollViewStyle = 2130903578;
 			
 			// aapt resource value: 0x7F03021B
-			public const int searchViewStyle = 2130903579;
+			public const int searchHintIcon = 2130903579;
 			
 			// aapt resource value: 0x7F03021C
-			public const int seekBarIncrement = 2130903580;
+			public const int searchIcon = 2130903580;
 			
 			// aapt resource value: 0x7F03021D
-			public const int seekBarPreferenceStyle = 2130903581;
+			public const int searchViewStyle = 2130903581;
 			
 			// aapt resource value: 0x7F03021E
-			public const int seekBarStyle = 2130903582;
+			public const int seekBarIncrement = 2130903582;
 			
 			// aapt resource value: 0x7F03021F
-			public const int selectable = 2130903583;
+			public const int seekBarPreferenceStyle = 2130903583;
 			
 			// aapt resource value: 0x7F030220
-			public const int selectableItemBackground = 2130903584;
+			public const int seekBarStyle = 2130903584;
 			
 			// aapt resource value: 0x7F030221
-			public const int selectableItemBackgroundBorderless = 2130903585;
+			public const int selectable = 2130903585;
 			
 			// aapt resource value: 0x7F030222
-			public const int selectionRequired = 2130903586;
+			public const int selectableItemBackground = 2130903586;
 			
 			// aapt resource value: 0x7F030223
-			public const int shapeAppearance = 2130903587;
+			public const int selectableItemBackgroundBorderless = 2130903587;
 			
 			// aapt resource value: 0x7F030224
-			public const int shapeAppearanceLargeComponent = 2130903588;
+			public const int selectionRequired = 2130903588;
 			
 			// aapt resource value: 0x7F030225
-			public const int shapeAppearanceMediumComponent = 2130903589;
+			public const int shapeAppearance = 2130903589;
 			
 			// aapt resource value: 0x7F030226
-			public const int shapeAppearanceOverlay = 2130903590;
+			public const int shapeAppearanceLargeComponent = 2130903590;
 			
 			// aapt resource value: 0x7F030227
-			public const int shapeAppearanceSmallComponent = 2130903591;
+			public const int shapeAppearanceMediumComponent = 2130903591;
 			
 			// aapt resource value: 0x7F030228
-			public const int shouldDisableView = 2130903592;
+			public const int shapeAppearanceOverlay = 2130903592;
 			
 			// aapt resource value: 0x7F030229
-			public const int showAsAction = 2130903593;
+			public const int shapeAppearanceSmallComponent = 2130903593;
 			
 			// aapt resource value: 0x7F03022A
-			public const int showDividers = 2130903594;
+			public const int shortcutMatchRequired = 2130903594;
 			
 			// aapt resource value: 0x7F03022B
-			public const int showMotionSpec = 2130903595;
+			public const int shouldDisableView = 2130903595;
 			
 			// aapt resource value: 0x7F03022C
-			public const int showSeekBarValue = 2130903596;
+			public const int showAsAction = 2130903596;
 			
 			// aapt resource value: 0x7F03022D
-			public const int showText = 2130903597;
+			public const int showDividers = 2130903597;
 			
 			// aapt resource value: 0x7F03022E
-			public const int showTitle = 2130903598;
+			public const int showMotionSpec = 2130903598;
 			
 			// aapt resource value: 0x7F03022F
-			public const int shrinkMotionSpec = 2130903599;
+			public const int showSeekBarValue = 2130903599;
 			
 			// aapt resource value: 0x7F030230
-			public const int singleChoiceItemLayout = 2130903600;
+			public const int showText = 2130903600;
 			
 			// aapt resource value: 0x7F030231
-			public const int singleLine = 2130903601;
+			public const int showTitle = 2130903601;
 			
 			// aapt resource value: 0x7F030232
-			public const int singleLineTitle = 2130903602;
+			public const int shrinkMotionSpec = 2130903602;
 			
 			// aapt resource value: 0x7F030233
-			public const int singleSelection = 2130903603;
+			public const int singleChoiceItemLayout = 2130903603;
 			
 			// aapt resource value: 0x7F030234
-			public const int sliderStyle = 2130903604;
+			public const int singleLine = 2130903604;
 			
 			// aapt resource value: 0x7F030235
-			public const int snackbarButtonStyle = 2130903605;
+			public const int singleLineTitle = 2130903605;
 			
 			// aapt resource value: 0x7F030236
-			public const int snackbarStyle = 2130903606;
+			public const int singleSelection = 2130903606;
 			
 			// aapt resource value: 0x7F030237
-			public const int snackbarTextViewStyle = 2130903607;
+			public const int sliderStyle = 2130903607;
 			
 			// aapt resource value: 0x7F030238
-			public const int spanCount = 2130903608;
+			public const int snackbarButtonStyle = 2130903608;
 			
 			// aapt resource value: 0x7F030239
-			public const int spinBars = 2130903609;
+			public const int snackbarStyle = 2130903609;
 			
 			// aapt resource value: 0x7F03023A
-			public const int spinnerDropDownItemStyle = 2130903610;
+			public const int snackbarTextViewStyle = 2130903610;
 			
 			// aapt resource value: 0x7F03023B
-			public const int spinnerStyle = 2130903611;
+			public const int spanCount = 2130903611;
 			
 			// aapt resource value: 0x7F03023C
-			public const int splitTrack = 2130903612;
+			public const int spinBars = 2130903612;
 			
 			// aapt resource value: 0x7F03023D
-			public const int srcCompat = 2130903613;
+			public const int spinnerDropDownItemStyle = 2130903613;
 			
 			// aapt resource value: 0x7F03023E
-			public const int stackFromEnd = 2130903614;
+			public const int spinnerStyle = 2130903614;
 			
 			// aapt resource value: 0x7F03023F
-			public const int startDestination = 2130903615;
+			public const int splitTrack = 2130903615;
 			
 			// aapt resource value: 0x7F030240
-			public const int startIconCheckable = 2130903616;
+			public const int srcCompat = 2130903616;
 			
 			// aapt resource value: 0x7F030241
-			public const int startIconContentDescription = 2130903617;
+			public const int stackFromEnd = 2130903617;
 			
 			// aapt resource value: 0x7F030242
-			public const int startIconDrawable = 2130903618;
+			public const int startDestination = 2130903618;
 			
 			// aapt resource value: 0x7F030243
-			public const int startIconTint = 2130903619;
+			public const int startIconCheckable = 2130903619;
 			
 			// aapt resource value: 0x7F030244
-			public const int startIconTintMode = 2130903620;
+			public const int startIconContentDescription = 2130903620;
 			
 			// aapt resource value: 0x7F030245
-			public const int state_above_anchor = 2130903621;
+			public const int startIconDrawable = 2130903621;
 			
 			// aapt resource value: 0x7F030246
-			public const int state_collapsed = 2130903622;
+			public const int startIconTint = 2130903622;
 			
 			// aapt resource value: 0x7F030247
-			public const int state_collapsible = 2130903623;
+			public const int startIconTintMode = 2130903623;
 			
 			// aapt resource value: 0x7F030248
-			public const int state_dragged = 2130903624;
+			public const int state_above_anchor = 2130903624;
 			
 			// aapt resource value: 0x7F030249
-			public const int state_liftable = 2130903625;
+			public const int state_collapsed = 2130903625;
 			
 			// aapt resource value: 0x7F03024A
-			public const int state_lifted = 2130903626;
+			public const int state_collapsible = 2130903626;
 			
 			// aapt resource value: 0x7F03024B
-			public const int statusBarBackground = 2130903627;
+			public const int state_dragged = 2130903627;
 			
 			// aapt resource value: 0x7F03024C
-			public const int statusBarForeground = 2130903628;
+			public const int state_liftable = 2130903628;
 			
 			// aapt resource value: 0x7F03024D
-			public const int statusBarScrim = 2130903629;
+			public const int state_lifted = 2130903629;
 			
 			// aapt resource value: 0x7F03024E
-			public const int strokeColor = 2130903630;
+			public const int statusBarBackground = 2130903630;
 			
 			// aapt resource value: 0x7F03024F
-			public const int strokeWidth = 2130903631;
+			public const int statusBarForeground = 2130903631;
 			
 			// aapt resource value: 0x7F030250
-			public const int subMenuArrow = 2130903632;
+			public const int statusBarScrim = 2130903632;
 			
 			// aapt resource value: 0x7F030251
-			public const int submitBackground = 2130903633;
+			public const int strokeColor = 2130903633;
 			
 			// aapt resource value: 0x7F030252
-			public const int subtitle = 2130903634;
+			public const int strokeWidth = 2130903634;
 			
 			// aapt resource value: 0x7F030253
-			public const int subtitleTextAppearance = 2130903635;
+			public const int subMenuArrow = 2130903635;
 			
 			// aapt resource value: 0x7F030254
-			public const int subtitleTextColor = 2130903636;
+			public const int submitBackground = 2130903636;
 			
 			// aapt resource value: 0x7F030255
-			public const int subtitleTextStyle = 2130903637;
+			public const int subtitle = 2130903637;
 			
 			// aapt resource value: 0x7F030256
-			public const int suffixText = 2130903638;
+			public const int subtitleTextAppearance = 2130903638;
 			
 			// aapt resource value: 0x7F030257
-			public const int suffixTextAppearance = 2130903639;
+			public const int subtitleTextColor = 2130903639;
 			
 			// aapt resource value: 0x7F030258
-			public const int suffixTextColor = 2130903640;
+			public const int subtitleTextStyle = 2130903640;
 			
 			// aapt resource value: 0x7F030259
-			public const int suggestionRowLayout = 2130903641;
+			public const int suffixText = 2130903641;
 			
 			// aapt resource value: 0x7F03025A
-			public const int summary = 2130903642;
+			public const int suffixTextAppearance = 2130903642;
 			
 			// aapt resource value: 0x7F03025B
-			public const int summaryOff = 2130903643;
+			public const int suffixTextColor = 2130903643;
 			
 			// aapt resource value: 0x7F03025C
-			public const int summaryOn = 2130903644;
+			public const int suggestionRowLayout = 2130903644;
 			
 			// aapt resource value: 0x7F03025D
-			public const int swipeRefreshLayoutProgressSpinnerBackgroundColor = 2130903645;
+			public const int summary = 2130903645;
 			
 			// aapt resource value: 0x7F03025E
-			public const int switchMinWidth = 2130903646;
+			public const int summaryOff = 2130903646;
 			
 			// aapt resource value: 0x7F03025F
-			public const int switchPadding = 2130903647;
+			public const int summaryOn = 2130903647;
 			
 			// aapt resource value: 0x7F030260
-			public const int switchPreferenceCompatStyle = 2130903648;
+			public const int swipeRefreshLayoutProgressSpinnerBackgroundColor = 2130903648;
 			
 			// aapt resource value: 0x7F030261
-			public const int switchPreferenceStyle = 2130903649;
+			public const int switchMinWidth = 2130903649;
 			
 			// aapt resource value: 0x7F030262
-			public const int switchStyle = 2130903650;
+			public const int switchPadding = 2130903650;
 			
 			// aapt resource value: 0x7F030263
-			public const int switchTextAppearance = 2130903651;
+			public const int switchPreferenceCompatStyle = 2130903651;
 			
 			// aapt resource value: 0x7F030264
-			public const int switchTextOff = 2130903652;
+			public const int switchPreferenceStyle = 2130903652;
 			
 			// aapt resource value: 0x7F030265
-			public const int switchTextOn = 2130903653;
+			public const int switchStyle = 2130903653;
 			
 			// aapt resource value: 0x7F030266
-			public const int tabBackground = 2130903654;
+			public const int switchTextAppearance = 2130903654;
 			
 			// aapt resource value: 0x7F030267
-			public const int tabContentStart = 2130903655;
+			public const int switchTextOff = 2130903655;
 			
 			// aapt resource value: 0x7F030268
-			public const int tabGravity = 2130903656;
+			public const int switchTextOn = 2130903656;
 			
 			// aapt resource value: 0x7F030269
-			public const int tabIconTint = 2130903657;
+			public const int tabBackground = 2130903657;
 			
 			// aapt resource value: 0x7F03026A
-			public const int tabIconTintMode = 2130903658;
+			public const int tabContentStart = 2130903658;
 			
 			// aapt resource value: 0x7F03026B
-			public const int tabIndicator = 2130903659;
+			public const int tabGravity = 2130903659;
 			
 			// aapt resource value: 0x7F03026C
-			public const int tabIndicatorAnimationDuration = 2130903660;
+			public const int tabIconTint = 2130903660;
 			
 			// aapt resource value: 0x7F03026D
-			public const int tabIndicatorColor = 2130903661;
+			public const int tabIconTintMode = 2130903661;
 			
 			// aapt resource value: 0x7F03026E
-			public const int tabIndicatorFullWidth = 2130903662;
+			public const int tabIndicator = 2130903662;
 			
 			// aapt resource value: 0x7F03026F
-			public const int tabIndicatorGravity = 2130903663;
+			public const int tabIndicatorAnimationDuration = 2130903663;
 			
 			// aapt resource value: 0x7F030270
-			public const int tabIndicatorHeight = 2130903664;
+			public const int tabIndicatorColor = 2130903664;
 			
 			// aapt resource value: 0x7F030271
-			public const int tabInlineLabel = 2130903665;
+			public const int tabIndicatorFullWidth = 2130903665;
 			
 			// aapt resource value: 0x7F030272
-			public const int tabMaxWidth = 2130903666;
+			public const int tabIndicatorGravity = 2130903666;
 			
 			// aapt resource value: 0x7F030273
-			public const int tabMinWidth = 2130903667;
+			public const int tabIndicatorHeight = 2130903667;
 			
 			// aapt resource value: 0x7F030274
-			public const int tabMode = 2130903668;
+			public const int tabInlineLabel = 2130903668;
 			
 			// aapt resource value: 0x7F030275
-			public const int tabPadding = 2130903669;
+			public const int tabMaxWidth = 2130903669;
 			
 			// aapt resource value: 0x7F030276
-			public const int tabPaddingBottom = 2130903670;
+			public const int tabMinWidth = 2130903670;
 			
 			// aapt resource value: 0x7F030277
-			public const int tabPaddingEnd = 2130903671;
+			public const int tabMode = 2130903671;
 			
 			// aapt resource value: 0x7F030278
-			public const int tabPaddingStart = 2130903672;
+			public const int tabPadding = 2130903672;
 			
 			// aapt resource value: 0x7F030279
-			public const int tabPaddingTop = 2130903673;
+			public const int tabPaddingBottom = 2130903673;
 			
 			// aapt resource value: 0x7F03027A
-			public const int tabRippleColor = 2130903674;
+			public const int tabPaddingEnd = 2130903674;
 			
 			// aapt resource value: 0x7F03027B
-			public const int tabSelectedTextColor = 2130903675;
+			public const int tabPaddingStart = 2130903675;
 			
 			// aapt resource value: 0x7F03027C
-			public const int tabStyle = 2130903676;
+			public const int tabPaddingTop = 2130903676;
 			
 			// aapt resource value: 0x7F03027D
-			public const int tabTextAppearance = 2130903677;
+			public const int tabRippleColor = 2130903677;
 			
 			// aapt resource value: 0x7F03027E
-			public const int tabTextColor = 2130903678;
+			public const int tabSelectedTextColor = 2130903678;
 			
 			// aapt resource value: 0x7F03027F
-			public const int tabUnboundedRipple = 2130903679;
+			public const int tabStyle = 2130903679;
 			
 			// aapt resource value: 0x7F030280
-			public const int targetPackage = 2130903680;
+			public const int tabTextAppearance = 2130903680;
 			
 			// aapt resource value: 0x7F030281
-			public const int textAllCaps = 2130903681;
+			public const int tabTextColor = 2130903681;
 			
 			// aapt resource value: 0x7F030282
-			public const int textAppearanceBody1 = 2130903682;
+			public const int tabUnboundedRipple = 2130903682;
 			
 			// aapt resource value: 0x7F030283
-			public const int textAppearanceBody2 = 2130903683;
+			public const int targetPackage = 2130903683;
 			
 			// aapt resource value: 0x7F030284
-			public const int textAppearanceButton = 2130903684;
+			public const int textAllCaps = 2130903684;
 			
 			// aapt resource value: 0x7F030285
-			public const int textAppearanceCaption = 2130903685;
+			public const int textAppearanceBody1 = 2130903685;
 			
 			// aapt resource value: 0x7F030286
-			public const int textAppearanceHeadline1 = 2130903686;
+			public const int textAppearanceBody2 = 2130903686;
 			
 			// aapt resource value: 0x7F030287
-			public const int textAppearanceHeadline2 = 2130903687;
+			public const int textAppearanceButton = 2130903687;
 			
 			// aapt resource value: 0x7F030288
-			public const int textAppearanceHeadline3 = 2130903688;
+			public const int textAppearanceCaption = 2130903688;
 			
 			// aapt resource value: 0x7F030289
-			public const int textAppearanceHeadline4 = 2130903689;
+			public const int textAppearanceHeadline1 = 2130903689;
 			
 			// aapt resource value: 0x7F03028A
-			public const int textAppearanceHeadline5 = 2130903690;
+			public const int textAppearanceHeadline2 = 2130903690;
 			
 			// aapt resource value: 0x7F03028B
-			public const int textAppearanceHeadline6 = 2130903691;
+			public const int textAppearanceHeadline3 = 2130903691;
 			
 			// aapt resource value: 0x7F03028C
-			public const int textAppearanceLargePopupMenu = 2130903692;
+			public const int textAppearanceHeadline4 = 2130903692;
 			
 			// aapt resource value: 0x7F03028D
-			public const int textAppearanceLineHeightEnabled = 2130903693;
+			public const int textAppearanceHeadline5 = 2130903693;
 			
 			// aapt resource value: 0x7F03028E
-			public const int textAppearanceListItem = 2130903694;
+			public const int textAppearanceHeadline6 = 2130903694;
 			
 			// aapt resource value: 0x7F03028F
-			public const int textAppearanceListItemSecondary = 2130903695;
+			public const int textAppearanceLargePopupMenu = 2130903695;
 			
 			// aapt resource value: 0x7F030290
-			public const int textAppearanceListItemSmall = 2130903696;
+			public const int textAppearanceLineHeightEnabled = 2130903696;
 			
 			// aapt resource value: 0x7F030291
-			public const int textAppearanceOverline = 2130903697;
+			public const int textAppearanceListItem = 2130903697;
 			
 			// aapt resource value: 0x7F030292
-			public const int textAppearancePopupMenuHeader = 2130903698;
+			public const int textAppearanceListItemSecondary = 2130903698;
 			
 			// aapt resource value: 0x7F030293
-			public const int textAppearanceSearchResultSubtitle = 2130903699;
+			public const int textAppearanceListItemSmall = 2130903699;
 			
 			// aapt resource value: 0x7F030294
-			public const int textAppearanceSearchResultTitle = 2130903700;
+			public const int textAppearanceOverline = 2130903700;
 			
 			// aapt resource value: 0x7F030295
-			public const int textAppearanceSmallPopupMenu = 2130903701;
+			public const int textAppearancePopupMenuHeader = 2130903701;
 			
 			// aapt resource value: 0x7F030296
-			public const int textAppearanceSubtitle1 = 2130903702;
+			public const int textAppearanceSearchResultSubtitle = 2130903702;
 			
 			// aapt resource value: 0x7F030297
-			public const int textAppearanceSubtitle2 = 2130903703;
+			public const int textAppearanceSearchResultTitle = 2130903703;
 			
 			// aapt resource value: 0x7F030298
-			public const int textColorAlertDialogListItem = 2130903704;
+			public const int textAppearanceSmallPopupMenu = 2130903704;
 			
 			// aapt resource value: 0x7F030299
-			public const int textColorSearchUrl = 2130903705;
+			public const int textAppearanceSubtitle1 = 2130903705;
 			
 			// aapt resource value: 0x7F03029A
-			public const int textEndPadding = 2130903706;
+			public const int textAppearanceSubtitle2 = 2130903706;
 			
 			// aapt resource value: 0x7F03029B
-			public const int textInputLayoutFocusedRectEnabled = 2130903707;
+			public const int textColorAlertDialogListItem = 2130903707;
 			
 			// aapt resource value: 0x7F03029C
-			public const int textInputStyle = 2130903708;
+			public const int textColorSearchUrl = 2130903708;
 			
 			// aapt resource value: 0x7F03029D
-			public const int textLocale = 2130903709;
+			public const int textEndPadding = 2130903709;
 			
 			// aapt resource value: 0x7F03029E
-			public const int textStartPadding = 2130903710;
+			public const int textInputLayoutFocusedRectEnabled = 2130903710;
 			
 			// aapt resource value: 0x7F03029F
-			public const int theme = 2130903711;
+			public const int textInputStyle = 2130903711;
 			
 			// aapt resource value: 0x7F0302A0
-			public const int themeLineHeight = 2130903712;
+			public const int textLocale = 2130903712;
 			
 			// aapt resource value: 0x7F0302A1
-			public const int thickness = 2130903713;
+			public const int textStartPadding = 2130903713;
 			
 			// aapt resource value: 0x7F0302A2
-			public const int thumbColor = 2130903714;
+			public const int theme = 2130903714;
 			
 			// aapt resource value: 0x7F0302A3
-			public const int thumbElevation = 2130903715;
+			public const int themeLineHeight = 2130903715;
 			
 			// aapt resource value: 0x7F0302A4
-			public const int thumbRadius = 2130903716;
+			public const int thickness = 2130903716;
 			
 			// aapt resource value: 0x7F0302A5
-			public const int thumbTextPadding = 2130903717;
+			public const int thumbColor = 2130903717;
 			
 			// aapt resource value: 0x7F0302A6
-			public const int thumbTint = 2130903718;
+			public const int thumbElevation = 2130903718;
 			
 			// aapt resource value: 0x7F0302A7
-			public const int thumbTintMode = 2130903719;
+			public const int thumbRadius = 2130903719;
 			
 			// aapt resource value: 0x7F0302A8
-			public const int tickColor = 2130903720;
+			public const int thumbTextPadding = 2130903720;
 			
 			// aapt resource value: 0x7F0302A9
-			public const int tickColorActive = 2130903721;
+			public const int thumbTint = 2130903721;
 			
 			// aapt resource value: 0x7F0302AA
-			public const int tickColorInactive = 2130903722;
+			public const int thumbTintMode = 2130903722;
 			
 			// aapt resource value: 0x7F0302AB
-			public const int tickMark = 2130903723;
+			public const int tickColor = 2130903723;
 			
 			// aapt resource value: 0x7F0302AC
-			public const int tickMarkTint = 2130903724;
+			public const int tickColorActive = 2130903724;
 			
 			// aapt resource value: 0x7F0302AD
-			public const int tickMarkTintMode = 2130903725;
+			public const int tickColorInactive = 2130903725;
 			
 			// aapt resource value: 0x7F0302AE
-			public const int tint = 2130903726;
+			public const int tickMark = 2130903726;
 			
 			// aapt resource value: 0x7F0302AF
-			public const int tintMode = 2130903727;
+			public const int tickMarkTint = 2130903727;
 			
 			// aapt resource value: 0x7F0302B0
-			public const int title = 2130903728;
+			public const int tickMarkTintMode = 2130903728;
 			
 			// aapt resource value: 0x7F0302B1
-			public const int titleEnabled = 2130903729;
+			public const int tint = 2130903729;
 			
 			// aapt resource value: 0x7F0302B2
-			public const int titleMargin = 2130903730;
+			public const int tintMode = 2130903730;
 			
 			// aapt resource value: 0x7F0302B3
-			public const int titleMarginBottom = 2130903731;
+			public const int title = 2130903731;
 			
 			// aapt resource value: 0x7F0302B4
-			public const int titleMarginEnd = 2130903732;
-			
-			// aapt resource value: 0x7F0302B7
-			public const int titleMargins = 2130903735;
+			public const int titleEnabled = 2130903732;
 			
 			// aapt resource value: 0x7F0302B5
-			public const int titleMarginStart = 2130903733;
+			public const int titleMargin = 2130903733;
 			
 			// aapt resource value: 0x7F0302B6
-			public const int titleMarginTop = 2130903734;
+			public const int titleMarginBottom = 2130903734;
 			
-			// aapt resource value: 0x7F0302B8
-			public const int titleTextAppearance = 2130903736;
-			
-			// aapt resource value: 0x7F0302B9
-			public const int titleTextColor = 2130903737;
+			// aapt resource value: 0x7F0302B7
+			public const int titleMarginEnd = 2130903735;
 			
 			// aapt resource value: 0x7F0302BA
-			public const int titleTextStyle = 2130903738;
+			public const int titleMargins = 2130903738;
+			
+			// aapt resource value: 0x7F0302B8
+			public const int titleMarginStart = 2130903736;
+			
+			// aapt resource value: 0x7F0302B9
+			public const int titleMarginTop = 2130903737;
 			
 			// aapt resource value: 0x7F0302BB
-			public const int toolbarId = 2130903739;
+			public const int titleTextAppearance = 2130903739;
 			
 			// aapt resource value: 0x7F0302BC
-			public const int toolbarNavigationButtonStyle = 2130903740;
+			public const int titleTextColor = 2130903740;
 			
 			// aapt resource value: 0x7F0302BD
-			public const int toolbarStyle = 2130903741;
+			public const int titleTextStyle = 2130903741;
 			
 			// aapt resource value: 0x7F0302BE
-			public const int tooltipForegroundColor = 2130903742;
+			public const int toolbarId = 2130903742;
 			
 			// aapt resource value: 0x7F0302BF
-			public const int tooltipFrameBackground = 2130903743;
+			public const int toolbarNavigationButtonStyle = 2130903743;
 			
 			// aapt resource value: 0x7F0302C0
-			public const int tooltipStyle = 2130903744;
+			public const int toolbarStyle = 2130903744;
 			
 			// aapt resource value: 0x7F0302C1
-			public const int tooltipText = 2130903745;
+			public const int tooltipForegroundColor = 2130903745;
 			
 			// aapt resource value: 0x7F0302C2
-			public const int track = 2130903746;
+			public const int tooltipFrameBackground = 2130903746;
 			
 			// aapt resource value: 0x7F0302C3
-			public const int trackColor = 2130903747;
+			public const int tooltipStyle = 2130903747;
 			
 			// aapt resource value: 0x7F0302C4
-			public const int trackColorActive = 2130903748;
+			public const int tooltipText = 2130903748;
 			
 			// aapt resource value: 0x7F0302C5
-			public const int trackColorInactive = 2130903749;
+			public const int track = 2130903749;
 			
 			// aapt resource value: 0x7F0302C6
-			public const int trackHeight = 2130903750;
+			public const int trackColor = 2130903750;
 			
 			// aapt resource value: 0x7F0302C7
-			public const int trackTint = 2130903751;
+			public const int trackColorActive = 2130903751;
 			
 			// aapt resource value: 0x7F0302C8
-			public const int trackTintMode = 2130903752;
+			public const int trackColorInactive = 2130903752;
 			
 			// aapt resource value: 0x7F0302C9
-			public const int transitionShapeAppearance = 2130903753;
+			public const int trackHeight = 2130903753;
 			
 			// aapt resource value: 0x7F0302CA
-			public const int ttcIndex = 2130903754;
+			public const int trackTint = 2130903754;
 			
 			// aapt resource value: 0x7F0302CB
-			public const int updatesContinuously = 2130903755;
+			public const int trackTintMode = 2130903755;
 			
 			// aapt resource value: 0x7F0302CC
-			public const int uri = 2130903756;
+			public const int transitionShapeAppearance = 2130903756;
 			
 			// aapt resource value: 0x7F0302CD
-			public const int useCompatPadding = 2130903757;
+			public const int ttcIndex = 2130903757;
 			
 			// aapt resource value: 0x7F0302CE
-			public const int useMaterialThemeColors = 2130903758;
+			public const int updatesContinuously = 2130903758;
 			
 			// aapt resource value: 0x7F0302CF
-			public const int useSimpleSummaryProvider = 2130903759;
+			public const int uri = 2130903759;
 			
 			// aapt resource value: 0x7F0302D0
-			public const int values = 2130903760;
+			public const int useCompatPadding = 2130903760;
 			
 			// aapt resource value: 0x7F0302D1
-			public const int verticalOffset = 2130903761;
+			public const int useMaterialThemeColors = 2130903761;
 			
 			// aapt resource value: 0x7F0302D2
-			public const int viewInflaterClass = 2130903762;
+			public const int useSimpleSummaryProvider = 2130903762;
 			
 			// aapt resource value: 0x7F0302D3
-			public const int voiceIcon = 2130903763;
+			public const int values = 2130903763;
 			
 			// aapt resource value: 0x7F0302D4
-			public const int widgetLayout = 2130903764;
+			public const int verticalOffset = 2130903764;
 			
 			// aapt resource value: 0x7F0302D5
-			public const int windowActionBar = 2130903765;
+			public const int viewInflaterClass = 2130903765;
 			
 			// aapt resource value: 0x7F0302D6
-			public const int windowActionBarOverlay = 2130903766;
+			public const int voiceIcon = 2130903766;
 			
 			// aapt resource value: 0x7F0302D7
-			public const int windowActionModeOverlay = 2130903767;
+			public const int widgetLayout = 2130903767;
 			
 			// aapt resource value: 0x7F0302D8
-			public const int windowFixedHeightMajor = 2130903768;
+			public const int windowActionBar = 2130903768;
 			
 			// aapt resource value: 0x7F0302D9
-			public const int windowFixedHeightMinor = 2130903769;
+			public const int windowActionBarOverlay = 2130903769;
 			
 			// aapt resource value: 0x7F0302DA
-			public const int windowFixedWidthMajor = 2130903770;
+			public const int windowActionModeOverlay = 2130903770;
 			
 			// aapt resource value: 0x7F0302DB
-			public const int windowFixedWidthMinor = 2130903771;
+			public const int windowFixedHeightMajor = 2130903771;
 			
 			// aapt resource value: 0x7F0302DC
-			public const int windowMinWidthMajor = 2130903772;
+			public const int windowFixedHeightMinor = 2130903772;
 			
 			// aapt resource value: 0x7F0302DD
-			public const int windowMinWidthMinor = 2130903773;
+			public const int windowFixedWidthMajor = 2130903773;
 			
 			// aapt resource value: 0x7F0302DE
-			public const int windowNoTitle = 2130903774;
+			public const int windowFixedWidthMinor = 2130903774;
 			
 			// aapt resource value: 0x7F0302DF
-			public const int yearSelectedStyle = 2130903775;
+			public const int windowMinWidthMajor = 2130903775;
 			
 			// aapt resource value: 0x7F0302E0
-			public const int yearStyle = 2130903776;
+			public const int windowMinWidthMinor = 2130903776;
 			
 			// aapt resource value: 0x7F0302E1
-			public const int yearTodayStyle = 2130903777;
+			public const int windowNoTitle = 2130903777;
+			
+			// aapt resource value: 0x7F0302E2
+			public const int yearSelectedStyle = 2130903778;
+			
+			// aapt resource value: 0x7F0302E3
+			public const int yearStyle = 2130903779;
+			
+			// aapt resource value: 0x7F0302E4
+			public const int yearTodayStyle = 2130903780;
 			
 			static Attribute()
 			{
@@ -24906,230 +25624,233 @@ namespace Mahwous.Droid
 			// aapt resource value: 0x7F0F001A
 			public const int abc_toolbar_collapse_description = 2131689498;
 			
-			// aapt resource value: 0x7F0F001C
-			public const int appbar_scrolling_view_behavior = 2131689500;
-			
 			// aapt resource value: 0x7F0F001B
-			public const int app_name = 2131689499;
+			public const int androidx_startup = 2131689499;
 			
 			// aapt resource value: 0x7F0F001D
-			public const int bottom_sheet_behavior = 2131689501;
+			public const int appbar_scrolling_view_behavior = 2131689501;
+			
+			// aapt resource value: 0x7F0F001C
+			public const int app_name = 2131689500;
 			
 			// aapt resource value: 0x7F0F001E
-			public const int character_counter_content_description = 2131689502;
+			public const int bottom_sheet_behavior = 2131689502;
 			
 			// aapt resource value: 0x7F0F001F
-			public const int character_counter_overflowed_content_description = 2131689503;
+			public const int character_counter_content_description = 2131689503;
 			
 			// aapt resource value: 0x7F0F0020
-			public const int character_counter_pattern = 2131689504;
+			public const int character_counter_overflowed_content_description = 2131689504;
 			
 			// aapt resource value: 0x7F0F0021
-			public const int chip_text = 2131689505;
+			public const int character_counter_pattern = 2131689505;
 			
 			// aapt resource value: 0x7F0F0022
-			public const int clear_text_end_icon_content_description = 2131689506;
+			public const int chip_text = 2131689506;
 			
 			// aapt resource value: 0x7F0F0023
-			public const int common_google_play_services_unknown_issue = 2131689507;
+			public const int clear_text_end_icon_content_description = 2131689507;
 			
 			// aapt resource value: 0x7F0F0024
-			public const int copy = 2131689508;
+			public const int common_google_play_services_unknown_issue = 2131689508;
 			
 			// aapt resource value: 0x7F0F0025
-			public const int copy_toast_msg = 2131689509;
+			public const int copy = 2131689509;
 			
 			// aapt resource value: 0x7F0F0026
-			public const int error_icon_content_description = 2131689510;
+			public const int copy_toast_msg = 2131689510;
 			
 			// aapt resource value: 0x7F0F0027
-			public const int expand_button_title = 2131689511;
+			public const int error_icon_content_description = 2131689511;
 			
 			// aapt resource value: 0x7F0F0028
-			public const int exposed_dropdown_menu_content_description = 2131689512;
+			public const int expand_button_title = 2131689512;
 			
 			// aapt resource value: 0x7F0F0029
-			public const int fab_transformation_scrim_behavior = 2131689513;
+			public const int exposed_dropdown_menu_content_description = 2131689513;
 			
 			// aapt resource value: 0x7F0F002A
-			public const int fab_transformation_sheet_behavior = 2131689514;
+			public const int fab_transformation_scrim_behavior = 2131689514;
 			
 			// aapt resource value: 0x7F0F002B
-			public const int fallback_menu_item_copy_link = 2131689515;
+			public const int fab_transformation_sheet_behavior = 2131689515;
 			
 			// aapt resource value: 0x7F0F002C
-			public const int fallback_menu_item_open_in_browser = 2131689516;
+			public const int fallback_menu_item_copy_link = 2131689516;
 			
 			// aapt resource value: 0x7F0F002D
-			public const int fallback_menu_item_share_link = 2131689517;
+			public const int fallback_menu_item_open_in_browser = 2131689517;
 			
 			// aapt resource value: 0x7F0F002E
-			public const int hello = 2131689518;
+			public const int fallback_menu_item_share_link = 2131689518;
 			
 			// aapt resource value: 0x7F0F002F
-			public const int hide_bottom_view_on_scroll_behavior = 2131689519;
+			public const int hello = 2131689519;
 			
 			// aapt resource value: 0x7F0F0030
-			public const int icon_content_description = 2131689520;
+			public const int hide_bottom_view_on_scroll_behavior = 2131689520;
 			
 			// aapt resource value: 0x7F0F0031
-			public const int item_view_role_description = 2131689521;
+			public const int icon_content_description = 2131689521;
 			
 			// aapt resource value: 0x7F0F0032
-			public const int material_slider_range_end = 2131689522;
+			public const int item_view_role_description = 2131689522;
 			
 			// aapt resource value: 0x7F0F0033
-			public const int material_slider_range_start = 2131689523;
+			public const int material_slider_range_end = 2131689523;
 			
 			// aapt resource value: 0x7F0F0034
-			public const int mtrl_badge_numberless_content_description = 2131689524;
+			public const int material_slider_range_start = 2131689524;
 			
 			// aapt resource value: 0x7F0F0035
-			public const int mtrl_chip_close_icon_content_description = 2131689525;
+			public const int mtrl_badge_numberless_content_description = 2131689525;
 			
 			// aapt resource value: 0x7F0F0036
-			public const int mtrl_exceed_max_badge_number_content_description = 2131689526;
+			public const int mtrl_chip_close_icon_content_description = 2131689526;
 			
 			// aapt resource value: 0x7F0F0037
-			public const int mtrl_exceed_max_badge_number_suffix = 2131689527;
+			public const int mtrl_exceed_max_badge_number_content_description = 2131689527;
 			
 			// aapt resource value: 0x7F0F0038
-			public const int mtrl_picker_a11y_next_month = 2131689528;
+			public const int mtrl_exceed_max_badge_number_suffix = 2131689528;
 			
 			// aapt resource value: 0x7F0F0039
-			public const int mtrl_picker_a11y_prev_month = 2131689529;
+			public const int mtrl_picker_a11y_next_month = 2131689529;
 			
 			// aapt resource value: 0x7F0F003A
-			public const int mtrl_picker_announce_current_selection = 2131689530;
+			public const int mtrl_picker_a11y_prev_month = 2131689530;
 			
 			// aapt resource value: 0x7F0F003B
-			public const int mtrl_picker_cancel = 2131689531;
+			public const int mtrl_picker_announce_current_selection = 2131689531;
 			
 			// aapt resource value: 0x7F0F003C
-			public const int mtrl_picker_confirm = 2131689532;
+			public const int mtrl_picker_cancel = 2131689532;
 			
 			// aapt resource value: 0x7F0F003D
-			public const int mtrl_picker_date_header_selected = 2131689533;
+			public const int mtrl_picker_confirm = 2131689533;
 			
 			// aapt resource value: 0x7F0F003E
-			public const int mtrl_picker_date_header_title = 2131689534;
+			public const int mtrl_picker_date_header_selected = 2131689534;
 			
 			// aapt resource value: 0x7F0F003F
-			public const int mtrl_picker_date_header_unselected = 2131689535;
+			public const int mtrl_picker_date_header_title = 2131689535;
 			
 			// aapt resource value: 0x7F0F0040
-			public const int mtrl_picker_day_of_week_column_header = 2131689536;
+			public const int mtrl_picker_date_header_unselected = 2131689536;
 			
 			// aapt resource value: 0x7F0F0041
-			public const int mtrl_picker_invalid_format = 2131689537;
+			public const int mtrl_picker_day_of_week_column_header = 2131689537;
 			
 			// aapt resource value: 0x7F0F0042
-			public const int mtrl_picker_invalid_format_example = 2131689538;
+			public const int mtrl_picker_invalid_format = 2131689538;
 			
 			// aapt resource value: 0x7F0F0043
-			public const int mtrl_picker_invalid_format_use = 2131689539;
+			public const int mtrl_picker_invalid_format_example = 2131689539;
 			
 			// aapt resource value: 0x7F0F0044
-			public const int mtrl_picker_invalid_range = 2131689540;
+			public const int mtrl_picker_invalid_format_use = 2131689540;
 			
 			// aapt resource value: 0x7F0F0045
-			public const int mtrl_picker_navigate_to_year_description = 2131689541;
+			public const int mtrl_picker_invalid_range = 2131689541;
 			
 			// aapt resource value: 0x7F0F0046
-			public const int mtrl_picker_out_of_range = 2131689542;
+			public const int mtrl_picker_navigate_to_year_description = 2131689542;
 			
 			// aapt resource value: 0x7F0F0047
-			public const int mtrl_picker_range_header_only_end_selected = 2131689543;
+			public const int mtrl_picker_out_of_range = 2131689543;
 			
 			// aapt resource value: 0x7F0F0048
-			public const int mtrl_picker_range_header_only_start_selected = 2131689544;
+			public const int mtrl_picker_range_header_only_end_selected = 2131689544;
 			
 			// aapt resource value: 0x7F0F0049
-			public const int mtrl_picker_range_header_selected = 2131689545;
+			public const int mtrl_picker_range_header_only_start_selected = 2131689545;
 			
 			// aapt resource value: 0x7F0F004A
-			public const int mtrl_picker_range_header_title = 2131689546;
+			public const int mtrl_picker_range_header_selected = 2131689546;
 			
 			// aapt resource value: 0x7F0F004B
-			public const int mtrl_picker_range_header_unselected = 2131689547;
+			public const int mtrl_picker_range_header_title = 2131689547;
 			
 			// aapt resource value: 0x7F0F004C
-			public const int mtrl_picker_save = 2131689548;
+			public const int mtrl_picker_range_header_unselected = 2131689548;
 			
 			// aapt resource value: 0x7F0F004D
-			public const int mtrl_picker_text_input_date_hint = 2131689549;
+			public const int mtrl_picker_save = 2131689549;
 			
 			// aapt resource value: 0x7F0F004E
-			public const int mtrl_picker_text_input_date_range_end_hint = 2131689550;
+			public const int mtrl_picker_text_input_date_hint = 2131689550;
 			
 			// aapt resource value: 0x7F0F004F
-			public const int mtrl_picker_text_input_date_range_start_hint = 2131689551;
+			public const int mtrl_picker_text_input_date_range_end_hint = 2131689551;
 			
 			// aapt resource value: 0x7F0F0050
-			public const int mtrl_picker_text_input_day_abbr = 2131689552;
+			public const int mtrl_picker_text_input_date_range_start_hint = 2131689552;
 			
 			// aapt resource value: 0x7F0F0051
-			public const int mtrl_picker_text_input_month_abbr = 2131689553;
+			public const int mtrl_picker_text_input_day_abbr = 2131689553;
 			
 			// aapt resource value: 0x7F0F0052
-			public const int mtrl_picker_text_input_year_abbr = 2131689554;
+			public const int mtrl_picker_text_input_month_abbr = 2131689554;
 			
 			// aapt resource value: 0x7F0F0053
-			public const int mtrl_picker_toggle_to_calendar_input_mode = 2131689555;
+			public const int mtrl_picker_text_input_year_abbr = 2131689555;
 			
 			// aapt resource value: 0x7F0F0054
-			public const int mtrl_picker_toggle_to_day_selection = 2131689556;
+			public const int mtrl_picker_toggle_to_calendar_input_mode = 2131689556;
 			
 			// aapt resource value: 0x7F0F0055
-			public const int mtrl_picker_toggle_to_text_input_mode = 2131689557;
+			public const int mtrl_picker_toggle_to_day_selection = 2131689557;
 			
 			// aapt resource value: 0x7F0F0056
-			public const int mtrl_picker_toggle_to_year_selection = 2131689558;
+			public const int mtrl_picker_toggle_to_text_input_mode = 2131689558;
 			
 			// aapt resource value: 0x7F0F0057
-			public const int nav_app_bar_navigate_up_description = 2131689559;
+			public const int mtrl_picker_toggle_to_year_selection = 2131689559;
 			
 			// aapt resource value: 0x7F0F0058
-			public const int nav_app_bar_open_drawer_description = 2131689560;
+			public const int nav_app_bar_navigate_up_description = 2131689560;
 			
 			// aapt resource value: 0x7F0F0059
-			public const int not_set = 2131689561;
+			public const int nav_app_bar_open_drawer_description = 2131689561;
 			
 			// aapt resource value: 0x7F0F005A
-			public const int overflow_tab_title = 2131689562;
+			public const int not_set = 2131689562;
 			
 			// aapt resource value: 0x7F0F005B
-			public const int password_toggle_content_description = 2131689563;
+			public const int overflow_tab_title = 2131689563;
 			
 			// aapt resource value: 0x7F0F005C
-			public const int path_password_eye = 2131689564;
+			public const int password_toggle_content_description = 2131689564;
 			
 			// aapt resource value: 0x7F0F005D
-			public const int path_password_eye_mask_strike_through = 2131689565;
+			public const int path_password_eye = 2131689565;
 			
 			// aapt resource value: 0x7F0F005E
-			public const int path_password_eye_mask_visible = 2131689566;
+			public const int path_password_eye_mask_strike_through = 2131689566;
 			
 			// aapt resource value: 0x7F0F005F
-			public const int path_password_strike_through = 2131689567;
+			public const int path_password_eye_mask_visible = 2131689567;
 			
 			// aapt resource value: 0x7F0F0060
-			public const int preference_copied = 2131689568;
+			public const int path_password_strike_through = 2131689568;
 			
 			// aapt resource value: 0x7F0F0061
-			public const int search_menu_title = 2131689569;
+			public const int preference_copied = 2131689569;
 			
 			// aapt resource value: 0x7F0F0062
-			public const int status_bar_notification_info_overflow = 2131689570;
+			public const int search_menu_title = 2131689570;
 			
 			// aapt resource value: 0x7F0F0063
-			public const int summary_collapsed_preference_list = 2131689571;
+			public const int status_bar_notification_info_overflow = 2131689571;
 			
 			// aapt resource value: 0x7F0F0064
-			public const int v7_preference_off = 2131689572;
+			public const int summary_collapsed_preference_list = 2131689572;
 			
 			// aapt resource value: 0x7F0F0065
-			public const int v7_preference_on = 2131689573;
+			public const int v7_preference_off = 2131689573;
+			
+			// aapt resource value: 0x7F0F0066
+			public const int v7_preference_on = 2131689574;
 			
 			static String()
 			{
@@ -27365,7 +28086,7 @@ namespace Mahwous.Droid
 		public partial class Styleable
 		{
 			
-			// aapt resource value: { 0x7F03003D,0x7F030044,0x7F030045,0x7F0300BF,0x7F0300C0,0x7F0300C1,0x7F0300C2,0x7F0300C3,0x7F0300C4,0x7F0300DE,0x7F0300F2,0x7F0300F3,0x7F030109,0x7F030150,0x7F030156,0x7F03015C,0x7F03015D,0x7F030160,0x7F03016B,0x7F03017A,0x7F0301B0,0x7F0301D6,0x7F0301F8,0x7F030209,0x7F03020A,0x7F030252,0x7F030255,0x7F0302B0,0x7F0302BA }
+			// aapt resource value: { 0x7F03003D,0x7F030044,0x7F030045,0x7F0300BF,0x7F0300C0,0x7F0300C1,0x7F0300C2,0x7F0300C3,0x7F0300C4,0x7F0300DE,0x7F0300F2,0x7F0300F3,0x7F030109,0x7F030150,0x7F030156,0x7F03015C,0x7F03015D,0x7F030160,0x7F03016B,0x7F03017A,0x7F0301B0,0x7F0301D6,0x7F0301F9,0x7F03020A,0x7F03020B,0x7F030255,0x7F030258,0x7F0302B3,0x7F0302BD }
 			public static int[] ActionBar = new int[] {
 					2130903101,
 					2130903108,
@@ -27389,13 +28110,13 @@ namespace Mahwous.Droid
 					2130903418,
 					2130903472,
 					2130903510,
-					2130903544,
-					2130903561,
+					2130903545,
 					2130903562,
-					2130903634,
+					2130903563,
 					2130903637,
-					2130903728,
-					2130903738};
+					2130903640,
+					2130903731,
+					2130903741};
 			
 			// aapt resource value: { 0x10100B3 }
 			public static int[] ActionBarLayout = new int[] {
@@ -27502,14 +28223,14 @@ namespace Mahwous.Droid
 			public static int[] ActionMenuView = new int[] {
 					-1};
 			
-			// aapt resource value: { 0x7F03003D,0x7F030044,0x7F0300A1,0x7F030150,0x7F030255,0x7F0302BA }
+			// aapt resource value: { 0x7F03003D,0x7F030044,0x7F0300A1,0x7F030150,0x7F030258,0x7F0302BD }
 			public static int[] ActionMode = new int[] {
 					2130903101,
 					2130903108,
 					2130903201,
 					2130903376,
-					2130903637,
-					2130903738};
+					2130903640,
+					2130903741};
 			
 			// aapt resource value: 0
 			public const int ActionMode_background = 0;
@@ -27540,13 +28261,13 @@ namespace Mahwous.Droid
 			// aapt resource value: 1
 			public const int ActivityChooserView_initialActivityCount = 1;
 			
-			// aapt resource value: { 0x1010003,0x7F030000,0x7F0300DF,0x7F0300E0,0x7F030280 }
+			// aapt resource value: { 0x1010003,0x7F030000,0x7F0300DF,0x7F0300E0,0x7F030283 }
 			public static int[] ActivityNavigator = new int[] {
 					16842755,
 					2130903040,
 					2130903263,
 					2130903264,
-					2130903680};
+					2130903683};
 			
 			// aapt resource value: 1
 			public const int ActivityNavigator_action = 1;
@@ -27578,7 +28299,7 @@ namespace Mahwous.Droid
 			// aapt resource value: 2
 			public const int AdsAttrs_adUnitId = 2;
 			
-			// aapt resource value: { 0x10100F2,0x7F03006F,0x7F030070,0x7F0301A5,0x7F0301A6,0x7F0301D2,0x7F03022E,0x7F030230 }
+			// aapt resource value: { 0x10100F2,0x7F03006F,0x7F030070,0x7F0301A5,0x7F0301A6,0x7F0301D2,0x7F030231,0x7F030233 }
 			public static int[] AlertDialog = new int[] {
 					16842994,
 					2130903151,
@@ -27586,8 +28307,8 @@ namespace Mahwous.Droid
 					2130903461,
 					2130903462,
 					2130903506,
-					2130903598,
-					2130903600};
+					2130903601,
+					2130903603};
 			
 			// aapt resource value: 0
 			public const int AlertDialog_android_layout = 0;
@@ -27670,7 +28391,7 @@ namespace Mahwous.Droid
 			// aapt resource value: 1
 			public const int AnimatedStateListDrawableTransition_android_toId = 1;
 			
-			// aapt resource value: { 0x10100D4,0x101048F,0x1010540,0x7F030109,0x7F030123,0x7F03019D,0x7F03019E,0x7F03024C }
+			// aapt resource value: { 0x10100D4,0x101048F,0x1010540,0x7F030109,0x7F030123,0x7F03019D,0x7F03019E,0x7F03024F }
 			public static int[] AppBarLayout = new int[] {
 					16842964,
 					16843919,
@@ -27679,14 +28400,14 @@ namespace Mahwous.Droid
 					2130903331,
 					2130903453,
 					2130903454,
-					2130903628};
+					2130903631};
 			
-			// aapt resource value: { 0x7F030246,0x7F030247,0x7F030249,0x7F03024A }
+			// aapt resource value: { 0x7F030249,0x7F03024A,0x7F03024C,0x7F03024D }
 			public static int[] AppBarLayoutStates = new int[] {
-					2130903622,
-					2130903623,
 					2130903625,
-					2130903626};
+					2130903626,
+					2130903628,
+					2130903629};
 			
 			// aapt resource value: 0
 			public const int AppBarLayoutStates_state_collapsed = 0;
@@ -27735,12 +28456,12 @@ namespace Mahwous.Droid
 			// aapt resource value: 7
 			public const int AppBarLayout_statusBarForeground = 7;
 			
-			// aapt resource value: { 0x1010119,0x7F03023D,0x7F0302AE,0x7F0302AF }
+			// aapt resource value: { 0x1010119,0x7F030240,0x7F0302B1,0x7F0302B2 }
 			public static int[] AppCompatImageView = new int[] {
 					16843033,
-					2130903613,
-					2130903726,
-					2130903727};
+					2130903616,
+					2130903729,
+					2130903730};
 			
 			// aapt resource value: 0
 			public const int AppCompatImageView_android_src = 0;
@@ -27754,12 +28475,12 @@ namespace Mahwous.Droid
 			// aapt resource value: 3
 			public const int AppCompatImageView_tintMode = 3;
 			
-			// aapt resource value: { 0x1010142,0x7F0302AB,0x7F0302AC,0x7F0302AD }
+			// aapt resource value: { 0x1010142,0x7F0302AE,0x7F0302AF,0x7F0302B0 }
 			public static int[] AppCompatSeekBar = new int[] {
 					16843074,
-					2130903723,
-					2130903724,
-					2130903725};
+					2130903726,
+					2130903727,
+					2130903728};
 			
 			// aapt resource value: 0
 			public const int AppCompatSeekBar_android_thumb = 0;
@@ -27804,7 +28525,7 @@ namespace Mahwous.Droid
 			// aapt resource value: 0
 			public const int AppCompatTextHelper_android_textAppearance = 0;
 			
-			// aapt resource value: { 0x1010034,0x7F030038,0x7F030039,0x7F03003A,0x7F03003B,0x7F03003C,0x7F0300F7,0x7F0300F8,0x7F0300F9,0x7F0300FA,0x7F0300FC,0x7F0300FD,0x7F0300FE,0x7F0300FF,0x7F030139,0x7F03013C,0x7F030145,0x7F03018F,0x7F03019F,0x7F030281,0x7F03029D }
+			// aapt resource value: { 0x1010034,0x7F030038,0x7F030039,0x7F03003A,0x7F03003B,0x7F03003C,0x7F0300F7,0x7F0300F8,0x7F0300F9,0x7F0300FA,0x7F0300FC,0x7F0300FD,0x7F0300FE,0x7F0300FF,0x7F030139,0x7F03013C,0x7F030145,0x7F03018F,0x7F03019F,0x7F030284,0x7F0302A0 }
 			public static int[] AppCompatTextView = new int[] {
 					16842804,
 					2130903096,
@@ -27825,8 +28546,8 @@ namespace Mahwous.Droid
 					2130903365,
 					2130903439,
 					2130903455,
-					2130903681,
-					2130903709};
+					2130903684,
+					2130903712};
 			
 			// aapt resource value: 0
 			public const int AppCompatTextView_android_textAppearance = 0;
@@ -27891,7 +28612,7 @@ namespace Mahwous.Droid
 			// aapt resource value: 20
 			public const int AppCompatTextView_textLocale = 20;
 			
-			// aapt resource value: { 0x1010057,0x10100AE,0x7F030001,0x7F030002,0x7F030003,0x7F030004,0x7F030005,0x7F030006,0x7F030007,0x7F030008,0x7F030009,0x7F03000A,0x7F03000B,0x7F03000C,0x7F03000D,0x7F03000F,0x7F030010,0x7F030011,0x7F030012,0x7F030013,0x7F030014,0x7F030015,0x7F030016,0x7F030017,0x7F030018,0x7F030019,0x7F03001A,0x7F03001B,0x7F03001C,0x7F03001D,0x7F03001E,0x7F03001F,0x7F030023,0x7F030028,0x7F030029,0x7F03002A,0x7F03002B,0x7F030037,0x7F030058,0x7F030068,0x7F030069,0x7F03006A,0x7F03006B,0x7F03006C,0x7F030071,0x7F030072,0x7F03007E,0x7F030085,0x7F0300A8,0x7F0300A9,0x7F0300AA,0x7F0300AB,0x7F0300AC,0x7F0300AD,0x7F0300AE,0x7F0300B5,0x7F0300B6,0x7F0300BC,0x7F0300CB,0x7F0300E9,0x7F0300EE,0x7F0300EF,0x7F0300F4,0x7F0300F6,0x7F030102,0x7F030103,0x7F030105,0x7F030106,0x7F030108,0x7F03015C,0x7F03016A,0x7F0301A1,0x7F0301A2,0x7F0301A3,0x7F0301A4,0x7F0301A7,0x7F0301A8,0x7F0301A9,0x7F0301AA,0x7F0301AB,0x7F0301AC,0x7F0301AD,0x7F0301AE,0x7F0301AF,0x7F0301E6,0x7F0301E7,0x7F0301E8,0x7F0301F7,0x7F0301F9,0x7F03020D,0x7F03020F,0x7F030210,0x7F030211,0x7F03021B,0x7F03021E,0x7F030220,0x7F030221,0x7F03023A,0x7F03023B,0x7F030262,0x7F03028C,0x7F03028E,0x7F03028F,0x7F030290,0x7F030292,0x7F030293,0x7F030294,0x7F030295,0x7F030298,0x7F030299,0x7F0302BC,0x7F0302BD,0x7F0302BE,0x7F0302BF,0x7F0302D2,0x7F0302D5,0x7F0302D6,0x7F0302D7,0x7F0302D8,0x7F0302D9,0x7F0302DA,0x7F0302DB,0x7F0302DC,0x7F0302DD,0x7F0302DE }
+			// aapt resource value: { 0x1010057,0x10100AE,0x7F030001,0x7F030002,0x7F030003,0x7F030004,0x7F030005,0x7F030006,0x7F030007,0x7F030008,0x7F030009,0x7F03000A,0x7F03000B,0x7F03000C,0x7F03000D,0x7F03000F,0x7F030010,0x7F030011,0x7F030012,0x7F030013,0x7F030014,0x7F030015,0x7F030016,0x7F030017,0x7F030018,0x7F030019,0x7F03001A,0x7F03001B,0x7F03001C,0x7F03001D,0x7F03001E,0x7F03001F,0x7F030023,0x7F030028,0x7F030029,0x7F03002A,0x7F03002B,0x7F030037,0x7F030058,0x7F030068,0x7F030069,0x7F03006A,0x7F03006B,0x7F03006C,0x7F030071,0x7F030072,0x7F03007E,0x7F030085,0x7F0300A8,0x7F0300A9,0x7F0300AA,0x7F0300AB,0x7F0300AC,0x7F0300AD,0x7F0300AE,0x7F0300B5,0x7F0300B6,0x7F0300BC,0x7F0300CB,0x7F0300E9,0x7F0300EE,0x7F0300EF,0x7F0300F4,0x7F0300F6,0x7F030102,0x7F030103,0x7F030105,0x7F030106,0x7F030108,0x7F03015C,0x7F03016A,0x7F0301A1,0x7F0301A2,0x7F0301A3,0x7F0301A4,0x7F0301A7,0x7F0301A8,0x7F0301A9,0x7F0301AA,0x7F0301AB,0x7F0301AC,0x7F0301AD,0x7F0301AE,0x7F0301AF,0x7F0301E7,0x7F0301E8,0x7F0301E9,0x7F0301F8,0x7F0301FA,0x7F03020F,0x7F030211,0x7F030212,0x7F030213,0x7F03021D,0x7F030220,0x7F030222,0x7F030223,0x7F03023D,0x7F03023E,0x7F030265,0x7F03028F,0x7F030291,0x7F030292,0x7F030293,0x7F030295,0x7F030296,0x7F030297,0x7F030298,0x7F03029B,0x7F03029C,0x7F0302BF,0x7F0302C0,0x7F0302C1,0x7F0302C2,0x7F0302D5,0x7F0302D8,0x7F0302D9,0x7F0302DA,0x7F0302DB,0x7F0302DC,0x7F0302DD,0x7F0302DE,0x7F0302DF,0x7F0302E0,0x7F0302E1 }
 			public static int[] AppCompatTheme = new int[] {
 					16842839,
 					16842926,
@@ -27977,47 +28698,47 @@ namespace Mahwous.Droid
 					2130903469,
 					2130903470,
 					2130903471,
-					2130903526,
 					2130903527,
 					2130903528,
-					2130903543,
-					2130903545,
-					2130903565,
+					2130903529,
+					2130903544,
+					2130903546,
 					2130903567,
-					2130903568,
 					2130903569,
-					2130903579,
-					2130903582,
+					2130903570,
+					2130903571,
+					2130903581,
 					2130903584,
-					2130903585,
-					2130903610,
-					2130903611,
-					2130903650,
-					2130903692,
-					2130903694,
+					2130903586,
+					2130903587,
+					2130903613,
+					2130903614,
+					2130903653,
 					2130903695,
-					2130903696,
+					2130903697,
 					2130903698,
 					2130903699,
-					2130903700,
 					2130903701,
+					2130903702,
+					2130903703,
 					2130903704,
-					2130903705,
-					2130903740,
-					2130903741,
-					2130903742,
+					2130903707,
+					2130903708,
 					2130903743,
-					2130903762,
+					2130903744,
+					2130903745,
+					2130903746,
 					2130903765,
-					2130903766,
-					2130903767,
 					2130903768,
 					2130903769,
 					2130903770,
 					2130903771,
 					2130903772,
 					2130903773,
-					2130903774};
+					2130903774,
+					2130903775,
+					2130903776,
+					2130903777};
 			
 			// aapt resource value: 2
 			public const int AppCompatTheme_actionBarDivider = 2;
@@ -28394,10 +29115,10 @@ namespace Mahwous.Droid
 			// aapt resource value: 124
 			public const int AppCompatTheme_windowNoTitle = 124;
 			
-			// aapt resource value: { 0x101030E,0x7F030220 }
+			// aapt resource value: { 0x101030E,0x7F030222 }
 			public static int[] BackgroundStyle = new int[] {
 					16843534,
-					2130903584};
+					2130903586};
 			
 			// aapt resource value: 0
 			public const int BackgroundStyle_android_selectableItemBackground = 0;
@@ -28405,15 +29126,15 @@ namespace Mahwous.Droid
 			// aapt resource value: 1
 			public const int BackgroundStyle_selectableItemBackground = 1;
 			
-			// aapt resource value: { 0x7F03003E,0x7F030048,0x7F03004A,0x7F03015E,0x7F0301C8,0x7F0301DA,0x7F0302D1 }
+			// aapt resource value: { 0x7F03003E,0x7F030048,0x7F03004A,0x7F03015E,0x7F0301C8,0x7F0301DB,0x7F0302D4 }
 			public static int[] Badge = new int[] {
 					2130903102,
 					2130903112,
 					2130903114,
 					2130903390,
 					2130903496,
-					2130903514,
-					2130903761};
+					2130903515,
+					2130903764};
 			
 			// aapt resource value: 0
 			public const int Badge_backgroundColor = 0;
@@ -28436,7 +29157,7 @@ namespace Mahwous.Droid
 			// aapt resource value: 6
 			public const int Badge_verticalOffset = 6;
 			
-			// aapt resource value: { 0x7F030046,0x7F030109,0x7F03012D,0x7F03012E,0x7F03012F,0x7F030130,0x7F030131,0x7F030157,0x7F0301E0,0x7F0301E2,0x7F0301E3 }
+			// aapt resource value: { 0x7F030046,0x7F030109,0x7F03012D,0x7F03012E,0x7F03012F,0x7F030130,0x7F030131,0x7F030157,0x7F0301E1,0x7F0301E3,0x7F0301E4 }
 			public static int[] BottomAppBar = new int[] {
 					2130903110,
 					2130903305,
@@ -28446,9 +29167,9 @@ namespace Mahwous.Droid
 					2130903344,
 					2130903345,
 					2130903383,
-					2130903520,
-					2130903522,
-					2130903523};
+					2130903521,
+					2130903523,
+					2130903524};
 			
 			// aapt resource value: 0
 			public const int BottomAppBar_backgroundTint = 0;
@@ -28534,7 +29255,7 @@ namespace Mahwous.Droid
 			// aapt resource value: 11
 			public const int BottomNavigationView_menu = 11;
 			
-			// aapt resource value: { 0x1010440,0x7F030046,0x7F03004E,0x7F03004F,0x7F030050,0x7F030051,0x7F030052,0x7F030054,0x7F030055,0x7F030056,0x7F03014A,0x7F030223,0x7F030226 }
+			// aapt resource value: { 0x1010440,0x7F030046,0x7F03004E,0x7F03004F,0x7F030050,0x7F030051,0x7F030052,0x7F030054,0x7F030055,0x7F030056,0x7F03014A,0x7F030225,0x7F030228 }
 			public static int[] BottomSheetBehavior_Layout = new int[] {
 					16843840,
 					2130903110,
@@ -28547,8 +29268,8 @@ namespace Mahwous.Droid
 					2130903125,
 					2130903126,
 					2130903370,
-					2130903587,
-					2130903590};
+					2130903589,
+					2130903592};
 			
 			// aapt resource value: 0
 			public const int BottomSheetBehavior_Layout_android_elevation = 0;
@@ -28595,6 +29316,17 @@ namespace Mahwous.Droid
 			
 			// aapt resource value: 0
 			public const int ButtonBarLayout_allowStacking = 0;
+			
+			// aapt resource value: { 0x7F03020E,0x7F03022A }
+			public static int[] Capability = new int[] {
+					2130903566,
+					2130903594};
+			
+			// aapt resource value: 0
+			public const int Capability_queryPatterns = 0;
+			
+			// aapt resource value: 1
+			public const int Capability_shortcutMatchRequired = 1;
 			
 			// aapt resource value: { 0x101013F,0x1010140,0x7F030075,0x7F030076,0x7F030077,0x7F030079,0x7F03007A,0x7F03007B,0x7F0300C5,0x7F0300C6,0x7F0300C7,0x7F0300C8,0x7F0300C9 }
 			public static int[] CardView = new int[] {
@@ -28651,14 +29383,14 @@ namespace Mahwous.Droid
 			// aapt resource value: 12
 			public const int CardView_contentPaddingTop = 12;
 			
-			// aapt resource value: { 0x10101EF,0x10101F0,0x10101F1,0x7F0300F1,0x7F03025B,0x7F03025C }
+			// aapt resource value: { 0x10101EF,0x10101F0,0x10101F1,0x7F0300F1,0x7F03025E,0x7F03025F }
 			public static int[] CheckBoxPreference = new int[] {
 					16843247,
 					16843248,
 					16843249,
 					2130903281,
-					2130903643,
-					2130903644};
+					2130903646,
+					2130903647};
 			
 			// aapt resource value: 2
 			public const int CheckBoxPreference_android_disableDependentsState = 2;
@@ -28678,7 +29410,7 @@ namespace Mahwous.Droid
 			// aapt resource value: 5
 			public const int CheckBoxPreference_summaryOn = 5;
 			
-			// aapt resource value: { 0x1010034,0x1010098,0x10100AB,0x101011F,0x101014F,0x10101E5,0x7F030081,0x7F030082,0x7F030083,0x7F030084,0x7F030086,0x7F030087,0x7F030088,0x7F03008A,0x7F03008B,0x7F03008C,0x7F03008D,0x7F03008E,0x7F03008F,0x7F030090,0x7F030095,0x7F030096,0x7F030097,0x7F030099,0x7F03009A,0x7F03009B,0x7F03009C,0x7F03009D,0x7F03009E,0x7F03009F,0x7F0300A0,0x7F030116,0x7F030155,0x7F030161,0x7F030166,0x7F030214,0x7F030223,0x7F030226,0x7F03022B,0x7F03029A,0x7F03029E }
+			// aapt resource value: { 0x1010034,0x1010098,0x10100AB,0x101011F,0x101014F,0x10101E5,0x7F030081,0x7F030082,0x7F030083,0x7F030084,0x7F030086,0x7F030087,0x7F030088,0x7F03008A,0x7F03008B,0x7F03008C,0x7F03008D,0x7F03008E,0x7F03008F,0x7F030090,0x7F030095,0x7F030096,0x7F030097,0x7F030099,0x7F03009A,0x7F03009B,0x7F03009C,0x7F03009D,0x7F03009E,0x7F03009F,0x7F0300A0,0x7F030116,0x7F030155,0x7F030161,0x7F030166,0x7F030216,0x7F030225,0x7F030228,0x7F03022E,0x7F03029D,0x7F0302A1 }
 			public static int[] Chip = new int[] {
 					16842804,
 					16842904,
@@ -28715,22 +29447,22 @@ namespace Mahwous.Droid
 					2130903381,
 					2130903393,
 					2130903398,
-					2130903572,
-					2130903587,
-					2130903590,
-					2130903595,
-					2130903706,
-					2130903710};
+					2130903574,
+					2130903589,
+					2130903592,
+					2130903598,
+					2130903709,
+					2130903713};
 			
-			// aapt resource value: { 0x7F030080,0x7F030091,0x7F030092,0x7F030093,0x7F030222,0x7F030231,0x7F030233 }
+			// aapt resource value: { 0x7F030080,0x7F030091,0x7F030092,0x7F030093,0x7F030224,0x7F030234,0x7F030236 }
 			public static int[] ChipGroup = new int[] {
 					2130903168,
 					2130903185,
 					2130903186,
 					2130903187,
-					2130903586,
-					2130903601,
-					2130903603};
+					2130903588,
+					2130903604,
+					2130903606};
 			
 			// aapt resource value: 0
 			public const int ChipGroup_checkedChip = 0;
@@ -28876,7 +29608,7 @@ namespace Mahwous.Droid
 			// aapt resource value: 40
 			public const int Chip_textStartPadding = 40;
 			
-			// aapt resource value: { 0x7F0300A4,0x7F0300A5,0x7F0300CA,0x7F030124,0x7F030125,0x7F030126,0x7F030127,0x7F030128,0x7F030129,0x7F03012A,0x7F0301CB,0x7F030215,0x7F030217,0x7F03024D,0x7F0302B0,0x7F0302B1,0x7F0302BB }
+			// aapt resource value: { 0x7F0300A4,0x7F0300A5,0x7F0300CA,0x7F030124,0x7F030125,0x7F030126,0x7F030127,0x7F030128,0x7F030129,0x7F03012A,0x7F0301CB,0x7F030217,0x7F030219,0x7F030250,0x7F0302B3,0x7F0302B4,0x7F0302BE }
 			public static int[] CollapsingToolbarLayout = new int[] {
 					2130903204,
 					2130903205,
@@ -28889,12 +29621,12 @@ namespace Mahwous.Droid
 					2130903337,
 					2130903338,
 					2130903499,
-					2130903573,
 					2130903575,
-					2130903629,
-					2130903728,
-					2130903729,
-					2130903739};
+					2130903577,
+					2130903632,
+					2130903731,
+					2130903732,
+					2130903742};
 			
 			// aapt resource value: 0
 			public const int CollapsingToolbarLayout_collapsedTitleGravity = 0;
@@ -28992,10 +29724,10 @@ namespace Mahwous.Droid
 			// aapt resource value: 3
 			public const int CompoundButton_buttonTintMode = 3;
 			
-			// aapt resource value: { 0x7F03018B,0x7F03024B }
+			// aapt resource value: { 0x7F03018B,0x7F03024E }
 			public static int[] CoordinatorLayout = new int[] {
 					2130903435,
-					2130903627};
+					2130903630};
 			
 			// aapt resource value: 0
 			public const int CoordinatorLayout_keylines = 0;
@@ -29034,7 +29766,7 @@ namespace Mahwous.Droid
 			// aapt resource value: 1
 			public const int CoordinatorLayout_statusBarBackground = 1;
 			
-			// aapt resource value: { 0x10101F2,0x10101F3,0x10101F4,0x10101F5,0x10101F6,0x10101F7,0x7F0300EA,0x7F0300EB,0x7F0300EC,0x7F0300F0,0x7F0301D8,0x7F0301FA }
+			// aapt resource value: { 0x10101F2,0x10101F3,0x10101F4,0x10101F5,0x10101F6,0x10101F7,0x7F0300EA,0x7F0300EB,0x7F0300EC,0x7F0300F0,0x7F0301D8,0x7F0301FB }
 			public static int[] DialogPreference = new int[] {
 					16843250,
 					16843251,
@@ -29047,7 +29779,7 @@ namespace Mahwous.Droid
 					2130903276,
 					2130903280,
 					2130903512,
-					2130903546};
+					2130903547};
 			
 			// aapt resource value: 2
 			public const int DialogPreference_android_dialogIcon = 2;
@@ -29085,7 +29817,7 @@ namespace Mahwous.Droid
 			// aapt resource value: 11
 			public const int DialogPreference_positiveButtonText = 11;
 			
-			// aapt resource value: { 0x7F030035,0x7F030036,0x7F03004B,0x7F0300A7,0x7F0300FB,0x7F030149,0x7F030239,0x7F0302A1 }
+			// aapt resource value: { 0x7F030035,0x7F030036,0x7F03004B,0x7F0300A7,0x7F0300FB,0x7F030149,0x7F03023C,0x7F0302A4 }
 			public static int[] DrawerArrowToggle = new int[] {
 					2130903093,
 					2130903094,
@@ -29093,8 +29825,8 @@ namespace Mahwous.Droid
 					2130903207,
 					2130903291,
 					2130903369,
-					2130903609,
-					2130903713};
+					2130903612,
+					2130903716};
 			
 			// aapt resource value: 0
 			public const int DrawerArrowToggle_arrowHeadLength = 0;
@@ -29127,20 +29859,20 @@ namespace Mahwous.Droid
 			// aapt resource value: 0
 			public const int DrawerLayout_elevation = 0;
 			
-			// aapt resource value: { 0x7F0302CF }
+			// aapt resource value: { 0x7F0302D2 }
 			public static int[] EditTextPreference = new int[] {
-					2130903759};
+					2130903762};
 			
 			// aapt resource value: 0
 			public const int EditTextPreference_useSimpleSummaryProvider = 0;
 			
-			// aapt resource value: { 0x7F030109,0x7F03012B,0x7F030155,0x7F03022B,0x7F03022F }
+			// aapt resource value: { 0x7F030109,0x7F03012B,0x7F030155,0x7F03022E,0x7F030232 }
 			public static int[] ExtendedFloatingActionButton = new int[] {
 					2130903305,
 					2130903339,
 					2130903381,
-					2130903595,
-					2130903599};
+					2130903598,
+					2130903602};
 			
 			// aapt resource value: { 0x7F03004C,0x7F03004D }
 			public static int[] ExtendedFloatingActionButton_Behavior_Layout = new int[] {
@@ -29168,7 +29900,7 @@ namespace Mahwous.Droid
 			// aapt resource value: 4
 			public const int ExtendedFloatingActionButton_shrinkMotionSpec = 4;
 			
-			// aapt resource value: { 0x101000E,0x7F030046,0x7F030047,0x7F030057,0x7F030109,0x7F030116,0x7F030132,0x7F030133,0x7F030155,0x7F03015F,0x7F0301CA,0x7F030208,0x7F030214,0x7F030223,0x7F030226,0x7F03022B,0x7F0302CD }
+			// aapt resource value: { 0x101000E,0x7F030046,0x7F030047,0x7F030057,0x7F030109,0x7F030116,0x7F030132,0x7F030133,0x7F030155,0x7F03015F,0x7F0301CA,0x7F030209,0x7F030216,0x7F030225,0x7F030228,0x7F03022E,0x7F0302D0 }
 			public static int[] FloatingActionButton = new int[] {
 					16842766,
 					2130903110,
@@ -29181,12 +29913,12 @@ namespace Mahwous.Droid
 					2130903381,
 					2130903391,
 					2130903498,
-					2130903560,
-					2130903572,
-					2130903587,
-					2130903590,
-					2130903595,
-					2130903757};
+					2130903561,
+					2130903574,
+					2130903589,
+					2130903592,
+					2130903598,
+					2130903760};
 			
 			// aapt resource value: 0
 			public const int FloatingActionButton_android_enabled = 0;
@@ -29267,7 +29999,7 @@ namespace Mahwous.Droid
 					2130903362,
 					2130903363};
 			
-			// aapt resource value: { 0x1010532,0x1010533,0x101053F,0x101056F,0x1010570,0x7F03013B,0x7F030144,0x7F030145,0x7F030146,0x7F0302CA }
+			// aapt resource value: { 0x1010532,0x1010533,0x101053F,0x101056F,0x1010570,0x7F03013B,0x7F030144,0x7F030145,0x7F030146,0x7F0302CD }
 			public static int[] FontFamilyFont = new int[] {
 					16844082,
 					16844083,
@@ -29278,7 +30010,7 @@ namespace Mahwous.Droid
 					2130903364,
 					2130903365,
 					2130903366,
-					2130903754};
+					2130903757};
 			
 			// aapt resource value: 0
 			public const int FontFamilyFont_android_font = 0;
@@ -29434,11 +30166,11 @@ namespace Mahwous.Droid
 			// aapt resource value: 2
 			public const int GradientColor_android_type = 2;
 			
-			// aapt resource value: { 0x7F0301E0,0x7F0301E2,0x7F0301E3 }
+			// aapt resource value: { 0x7F0301E1,0x7F0301E3,0x7F0301E4 }
 			public static int[] Insets = new int[] {
-					2130903520,
-					2130903522,
-					2130903523};
+					2130903521,
+					2130903523,
+					2130903524};
 			
 			// aapt resource value: 0
 			public const int Insets_paddingBottomSystemWindowInsets = 0;
@@ -29456,7 +30188,7 @@ namespace Mahwous.Droid
 			// aapt resource value: 0
 			public const int ItemsViewRendererTheme_collectionViewStyle = 0;
 			
-			// aapt resource value: { 0x10100AF,0x10100C4,0x1010126,0x1010127,0x1010128,0x7F0300F3,0x7F0300F5,0x7F0301CD,0x7F03022A }
+			// aapt resource value: { 0x10100AF,0x10100C4,0x1010126,0x1010127,0x1010128,0x7F0300F3,0x7F0300F5,0x7F0301CD,0x7F03022D }
 			public static int[] LinearLayoutCompat = new int[] {
 					16842927,
 					16842948,
@@ -29466,7 +30198,7 @@ namespace Mahwous.Droid
 					2130903283,
 					2130903285,
 					2130903501,
-					2130903594};
+					2130903597};
 			
 			// aapt resource value: 2
 			public const int LinearLayoutCompat_android_baselineAligned = 2;
@@ -29525,13 +30257,13 @@ namespace Mahwous.Droid
 			// aapt resource value: 1
 			public const int ListPopupWindow_android_dropDownVerticalOffset = 1;
 			
-			// aapt resource value: { 0x10100B2,0x10101F8,0x7F030118,0x7F030119,0x7F0302CF }
+			// aapt resource value: { 0x10100B2,0x10101F8,0x7F030118,0x7F030119,0x7F0302D2 }
 			public static int[] ListPreference = new int[] {
 					16842930,
 					16843256,
 					2130903320,
 					2130903321,
-					2130903759};
+					2130903762};
 			
 			// aapt resource value: 0
 			public const int ListPreference_android_entries = 0;
@@ -29597,7 +30329,7 @@ namespace Mahwous.Droid
 			// aapt resource value: 0
 			public const int MaterialAutoCompleteTextView_android_inputType = 0;
 			
-			// aapt resource value: { 0x10100D4,0x10101B7,0x10101B8,0x10101B9,0x10101BA,0x10101E5,0x7F030046,0x7F030047,0x7F0300D2,0x7F030109,0x7F030160,0x7F030162,0x7F030163,0x7F030164,0x7F030167,0x7F030168,0x7F030214,0x7F030223,0x7F030226,0x7F03024E,0x7F03024F }
+			// aapt resource value: { 0x10100D4,0x10101B7,0x10101B8,0x10101B9,0x10101BA,0x10101E5,0x7F030046,0x7F030047,0x7F0300D2,0x7F030109,0x7F030160,0x7F030162,0x7F030163,0x7F030164,0x7F030167,0x7F030168,0x7F030216,0x7F030225,0x7F030228,0x7F030251,0x7F030252 }
 			public static int[] MaterialButton = new int[] {
 					16842964,
 					16843191,
@@ -29615,17 +30347,17 @@ namespace Mahwous.Droid
 					2130903396,
 					2130903399,
 					2130903400,
-					2130903572,
-					2130903587,
-					2130903590,
-					2130903630,
-					2130903631};
+					2130903574,
+					2130903589,
+					2130903592,
+					2130903633,
+					2130903634};
 			
-			// aapt resource value: { 0x7F03007F,0x7F030222,0x7F030233 }
+			// aapt resource value: { 0x7F03007F,0x7F030224,0x7F030236 }
 			public static int[] MaterialButtonToggleGroup = new int[] {
 					2130903167,
-					2130903586,
-					2130903603};
+					2130903588,
+					2130903606};
 			
 			// aapt resource value: 0
 			public const int MaterialButtonToggleGroup_checkedButton = 0;
@@ -29699,17 +30431,17 @@ namespace Mahwous.Droid
 			// aapt resource value: 20
 			public const int MaterialButton_strokeWidth = 20;
 			
-			// aapt resource value: { 0x101020D,0x7F0300E1,0x7F0300E2,0x7F0300E3,0x7F0300E4,0x7F03020E,0x7F0302DF,0x7F0302E0,0x7F0302E1 }
+			// aapt resource value: { 0x101020D,0x7F0300E1,0x7F0300E2,0x7F0300E3,0x7F0300E4,0x7F030210,0x7F0302E2,0x7F0302E3,0x7F0302E4 }
 			public static int[] MaterialCalendar = new int[] {
 					16843277,
 					2130903265,
 					2130903266,
 					2130903267,
 					2130903268,
-					2130903566,
-					2130903775,
-					2130903776,
-					2130903777};
+					2130903568,
+					2130903778,
+					2130903779,
+					2130903780};
 			
 			// aapt resource value: { 0x10101B7,0x10101B8,0x10101B9,0x10101BA,0x7F030173,0x7F03017C,0x7F03017D,0x7F030184,0x7F030185,0x7F030189 }
 			public static int[] MaterialCalendarItem = new int[] {
@@ -29781,18 +30513,18 @@ namespace Mahwous.Droid
 			// aapt resource value: 8
 			public const int MaterialCalendar_yearTodayStyle = 8;
 			
-			// aapt resource value: { 0x10101E5,0x7F030078,0x7F030081,0x7F030083,0x7F030214,0x7F030223,0x7F030226,0x7F030248,0x7F03024E,0x7F03024F }
+			// aapt resource value: { 0x10101E5,0x7F030078,0x7F030081,0x7F030083,0x7F030216,0x7F030225,0x7F030228,0x7F03024B,0x7F030251,0x7F030252 }
 			public static int[] MaterialCardView = new int[] {
 					16843237,
 					2130903160,
 					2130903169,
 					2130903171,
-					2130903572,
-					2130903587,
-					2130903590,
-					2130903624,
-					2130903630,
-					2130903631};
+					2130903574,
+					2130903589,
+					2130903592,
+					2130903627,
+					2130903633,
+					2130903634};
 			
 			// aapt resource value: 0
 			public const int MaterialCardView_android_checkable = 0;
@@ -29824,10 +30556,10 @@ namespace Mahwous.Droid
 			// aapt resource value: 9
 			public const int MaterialCardView_strokeWidth = 9;
 			
-			// aapt resource value: { 0x7F030073,0x7F0302CE }
+			// aapt resource value: { 0x7F030073,0x7F0302D1 }
 			public static int[] MaterialCheckBox = new int[] {
 					2130903155,
-					2130903758};
+					2130903761};
 			
 			// aapt resource value: 0
 			public const int MaterialCheckBox_buttonTint = 0;
@@ -29835,10 +30567,10 @@ namespace Mahwous.Droid
 			// aapt resource value: 1
 			public const int MaterialCheckBox_useMaterialThemeColors = 1;
 			
-			// aapt resource value: { 0x7F030073,0x7F0302CE }
+			// aapt resource value: { 0x7F030073,0x7F0302D1 }
 			public static int[] MaterialRadioButton = new int[] {
 					2130903155,
-					2130903758};
+					2130903761};
 			
 			// aapt resource value: 0
 			public const int MaterialRadioButton_buttonTint = 0;
@@ -29846,10 +30578,10 @@ namespace Mahwous.Droid
 			// aapt resource value: 1
 			public const int MaterialRadioButton_useMaterialThemeColors = 1;
 			
-			// aapt resource value: { 0x7F030223,0x7F030226 }
+			// aapt resource value: { 0x7F030225,0x7F030228 }
 			public static int[] MaterialShape = new int[] {
-					2130903587,
-					2130903590};
+					2130903589,
+					2130903592};
 			
 			// aapt resource value: 0
 			public const int MaterialShape_shapeAppearance = 0;
@@ -29910,7 +30642,7 @@ namespace Mahwous.Droid
 			// aapt resource value: 2
 			public const int MenuGroup_android_visible = 2;
 			
-			// aapt resource value: { 0x1010002,0x101000E,0x10100D0,0x1010106,0x1010194,0x10101DE,0x10101DF,0x10101E1,0x10101E2,0x10101E3,0x10101E4,0x10101E5,0x101026F,0x7F03000E,0x7F030020,0x7F030022,0x7F030031,0x7F0300BE,0x7F030167,0x7F030168,0x7F0301DB,0x7F030229,0x7F0302C1 }
+			// aapt resource value: { 0x1010002,0x101000E,0x10100D0,0x1010106,0x1010194,0x10101DE,0x10101DF,0x10101E1,0x10101E2,0x10101E3,0x10101E4,0x10101E5,0x101026F,0x7F03000E,0x7F030020,0x7F030022,0x7F030031,0x7F0300BE,0x7F030167,0x7F030168,0x7F0301DC,0x7F03022C,0x7F0302C4 }
 			public static int[] MenuItem = new int[] {
 					16842754,
 					16842766,
@@ -29932,9 +30664,9 @@ namespace Mahwous.Droid
 					2130903230,
 					2130903399,
 					2130903400,
-					2130903515,
-					2130903593,
-					2130903745};
+					2130903516,
+					2130903596,
+					2130903748};
 			
 			// aapt resource value: 13
 			public const int MenuItem_actionLayout = 13;
@@ -30005,7 +30737,7 @@ namespace Mahwous.Droid
 			// aapt resource value: 22
 			public const int MenuItem_tooltipText = 22;
 			
-			// aapt resource value: { 0x10100AE,0x101012C,0x101012D,0x101012E,0x101012F,0x1010130,0x1010131,0x7F030207,0x7F030250 }
+			// aapt resource value: { 0x10100AE,0x101012C,0x101012D,0x101012E,0x101012F,0x1010130,0x1010131,0x7F030208,0x7F030253 }
 			public static int[] MenuView = new int[] {
 					16842926,
 					16843052,
@@ -30014,8 +30746,8 @@ namespace Mahwous.Droid
 					16843055,
 					16843056,
 					16843057,
-					2130903559,
-					2130903632};
+					2130903560,
+					2130903635};
 			
 			// aapt resource value: 4
 			public const int MenuView_android_headerBackground = 4;
@@ -30063,17 +30795,17 @@ namespace Mahwous.Droid
 			// aapt resource value: 3
 			public const int MultiSelectListPreference_entryValues = 3;
 			
-			// aapt resource value: { 0x10100D0,0x7F0300E8,0x7F030117,0x7F030121,0x7F030190,0x7F0301F2,0x7F0301F3,0x7F0301F4,0x7F0301F5 }
+			// aapt resource value: { 0x10100D0,0x7F0300E8,0x7F030117,0x7F030121,0x7F030190,0x7F0301F3,0x7F0301F4,0x7F0301F5,0x7F0301F6 }
 			public static int[] NavAction = new int[] {
 					16842960,
 					2130903272,
 					2130903319,
 					2130903329,
 					2130903440,
-					2130903538,
 					2130903539,
 					2130903540,
-					2130903541};
+					2130903541,
+					2130903542};
 			
 			// aapt resource value: 0
 			public const int NavAction_android_id = 0;
@@ -30102,12 +30834,12 @@ namespace Mahwous.Droid
 			// aapt resource value: 8
 			public const int NavAction_popUpToInclusive = 8;
 			
-			// aapt resource value: { 0x1010003,0x10101ED,0x7F030034,0x7F0301D9 }
+			// aapt resource value: { 0x1010003,0x10101ED,0x7F030034,0x7F0301DA }
 			public static int[] NavArgument = new int[] {
 					16842755,
 					16843245,
 					2130903092,
-					2130903513};
+					2130903514};
 			
 			// aapt resource value: 1
 			public const int NavArgument_android_defaultValue = 1;
@@ -30121,12 +30853,12 @@ namespace Mahwous.Droid
 			// aapt resource value: 3
 			public const int NavArgument_nullable = 3;
 			
-			// aapt resource value: { 0x10104EE,0x7F030000,0x7F0301CF,0x7F0302CC }
+			// aapt resource value: { 0x10104EE,0x7F030000,0x7F0301CF,0x7F0302CF }
 			public static int[] NavDeepLink = new int[] {
 					16844014,
 					2130903040,
 					2130903503,
-					2130903756};
+					2130903759};
 			
 			// aapt resource value: 1
 			public const int NavDeepLink_action = 1;
@@ -30140,9 +30872,9 @@ namespace Mahwous.Droid
 			// aapt resource value: 3
 			public const int NavDeepLink_uri = 3;
 			
-			// aapt resource value: { 0x7F03023F }
+			// aapt resource value: { 0x7F030242 }
 			public static int[] NavGraphNavigator = new int[] {
-					2130903615};
+					2130903618};
 			
 			// aapt resource value: 0
 			public const int NavGraphNavigator_startDestination = 0;
@@ -30259,15 +30991,15 @@ namespace Mahwous.Droid
 			// aapt resource value: 0
 			public const int NavInclude_graph = 0;
 			
-			// aapt resource value: { 0x1010176,0x10102C9,0x7F0301DE }
+			// aapt resource value: { 0x1010176,0x10102C9,0x7F0301DF }
 			public static int[] PopupWindow = new int[] {
 					16843126,
 					16843465,
-					2130903518};
+					2130903519};
 			
-			// aapt resource value: { 0x7F030245 }
+			// aapt resource value: { 0x7F030248 }
 			public static int[] PopupWindowBackgroundState = new int[] {
-					2130903621};
+					2130903624};
 			
 			// aapt resource value: 0
 			public const int PopupWindowBackgroundState_state_above_anchor = 0;
@@ -30281,7 +31013,7 @@ namespace Mahwous.Droid
 			// aapt resource value: 2
 			public const int PopupWindow_overlapAnchor = 2;
 			
-			// aapt resource value: { 0x1010002,0x101000D,0x101000E,0x10100F2,0x10101E1,0x10101E6,0x10101E8,0x10101E9,0x10101EA,0x10101EB,0x10101EC,0x10101ED,0x10101EE,0x10102E3,0x101055C,0x1010561,0x7F03002C,0x7F03002E,0x7F0300E6,0x7F0300E7,0x7F03010C,0x7F03010D,0x7F030148,0x7F030160,0x7F030165,0x7F030171,0x7F03018A,0x7F030191,0x7F0301DC,0x7F0301EE,0x7F03021F,0x7F030228,0x7F030232,0x7F03025A,0x7F0302B0,0x7F0302D4 }
+			// aapt resource value: { 0x1010002,0x101000D,0x101000E,0x10100F2,0x10101E1,0x10101E6,0x10101E8,0x10101E9,0x10101EA,0x10101EB,0x10101EC,0x10101ED,0x10101EE,0x10102E3,0x101055C,0x1010561,0x7F03002C,0x7F03002E,0x7F0300E6,0x7F0300E7,0x7F03010C,0x7F03010D,0x7F030148,0x7F030160,0x7F030165,0x7F030171,0x7F03018A,0x7F030191,0x7F0301DD,0x7F0301EF,0x7F030221,0x7F03022B,0x7F030235,0x7F03025D,0x7F0302B3,0x7F0302D7 }
 			public static int[] Preference = new int[] {
 					16842754,
 					16842765,
@@ -30311,14 +31043,14 @@ namespace Mahwous.Droid
 					2130903409,
 					2130903434,
 					2130903441,
-					2130903516,
-					2130903534,
-					2130903583,
-					2130903592,
-					2130903602,
-					2130903642,
-					2130903728,
-					2130903764};
+					2130903517,
+					2130903535,
+					2130903585,
+					2130903595,
+					2130903605,
+					2130903645,
+					2130903731,
+					2130903767};
 			
 			// aapt resource value: { 0x10100F2,0x1010129,0x101012A,0x7F03002D }
 			public static int[] PreferenceFragment = new int[] {
@@ -30358,11 +31090,11 @@ namespace Mahwous.Droid
 			// aapt resource value: 0
 			public const int PreferenceFragment_android_layout = 0;
 			
-			// aapt resource value: { 0x10101E7,0x7F03016D,0x7F0301DD }
+			// aapt resource value: { 0x10101E7,0x7F03016D,0x7F0301DE }
 			public static int[] PreferenceGroup = new int[] {
 					16843239,
 					2130903405,
-					2130903517};
+					2130903518};
 			
 			// aapt resource value: 0
 			public const int PreferenceGroup_android_orderingFromXml = 0;
@@ -30392,13 +31124,12 @@ namespace Mahwous.Droid
 			// aapt resource value: 3
 			public const int PreferenceImageView_maxWidth = 3;
 			
-			// aapt resource value: { 0x7F03007D,0x7F0300ED,0x7F030104,0x7F030107,0x7F0301FB,0x7F0301FC,0x7F0301FD,0x7F0301FE,0x7F0301FF,0x7F030200,0x7F030201,0x7F030202,0x7F030203,0x7F03021D,0x7F030260,0x7F030261 }
+			// aapt resource value: { 0x7F03007D,0x7F0300ED,0x7F030104,0x7F030107,0x7F0301FC,0x7F0301FD,0x7F0301FE,0x7F0301FF,0x7F030200,0x7F030201,0x7F030202,0x7F030203,0x7F030204,0x7F03021F,0x7F030263,0x7F030264 }
 			public static int[] PreferenceTheme = new int[] {
 					2130903165,
 					2130903277,
 					2130903300,
 					2130903303,
-					2130903547,
 					2130903548,
 					2130903549,
 					2130903550,
@@ -30407,9 +31138,10 @@ namespace Mahwous.Droid
 					2130903553,
 					2130903554,
 					2130903555,
-					2130903581,
-					2130903648,
-					2130903649};
+					2130903556,
+					2130903583,
+					2130903651,
+					2130903652};
 			
 			// aapt resource value: 0
 			public const int PreferenceTheme_checkBoxPreferenceStyle = 0;
@@ -30567,17 +31299,17 @@ namespace Mahwous.Droid
 			// aapt resource value: 35
 			public const int Preference_widgetLayout = 35;
 			
-			// aapt resource value: { 0x7F0302D0 }
+			// aapt resource value: { 0x7F0302D3 }
 			public static int[] RangeSlider = new int[] {
-					2130903760};
+					2130903763};
 			
 			// aapt resource value: 0
 			public const int RangeSlider_values = 0;
 			
-			// aapt resource value: { 0x7F0301DF,0x7F0301E5 }
+			// aapt resource value: { 0x7F0301E0,0x7F0301E6 }
 			public static int[] RecycleListView = new int[] {
-					2130903519,
-					2130903525};
+					2130903520,
+					2130903526};
 			
 			// aapt resource value: 0
 			public const int RecycleListView_paddingBottomNoButtons = 0;
@@ -30585,7 +31317,7 @@ namespace Mahwous.Droid
 			// aapt resource value: 1
 			public const int RecycleListView_paddingTopNoTitle = 1;
 			
-			// aapt resource value: { 0x10100C4,0x10100EB,0x10100F1,0x7F030134,0x7F030135,0x7F030136,0x7F030137,0x7F030138,0x7F030192,0x7F030213,0x7F030238,0x7F03023E }
+			// aapt resource value: { 0x10100C4,0x10100EB,0x10100F1,0x7F030134,0x7F030135,0x7F030136,0x7F030137,0x7F030138,0x7F030192,0x7F030215,0x7F03023B,0x7F030241 }
 			public static int[] RecyclerView = new int[] {
 					16842948,
 					16842987,
@@ -30596,9 +31328,9 @@ namespace Mahwous.Droid
 					2130903351,
 					2130903352,
 					2130903442,
-					2130903571,
-					2130903608,
-					2130903614};
+					2130903573,
+					2130903611,
+					2130903617};
 			
 			// aapt resource value: 1
 			public const int RecyclerView_android_clipToPadding = 1;
@@ -30650,14 +31382,14 @@ namespace Mahwous.Droid
 			// aapt resource value: 0
 			public const int ScrollingViewBehavior_Layout_behavior_overlapTop = 0;
 			
-			// aapt resource value: { 0x7F030218 }
+			// aapt resource value: { 0x7F03021A }
 			public static int[] ScrollViewRendererTheme = new int[] {
-					2130903576};
+					2130903578};
 			
 			// aapt resource value: 0
 			public const int ScrollViewRendererTheme_scrollViewStyle = 0;
 			
-			// aapt resource value: { 0x10100DA,0x101011F,0x1010220,0x1010264,0x7F03009A,0x7F0300BD,0x7F0300E5,0x7F03014B,0x7F030169,0x7F030191,0x7F03020B,0x7F03020C,0x7F030219,0x7F03021A,0x7F030251,0x7F030259,0x7F0302D3 }
+			// aapt resource value: { 0x10100DA,0x101011F,0x1010220,0x1010264,0x7F03009A,0x7F0300BD,0x7F0300E5,0x7F03014B,0x7F030169,0x7F030191,0x7F03020C,0x7F03020D,0x7F03021B,0x7F03021C,0x7F030254,0x7F03025C,0x7F0302D6 }
 			public static int[] SearchView = new int[] {
 					16842970,
 					16843039,
@@ -30669,13 +31401,13 @@ namespace Mahwous.Droid
 					2130903371,
 					2130903401,
 					2130903441,
-					2130903563,
 					2130903564,
-					2130903577,
-					2130903578,
-					2130903633,
-					2130903641,
-					2130903763};
+					2130903565,
+					2130903579,
+					2130903580,
+					2130903636,
+					2130903644,
+					2130903766};
 			
 			// aapt resource value: 0
 			public const int SearchView_android_focusable = 0;
@@ -30728,15 +31460,15 @@ namespace Mahwous.Droid
 			// aapt resource value: 16
 			public const int SearchView_voiceIcon = 16;
 			
-			// aapt resource value: { 0x10100F2,0x1010136,0x7F030027,0x7F0301D0,0x7F03021C,0x7F03022C,0x7F0302CB }
+			// aapt resource value: { 0x10100F2,0x1010136,0x7F030027,0x7F0301D0,0x7F03021E,0x7F03022F,0x7F0302CE }
 			public static int[] SeekBarPreference = new int[] {
 					16842994,
 					16843062,
 					2130903079,
 					2130903504,
-					2130903580,
-					2130903596,
-					2130903755};
+					2130903582,
+					2130903599,
+					2130903758};
 			
 			// aapt resource value: 2
 			public const int SeekBarPreference_adjustable = 2;
@@ -30759,12 +31491,12 @@ namespace Mahwous.Droid
 			// aapt resource value: 6
 			public const int SeekBarPreference_updatesContinuously = 6;
 			
-			// aapt resource value: { 0x7F030223,0x7F030226,0x7F03024E,0x7F03024F }
+			// aapt resource value: { 0x7F030225,0x7F030228,0x7F030251,0x7F030252 }
 			public static int[] ShapeableImageView = new int[] {
-					2130903587,
-					2130903590,
-					2130903630,
-					2130903631};
+					2130903589,
+					2130903592,
+					2130903633,
+					2130903634};
 			
 			// aapt resource value: 0
 			public const int ShapeableImageView_shapeAppearance = 0;
@@ -30821,7 +31553,7 @@ namespace Mahwous.Droid
 			// aapt resource value: 9
 			public const int ShapeAppearance_cornerSizeTopRight = 9;
 			
-			// aapt resource value: { 0x101000E,0x1010024,0x1010146,0x10102DE,0x10102DF,0x7F03014D,0x7F03014E,0x7F03018C,0x7F03018D,0x7F0302A2,0x7F0302A3,0x7F0302A4,0x7F0302A8,0x7F0302A9,0x7F0302AA,0x7F0302C3,0x7F0302C4,0x7F0302C5,0x7F0302C6 }
+			// aapt resource value: { 0x101000E,0x1010024,0x1010146,0x10102DE,0x10102DF,0x7F03014D,0x7F03014E,0x7F03018C,0x7F03018D,0x7F0302A5,0x7F0302A6,0x7F0302A7,0x7F0302AB,0x7F0302AC,0x7F0302AD,0x7F0302C6,0x7F0302C7,0x7F0302C8,0x7F0302C9 }
 			public static int[] Slider = new int[] {
 					16842766,
 					16842788,
@@ -30832,16 +31564,16 @@ namespace Mahwous.Droid
 					2130903374,
 					2130903436,
 					2130903437,
-					2130903714,
-					2130903715,
-					2130903716,
-					2130903720,
-					2130903721,
-					2130903722,
-					2130903747,
-					2130903748,
-					2130903749,
-					2130903750};
+					2130903717,
+					2130903718,
+					2130903719,
+					2130903723,
+					2130903724,
+					2130903725,
+					2130903750,
+					2130903751,
+					2130903752,
+					2130903753};
 			
 			// aapt resource value: 0
 			public const int Slider_android_enabled = 0;
@@ -30900,11 +31632,11 @@ namespace Mahwous.Droid
 			// aapt resource value: 18
 			public const int Slider_trackHeight = 18;
 			
-			// aapt resource value: { 0x7F030235,0x7F030236,0x7F030237 }
+			// aapt resource value: { 0x7F030238,0x7F030239,0x7F03023A }
 			public static int[] Snackbar = new int[] {
-					2130903605,
-					2130903606,
-					2130903607};
+					2130903608,
+					2130903609,
+					2130903610};
 			
 			// aapt resource value: { 0x101011F,0x7F030021,0x7F030032,0x7F030043,0x7F030046,0x7F030047,0x7F030109,0x7F0301C6 }
 			public static int[] SnackbarLayout = new int[] {
@@ -30950,13 +31682,13 @@ namespace Mahwous.Droid
 			// aapt resource value: 2
 			public const int Snackbar_snackbarTextViewStyle = 2;
 			
-			// aapt resource value: { 0x10100B2,0x1010176,0x101017B,0x1010262,0x7F0301F8 }
+			// aapt resource value: { 0x10100B2,0x1010176,0x101017B,0x1010262,0x7F0301F9 }
 			public static int[] Spinner = new int[] {
 					16842930,
 					16843126,
 					16843131,
 					16843362,
-					2130903544};
+					2130903545};
 			
 			// aapt resource value: 3
 			public const int Spinner_android_dropDownWidth = 3;
@@ -31007,29 +31739,29 @@ namespace Mahwous.Droid
 			// aapt resource value: 1
 			public const int StateListDrawable_android_visible = 1;
 			
-			// aapt resource value: { 0x7F03025D }
+			// aapt resource value: { 0x7F030260 }
 			public static int[] SwipeRefreshLayout = new int[] {
-					2130903645};
+					2130903648};
 			
 			// aapt resource value: 0
 			public const int SwipeRefreshLayout_swipeRefreshLayoutProgressSpinnerBackgroundColor = 0;
 			
-			// aapt resource value: { 0x1010124,0x1010125,0x1010142,0x7F03022D,0x7F03023C,0x7F03025E,0x7F03025F,0x7F030263,0x7F0302A5,0x7F0302A6,0x7F0302A7,0x7F0302C2,0x7F0302C7,0x7F0302C8 }
+			// aapt resource value: { 0x1010124,0x1010125,0x1010142,0x7F030230,0x7F03023F,0x7F030261,0x7F030262,0x7F030266,0x7F0302A8,0x7F0302A9,0x7F0302AA,0x7F0302C5,0x7F0302CA,0x7F0302CB }
 			public static int[] SwitchCompat = new int[] {
 					16843044,
 					16843045,
 					16843074,
-					2130903597,
-					2130903612,
-					2130903646,
-					2130903647,
-					2130903651,
-					2130903717,
-					2130903718,
-					2130903719,
-					2130903746,
-					2130903751,
-					2130903752};
+					2130903600,
+					2130903615,
+					2130903649,
+					2130903650,
+					2130903654,
+					2130903720,
+					2130903721,
+					2130903722,
+					2130903749,
+					2130903754,
+					2130903755};
 			
 			// aapt resource value: 1
 			public const int SwitchCompat_android_textOff = 1;
@@ -31073,14 +31805,14 @@ namespace Mahwous.Droid
 			// aapt resource value: 13
 			public const int SwitchCompat_trackTintMode = 13;
 			
-			// aapt resource value: { 0x7F0302CE }
+			// aapt resource value: { 0x7F0302D1 }
 			public static int[] SwitchMaterial = new int[] {
-					2130903758};
+					2130903761};
 			
 			// aapt resource value: 0
 			public const int SwitchMaterial_useMaterialThemeColors = 0;
 			
-			// aapt resource value: { 0x10101EF,0x10101F0,0x10101F1,0x101036B,0x101036C,0x7F0300F1,0x7F03025B,0x7F03025C,0x7F030264,0x7F030265 }
+			// aapt resource value: { 0x10101EF,0x10101F0,0x10101F1,0x101036B,0x101036C,0x7F0300F1,0x7F03025E,0x7F03025F,0x7F030267,0x7F030268 }
 			public static int[] SwitchPreference = new int[] {
 					16843247,
 					16843248,
@@ -31088,12 +31820,12 @@ namespace Mahwous.Droid
 					16843627,
 					16843628,
 					2130903281,
-					2130903643,
-					2130903644,
-					2130903652,
-					2130903653};
+					2130903646,
+					2130903647,
+					2130903655,
+					2130903656};
 			
-			// aapt resource value: { 0x10101EF,0x10101F0,0x10101F1,0x101036B,0x101036C,0x7F0300F1,0x7F03025B,0x7F03025C,0x7F030264,0x7F030265 }
+			// aapt resource value: { 0x10101EF,0x10101F0,0x10101F1,0x101036B,0x101036C,0x7F0300F1,0x7F03025E,0x7F03025F,0x7F030267,0x7F030268 }
 			public static int[] SwitchPreferenceCompat = new int[] {
 					16843247,
 					16843248,
@@ -31101,10 +31833,10 @@ namespace Mahwous.Droid
 					16843627,
 					16843628,
 					2130903281,
-					2130903643,
-					2130903644,
-					2130903652,
-					2130903653};
+					2130903646,
+					2130903647,
+					2130903655,
+					2130903656};
 			
 			// aapt resource value: 2
 			public const int SwitchPreferenceCompat_android_disableDependentsState = 2;
@@ -31181,11 +31913,8 @@ namespace Mahwous.Droid
 			// aapt resource value: 2
 			public const int TabItem_android_text = 2;
 			
-			// aapt resource value: { 0x7F030266,0x7F030267,0x7F030268,0x7F030269,0x7F03026A,0x7F03026B,0x7F03026C,0x7F03026D,0x7F03026E,0x7F03026F,0x7F030270,0x7F030271,0x7F030272,0x7F030273,0x7F030274,0x7F030275,0x7F030276,0x7F030277,0x7F030278,0x7F030279,0x7F03027A,0x7F03027B,0x7F03027D,0x7F03027E,0x7F03027F }
+			// aapt resource value: { 0x7F030269,0x7F03026A,0x7F03026B,0x7F03026C,0x7F03026D,0x7F03026E,0x7F03026F,0x7F030270,0x7F030271,0x7F030272,0x7F030273,0x7F030274,0x7F030275,0x7F030276,0x7F030277,0x7F030278,0x7F030279,0x7F03027A,0x7F03027B,0x7F03027C,0x7F03027D,0x7F03027E,0x7F030280,0x7F030281,0x7F030282 }
 			public static int[] TabLayout = new int[] {
-					2130903654,
-					2130903655,
-					2130903656,
 					2130903657,
 					2130903658,
 					2130903659,
@@ -31205,9 +31934,12 @@ namespace Mahwous.Droid
 					2130903673,
 					2130903674,
 					2130903675,
+					2130903676,
 					2130903677,
 					2130903678,
-					2130903679};
+					2130903680,
+					2130903681,
+					2130903682};
 			
 			// aapt resource value: 0
 			public const int TabLayout_tabBackground = 0;
@@ -31284,7 +32016,7 @@ namespace Mahwous.Droid
 			// aapt resource value: 24
 			public const int TabLayout_tabUnboundedRipple = 24;
 			
-			// aapt resource value: { 0x1010095,0x1010096,0x1010097,0x1010098,0x101009A,0x101009B,0x1010161,0x1010162,0x1010163,0x1010164,0x10103AC,0x1010585,0x7F03013C,0x7F030145,0x7F030281,0x7F03029D }
+			// aapt resource value: { 0x1010095,0x1010096,0x1010097,0x1010098,0x101009A,0x101009B,0x1010161,0x1010162,0x1010163,0x1010164,0x10103AC,0x1010585,0x7F03013C,0x7F030145,0x7F030284,0x7F0302A0 }
 			public static int[] TextAppearance = new int[] {
 					16842901,
 					16842902,
@@ -31300,8 +32032,8 @@ namespace Mahwous.Droid
 					16844165,
 					2130903356,
 					2130903365,
-					2130903681,
-					2130903709};
+					2130903684,
+					2130903712};
 			
 			// aapt resource value: 10
 			public const int TextAppearance_android_fontFamily = 10;
@@ -31351,14 +32083,14 @@ namespace Mahwous.Droid
 			// aapt resource value: 15
 			public const int TextAppearance_textLocale = 15;
 			
-			// aapt resource value: { 0x7F03029B }
+			// aapt resource value: { 0x7F03029E }
 			public static int[] TextInputEditText = new int[] {
-					2130903707};
+					2130903710};
 			
 			// aapt resource value: 0
 			public const int TextInputEditText_textInputLayoutFocusedRectEnabled = 0;
 			
-			// aapt resource value: { 0x101000E,0x101009A,0x1010150,0x7F03005D,0x7F03005E,0x7F03005F,0x7F030060,0x7F030061,0x7F030062,0x7F030063,0x7F030064,0x7F030065,0x7F030066,0x7F030067,0x7F0300D8,0x7F0300D9,0x7F0300DA,0x7F0300DB,0x7F0300DC,0x7F0300DD,0x7F03010E,0x7F03010F,0x7F030110,0x7F030111,0x7F030112,0x7F030113,0x7F03011A,0x7F03011B,0x7F03011C,0x7F03011D,0x7F03011E,0x7F03011F,0x7F030120,0x7F030151,0x7F030152,0x7F030153,0x7F030154,0x7F030158,0x7F030159,0x7F03015A,0x7F03015B,0x7F0301E9,0x7F0301EA,0x7F0301EB,0x7F0301EC,0x7F0301ED,0x7F0301EF,0x7F0301F0,0x7F0301F1,0x7F030204,0x7F030205,0x7F030206,0x7F030223,0x7F030226,0x7F030240,0x7F030241,0x7F030242,0x7F030243,0x7F030244,0x7F030256,0x7F030257,0x7F030258 }
+			// aapt resource value: { 0x101000E,0x101009A,0x1010150,0x7F03005D,0x7F03005E,0x7F03005F,0x7F030060,0x7F030061,0x7F030062,0x7F030063,0x7F030064,0x7F030065,0x7F030066,0x7F030067,0x7F0300D8,0x7F0300D9,0x7F0300DA,0x7F0300DB,0x7F0300DC,0x7F0300DD,0x7F03010E,0x7F03010F,0x7F030110,0x7F030111,0x7F030112,0x7F030113,0x7F03011A,0x7F03011B,0x7F03011C,0x7F03011D,0x7F03011E,0x7F03011F,0x7F030120,0x7F030151,0x7F030152,0x7F030153,0x7F030154,0x7F030158,0x7F030159,0x7F03015A,0x7F03015B,0x7F0301EA,0x7F0301EB,0x7F0301EC,0x7F0301ED,0x7F0301EE,0x7F0301F0,0x7F0301F1,0x7F0301F2,0x7F030205,0x7F030206,0x7F030207,0x7F030225,0x7F030228,0x7F030243,0x7F030244,0x7F030245,0x7F030246,0x7F030247,0x7F030259,0x7F03025A,0x7F03025B }
 			public static int[] TextInputLayout = new int[] {
 					16842766,
 					16842906,
@@ -31401,27 +32133,27 @@ namespace Mahwous.Droid
 					2130903385,
 					2130903386,
 					2130903387,
-					2130903529,
 					2130903530,
 					2130903531,
 					2130903532,
 					2130903533,
-					2130903535,
+					2130903534,
 					2130903536,
 					2130903537,
-					2130903556,
+					2130903538,
 					2130903557,
 					2130903558,
-					2130903587,
-					2130903590,
-					2130903616,
-					2130903617,
-					2130903618,
+					2130903559,
+					2130903589,
+					2130903592,
 					2130903619,
 					2130903620,
-					2130903638,
-					2130903639,
-					2130903640};
+					2130903621,
+					2130903622,
+					2130903623,
+					2130903641,
+					2130903642,
+					2130903643};
 			
 			// aapt resource value: 0
 			public const int TextInputLayout_android_enabled = 0;
@@ -31624,7 +32356,7 @@ namespace Mahwous.Droid
 			// aapt resource value: 2
 			public const int ThemeEnforcement_enforceTextAppearance = 2;
 			
-			// aapt resource value: { 0x10100AF,0x1010140,0x7F03006E,0x7F0300A2,0x7F0300A3,0x7F0300BF,0x7F0300C0,0x7F0300C1,0x7F0300C2,0x7F0300C3,0x7F0300C4,0x7F0301B0,0x7F0301B1,0x7F0301C7,0x7F0301CE,0x7F0301D4,0x7F0301D5,0x7F0301F8,0x7F030252,0x7F030253,0x7F030254,0x7F0302B0,0x7F0302B2,0x7F0302B3,0x7F0302B4,0x7F0302B5,0x7F0302B6,0x7F0302B7,0x7F0302B8,0x7F0302B9 }
+			// aapt resource value: { 0x10100AF,0x1010140,0x7F03006E,0x7F0300A2,0x7F0300A3,0x7F0300BF,0x7F0300C0,0x7F0300C1,0x7F0300C2,0x7F0300C3,0x7F0300C4,0x7F0301B0,0x7F0301B1,0x7F0301C7,0x7F0301CE,0x7F0301D4,0x7F0301D5,0x7F0301F9,0x7F030255,0x7F030256,0x7F030257,0x7F0302B3,0x7F0302B5,0x7F0302B6,0x7F0302B7,0x7F0302B8,0x7F0302B9,0x7F0302BA,0x7F0302BB,0x7F0302BC }
 			public static int[] Toolbar = new int[] {
 					16842927,
 					16843072,
@@ -31643,19 +32375,19 @@ namespace Mahwous.Droid
 					2130903502,
 					2130903508,
 					2130903509,
-					2130903544,
-					2130903634,
-					2130903635,
-					2130903636,
-					2130903728,
-					2130903730,
+					2130903545,
+					2130903637,
+					2130903638,
+					2130903639,
 					2130903731,
-					2130903732,
 					2130903733,
 					2130903734,
 					2130903735,
 					2130903736,
-					2130903737};
+					2130903737,
+					2130903738,
+					2130903739,
+					2130903740};
 			
 			// aapt resource value: 0
 			public const int Toolbar_android_gravity = 0;
@@ -31778,13 +32510,13 @@ namespace Mahwous.Droid
 			// aapt resource value: 6
 			public const int Tooltip_backgroundTint = 6;
 			
-			// aapt resource value: { 0x1010000,0x10100DA,0x7F0301E1,0x7F0301E4,0x7F03029F }
+			// aapt resource value: { 0x1010000,0x10100DA,0x7F0301E2,0x7F0301E5,0x7F0302A2 }
 			public static int[] View = new int[] {
 					16842752,
 					16842970,
-					2130903521,
-					2130903524,
-					2130903711};
+					2130903522,
+					2130903525,
+					2130903714};
 			
 			// aapt resource value: { 0x10100D4,0x7F030046,0x7F030047 }
 			public static int[] ViewBackgroundHelper = new int[] {

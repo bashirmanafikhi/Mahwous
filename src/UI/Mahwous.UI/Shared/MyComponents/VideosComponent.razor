@@ -292,12 +292,7 @@
 
     private async Task SearchForVideos()
     {
-        videoFilter.Categories.Clear();
-        foreach (int id in selectedCategoriesIds ?? new int[] { })
-        {
-            videoFilter.Categories.Add(categories.First(c => c.Id == id));
-        }
-
+        videoFilter.CategoryIds = selectedCategoriesIds.ToList();
 
         await LoadVideos();
     }

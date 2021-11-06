@@ -31,7 +31,7 @@ namespace MahwousMobile.Base.Views
 
         private async void GoToLoginPage(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new LoginPage());
+            await Navigation.PushAsync(new LoginPage());
         }
     }
 }

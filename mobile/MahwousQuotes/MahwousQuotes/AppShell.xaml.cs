@@ -17,14 +17,9 @@ namespace MahwousQuotes
 
         }
 
-        private void MenuItem_Exit_Clicked(object sender, EventArgs e)
-        {
-            System.Environment.Exit(0);
-        }
-
         private async void MenuItem_Rate_Clicked(object sender, EventArgs e)
         {
-            string Uri = "https://play.google.com/store/apps/details?id=com.mahwous.MahwousQuotes";
+            string Uri = "https://play.google.com/store/apps/details?id=com.mahwous.mahwousquotes";
             await Browser.OpenAsync(Uri);
         }
 
