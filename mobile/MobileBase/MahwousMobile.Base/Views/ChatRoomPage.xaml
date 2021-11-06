@@ -14,14 +14,10 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            <Label Grid.Row="0" Text="{Binding UserName}" TextColor="{StaticResource colBlue}" />
-                            <Label Grid.Row="1" Text="{Binding Message}" />
-                        </Grid>
+                        <StackLayout Orientation="Vertical">
+                            <!--<Label Grid.Row="0" Text="{Binding UserName}" TextColor="{StaticResource colBlue}" />-->
+                            <Label Text="{Binding Message}" />
+                        </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
