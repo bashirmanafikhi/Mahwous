@@ -59,6 +59,7 @@
     <AndroidSigningStorePass>Bb2274659</AndroidSigningStorePass>
     <AndroidSigningKeyAlias>Bb2274659</AndroidSigningKeyAlias>
     <AndroidSigningKeyPass>Bb2274659</AndroidSigningKeyPass>
+    <MandroidI18n />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
