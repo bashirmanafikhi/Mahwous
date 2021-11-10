@@ -1,4 +1,5 @@
 ﻿using MahwousMobile.Base.Helpers;
+using MahwousMobile.Base.Views;
 using Microsoft.AppCenter.Crashes;
 using System;
 using Xamarin.Essentials;
@@ -55,8 +56,14 @@ namespace Mahwous
             {
                 return base.OnBackButtonPressed();
             }
+            
             //some more custom checks here
-            //..
+
+            if(!(Current.CurrentPage is HomePage))
+            {
+                Current.GoToAsync("//HomePage").ConfigureAwait(false);
+                return true;
+            }
 
             if (maybe_exit)
             {

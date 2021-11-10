@@ -30,7 +30,23 @@
         </Grid.RowDefinitions>
 
 
-        <templates:QuotesTemplate x:Name="myQuotesTemplate" />
+        <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding LoadQuotesCommand}">
+
+            <StackLayout>
+                <CollectionView x:Name="ItemsCollectionView"
+                            RemainingItemsThreshold="{Binding ItemTreshold}"                          
+                            ItemTemplate="{DataTemplate templates:QuoteTemplate}"
+                            RemainingItemsThresholdReachedCommand="{Binding LoadMoreQuotesCommand}"
+                            ItemsSource="{Binding Quotes}">
+                </CollectionView>
+
+                <ActivityIndicator IsVisible="{Binding IsLoadingMore}" IsRunning="{Binding IsLoadingMore}"
+                       Color="{DynamicResource colRed}"/>
+
+
+            </StackLayout>
+        </RefreshView>
+
 
         <controls:MTAdView BackgroundColor="{DynamicResource colBackground}" x:Name="myBanner" AdsId="{x:Static helpers:Settings.BannerAdKey}" Grid.Row="1"/>
 

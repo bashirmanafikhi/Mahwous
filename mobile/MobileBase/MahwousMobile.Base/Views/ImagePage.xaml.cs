@@ -15,6 +15,7 @@ namespace MahwousMobile.Base.Views
         {
             InitializeComponent();
             BindingContext = viewModel;
+            viewModel.ImagesViewModel.LoadImagesCommand.Execute(null);
 
             if (Device.RuntimePlatform == Device.iOS || Device.RuntimePlatform == Device.Android)
                 CrossMTAdmob.Current.LoadInterstitial(Settings.InterstitialAdKey);

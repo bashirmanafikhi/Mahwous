@@ -32,6 +32,11 @@ namespace Mahwous.Service.ViewModels.ImageStatuses
                 if (Filter != null)
                 {
                     // Todo: filter query
+                    if (Filter.CategoryIds != null)
+                        foreach (var categoryId in Filter.CategoryIds)
+                        {
+                            conditions.Add($"{nameof(Filter.CategoryIds)}={categoryId}");
+                        }
                 }
 
                 return string.Join("&", conditions);

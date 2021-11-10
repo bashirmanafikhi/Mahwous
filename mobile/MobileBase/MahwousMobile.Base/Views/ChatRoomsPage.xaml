@@ -8,7 +8,7 @@
              mc:Ignorable="d"
              x:Class="MahwousMobile.Base.Views.ChatRoomsPage"
              Visual="Material"
-             Title="{Binding Name}">
+             Title="غرف الدردشة">
 
     <ContentPage.BindingContext>
         <vm:ChatRoomsViewModel />
@@ -19,6 +19,7 @@
     <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding LoadChatRoomsCommand}">
         <StackLayout>
             <CollectionView x:Name="ItemsCollectionView"
+                            ItemsLayout="VerticalGrid, 2"
                             RemainingItemsThreshold="{Binding ItemTreshold}"
                             RemainingItemsThresholdReachedCommand="{Binding LoadMoreChatRoomsCommand}"
                             ItemTemplate="{DataTemplate templates:ChatRoomTemplate}"

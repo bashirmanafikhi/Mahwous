@@ -26,9 +26,15 @@ namespace Mahwous.Service.ViewModels.QuoteStatuses
                     conditions.Add($"{nameof(Pagination)}.{nameof(Pagination.PageSize)}={Pagination.PageSize}");
                 }
 
+
                 if (Filter != null)
                 {
                     // Todo: filter query
+                    if (Filter.CategoryIds != null)
+                        foreach (var categoryId in Filter.CategoryIds)
+                        {
+                            conditions.Add($"{nameof(Filter.CategoryIds)}={categoryId}");
+                        }
                 }
 
                 return string.Join("&", conditions);

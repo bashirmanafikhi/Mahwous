@@ -57,7 +57,6 @@ namespace MahwousMobile.Base.ViewModels
                 var paginatedResponse = await Repositories.CategoriesRepository.List(filter);
                 var categories = paginatedResponse.ToList();
 
-
                 // randomize
                 Random rng = new Random();
                 categories = categories.OrderBy(item => rng.Next()).ToList();

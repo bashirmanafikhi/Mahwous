@@ -17,6 +17,7 @@ namespace MahwousMobile.Base.ViewModels
         readonly ImageStatus image;
 
         public ImageStatus Image => image;
+        public ImagesViewModel ImagesViewModel { get; set; }
 
         public ImageViewModel(Mahwous.Core.Entities.ImageStatus image)
         {
@@ -31,6 +32,8 @@ namespace MahwousMobile.Base.ViewModels
             DownloadImageCommand = new Command(async () => await ExecuteDownloadImageCommand());
             ShareImageCommand = new Command(async () => await ExecuteShareImageCommand());
             ToggleLikeCommand = new Command(async () => await ExecuteToggleLikeCommand());
+
+            ImagesViewModel = new ImagesViewModel();
 
             MahwousSqliteDB<ImageStatus> database = new MahwousSqliteDB<ImageStatus>();
             Liked = database.Exists(Image);

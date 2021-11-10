@@ -14,6 +14,8 @@ namespace MahwousMobile.Base.Views
         {
             InitializeComponent();
             BindingContext = this.viewModel = viewModel;
+
+            viewModel.QuotesViewModel.LoadQuotesCommand.Execute(null);
         }
 
     }

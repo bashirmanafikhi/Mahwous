@@ -40,8 +40,13 @@ namespace MahwousMobile.Base.ViewModels
         public Command LoadVideosCommand { get; set; }
         public Command LoadMoreVideosCommand { get; set; }
         public VideoFilter Filter { get => filter; set => filter = value; }
-        public StatusSortType SortType { get => sortType; set => sortType = value; }
-
+        public StatusSortType SortType
+        {
+            get => sortType; set
+            {
+                sortType = value;
+            }
+        }
         public VideosViewModel(VideoFilter filter)
         {
 

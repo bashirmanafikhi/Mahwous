@@ -8,5 +8,6 @@ namespace AppSettingsPoC.Models
     {
         public string WelcomeText { get; set; }
         public string UrlBase { get; set; }
+        public string UrlBaseIP { get; set; }
     }
 }

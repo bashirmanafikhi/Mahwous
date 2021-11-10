@@ -74,25 +74,6 @@
             <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Home}" FontFamily="FA-S" />
         </FlyoutItem.Icon>
 
-
-        <Tab  Title="الصفحة الرئيسية">
-            <Tab.Icon>
-                <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Home}" FontFamily="FA-S" />
-            </Tab.Icon>
-            <ShellContent>
-                <views:HomePage StatusType="Video" />
-            </ShellContent>
-        </Tab>
-
-        <Tab Title="التصنيفات">
-            <Tab.Icon>
-                <FontImageSource Color="{DynamicResource colForeground}" Glyph="{x:Static styles:SolidIcons.Tags}" FontFamily="FA-S" />
-            </Tab.Icon>
-            <ShellContent>
-                <views:CategoriesPage StatusType="Video"/>
-            </ShellContent>
-        </Tab>
-
         <Tab Title="الفيديوهات">
 
             <Tab.Icon>
@@ -145,6 +126,25 @@
                 </ShellContent.Icon>
 
                 <views:VideosPage SortType="Oldest" Title="القديمة" />
+            </ShellContent>
+        </Tab>
+
+
+        <Tab Title="التصنيفات">
+            <Tab.Icon>
+                <FontImageSource Color="{DynamicResource colForeground}" Glyph="{x:Static styles:SolidIcons.Tags}" FontFamily="FA-S" />
+            </Tab.Icon>
+            <ShellContent>
+                <views:CategoriesPage StatusType="Video"/>
+            </ShellContent>
+        </Tab>
+
+        <Tab  Title="الصفحة الرئيسية">
+            <Tab.Icon>
+                <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Home}" FontFamily="FA-S" />
+            </Tab.Icon>
+            <ShellContent>
+                <views:HomePage StatusType="Video"  IsShortcutsVisible="False" />
             </ShellContent>
         </Tab>
     </FlyoutItem>

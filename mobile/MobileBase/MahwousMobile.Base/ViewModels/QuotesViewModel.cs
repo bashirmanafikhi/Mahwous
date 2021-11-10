@@ -39,7 +39,11 @@ namespace MahwousMobile.Base.ViewModels
         public Command LoadQuotesCommand { get; set; }
         public Command LoadMoreQuotesCommand { get; set; }
         public QuoteFilter Filter { get => filter; set => filter = value; }
-        public StatusSortType SortType { get => sortType; set => sortType = value; }
+        public StatusSortType SortType { get => sortType; set
+            {
+                sortType = value;
+            }
+        }
 
         public QuotesViewModel(QuoteFilter filter)
         {

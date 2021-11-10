@@ -8,17 +8,20 @@
     Source="/Styles/Style.xaml"
     mc:Ignorable="d">
 
+    <Color x:Key="colBlue">#00A1FF</Color>
+    <Color x:Key="colYellow">#FFD200</Color>
+    <Color x:Key="colRed">#ff4262</Color>
+    <Color x:Key="colGreen">#026C3D</Color>
+    <Color x:Key="colBlack">#181819</Color>
+    <Color x:Key="colWhite">#F4F2E4</Color>
 
-    <!--My Colors-->
-    <Color x:Key="colBlue">#1D2D50</Color>
-    <Color x:Key="colYellow">#D89216</Color>
-    <Color x:Key="colRed">#da0062</Color>
-    <Color x:Key="colBlack">#1e1e1f</Color>
-    <Color x:Key="colWhite">#EDEDED</Color>
-
-
-    <Color x:Key="colBackground">#1e1e1f</Color>
-    <Color x:Key="colForeground">#f6f4e6</Color>
+    <Color x:Key="colTelegram">#4CA2E5</Color>
+    <Color x:Key="colFacebook">#1A73E9</Color>
+    <Color x:Key="colInstagram">#FF348D</Color>
+    <Color x:Key="colYoutube">#F21601</Color>
+    
+    <Color x:Key="colBackground">#1E1E1F</Color>
+    <Color x:Key="colForeground">#F6F4E6</Color>
     <Color x:Key="colSubBackground">#343435</Color>
 
 </ResourceDictionary>

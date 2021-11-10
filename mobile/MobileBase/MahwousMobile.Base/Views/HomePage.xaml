@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:MahwousMobile.Base.ViewModels" 
     xmlns:views="clr-namespace:MahwousMobile.Base.Views" 
+    xmlns:styles="clr-namespace:MahwousMobile.Base.Styles;assembly=MahwousMobile.Base"
     xmlns:templates="clr-namespace:MahwousMobile.Base.Templates.DataTemplates"
 
     mc:Ignorable="d">
@@ -29,21 +30,12 @@
                 </Label.HorizontalOptions>
             </Label>
 
-            <Switch
-                x:Name="darkSwitch"
-                Toggled="Switch_Toggled"
-                OnColor="{DynamicResource colWhite}"
-                HorizontalOptions="EndAndExpand"
-                VerticalOptions="CenterAndExpand"
-                Visual="Material" />
-
         </StackLayout>
     </Shell.TitleView>
 
     <ContentPage.Content>
 
-        <StackLayout BackgroundColor="{DynamicResource colBackground}">
-
+        <StackLayout >
 
             <!--<mm:ImageView x:Name="mediaPlayer" IsVisible="false" ShowControls="True" HeightRequest="250" />-->
 
@@ -72,11 +64,70 @@
                             </Frame>
                         </Frame>-->
 
+                        <Frame  
+                            x:Name="shortcutsFrame"
+                            CornerRadius="15" 
+                       Margin="40,10" 
+                       Padding="1"
+                       BackgroundColor="{DynamicResource colYellow}" 
+                       HasShadow="True">
+
+                            <Frame BackgroundColor="{DynamicResource colBackground}"
+                           CornerRadius="30" >
+                                <Grid RowDefinitions="*,*,*,*" ColumnDefinitions="*,*">
+
+
+                                    <Button Grid.ColumnSpan="2"  Padding="5, 5, 15, 5" TextColor="White" CornerRadius="20"  Text="غرف الدردشة" BackgroundColor="{DynamicResource colRed}" Clicked="GoToChatRoomsPage" >
+                                        <Button.ImageSource>
+                                            <FontImageSource Size="Subtitle"  Color="White" Glyph="{x:Static styles:SolidIcons.Comments}" FontFamily="FA-S" />
+                                        </Button.ImageSource>
+                                    </Button>
+
+                                    <Button Grid.Column="0" Grid.Row="1" Padding="5, 5, 15, 5" TextColor="White" CornerRadius="20" Text="فيديو" BackgroundColor="{DynamicResource colBlue}" Clicked="GoToVideosPage" >
+                                        <Button.ImageSource>
+                                            <FontImageSource Size="Subtitle"  Color="White" Glyph="{x:Static styles:SolidIcons.Video}" FontFamily="FA-S" />
+                                        </Button.ImageSource>
+                                    </Button>
+
+                                    <Button Grid.Column="1" Grid.Row="1" Padding="5, 5, 15, 5" TextColor="White" CornerRadius="20" Text="صور"  BackgroundColor="{DynamicResource colBlue}" Clicked="GoToImagesPage" >
+                                        <Button.ImageSource>
+                                            <FontImageSource Size="Subtitle"  Color="White" Glyph="{x:Static styles:SolidIcons.Image}" FontFamily="FA-S" />
+                                        </Button.ImageSource>
+                                    </Button>
+
+                                    <Button Grid.Column="0" Grid.Row="2" Padding="5, 5, 15, 5" TextColor="Black" CornerRadius="20" Text="اقتباسات" BackgroundColor="{DynamicResource colYellow}" Clicked="GoToQuotesPage" >
+                                        <Button.ImageSource>
+                                            <FontImageSource Size="Subtitle"  Color="White" Glyph="{x:Static styles:SolidIcons.QuoteRight}" FontFamily="FA-S" />
+                                        </Button.ImageSource>
+                                    </Button>
+
+                                    <Button Grid.Column="1" Grid.Row="2" Padding="5, 5, 15, 5" TextColor="Black" CornerRadius="20"  Text="تطبيقاتنا" BackgroundColor="{DynamicResource colYellow}" Clicked="GoToMobileAppsPage" >
+                                        <Button.ImageSource>
+                                            <FontImageSource Size="Subtitle"  Color="White" Glyph="{x:Static styles:SolidIcons.ThLarge}" FontFamily="FA-S" />
+                                        </Button.ImageSource>
+                                    </Button>
+
+                                    <Button Grid.Column="0" Grid.Row="3" Padding="5, 5, 15, 5" CornerRadius="20"  Text="أخبارنا" BackgroundColor="{DynamicResource colBackground}" Clicked="GoToPostsPage" >
+                                        <Button.ImageSource>
+                                            <FontImageSource Size="Subtitle"  Color="{DynamicResource colForeground}" Glyph="{x:Static styles:SolidIcons.Newspaper}" FontFamily="FA-S" />
+                                        </Button.ImageSource>
+                                    </Button>
+
+                                    <Button Grid.Column="1" Grid.Row="3" Padding="5, 5, 15, 5" CornerRadius="20"  Text="من نحن" BackgroundColor="{DynamicResource colBackground}" Clicked="GoToAboutPage" >
+                                        <Button.ImageSource>
+                                            <FontImageSource Size="Subtitle"  Color="{DynamicResource colForeground}" Glyph="{x:Static styles:SolidIcons.Comments}" FontFamily="FA-S" />
+                                        </Button.ImageSource>
+                                    </Button>
+
+
+                                </Grid>
+                            </Frame>
+                        </Frame>
 
                         <Frame  CornerRadius="15" 
-                       Margin="50,10" 
+                       Margin="40,10" 
                        Padding="1"
-                       BackgroundColor="{DynamicResource colForeground}" 
+                       BackgroundColor="{DynamicResource colRed}"
                        HasShadow="True">
 
                             <Frame BackgroundColor="{DynamicResource colBackground}"
@@ -84,7 +135,7 @@
 
                                 <StackLayout Spacing="0">
                                     <Frame CornerRadius="30" 
-                               Margin="40,0" 
+                               Margin="20,0" 
                                Padding="5"
                                BackgroundColor="{DynamicResource colRed}" 
                                HasShadow="True">

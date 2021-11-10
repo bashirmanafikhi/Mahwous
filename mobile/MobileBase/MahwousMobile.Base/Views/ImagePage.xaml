@@ -144,9 +144,23 @@
 
             </Frame>
 
-            <templates:ImagesTemplate HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="myImagesTemplate" SortType="Random" />
+            <RefreshView IsRefreshing="{Binding ImagesViewModel.IsBusy, Mode=TwoWay}" Command="{Binding ImagesViewModel.LoadImagesCommand}">
+
+                <StackLayout>
+                    <CollectionView x:Name="ItemsCollectionView"
+                            RemainingItemsThreshold="{Binding ImagesViewModel.ItemTreshold}"
+                            RemainingItemsThresholdReachedCommand="{Binding ImagesViewModel.LoadMoreImagesCommand}"
+                            ItemTemplate="{DataTemplate templates:ImageTemplate}"
+                            ItemsSource="{Binding ImagesViewModel.Images}">
+
+                    </CollectionView>
+                    <ActivityIndicator IsVisible="{Binding ImagesViewModel.IsLoadingMore}" IsRunning="{Binding ImagesViewModel.IsLoadingMore}"
+                       Color="{DynamicResource colRed}"/>
 
 
+                </StackLayout>
+            </RefreshView>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

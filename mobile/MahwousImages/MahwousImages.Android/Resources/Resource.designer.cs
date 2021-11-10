@@ -78,7 +78,6 @@ namespace MahwousImages.Droid
 			global::MobileBase.Android.Resource.Animator.mtrl_btn_unelevated_state_list_anim = global::MahwousImages.Droid.Resource.Animator.mtrl_btn_unelevated_state_list_anim;
 			global::MobileBase.Android.Resource.Animator.mtrl_card_state_list_anim = global::MahwousImages.Droid.Resource.Animator.mtrl_card_state_list_anim;
 			global::MobileBase.Android.Resource.Animator.mtrl_chip_state_list_anim = global::MahwousImages.Droid.Resource.Animator.mtrl_chip_state_list_anim;
-			global::MobileBase.Android.Resource.Animator.mtrl_extended_fab_change_size_motion_spec = global::MahwousImages.Droid.Resource.Animator.mtrl_extended_fab_change_size_motion_spec;
 			global::MobileBase.Android.Resource.Animator.mtrl_extended_fab_hide_motion_spec = global::MahwousImages.Droid.Resource.Animator.mtrl_extended_fab_hide_motion_spec;
 			global::MobileBase.Android.Resource.Animator.mtrl_extended_fab_show_motion_spec = global::MahwousImages.Droid.Resource.Animator.mtrl_extended_fab_show_motion_spec;
 			global::MobileBase.Android.Resource.Animator.mtrl_extended_fab_state_list_animator = global::MahwousImages.Droid.Resource.Animator.mtrl_extended_fab_state_list_animator;
@@ -832,7 +831,6 @@ namespace MahwousImages.Droid
 			global::MobileBase.Android.Resource.Attribute.yearStyle = global::MahwousImages.Droid.Resource.Attribute.yearStyle;
 			global::MobileBase.Android.Resource.Attribute.yearTodayStyle = global::MahwousImages.Droid.Resource.Attribute.yearTodayStyle;
 			global::MobileBase.Android.Resource.Boolean.abc_action_bar_embed_tabs = global::MahwousImages.Droid.Resource.Boolean.abc_action_bar_embed_tabs;
-			global::MobileBase.Android.Resource.Boolean.abc_allow_stacked_button_bar = global::MahwousImages.Droid.Resource.Boolean.abc_allow_stacked_button_bar;
 			global::MobileBase.Android.Resource.Boolean.abc_config_actionMenuItemAllCaps = global::MahwousImages.Droid.Resource.Boolean.abc_config_actionMenuItemAllCaps;
 			global::MobileBase.Android.Resource.Boolean.config_materialPreferenceIconSpaceReserved = global::MahwousImages.Droid.Resource.Boolean.config_materialPreferenceIconSpaceReserved;
 			global::MobileBase.Android.Resource.Boolean.enable_system_alarm_service_default = global::MahwousImages.Droid.Resource.Boolean.enable_system_alarm_service_default;
@@ -966,10 +964,6 @@ namespace MahwousImages.Droid
 			global::MobileBase.Android.Resource.Color.material_slider_inactive_tick_marks_color = global::MahwousImages.Droid.Resource.Color.material_slider_inactive_tick_marks_color;
 			global::MobileBase.Android.Resource.Color.material_slider_inactive_track_color = global::MahwousImages.Droid.Resource.Color.material_slider_inactive_track_color;
 			global::MobileBase.Android.Resource.Color.material_slider_thumb_color = global::MahwousImages.Droid.Resource.Color.material_slider_thumb_color;
-			global::MobileBase.Android.Resource.Color.mtrl_bottom_nav_colored_item_tint = global::MahwousImages.Droid.Resource.Color.mtrl_bottom_nav_colored_item_tint;
-			global::MobileBase.Android.Resource.Color.mtrl_bottom_nav_colored_ripple_color = global::MahwousImages.Droid.Resource.Color.mtrl_bottom_nav_colored_ripple_color;
-			global::MobileBase.Android.Resource.Color.mtrl_bottom_nav_item_tint = global::MahwousImages.Droid.Resource.Color.mtrl_bottom_nav_item_tint;
-			global::MobileBase.Android.Resource.Color.mtrl_bottom_nav_ripple_color = global::MahwousImages.Droid.Resource.Color.mtrl_bottom_nav_ripple_color;
 			global::MobileBase.Android.Resource.Color.mtrl_btn_bg_color_selector = global::MahwousImages.Droid.Resource.Color.mtrl_btn_bg_color_selector;
 			global::MobileBase.Android.Resource.Color.mtrl_btn_ripple_color = global::MahwousImages.Droid.Resource.Color.mtrl_btn_ripple_color;
 			global::MobileBase.Android.Resource.Color.mtrl_btn_stroke_color_selector = global::MahwousImages.Droid.Resource.Color.mtrl_btn_stroke_color_selector;
@@ -984,7 +978,6 @@ namespace MahwousImages.Droid
 			global::MobileBase.Android.Resource.Color.mtrl_card_view_ripple = global::MahwousImages.Droid.Resource.Color.mtrl_card_view_ripple;
 			global::MobileBase.Android.Resource.Color.mtrl_chip_background_color = global::MahwousImages.Droid.Resource.Color.mtrl_chip_background_color;
 			global::MobileBase.Android.Resource.Color.mtrl_chip_close_icon_tint = global::MahwousImages.Droid.Resource.Color.mtrl_chip_close_icon_tint;
-			global::MobileBase.Android.Resource.Color.mtrl_chip_ripple_color = global::MahwousImages.Droid.Resource.Color.mtrl_chip_ripple_color;
 			global::MobileBase.Android.Resource.Color.mtrl_chip_surface_color = global::MahwousImages.Droid.Resource.Color.mtrl_chip_surface_color;
 			global::MobileBase.Android.Resource.Color.mtrl_chip_text_color = global::MahwousImages.Droid.Resource.Color.mtrl_chip_text_color;
 			global::MobileBase.Android.Resource.Color.mtrl_choice_chip_background_color = global::MahwousImages.Droid.Resource.Color.mtrl_choice_chip_background_color;
@@ -1431,12 +1424,6 @@ namespace MahwousImages.Droid
 			global::MobileBase.Android.Resource.Drawable.abc_ic_menu_selectall_mtrl_alpha = global::MahwousImages.Droid.Resource.Drawable.abc_ic_menu_selectall_mtrl_alpha;
 			global::MobileBase.Android.Resource.Drawable.abc_ic_menu_share_mtrl_alpha = global::MahwousImages.Droid.Resource.Drawable.abc_ic_menu_share_mtrl_alpha;
 			global::MobileBase.Android.Resource.Drawable.abc_ic_search_api_material = global::MahwousImages.Droid.Resource.Drawable.abc_ic_search_api_material;
-			global::MobileBase.Android.Resource.Drawable.abc_ic_star_black_16dp = global::MahwousImages.Droid.Resource.Drawable.abc_ic_star_black_16dp;
-			global::MobileBase.Android.Resource.Drawable.abc_ic_star_black_36dp = global::MahwousImages.Droid.Resource.Drawable.abc_ic_star_black_36dp;
-			global::MobileBase.Android.Resource.Drawable.abc_ic_star_black_48dp = global::MahwousImages.Droid.Resource.Drawable.abc_ic_star_black_48dp;
-			global::MobileBase.Android.Resource.Drawable.abc_ic_star_half_black_16dp = global::MahwousImages.Droid.Resource.Drawable.abc_ic_star_half_black_16dp;
-			global::MobileBase.Android.Resource.Drawable.abc_ic_star_half_black_36dp = global::MahwousImages.Droid.Resource.Drawable.abc_ic_star_half_black_36dp;
-			global::MobileBase.Android.Resource.Drawable.abc_ic_star_half_black_48dp = global::MahwousImages.Droid.Resource.Drawable.abc_ic_star_half_black_48dp;
 			global::MobileBase.Android.Resource.Drawable.abc_ic_voice_search_api_material = global::MahwousImages.Droid.Resource.Drawable.abc_ic_voice_search_api_material;
 			global::MobileBase.Android.Resource.Drawable.abc_item_background_holo_dark = global::MahwousImages.Droid.Resource.Drawable.abc_item_background_holo_dark;
 			global::MobileBase.Android.Resource.Drawable.abc_item_background_holo_light = global::MahwousImages.Droid.Resource.Drawable.abc_item_background_holo_light;
@@ -1477,12 +1464,6 @@ namespace MahwousImages.Droid
 			global::MobileBase.Android.Resource.Drawable.abc_textfield_search_default_mtrl_alpha = global::MahwousImages.Droid.Resource.Drawable.abc_textfield_search_default_mtrl_alpha;
 			global::MobileBase.Android.Resource.Drawable.abc_textfield_search_material = global::MahwousImages.Droid.Resource.Drawable.abc_textfield_search_material;
 			global::MobileBase.Android.Resource.Drawable.abc_text_cursor_material = global::MahwousImages.Droid.Resource.Drawable.abc_text_cursor_material;
-			global::MobileBase.Android.Resource.Drawable.abc_text_select_handle_left_mtrl_dark = global::MahwousImages.Droid.Resource.Drawable.abc_text_select_handle_left_mtrl_dark;
-			global::MobileBase.Android.Resource.Drawable.abc_text_select_handle_left_mtrl_light = global::MahwousImages.Droid.Resource.Drawable.abc_text_select_handle_left_mtrl_light;
-			global::MobileBase.Android.Resource.Drawable.abc_text_select_handle_middle_mtrl_dark = global::MahwousImages.Droid.Resource.Drawable.abc_text_select_handle_middle_mtrl_dark;
-			global::MobileBase.Android.Resource.Drawable.abc_text_select_handle_middle_mtrl_light = global::MahwousImages.Droid.Resource.Drawable.abc_text_select_handle_middle_mtrl_light;
-			global::MobileBase.Android.Resource.Drawable.abc_text_select_handle_right_mtrl_dark = global::MahwousImages.Droid.Resource.Drawable.abc_text_select_handle_right_mtrl_dark;
-			global::MobileBase.Android.Resource.Drawable.abc_text_select_handle_right_mtrl_light = global::MahwousImages.Droid.Resource.Drawable.abc_text_select_handle_right_mtrl_light;
 			global::MobileBase.Android.Resource.Drawable.abc_vector_test = global::MahwousImages.Droid.Resource.Drawable.abc_vector_test;
 			global::MobileBase.Android.Resource.Drawable.avatar = global::MahwousImages.Droid.Resource.Drawable.avatar;
 			global::MobileBase.Android.Resource.Drawable.avd_hide_password = global::MahwousImages.Droid.Resource.Drawable.avd_hide_password;
@@ -1495,7 +1476,6 @@ namespace MahwousImages.Droid
 			global::MobileBase.Android.Resource.Drawable.btn_radio_off_to_on_mtrl_animation = global::MahwousImages.Droid.Resource.Drawable.btn_radio_off_to_on_mtrl_animation;
 			global::MobileBase.Android.Resource.Drawable.btn_radio_on_mtrl = global::MahwousImages.Droid.Resource.Drawable.btn_radio_on_mtrl;
 			global::MobileBase.Android.Resource.Drawable.btn_radio_on_to_off_mtrl_animation = global::MahwousImages.Droid.Resource.Drawable.btn_radio_on_to_off_mtrl_animation;
-			global::MobileBase.Android.Resource.Drawable.design_bottom_navigation_item_background = global::MahwousImages.Droid.Resource.Drawable.design_bottom_navigation_item_background;
 			global::MobileBase.Android.Resource.Drawable.design_fab_background = global::MahwousImages.Droid.Resource.Drawable.design_fab_background;
 			global::MobileBase.Android.Resource.Drawable.design_ic_visibility = global::MahwousImages.Droid.Resource.Drawable.design_ic_visibility;
 			global::MobileBase.Android.Resource.Drawable.design_ic_visibility_off = global::MahwousImages.Droid.Resource.Drawable.design_ic_visibility_off;
@@ -1688,7 +1668,6 @@ namespace MahwousImages.Droid
 			global::MobileBase.Android.Resource.Id.italic = global::MahwousImages.Droid.Resource.Id.italic;
 			global::MobileBase.Android.Resource.Id.item_touch_helper_previous_elevation = global::MahwousImages.Droid.Resource.Id.item_touch_helper_previous_elevation;
 			global::MobileBase.Android.Resource.Id.labeled = global::MahwousImages.Droid.Resource.Id.labeled;
-			global::MobileBase.Android.Resource.Id.largeLabel = global::MahwousImages.Droid.Resource.Id.largeLabel;
 			global::MobileBase.Android.Resource.Id.left = global::MahwousImages.Droid.Resource.Id.left;
 			global::MobileBase.Android.Resource.Id.line1 = global::MahwousImages.Droid.Resource.Id.line1;
 			global::MobileBase.Android.Resource.Id.line3 = global::MahwousImages.Droid.Resource.Id.line3;
@@ -1793,7 +1772,6 @@ namespace MahwousImages.Droid
 			global::MobileBase.Android.Resource.Id.skipCollapsed = global::MahwousImages.Droid.Resource.Id.skipCollapsed;
 			global::MobileBase.Android.Resource.Id.slide = global::MahwousImages.Droid.Resource.Id.slide;
 			global::MobileBase.Android.Resource.Id.sliding_tabs = global::MahwousImages.Droid.Resource.Id.sliding_tabs;
-			global::MobileBase.Android.Resource.Id.smallLabel = global::MahwousImages.Droid.Resource.Id.smallLabel;
 			global::MobileBase.Android.Resource.Id.snackbar_action = global::MahwousImages.Droid.Resource.Id.snackbar_action;
 			global::MobileBase.Android.Resource.Id.snackbar_text = global::MahwousImages.Droid.Resource.Id.snackbar_text;
 			global::MobileBase.Android.Resource.Id.snap = global::MahwousImages.Droid.Resource.Id.snap;
@@ -2603,7 +2581,6 @@ namespace MahwousImages.Droid
 			global::MobileBase.Android.Resource.Style.ThemeOverlay_MaterialComponents_Dialog_Alert = global::MahwousImages.Droid.Resource.Style.ThemeOverlay_MaterialComponents_Dialog_Alert;
 			global::MobileBase.Android.Resource.Style.ThemeOverlay_MaterialComponents_Dialog_Alert_Framework = global::MahwousImages.Droid.Resource.Style.ThemeOverlay_MaterialComponents_Dialog_Alert_Framework;
 			global::MobileBase.Android.Resource.Style.ThemeOverlay_MaterialComponents_Light = global::MahwousImages.Droid.Resource.Style.ThemeOverlay_MaterialComponents_Light;
-			global::MobileBase.Android.Resource.Style.ThemeOverlay_MaterialComponents_Light_BottomSheetDialog = global::MahwousImages.Droid.Resource.Style.ThemeOverlay_MaterialComponents_Light_BottomSheetDialog;
 			global::MobileBase.Android.Resource.Style.ThemeOverlay_MaterialComponents_Light_Dialog_Alert_Framework = global::MahwousImages.Droid.Resource.Style.ThemeOverlay_MaterialComponents_Light_Dialog_Alert_Framework;
 			global::MobileBase.Android.Resource.Style.ThemeOverlay_MaterialComponents_MaterialAlertDialog = global::MahwousImages.Droid.Resource.Style.ThemeOverlay_MaterialComponents_MaterialAlertDialog;
 			global::MobileBase.Android.Resource.Style.ThemeOverlay_MaterialComponents_MaterialAlertDialog_Centered = global::MahwousImages.Droid.Resource.Style.ThemeOverlay_MaterialComponents_MaterialAlertDialog_Centered;
@@ -3168,18 +3145,7 @@ namespace MahwousImages.Droid
 			global::MobileBase.Android.Resource.Styleable.BottomAppBar_paddingLeftSystemWindowInsets = global::MahwousImages.Droid.Resource.Styleable.BottomAppBar_paddingLeftSystemWindowInsets;
 			global::MobileBase.Android.Resource.Styleable.BottomAppBar_paddingRightSystemWindowInsets = global::MahwousImages.Droid.Resource.Styleable.BottomAppBar_paddingRightSystemWindowInsets;
 			global::MobileBase.Android.Resource.Styleable.BottomNavigationView = global::MahwousImages.Droid.Resource.Styleable.BottomNavigationView;
-			global::MobileBase.Android.Resource.Styleable.BottomNavigationView_backgroundTint = global::MahwousImages.Droid.Resource.Styleable.BottomNavigationView_backgroundTint;
-			global::MobileBase.Android.Resource.Styleable.BottomNavigationView_elevation = global::MahwousImages.Droid.Resource.Styleable.BottomNavigationView_elevation;
-			global::MobileBase.Android.Resource.Styleable.BottomNavigationView_itemBackground = global::MahwousImages.Droid.Resource.Styleable.BottomNavigationView_itemBackground;
 			global::MobileBase.Android.Resource.Styleable.BottomNavigationView_itemHorizontalTranslationEnabled = global::MahwousImages.Droid.Resource.Styleable.BottomNavigationView_itemHorizontalTranslationEnabled;
-			global::MobileBase.Android.Resource.Styleable.BottomNavigationView_itemIconSize = global::MahwousImages.Droid.Resource.Styleable.BottomNavigationView_itemIconSize;
-			global::MobileBase.Android.Resource.Styleable.BottomNavigationView_itemIconTint = global::MahwousImages.Droid.Resource.Styleable.BottomNavigationView_itemIconTint;
-			global::MobileBase.Android.Resource.Styleable.BottomNavigationView_itemRippleColor = global::MahwousImages.Droid.Resource.Styleable.BottomNavigationView_itemRippleColor;
-			global::MobileBase.Android.Resource.Styleable.BottomNavigationView_itemTextAppearanceActive = global::MahwousImages.Droid.Resource.Styleable.BottomNavigationView_itemTextAppearanceActive;
-			global::MobileBase.Android.Resource.Styleable.BottomNavigationView_itemTextAppearanceInactive = global::MahwousImages.Droid.Resource.Styleable.BottomNavigationView_itemTextAppearanceInactive;
-			global::MobileBase.Android.Resource.Styleable.BottomNavigationView_itemTextColor = global::MahwousImages.Droid.Resource.Styleable.BottomNavigationView_itemTextColor;
-			global::MobileBase.Android.Resource.Styleable.BottomNavigationView_labelVisibilityMode = global::MahwousImages.Droid.Resource.Styleable.BottomNavigationView_labelVisibilityMode;
-			global::MobileBase.Android.Resource.Styleable.BottomNavigationView_menu = global::MahwousImages.Droid.Resource.Styleable.BottomNavigationView_menu;
 			global::MobileBase.Android.Resource.Styleable.BottomSheetBehavior_Layout = global::MahwousImages.Droid.Resource.Styleable.BottomSheetBehavior_Layout;
 			global::MobileBase.Android.Resource.Styleable.BottomSheetBehavior_Layout_android_elevation = global::MahwousImages.Droid.Resource.Styleable.BottomSheetBehavior_Layout_android_elevation;
 			global::MobileBase.Android.Resource.Styleable.BottomSheetBehavior_Layout_backgroundTint = global::MahwousImages.Droid.Resource.Styleable.BottomSheetBehavior_Layout_backgroundTint;
@@ -7750,7 +7716,6 @@ namespace MahwousImages.Droid
 			global::Xamarin.CommunityToolkit.Resource.Animator.mtrl_btn_unelevated_state_list_anim = global::MahwousImages.Droid.Resource.Animator.mtrl_btn_unelevated_state_list_anim;
 			global::Xamarin.CommunityToolkit.Resource.Animator.mtrl_card_state_list_anim = global::MahwousImages.Droid.Resource.Animator.mtrl_card_state_list_anim;
 			global::Xamarin.CommunityToolkit.Resource.Animator.mtrl_chip_state_list_anim = global::MahwousImages.Droid.Resource.Animator.mtrl_chip_state_list_anim;
-			global::Xamarin.CommunityToolkit.Resource.Animator.mtrl_extended_fab_change_size_motion_spec = global::MahwousImages.Droid.Resource.Animator.mtrl_extended_fab_change_size_motion_spec;
 			global::Xamarin.CommunityToolkit.Resource.Animator.mtrl_extended_fab_hide_motion_spec = global::MahwousImages.Droid.Resource.Animator.mtrl_extended_fab_hide_motion_spec;
 			global::Xamarin.CommunityToolkit.Resource.Animator.mtrl_extended_fab_show_motion_spec = global::MahwousImages.Droid.Resource.Animator.mtrl_extended_fab_show_motion_spec;
 			global::Xamarin.CommunityToolkit.Resource.Animator.mtrl_extended_fab_state_list_animator = global::MahwousImages.Droid.Resource.Animator.mtrl_extended_fab_state_list_animator;
@@ -8082,6 +8047,7 @@ namespace MahwousImages.Droid
 			global::Xamarin.CommunityToolkit.Resource.Attribute.fontProviderFetchTimeout = global::MahwousImages.Droid.Resource.Attribute.fontProviderFetchTimeout;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.fontProviderPackage = global::MahwousImages.Droid.Resource.Attribute.fontProviderPackage;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.fontProviderQuery = global::MahwousImages.Droid.Resource.Attribute.fontProviderQuery;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.fontProviderSystemFontFamily = global::MahwousImages.Droid.Resource.Attribute.fontProviderSystemFontFamily;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.fontStyle = global::MahwousImages.Droid.Resource.Attribute.fontStyle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.fontVariationSettings = global::MahwousImages.Droid.Resource.Attribute.fontVariationSettings;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.fontWeight = global::MahwousImages.Droid.Resource.Attribute.fontWeight;
@@ -8231,6 +8197,7 @@ namespace MahwousImages.Droid
 			global::Xamarin.CommunityToolkit.Resource.Attribute.navigationMode = global::MahwousImages.Droid.Resource.Attribute.navigationMode;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.navigationViewStyle = global::MahwousImages.Droid.Resource.Attribute.navigationViewStyle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.negativeButtonText = global::MahwousImages.Droid.Resource.Attribute.negativeButtonText;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.nestedScrollViewStyle = global::MahwousImages.Droid.Resource.Attribute.nestedScrollViewStyle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.nullable = global::MahwousImages.Droid.Resource.Attribute.nullable;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.number = global::MahwousImages.Droid.Resource.Attribute.number;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.numericModifiers = global::MahwousImages.Droid.Resource.Attribute.numericModifiers;
@@ -8283,6 +8250,7 @@ namespace MahwousImages.Droid
 			global::Xamarin.CommunityToolkit.Resource.Attribute.progressBarStyle = global::MahwousImages.Droid.Resource.Attribute.progressBarStyle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.queryBackground = global::MahwousImages.Droid.Resource.Attribute.queryBackground;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.queryHint = global::MahwousImages.Droid.Resource.Attribute.queryHint;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.queryPatterns = global::MahwousImages.Droid.Resource.Attribute.queryPatterns;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.radioButtonStyle = global::MahwousImages.Droid.Resource.Attribute.radioButtonStyle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.rangeFillColor = global::MahwousImages.Droid.Resource.Attribute.rangeFillColor;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.ratingBarStyle = global::MahwousImages.Droid.Resource.Attribute.ratingBarStyle;
@@ -8310,6 +8278,7 @@ namespace MahwousImages.Droid
 			global::Xamarin.CommunityToolkit.Resource.Attribute.shapeAppearanceMediumComponent = global::MahwousImages.Droid.Resource.Attribute.shapeAppearanceMediumComponent;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.shapeAppearanceOverlay = global::MahwousImages.Droid.Resource.Attribute.shapeAppearanceOverlay;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.shapeAppearanceSmallComponent = global::MahwousImages.Droid.Resource.Attribute.shapeAppearanceSmallComponent;
+			global::Xamarin.CommunityToolkit.Resource.Attribute.shortcutMatchRequired = global::MahwousImages.Droid.Resource.Attribute.shortcutMatchRequired;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.shouldDisableView = global::MahwousImages.Droid.Resource.Attribute.shouldDisableView;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.showAsAction = global::MahwousImages.Droid.Resource.Attribute.showAsAction;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.showDividers = global::MahwousImages.Droid.Resource.Attribute.showDividers;
@@ -8497,7 +8466,6 @@ namespace MahwousImages.Droid
 			global::Xamarin.CommunityToolkit.Resource.Attribute.yearStyle = global::MahwousImages.Droid.Resource.Attribute.yearStyle;
 			global::Xamarin.CommunityToolkit.Resource.Attribute.yearTodayStyle = global::MahwousImages.Droid.Resource.Attribute.yearTodayStyle;
 			global::Xamarin.CommunityToolkit.Resource.Boolean.abc_action_bar_embed_tabs = global::MahwousImages.Droid.Resource.Boolean.abc_action_bar_embed_tabs;
-			global::Xamarin.CommunityToolkit.Resource.Boolean.abc_allow_stacked_button_bar = global::MahwousImages.Droid.Resource.Boolean.abc_allow_stacked_button_bar;
 			global::Xamarin.CommunityToolkit.Resource.Boolean.abc_config_actionMenuItemAllCaps = global::MahwousImages.Droid.Resource.Boolean.abc_config_actionMenuItemAllCaps;
 			global::Xamarin.CommunityToolkit.Resource.Boolean.config_materialPreferenceIconSpaceReserved = global::MahwousImages.Droid.Resource.Boolean.config_materialPreferenceIconSpaceReserved;
 			global::Xamarin.CommunityToolkit.Resource.Boolean.mtrl_btn_textappearance_all_caps = global::MahwousImages.Droid.Resource.Boolean.mtrl_btn_textappearance_all_caps;
@@ -8627,10 +8595,6 @@ namespace MahwousImages.Droid
 			global::Xamarin.CommunityToolkit.Resource.Color.material_slider_inactive_tick_marks_color = global::MahwousImages.Droid.Resource.Color.material_slider_inactive_tick_marks_color;
 			global::Xamarin.CommunityToolkit.Resource.Color.material_slider_inactive_track_color = global::MahwousImages.Droid.Resource.Color.material_slider_inactive_track_color;
 			global::Xamarin.CommunityToolkit.Resource.Color.material_slider_thumb_color = global::MahwousImages.Droid.Resource.Color.material_slider_thumb_color;
-			global::Xamarin.CommunityToolkit.Resource.Color.mtrl_bottom_nav_colored_item_tint = global::MahwousImages.Droid.Resource.Color.mtrl_bottom_nav_colored_item_tint;
-			global::Xamarin.CommunityToolkit.Resource.Color.mtrl_bottom_nav_colored_ripple_color = global::MahwousImages.Droid.Resource.Color.mtrl_bottom_nav_colored_ripple_color;
-			global::Xamarin.CommunityToolkit.Resource.Color.mtrl_bottom_nav_item_tint = global::MahwousImages.Droid.Resource.Color.mtrl_bottom_nav_item_tint;
-			global::Xamarin.CommunityToolkit.Resource.Color.mtrl_bottom_nav_ripple_color = global::MahwousImages.Droid.Resource.Color.mtrl_bottom_nav_ripple_color;
 			global::Xamarin.CommunityToolkit.Resource.Color.mtrl_btn_bg_color_selector = global::MahwousImages.Droid.Resource.Color.mtrl_btn_bg_color_selector;
 			global::Xamarin.CommunityToolkit.Resource.Color.mtrl_btn_ripple_color = global::MahwousImages.Droid.Resource.Color.mtrl_btn_ripple_color;
 			global::Xamarin.CommunityToolkit.Resource.Color.mtrl_btn_stroke_color_selector = global::MahwousImages.Droid.Resource.Color.mtrl_btn_stroke_color_selector;
@@ -8645,7 +8609,6 @@ namespace MahwousImages.Droid
 			global::Xamarin.CommunityToolkit.Resource.Color.mtrl_card_view_ripple = global::MahwousImages.Droid.Resource.Color.mtrl_card_view_ripple;
 			global::Xamarin.CommunityToolkit.Resource.Color.mtrl_chip_background_color = global::MahwousImages.Droid.Resource.Color.mtrl_chip_background_color;
 			global::Xamarin.CommunityToolkit.Resource.Color.mtrl_chip_close_icon_tint = global::MahwousImages.Droid.Resource.Color.mtrl_chip_close_icon_tint;
-			global::Xamarin.CommunityToolkit.Resource.Color.mtrl_chip_ripple_color = global::MahwousImages.Droid.Resource.Color.mtrl_chip_ripple_color;
 			global::Xamarin.CommunityToolkit.Resource.Color.mtrl_chip_surface_color = global::MahwousImages.Droid.Resource.Color.mtrl_chip_surface_color;
 			global::Xamarin.CommunityToolkit.Resource.Color.mtrl_chip_text_color = global::MahwousImages.Droid.Resource.Color.mtrl_chip_text_color;
 			global::Xamarin.CommunityToolkit.Resource.Color.mtrl_choice_chip_background_color = global::MahwousImages.Droid.Resource.Color.mtrl_choice_chip_background_color;
@@ -9092,12 +9055,6 @@ namespace MahwousImages.Droid
 			global::Xamarin.CommunityToolkit.Resource.Drawable.abc_ic_menu_selectall_mtrl_alpha = global::MahwousImages.Droid.Resource.Drawable.abc_ic_menu_selectall_mtrl_alpha;
 			global::Xamarin.CommunityToolkit.Resource.Drawable.abc_ic_menu_share_mtrl_alpha = global::MahwousImages.Droid.Resource.Drawable.abc_ic_menu_share_mtrl_alpha;
 			global::Xamarin.CommunityToolkit.Resource.Drawable.abc_ic_search_api_material = global::MahwousImages.Droid.Resource.Drawable.abc_ic_search_api_material;
-			global::Xamarin.CommunityToolkit.Resource.Drawable.abc_ic_star_black_16dp = global::MahwousImages.Droid.Resource.Drawable.abc_ic_star_black_16dp;
-			global::Xamarin.CommunityToolkit.Resource.Drawable.abc_ic_star_black_36dp = global::MahwousImages.Droid.Resource.Drawable.abc_ic_star_black_36dp;
-			global::Xamarin.CommunityToolkit.Resource.Drawable.abc_ic_star_black_48dp = global::MahwousImages.Droid.Resource.Drawable.abc_ic_star_black_48dp;
-			global::Xamarin.CommunityToolkit.Resource.Drawable.abc_ic_star_half_black_16dp = global::MahwousImages.Droid.Resource.Drawable.abc_ic_star_half_black_16dp;
-			global::Xamarin.CommunityToolkit.Resource.Drawable.abc_ic_star_half_black_36dp = global::MahwousImages.Droid.Resource.Drawable.abc_ic_star_half_black_36dp;
-			global::Xamarin.CommunityToolkit.Resource.Drawable.abc_ic_star_half_black_48dp = global::MahwousImages.Droid.Resource.Drawable.abc_ic_star_half_black_48dp;
 			global::Xamarin.CommunityToolkit.Resource.Drawable.abc_ic_voice_search_api_material = global::MahwousImages.Droid.Resource.Drawable.abc_ic_voice_search_api_material;
 			global::Xamarin.CommunityToolkit.Resource.Drawable.abc_item_background_holo_dark = global::MahwousImages.Droid.Resource.Drawable.abc_item_background_holo_dark;
 			global::Xamarin.CommunityToolkit.Resource.Drawable.abc_item_background_holo_light = global::MahwousImages.Droid.Resource.Drawable.abc_item_background_holo_light;
@@ -9138,12 +9095,6 @@ namespace MahwousImages.Droid
 			global::Xamarin.CommunityToolkit.Resource.Drawable.abc_textfield_search_default_mtrl_alpha = global::MahwousImages.Droid.Resource.Drawable.abc_textfield_search_default_mtrl_alpha;
 			global::Xamarin.CommunityToolkit.Resource.Drawable.abc_textfield_search_material = global::MahwousImages.Droid.Resource.Drawable.abc_textfield_search_material;
 			global::Xamarin.CommunityToolkit.Resource.Drawable.abc_text_cursor_material = global::MahwousImages.Droid.Resource.Drawable.abc_text_cursor_material;
-			global::Xamarin.CommunityToolkit.Resource.Drawable.abc_text_select_handle_left_mtrl_dark = global::MahwousImages.Droid.Resource.Drawable.abc_text_select_handle_left_mtrl_dark;
-			global::Xamarin.CommunityToolkit.Resource.Drawable.abc_text_select_handle_left_mtrl_light = global::MahwousImages.Droid.Resource.Drawable.abc_text_select_handle_left_mtrl_light;
-			global::Xamarin.CommunityToolkit.Resource.Drawable.abc_text_select_handle_middle_mtrl_dark = global::MahwousImages.Droid.Resource.Drawable.abc_text_select_handle_middle_mtrl_dark;
-			global::Xamarin.CommunityToolkit.Resource.Drawable.abc_text_select_handle_middle_mtrl_light = global::MahwousImages.Droid.Resource.Drawable.abc_text_select_handle_middle_mtrl_light;
-			global::Xamarin.CommunityToolkit.Resource.Drawable.abc_text_select_handle_right_mtrl_dark = global::MahwousImages.Droid.Resource.Drawable.abc_text_select_handle_right_mtrl_dark;
-			global::Xamarin.CommunityToolkit.Resource.Drawable.abc_text_select_handle_right_mtrl_light = global::MahwousImages.Droid.Resource.Drawable.abc_text_select_handle_right_mtrl_light;
 			global::Xamarin.CommunityToolkit.Resource.Drawable.abc_vector_test = global::MahwousImages.Droid.Resource.Drawable.abc_vector_test;
 			global::Xamarin.CommunityToolkit.Resource.Drawable.avd_hide_password = global::MahwousImages.Droid.Resource.Drawable.avd_hide_password;
 			global::Xamarin.CommunityToolkit.Resource.Drawable.avd_show_password = global::MahwousImages.Droid.Resource.Drawable.avd_show_password;
@@ -9155,7 +9106,6 @@ namespace MahwousImages.Droid
 			global::Xamarin.CommunityToolkit.Resource.Drawable.btn_radio_off_to_on_mtrl_animation = global::MahwousImages.Droid.Resource.Drawable.btn_radio_off_to_on_mtrl_animation;
 			global::Xamarin.CommunityToolkit.Resource.Drawable.btn_radio_on_mtrl = global::MahwousImages.Droid.Resource.Drawable.btn_radio_on_mtrl;
 			global::Xamarin.CommunityToolkit.Resource.Drawable.btn_radio_on_to_off_mtrl_animation = global::MahwousImages.Droid.Resource.Drawable.btn_radio_on_to_off_mtrl_animation;
-			global::Xamarin.CommunityToolkit.Resource.Drawable.design_bottom_navigation_item_background = global::MahwousImages.Droid.Resource.Drawable.design_bottom_navigation_item_background;
 			global::Xamarin.CommunityToolkit.Resource.Drawable.design_fab_background = global::MahwousImages.Droid.Resource.Drawable.design_fab_background;
 			global::Xamarin.CommunityToolkit.Resource.Drawable.design_ic_visibility = global::MahwousImages.Droid.Resource.Drawable.design_ic_visibility;
 			global::Xamarin.CommunityToolkit.Resource.Drawable.design_ic_visibility_off = global::MahwousImages.Droid.Resource.Drawable.design_ic_visibility_off;
@@ -9346,7 +9296,6 @@ namespace MahwousImages.Droid
 			global::Xamarin.CommunityToolkit.Resource.Id.italic = global::MahwousImages.Droid.Resource.Id.italic;
 			global::Xamarin.CommunityToolkit.Resource.Id.item_touch_helper_previous_elevation = global::MahwousImages.Droid.Resource.Id.item_touch_helper_previous_elevation;
 			global::Xamarin.CommunityToolkit.Resource.Id.labeled = global::MahwousImages.Droid.Resource.Id.labeled;
-			global::Xamarin.CommunityToolkit.Resource.Id.largeLabel = global::MahwousImages.Droid.Resource.Id.largeLabel;
 			global::Xamarin.CommunityToolkit.Resource.Id.left = global::MahwousImages.Droid.Resource.Id.left;
 			global::Xamarin.CommunityToolkit.Resource.Id.line1 = global::MahwousImages.Droid.Resource.Id.line1;
 			global::Xamarin.CommunityToolkit.Resource.Id.line3 = global::MahwousImages.Droid.Resource.Id.line3;
@@ -9451,7 +9400,6 @@ namespace MahwousImages.Droid
 			global::Xamarin.CommunityToolkit.Resource.Id.skipCollapsed = global::MahwousImages.Droid.Resource.Id.skipCollapsed;
 			global::Xamarin.CommunityToolkit.Resource.Id.slide = global::MahwousImages.Droid.Resource.Id.slide;
 			global::Xamarin.CommunityToolkit.Resource.Id.sliding_tabs = global::MahwousImages.Droid.Resource.Id.sliding_tabs;
-			global::Xamarin.CommunityToolkit.Resource.Id.smallLabel = global::MahwousImages.Droid.Resource.Id.smallLabel;
 			global::Xamarin.CommunityToolkit.Resource.Id.snackbar_action = global::MahwousImages.Droid.Resource.Id.snackbar_action;
 			global::Xamarin.CommunityToolkit.Resource.Id.snackbar_text = global::MahwousImages.Droid.Resource.Id.snackbar_text;
 			global::Xamarin.CommunityToolkit.Resource.Id.snap = global::MahwousImages.Droid.Resource.Id.snap;
@@ -9475,10 +9423,15 @@ namespace MahwousImages.Droid
 			global::Xamarin.CommunityToolkit.Resource.Id.tag_accessibility_clickable_spans = global::MahwousImages.Droid.Resource.Id.tag_accessibility_clickable_spans;
 			global::Xamarin.CommunityToolkit.Resource.Id.tag_accessibility_heading = global::MahwousImages.Droid.Resource.Id.tag_accessibility_heading;
 			global::Xamarin.CommunityToolkit.Resource.Id.tag_accessibility_pane_title = global::MahwousImages.Droid.Resource.Id.tag_accessibility_pane_title;
+			global::Xamarin.CommunityToolkit.Resource.Id.tag_on_apply_window_listener = global::MahwousImages.Droid.Resource.Id.tag_on_apply_window_listener;
+			global::Xamarin.CommunityToolkit.Resource.Id.tag_on_receive_content_listener = global::MahwousImages.Droid.Resource.Id.tag_on_receive_content_listener;
+			global::Xamarin.CommunityToolkit.Resource.Id.tag_on_receive_content_mime_types = global::MahwousImages.Droid.Resource.Id.tag_on_receive_content_mime_types;
 			global::Xamarin.CommunityToolkit.Resource.Id.tag_screen_reader_focusable = global::MahwousImages.Droid.Resource.Id.tag_screen_reader_focusable;
+			global::Xamarin.CommunityToolkit.Resource.Id.tag_state_description = global::MahwousImages.Droid.Resource.Id.tag_state_description;
 			global::Xamarin.CommunityToolkit.Resource.Id.tag_transition_group = global::MahwousImages.Droid.Resource.Id.tag_transition_group;
 			global::Xamarin.CommunityToolkit.Resource.Id.tag_unhandled_key_event_manager = global::MahwousImages.Droid.Resource.Id.tag_unhandled_key_event_manager;
 			global::Xamarin.CommunityToolkit.Resource.Id.tag_unhandled_key_listeners = global::MahwousImages.Droid.Resource.Id.tag_unhandled_key_listeners;
+			global::Xamarin.CommunityToolkit.Resource.Id.tag_window_insets_animation_callback = global::MahwousImages.Droid.Resource.Id.tag_window_insets_animation_callback;
 			global::Xamarin.CommunityToolkit.Resource.Id.test_checkbox_android_button_tint = global::MahwousImages.Droid.Resource.Id.test_checkbox_android_button_tint;
 			global::Xamarin.CommunityToolkit.Resource.Id.test_checkbox_app_button_tint = global::MahwousImages.Droid.Resource.Id.test_checkbox_app_button_tint;
 			global::Xamarin.CommunityToolkit.Resource.Id.test_radiobutton_android_button_tint = global::MahwousImages.Droid.Resource.Id.test_radiobutton_android_button_tint;
@@ -10250,7 +10203,6 @@ namespace MahwousImages.Droid
 			global::Xamarin.CommunityToolkit.Resource.Style.ThemeOverlay_MaterialComponents_Dialog_Alert = global::MahwousImages.Droid.Resource.Style.ThemeOverlay_MaterialComponents_Dialog_Alert;
 			global::Xamarin.CommunityToolkit.Resource.Style.ThemeOverlay_MaterialComponents_Dialog_Alert_Framework = global::MahwousImages.Droid.Resource.Style.ThemeOverlay_MaterialComponents_Dialog_Alert_Framework;
 			global::Xamarin.CommunityToolkit.Resource.Style.ThemeOverlay_MaterialComponents_Light = global::MahwousImages.Droid.Resource.Style.ThemeOverlay_MaterialComponents_Light;
-			global::Xamarin.CommunityToolkit.Resource.Style.ThemeOverlay_MaterialComponents_Light_BottomSheetDialog = global::MahwousImages.Droid.Resource.Style.ThemeOverlay_MaterialComponents_Light_BottomSheetDialog;
 			global::Xamarin.CommunityToolkit.Resource.Style.ThemeOverlay_MaterialComponents_Light_Dialog_Alert_Framework = global::MahwousImages.Droid.Resource.Style.ThemeOverlay_MaterialComponents_Light_Dialog_Alert_Framework;
 			global::Xamarin.CommunityToolkit.Resource.Style.ThemeOverlay_MaterialComponents_MaterialAlertDialog = global::MahwousImages.Droid.Resource.Style.ThemeOverlay_MaterialComponents_MaterialAlertDialog;
 			global::Xamarin.CommunityToolkit.Resource.Style.ThemeOverlay_MaterialComponents_MaterialAlertDialog_Centered = global::MahwousImages.Droid.Resource.Style.ThemeOverlay_MaterialComponents_MaterialAlertDialog_Centered;
@@ -10810,18 +10762,7 @@ namespace MahwousImages.Droid
 			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomAppBar_paddingLeftSystemWindowInsets = global::MahwousImages.Droid.Resource.Styleable.BottomAppBar_paddingLeftSystemWindowInsets;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomAppBar_paddingRightSystemWindowInsets = global::MahwousImages.Droid.Resource.Styleable.BottomAppBar_paddingRightSystemWindowInsets;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomNavigationView = global::MahwousImages.Droid.Resource.Styleable.BottomNavigationView;
-			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomNavigationView_backgroundTint = global::MahwousImages.Droid.Resource.Styleable.BottomNavigationView_backgroundTint;
-			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomNavigationView_elevation = global::MahwousImages.Droid.Resource.Styleable.BottomNavigationView_elevation;
-			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomNavigationView_itemBackground = global::MahwousImages.Droid.Resource.Styleable.BottomNavigationView_itemBackground;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomNavigationView_itemHorizontalTranslationEnabled = global::MahwousImages.Droid.Resource.Styleable.BottomNavigationView_itemHorizontalTranslationEnabled;
-			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomNavigationView_itemIconSize = global::MahwousImages.Droid.Resource.Styleable.BottomNavigationView_itemIconSize;
-			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomNavigationView_itemIconTint = global::MahwousImages.Droid.Resource.Styleable.BottomNavigationView_itemIconTint;
-			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomNavigationView_itemRippleColor = global::MahwousImages.Droid.Resource.Styleable.BottomNavigationView_itemRippleColor;
-			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomNavigationView_itemTextAppearanceActive = global::MahwousImages.Droid.Resource.Styleable.BottomNavigationView_itemTextAppearanceActive;
-			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomNavigationView_itemTextAppearanceInactive = global::MahwousImages.Droid.Resource.Styleable.BottomNavigationView_itemTextAppearanceInactive;
-			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomNavigationView_itemTextColor = global::MahwousImages.Droid.Resource.Styleable.BottomNavigationView_itemTextColor;
-			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomNavigationView_labelVisibilityMode = global::MahwousImages.Droid.Resource.Styleable.BottomNavigationView_labelVisibilityMode;
-			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomNavigationView_menu = global::MahwousImages.Droid.Resource.Styleable.BottomNavigationView_menu;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomSheetBehavior_Layout = global::MahwousImages.Droid.Resource.Styleable.BottomSheetBehavior_Layout;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomSheetBehavior_Layout_android_elevation = global::MahwousImages.Droid.Resource.Styleable.BottomSheetBehavior_Layout_android_elevation;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomSheetBehavior_Layout_backgroundTint = global::MahwousImages.Droid.Resource.Styleable.BottomSheetBehavior_Layout_backgroundTint;
@@ -10838,6 +10779,9 @@ namespace MahwousImages.Droid
 			global::Xamarin.CommunityToolkit.Resource.Styleable.BottomSheetBehavior_Layout_shapeAppearanceOverlay = global::MahwousImages.Droid.Resource.Styleable.BottomSheetBehavior_Layout_shapeAppearanceOverlay;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ButtonBarLayout = global::MahwousImages.Droid.Resource.Styleable.ButtonBarLayout;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ButtonBarLayout_allowStacking = global::MahwousImages.Droid.Resource.Styleable.ButtonBarLayout_allowStacking;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Capability = global::MahwousImages.Droid.Resource.Styleable.Capability;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Capability_queryPatterns = global::MahwousImages.Droid.Resource.Styleable.Capability_queryPatterns;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.Capability_shortcutMatchRequired = global::MahwousImages.Droid.Resource.Styleable.Capability_shortcutMatchRequired;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.CardView = global::MahwousImages.Droid.Resource.Styleable.CardView;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.CardView_android_minHeight = global::MahwousImages.Droid.Resource.Styleable.CardView_android_minHeight;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.CardView_android_minWidth = global::MahwousImages.Droid.Resource.Styleable.CardView_android_minWidth;
@@ -11026,6 +10970,7 @@ namespace MahwousImages.Droid
 			global::Xamarin.CommunityToolkit.Resource.Styleable.FontFamily_fontProviderFetchTimeout = global::MahwousImages.Droid.Resource.Styleable.FontFamily_fontProviderFetchTimeout;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.FontFamily_fontProviderPackage = global::MahwousImages.Droid.Resource.Styleable.FontFamily_fontProviderPackage;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.FontFamily_fontProviderQuery = global::MahwousImages.Droid.Resource.Styleable.FontFamily_fontProviderQuery;
+			global::Xamarin.CommunityToolkit.Resource.Styleable.FontFamily_fontProviderSystemFontFamily = global::MahwousImages.Droid.Resource.Styleable.FontFamily_fontProviderSystemFontFamily;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ForegroundLinearLayout = global::MahwousImages.Droid.Resource.Styleable.ForegroundLinearLayout;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ForegroundLinearLayout_android_foreground = global::MahwousImages.Droid.Resource.Styleable.ForegroundLinearLayout_android_foreground;
 			global::Xamarin.CommunityToolkit.Resource.Styleable.ForegroundLinearLayout_android_foregroundGravity = global::MahwousImages.Droid.Resource.Styleable.ForegroundLinearLayout_android_foregroundGravity;

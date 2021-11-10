@@ -26,7 +26,7 @@ namespace MahwousMobile.Base.ViewModels
         }
 
         private int itemTreshold = 3;
-        private PaginationDetails pagination = new PaginationDetails();
+        private readonly PaginationDetails pagination = new PaginationDetails();
 
         public int ItemTreshold
         {
@@ -41,8 +41,13 @@ namespace MahwousMobile.Base.ViewModels
         public Command LoadImagesCommand { get; set; }
         public Command LoadMoreImagesCommand { get; set; }
         public ImageFilter Filter { get => filter; set => filter = value; }
-        public StatusSortType SortType { get => sortType; set => sortType = value; }
-
+        public StatusSortType SortType
+        {
+            get => sortType; set
+            {
+                sortType = value;
+            }
+        }
         public ImagesViewModel(ImageFilter filter)
         {
 

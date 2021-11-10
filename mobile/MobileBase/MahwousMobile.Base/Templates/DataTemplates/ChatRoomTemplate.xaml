@@ -6,24 +6,32 @@
              mc:Ignorable="d"
              x:Class="MahwousMobile.Base.Templates.DataTemplates.ChatRoomTemplate">
   <ContentView.Content>
-        <Frame Margin="5" HeightRequest="250" BackgroundColor="{DynamicResource colSubBackground}" CornerRadius="5" Padding="0">
+        <Frame 
+            Margin="5"
+            HeightRequest="250"
+            CornerRadius="5" Padding="0">
+            <Frame.Background>
+                <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
+                    <GradientStop Color="{DynamicResource colForeground}" Offset="0"/>
+                    <GradientStop Color="Transparent" Offset="1"/>
+                </LinearGradientBrush>
+            </Frame.Background>
 
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="0.8*"/>
-                    <RowDefinition Height="0.2*"/>
+                    <RowDefinition Height="0.6*"/>
+                    <RowDefinition Height="0.1*"/>
                 </Grid.RowDefinitions>
                 <Image Source="{Binding CoverPath}"
+                       Margin="5,5,5,0"
                                        HorizontalOptions="FillAndExpand"
                                        VerticalOptions="FillAndExpand"
                                        Aspect="AspectFill" />
-
 
                 <Label Grid.Row="1"
                     Text="{Binding Name}" 
                    VerticalOptions="CenterAndExpand"
                    HorizontalOptions="CenterAndExpand"/>
-
 
                 <Grid.GestureRecognizers>
                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Item_Tapped"></TapGestureRecognizer>

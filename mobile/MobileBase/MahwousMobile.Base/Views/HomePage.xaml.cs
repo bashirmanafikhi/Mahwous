@@ -14,9 +14,14 @@ namespace MahwousMobile.Base.Views
         public HomePage()
         {
             InitializeComponent();
+        }
 
-            if (Application.Current.RequestedTheme == OSAppTheme.Dark)
-                darkSwitch.IsToggled = true;
+        public bool IsShortcutsVisible
+        {
+            set
+            {
+                shortcutsFrame.IsVisible = value;
+            }
         }
 
         public StatusType? StatusType
@@ -27,12 +32,46 @@ namespace MahwousMobile.Base.Views
             }
         }
 
-        private void Switch_Toggled(object sender, ToggledEventArgs e)
+        private async void GoToVideosPage(object sender, System.EventArgs e)
         {
-            if (e.Value == true)
-                Application.Current.Resources = new DarkTheme();
-            else
-                Application.Current.Resources = new WhiteTheme();
+            var route = $"//Videos/{nameof(VideosPage)}";
+            await Shell.Current.GoToAsync(route);
+        }
+
+        private async void GoToImagesPage(object sender, System.EventArgs e)
+        {
+            var route = $"//Images/{nameof(ImagesPage)}";
+            await Shell.Current.GoToAsync(route);
+        }
+
+        private async void GoToQuotesPage(object sender, System.EventArgs e)
+        {
+            var route = $"//Quotes/{nameof(QuotesPage)}";
+            await Shell.Current.GoToAsync(route);
+        }
+
+        private async void GoToChatRoomsPage(object sender, System.EventArgs e)
+        {
+            var route = $"//Other/{nameof(ChatRoomsPage)}";
+            await Shell.Current.GoToAsync(route);
+        }
+
+        private async void GoToPostsPage(object sender, System.EventArgs e)
+        {
+            var route = $"//Other/{nameof(PostsPage)}";
+            await Shell.Current.GoToAsync(route);
+        }
+
+        private async void GoToMobileAppsPage(object sender, System.EventArgs e)
+        {
+            var route = $"//Other/{nameof(AppsPage)}";
+            await Shell.Current.GoToAsync(route);
+        }
+
+        private async void GoToAboutPage(object sender, System.EventArgs e)
+        {
+            var route = $"//Other/{nameof(AboutPage)}";
+            await Shell.Current.GoToAsync(route);
         }
     }
 }

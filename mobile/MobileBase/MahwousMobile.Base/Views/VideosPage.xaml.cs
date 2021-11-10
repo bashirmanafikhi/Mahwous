@@ -19,9 +19,11 @@ namespace MahwousMobile.Base.Views
             set
             {
                 sortType = value;
+
+                if (viewModel != null)
+                    viewModel.SortType = value;
             }
         }
-
 
         readonly VideosViewModel viewModel;
 
@@ -40,21 +42,13 @@ namespace MahwousMobile.Base.Views
 
         }
 
-        public VideosPage() : this(new VideosViewModel()) { }
-
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
-            if (myVideosTemplate.VideosCount == 0 && viewModel.Filter.CategoryIds.Count > 0)
-            {
-                myVideosTemplate.SetCategories(viewModel.Filter.CategoryIds.ToArray());
-                //myVideosTemplate.SortType = SortType.Random;
-                //return;
-            }
-
-            myVideosTemplate.SortType = this.SortType;
+            viewModel.LoadVideosCommand.Execute(null);
         }
+
+        public VideosPage() : this(new VideosViewModel()) { }
         private void MyBanner_AdsLoaded(object sender, EventArgs e)
         {
             if (Device.Idiom == TargetIdiom.Phone)

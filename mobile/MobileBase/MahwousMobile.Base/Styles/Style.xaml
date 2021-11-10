@@ -12,11 +12,13 @@
     <Style TargetType="Label">
         <Setter Property="TextColor" Value="{DynamicResource colForeground}" />
         <Setter Property="FontFamily" Value="Janna" />
+        <Setter Property="FontSize" Value="Micro" />
 
     </Style>
     <Style TargetType="Span">
         <Setter Property="TextColor" Value="{DynamicResource colForeground}" />
         <Setter Property="FontFamily" Value="Janna" />
+        <Setter Property="FontSize" Value="Micro" />
     </Style>
     <Style TargetType="ContentPage"  ApplyToDerivedTypes="True">
         <Setter Property="Visual" Value="Material" />
@@ -24,7 +26,10 @@
     </Style>
 
     <Style TargetType="Button">
+        <Setter Property="TextColor" Value="{DynamicResource colForeground}" />
         <Setter Property="Padding" Value="0" />
+        <Setter Property="FontSize" Value="Micro" />
+        <Setter Property="FontFamily" Value="Janna" />
     </Style>
 
     <Style x:Key="FloutItemStyle" TargetType="Grid">

@@ -60,7 +60,7 @@
     <AndroidSigningStorePass>Bb2274659</AndroidSigningStorePass>
     <AndroidSigningKeyAlias>Mahwous</AndroidSigningKeyAlias>
     <AndroidSigningKeyPass>Bb2274659</AndroidSigningKeyPass>
-    <AndroidPackageFormat>aab</AndroidPackageFormat>
+    <AndroidPackageFormat>apk</AndroidPackageFormat>
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>

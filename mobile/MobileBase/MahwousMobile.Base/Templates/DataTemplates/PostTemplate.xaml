@@ -4,12 +4,17 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             Margin="5"
              x:Class="MahwousMobile.Base.Templates.DataTemplates.PostTemplate">
   <ContentView.Content>
-        <Frame Margin="1, 1" BackgroundColor="{DynamicResource colSubBackground}" CornerRadius="5" Padding="0">
+        <Frame 
+            BorderColor="{DynamicResource colForeground}"
+            Margin="15, 10"
+            CornerRadius="5" 
+            Padding="5">
 
             <StackLayout Orientation="Vertical">
-                <Image Source="{Binding ImagePath}"
+                <Image Source="{Binding CoverPath}"
                                        HorizontalOptions="FillAndExpand"
                                        VerticalOptions="FillAndExpand"
                                        Aspect="AspectFill"

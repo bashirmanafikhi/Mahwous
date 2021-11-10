@@ -17,7 +17,7 @@ namespace MahwousMobile.Base.ViewModels
 
         public QuoteStatus Quote => quote;
 
-
+        public QuotesViewModel QuotesViewModel { get; set; }
         public QuoteViewModel(Mahwous.Core.Entities.QuoteStatus quote)
         {
             var config = new MapperConfiguration(cfg =>
@@ -34,6 +34,8 @@ namespace MahwousMobile.Base.ViewModels
             ShareQuoteCommand = new Command(async () => await ExecuteShareQuoteCommand());
             ShareQuoteWhatsCommand = new Command(async () => await ExecuteShareQuoteWhatsCommand());
             ShareQuoteFaceCommand = new Command(async () => await ExecuteShareQuoteFaceCommand());
+
+            QuotesViewModel = new QuotesViewModel();
 
             //Repositories.QuoteStatusRepository.IncrementViews(Quote.Id).ConfigureAwait(false);
 
@@ -187,7 +189,6 @@ namespace MahwousMobile.Base.ViewModels
         private async Task ExecuteShareQuoteWhatsCommand()
         {
             Quote.DownloadsCount++;
-            DependencyService.Get<IMessage>().ShortAlert("مازلنا نعمل على برمجة هذا الزر");
             await Share.RequestAsync(new ShareTextRequest
             {
                 Text = quote.Content,
@@ -198,7 +199,6 @@ namespace MahwousMobile.Base.ViewModels
         private async Task ExecuteShareQuoteFaceCommand()
         {
             Quote.DownloadsCount++;
-            DependencyService.Get<IMessage>().ShortAlert("مازلنا نعمل على برمجة هذا الزر");
             await Share.RequestAsync(new ShareTextRequest
             {
                 Text = quote.Content,

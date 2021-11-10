@@ -30,13 +30,13 @@
                     HorizontalOptions="FillAndExpand"
                         VerticalTextAlignment="Center" />
 
-                <Label
+                <!--<Label
                         Text="{Binding StatusCount}"
                         FontAttributes="Bold"
                         TextColor="{DynamicResource colRed}"
-                        FontSize="Body"
+                        FontSize="Micro"
                     HorizontalOptions="End"
-                        VerticalTextAlignment="Center" />
+                        VerticalTextAlignment="Center" />-->
                 </StackLayout>
 
                 <!--<StackLayout Orientation="Horizontal">

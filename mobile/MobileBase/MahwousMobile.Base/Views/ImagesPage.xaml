@@ -32,8 +32,23 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
+        <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding LoadImagesCommand}">
 
-        <templates:ImagesTemplate x:Name="myImagesTemplate" />
+            <StackLayout>
+                <CollectionView x:Name="ItemsCollectionView"
+                            Scrolled="CollectionView_OnScrolled"
+                            RemainingItemsThreshold="{Binding ItemTreshold}"
+                            RemainingItemsThresholdReachedCommand="{Binding LoadMoreImagesCommand}"
+                            ItemTemplate="{DataTemplate templates:ImageTemplate}"
+                            ItemsSource="{Binding Images}">
+
+                </CollectionView>
+                <ActivityIndicator IsVisible="{Binding IsLoadingMore}" IsRunning="{Binding IsLoadingMore}"
+                       Color="{DynamicResource colRed}"/>
+
+
+            </StackLayout>
+        </RefreshView>
 
         <controls:MTAdView BackgroundColor="{DynamicResource colBackground}" x:Name="myBanner" AdsId="{x:Static helpers:Settings.BannerAdKey}" Grid.Row="1"/>
 

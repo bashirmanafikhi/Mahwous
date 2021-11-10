@@ -5,7 +5,7 @@
              xmlns:helpers="clr-namespace:MahwousMobile.Base.Helpers"
              HeightRequest="150">
 
-    <Grid BackgroundColor="{StaticResource colYellow}">
+    <Grid BackgroundColor="{DynamicResource colYellow}">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />

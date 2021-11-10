@@ -17,6 +17,7 @@ namespace MahwousMobile.Base.ViewModels
         readonly VideoStatus video;
 
         public VideoStatus Video => video;
+        public VideosViewModel VideosViewModel { get; set; }
 
         public VideoViewModel(Mahwous.Core.Entities.VideoStatus video)
         {
@@ -32,6 +33,8 @@ namespace MahwousMobile.Base.ViewModels
             DownloadVideoCommand = new Command(async () => await ExecuteDownloadVideoCommand());
             ShareVideoCommand = new Command(async () => await ExecuteShareVideoCommand());
             ToggleLikeCommand = new Command(async () => await ExecuteToggleLikeCommand());
+
+            VideosViewModel = new VideosViewModel();
 
             MahwousSqliteDB<VideoStatus> database = new MahwousSqliteDB<VideoStatus>();
             Liked = database.Exists(Video);

@@ -80,7 +80,7 @@
                 <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Home}" FontFamily="FA-S" />
             </Tab.Icon>
             <ShellContent>
-                <views:HomePage StatusType="Quote" />
+                <views:HomePage StatusType="Quote"  IsShortcutsVisible="False" />
             </ShellContent>
         </Tab>
 

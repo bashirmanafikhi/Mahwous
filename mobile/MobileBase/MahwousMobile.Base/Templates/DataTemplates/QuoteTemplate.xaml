@@ -42,7 +42,7 @@
                        d:Text="مرحباً بالعالم" 
                        TextColor="{DynamicResource colForeground}"
                        Margin="0"
-                       FontSize="Body"
+                       FontSize="Micro"
                        HorizontalOptions="Center"/>
 
                     <Grid IsVisible="{Binding IsControlsVisible}" HorizontalOptions="CenterAndExpand" HeightRequest="30">

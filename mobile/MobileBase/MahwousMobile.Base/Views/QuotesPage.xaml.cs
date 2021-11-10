@@ -19,18 +19,21 @@ namespace MahwousMobile.Base.Views
             set
             {
                 sortType = value;
+
+                if (viewModel != null)
+                    viewModel.SortType = value;
             }
         }
 
-        readonly QuotesViewModel viewModel;
+        private readonly QuotesViewModel viewModel;
 
         public QuotesPage(QuotesViewModel viewModel)
         {
             InitializeComponent();
             myBanner.AdsLoaded += MyBanner_AdsLoaded;
 
-
             BindingContext = this.viewModel = viewModel;
+            //viewModel.LoadQuotesCommand.Execute(null);
 
             viewModel.QuotesFinished += OnQuotesFinished;
 
@@ -44,13 +47,7 @@ namespace MahwousMobile.Base.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
-            if (myQuotesTemplate.QuotesCount == 0 && viewModel.Filter.CategoryIds.Count > 0)
-            {
-                myQuotesTemplate.SetCategories(viewModel.Filter.CategoryIds.ToArray());
-            }
-
-            myQuotesTemplate.SortType = this.SortType;
+            viewModel.LoadQuotesCommand.Execute(null);
         }
         private void MyBanner_AdsLoaded(object sender, EventArgs e)
         {

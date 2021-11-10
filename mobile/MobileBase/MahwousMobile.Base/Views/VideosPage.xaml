@@ -3,22 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:templates="clr-namespace:MahwousMobile.Base.Templates.DataTemplates"
              xmlns:vm="clr-namespace:MahwousMobile.Base.ViewModels" 
              xmlns:helpers="clr-namespace:MahwousMobile.Base.Helpers"
+             xmlns:templates="clr-namespace:MahwousMobile.Base.Templates.DataTemplates"
              xmlns:controls="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              mc:Ignorable="d"
              x:Class="MahwousMobile.Base.Views.VideosPage"
              Visual="Material"
              Title="{Binding Title}">
 
-
-
-
     <ContentPage.BindingContext>
         <vm:VideosViewModel />
     </ContentPage.BindingContext>
-
 
     <!--<Shell.SearchHandler>
         <helpers:VideoSearchHandler Placeholder="أدخل كلمة للبحث"
@@ -32,14 +28,22 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
+        <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding LoadVideosCommand}">
 
-        <templates:VideosTemplate x:Name="myVideosTemplate" />
+            <StackLayout>
+                <CollectionView x:Name="ItemsCollectionView"
+                            RemainingItemsThreshold="{Binding ItemTreshold}"
+                            RemainingItemsThresholdReachedCommand="{Binding LoadMoreVideosCommand}"
+                            ItemTemplate="{DataTemplate templates:VideoTemplate}"
+                            ItemsSource="{Binding Videos}">
 
+                </CollectionView>
+                <ActivityIndicator IsVisible="{Binding IsLoadingMore}" IsRunning="{Binding IsLoadingMore}"
+                       Color="{DynamicResource colRed}"/>
 
-
-        <!--تجريب-->
-        <!--<controls:MTAdView BackgroundColor="{DynamicResource colBackground}" x:Name="myBanner" AdsId="ca-app-pub-3940256099942544/6300978111" Grid.Row="1"/>-->
-        <!--حقيقي-->
+            </StackLayout>
+        </RefreshView>
+        
         <controls:MTAdView BackgroundColor="{DynamicResource colBackground}" x:Name="myBanner" AdsId="{x:Static helpers:Settings.BannerAdKey}" Grid.Row="1"/>
 
     </Grid>

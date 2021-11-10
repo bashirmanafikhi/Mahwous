@@ -28,7 +28,7 @@
         Grid.Column="1"
         Padding="5, 0, 5, 0"
         VerticalOptions="Center"
-        FontSize="Body"
+        FontSize="Micro"
         HorizontalOptions="StartAndExpand"
         Text="{Binding Title}"/>
 

@@ -4,6 +4,7 @@ using MahwousMobile.Base.Views;
 using MarcTron.Plugin;
 using System;
 using System.Linq;
+using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -29,7 +30,6 @@ namespace MahwousMobile.Base.Templates.DataTemplates
 
             VideoViewModel viewModel = new VideoViewModel(video);
             VideoPage page = new VideoPage(viewModel);
-
 
             var previousPage = Navigation.NavigationStack.LastOrDefault();
             await Navigation.PushAsync(page);

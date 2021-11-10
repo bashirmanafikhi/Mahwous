@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:mm="clr-namespace:MediaManager.Forms;assembly=MediaManager.Forms"
              xmlns:templates="clr-namespace:MahwousMobile.Base.Templates.DataTemplates"
              xmlns:styles="clr-namespace:MahwousMobile.Base.Styles;assembly=MahwousMobile.Base" xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              mc:Ignorable="d"
@@ -79,9 +78,9 @@
 
             <Grid>
 
-                <xct:MediaElement Source="{Binding Video.VideoPath}" HeightRequest="400" AutoPlay="True" KeepScreenOn="True" BackgroundColor="{DynamicResource colBlack}"/>
+                <xct:MediaElement x:Name="mediaElement" Source="{Binding Video.VideoPath}" HeightRequest="400" AutoPlay="True" KeepScreenOn="True" BackgroundColor="{DynamicResource colBlack}"/>
             
-                <!--<ActivityIndicator x:Name="loadingIndicator" IsRunning="True" IsVisible="true" HorizontalOptions="Center" VerticalOptions="Center" Color="{DynamicResource colRed}"/>-->
+                <ActivityIndicator x:Name="loadingIndicator" IsRunning="True" IsVisible="true" HorizontalOptions="Center" VerticalOptions="Center" Color="{DynamicResource colRed}"/>
             
             </Grid>
 
@@ -106,8 +105,22 @@
                 
             </Frame>
 
-            <templates:VideosTemplate HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="myVideosTemplate" SortType="Random" />
+            <RefreshView IsRefreshing="{Binding VideosViewModel.IsBusy, Mode=TwoWay}" Command="{Binding VideosViewModel.LoadVideosCommand}">
 
+                <StackLayout>
+                    <CollectionView x:Name="ItemsCollectionView"
+                            RemainingItemsThreshold="{Binding VideosViewModel.ItemTreshold}"
+                            RemainingItemsThresholdReachedCommand="{Binding VideosViewModel.LoadMoreVideosCommand}"
+                            ItemTemplate="{DataTemplate templates:VideoTemplate}"
+                            ItemsSource="{Binding VideosViewModel.Videos}">
+
+                    </CollectionView>
+                    <ActivityIndicator IsVisible="{Binding VideosViewModel.IsLoadingMore}" IsRunning="{Binding VideosViewModel.IsLoadingMore}"
+                       Color="{DynamicResource colRed}"/>
+
+
+                </StackLayout>
+            </RefreshView>
 
         </StackLayout>
     </ContentPage.Content>

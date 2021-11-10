@@ -22,7 +22,7 @@ namespace MahwousMobile.Base
             }
             catch (System.Exception ex)
             {
-                DependencyService.Get<IMessage>().LongAlert("Parent: " + ex.Message);
+                DependencyService.Get<IMessage>().LongAlert("Parent: " + ex.ToString());
             }
         }
 
@@ -46,14 +46,23 @@ namespace MahwousMobile.Base
 
         private void RegisterServices()
         {
-            var url = Settings.Configuration.UrlBase;
-            DependencyService.RegisterSingleton<IChatService>(new ChatService(url));
-            DependencyService.RegisterSingleton(new MahwousRepositories(url));
-            var token = Settings.Token;
-            if (token != null)
+            try
             {
-                var repos = DependencyService.Get<MahwousRepositories>();
-                repos.Token = token;
+                var url = Settings.Configuration.UrlBase;
+                DependencyService.RegisterSingleton<IChatService>(new ChatService(url));
+                DependencyService.RegisterSingleton(new MahwousRepositories(url));
+                var token = Settings.Token;
+                if (token != null)
+                {
+                    var repos = DependencyService.Get<MahwousRepositories>();
+                    repos.Token = token;
+                }
+
+                DependencyService.Get<IMessage>().LongAlert("RegisterServices Succeed");
+            }
+            catch (System.Exception ex)
+            {
+                DependencyService.Get<IMessage>().LongAlert("RegisterServices"  + ex.Message);
             }
         }
 

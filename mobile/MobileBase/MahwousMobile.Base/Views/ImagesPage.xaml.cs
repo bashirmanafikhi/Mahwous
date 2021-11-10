@@ -19,6 +19,9 @@ namespace MahwousMobile.Base.Views
             set
             {
                 sortType = value;
+
+                if (viewModel != null)
+                    viewModel.SortType = value;
             }
         }
 
@@ -38,20 +41,14 @@ namespace MahwousMobile.Base.Views
                 CrossMTAdmob.Current.LoadInterstitial(Settings.InterstitialAdKey);
 
         }
-
-        public ImagesPage() : this(new ImagesViewModel()) { }
-
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
-            if (myImagesTemplate.ImagesCount == 0 && viewModel.Filter.CategoryIds.Count > 0)
-            {
-                myImagesTemplate.SetCategories(viewModel.Filter.CategoryIds.ToArray());
-            }
-
-            myImagesTemplate.SortType = this.SortType;
+            viewModel.LoadImagesCommand.Execute(null);
         }
+
+        public ImagesPage() : this(new ImagesViewModel()) { }
+
         private void MyBanner_AdsLoaded(object sender, EventArgs e)
         {
             if (Xamarin.Forms.Device.Idiom == TargetIdiom.Phone)
@@ -63,7 +60,23 @@ namespace MahwousMobile.Base.Views
                 myBanner.HeightRequest = 90;
             }
         }
+        private void CollectionView_OnScrolled(object sender, ItemsViewScrolledEventArgs e)
+        {
+            if (Device.RuntimePlatform != Device.UWP)
+            {
+                return;
+            }
 
+            if (sender is CollectionView cv)
+            {
+                var count = cv.ItemsSource.Cast<object>().Count();
+                if (e.LastVisibleItemIndex + 1 - count + cv.RemainingItemsThreshold >= 0)
+                {
+                    if (cv.RemainingItemsThresholdReachedCommand.CanExecute(null))
+                        cv.RemainingItemsThresholdReachedCommand.Execute(null);
+                }
+            }
+        }
         private void OnImagesFinished(object sender, EventArgs e)
         {
             DisplayAlert("تنبيه", "انتهت الحالات في هذا التصنيف", "حسناً");

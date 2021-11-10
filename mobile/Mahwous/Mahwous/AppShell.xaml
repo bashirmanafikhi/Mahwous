@@ -8,18 +8,15 @@
              xmlns:styles="clr-namespace:MahwousMobile.Base.Styles;assembly=MahwousMobile.Base"
              Visual="Material"
              mc:Ignorable="d"
-             xmlns:ShellTemplate="clr-namespace:MahwousMobile.Base.Templates.ShellTemplates;assembly=MahwousMobile.Base" 
-             FlyoutHeaderTemplate="{DataTemplate ShellTemplate:FlyoutHeaderTemplate}"
+             xmlns:ShellTemplate="clr-namespace:MahwousMobile.Base.Templates.ShellTemplates;assembly=MahwousMobile.Base" xmlns:mahwous="clr-namespace:Mahwous"
+            FlyoutHeaderTemplate="{DataTemplate ShellTemplate:FlyoutHeaderTemplate}"
              ItemTemplate="{DataTemplate ShellTemplate:FlyoutItemTemplate}"
              MenuItemTemplate="{DataTemplate ShellTemplate:FlyoutMenuItemTemplate}"
              x:Class="Mahwous.AppShell"
              FlyoutBackgroundColor="{DynamicResource colBackground}" >
 
-
-    <!--#region SHELL RESOURCES-->
     <Shell.Resources>
 
-        <!--#region SHELL STYLES-->
         <Style
             x:Key="BaseStyle"
             TargetType="Element"
@@ -57,14 +54,23 @@
 
     </Shell.Resources>
 
-    <FlyoutItem Title="الصور" FlyoutDisplayOptions="AsSingleItem">
+
+    <ShellContent Title="الصفحة الرئيسية" Route="HomePage">
+        <ShellContent.Icon>
+            <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Home}" FontFamily="FA-S" />
+        </ShellContent.Icon>
+        <!--<mahwous:AppHome />-->
+        <views:HomePage StatusType="{x:Null}" />
+    </ShellContent>
+
+    <FlyoutItem Title="الصور" FlyoutDisplayOptions="AsMultipleItems" Route="Images">
 
         <FlyoutItem.Icon>
             <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Image}" FontFamily="FA-S" />
         </FlyoutItem.Icon>
 
 
-        <Tab Title="الصور">
+        <Tab Title="الصور" Route="ImagesPage">
 
             <Tab.Icon>
                 <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.QuoteRight}" FontFamily="FA-S" />
@@ -131,7 +137,7 @@
 
     </FlyoutItem>
 
-    <FlyoutItem Title="الفيديو" FlyoutDisplayOptions="AsSingleItem" >
+    <FlyoutItem Title="الفيديو" FlyoutDisplayOptions="AsMultipleItems" Route="Videos">
 
         <FlyoutItem.Icon>
             <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Video}" FontFamily="FA-S" />
@@ -139,7 +145,7 @@
 
 
 
-        <Tab Title="فيديوهات">
+        <Tab Title="فيديوهات" Route="VideosPage">
 
             <Tab.Icon>
                 <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.QuoteRight}" FontFamily="FA-S" />
@@ -205,13 +211,13 @@
 
     </FlyoutItem>
 
-    <FlyoutItem Title="حالات كتابية" FlyoutDisplayOptions="AsSingleItem" >
+    <FlyoutItem Title="حالات كتابية" FlyoutDisplayOptions="AsMultipleItems" Route="Quotes">
 
         <FlyoutItem.Icon>
             <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.QuoteRight}" FontFamily="FA-S" />
         </FlyoutItem.Icon>
 
-        <Tab Title="حالات كتابية">
+        <Tab Title="حالات كتابية" Route="QuotesPage">
 
             <Tab.Icon>
                 <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.QuoteRight}" FontFamily="FA-S" />
@@ -277,13 +283,12 @@
 
     </FlyoutItem>
 
-    <FlyoutItem Title="الصفحة الرئيسية" FlyoutDisplayOptions="AsMultipleItems">
+    <FlyoutItem Title="الصفحة الرئيسية" FlyoutDisplayOptions="AsMultipleItems" Route="Other">
         <!--<FlyoutItem.Icon>
             <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Home}" FontFamily="FA-S" />
-        </FlyoutItem.Icon>-->
+        </FlyoutItem.Icon>
 
-
-        <!--<Tab  Title="الرئيسية">
+        <Tab  Title="الرئيسية">
             <Tab.Icon>
                 <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Home}" FontFamily="FA-S" />
             </Tab.Icon>
@@ -292,16 +297,16 @@
             </ShellContent>
         </Tab>-->
 
-        <Tab  Title="غرف الدردشة">
+        <Tab  Title="غرف الدردشة" Route="ChatRoomsPage">
             <Tab.Icon>
-                <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Comments}" FontFamily="FA-S" />
+                <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Comment}" FontFamily="FA-S" />
             </Tab.Icon>
             <ShellContent>
                 <views:ChatRoomsPage />
             </ShellContent>
         </Tab>
 
-        <Tab  Title="تطبيقاتنا">
+        <Tab  Title="تطبيقاتنا" Route="AppsPage">
             <Tab.Icon>
                 <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.ThLarge}" FontFamily="FA-S" />
             </Tab.Icon>
@@ -310,7 +315,7 @@
             </ShellContent>
         </Tab>
 
-        <Tab  Title="الأخبار">
+        <Tab  Title="الأخبار" Route="PostsPage">
             <Tab.Icon>
                 <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Newspaper}" FontFamily="FA-S" />
             </Tab.Icon>
@@ -319,7 +324,7 @@
             </ShellContent>
         </Tab>
 
-        <Tab  Title="من نحن">
+        <Tab  Title="من نحن" Route="AboutPage">
             <Tab.Icon>
                 <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Question}" FontFamily="FA-S" />
             </Tab.Icon>
@@ -329,7 +334,6 @@
         </Tab>
     </FlyoutItem>
 
-    
     <FlyoutItem Title="حالات اعجبتك" >
 
         <FlyoutItem.Icon>
@@ -368,18 +372,15 @@
 
     </FlyoutItem>
 
-    <!--<FlyoutItem Title="اخبار مهووس"
-                FlyoutDisplayOptions="AsSingleItem">
-
-        <FlyoutItem.Icon>
-            <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Newspaper}" FontFamily="FA-S" />
-        </FlyoutItem.Icon>
 
 
-        
 
-    </FlyoutItem>-->
-
+        <ShellContent Title="الإعدادات">
+            <ShellContent.Icon>
+                <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Cogs}" FontFamily="FA-S" />
+            </ShellContent.Icon>
+            <views:SettingsPage />
+        </ShellContent>
 
     <MenuItem Text="تقييم التطبيق" Clicked="MenuItem_Rate_Clicked" >
         <MenuItem.IconImageSource>
