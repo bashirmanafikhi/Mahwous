@@ -1,0 +1,13 @@
+﻿@page "/administration/quotes"
+@layout AdminLayout
+@attribute [Authorize]
+@using Mahwous.UI.Pages.Quotes
+
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="">الصفحة الرئيسية</a></li>
+    <li class="breadcrumb-item"><a href="administration">الإدارة</a></li>
+    <li class="breadcrumb-item active">الحالات الكتابية</li>
+</ol>
+
+<QuotesComponent />

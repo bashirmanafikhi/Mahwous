@@ -1,0 +1,14 @@
+﻿@page "/administration/videos"
+@layout AdminLayout
+@attribute [Authorize]
+@using Mahwous.UI.Pages.Videos
+
+
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="">الصفحة الرئيسية</a></li>
+        <li class="breadcrumb-item"><a href="administration">الإدارة</a></li>
+        <li class="breadcrumb-item active">الفيديوهات</li>
+    </ol>
+
+
+    <VideosComponent />

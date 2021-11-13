@@ -1,0 +1,115 @@
+﻿@using System.IO
+@inject IJSRuntime js
+
+
+<EditForm Model="Category" OnValidSubmit="@OnDataAnnotationsValidated">
+
+    <DataAnnotationsValidator />
+
+    <div class="form-group">
+        <label for="Name">الإسم:</label>
+        <div>
+            <InputText @bind-Value="Category.Name" />
+            <span class="text-danger"><ValidationMessage For="@(() => Category.Name)" /></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>صورة</label>
+        <InputFile OnChange="OnChooseFile" accept=".jpg,.jpeg,.png" />
+        <span class="text-danger"><ValidationMessage For="@(() => Category.CoverPath)" /></span>
+    </div>
+    @if (Category.CoverPath != null)
+    {
+        <div>
+            <div style="margin:10px">
+                <img src="@Category.CoverPath" style="width: 400px;" />
+            </div>
+        </div>
+    }
+
+
+
+    <div class="form-check">
+        <InputCheckbox @bind-Value="Category.ForQuotes" />
+        <label class="form-check-label" for="ForQuotes">للكتابية</label>
+        <span class="text-danger"><ValidationMessage For="@(() => Category.ForQuotes)" /></span>
+    </div>
+    <div class="form-check">
+        <InputCheckbox @bind-Value="Category.ForVideos" />
+        <label class="form-check-label" for="ForVideos">للفيديو</label>
+        <span class="text-danger"><ValidationMessage For="@(() => Category.ForVideos)" /></span>
+    </div>
+    <div class="form-check">
+        <InputCheckbox @bind-Value="Category.ForImages" />
+        <label class="form-check-label" for="ForImages">للصور</label>
+        <span class="text-danger"><ValidationMessage For="@(() => Category.ForImages)" /></span>
+    </div>
+
+
+    <div class="form-check">
+        <InputCheckbox @bind-Value="Category.IsHidden" />
+        <label class="form-check-label" for="Visible">مخفي</label>
+        <span class="text-danger"><ValidationMessage For="@(() => Category.IsHidden)" /></span>
+    </div>
+
+
+
+
+    <br />
+
+    <a href="administration/categories" class="btn btn-danger">
+        رجوع
+    </a>
+
+    <button type="submit" class="btn btn-info">
+        @ButtonText
+    </button>
+
+</EditForm>
+
+@code {
+
+    [Parameter] public Category Category { get; set; }
+    [Parameter] public string ButtonText { get; set; } = "حفظ التصنيف";
+    [Parameter] public EventCallback<Stream> OnValidSubmit { get; set; }
+
+    private async Task OnDataAnnotationsValidated()
+    {
+        if (imageFile == null && Category.CoverPath == null)
+        {
+            await js.DisplayMessage("خطء", "صورة التصنيف مطلوبة", SweetAlertMessageType.error);
+            return;
+        }
+
+        await OnValidSubmit.InvokeAsync(imageFile);
+    }
+
+    Stream imageFile;
+    public async void OnChooseFile(InputFileChangeEventArgs e)
+    {
+        try
+        {
+            // Get the selected file
+            var file = e.File;
+
+            // Check if the file is null then return from the method
+            if (file == null)
+                return;
+
+            // Validate the extension if requried (Client-Side)
+
+            // Set the value of the stream by calling OpenReadStream and pass the maximum number of bytes allowed because by default it only allows 512KB
+            // I used the value 2560000 which is about 2.5 MB
+            using (var stream = file.OpenReadStream(2560000))
+            {
+                imageFile = stream;
+                var fileName = file.Name;
+            }
+        }
+        catch (Exception ex)
+        {
+            await js.DisplayMessage(ex.Message + "\n ملاحظة: حجم الصورة ما لازم يتجاوز ال2 ميغا ونص");
+        }
+    }
+}

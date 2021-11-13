@@ -1,0 +1,129 @@
+﻿
+@inject IJSRuntime js
+@inject NavigationManager navigation
+@inject MahwousRepositories repositories
+@using Mahwous.Service.ViewModels.MobileApps
+
+
+
+
+<div class="container">
+    <AuthorizeView>
+        <Authorized>
+            <a href="administration/apps/create" class="btn btn-primary btn-block mb-3">اضافة تطبيق جديد</a>
+        </Authorized>
+    </AuthorizeView>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <Pagination CurrentPage="@pagination.PageIndex" TotalAmountPages="totalAmountPages"
+                                SelectedPage="SelectedPage" />
+                </div>
+
+                <div class="card-body">
+
+                    <div>
+
+                        @if (apps == null)
+                        {
+                            <p>جاري تحميل التطبيقات...</p>
+                        }
+                        else if (apps.Count == 0)
+                        {
+                            <p> لا يوجد تطبيقات! </p>
+                        }
+                        else
+                        {
+                            <div class="card-columns">
+                                @foreach (var app in apps)
+                                {
+                                    <div class="card">
+                                        <a href="apps/@app.Id" class="text-dark card-text">
+                                            <div class="card-header p-0">
+                                                <img src="@app.CoverPath" style="height:auto; width:100%; object-fit:cover" />
+                                            </div>
+                                            <div class="card-body">
+                                                <h4 class="card-title">@app.Name</h4>
+                                            </div>
+                                        </a>
+                                        <AuthorizeView>
+                                            <Authorized>
+                                                <div class="card-footer">
+                                                    <div class="stats">
+                                                        <button class="btn btn-danger" @onclick="@(() => DeleteApp(app.Id))">حذف</button>
+                                                        <a class="btn btn-info" href="administration/apps/edit/@app.Id">تعديل</a>
+                                                    </div>
+                                                </div>
+                                            </Authorized>
+                                        </AuthorizeView>
+                                    </div>
+                                }
+
+                            </div>
+                        }
+                    </div>
+
+                </div>
+
+                <div class="card-footer">
+                    <Pagination CurrentPage="@pagination.PageIndex" TotalAmountPages="totalAmountPages"
+                                SelectedPage="SelectedPage" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@code {
+
+    ICollection<MobileApp> apps { get; set; }
+
+    PaginationDetails pagination = new PaginationDetails();
+    int totalAmountPages;
+
+
+    protected async override Task OnInitializedAsync()
+    {
+        //await authorizer.SetAuthorizationAsync();
+        await LoadApps();
+    }
+
+    async Task LoadApps()
+    {
+        try
+        {
+            SearchMobileAppsQuery query = new SearchMobileAppsQuery();
+            query.Pagination = pagination;
+            var response = await repositories.MobileAppsRepository.Search(query);
+            apps = response.Items.ToList();
+            totalAmountPages = response.TotalPages;
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
+        }
+    }
+
+    async Task DeleteApp(int appId)
+    {
+        var app = apps.First(x => x.Id == appId);
+        if (await js.Confirm("تأكيد", $"هل أنت متأكد أنك تريد أن تحذف {app.Name} ؟", SweetAlertMessageType.error))
+        {
+            await repositories.MobileAppsRepository.Delete(appId);
+            await LoadApps();
+        }
+    }
+
+    private async Task SelectedPage(int page)
+    {
+        pagination.PageIndex = page;
+        await LoadApps();
+    }
+}

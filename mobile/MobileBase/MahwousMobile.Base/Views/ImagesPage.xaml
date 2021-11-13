@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:templates="clr-namespace:MahwousMobile.Base.Templates.DataTemplates"
+             xmlns:vm="clr-namespace:MahwousMobile.Base.ViewModels" 
+             xmlns:helpers="clr-namespace:MahwousMobile.Base.Helpers"
+             xmlns:controls="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
+             mc:Ignorable="d"
+             x:Class="MahwousMobile.Base.Views.ImagesPage"
+             Visual="Material"
+             Title="{Binding Title}">
+
+
+
+
+    <ContentPage.BindingContext>
+        <vm:ImagesViewModel />
+    </ContentPage.BindingContext>
+
+
+    <!--<Shell.SearchHandler>
+        <helpers:ImageSearchHandler Placeholder="أدخل كلمة للبحث"
+                                      ShowsResults="True"
+                                      DisplayMemberName="Content" />
+    </Shell.SearchHandler>-->
+
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding LoadImagesCommand}">
+
+            <StackLayout>
+                <CollectionView x:Name="ItemsCollectionView"
+                            Scrolled="CollectionView_OnScrolled"
+                            RemainingItemsThreshold="{Binding ItemTreshold}"
+                            RemainingItemsThresholdReachedCommand="{Binding LoadMoreImagesCommand}"
+                            ItemTemplate="{DataTemplate templates:ImageTemplate}"
+                            ItemsSource="{Binding Images}">
+
+                </CollectionView>
+                <ActivityIndicator IsVisible="{Binding IsLoadingMore}" IsRunning="{Binding IsLoadingMore}"
+                       Color="{DynamicResource colRed}"/>
+
+
+            </StackLayout>
+        </RefreshView>
+
+        <controls:MTAdView BackgroundColor="{DynamicResource colBackground}" x:Name="myBanner" AdsId="{x:Static helpers:Settings.BannerAdKey}" Grid.Row="1"/>
+
+    </Grid>
+
+</ContentPage>

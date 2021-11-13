@@ -1,0 +1,80 @@
+﻿@using System.IO
+
+
+    <EditForm Model="Quote" OnValidSubmit="@OnDataAnnotationsValidated">
+
+        <DataAnnotationsValidator />
+
+        <div class="form-group">
+            <label for="Content">الحالة الكتابية:</label><br />
+            <RadzenTextArea Cols="30" Placeholder="اكتب الحالة هنا..." @bind-Value="@Quote.Content" />
+            @*<InputTextArea @bind-Value="Quote.Content" />*@
+            <ValidationMessage For="@(() => Quote.Content)" />
+        </div>
+
+
+
+
+        <div class="form-group">
+            <label for="Categories">التصنيفات:</label>
+            <div>
+                <MultipleSelector Selected="Selected" NoSelected="NotSelected"></MultipleSelector>
+            </div>
+        </div>
+
+
+
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="Visible" @bind="Quote.IsHidden" />
+            <label class="form-check-label" for="Visible">مخفي</label>
+        </div>
+
+        <br />
+
+
+        <a href="administration/quotes" class="btn btn-danger">
+            رجوع
+        </a>
+
+        <button type="submit" class="btn btn-info">
+            @ButtonText
+        </button>
+
+    </EditForm>
+
+@code {
+
+    
+    [Parameter] public QuoteStatus Quote { get; set; }
+    [Parameter] public string ButtonText { get; set; } = "حفظ الحالة";
+    [Parameter] public EventCallback OnValidSubmit { get; set; }
+
+
+    [Parameter] public List<Category> SelectedCategories { get; set; } = new List<Category>();
+    [Parameter] public List<Category> NotSelectedCategories { get; set; } = new List<Category>();
+
+
+    private List<MultipleSelectorModel> Selected = new List<MultipleSelectorModel>();
+    private List<MultipleSelectorModel> NotSelected = new List<MultipleSelectorModel>();
+
+
+    protected override void OnInitialized()
+    {
+        Selected = SelectedCategories.Select(x => new MultipleSelectorModel(x.Id.ToString(), x.Name)).ToList();
+        NotSelected = NotSelectedCategories.Select(x => new MultipleSelectorModel(x.Id.ToString(), x.Name)).ToList();
+    }
+
+    private async Task OnDataAnnotationsValidated()
+    {
+        Quote.Categories = Selected
+            .Select(x => new Category { Id = int.Parse(x.Key) }).ToList();
+
+
+        await OnValidSubmit.InvokeAsync(null);
+    }
+
+
+
+
+
+}

@@ -1,0 +1,38 @@
+﻿<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MahwousMobile.Base.Templates.ShellTemplates.FlyoutHeaderTemplate"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:helpers="clr-namespace:MahwousMobile.Base.Helpers"
+             HeightRequest="150">
+
+    <Grid BackgroundColor="{DynamicResource colYellow}">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Image HorizontalOptions="CenterAndExpand"
+               VerticalOptions="CenterAndExpand"
+               Aspect="AspectFill"
+               Source="{AppThemeBinding Light=TransparentBlack.png, Dark=TransparentWhite.png}" />
+
+        <xct:AvatarView Text="AZ" Source="avater.png" Grid.Column="1"
+                        HorizontalOptions="CenterAndExpand"
+               VerticalOptions="CenterAndExpand"
+               Aspect="AspectFill" >
+            <xct:AvatarView.GestureRecognizers>
+                <TapGestureRecognizer Tapped="GoToProfilePage" />
+            </xct:AvatarView.GestureRecognizers>
+        </xct:AvatarView>
+
+        <!--<Label Grid.Column="1"
+               Text="{x:Static helpers:Settings.AppTitle}"
+               TextColor="{DynamicResource colBlack}"
+               FontSize="Title"
+               FontAttributes="Bold"
+               HorizontalOptions="CenterAndExpand"
+               VerticalOptions="CenterAndExpand"/>-->
+        
+    </Grid>
+</ContentView>

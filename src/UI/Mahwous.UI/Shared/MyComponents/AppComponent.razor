@@ -1,0 +1,43 @@
+﻿
+@inject IJSRuntime js
+@inject MahwousRepositories repositories
+
+
+<a href="apps/@App.Id">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header p-0">
+                <img src="@App.CoverPath" style="height:auto; width:100%; object-fit:cover" />
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">@App.Name</h4>
+            </div>
+            <AuthorizeView>
+                <Authorized>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <button class="btn btn-danger" @onclick="@(() => DeleteApp(App.Id))">حذف</button>
+                            <a class="btn btn-info" href="administration/apps/edit/@App.Id">تعديل</a>
+                        </div>
+                    </div>
+                </Authorized>
+            </AuthorizeView>
+        </div>
+    </div>
+</a>
+
+@code {
+    [Parameter] public MobileApp App { get; set; }
+
+
+
+    async Task DeleteApp(int appId)
+    {
+        //var app = apps.First(x => x.Id == appId);
+        //if (await js.Confirm("تأكيد", $"هل أنت متأكد أنك تريد أن تحذف {app.Name} ؟", SweetAlertMessageType.error))
+        //{
+        //    await repositories.AppsRepository.Delete(appId);
+        //    await LoadApps();
+        //}
+    }
+}

@@ -1,0 +1,134 @@
+﻿
+
+@inject IJSRuntime js
+@inject NavigationManager navigation
+@inject MahwousRepositories repositories
+@using Mahwous.Service.ViewModels.Posts
+
+
+
+<div class="container">
+    <AuthorizeView>
+        <Authorized>
+            <a href="administration/posts/create" class="btn btn-primary btn-block mb-3">اضافة منشور جديد</a>
+        </Authorized>
+    </AuthorizeView>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <Pagination CurrentPage="@Pagination.PageIndex" TotalAmountPages="totalAmountPages"
+                                SelectedPage="SelectedPage" />
+                </div>
+
+                <div class="card-body">
+
+                    <div>
+
+                        @if (posts == null)
+                        {
+                            <p>جاري تحميل المنشورات...</p>
+                        }
+                        else if (posts.Count == 0)
+                        {
+                            <p> لا يوجد منشورات! </p>
+                        }
+                        else
+                        {
+
+                            <div class="card-columns">
+                                @foreach (var post in posts)
+                                {
+                                    <div class="card">
+                                        <a href="posts/@post.Id" class="text-dark card-text">
+                                            <div class="card-header p-0">
+                                                <img src="@post.CoverPath" style="height:auto; width:100%; object-fit:cover" />
+                                            </div>
+                                            <div class="card-body">
+                                                <h4 class="card-title">@post.Title</h4>
+                                                <pre class="card-text">@post.Content</pre>
+                                            </div>
+                                        </a>
+                                        <AuthorizeView>
+                                            <Authorized>
+                                                <div class="card-footer">
+                                                    <div class="stats">
+                                                        <button class="btn btn-danger" @onclick="@(() => DeletePost(post.Id))">حذف</button>
+                                                        <a class="btn btn-info" href="administration/posts/edit/@post.Id">تعديل</a>
+                                                    </div>
+                                                </div>
+                                            </Authorized>
+                                        </AuthorizeView>
+
+                                    </div>
+                                }
+                            </div>
+
+                        }
+                    </div>
+
+                </div>
+
+                <div class="card-footer">
+                    <Pagination CurrentPage="@Pagination.PageIndex" TotalAmountPages="totalAmountPages"
+                                SelectedPage="SelectedPage" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@code {
+
+    ICollection<Post> posts { get; set; }
+
+    PaginationDetails Pagination = new PaginationDetails();
+    int totalAmountPages;
+
+
+    protected async override Task OnInitializedAsync()
+    {
+        //await authorizer.SetAuthorizationAsync();
+        await LoadPosts();
+
+    }
+
+    async Task LoadPosts()
+    {
+        try
+        {
+            var query = new SearchPostsQuery();
+            query.Pagination = Pagination;
+            var response = await repositories.PostRepository.Search(query);
+            posts = response.Items.ToList();
+            totalAmountPages = response.TotalPages;
+
+            //var paginatedResponse = await repositories.PostsRepository.GetPaginated(Pagination);
+            //posts = paginatedResponse.Response;
+            //totalAmountPages = paginatedResponse.TotalPages;
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
+        }
+    }
+
+    async Task DeletePost(int postId)
+    {
+        var post = posts.First(x => x.Id == postId);
+        if (await js.Confirm("تأكيد", $"هل أنت متأكد أنك تريد أن تحذف هذا المنشور ؟", SweetAlertMessageType.error))
+        {
+            await repositories.PostRepository.Delete(postId);
+            await LoadPosts();
+        }
+    }
+
+    private async Task SelectedPage(int page)
+    {
+        Pagination.PageIndex = page;
+        await LoadPosts();
+    }
+}

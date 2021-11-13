@@ -1,0 +1,127 @@
+﻿@page "/chatRooms/{id:int}"
+@inject MahwousRepositories repositories
+@inject IChatService chatService
+@implements IDisposable
+
+
+<div class="container">
+    <div class="card my-4">
+
+        <div class="card-header">
+
+        </div>
+
+        <div class="card-body">
+            @if (chatRoom != null)
+            {
+                <div class="card text-center">
+                    <div class="card-header p-0">
+                        <img src="@chatRoom.CoverPath" style="height: auto; width: auto; max-height: 100%;  max-height: 260px; object-fit: cover" />
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">@chatRoom.Name - @chatService.State</h4>
+                        <hr />
+
+                        @* Messages  *@
+                        @foreach (var message in Messages)
+                        {
+                            <div class="@(message.IsOwnerMessage ? "bg-primary" :"bg-secondary") @(message.IsOwnerMessage ? "mr-5" :"ml-5") rounded rounded-2 m-4 p-2">
+                                @message.UserName <br />
+                                <span class="text-light"> @message.Message</span>
+                            </div>
+                        }
+
+                        @* ارسال الرسائل *@
+                        <form @onsubmit="SendMessage" class="row">
+                            <input class="col-10 rounded" placeholder="اكتب رسالتك.." @bind="Message" />
+                            <button type="submit" class="col-2 btn btn-danger">إرسال</button>
+                        </form>
+                    </div>
+
+
+
+                    <div class="card-footer">
+                        <AuthorizeView>
+                            <Authorized>
+                                <a class="btn btn-info" href="administration/chatRooms/edit/@chatRoom.Id">تعديل معلومات الغرفة </a>
+                            </Authorized>
+                        </AuthorizeView>
+                        <a class="btn btn-info" href="chatRooms">خروج من الغرفة</a>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <p><i class="fas fa-spin fa-spinner"></i> جاري تحميل غرفة الدردشة </p>
+            }
+        </div>
+
+        <div class="card-footer">
+
+        </div>
+
+    </div>
+</div>
+
+
+
+@code {
+    [Parameter] public int Id { get; set; }
+    public string UserName { get; set; }
+
+    ChatRoom chatRoom;
+
+    List<MessageModel> Messages { get; set; }
+    public string Message { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            await chatService.Connect();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+
+        Messages = new List<MessageModel>();
+        UserName = (new Random()).Next().ToString();
+    }
+
+    protected async override Task OnParametersSetAsync()
+    {
+        // Get Room Details
+        chatRoom = await repositories.ChatRoomRepository.GetDetails(Id);
+
+        // Subscribe Chate
+        chatService.ReceiveMessage(Id, GetMessage);
+    }
+
+    async void SendMessage()
+    {
+        await chatService.SendMessage(Id, UserName, Message);
+        AddMessage(UserName, Message, true);
+        Message = string.Empty;
+    }
+
+    private void GetMessage(string userName, string message)
+    {
+        AddMessage(userName, message, false);
+    }
+
+    private void AddMessage(string userName, string message, bool isOwner)
+    {
+        var messageModel = new MessageModel { IsOwnerMessage = isOwner, Message = message, UserName = userName };
+        Messages.Add(messageModel);
+
+        Message = string.Empty;
+        StateHasChanged();
+    }
+
+    void IDisposable.Dispose()
+    {
+        chatService.Disconnect();
+    }
+
+}

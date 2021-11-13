@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:MahwousMobile.Base.ViewModels" 
+             xmlns:views="clr-namespace:MahwousMobile.Base.Views" 
+             xmlns:templates="clr-namespace:MahwousMobile.Base.Templates.DataTemplates"
+             xmlns:styles="clr-namespace:MahwousMobile.Base.Styles;assembly=MahwousMobile.Base"
+             mc:Ignorable="d"
+             x:Class="MahwousMobile.Base.Views.QuotePage"
+             Title="تفاصيل الحالة">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="btnLikeStyle" TargetType="Button">
+                <Style.Triggers>
+                    <DataTrigger TargetType="Button" Binding="{Binding Liked}" Value="true">
+                        <Setter Property="ImageSource">
+                            <FontImageSource Size="Subtitle"  Color="Black" Glyph="{x:Static styles:SolidIcons.ThumbsUp}" FontFamily="FA-S" />
+                        </Setter>
+                    </DataTrigger>
+                    <DataTrigger TargetType="Button" Binding="{Binding Liked}" Value="false">
+                        <Setter Property="ImageSource">
+                            <FontImageSource Size="Subtitle"  Color="Black" Glyph="{x:Static styles:RegularIcons.ThumbsUp}" FontFamily="FA-R" />
+                        </Setter>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+
+    </ContentPage.Resources>
+
+    <!--<Shell.TitleView>
+        <ContentView>
+            <Label Text="قراءة الحالة" />
+        </ContentView>
+    </Shell.TitleView>-->
+
+    <ContentPage.Content>
+
+        <Frame Grid.Row="1" Padding="0" Margin="0,0,0,0" BackgroundColor="{DynamicResource colSubBackground}" HasShadow="False">
+
+                <!--<DataTemplates:QuotesTemplate x:Name="myQuotesTemplate"/>-->
+
+                <RefreshView IsRefreshing="{Binding QuotesViewModel.IsBusy, Mode=TwoWay}" Command="{Binding QuotesViewModel.LoadQuotesCommand}">
+
+                    <StackLayout>
+                        <CollectionView x:Name="ItemsCollectionView"
+                            RemainingItemsThreshold="2"                          
+                            ItemTemplate="{DataTemplate templates:QuoteTemplate}"
+                            RemainingItemsThresholdReachedCommand="{Binding QuotesViewModel.LoadMoreQuotesCommand}"
+                            ItemsSource="{Binding QuotesViewModel.Quotes}">
+                            <CollectionView.Header>
+
+                                <StackLayout BackgroundColor="{StaticResource colBlack}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+
+                                    <StackLayout>
+                                        <Frame Margin="25,10"
+                    CornerRadius="10"
+                   Padding="0"
+                    BackgroundColor="{DynamicResource colSubBackground}">
+
+                                            <StackLayout Orientation="Vertical">
+                                                <Label Text="{Binding Quote.Content}"
+                           Padding="10"
+                       d:Text="مرحباً بالعالم" 
+                       TextColor="{DynamicResource colForeground}"
+                       Margin="0"
+                       FontSize="Micro"
+                       HorizontalOptions="Center"/>
+
+                                                <Grid HorizontalOptions="CenterAndExpand" HeightRequest="30" ColumnSpacing="1" >
+
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Button Grid.Column="0" Style="{StaticResource Key=btnLikeStyle}" Padding="5, 0, 15, 5" VerticalOptions="Center" Text="{Binding LikesCount}" FontSize="Subtitle" BackgroundColor="{StaticResource colRed}" Command="{Binding ToggleLikeCommand}" />
+                                                    <Button Grid.Column="1" FontFamily="FA-R"  Text="{x:Static styles:SolidIcons.Copy}" FontSize="Subtitle" BackgroundColor="{StaticResource colRed}" Command="{Binding CoppyQuoteCommand}" />
+                                                    <Button Grid.Column="2" FontFamily="FA-S" Text="{x:Static styles:SolidIcons.ShareAlt}" FontSize="Subtitle" BackgroundColor="{StaticResource colRed}" Command="{Binding ShareQuoteCommand}" />
+                                                    <Button Grid.Column="3" FontFamily="FA-B" Text="{x:Static styles:BrandIcons.Whatsapp}" FontSize="Subtitle" BackgroundColor="{StaticResource colRed}" Command="{Binding ShareQuoteWhatsCommand}" />
+                                                    <Button Grid.Column="4" FontFamily="FA-B" Text="{x:Static styles:BrandIcons.FacebookF}" FontSize="Subtitle" BackgroundColor="{StaticResource colRed}" Command="{Binding ShareQuoteFaceCommand}" />
+
+                                                </Grid>
+                                            </StackLayout>
+
+
+
+                                        </Frame>
+                                    </StackLayout>
+
+                                    <Grid RowSpacing="0" HorizontalOptions="FillAndExpand">
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+
+
+                                        <Label Text="الإعجابات"
+                           TextColor="{DynamicResource colWhite}"
+                               Grid.Row="0"
+                                Grid.Column="0"
+                           HorizontalOptions="Center"/>
+                                        <Label Text="{Binding LikesCount}"
+                           TextColor="{DynamicResource colWhite}"
+                               Grid.Row="1"
+                                Grid.Column="0"
+                           HorizontalOptions="Center"/>
+
+                                        <Label Text="المشاركات"
+                           TextColor="{DynamicResource colWhite}"
+                               Grid.Row="0"
+                                Grid.Column="1"
+                           HorizontalOptions="Center"/>
+                                        <Label Text="{Binding DownloadsCount}"
+                           TextColor="{DynamicResource colWhite}"
+                               Grid.Row="1"
+                                Grid.Column="1"
+                           HorizontalOptions="Center"/>
+
+                                        <Label Text="المشاهدات"
+                           TextColor="{DynamicResource colWhite}"
+                               Grid.Row="0"
+                                Grid.Column="2"
+                           HorizontalOptions="Center"/>
+                                        <Label Text="{Binding ViewsCount}"
+                           TextColor="{DynamicResource colWhite}"
+                               Grid.Row="1"
+                                Grid.Column="2"
+                           HorizontalOptions="Center"/>
+
+                                    </Grid>
+
+                                </StackLayout>
+
+                            </CollectionView.Header>
+                        </CollectionView>
+
+                        <ActivityIndicator IsVisible="{Binding QuotesViewModel.IsLoadingMore}" IsRunning="{Binding QuotesViewModel.IsLoadingMore}"
+                       Color="{DynamicResource colRed}"/>
+
+                    </StackLayout>
+                        
+                </RefreshView>
+
+            </Frame>
+
+    </ContentPage.Content>
+</ContentPage>

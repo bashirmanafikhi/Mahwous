@@ -1,0 +1,365 @@
+﻿
+@inject MahwousRepositories repositories
+
+
+
+
+<div class="container">
+
+
+    <div class="row">
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-white text-dark mb-4">
+                <div class="card-header bg-info text-white">
+                    <h3 class="font-weight-bold"> الحالات</h3>
+                </div>
+                <div class="card-body">
+                    @if (generalInformations != null)
+                    {
+                        <p>عدد الحالات الكلي: @generalInformations.Count</p>
+                        <p>التحميلات: @generalInformations.DownloadsCount</p>
+                        <p>المشاهدات: @generalInformations.ViewsCount</p>
+                        <p>الإعجابات: @generalInformations.LikesCount</p>
+                    }
+                    else
+                    {
+                        <p><i class="fas fa-spin fa-spinner"></i> جاري تحميل البيانات </p>
+                    }
+                </div>
+                <div class="card-footer bg-info text-white d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="categories">ذهاب الى التصنيفات</a>
+                    <div class="small text-white"><i class="fas fa-angle-left"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-white text-dark mb-4">
+                <div class="card-header bg-info text-white">
+                    <h3 class="font-weight-bold">الفيديوهات</h3>
+                </div>
+                <div class="card-body">
+                    @if (videoInformations != null)
+                    {
+                        <p>عدد الفيديوهات: @videoInformations.Count</p>
+                        <p>التحميلات: @videoInformations.DownloadsCount</p>
+                        <p>المشاهدات: @videoInformations.ViewsCount</p>
+                        <p>الإعجابات: @videoInformations.LikesCount</p>
+                    }
+                    else
+                    {
+                        <p><i class="fas fa-spin fa-spinner"></i> جاري تحميل البيانات </p>
+                    }
+                </div>
+                <div class="card-footer bg-info text-white d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="videos">ذهاب إلى الفيديوهات</a>
+                    <div class="small text-white"><i class="fas fa-angle-left"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-white text-dark mb-4">
+                <div class="card-header bg-info text-white">
+                    <h3 class="font-weight-bold">الصور</h3>
+                </div>
+                <div class="card-body">
+                    @if (imageInformations != null)
+                    {
+                        <p>عدد الصور: @imageInformations.Count</p>
+                        <p>التحميلات: @imageInformations.DownloadsCount</p>
+                        <p>المشاهدات: @imageInformations.ViewsCount</p>
+                        <p>الإعجابات: @imageInformations.LikesCount</p>
+                    }
+                    else
+                    {
+                        <p><i class="fas fa-spin fa-spinner"></i> جاري تحميل البيانات </p>
+                    }
+                </div>
+                <div class="card-footer bg-info text-white d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="images">ذهاب الى الصور</a>
+                    <div class="small text-white"><i class="fas fa-angle-left"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-white text-dark mb-4">
+                <div class="card-header bg-info text-white">
+                    <h3 class="font-weight-bold">الحالات الكتابية</h3>
+                </div>
+                <div class="card-body">
+                    @if (quoteInformations != null)
+                    {
+                        <p>عدد الحالات الكتابية: @quoteInformations.Count</p>
+                        <p>التحميلات: @quoteInformations.DownloadsCount</p>
+                        <p>المشاهدات: @quoteInformations.ViewsCount</p>
+                        <p>الإعجابات: @quoteInformations.LikesCount</p>
+                    }
+                    else
+                    {
+                        <p><i class="fas fa-spin fa-spinner"></i> جاري تحميل البيانات </p>
+                    }
+                </div>
+                <div class="card-footer bg-info text-white d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="quotes">ذهاب الى الحالات الكتابية</a>
+                    <div class="small text-white"><i class="fas fa-angle-left"></i></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-pie mr-1"></i>
+                    مخطط أعداد الحالات
+                </div>
+                <div class="card-body">
+                    @if (informations.ContainsKey(nameof(generalInformations)))
+                    {
+                        <RadzenChart>
+                            <RadzenDonutSeries Title="عدد الحالات" Data="@informations[nameof(generalInformations)]" CategoryProperty="Property" ValueProperty="Count">
+                                <TitleTemplate>
+                                    <div class="rz-donut-content">
+                                        <div> العدد الكلي </div>
+                                        <div class="text-primary">@generalInformations.Count</div>
+                                    </div>
+                                </TitleTemplate>
+                            </RadzenDonutSeries>
+                        </RadzenChart>
+                    }
+                    else
+                    {
+                        <p><i class="fas fa-spin fa-spinner"></i> جاري تحميل البيانات </p>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-bar mr-1"></i>
+                    مقارنة
+                </div>
+                <div class="card-body">
+                    @if (informations.ContainsKey(nameof(generalInformations)))
+                    {
+                        <RadzenChart>
+                            <RadzenColumnSeries Data="@informations[nameof(quoteInformations)]" CategoryProperty="Property" Title="الكتابية" LineType="LineType.Dashed" ValueProperty="Count" />
+                            <RadzenColumnSeries Data="@informations[nameof(videoInformations)]" CategoryProperty="Property" Title="الفيديوهات" LineType="LineType.Dashed" ValueProperty="Count" />
+                            <RadzenColumnSeries Data="@informations[nameof(imageInformations)]" CategoryProperty="Property" Title="الصور" LineType="LineType.Dashed" ValueProperty="Count" />
+
+                            <RadzenColumnOptions Radius="5" />
+                            <RadzenValueAxis>
+                                <RadzenGridLines Visible="true" />
+                                <RadzenAxisTitle Text="العدد" />
+                            </RadzenValueAxis>
+                        </RadzenChart>
+                    }
+                    else
+                    {
+                        <p><i class="fas fa-spin fa-spinner"></i> جاري تحميل البيانات </p>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-xl-4 col-md-6">
+            <div class="card bg-white text-dark mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="font-weight-bold"> التصنيفات </h3>
+                </div>
+                <div class="card-body">
+                    @*@if (generalInformations != null)
+                        {
+                            <p>عدد التصنيفات: @generalInformations.CategoriesCount</p>
+                        }
+                        else
+                        {
+                            <p><i class="fas fa-spin fa-spinner"></i> جاري تحميل البيانات </p>
+                        }*@التصنيفات
+                </div>
+                <div class="card-footer bg-primary text-white d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="categories">ذهاب الى التصنيفات</a>
+                    <div class="small text-white"><i class="fas fa-angle-left"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-md-6">
+            <div class="card bg-white text-dark mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="font-weight-bold"> التطبيقات </h3>
+                </div>
+                <div class="card-body">
+                    @*@if (generalInformations != null)
+                        {
+                            <p>عدد التطبيقات: @generalInformations.AppsCount</p>
+                        }
+                        else
+                        {
+                            <p><i class="fas fa-spin fa-spinner"></i> جاري تحميل البيانات </p>
+                        }*@التطبيقات
+                </div>
+                <div class="card-footer bg-primary text-white d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="apps">ذهاب الى التطبيقات</a>
+                    <div class="small text-white"><i class="fas fa-angle-left"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-md-6">
+            <div class="card bg-white text-dark mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="font-weight-bold"> المنشورات </h3>
+                </div>
+                <div class="card-body">
+                    @*@if (generalInformations != null)
+                        {
+                            <p>عدد المنشورات: @generalInformations.PostsCount</p>
+                        }
+                        else
+                        {
+                            <p><i class="fas fa-spin fa-spinner"></i> جاري تحميل البيانات </p>
+                        }*@المنشورات
+                </div>
+                <div class="card-footer bg-primary text-white d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="posts">ذهاب الى المنشورات</a>
+                    <div class="small text-white"><i class="fas fa-angle-left"></i></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-tags mr-1"></i>
+                    التصنيفات
+                </div>
+                <div class="card-body">
+                    @if (generalInformations?.CategoriesStatusCounts != null)
+                    {
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">التصنيف</th>
+                                    <th scope="col">العدد الكلي</th>
+                                    <th scope="col">الفيديو</th>
+                                    <th scope="col">الكتابية</th>
+                                    <th scope="col">الصور</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in generalInformations.CategoriesStatusCounts)
+                                {
+                                    <tr>
+                                        <th scope="row">@item.Key</th>
+                                        <td>@item.Value</td>
+                                        <td>@videoInformations.CategoriesStatusCounts[item.Key]</td>
+                                        <td>@quoteInformations.CategoriesStatusCounts[item.Key]</td>
+                                        <td>@imageInformations.CategoriesStatusCounts[item.Key]</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    }
+                    else
+                    {
+                        <p><i class="fas fa-spin fa-spinner"></i> جاري تحميل البيانات </p>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-bar mr-1"></i>
+                    اعداد الحالات
+                </div>
+                <div class="card-body">
+                    @if (generalInformations != null)
+                    {
+                        <p>جميع الحالات: @generalInformations.Count</p>
+                        <p>الفيديوهات: @videoInformations.Count</p>
+                        <p>الكتابية: @quoteInformations.Count</p>
+                        <p>الصور: @imageInformations.Count</p>
+                    }
+                    else
+                    {
+                        <p><i class="fas fa-spin fa-spinner"></i> جاري تحميل البيانات </p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+@code{
+
+    Informations generalInformations;
+    Informations quoteInformations;
+    Informations videoInformations;
+    Informations imageInformations;
+
+    Dictionary<string, DataItem[]> informations = new Dictionary<string, DataItem[]>();
+
+    protected async override Task OnInitializedAsync()
+    {
+        quoteInformations = new Informations();// await repositories.QuoteStatusRepository.GetInformations();
+        videoInformations = new Informations();//await repositories.VideoStatusRepository.GetInformations();
+        imageInformations = new Informations();// await repositories.ImageStatusRepository.GetInformations();
+
+        generalInformations = new Informations();//await repositories.StatusesRepository.GetInformations();
+
+        informations[nameof(quoteInformations)] = new DataItem[] {
+                new DataItem("العدد",quoteInformations.Count),
+                new DataItem("الإعجابات",quoteInformations.LikesCount),
+                new DataItem("التحميلات",quoteInformations.DownloadsCount),
+                new DataItem("المشاهدات",quoteInformations.ViewsCount)
+            };
+
+        informations[nameof(videoInformations)] = new DataItem[] {
+                new DataItem("العدد",videoInformations.Count),
+                new DataItem("الإعجابات",videoInformations.LikesCount),
+                new DataItem("التحميلات",videoInformations.DownloadsCount),
+                new DataItem("المشاهدات",videoInformations.ViewsCount)
+            };
+
+        informations[nameof(imageInformations)] = new DataItem[] {
+                new DataItem("العدد",imageInformations.Count),
+                new DataItem("الإعجابات",imageInformations.LikesCount),
+                new DataItem("التحميلات",imageInformations.DownloadsCount),
+                new DataItem("المشاهدات",imageInformations.ViewsCount)
+            };
+
+        informations[nameof(generalInformations)] = new DataItem[] {
+                new DataItem("الفيديو",videoInformations.Count),
+                new DataItem("الصور",imageInformations.Count),
+                new DataItem("الكتابية",quoteInformations.Count)
+            };
+
+    }
+
+
+    class DataItem
+    {
+        public string Property { get; set; }
+        public double Count { get; set; }
+
+        public DataItem(string property, double count)
+        {
+            Property = property;
+            Count = count;
+        }
+    }
+}

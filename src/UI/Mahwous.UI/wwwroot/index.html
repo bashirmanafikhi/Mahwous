@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+
+    <!-- ///////////////Bashir//////////////-->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-166813717-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-166813717-1');
+    </script>
+    <!--Google Adsense-->
+    <script data-ad-client="ca-pub-1685177955120006" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+    <!--<link href="_framework/scoped.styles.css" rel="stylesheet" />-->
+    <base href="/" />
+
+    <meta charset="utf-8">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--<meta name="description" content="فريق مهووس للحالات الكتابية والصور والفيديو">-->
+    <meta name="author" content="بشير منافيخي">
+
+
+
+    <meta property="og:title" content="مهووس للحالات العربي" />
+    <meta property="og:description" content="تحميل جميع انواع الحالات العربية ( فيديو - صور - كتابية ) حصرياً من مهووس." />
+    <meta property="og:image" content="img/8.jpg" />
+
+
+
+
+
+
+    <title>مهووس - Mahwous</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="lib/bootstrap/css/rtl/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="lib/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!--RedZen-->
+    <link rel="stylesheet" href="_content/Radzen.Blazor/css/default-base.css">
+
+    <!-- Main Css -->
+    <link href="css/site.css" rel="stylesheet" /> <!--Main css file-->
+
+    <link rel="shortcut icon" href="#">
+
+
+    <link href="Mahwous.UI.styles.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <!-- ///////////////Bashir//////////////-->
+    <app id="app">
+        <div style="position:absolute; top:40vh; width:100%; text-align:center">
+            <h1>مهووس</h1>
+            <p><i class="fas fa-spin fa-spinner"></i> جاري تحميل البرنامج </p>
+        </div>
+    </app>
+
+    <div id="blazor-error-ui">
+        حصل خطء غير متوقع.
+        <a href="" class="reload">تحديث الصفحة</a>
+        <a class="dismiss">🗙</a>
+    </div>
+
+    <script src="_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication/AuthenticationService.js"></script>
+    <script src="_framework/blazor.webassembly.js"></script>
+
+    <script src="js/site.js"></script>  <!--My Js Functions-->
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script> <!--Sweet Alert-->
+    <script src="_content/Radzen.Blazor/Radzen.Blazor.js"></script> <!--Redzen-->
+    <!-- //////////////////////////////////// -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+
+    <script src="js/InfiniteScroll.js"></script>
+    <script>
+        window.ScrollList = {
+            Init: function (ele, ref) {
+                window.ScrollList.ifs = new InfiniteScroll(ele, ref);
+            },
+            RemoveListener: function () {
+                window.ScrollList.ifs.RemoveListener();
+            }
+        }
+    </script>
+</body>
+
+</html>

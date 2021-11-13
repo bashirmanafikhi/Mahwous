@@ -1,0 +1,134 @@
+﻿
+
+@inject IJSRuntime js
+@inject NavigationManager navigation
+@inject MahwousRepositories repositories
+@using Mahwous.Service.ViewModels.ChatRooms
+
+
+
+<div class="container">
+    <AuthorizeView>
+        <Authorized>
+            <a href="administration/chatRooms/create" class="btn btn-primary btn-block mb-3">اضافة غرفة دردشة جديدة</a>
+        </Authorized>
+    </AuthorizeView>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <Pagination CurrentPage="@Pagination.PageIndex" TotalAmountPages="totalAmountPages"
+                                SelectedPage="SelectedPage" />
+                </div>
+
+                <div class="card-body">
+
+                    <div>
+
+                        @if (chatRooms == null)
+                        {
+                            <p>جاري تحميل غرف الدردشة...</p>
+                        }
+                        else if (chatRooms.Count == 0)
+                        {
+                            <p> لا يوجد غرف دردشة! </p>
+                        }
+                        else
+                        {
+
+                            <div class="card-columns">
+                                @foreach (var chatRoom in chatRooms)
+                                {
+                                    <div class="card">
+                                        <a href="chatRooms/@chatRoom.Id" class="text-dark card-text">
+                                            <div class="card-header p-0">
+                                                <img src="@chatRoom.CoverPath" style="height:auto; width:100%; object-fit:cover" />
+                                            </div>
+                                            <div class="card-body">
+                                                <h4 class="card-title">@chatRoom.Name</h4>
+                                                <pre class="card-text">@chatRoom.Description</pre>
+                                            </div>
+                                        </a>
+                                        <AuthorizeView>
+                                            <Authorized>
+                                                <div class="card-footer">
+                                                    <div class="stats">
+                                                        <button class="btn btn-danger" @onclick="@(() => DeleteChatRoom(chatRoom.Id))">حذف</button>
+                                                        <a class="btn btn-info" href="administration/chatRooms/edit/@chatRoom.Id">تعديل</a>
+                                                    </div>
+                                                </div>
+                                            </Authorized>
+                                        </AuthorizeView>
+
+                                    </div>
+                                }
+                            </div>
+
+                        }
+                    </div>
+
+                </div>
+
+                <div class="card-footer">
+                    <Pagination CurrentPage="@Pagination.PageIndex" TotalAmountPages="totalAmountPages"
+                                SelectedPage="SelectedPage" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@code {
+
+    ICollection<ChatRoom> chatRooms { get; set; }
+
+    PaginationDetails Pagination = new PaginationDetails();
+    int totalAmountPages;
+
+
+    protected async override Task OnInitializedAsync()
+    {
+        //await authorizer.SetAuthorizationAsync();
+        await LoadChatRooms();
+
+    }
+
+    async Task LoadChatRooms()
+    {
+        try
+        {
+            var query = new SearchChatRoomsQuery();
+            query.Pagination = Pagination;
+            var response = await repositories.ChatRoomRepository.Search(query);
+            chatRooms = response.Items.ToList();
+            totalAmountPages = response.TotalPages;
+
+            //var paginatedResponse = await repositories.ChatRoomsRepository.GetPaginated(Pagination);
+            //chatRooms = paginatedResponse.Response;
+            //totalAmountPages = paginatedResponse.TotalPages;
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
+        }
+    }
+
+    async Task DeleteChatRoom(int chatRoomId)
+    {
+        var chatRoom = chatRooms.First(x => x.Id == chatRoomId);
+        if (await js.Confirm("تأكيد", $"هل أنت متأكد أنك تريد أن تحذف هذه الغرفة ؟", SweetAlertMessageType.error))
+        {
+            await repositories.ChatRoomRepository.Delete(chatRoomId);
+            await LoadChatRooms();
+        }
+    }
+
+    private async Task SelectedPage(int page)
+    {
+        Pagination.PageIndex = page;
+        await LoadChatRooms();
+    }
+}

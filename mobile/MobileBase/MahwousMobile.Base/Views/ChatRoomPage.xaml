@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:MahwousMobile.Base.ViewModels"
+             x:Class="MahwousMobile.Base.Views.ChatRoomPage"
+             Title="{Binding ChatRoom.Name}">
+
+    <ContentPage.BindingContext>
+        <vm:ChatRoomViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid RowDefinitions="*, auto">
+        <ListView ItemsSource="{Binding MessagesList}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Vertical">
+                            <!--<Label Grid.Row="0" Text="{Binding UserName}" TextColor="{StaticResource colBlue}" />-->
+                            <Label Text="{Binding Message}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackLayout Grid.Row="1">
+            <Entry BackgroundColor="{StaticResource colYellow}" TextColor="{StaticResource colBlack}"  Placeholder="اكتب رسالتك هنا.." Text="{Binding Message}"></Entry>
+            <Button  BackgroundColor="{StaticResource colRed}" Text="إرسال" Command="{Binding SendMessageCommand}" />
+        </StackLayout>
+    </Grid>
+</ContentPage>
