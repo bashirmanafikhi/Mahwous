@@ -219,15 +219,15 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\mobile\Mahwous\Mahwous\Mahwous.csproj">
+    <ProjectReference Include="..\Mahwous\Mahwous.csproj">
       <Project>{d65a8e54-8b91-4b5a-8c82-c5a4bb84a0f3}</Project>
       <Name>Mahwous</Name>
     </ProjectReference>
-    <ProjectReference Include="..\mobile\MobileBase\MahwousMobile.Base\MahwousMobile.Base.csproj">
+    <ProjectReference Include="..\..\MobileBase\MahwousMobile.Base\MahwousMobile.Base.csproj">
       <Project>{e5b98b9e-9c2e-4e02-ba96-4811fc662f74}</Project>
       <Name>MahwousMobile.Base</Name>
     </ProjectReference>
-    <ProjectReference Include="..\src\Core\Mahwous.Core\Mahwous.Core.csproj">
+    <ProjectReference Include="..\..\..\src\Core\Mahwous.Core\Mahwous.Core.csproj">
       <Project>{e2da9dc7-dc06-4fe2-a556-6496137cf24e}</Project>
       <Name>Mahwous.Core</Name>
     </ProjectReference>

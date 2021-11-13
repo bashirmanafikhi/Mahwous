@@ -81,7 +81,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mahwous.EmailServices", "sr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mahwous.Chat", "src\Application\Mahwous.Chat\Mahwous.Chat.csproj", "{49123CCD-D45A-4470-8292-89BC102118D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mahwous.UWP", "Mahwous.UWP\Mahwous.UWP.csproj", "{964DA06D-F976-4699-87C2-7197F23ABC44}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mahwous.UWP", "mobile\Mahwous\Mahwous.UWP\Mahwous.UWP.csproj", "{964DA06D-F976-4699-87C2-7197F23ABC44}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mahwous.Service.Chat", "src\Services\Mahwous.Service.Chat\Mahwous.Service.Chat.csproj", "{C0BEFF82-7B34-47B6-A326-D2385E099C81}"
 EndProject
