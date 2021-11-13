@@ -15,7 +15,6 @@ namespace MahwousMobile.Base
             try
             {
                 InitializeComponent();
-                //Device.SetFlags(new[] { "MediaElement_Experimental", "Brush_Experimental" });
                 RegisterServices();
                 CheckTheme();
                 SetLocalNotificationsOptions();
@@ -46,23 +45,14 @@ namespace MahwousMobile.Base
 
         private void RegisterServices()
         {
-            try
+            var url = Settings.Configuration.UrlBase;
+            DependencyService.RegisterSingleton<IChatService>(new ChatService(url));
+            DependencyService.RegisterSingleton(new MahwousRepositories(url));
+            var token = Settings.Token;
+            if (token != null)
             {
-                var url = Settings.Configuration.UrlBase;
-                DependencyService.RegisterSingleton<IChatService>(new ChatService(url));
-                DependencyService.RegisterSingleton(new MahwousRepositories(url));
-                var token = Settings.Token;
-                if (token != null)
-                {
-                    var repos = DependencyService.Get<MahwousRepositories>();
-                    repos.Token = token;
-                }
-
-                DependencyService.Get<IMessage>().LongAlert("RegisterServices Succeed");
-            }
-            catch (System.Exception ex)
-            {
-                DependencyService.Get<IMessage>().LongAlert("RegisterServices"  + ex.Message);
+                var repos = DependencyService.Get<MahwousRepositories>();
+                repos.Token = token;
             }
         }
 
