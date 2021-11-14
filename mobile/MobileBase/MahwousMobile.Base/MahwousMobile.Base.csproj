@@ -57,6 +57,9 @@
     <Compile Update="App.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
+    <Compile Update="Templates\DataTemplates\ExternalLinkTemplate.xaml.cs">
+      <DependentUpon>ExternalLinkTemplate.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Templates\DataTemplates\ChatRoomTemplate.xaml.cs">
       <DependentUpon>ChatRoomTemplate.xaml</DependentUpon>
     </Compile>
@@ -80,6 +83,9 @@
     </Compile>
     <Compile Update="Views\CategoriesPage.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ExternalLinksPage.xaml.cs">
+      <DependentUpon>ExternalLinksPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\HomePage.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
@@ -136,6 +142,9 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ChatRoomPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ExternalLinksPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\HomePage.xaml">

@@ -1,0 +1,134 @@
+﻿
+
+@inject IJSRuntime js
+@inject NavigationManager navigation
+@inject MahwousRepositories repositories
+@using Mahwous.Service.ViewModels.ExternalLinks
+
+
+
+<div class="container">
+    <AuthorizeView>
+        <Authorized>
+            <a href="administration/externalLinks/create" class="btn btn-primary btn-block mb-3">اضافة رابط جديدة</a>
+        </Authorized>
+    </AuthorizeView>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <Pagination CurrentPage="@Pagination.PageIndex" TotalAmountPages="totalAmountPages"
+                                SelectedPage="SelectedPage" />
+                </div>
+
+                <div class="card-body">
+
+                    <div>
+
+                        @if (externalLinks == null)
+                        {
+                            <p>جاري تحميل الروابط...</p>
+                        }
+                        else if (externalLinks.Count == 0)
+                        {
+                            <p> لا يوجد روابط! </p>
+                        }
+                        else
+                        {
+
+                            <div class="card-columns">
+                                @foreach (var externalLink in externalLinks)
+                                {
+                                    <div class="card">
+                                        <a href="externalLinks/@externalLink.Id" class="text-dark card-text">
+                                            <div class="card-header p-0">
+                                                <img src="@externalLink.CoverPath" style="height:auto; width:100%; object-fit:cover" />
+                                            </div>
+                                            <div class="card-body">
+                                                <h4 class="card-title">@externalLink.Name</h4>
+                                                <span class="card-text">@externalLink.Description</span>
+                                            </div>
+                                        </a>
+                                        <AuthorizeView>
+                                            <Authorized>
+                                                <div class="card-footer">
+                                                    <div class="stats">
+                                                        <button class="btn btn-danger" @onclick="@(() => DeleteExternalLink(externalLink.Id))">حذف</button>
+                                                        <a class="btn btn-info" href="administration/externalLinks/edit/@externalLink.Id">تعديل</a>
+                                                    </div>
+                                                </div>
+                                            </Authorized>
+                                        </AuthorizeView>
+
+                                    </div>
+                                }
+                            </div>
+
+                        }
+                    </div>
+
+                </div>
+
+                <div class="card-footer">
+                    <Pagination CurrentPage="@Pagination.PageIndex" TotalAmountPages="totalAmountPages"
+                                SelectedPage="SelectedPage" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@code {
+
+    ICollection<ExternalLink> externalLinks { get; set; }
+
+    PaginationDetails Pagination = new PaginationDetails();
+    int totalAmountPages;
+
+
+    protected async override Task OnInitializedAsync()
+    {
+        //await authorizer.SetAuthorizationAsync();
+        await LoadExternalLinks();
+
+    }
+
+    async Task LoadExternalLinks()
+    {
+        try
+        {
+            var query = new SearchExternalLinksQuery();
+            query.Pagination = Pagination;
+            var response = await repositories.ExternalLinkRepository.Search(query);
+            externalLinks = response.Items.ToList();
+            totalAmountPages = response.TotalPages;
+
+            //var paginatedResponse = await repositories.ExternalLinksRepository.GetPaginated(Pagination);
+            //externalLinks = paginatedResponse.Response;
+            //totalAmountPages = paginatedResponse.TotalPages;
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
+        }
+    }
+
+    async Task DeleteExternalLink(int externalLinkId)
+    {
+        var externalLink = externalLinks.First(x => x.Id == externalLinkId);
+        if (await js.Confirm("تأكيد", $"هل أنت متأكد أنك تريد أن تحذف هذا الرابط ؟", SweetAlertMessageType.error))
+        {
+            await repositories.ExternalLinkRepository.Delete(externalLinkId);
+            await LoadExternalLinks();
+        }
+    }
+
+    private async Task SelectedPage(int page)
+    {
+        Pagination.PageIndex = page;
+        await LoadExternalLinks();
+    }
+}

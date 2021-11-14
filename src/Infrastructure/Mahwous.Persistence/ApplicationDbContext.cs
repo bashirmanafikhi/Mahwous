@@ -30,6 +30,7 @@ namespace Mahwous.Persistence
         public DbSet<QuoteStatus> QuoteStatuses { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<ChatRoom> ChatRooms { get; set; }
+        public DbSet<ExternalLink> ExternalLinks { get; set; }
         public DbSet<MobileApp> MobileApps { get; set; }
         public DbSet<MobileNotification> MobileNotifications { get; set; }
     }

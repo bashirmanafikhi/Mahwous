@@ -1,0 +1,73 @@
+﻿@page "/administration/externalLinks/edit/{externalLinkId:int}"
+@layout AdminLayout
+@attribute [Authorize]
+@inject MahwousRepositories repositories
+@inject NavigationManager navigation
+@using Mahwous.Service.ViewModels.ExternalLinks
+
+
+
+<!-- Description Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark">تعديل الرابط</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item active">تعديل الرابط</li>
+                    <li class="breadcrumb-item"><a href="administration/externalLinks">الروابط</a></li>
+                    <li class="breadcrumb-item"><a href="administration">الإدارة</a></li>
+                    <li class="breadcrumb-item"><a href="">الصفحة الرئيسية</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="container-fluid">
+
+
+        <ExternalLinkForm ButtonText="تعديل الرابط" ExternalLink="externalLink" OnValidSubmit="@EditExternalLink" />
+
+    </div>
+</div>
+
+@code {
+    [Parameter] public int externalLinkId { get; set; }
+    ExternalLink externalLink = new ExternalLink();
+
+    protected override async Task OnInitializedAsync()
+    {
+        // to give tokens to api :)
+        //await authorizer.SetAuthorizationAsync();
+    }
+
+    protected async override Task OnParametersSetAsync()
+    {
+        externalLink = await repositories.ExternalLinkRepository.GetDetails(externalLinkId);
+    }
+
+    async Task EditExternalLink(Stream imageFile)
+    {
+        try
+        {
+            UpdateExternalLinkCommand command = new UpdateExternalLinkCommand();
+            command.Id = externalLink.Id;
+            command.Name = externalLink.Name;
+            command.Description = externalLink.Description;
+            command.LinkType = externalLink.LinkType;
+            command.Url = externalLink.Url;
+            command.Cover = imageFile;
+            await repositories.ExternalLinkRepository.Update(command);
+            navigation.NavigateTo("administration/externalLinks");
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
+        }
+    }
+}

@@ -13,7 +13,7 @@
                     <RowDefinition Height="0.8*"/>
                     <RowDefinition Height="0.2*"/>
                 </Grid.RowDefinitions>
-                <Image Source="{Binding ImagePath}"
+                <Image Source="{Binding CoverPath}"
                                        HorizontalOptions="FillAndExpand"
                                        VerticalOptions="FillAndExpand"
                                        Aspect="AspectFill" />

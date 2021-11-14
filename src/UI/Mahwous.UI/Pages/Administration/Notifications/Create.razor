@@ -41,7 +41,13 @@
             // Todo complete properties
             CreateMobileNotificationCommand command = new CreateMobileNotificationCommand
             {
-                Title = notification.Title
+                Title = notification.Title,
+                Apps = notification.Apps.ToList(),
+                BadgeNumber = notification.BadgeNumber,
+                Description = notification.Description,
+                IsScheduled = notification.IsScheduled,
+                NotifyTime = notification.NotifyTime,
+                ReturningData = notification.ReturningData
             };
             await repositories.MobileNotificationsRepository.Create(command);
             navigation.NavigateTo("administration/notifications");

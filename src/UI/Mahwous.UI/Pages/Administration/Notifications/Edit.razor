@@ -55,7 +55,13 @@
             UpdateMobileNotificationCommand command = new UpdateMobileNotificationCommand
             {
                 Id = notification.Id,
-
+                Title = notification.Title,
+                Apps = notification.Apps.ToList(),
+                BadgeNumber = notification.BadgeNumber,
+                Description = notification.Description,
+                IsScheduled = notification.IsScheduled,
+                NotifyTime = notification.NotifyTime,
+                ReturningData = notification.ReturningData
             };
             await repositories.MobileNotificationsRepository.Update(command);
             navigation.NavigateTo("administration/notifications");

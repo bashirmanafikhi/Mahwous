@@ -47,6 +47,10 @@
             var command = new CreateMobileAppCommand
             {
                 Name = app.Name,
+                AppleStoreLink = app.AppleStoreLink,
+                Description = app.Description,
+                PlayStoreLink = app.PlayStoreLink,
+                Package = app.Package,
                 Cover = imageFile
             };
             await repositories.MobileAppsRepository.Create(command);

@@ -56,6 +56,11 @@
             UpdateMobileAppCommand command = new UpdateMobileAppCommand
             {
                 Id = app.Id,
+                Name = app.Name,
+                AppleStoreLink = app.AppleStoreLink,
+                Description = app.Description,
+                PlayStoreLink = app.PlayStoreLink,
+                Package = app.Package,
                 Cover = coverFile
             };
         await repositories.MobileAppsRepository.Update(command);

@@ -12,6 +12,7 @@ namespace Mahwous.Service.Repositories
         public static string NotificationsUrl = "api/mobileNotifications";
         public static string PostsUrl = "api/posts";
         public static string ChatRoomsUrl = "api/chatRooms";
+        public static string ExternalLinksUrl = "api/externalLinks";
         public static string StatusesUrl = "api/statuses";
         public static string VideosUrl = "api/videoStatuses";
         public static string ImagesUrl = "api/imageStatuses";
@@ -121,6 +122,18 @@ namespace Mahwous.Service.Repositories
                 if (chatRoomRepository == null)
                     chatRoomRepository = new ChatRoomRepository(httpService, Constants.ChatRoomsUrl);
                 return chatRoomRepository;
+            }
+        }
+
+
+        private ExternalLinkRepository externalLinkRepository;
+        public ExternalLinkRepository ExternalLinkRepository
+        {
+            get
+            {
+                if (externalLinkRepository == null)
+                    externalLinkRepository = new ExternalLinkRepository(httpService, Constants.ExternalLinksUrl);
+                return externalLinkRepository;
             }
         }
 
