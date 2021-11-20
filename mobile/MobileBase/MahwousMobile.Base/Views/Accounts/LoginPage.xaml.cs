@@ -44,9 +44,19 @@ namespace MahwousMobile.Base.Views
             };
              * */
         }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+            var loggedin = Settings.Token != null;
+            if (loggedin)
+                await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
+        }
+
         private async void GoToRegisterPage(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new RegisterPage());
+            await Shell.Current.GoToAsync($"//{nameof(RegisterPage)}");
 
         }
     }

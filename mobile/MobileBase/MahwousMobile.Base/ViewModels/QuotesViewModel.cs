@@ -54,6 +54,8 @@ namespace MahwousMobile.Base.ViewModels
 
             LoadQuotesCommand = new Command(async () => await ExecuteLoadQuotesCommand());
             LoadMoreQuotesCommand = new Command(async () => await ExecuteLoadMoreQuotesCommand());
+
+            Title = "اقتباسات";
         }
 
         public QuotesViewModel() : this(new QuoteFilter()) { }

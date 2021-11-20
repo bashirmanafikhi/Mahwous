@@ -93,7 +93,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahwousChat.Android", "mobi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahwousChat.iOS", "mobile\MahwousChat\MahwousChat.iOS\MahwousChat.iOS.csproj", "{61751770-2B64-47CC-BDF9-0108CBBF33E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahwousChat", "mobile\MahwousChat\MahwousChat\MahwousChat.csproj", "{B31622CE-B516-4336-A251-4CC18D65820A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahwousChat", "mobile\MahwousChat\MahwousChat\MahwousChat.csproj", "{B31622CE-B516-4336-A251-4CC18D65820A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -880,6 +880,7 @@ Global
 		{4C95DC68-0CAD-407D-9D52-F4E8F8518D52}.Debug|x86.Build.0 = Debug|x86
 		{4C95DC68-0CAD-407D-9D52-F4E8F8518D52}.Debug|x86.Deploy.0 = Debug|x86
 		{4C95DC68-0CAD-407D-9D52-F4E8F8518D52}.Release|Any CPU.ActiveCfg = Release|x86
+		{4C95DC68-0CAD-407D-9D52-F4E8F8518D52}.Release|Any CPU.Build.0 = Release|x86
 		{4C95DC68-0CAD-407D-9D52-F4E8F8518D52}.Release|ARM.ActiveCfg = Release|ARM
 		{4C95DC68-0CAD-407D-9D52-F4E8F8518D52}.Release|ARM.Build.0 = Release|ARM
 		{4C95DC68-0CAD-407D-9D52-F4E8F8518D52}.Release|ARM.Deploy.0 = Release|ARM

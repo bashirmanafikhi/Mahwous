@@ -60,23 +60,23 @@ namespace MahwousMobile.Base.Views
                 myBanner.HeightRequest = 90;
             }
         }
-        private void CollectionView_OnScrolled(object sender, ItemsViewScrolledEventArgs e)
-        {
-            if (Device.RuntimePlatform != Device.UWP)
-            {
-                return;
-            }
+        //private void CollectionView_OnScrolled(object sender, ItemsViewScrolledEventArgs e)
+        //{
+        //    if (Device.RuntimePlatform != Device.UWP)
+        //    {
+        //        return;
+        //    }
 
-            if (sender is CollectionView cv)
-            {
-                var count = cv.ItemsSource.Cast<object>().Count();
-                if (e.LastVisibleItemIndex + 1 - count + cv.RemainingItemsThreshold >= 0)
-                {
-                    if (cv.RemainingItemsThresholdReachedCommand.CanExecute(null))
-                        cv.RemainingItemsThresholdReachedCommand.Execute(null);
-                }
-            }
-        }
+        //    if (sender is CollectionView cv)
+        //    {
+        //        var count = cv.ItemsSource.Cast<object>().Count();
+        //        if (e.LastVisibleItemIndex + 1 - count + cv.RemainingItemsThreshold >= 0)
+        //        {
+        //            if (cv.RemainingItemsThresholdReachedCommand.CanExecute(null))
+        //                cv.RemainingItemsThresholdReachedCommand.Execute(null);
+        //        }
+        //    }
+        //}
         private void OnImagesFinished(object sender, EventArgs e)
         {
             DisplayAlert("تنبيه", "انتهت الحالات في هذا التصنيف", "حسناً");

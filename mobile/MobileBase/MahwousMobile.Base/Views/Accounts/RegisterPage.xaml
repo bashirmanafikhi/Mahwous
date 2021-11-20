@@ -3,16 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:vm="clr-namespace:MahwousMobile.Base.ViewModels"
-             x:Class="MahwousMobile.Base.Views.RegisterPage">
+             x:Class="MahwousMobile.Base.Views.RegisterPage"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False">
     <ContentPage.BindingContext>
         <vm:AccountsViewModel />
     </ContentPage.BindingContext>
 
     <Grid>
 
-        <xct:MediaElement Margin="0,0,-100,0" x:Name="BgVideo" Source="ms-appx:///welcomeVideo.mp4" ShowsPlaybackControls="False"
+        <!--<xct:MediaElement Margin="0,0,-100,0" x:Name="BgVideo" Source="ms-appx:///welcomeVideo.mp4" ShowsPlaybackControls="False"
                       IsLooping="True" Aspect="AspectFill" AutoPlay="True"
-                     HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+                     HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />-->
 
         <BoxView>
             <BoxView.Background>

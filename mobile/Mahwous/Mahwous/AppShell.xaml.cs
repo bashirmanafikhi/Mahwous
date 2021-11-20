@@ -14,21 +14,12 @@ namespace Mahwous
         public AppShell()
         {
             InitializeComponent();
-
-
         }
 
-        private void MenuItem_Signout_Clicked(object sender, EventArgs e)
+        private async void MenuItem_Signout_Clicked(object sender, EventArgs e)
         {
-            try
-            {
-                Settings.Token = null;
-            }
-            catch (Exception ex)
-            {
-                Crashes.TrackError(ex);
-                DependencyService.Get<IMessage>().LongAlert(ex.Message);
-            }
+            Settings.Token = null;
+            await Current.GoToAsync($"//{nameof(WelcomeScreenPage)}");
         }
 
         private async void MenuItem_Rate_Clicked(object sender, EventArgs e)
@@ -59,9 +50,12 @@ namespace Mahwous
             
             //some more custom checks here
 
-            if(!(Current.CurrentPage is HomePage))
+            if(!(Current.CurrentPage is HomePage) &&
+                !(Current.CurrentPage is WelcomeScreenPage) &&
+                !(Current.CurrentPage is LoginPage) &&
+                !(Current.CurrentPage is RegisterPage))
             {
-                Current.GoToAsync("//HomePage").ConfigureAwait(false);
+                Current.GoToAsync($"//{nameof(HomePage)}").ConfigureAwait(false);
                 return true;
             }
 

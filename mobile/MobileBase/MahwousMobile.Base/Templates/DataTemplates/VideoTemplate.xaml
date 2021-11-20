@@ -23,12 +23,12 @@
 
                     <Label x:Name="lblVideo"
                        Padding="6,2"
-                       Text="{Binding Title}" 
+                       Text="{Binding Video.Title}" 
                        TextColor="{DynamicResource colForeground}"
                        FontSize="Subtitle"
                        HorizontalOptions="Center"/>
 
-                    <Image Source="{Binding CoverPath}"
+                    <Image Source="{Binding Video.CoverPath}"
                         HorizontalOptions="FillAndExpand"
                         VerticalOptions="FillAndExpand"
                         Aspect="AspectFill"

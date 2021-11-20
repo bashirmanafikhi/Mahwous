@@ -137,6 +137,37 @@
 
     </FlyoutItem>
 
+    <FlyoutItem Title="سياسة مهووس"
+                FlyoutDisplayOptions="AsMultipleItems">
+
+        <Tab  Title="سياسة الخصوصية">
+            <Tab.Icon>
+                <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Copyright}" FontFamily="FA-S" />
+            </Tab.Icon>
+            <ShellContent>
+                <views:PrivacyPolicyPage />
+            </ShellContent>
+        </Tab>
+
+        <Tab  Title="شروط الإستخدام">
+            <Tab.Icon>
+                <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.HandsHelping}" FontFamily="FA-S" />
+            </Tab.Icon>
+            <ShellContent>
+                <views:TermsAndConditionsPage />
+            </ShellContent>
+        </Tab>
+
+    </FlyoutItem>
+
+    <ShellContent Title="الإعدادات">
+        <ShellContent.Icon>
+            <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Cogs}" FontFamily="FA-S" />
+        </ShellContent.Icon>
+        <views:SettingsPage />
+    </ShellContent>
+
+    
     <MenuItem Text="تقييم التطبيق" Clicked="MenuItem_Rate_Clicked" >
         <MenuItem.IconImageSource>
             <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.StarHalfAlt}" FontFamily="FA-S" />

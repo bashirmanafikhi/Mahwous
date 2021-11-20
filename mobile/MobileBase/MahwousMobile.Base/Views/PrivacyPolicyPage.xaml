@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:system="clr-namespace:System;assembly=netstandard"
+             mc:Ignorable="d"
+             x:Class="MahwousMobile.Base.Views.PrivacyPolicyPage"
+             Title="سياسة الخصوصية">
+    
+        <ScrollView >
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <StackLayout BackgroundColor="{StaticResource colYellow}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView Padding="0,10,0,10" VerticalOptions="FillAndExpand">
+                    <Image Source="{AppThemeBinding Light=TransparentBlack.png, Dark=TransparentWhite.png}" VerticalOptions="Center" HeightRequest="128" />
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
+            <StackLayout Grid.Row="1" Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
+
+                
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="سياسة الخصوصية ، الخصوصية والبنود" FontAttributes="Bold" FontSize="Micro" TextColor="{StaticResource colRed}"  />
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="تشكل خصوصية زوارنا اهتماما كبيرا لنا في مهووس (mahwous.com)، نلتزم بحماية خصوصية مستخدمينا ونرغب بإطلاعك عزيزي مستخدم الموقع على طبيعة البيانات والمعلومات التي نقوم في مهووس بتجميعها ، وكيفية استخدامنا لها، وما حدود تحكمنا عليها، كما ستوضح طريقة استخدامنا لهذه البيانات أو المعلومات المجمعة.نقوم مع مرور الزمن بإضافة أو حذف خدمات او أجزاء من وإلى الموقع، لذلك ولالتزامنا بإطلاعكم على سياسة الخصوصية المتبعة قد نقوم بتغيير سياسة الخصوصية، بان نضيف عليها، أو نحذف منها أو نعدل بعض بنودها، لذلك ننصحك بالإطلاع على هذه الاتفاقية من وقت لآخر."/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="قبول سياسة الخصوصية" FontAttributes="Bold" FontSize="Micro" TextColor="{StaticResource colRed}"  />
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="ان استخدامك لأي من صفحات أو خدمات مهووس أو المواقع الفرعية التابعة له والخدمات المتوافرة عليها يعني قبولك اللامشروط لسياسة الخصوصية الخاصة بنا منذ اللحظة الأولى لاستخدامك لخدماتنا، والتزامك بأي بنود تتطلب منك اتخاذ إجراء من طرفك وبناء على ما تنص عليه هذه السياسة، إذا كنت لا توافق على بنود هذه السياسة عليك مغادرة صفحات الموقع والتوقف عن استخدامه فورا."/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="ملفات السجل Log Files" FontAttributes="Bold" FontSize="Micro" TextColor="{StaticResource colRed}"  />
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="مثل العديد من المواقع على شبكة الانترنت، يقوم موقع مهووس mahwous) بجمع بعض المعلومات عن زوار الموقع مثل: رقم الأي بي، الشركة المزودة لخدمة الإنترنت، بلد الزائر، الصفحة التي دخل منها، والصفحة التي خرج منها، تحركات الزائر بداخل الموقع، النقرات ، معلومات الجنس وغيرها من المعلومات التي يتم تجميعها واستخدامها لإدارة الموقع ومعرفة توجهات مستخدمي الموقع وطريقة استخدامهم للموقع، وبدون أي يتم جمع أي معلومات ترتبط بزائر معين بشكل شخصي، حيث يتم تجميع هذه المعلومات بشكل غير مسمى (غير ذي شخصية محددة)."/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="ملفات الارتباط وملف الإرشاد Cookies, Beacons" FontAttributes="Bold" FontSize="Micro" TextColor="{StaticResource colRed}"  />
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="يقوم مهووس (mahwous.com) باستخدام ملفات الارتباط لتخزين تفضيلات المستخدمين، ومعلومات حول الصفحات التي يزورها المستخدم او الزائر، وذلك لأغراض إدارة الموقع وتقديم بعض الخدمات، والمحتويات بناء على معلومات مثل نوعية متصفح الزائر مثلا."/>
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="يقوم بعض شركائنا في الإعلان ومزودي الخدمات للموقع باستخدام ملفات الارتباط لتخزين بعض المعلومات اللازمة لتقديم الخدمات المقدمة من طرفهم، مثل خدمة الدفع الإلكتروني والإعلانات المخصصة."/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="ملف/ملفات تعريف الارتباط DoubleClick DART" FontAttributes="Bold" FontSize="Micro" TextColor="{StaticResource colRed}"  />
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="جوجل وبصفتها وسيط لإظهار الإعلانات على مهووس (mahwous.com) ، تقوم باستخدام ملفات الارتباط لتقديم خدمات الإعلان على مهووس، كما وتقوم باستخدام تقنية ملف تعريف ارتباط DoubleClick DART في تحديد تفضيلات الإعلانات المقدمة للمستخدم من خلال سلوكه على مهووس او المواقع الالكترونية الاخرى التي قام بزيارتها (تقوم بإظهار إعلانات للزوار بناء على اهتمامتهم)، يمكن للزوار والمستخدمين لمهووس، اختيار عدم الاشتراك في ملفات تعريف الارتباط التي تستخدمها جوجل ووسطاء إعلانيين آخرين من خلال الاطلاع على صفحة خصوصية الإعلانات التابعة لجوجل هنا : http://www.google.com/privacy/ads ، كما يمكنكم إلغاء الاشتراك في ملفات تعريف الارتباط لوكالات إعلانية أخرى والحصول على المزيد من المعلومات من خلال زيارة الرابط التالي:http://www.networkadvertising.org/managing/opt_out.asp."/>
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="قد يقوم شركاؤنا ومزودي الخدمات المختلفة لمهووس، من استضافة وإعلانات ، و خوادم ، وصيانة باستخدام ملفات الارتباط بتقديم الإعلانات على مهووس، أو جمع معلومات عنك لأغراض تقديم خدمات مختلفة لذلك ننصحك بالإطلاع على سياسة الخصوصية التابعة لكل شركة أو موقع منهم ، ومن هذه الشركات على سبيل المثال لا الحصر:"/>
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="Google Adsense | Google Ads : سياسة خصوصية منتجات جوجل."/>
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="Facebook.com: سياسة خصوصية موقع فيس بوك."/>
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="قد لا تشتمل هذه القائمة على كل مزودي خدمات الموقع والشركاء، في حال لاحظت وجود خدمة مقدمة من قبل شركة او موقع غير مدرج في هذه القائمة عليك التوجة الى الموقع الالكتروني الخاص بهم والإطلاع على سياسة الخصوصية التابعة لهم، إذا لم تستطع الوصول لسياسة الخصوصية التابعة لهم يمكنك مراسلتنا لمساعدتك."/>
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="خوادم الإعلانات لدى هذه الوكالات الإعلانية تستخدم تقنيات تسمح لها باستقبال الأي بي الخاص بك فورا عند ظهور إعلاناتهم على مهووس، كما قد يستخدمون تقنيات أخرى لعرض إعلاناتهم على مهووس مثل (ملفات تعريف الارتباط، والجافا سكربت وتقنيات أخرى) من اجل تحسين أداء حملاتهم الإعلانية أو توفير إعلانات مخصصة حسب اهتمامات الزائر لمهووس، بناء على سلوكه على مهووس او سلوكه على مواقع أخرى على الانترنت."/>
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="تجدر الإشارة هنا أن مهووس ليس لديه سلطة أو تحكم بهذه الأدوات التي يستخدموها المعلنون لإظهار الإعلانات على مهووس، ننصحك باستشارة خبير في سياسة الخصوصية، أو زيارة مواقع الوكالات والشركاء الإعلانيين السابقين لتتعلم كيفية إلغاء الاشتراك بخدماتهم الإعلانية، أو إيقاف استخدام إحدى تقنياتهم."/>
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="كما نذكرك أنه يمكنك تعطيل ملفات الارتباط من خلال المتصفح الذي تستخدمه ، او استخدام احد برامج الحماية التي توفر مانعا للبانرات والإعلانات، عليك بزيارة موقع الشركة المصنعة لمتصفحك لمزيد من المعلومات عن كيفية تعطيل ملفات الارتباط وال Cookies."/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="أمان البيانات المجمعة" FontAttributes="Bold" FontSize="Micro" TextColor="{StaticResource colRed}"  />
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="تحرص مهووس على التعامل مع أفضل الشركات المزودة لخدمات الانترنت كل في مجاله، ونقوم بمراجعة سياسات الأمان المتبعة من قبلهم والتأكد أنها تناسب التوجهات الحديثة الآمنة في تخزين وحفظ البيانات وأخذ نسخ احتياطية منها، لا نقوم عادة بطلب معلومات شخصية منك كمكان السكن أو معلومات مالية مباشرة من خلال صفحات موقع مهووس ، إلا أن ذلك قد يحدث عن طريق شركائنا المذكورين سابقا في هذه السياسة، ننصحك بالإطلاع على سياسة خصوصيتهم لمعرفة طريقة حفاظهم على أمان البيانات، ومراسلتهم عند حاجتك لاستفسار بخصوصها، كما ننصحك بالإطلاع على شروط الخدمة قبل القيام بأي عملية دفع من خلال هؤلاء الشركاء."/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="مع من قد نتشارك بياناتك ومعلوماتك؟" FontAttributes="Bold" FontSize="Micro" TextColor="{StaticResource colRed}"  />
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="قد نقوم بمشاركة معلومات مجمعة مثل عدد زوار الموقع الكلي، عدد مرات التصفح، حجم الزوار ونسبتهم من كل بلد، مع بعض الشركات والأطراف الآخرين الراغبين في تقييم الموقع او الإعلان على صفحاته"/>
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="قد نقوم بتقديم بعض البيانات للجهات القانونية المسؤولة عند طلبها لهذه البيانات ووفق أحكام القوانين المعمول بها دوليا، ووفق ما تقتضيه الحاجة إن وجدت."/>
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="كل مزودي الخدمات السابق ذكرهم يقومون باستخدام خوادمهم الخاصة لتقديم الخدمات التي نتعاقد معهم على القيام بها، من الممكن أن يتم تخزين بعض البيانات على هذه الخوادم، لذى عليك الاطلاع على سياسة خصوصية كل منهم."/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="أين يتم تخزين بياناتي – الموقع الجغرافي؟" FontAttributes="Bold" FontSize="Micro" TextColor="{StaticResource colRed}"  />
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="يتعامل موقع مهووس مع عدة مزودي خدمات استضافه ودفع وألعاب، يتنوع موقع الخوادم التي تقدم هذه الخدمات ، ليكون مكانها الجغرافي على سبيل المثال لا الحضر في كل من: الولايات المتحدة، الصين، بلغاريا وغيرها من المناطق الجغرافية."/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="البيانات المتاحة للمشتركين في الموقع" FontAttributes="Bold" FontSize="Micro" TextColor="{StaticResource colRed}"  />
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="يوجد ما يزيد على 400 مشترك يراقبون محتويات الموقع للتأكد من سلامة المحتوى والخدمات المقدمة من قبلنا، من أمثلة هؤلاء المشتركين، المراقبين في غرف الدردشة، والمشرفين على التحرير والتعليقات، يستطيع هؤلاء الحصول على معلومات عن مكان اتصالك، ورقم الأي بي الخاص بك، ووقت تسجيل الدخول والخروج وبعض المعلومات الأخرى، الهدف من حصولهم على هذه المعلومات مساعدتك والأعضاء الآخرين، لا تقم أبدا بتزويد أي منهم بأي معلومات شخصية عنك، مثل عنوان السكن، معلومات مالية، او معلومات شخصية، هذه المعلومات ليست من اختصاصهم او صلاحياتهم، كما نؤكد أنا في إدارة الموقع لن نقوم بطلب كلمة المرور الخاصة بأي عضوية لك في الموقع، فهي لاستخدامك الشخصي فقط."/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="المحادثات المخزنة في غرف الدردشة" FontAttributes="Bold" FontSize="Micro" TextColor="{StaticResource colRed}"  />
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="نقوم من وقت لآخر بتخزين المحادثات العامة بداخل غرف الدردشة للقيام باجراء دراسات عليها وعلى أداء خوادم المحادثة وبدون التعرض لها بطريقة شخصية او استخراج أي بيانات شخصية، لا نقوم بتفعيل هذه الخاصية إلا في حالة وجود مشكله تقنية تحتاج إلى المتابعة ولفترة محدودة ثم نقوم بحذف هذه السجلات عند الانتهاء من استخدامها، بشكل عام ننصحك بعدم إعطاء أي بيانات شخصية أو مالية بداخل غرف الدردشة لأي شخص كان سواء على الدردشة العامة او في نافذة الدردشة الخاصة ( كما لا نقوم بمراقبة او تسجيل او معرفة المحادثات التي تدور في المنافذ الخاصة بشكل نهائي ) ."/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="المواقع الأخرى" FontAttributes="Bold" FontSize="Micro" TextColor="{StaticResource colRed}"  />
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="قد تحتوي بعض صفحات الموقع لروابط خارجية لمواقع أخرى، قبل القيام باستخدام خدمات هذه المواقع وزيارتها، ننصحك بزيارة صفحة سياسة الخصوصية التابعة لهم أولا للتعرف على سياسة الخصوصية المتبعة في هذه المواقع."/>
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="يمنع نشر أي مواد تعتدي على خصوصية مواقع الآخرين أو شركاتهم أو ملكياتهم سواء كانوا أشخاص حقيقيين او شخصيات اعتبارية، كما ويمنع نشر المواد المنسوخة والمسروقة من المواقع الأخرى لما فيها من تعدي على حقوق الآخرين وخصوصياتهم."/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="سياسة رد الاموال" FontAttributes="Bold" FontSize="Micro" TextColor="{StaticResource colRed}"  />
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="في حالات شراء العضويات من الموقع والاعلانات على الموقع نحن في مهووس لا نقدم سياسة رد الاموال، مع ذلك نلتزم بتعويض عن اي مدة خسرتها في الموقع بسبب عطل فني لدينا ولا نقوم بتعويض للذين تم حذف حساباتهم بسبب انتهاك القوانين لذلك نحن لا نوفر رد للاموال بأي شكل من الاشكال ."/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+            </StackLayout>
+    </Grid>
+        </ScrollView>
+    
+</ContentPage>

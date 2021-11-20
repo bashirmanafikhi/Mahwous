@@ -1,4 +1,5 @@
 ﻿using Mahwous.Core.Filters;
+using Mahwous.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 

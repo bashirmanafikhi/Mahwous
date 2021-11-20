@@ -10,13 +10,13 @@ namespace MahwousMobile.Base.ViewModels
 
     class LikedVideosViewModel : BaseViewModel
     {
-        public ObservableCollection<VideoStatus> Videos { get; set; }
+        public ObservableCollection<VideoViewModel> Videos { get; set; }
 
         public Command LoadVideosCommand { get; set; }
 
         public LikedVideosViewModel()
         {
-            Videos = new ObservableCollection<VideoStatus>();
+            Videos = new ObservableCollection<VideoViewModel>();
             LoadVideosCommand = new Command(() => ExecuteLoadVideosCommand());
         }
 
@@ -31,7 +31,7 @@ namespace MahwousMobile.Base.ViewModels
                 var videos = database.ReadAll();
                 foreach (var video in videos)
                 {
-                    Videos.Add(video);
+                    Videos.Add(new VideoViewModel(video));
                 }
             }
             catch (Exception ex)

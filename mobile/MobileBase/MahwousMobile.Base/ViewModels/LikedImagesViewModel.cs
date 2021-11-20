@@ -10,13 +10,13 @@ namespace MahwousMobile.Base.ViewModels
 
     class LikedImagesViewModel : BaseViewModel
     {
-        public ObservableCollection<ImageStatus> Images { get; set; }
+        public ObservableCollection<ImageViewModel> Images { get; set; }
 
         public Command LoadImagesCommand { get; set; }
 
         public LikedImagesViewModel()
         {
-            Images = new ObservableCollection<ImageStatus>();
+            Images = new ObservableCollection<ImageViewModel>();
             LoadImagesCommand = new Command(() => ExecuteLoadImagesCommand());
         }
 
@@ -31,7 +31,7 @@ namespace MahwousMobile.Base.ViewModels
                 var images = database.ReadAll();
                 foreach (var image in images)
                 {
-                    Images.Add(image);
+                    Images.Add(new ImageViewModel(image));
                 }
             }
             catch (Exception ex)

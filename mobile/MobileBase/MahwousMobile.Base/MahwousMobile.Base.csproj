@@ -69,6 +69,12 @@
     <Compile Update="Templates\DataTemplates\VideoTemplate.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
+    <Compile Update="Views\TermsAndConditionsPage.xaml.cs">
+      <DependentUpon>TermsAndConditionsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PrivacyPolicyPage.xaml.cs">
+      <DependentUpon>PrivacyPolicyPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\AboutPage.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
@@ -129,6 +135,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Views\TermsAndConditionsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\PrivacyPolicyPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\AboutPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>

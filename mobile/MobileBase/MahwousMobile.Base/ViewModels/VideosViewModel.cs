@@ -36,13 +36,14 @@ namespace MahwousMobile.Base.ViewModels
         public event EventHandler VideosFinished;
 
 
-        public ObservableCollection<VideoStatus> Videos { get; set; }
+        public ObservableCollection<VideoViewModel> Videos { get; set; }
         public Command LoadVideosCommand { get; set; }
         public Command LoadMoreVideosCommand { get; set; }
         public VideoFilter Filter { get => filter; set => filter = value; }
         public StatusSortType SortType
         {
-            get => sortType; set
+            get => sortType;
+            set
             {
                 sortType = value;
             }
@@ -52,10 +53,13 @@ namespace MahwousMobile.Base.ViewModels
 
             Filter = filter;
 
-            Videos = new ObservableCollection<VideoStatus>();
+            Videos = new ObservableCollection<VideoViewModel>();
 
             LoadVideosCommand = new Command(async () => await ExecuteLoadVideosCommand());
             LoadMoreVideosCommand = new Command(async () => await ExecuteLoadMoreVideosCommand());
+
+
+            Title = "فيديوهات";
         }
 
         public VideosViewModel() : this(new VideoFilter()) { }
@@ -74,7 +78,7 @@ namespace MahwousMobile.Base.ViewModels
                         pagination.PageIndex++;
                         var paginatedResponse = await Repositories.VideoStatusRepository.Search(pagination, Filter, SortType);
                         foreach (var video in paginatedResponse.Items)
-                            Videos.Add(video);
+                            Videos.Add(new VideoViewModel(video));
                     }
                     else
                     {
@@ -108,7 +112,7 @@ namespace MahwousMobile.Base.ViewModels
                 var videos = paginatedResponse.Items;
                 foreach (var video in videos)
                 {
-                    Videos.Add(video);
+                    Videos.Add(new VideoViewModel(video));
                 }
             }
             catch (Exception ex)

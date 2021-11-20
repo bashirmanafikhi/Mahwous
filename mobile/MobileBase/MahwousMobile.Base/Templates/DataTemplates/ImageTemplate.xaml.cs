@@ -24,9 +24,8 @@ namespace MahwousMobile.Base.Templates.DataTemplates
                 CrossMTAdmob.Current.ShowInterstitial();
 
             var layout = (BindableObject)sender;
-            var image = (ImageStatus)layout.BindingContext;
+            ImageViewModel viewModel = (ImageViewModel)layout.BindingContext;
 
-            ImageViewModel viewModel = new ImageViewModel(image);
             ImagePage page = new ImagePage(viewModel);
 
             var previousPage = Navigation.NavigationStack.LastOrDefault();

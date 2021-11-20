@@ -29,9 +29,18 @@ namespace MahwousMobile.Base.Views
             }
         }
 
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+            var loggedin = Settings.Token != null;
+            if (loggedin)
+                await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
+        }
+
         private async void GoToLoginPage(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new LoginPage());
+            await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
         }
     }
 }

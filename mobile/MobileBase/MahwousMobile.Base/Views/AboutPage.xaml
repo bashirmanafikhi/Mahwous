@@ -15,6 +15,7 @@
     
 
     
+        <ScrollView >
     <Grid>
 
         <Grid.RowDefinitions>
@@ -29,8 +30,7 @@
                 </ContentView>
             </StackLayout>
         </StackLayout>
-        <ScrollView Grid.Row="1">
-            <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
+            <StackLayout Grid.Row="1" Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
                 <Label FontSize="Micro">
                     <Label.FormattedText>
                         <FormattedString>
@@ -114,7 +114,7 @@
                 <templates:ContactUsTemplate />
                 
             </StackLayout>
-        </ScrollView>
     </Grid>
+        </ScrollView>
     
 </ContentPage>

@@ -1,4 +1,5 @@
 ﻿using Mahwous.Core.Filters;
+using Mahwous.Core.Interfaces;
 using System;
 
 namespace Mahwous.Core.Entities
@@ -18,6 +19,7 @@ namespace Mahwous.Core.Entities
         public int? LastModifiedById { get; set; }
 
         public string UserId { get; set; }
+        public virtual IUser User { get; set; }
 
         public BaseEntity()
         {

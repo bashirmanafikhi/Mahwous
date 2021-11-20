@@ -13,8 +13,20 @@ namespace MahwousMobile.Base.Views
         public WelcomeScreenPage()
         {
             InitializeComponent();
-            NavigationPage.SetHasNavigationBar(this, false);
             AnimateCarousel();
+        }
+        protected override bool OnBackButtonPressed()
+        {
+            return base.OnBackButtonPressed();
+        }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+            var loggedin = Settings.Token != null;
+            if (loggedin)
+                await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
         }
 
         Timer timer;
@@ -41,39 +53,15 @@ namespace MahwousMobile.Base.Views
 
         private async void Register_Button_Clicked(object sender, EventArgs e)
         {
-            try
-            {
-                await Navigation.PushAsync(new RegisterPage());
-            }
-            catch (Exception ex)
-            {
-                Crashes.TrackError(ex);
-                DependencyService.Get<IMessage>().LongAlert(ex.Message);
-            }
+            await Shell.Current.GoToAsync($"//{nameof(RegisterPage)}");
         }
         private async void Login_Button_Clicked(object sender, EventArgs e)
         {
-            try
-            {
-                await Navigation.PushAsync(new LoginPage());
-            }
-            catch (Exception ex)
-            {
-                Crashes.TrackError(ex);
-                DependencyService.Get<IMessage>().LongAlert(ex.Message);
-            }
+            await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
         }
-        private void GoToTheMainShell(object sender, EventArgs e)
+        private async void GoToTheMainShell(object sender, EventArgs e)
         {
-            try
-            {
-                Application.Current.MainPage = Settings.MainShellWindow;
-            }
-            catch (Exception ex)
-            {
-                Crashes.TrackError(ex);
-                DependencyService.Get<IMessage>().LongAlert(ex.Message);
-            }
+            await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
         }
 
 

@@ -1,10 +1,11 @@
 ﻿using Mahwous.Core.Entities;
+using Mahwous.Core.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
 
 namespace Mahwous.Persistence.Models
 {
-    public class ApplicationUser : IdentityUser/*<Guid>*/
+    public class ApplicationUser : IdentityUser , IUser
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

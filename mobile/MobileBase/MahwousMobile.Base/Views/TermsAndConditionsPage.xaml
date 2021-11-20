@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:system="clr-namespace:System;assembly=netstandard"
+             mc:Ignorable="d"
+             x:Class="MahwousMobile.Base.Views.TermsAndConditionsPage"
+             Title="شروط الإستخدام">
+    
+        <ScrollView>
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <StackLayout BackgroundColor="{StaticResource colYellow}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView Padding="0,10,0,10" VerticalOptions="FillAndExpand">
+                    <Image Source="{AppThemeBinding Light=TransparentBlack.png, Dark=TransparentWhite.png}" VerticalOptions="Center" HeightRequest="128" />
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
+
+            <StackLayout Grid.Row="1" Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
+                
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="قبول شروط الاستخدام " FontAttributes="Bold" FontSize="Micro" TextColor="{StaticResource colRed}"  />
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="تمثل البنود الموجودة في هذه الصفحة الخطوط العريضة لشروط استخدامك لمهووس أو أي من النطاقات الفرعية له، أو أي من الخدمات المقدمة من خلاله بشكل مباشر أو غير مباشر، إن استخدامك لأي من خدمات مهووس والمواقع التابعة له يعتبر موافقة ضمنية من قبلك على جميع شروط الاستخدام الواردة في هذه الوثيقة، إن عدم موافقتك الغير مشروطة على جميع محتويات هذه الشروط يجعلك غير مخولا باستخدام أو تصفح أي من المواقع أو الصفحات الالكترونية أو الخدمات المقدمة من قبل مهووس، ننصحك أيضا بالإطلاع على سياسة الخصوصية من اجل التعرف على طريقة جمعنا للبيانات وطريقة التعامل معها." />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="تعديل شروط الاستخدام" FontAttributes="Bold" FontSize="Micro" TextColor="{StaticResource colRed}"  />
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="يمتلك مهووس الحق في تعديل او حذف او إضافة اي من بنود شروط استخدام الموقع الواردة في هذه الوثيقة، ويلتزم بإجراء إعلان في صفحات المنتديات وبداخل غرف الدردشة عند التعديل على هذه الشروط، يمتلك الموقع الحق في تعريف ما يقصد به بتعديل، كما وتلتزم أنت كمستخدم للموقع أو إحدى خدماته بالالتزام بالتعديلات منذ لحظة القيام بنشرها والإعلان عنها." />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="حقوق الملكية" FontAttributes="Bold" FontSize="Micro" TextColor="{StaticResource colRed}"  />
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="إن اسم مهووس وشعاره وجميع المواد المنشورة على الموقع (ما لم يشر لغير ذلك) هي مملوكه لمهووس، ويمنع استخدامها او نشرها على صفحات الانترنت إلا بإذن كتابي مسبق تحت طائلة المسؤولية ووفقا لما هو متعارف عليه وفقا للقانون الدولي وقوانين حماية حقوق النشر والعلامات التجارية، تشتمل هذه الحماية على سبيل المثال ولا الحصر: الصور، البرامج، التصاميم، الشعارات، النصوص ووصف الصفحات."/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="سلوكك على صفحات وخدمات مهووس" FontAttributes="Bold" FontSize="Micro" TextColor="{StaticResource colRed}"  />
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="كمستخدم لمهووس تدرك تماماً و توافق على عدم القيام بالأفعال التالية وتحت طائلة المسؤولية:"/>
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="عدم التعرض بالشتم أو الإهانة أو السخرية من أي شعب، أو دين أو عرق، كما تحتم عد التعرض لأي حكومة أو زعيم ديني أو سياسي أو أي من الرسل والكتب السماوية.بالإضافة لعدم مضايقة أي زائر أو عضو أو شخص يقوم باستعمال الموقع، أو استخدام الموقع كمنصة لإهانة أو مضايقة أشخاص آخرين على شبكة الانترنت وخارجها."/>
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="عدم عرض أو تحميل الصور والجمل والكلمات التي تخدش الحياء ، أو تستخدم الجنس أو إي وسيلة إغراء على أي صفحة أو محتوى منشور على صفحات الموقع، كما يمنع ترهيب أي شخص أو مستخدم باستخدام صفحات الموقع ومحتوياته، بالإضافة لمنع التشجيع على العنف بكافة أشكاله ."/>
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="الامتناع عن إضافة أي محتوى أو برنامج أو إي منتج الكتروني منزوع المصدر، أو ذو حقوق نشر أو حقوق فكرية على صفحات الموقع، مهووس يؤمن بحقوق الملكية ويقوم باستخدام برمجيات تحمل تراخيص قانونية، نستخدم برمجيات قانونية في تصميمنا لصفحات الموقع وإدارته."/>
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="تدرك تماما أن كل ما ينشر من قبل الأعضاء والزوار والمشرفين في المنتديات والمراقبين في غرف الدردشة، يتحمل ناشره فقط المسؤولية عنة، إن المحتويات الموجودة على صفحات الموقع وبخاصة المنتديات لا تعبر بالضرورة عن رأي أو وجهة نظر مهووس."/>
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="تدرك تماما لعدم تحمل إدارة الموقع ولا المشرفين المسؤولية المباشرة أو غير المباشرة عن أي خلل أو ضرر يصيبك أو يصيب جهاز الكمبيوتر الخاص بك أو الشبكة الالكترونية التي تستعملها جرّاء تحميل أو استعمال أي من محتويات الموقع أو صفحاته.أمنك الشخصي وأمن جهاز الكمبيوتر الخاص بك ، هو مسؤوليتك وحدك."/>
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="تدرك تمام أن إدارة الموقع باختيار وتعيين مشرفي الدردشة والمنتديات وطواقم الإدارة بما تراه مناسبا، وبمبدأ العمل التطوعي بدون أي مقابل مادي، كما يحق لها تغيير صلاحيات إي شخص أو سحبها بدون سابق إنذار وبدون تبيان الأسباب. نشكر كل من ساهم ويساهم في إدارة الموقع وبرمجياته ومحتوياتة."/>
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="تدرك تماما أن أمان كلمة السر الخاصة بك مسؤوليتك وحدك، نحن نقوم بتخزين كلمات المرور في قواعد البيانات بطريقة مشفرة، لا نقوم بتزويد إي مستخدم بكلمة مروره في حال فقدانها، فيما يمكنك تغيير كلمة المرور واسترجاعها بشكل أوتوماتيكي من خلال بريدك الالكتروني الذي قمت بتسجيل عضويتك به، ، مثل العضوية في المنتديات مثلا. لا نستطيع الاطلاع على كلمة السر الخاصة بك أو قراءتها بسبب تشفيرها لمزيد من الأمان في قواعد البيانات."/>
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="توافق كمستخدم لمهووس بجميع محتوياته وصفحاته على تحمل المخاطر الناجمة عن ذلك وحده وبدون أدنى مسؤولية من قبل إدارة مهووس ، كما لا يقدم مهووس أي ضمانات عن سلامة خدماته من الثغرات أو العيوب البرمجية أو إي عيوب أخرى قد تطرأ وتسبب ضررا لك أو لممتلكاتك بسبب استخدام الموقع."/>
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="تدرك تمام أن مهووس وإدارته تمتلك الحق بتحديث أي من خدمات الموقع، أو إغلاقها، أو تعطيلها بشكل جزئي وفقا لما يرتئيه مناسبا وبدون سابق إنذار لأي طرف كان، كما يحق لأي عضو المطالبة بإغلاق حسابه أو عضويته في إي من صفحات مهووس بمراسلتنا برسالة الكترونية من البريد الذي قام بالتسجيل به."/>
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="تدرك أن مخالفتك لأي من البنود السابقة، أو لسلوك وأخلاقيات الانترنت السليمة والمتعارف عليها، سيؤدي لإيقاف عضويتك وحرمانك من دخول الموقع أو إحدى خدماته وفقا لما ترتئيه إدارة الموقع، وبدون سابق إنذار أو تنبيه."/>
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="تلتزم بتزويد بيانات صحيحة عند رغبتك بالتسجيل لعضوية في أي من خدمات الموقع، وخاصة البريد الالكتروني المستخدم في عملية التسجيل."/>
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="تمتنع عن استخدام خدمات وصفحات الموقع كوسيلة لإغراق بريد الآخرين او إرسال رسائل السبام، أو جمع المعلومات عن أشخاص أعضاء وزوار الموقع أو سلوكهم على صفحات الموقع وخدماته."/>
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="تتحمل أنت المسؤولية وحدك عند تقديم أي بيانات شخصية عنك او عن عائلتك أو أي معلومات مالية على صفحات الموقع والخدمات المدفوعة."/>
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="تلتزم بعدم انتحال شخصية أي شخص آخر سواء كان شخص لو مؤسسة او شركة أو أي شخصية اعتبارية أخرى على صفحات الموقع أو من خلال خدماته."/>
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="تمتنع تماما عن محاولات إغراق خوادم الموقع او مهاجمتها أو محاولة الوصول لأي من خدمات الموقع أو صفحاته بطرق غير شرعية."/>
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="عدم القيام بنشر روابط لمواقع أخرى بهدف الدعاية او الإعلان او الاختراق او لاي قصد اخر ذو نوايا سيئة على أي من خدمات وصفحات الموقع."/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="الروابط الخارجية على صفحات الموقع" FontAttributes="Bold" FontSize="Micro" TextColor="{StaticResource colRed}"  />
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="قد توجد بعض الروابط الخارجية على صفحات الموقع وخدماته، هذه الروابط تشير إلى مواقع لا تقع ضمن نطاق سيطرتنا، تتحمل أنت وحدك زيارة هذه المواقع والإطلاع على محتوياتها، وتتحمل مسؤولية أي ضرر مباشر او غير مباشر قد يصيبك أنت أو أدواتك من خلال زيارة هذه المواقع."/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+            </StackLayout>
+    </Grid>
+        </ScrollView>
+    
+</ContentPage>

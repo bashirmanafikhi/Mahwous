@@ -33,7 +33,7 @@
             Orientation="Horizontal">
 
             <Label
-                Text="مشاهدة الفيديو"
+                Text="{Binding Video.Title}"
                 TextColor="{DynamicResource colWhite}"
                 VerticalOptions="CenterAndExpand">
                 <Label.HorizontalOptions>
@@ -92,15 +92,38 @@
 
                 <StackLayout Orientation="Horizontal">
 
-                    <Button Style="{StaticResource Key=btnLikeStyle}" CornerRadius="10" Text="{Binding LikesCount}" Padding="10, 0" WidthRequest="50" FontSize="Subtitle" BackgroundColor="{StaticResource colYellow}" Command="{Binding ToggleLikeCommand}" />
+                    <Button 
+                        Style="{StaticResource Key=btnLikeStyle}" 
+                        CornerRadius="10" 
+                        Text="{Binding LikesCount}" 
+                        Padding="10, 0"  
+                        FontSize="Subtitle" 
+                        BackgroundColor="{StaticResource colYellow}"
+                        Command="{Binding ToggleLikeCommand}" />
 
-                <Label     Text="{Binding Video.Title}" 
-                       TextColor="{DynamicResource colWhite}"
-                       HorizontalTextAlignment="Center"
-                       Margin="10,4"
-                       FontSize="Subtitle"
-                       HorizontalOptions="Center"/>
-                
+                    <Button 
+                FontFamily="FA-S"
+                Text="{x:Static styles:SolidIcons.Download}"
+                Command="{Binding DownloadVideoCommand}"
+                Clicked="DownloadButton_Clicked"
+                Visual="Material"
+                TextColor="{DynamicResource colRed}"
+                WidthRequest="40"
+                BackgroundColor="{DynamicResource colBlack}"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="End" />
+
+                    <Button 
+                FontFamily="FA-S"
+                Text="{x:Static styles:SolidIcons.ShareAlt}"
+                Command="{Binding ShareVideoCommand}"
+                Visual="Material"
+                TextColor="{DynamicResource colRed}"
+                WidthRequest="40"
+                BackgroundColor="{DynamicResource colBlack}"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="End" />
+
                 </StackLayout>
                 
             </Frame>

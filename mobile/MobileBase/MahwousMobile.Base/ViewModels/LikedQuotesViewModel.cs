@@ -10,13 +10,13 @@ namespace MahwousMobile.Base.ViewModels
 
     class LikedQuotesViewModel : BaseViewModel
     {
-        public ObservableCollection<QuoteStatus> Quotes { get; set; }
+        public ObservableCollection<QuoteViewModel> Quotes { get; set; }
 
         public Command LoadQuotesCommand { get; set; }
 
         public LikedQuotesViewModel()
         {
-            Quotes = new ObservableCollection<QuoteStatus>();
+            Quotes = new ObservableCollection<QuoteViewModel>();
             LoadQuotesCommand = new Command(() => ExecuteLoadQuotesCommand());
         }
 
@@ -31,7 +31,7 @@ namespace MahwousMobile.Base.ViewModels
                 var quotes = database.ReadAll();
                 foreach (var quote in quotes)
                 {
-                    Quotes.Add(quote);
+                    Quotes.Add(new QuoteViewModel(quote));
                 }
             }
             catch (Exception ex)

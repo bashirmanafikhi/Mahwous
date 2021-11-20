@@ -37,7 +37,7 @@ namespace MahwousMobile.Base.ViewModels
         public event EventHandler ImagesFinished;
 
 
-        public ObservableCollection<ImageStatus> Images { get; set; }
+        public ObservableCollection<ImageViewModel> Images { get; set; }
         public Command LoadImagesCommand { get; set; }
         public Command LoadMoreImagesCommand { get; set; }
         public ImageFilter Filter { get => filter; set => filter = value; }
@@ -53,10 +53,13 @@ namespace MahwousMobile.Base.ViewModels
 
             Filter = filter;
 
-            Images = new ObservableCollection<ImageStatus>();
+            Images = new ObservableCollection<ImageViewModel>();
 
             LoadImagesCommand = new Command(async () => await ExecuteLoadImagesCommand());
             LoadMoreImagesCommand = new Command(async () => await ExecuteLoadMoreImagesCommand());
+
+
+            Title = "صور";
         }
 
         public ImagesViewModel() : this(new ImageFilter()) { }
@@ -75,7 +78,7 @@ namespace MahwousMobile.Base.ViewModels
                         pagination.PageIndex++;
                         var paginatedResponse = await Repositories.ImageStatusRepository.Search(pagination, Filter, SortType);
                         foreach (var image in paginatedResponse.Items)
-                            Images.Add(image);
+                            Images.Add(new ImageViewModel(image));
                     }
                     else
                     {
@@ -109,7 +112,7 @@ namespace MahwousMobile.Base.ViewModels
                 var images = paginatedResponse.Items;
                 foreach (var image in images)
                 {
-                    Images.Add(image);
+                    Images.Add(new ImageViewModel(image));
                 }
             }
             catch (Exception ex)

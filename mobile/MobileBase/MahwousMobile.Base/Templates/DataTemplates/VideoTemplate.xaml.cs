@@ -25,10 +25,8 @@ namespace MahwousMobile.Base.Templates.DataTemplates
                 CrossMTAdmob.Current.ShowRewardedVideo();
 
             var layout = (BindableObject)sender;
-            var video = (VideoStatus)layout.BindingContext;
+            VideoViewModel viewModel = (VideoViewModel)layout.BindingContext;
 
-
-            VideoViewModel viewModel = new VideoViewModel(video);
             VideoPage page = new VideoPage(viewModel);
 
             var previousPage = Navigation.NavigationStack.LastOrDefault();

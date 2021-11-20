@@ -16,6 +16,7 @@ namespace MahwousMobile.Base.Views
         {
             InitializeComponent();
             BindingContext = viewModel;
+            mediaElement.Play();
             viewModel.VideosViewModel.LoadVideosCommand.Execute(null);
 
             mediaElement.MediaOpened += MediaPlayed;

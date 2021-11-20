@@ -52,7 +52,7 @@ namespace MahwousMobile.Base.Views
 
         private async void GoToChatRoomsPage(object sender, System.EventArgs e)
         {
-            var route = $"//Other/{nameof(ChatRoomsPage)}";
+            var route = $"//ChatRooms/{nameof(ChatRoomsPage)}";
             await Shell.Current.GoToAsync(route);
         }
 

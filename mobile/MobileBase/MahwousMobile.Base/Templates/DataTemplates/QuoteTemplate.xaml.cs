@@ -1,4 +1,5 @@
-﻿using MahwousMobile.Base.ViewModels;
+﻿using Mahwous.Core.Entities;
+using MahwousMobile.Base.ViewModels;
 using MahwousMobile.Base.Views;
 using MarcTron.Plugin;
 using System;
@@ -23,7 +24,7 @@ namespace MahwousMobile.Base.Templates.DataTemplates
                 CrossMTAdmob.Current.ShowInterstitial();
 
             var layout = (BindableObject)sender;
-            var viewModel = (QuoteViewModel)layout.BindingContext;
+            QuoteViewModel viewModel = (QuoteViewModel)layout.BindingContext;
 
             QuotePage page = new QuotePage(viewModel);
 
