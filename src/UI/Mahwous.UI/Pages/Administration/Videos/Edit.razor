@@ -30,8 +30,8 @@
 
         @if (NotSelectedCategories != null)
         {
-            <VideoForm ButtonText="تعديل الفيديو" Video="video"
-                       OnValidSubmit="@((args)=> EditVideo(args.Item1,args.Item2))" NotSelectedCategories="NotSelectedCategories" SelectedCategories="SelectedCategories" />
+            @*<VideoForm ButtonText="تعديل الفيديو" Video="video"
+                       OnValidSubmit="@((args)=> EditVideo(args.Item1,args.Item2))" NotSelectedCategories="NotSelectedCategories" SelectedCategories="SelectedCategories" />*@
         }
 
 
@@ -41,7 +41,7 @@
 
 @code {
     [Parameter] public int videoId { get; set; }
-    VideoStatus video = new VideoStatus();
+    GetVideoStatusDetailsResponse video = new GetVideoStatusDetailsResponse();
 
     protected override async Task OnInitializedAsync()
     {

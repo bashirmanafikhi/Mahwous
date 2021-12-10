@@ -1,5 +1,5 @@
 ﻿using Mahwous.Core.Entities;
-using Mahwous.Core.Interfaces;
+using Mahwous.Core.Interfaces.Identity;
 using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
 
@@ -15,9 +15,10 @@ namespace Mahwous.Persistence.Models
         public virtual IList<Category> Categories { get; set; }
         public virtual IList<Post> Posts { get; set; }
         public virtual IList<MobileApp> MobileApps { get; set; }
-        public virtual IList<ImageStatus> ImageStatuses { get; set; }
-        public virtual IList<VideoStatus> VideoStatuses { get; set; }
-        public virtual IList<QuoteStatus> QuoteStatuses { get; set; }
+        public virtual IList<Status> Statuses { get; set; }
         public virtual IList<ChatRoom> ChatRooms { get; set; }
+        public virtual IList<ExternalLink> ExternalLinks { get; set; }
+        public virtual IList<MobileNotification> MobileNotifications { get; set; }
+        public virtual IList<Message> Messages { get; set; }
     }
 }

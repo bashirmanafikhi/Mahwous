@@ -14,7 +14,7 @@
 
             @foreach (var role in roles)
             {
-                <option value="@role.RoleName">@role.RoleName</option>
+                <option value="@role.Name">@role.Name</option>
             }
         </select>
 
@@ -41,7 +41,7 @@
             return;
         }
 
-        await usersRepository.AssignRole(new EditRoleDTO() { RoleName = selectedRole, UserId = UserId });
+        await usersRepository.AssignRole(new ChangeRoleDTO() { RoleName = selectedRole, UserId = UserId });
         await js.DisplayMessage("تم منح الدور إلى المستخدم");
     }
 
@@ -53,7 +53,7 @@
             return;
         }
 
-        await usersRepository.RemoveRole(new EditRoleDTO() { RoleName = selectedRole, UserId = UserId });
+        await usersRepository.RemoveRole(new ChangeRoleDTO() { RoleName = selectedRole, UserId = UserId });
         await js.DisplayMessage("تم إخراج المستخدم من هذا الدور");
     }
 

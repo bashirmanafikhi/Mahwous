@@ -55,8 +55,8 @@ namespace MahwousMobile.Base.ViewModels
 
             Videos = new ObservableCollection<VideoViewModel>();
 
-            LoadVideosCommand = new Command(async () => await ExecuteLoadVideosCommand());
-            LoadMoreVideosCommand = new Command(async () => await ExecuteLoadMoreVideosCommand());
+            LoadVideosCommand = new Command(ExecuteLoadVideosCommand);
+            LoadMoreVideosCommand = new Command(ExecuteLoadMoreVideosCommand);
 
 
             Title = "فيديوهات";
@@ -64,7 +64,7 @@ namespace MahwousMobile.Base.ViewModels
 
         public VideosViewModel() : this(new VideoFilter()) { }
 
-        async Task ExecuteLoadMoreVideosCommand()
+        async void ExecuteLoadMoreVideosCommand()
         {
             if (!IsLoadingMore)
             {
@@ -98,7 +98,7 @@ namespace MahwousMobile.Base.ViewModels
             }
         }
 
-        async Task ExecuteLoadVideosCommand()
+        async void ExecuteLoadVideosCommand()
         {
             IsBusy = true;
 

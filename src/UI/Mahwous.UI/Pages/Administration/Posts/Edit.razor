@@ -30,14 +30,14 @@
     <div class="container-fluid">
 
 
-        <PostForm ButtonText="تعديل المنشور" Post="post" OnValidSubmit="@EditPost" />
+        @*<PostForm ButtonText="تعديل المنشور" Post="post" OnValidSubmit="@EditPost" />*@
 
     </div>
 </div>
 
 @code {
     [Parameter] public int postId { get; set; }
-    Post post = new Post();
+    GetPostDetailsResponse post = new GetPostDetailsResponse();
 
     protected override async Task OnInitializedAsync()
     {

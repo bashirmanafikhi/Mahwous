@@ -17,9 +17,9 @@ namespace MahwousMobile.Base.Views
             {
                 InitializeComponent();
                 var vm = (AccountsViewModel)BindingContext;
-                vm.LoggedSuccessfully += () =>
+                vm.LoggedSuccessfully += async () =>
                 {
-                    Application.Current.MainPage = Settings.MainShellWindow;
+                    await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
                 };
             }
             catch (Exception ex)

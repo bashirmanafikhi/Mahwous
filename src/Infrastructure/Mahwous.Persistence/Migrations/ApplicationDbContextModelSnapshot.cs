@@ -44,10 +44,10 @@ namespace Mahwous.Persistence.Migrations
                     b.Property<string>("CoverPath")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CreatedById")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("ForImages")
@@ -59,14 +59,8 @@ namespace Mahwous.Persistence.Migrations
                     b.Property<bool>("ForVideos")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
                     b.Property<bool>("IsHidden")
                         .HasColumnType("bit");
-
-                    b.Property<int?>("LastModifiedById")
-                        .HasColumnType("int");
 
                     b.Property<DateTime?>("LastModifiedDate")
                         .HasColumnType("datetime2");
@@ -97,23 +91,17 @@ namespace Mahwous.Persistence.Migrations
                     b.Property<string>("CoverPath")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CreatedById")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
                     b.Property<bool>("IsHidden")
                         .HasColumnType("bit");
-
-                    b.Property<int?>("LastModifiedById")
-                        .HasColumnType("int");
 
                     b.Property<DateTime?>("LastModifiedDate")
                         .HasColumnType("datetime2");
@@ -145,23 +133,17 @@ namespace Mahwous.Persistence.Migrations
                     b.Property<string>("CoverPath")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CreatedById")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
                     b.Property<bool>("IsHidden")
                         .HasColumnType("bit");
-
-                    b.Property<int?>("LastModifiedById")
-                        .HasColumnType("int");
 
                     b.Property<DateTime?>("LastModifiedDate")
                         .HasColumnType("datetime2");
@@ -178,14 +160,63 @@ namespace Mahwous.Persistence.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("ViewsCount")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("ExternalLinks");
+                });
+
+            modelBuilder.Entity("Mahwous.Core.Entities.Message", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsHidden")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("LastModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("ReplyToId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RoomId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("ViewsCount")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ReplyToId")
+                        .IsUnique()
+                        .HasFilter("[ReplyToId] IS NOT NULL");
+
+                    b.HasIndex("RoomId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Messages");
                 });
 
             modelBuilder.Entity("Mahwous.Core.Entities.MobileApp", b =>
@@ -204,23 +235,17 @@ namespace Mahwous.Persistence.Migrations
                     b.Property<string>("CoverPath")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CreatedById")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
                     b.Property<bool>("IsHidden")
                         .HasColumnType("bit");
-
-                    b.Property<int?>("LastModifiedById")
-                        .HasColumnType("int");
 
                     b.Property<DateTime?>("LastModifiedDate")
                         .HasColumnType("datetime2");
@@ -260,26 +285,20 @@ namespace Mahwous.Persistence.Migrations
                     b.Property<int>("BadgeNumber")
                         .HasColumnType("int");
 
-                    b.Property<int>("CreatedById")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
 
                     b.Property<bool>("IsHidden")
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsScheduled")
                         .HasColumnType("bit");
-
-                    b.Property<int?>("LastModifiedById")
-                        .HasColumnType("int");
 
                     b.Property<DateTime?>("LastModifiedDate")
                         .HasColumnType("datetime2");
@@ -300,12 +319,14 @@ namespace Mahwous.Persistence.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("ViewsCount")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("MobileNotifications");
                 });
@@ -324,20 +345,14 @@ namespace Mahwous.Persistence.Migrations
                     b.Property<string>("CoverPath")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CreatedById")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<bool>("IsHidden")
                         .HasColumnType("bit");
-
-                    b.Property<int?>("LastModifiedById")
-                        .HasColumnType("int");
 
                     b.Property<DateTime?>("LastModifiedDate")
                         .HasColumnType("datetime2");
@@ -372,10 +387,10 @@ namespace Mahwous.Persistence.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CreatedById")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Discriminator")
@@ -385,14 +400,8 @@ namespace Mahwous.Persistence.Migrations
                     b.Property<int>("DownloadsCount")
                         .HasColumnType("int");
 
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
                     b.Property<bool>("IsHidden")
                         .HasColumnType("bit");
-
-                    b.Property<int?>("LastModifiedById")
-                        .HasColumnType("int");
 
                     b.Property<DateTime?>("LastModifiedDate")
                         .HasColumnType("datetime2");
@@ -410,6 +419,8 @@ namespace Mahwous.Persistence.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Statuses");
 
@@ -643,8 +654,6 @@ namespace Mahwous.Persistence.Migrations
                     b.Property<string>("ImagePath")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasIndex("UserId");
-
                     b.HasDiscriminator().HasValue("ImageStatus");
                 });
 
@@ -654,8 +663,6 @@ namespace Mahwous.Persistence.Migrations
 
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
-
-                    b.HasIndex("UserId");
 
                     b.HasDiscriminator().HasValue("QuoteStatus");
                 });
@@ -672,8 +679,6 @@ namespace Mahwous.Persistence.Migrations
 
                     b.Property<string>("VideoPath")
                         .HasColumnType("nvarchar(max)");
-
-                    b.HasIndex("UserId");
 
                     b.HasDiscriminator().HasValue("VideoStatus");
                 });
@@ -709,6 +714,36 @@ namespace Mahwous.Persistence.Migrations
                         .OnDelete(DeleteBehavior.SetNull);
                 });
 
+            modelBuilder.Entity("Mahwous.Core.Entities.ExternalLink", b =>
+                {
+                    b.HasOne("Mahwous.Persistence.Models.ApplicationUser", null)
+                        .WithMany("ExternalLinks")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.SetNull);
+                });
+
+            modelBuilder.Entity("Mahwous.Core.Entities.Message", b =>
+                {
+                    b.HasOne("Mahwous.Core.Entities.Message", "ReplyTo")
+                        .WithOne()
+                        .HasForeignKey("Mahwous.Core.Entities.Message", "ReplyToId");
+
+                    b.HasOne("Mahwous.Core.Entities.ChatRoom", "Room")
+                        .WithMany("Messages")
+                        .HasForeignKey("RoomId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Mahwous.Persistence.Models.ApplicationUser", null)
+                        .WithMany("Messages")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.Navigation("ReplyTo");
+
+                    b.Navigation("Room");
+                });
+
             modelBuilder.Entity("Mahwous.Core.Entities.MobileApp", b =>
                 {
                     b.HasOne("Mahwous.Persistence.Models.ApplicationUser", null)
@@ -717,10 +752,26 @@ namespace Mahwous.Persistence.Migrations
                         .OnDelete(DeleteBehavior.SetNull);
                 });
 
+            modelBuilder.Entity("Mahwous.Core.Entities.MobileNotification", b =>
+                {
+                    b.HasOne("Mahwous.Persistence.Models.ApplicationUser", null)
+                        .WithMany("MobileNotifications")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.SetNull);
+                });
+
             modelBuilder.Entity("Mahwous.Core.Entities.Post", b =>
                 {
                     b.HasOne("Mahwous.Persistence.Models.ApplicationUser", null)
                         .WithMany("Posts")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.SetNull);
+                });
+
+            modelBuilder.Entity("Mahwous.Core.Entities.Status", b =>
+                {
+                    b.HasOne("Mahwous.Persistence.Models.ApplicationUser", null)
+                        .WithMany("Statuses")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.SetNull);
                 });
@@ -791,28 +842,9 @@ namespace Mahwous.Persistence.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Mahwous.Core.Entities.ImageStatus", b =>
+            modelBuilder.Entity("Mahwous.Core.Entities.ChatRoom", b =>
                 {
-                    b.HasOne("Mahwous.Persistence.Models.ApplicationUser", null)
-                        .WithMany("ImageStatuses")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.SetNull);
-                });
-
-            modelBuilder.Entity("Mahwous.Core.Entities.QuoteStatus", b =>
-                {
-                    b.HasOne("Mahwous.Persistence.Models.ApplicationUser", null)
-                        .WithMany("QuoteStatuses")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.SetNull);
-                });
-
-            modelBuilder.Entity("Mahwous.Core.Entities.VideoStatus", b =>
-                {
-                    b.HasOne("Mahwous.Persistence.Models.ApplicationUser", null)
-                        .WithMany("VideoStatuses")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                    b.Navigation("Messages");
                 });
 
             modelBuilder.Entity("Mahwous.Persistence.Models.ApplicationUser", b =>
@@ -821,15 +853,17 @@ namespace Mahwous.Persistence.Migrations
 
                     b.Navigation("ChatRooms");
 
-                    b.Navigation("ImageStatuses");
+                    b.Navigation("ExternalLinks");
+
+                    b.Navigation("Messages");
 
                     b.Navigation("MobileApps");
 
+                    b.Navigation("MobileNotifications");
+
                     b.Navigation("Posts");
 
-                    b.Navigation("QuoteStatuses");
-
-                    b.Navigation("VideoStatuses");
+                    b.Navigation("Statuses");
                 });
 #pragma warning restore 612, 618
         }

@@ -12,7 +12,10 @@ namespace Mahwous.Service.Chat
 
         Task Connect();
         Task Disconnect();
-        void ReceiveMessage(int roomId, Action<string, string> GetMessageAndUser);
-        Task SendMessage(int roomId, string userName, string message);
+        void ReceiveMessage(Action<string, string> GetMessageAndUser);
+        Task SendMessage(int roomId, string message);
+        Task SetToken(string token);
+        Task JoinRoom(int roomId);
+        Task LeaveRoom(int roomId);
     }
 }

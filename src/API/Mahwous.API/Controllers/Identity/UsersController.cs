@@ -1,16 +1,10 @@
-﻿using Mahwous.API.Helpers;
-using Mahwous.Core.Dtos;
-using Mahwous.Core.Extentions;
+﻿using Mahwous.Core.Dtos;
+using Mahwous.Core.Interfaces.Identity;
 using Mahwous.Core.Pagination;
 using Mahwous.Persistence;
-using Mahwous.Persistence.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Mahwous.API.Controllers.Identity
@@ -21,55 +15,43 @@ namespace Mahwous.API.Controllers.Identity
     public class UsersController : ControllerBase
     {
         private readonly ApplicationDbContext context;
-        private readonly UserManager<ApplicationUser> userManager;
+        private readonly IRoleService roleService;
+        private readonly IUserService userService;
 
         public UsersController(ApplicationDbContext context,
-            UserManager<ApplicationUser> userManager)
+            IRoleService roleService,
+            IUserService userService)
         {
             this.context = context;
-            this.userManager = userManager;
+            this.roleService = roleService;
+            this.userService = userService;
         }
 
         [HttpGet]
         public async Task<ActionResult<List<UserDTO>>> Get([FromQuery] PaginationDetails paginationDTO)
         {
-            var queryable = context.Users.AsQueryable();
-            await HttpContext.InsertPaginationParametersInResponse(queryable, paginationDTO);
-            return await queryable.Paginate(paginationDTO)
-                .Select(x => new UserDTO { Email = x.Email, UserId = x.Id }).ToListAsync();
+            return await userService.SearchAsync(paginationDTO);
         }
 
         [HttpGet("roles")]
         public async Task<ActionResult<List<RoleDTO>>> Get()
         {
-            return await context.Roles
-                .Select(x => new RoleDTO { RoleName = x.Name }).ToListAsync();
+            return await roleService.ListAllAsync();
         }
 
 
-
-
         [HttpPost("assignRole")]
-        public async Task<ActionResult> AssignRole(EditRoleDTO model)
+        public async Task<ActionResult> AssignRole(ChangeRoleDTO model)
         {
-            var user = await userManager.FindByIdAsync(model.UserId);
-
-            await userManager.AddToRoleAsync(user, model.RoleName);
-            //await userManager.AddClaimAsync(user, new Claim(ClaimTypes.Role, model.RoleName));
-
+            await roleService.AddUserToRole(model);
             return NoContent();
         }
 
 
-
-
         [HttpPost("removeRole")]
-        public async Task<ActionResult> RemoveRole(EditRoleDTO model)
+        public async Task<ActionResult> RemoveRole(ChangeRoleDTO model)
         {
-            var user = await userManager.FindByIdAsync(model.UserId);
-
-            await userManager.RemoveClaimAsync(user, new Claim(ClaimTypes.Role, model.RoleName));
-
+            await roleService.RemoveUserFromRole(model);
             return NoContent();
         }
     }

@@ -5,6 +5,7 @@
              xmlns:vm="clr-namespace:MahwousMobile.Base.ViewModels"
              x:Class="MahwousMobile.Base.Views.WelcomeScreenPage"
              Shell.FlyoutBehavior="Disabled"
+             BackgroundImageSource="Backgroud.jpg"
              Shell.NavBarIsVisible="False">
     <ContentPage.BindingContext>
         <vm:AccountsViewModel />
@@ -18,9 +19,9 @@
 
         <Grid>
             <Grid.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="0,0">
-                    <GradientStop Color="Transparent"/>
-                    <GradientStop Color="{DynamicResource colBlack}"/>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Offset="0.1" Color="Transparent" />
+                    <GradientStop Offset="1.0" Color="{DynamicResource colBlack}" />
                 </LinearGradientBrush>
             </Grid.Background>
         </Grid>

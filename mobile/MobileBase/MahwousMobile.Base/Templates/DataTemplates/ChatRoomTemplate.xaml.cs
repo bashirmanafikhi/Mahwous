@@ -1,4 +1,5 @@
 ﻿using Mahwous.Core.Entities;
+using MahwousMobile.Base.Helpers;
 using MahwousMobile.Base.ViewModels;
 using MahwousMobile.Base.Views;
 using MarcTron.Plugin;
@@ -22,6 +23,7 @@ namespace MahwousMobile.Base.Templates.DataTemplates
         {
             if (Device.RuntimePlatform == Device.iOS || Device.RuntimePlatform == Device.Android)
                 CrossMTAdmob.Current.ShowInterstitial();
+
 
             var layout = (BindableObject)sender;
             var chatRoom = (ChatRoom)layout.BindingContext;

@@ -33,10 +33,10 @@ namespace Mahwous.Core.Filters
                 queryable = queryable.Where(v => v.ViewsCount <= ViewsCount.To);
 
             if (CreatedDate != null && CreatedDate.From != null)
-                queryable = queryable.Where(v => v.CreatedDate.Date >= CreatedDate.From.Date);
+                queryable = queryable.Where(v => v.CreatedAt.Date >= CreatedDate.From.Date);
 
             if (CreatedDate != null && CreatedDate.To != null)
-                queryable = queryable.Where(v => v.CreatedDate.Date <= CreatedDate.To.Date);
+                queryable = queryable.Where(v => v.CreatedAt.Date <= CreatedDate.To.Date);
 
 
             if (IsHidden.HasValue)

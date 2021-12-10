@@ -38,10 +38,10 @@ namespace Mahwous.Core.Extentions
             switch (sortType)
             {
                 case StatusSortType.Newest:
-                    queryable = queryable.OrderByDescending(v => v.CreatedDate);
+                    queryable = queryable.OrderByDescending(v => v.CreatedAt);
                     break;
                 case StatusSortType.Oldest:
-                    queryable = queryable.OrderBy(v => v.CreatedDate);
+                    queryable = queryable.OrderBy(v => v.CreatedAt);
                     break;
                 case StatusSortType.Views:
                     queryable = queryable.OrderByDescending(v => v.ViewsCount);
@@ -70,10 +70,10 @@ namespace Mahwous.Core.Extentions
             switch (sortType)
             {
                 case EntitySortType.Newest:
-                    queryable = queryable.OrderByDescending(v => v.CreatedDate);
+                    queryable = queryable.OrderByDescending(v => v.CreatedAt);
                     break;
                 case EntitySortType.Oldest:
-                    queryable = queryable.OrderBy(v => v.CreatedDate);
+                    queryable = queryable.OrderBy(v => v.CreatedAt);
                     break;
                 case EntitySortType.MostViewed:
                     queryable = queryable.OrderByDescending(v => v.ViewsCount);

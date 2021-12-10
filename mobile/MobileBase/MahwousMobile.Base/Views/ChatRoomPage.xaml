@@ -1,30 +1,59 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:vm="clr-namespace:MahwousMobile.Base.ViewModels"
-             x:Class="MahwousMobile.Base.Views.ChatRoomPage"
-             Title="{Binding ChatRoom.Name}">
+<ContentPage
+    x:Class="MahwousMobile.Base.Views.ChatRoomPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Converters="clr-namespace:MahwousMobile.Base.Converters"
+    xmlns:dataTemplateSelector="clr-namespace:MahwousMobile.Base.TemplateSelectors"
+    xmlns:dataTemplates="clr-namespace:MahwousMobile.Base.Templates.DataTemplates"
+    xmlns:styles="clr-namespace:MahwousMobile.Base.Styles;assembly=MahwousMobile.Base"
+    xmlns:vm="clr-namespace:MahwousMobile.Base.ViewModels"
+    Title="{Binding ChatRoom.Name}">
+    <ContentPage.Resources>
+
+        <DataTemplate x:Key="MyMessage">
+            <dataTemplates:MyMessageTemplate />
+        </DataTemplate>
+
+        <DataTemplate x:Key="ThierMessage">
+            <dataTemplates:ThierMessageTemplate />
+        </DataTemplate>
+
+        <dataTemplateSelector:ChatBubbleTemplateSelctor
+            x:Key="messageSelector"
+            MyMessage="{StaticResource MyMessage}"
+            ThierMessage="{StaticResource ThierMessage}" />
+
+    </ContentPage.Resources>
 
     <ContentPage.BindingContext>
         <vm:ChatRoomViewModel />
     </ContentPage.BindingContext>
 
     <Grid RowDefinitions="*, auto">
-        <ListView ItemsSource="{Binding MessagesList}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Orientation="Vertical">
-                            <!--<Label Grid.Row="0" Text="{Binding UserName}" TextColor="{StaticResource colBlue}" />-->
-                            <Label Text="{Binding Message}" />
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <StackLayout Grid.Row="1">
-            <Entry BackgroundColor="{StaticResource colYellow}" TextColor="{StaticResource colBlack}"  Placeholder="اكتب رسالتك هنا.." Text="{Binding Message}"></Entry>
-            <Button  BackgroundColor="{StaticResource colRed}" Text="إرسال" Command="{Binding SendMessageCommand}" />
+        <CollectionView ItemsUpdatingScrollMode="KeepLastItemInView" ItemTemplate="{StaticResource messageSelector}" ItemsSource="{Binding MessagesList}" />
+        <StackLayout Grid.Row="1" Orientation="Horizontal">
+            <ImageButton
+                Padding="20,0"
+                Margin="5"
+                BackgroundColor="{StaticResource colBlue}"
+                Command="{Binding SendMessageCommand}"
+                CornerRadius="20"
+                HorizontalOptions="Start">
+                <ImageButton.Source>
+                    <FontImageSource
+                        FontFamily="FA-B"
+                        Glyph="{x:Static styles:BrandIcons.TelegramPlane}"
+                        Color="{DynamicResource colWhite}" />
+                </ImageButton.Source>
+            </ImageButton>
+            <Editor 
+                HorizontalOptions="FillAndExpand"
+                Keyboard="Plain" 
+                AutoSize="TextChanges"
+                Placeholder="اكتب رسالتك هنا.."
+                Text="{Binding Message}"
+                TextColor="{StaticResource colBlack}" />
         </StackLayout>
     </Grid>
 </ContentPage>

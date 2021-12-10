@@ -1,4 +1,5 @@
-﻿using MediatR.Pipeline;
+﻿using Mahwous.Core.Exceptions;
+using MediatR.Pipeline;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Threading;

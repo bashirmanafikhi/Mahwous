@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
-using Mahwous.Application.Exceptions;
+using Mahwous.Core.Exceptions;
 using Mahwous.Application.Extensions;
 using Mahwous.Core.Entities;
+using Mahwous.Core.Exceptions;
 using Mahwous.Core.Interfaces;
 using Mahwous.Core.Interfaces.Repositories;
 using MediatR;

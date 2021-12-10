@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Mahwous.Core.Interfaces.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -84,6 +85,7 @@ namespace Mahwous.Application.Mappings
 
             foreach (var map in mapsFrom)
             {
+                config.CreateMap<IUser, IUser>();
                 config.CreateMap(map.Source, map.Destination);
             }
         }

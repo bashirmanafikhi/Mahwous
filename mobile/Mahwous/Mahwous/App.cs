@@ -14,7 +14,7 @@ namespace Mahwous
             try
             {
                 SetConfigurations();
-                ShowPage();
+                MainPage = new AppShell();
             }
             catch (System.Exception ex)
             {
@@ -32,13 +32,6 @@ namespace Mahwous
 
         private void ShowPage()
         {
-            Settings.MainShellWindow = new AppShell();
-            //if (Settings.Token == null)
-            //{
-            //    MainPage = new NavigationPage(new WelcomeScreenPage());
-            //    return;
-            //}
-            MainPage = Settings.MainShellWindow;
         }
 
         private void SetConfigurations()

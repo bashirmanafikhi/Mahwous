@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="MahwousMobile.Base.Templates.DataTemplates.MyMessageTemplate"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentView.Content>
+
+        <StackLayout HorizontalOptions="Start">
+            <Frame
+                Margin="30,4"
+                BorderColor="white"
+                CornerRadius="20"
+                HasShadow="True"
+                HorizontalOptions="Start">
+                <Frame.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Offset="0.1" Color="#8BD4FF" />
+                        <GradientStop Offset="1.0" Color="{StaticResource colBlue}" />
+                    </LinearGradientBrush>
+                </Frame.Background>
+
+                <StackLayout>
+                    <Label Text="{Binding Content}" />
+                </StackLayout>
+
+            </Frame>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

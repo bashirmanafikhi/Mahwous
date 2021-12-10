@@ -27,14 +27,14 @@
     <div class="container-fluid">
 
 
-        <NotificationForm ButtonText="تعديل الإشعار" Notification="notification" OnValidSubmit="@EditNotification" />
+        @*<NotificationForm ButtonText="تعديل الإشعار" Notification="notification" OnValidSubmit="@EditNotification" />*@
 
     </div>
 </div>
 
 @code {
     [Parameter] public int notificationId { get; set; }
-    MobileNotification notification = new MobileNotification();
+    GetMobileNotificationDetailsResponse notification = new GetMobileNotificationDetailsResponse();
 
     protected override async Task OnInitializedAsync()
     {

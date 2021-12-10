@@ -7,9 +7,9 @@ namespace Mahwous.Service.Repositories
 {
     public interface IUsersRepository
     {
-        Task AssignRole(EditRoleDTO editRole);
+        Task AssignRole(ChangeRoleDTO editRole);
         Task<List<RoleDTO>> GetRoles();
         Task<PaginatedResponse<List<UserDTO>>> GetUsers(PaginationDetails pagination);
-        Task RemoveRole(EditRoleDTO editRole);
+        Task RemoveRole(ChangeRoleDTO editRole);
     }
 }

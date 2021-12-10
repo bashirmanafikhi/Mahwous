@@ -30,14 +30,14 @@
     <div class="container-fluid">
 
 
-        <ChatRoomForm ButtonText="تعديل الغرفة دردشة" ChatRoom="chatRoom" OnValidSubmit="@EditChatRoom" />
+        @*<ChatRoomForm ButtonText="تعديل الغرفة دردشة" ChatRoom="chatRoom" OnValidSubmit="@EditChatRoom" />*@
 
     </div>
 </div>
 
 @code {
     [Parameter] public int chatRoomId { get; set; }
-    ChatRoom chatRoom = new ChatRoom();
+    GetChatRoomDetailsResponse chatRoom = new GetChatRoomDetailsResponse();
 
     protected override async Task OnInitializedAsync()
     {

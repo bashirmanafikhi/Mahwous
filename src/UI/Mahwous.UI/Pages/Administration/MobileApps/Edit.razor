@@ -28,14 +28,14 @@
     <div class="container-fluid">
 
 
-        <AppForm ButtonText="تعديل" App="app" OnValidSubmit="@EditApp" />
+        @*<AppForm ButtonText="تعديل" App="app" OnValidSubmit="@EditApp" />*@
 
     </div>
 </div>
 
 @code {
     [Parameter] public int appId { get; set; }
-    MobileApp app = new MobileApp();
+    GetMobileAppDetailsResponse app = new GetMobileAppDetailsResponse();
 
     protected override async Task OnInitializedAsync()
     {
@@ -63,7 +63,7 @@
                 Package = app.Package,
                 Cover = coverFile
             };
-        await repositories.MobileAppsRepository.Update(command);
+            await repositories.MobileAppsRepository.Update(command);
             navigation.NavigateTo("administration/apps");
 
         }

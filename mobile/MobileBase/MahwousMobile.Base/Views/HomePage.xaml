@@ -124,7 +124,7 @@
                             </Frame>
                         </Frame>
 
-                        <Frame  CornerRadius="15" 
+                        <!--<Frame  CornerRadius="15" 
                        Margin="40,10" 
                        Padding="1"
                        BackgroundColor="{DynamicResource colRed}"
@@ -183,7 +183,7 @@
                                     </StackLayout>
                                 </StackLayout>
                             </Frame>
-                        </Frame>
+                        </Frame>-->
 
                         <templates:ContactUsTemplate />
 

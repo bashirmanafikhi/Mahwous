@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Mahwous.Application.Exceptions;
+using Mahwous.Core.Exceptions;
 using Mahwous.Core.Entities;
 using Mahwous.Core.Interfaces;
 using Mahwous.Core.Interfaces.Repositories;

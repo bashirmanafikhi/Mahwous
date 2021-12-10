@@ -32,8 +32,8 @@
 
         @if (NotSelectedCategories != null)
         {
-            <ImageForm ButtonText="تعديل الصورة" Image="image"
-                       OnValidSubmit="@EditImage" NotSelectedCategories="NotSelectedCategories" SelectedCategories="SelectedCategories" />
+            @*<ImageForm ButtonText="تعديل الصورة" Image="image"
+                       OnValidSubmit="@EditImage" NotSelectedCategories="NotSelectedCategories" SelectedCategories="SelectedCategories" />*@
         }
 
     </div>
@@ -41,7 +41,7 @@
 
 @code {
     [Parameter] public int imageId { get; set; }
-    ImageStatus image = new ImageStatus();
+    GetImageStatusDetailsResponse image = new GetImageStatusDetailsResponse();
 
     protected override async Task OnInitializedAsync()
     {

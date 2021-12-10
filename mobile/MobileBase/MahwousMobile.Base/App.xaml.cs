@@ -45,15 +45,13 @@ namespace MahwousMobile.Base
 
         private void RegisterServices()
         {
-            var url = Settings.Configuration.UrlBase;
-            DependencyService.RegisterSingleton<IChatService>(new ChatService(url));
-            DependencyService.RegisterSingleton(new MahwousRepositories(url));
             var token = Settings.Token;
+            var url = Settings.Configuration.UrlBase;
+            var repositories = new MahwousRepositories(url);
             if (token != null)
-            {
-                var repos = DependencyService.Get<MahwousRepositories>();
-                repos.Token = token;
-            }
+                repositories.Token = token;
+            DependencyService.RegisterSingleton(repositories);
+            DependencyService.RegisterSingleton<IChatService>(new ChatService(url, token));
         }
 
         private void SetLocalNotificationsOptions()

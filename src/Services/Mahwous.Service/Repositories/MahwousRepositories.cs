@@ -8,6 +8,7 @@ namespace Mahwous.Service.Repositories
     internal static class Constants
     {
         public static string MobileAppsUrl = "api/mobileApps";
+        public static string MessagesUrl = "api/messages";
         public static string CategoriesUrl = "api/categories";
         public static string NotificationsUrl = "api/mobileNotifications";
         public static string PostsUrl = "api/posts";
@@ -49,11 +50,9 @@ namespace Mahwous.Service.Repositories
 
         public string Token
         {
-            set
-            {
-                this.httpService.HttpClient.DefaultRequestHeaders.Authorization =
+            set => this.httpService.HttpClient.DefaultRequestHeaders.Authorization = 
                 new AuthenticationHeaderValue("Bearer", value);
-            }
+            get => this.httpService.HttpClient.DefaultRequestHeaders.Authorization.Parameter;
         }
 
 
@@ -67,6 +66,17 @@ namespace Mahwous.Service.Repositories
         #region Repositories
 
 
+        private MessageRepository messagesRepository;
+        public MessageRepository MessagesRepository
+        {
+            get
+            {
+                if (messagesRepository == null)
+                    messagesRepository = new MessageRepository(httpService, Constants.MessagesUrl);
+                return messagesRepository;
+            }
+        }
+
         private MobileAppRepository mobileAppsRepository;
         public MobileAppRepository MobileAppsRepository
         {
@@ -77,7 +87,6 @@ namespace Mahwous.Service.Repositories
                 return mobileAppsRepository;
             }
         }
-
 
         private CategoryRepository categoriesRepository;
         public CategoryRepository CategoriesRepository
@@ -101,7 +110,6 @@ namespace Mahwous.Service.Repositories
             }
         }
 
-
         private PostRepository postRepository;
         public PostRepository PostRepository
         {
@@ -113,7 +121,6 @@ namespace Mahwous.Service.Repositories
             }
         }
 
-
         private ChatRoomRepository chatRoomRepository;
         public ChatRoomRepository ChatRoomRepository
         {
@@ -124,7 +131,6 @@ namespace Mahwous.Service.Repositories
                 return chatRoomRepository;
             }
         }
-
 
         private ExternalLinkRepository externalLinkRepository;
         public ExternalLinkRepository ExternalLinkRepository
@@ -147,19 +153,6 @@ namespace Mahwous.Service.Repositories
                 return accountsRepository;
             }
         }
-
-
-        //private StatusRepository<Status> statusesRepository;
-        //public StatusRepository<Status> StatusesRepository
-        //{
-        //    get
-        //    {
-        //        if (statusesRepository == null)
-        //            statusesRepository = new StatusRepository<Status>(httpService, Constants.StatusesUrl);
-        //        return statusesRepository;
-        //    }
-        //}
-
 
         private VideoStatusRepository videoStatusRepository;
         public VideoStatusRepository VideoStatusRepository

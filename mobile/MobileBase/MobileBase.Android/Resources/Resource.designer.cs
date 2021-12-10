@@ -5727,7 +5727,7 @@ namespace MobileBase.Android
 			public static int avd_show_password = 2131165271;
 			
 			// aapt resource value: 0x7F070058
-			public static int Backgroud1 = 2131165272;
+			public static int Backgroud = 2131165272;
 			
 			// aapt resource value: 0x7F070059
 			public static int btn_checkbox_checked_mtrl = 2131165273;

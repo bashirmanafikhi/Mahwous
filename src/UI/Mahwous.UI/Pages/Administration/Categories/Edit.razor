@@ -27,15 +27,15 @@
     <div class="container-fluid">
 
 
-        <CategoryForm ButtonText="تعديل التصنيف" Category="category"
-                      OnValidSubmit="EditCategory" />
+        @*<CategoryForm ButtonText="تعديل التصنيف" Category="category"
+                      OnValidSubmit="EditCategory" />*@
 
     </div>
 </div>
 
 @code {
     [Parameter] public int categoryId { get; set; }
-    Category category = new Category();
+    GetCategoryDetailsResponse category = new GetCategoryDetailsResponse();
 
     protected override async Task OnInitializedAsync()
     {

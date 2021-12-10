@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="MahwousMobile.Base.Templates.DataTemplates.ThierMessageTemplate"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentView.Content>
+
+        <StackLayout>
+            <Frame
+                Margin="30,4"
+                BorderColor="White"
+                CornerRadius="20"
+                HasShadow="True"
+                HorizontalOptions="End">
+                <Frame.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Offset="0.1" Color="{StaticResource colRed}" />
+                        <GradientStop Offset="1.0" Color="#FA99AC" />
+                    </LinearGradientBrush>
+                </Frame.Background>
+
+                <StackLayout HorizontalOptions="End">
+
+                    <Label TextColor="White" Text="{Binding OwnerName}" />
+                    <!--<BoxView
+                        HeightRequest="2"
+                        HorizontalOptions="Fill"
+                        Color="white" />-->
+                    <Label Text="{Binding Content}" />
+                </StackLayout>
+
+            </Frame>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

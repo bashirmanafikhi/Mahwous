@@ -1,4 +1,5 @@
 ﻿using AppSettingsPoC.Models;
+using Mahwous.Service.Chat;
 using Mahwous.Service.Repositories;
 using Plugin.Settings;
 using Plugin.Settings.Abstractions;
@@ -121,6 +122,7 @@ namespace MahwousMobile.Base.Helpers
                     return;
                 }
                 DependencyService.Get<MahwousRepositories>().Token = value;
+                DependencyService.Get<IChatService>().SetToken(value).ConfigureAwait(false);
                 Xamarin.Essentials.SecureStorage.SetAsync(nameof(Token), value);
             }
         }

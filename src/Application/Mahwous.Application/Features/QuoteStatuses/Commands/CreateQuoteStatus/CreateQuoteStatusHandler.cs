@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Mahwous.Core.Entities;
 using Mahwous.Core.Interfaces;
+using Mahwous.Core.Interfaces.Identity;
 using Mahwous.Core.Interfaces.Repositories;
 using MediatR;
 using System.Threading;
@@ -14,12 +15,14 @@ namespace Mahwous.Application.Features.QuoteStatuses
         private readonly IQuoteStatusRepository quoteRepository;
         private readonly IFileStorageService fileService;
         private readonly IMapper mapper;
+        private readonly IUserService userService;
 
-        public CreateQuoteStatusHandler(IQuoteStatusRepository quoteRepository, IFileStorageService fileService, IMapper mapper)
+        public CreateQuoteStatusHandler(IQuoteStatusRepository quoteRepository, IFileStorageService fileService, IMapper mapper, IUserService userService)
         {
             this.quoteRepository = quoteRepository;
             this.fileService = fileService;
             this.mapper = mapper;
+            this.userService = userService;
         }
 
 
@@ -28,8 +31,9 @@ namespace Mahwous.Application.Features.QuoteStatuses
             // Mapping
             QuoteStatus quote = mapper.Map<QuoteStatus>(request);
 
-            // Save Files
-
+            // get current user
+            var user = await userService.GetCurrentUser();
+            quote.UserId = user?.Id;
 
             // Save Data
             await quoteRepository.AddAsync(quote);

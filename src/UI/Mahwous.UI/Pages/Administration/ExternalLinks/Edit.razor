@@ -30,14 +30,14 @@
     <div class="container-fluid">
 
 
-        <ExternalLinkForm ButtonText="تعديل الرابط" ExternalLink="externalLink" OnValidSubmit="@EditExternalLink" />
+        @*<ExternalLinkForm ButtonText="تعديل الرابط" ExternalLink="externalLink" OnValidSubmit="@EditExternalLink" />*@
 
     </div>
 </div>
 
 @code {
     [Parameter] public int externalLinkId { get; set; }
-    ExternalLink externalLink = new ExternalLink();
+    GetExternalLinkDetailsResponse externalLink = new GetExternalLinkDetailsResponse();
 
     protected override async Task OnInitializedAsync()
     {

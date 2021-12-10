@@ -28,7 +28,7 @@ namespace Mahwous.Service.Repositories
             return await httpService.GetHelper<List<RoleDTO>>($"{url}/roles");
         }
 
-        public async Task AssignRole(EditRoleDTO editRole)
+        public async Task AssignRole(ChangeRoleDTO editRole)
         {
             var response = await httpService.Post($"{url}/assignRole", editRole);
             if (!response.Success)
@@ -37,7 +37,7 @@ namespace Mahwous.Service.Repositories
             }
         }
 
-        public async Task RemoveRole(EditRoleDTO editRole)
+        public async Task RemoveRole(ChangeRoleDTO editRole)
         {
             var response = await httpService.Post($"{url}/removeRole", editRole);
             if (!response.Success)

@@ -3,9 +3,11 @@ using FluentValidation;
 using Mahwous.Application.Behaviors;
 using Mahwous.Application.Mappings;
 using Mahwous.Core.Interfaces;
+using Mahwous.Core.Interfaces.Identity;
 using Mahwous.Core.Interfaces.Repositories;
 using Mahwous.EmailServices;
 using Mahwous.FileStorageServices;
+using Mahwous.Persistence.IdentityServices;
 using Mahwous.Persistence.Repositories;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -59,6 +61,7 @@ namespace Mahwous.DependencyInjection
         private static void RegisterRepositories(IServiceCollection services)
         {
             // Repositories
+            services.AddScoped<IMessageRepository, MessageRepository>();
             services.AddScoped<IPostRepository, PostRepository>();
             services.AddScoped<IMobileAppRepository, MobileAppRepository>();
             services.AddScoped<INotificationRepository, NotificationRepository>();
@@ -83,6 +86,11 @@ namespace Mahwous.DependencyInjection
 
             // Email Services
             services.AddScoped<IEmailService, EmailService>();
+
+            // Identity Services
+            services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IRoleService, RoleService>();
+            services.AddScoped<IUserService, UserService>();
         }
     }
 }

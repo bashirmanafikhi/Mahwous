@@ -152,6 +152,10 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Core\Mahwous.Core\Mahwous.Core.csproj">
+      <Project>{e2da9dc7-dc06-4fe2-a556-6496137cf24e}</Project>
+      <Name>Mahwous.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\MobileBase\MahwousMobile.Base\MahwousMobile.Base.csproj">
       <Project>{e5b98b9e-9c2e-4e02-ba96-4811fc662f74}</Project>
       <Name>MahwousMobile.Base</Name>

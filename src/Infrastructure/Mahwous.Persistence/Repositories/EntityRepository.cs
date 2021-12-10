@@ -62,7 +62,7 @@ namespace Mahwous.Persistence.Repositories
 
         public async Task<PaginatedList<T>> SearchAsync(F filter, PaginationDetails pagination, EntitySortType sortType)
         {
-            var query = _context.Set<T>().AsNoTracking();
+            var query = _context.Set<T>().Include(x => x.User).AsNoTracking();
 
             var filteredQuery = query.Filter(filter);
 

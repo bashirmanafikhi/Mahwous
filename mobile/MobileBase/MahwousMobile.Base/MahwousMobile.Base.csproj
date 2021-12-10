@@ -135,6 +135,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Templates\DataTemplates\MyMessageTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Templates\DataTemplates\ThierMessageTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\TermsAndConditionsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>

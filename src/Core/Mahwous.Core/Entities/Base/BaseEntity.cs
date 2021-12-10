@@ -1,5 +1,5 @@
 ﻿using Mahwous.Core.Filters;
-using Mahwous.Core.Interfaces;
+using Mahwous.Core.Interfaces.Identity;
 using System;
 
 namespace Mahwous.Core.Entities
@@ -8,25 +8,20 @@ namespace Mahwous.Core.Entities
     {
         public int Id { get; set; }
 
-        public bool IsDeleted { get; set; }
-        public bool IsHidden { get; set; }
-
-        public int ViewsCount { get; set; }
-
-        public DateTime CreatedDate { get; set; }
-        public int CreatedById { get; set; }
+        public DateTime CreatedAt { get; set; }
         public DateTime? LastModifiedDate { get; set; }
-        public int? LastModifiedById { get; set; }
+        public DateTime? DeletedAt { get; set; }
+
+        public bool IsHidden { get; set; }
+        public int ViewsCount { get; set; }
 
         public string UserId { get; set; }
         public virtual IUser User { get; set; }
 
         public BaseEntity()
         {
-            CreatedDate = DateTime.Now;
+            CreatedAt = DateTime.Now;
         }
-
-
 
         // Get Properties
         public Type FilterType => typeof(EntityFilter<BaseEntity>);

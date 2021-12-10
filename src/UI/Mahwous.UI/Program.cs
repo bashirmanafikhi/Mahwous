@@ -29,17 +29,17 @@ namespace Mahwous.UI
 
         private static void ConfigureServices(IServiceCollection services)
         {
-           services.AddSingleton(sp => new HttpClient { BaseAddress = new Uri(url) });
+            var httpClient = new HttpClient { BaseAddress = new Uri(url) };
+           services.AddSingleton(sp => httpClient);
 
-            services.AddSingleton(sp =>
-                new MahwousRepositories(sp.GetRequiredService<HttpClient>())
-            );
+            var repositories = new MahwousRepositories(httpClient);
+            services.AddSingleton(sp => repositories);
 
             services.AddApiAuthorization();
 
             services.AddScoped<IAccountsRepository, AccountsRepository>();
             services.AddScoped<IUsersRepository, UserRepository>();
-            services.AddScoped<IChatService, ChatService>(x => new ChatService(url));
+            services.AddScoped<IChatService, ChatService>(x => new ChatService(url, repositories.Token));
 
             services.AddAuthorizationCore();
 

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Mahwous.Application.Exceptions
+namespace Mahwous.Core.Exceptions
 {
     public class NotFoundException : Exception
     {

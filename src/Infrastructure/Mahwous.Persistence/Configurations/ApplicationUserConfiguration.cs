@@ -10,37 +10,42 @@ namespace Mahwous.Persistence.Configurations
         public void Configure(EntityTypeBuilder<ApplicationUser> builder)
         {
             builder.HasMany(x => x.Categories)
-                .WithOne()
+                                .WithOne(x => x.User as ApplicationUser)
                 .HasForeignKey(x => x.UserId)
                 .OnDelete(DeleteBehavior.SetNull);
 
             builder.HasMany(x => x.Posts)
-                .WithOne()
+                                .WithOne(x => x.User as ApplicationUser)
                 .HasForeignKey(x => x.UserId)
                 .OnDelete(DeleteBehavior.SetNull);
 
             builder.HasMany(x => x.MobileApps)
-                .WithOne()
+                .WithOne(x => x.User as ApplicationUser)
                 .HasForeignKey(x => x.UserId)
                 .OnDelete(DeleteBehavior.SetNull);
 
-            builder.HasMany(x => x.ImageStatuses)
-                .WithOne()
-                .HasForeignKey(x => x.UserId)
-               .OnDelete(DeleteBehavior.SetNull);
-
-            builder.HasMany(x => x.VideoStatuses)
-                .WithOne()
-                .HasForeignKey(x => x.UserId)
-                .OnDelete(DeleteBehavior.SetNull);
-
-            builder.HasMany(x => x.QuoteStatuses)
-                .WithOne()
+            builder.HasMany(x => x.ChatRooms)
+                                .WithOne(x => x.User as ApplicationUser)
                 .HasForeignKey(x => x.UserId)
                  .OnDelete(DeleteBehavior.SetNull);
 
-            builder.HasMany(x => x.ChatRooms)
-                .WithOne()
+            builder.HasMany(x => x.ExternalLinks)
+                                .WithOne(x => x.User as ApplicationUser)
+                .HasForeignKey(x => x.UserId)
+                 .OnDelete(DeleteBehavior.SetNull);
+
+            builder.HasMany(x => x.MobileNotifications)
+                                .WithOne(x => x.User as ApplicationUser)
+                .HasForeignKey(x => x.UserId)
+                 .OnDelete(DeleteBehavior.SetNull);
+
+            builder.HasMany(x => x.Statuses)
+                                .WithOne(x => x.User as ApplicationUser)
+                .HasForeignKey(x => x.UserId)
+                 .OnDelete(DeleteBehavior.SetNull);
+
+            builder.HasMany(x => x.Messages)
+                                .WithOne(x => x.User as ApplicationUser)
                 .HasForeignKey(x => x.UserId)
                  .OnDelete(DeleteBehavior.SetNull);
         }

@@ -17,6 +17,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Features\Identity\Accounts\AccountLogin\" />
+    <Folder Include="Features\Identity\Accounts\AccountRegister\" />
+    <Folder Include="Features\Identity\Roles\Commands\AddUserToRole\" />
+    <Folder Include="Features\Identity\Roles\Queries\ListRoles\" />
+    <Folder Include="Features\Identity\Roles\Commands\" />
+    <Folder Include="Features\Identity\Roles\Commands\RemoveUserFromRole\" />
+    <Folder Include="Features\Identity\Roles\Queries\" />
+    <Folder Include="Features\Identity\Users\" />
     <Folder Include="Models\" />
   </ItemGroup>
 
