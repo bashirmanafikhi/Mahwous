@@ -42,28 +42,51 @@
                 Padding="0"
                 CornerRadius     ="20"
                 IsClippedToBounds="True">
-                <Entry Placeholder="كلمة المرور" Text="{Binding Password}" Background="White" HeightRequest="50" WidthRequest="145"
+                <Entry Placeholder="كلمة المرور" Text="{Binding Password}" IsPassword="True" Background="White" HeightRequest="50" WidthRequest="145"
                         TextColor="{DynamicResource colBlack}" />
             </Frame>
             <Frame
                 Padding="0"
                 CornerRadius ="20"
                 IsClippedToBounds="True">
-                <Entry Placeholder="تأكيد كلمة المرور" Text="{Binding ConfirmPassword}" Background="White" HeightRequest="50" WidthRequest="145"
+                <Entry Placeholder="تأكيد كلمة المرور" Text="{Binding ConfirmPassword}" IsPassword="True" Background="White" HeightRequest="50" WidthRequest="145"
                         TextColor="{DynamicResource colBlack}" />
             </Frame>
             <Button Text="تسجيل حساب جديد" Command="{Binding RegisterCommand}" HeightRequest="50" WidthRequest="145"
-                        BackgroundColor="{DynamicResource colRed}" TextColor="White" CornerRadius="25" FontAttributes="Bold" />
+                        BackgroundColor="{DynamicResource colYellow}" TextColor="White" CornerRadius="25" FontAttributes="Bold" />
 
             <StackLayout Orientation="Horizontal" >
                 <Label Text="ألديك حساب من قبل؟ " TextColor="White" FontSize="14" 
                                    HorizontalOptions="Start" />
 
-                <Label Text="تسجيل الدخول" TextColor="{DynamicResource colRed}" FontSize="14" TextDecorations="Underline"
+                <Label Text="تسجيل الدخول" TextColor="{DynamicResource colYellow}" FontSize="14" TextDecorations="Underline"
                                    HorizontalOptions="Start" >
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="GoToLoginPage" />
                     </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" >
+                <Label TextColor="White" >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span TextColor="White" Text="من خلال تسجيلك في تطبيقنا، انت توافق على " />
+                                <Span TextColor="{StaticResource colYellow}" Text=" شروط الإستخدام " FontAttributes="Bold" FontSize="Micro"  TextDecorations="Underline" >
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OpenTermsAndConditionsPage" />
+                                    </Span.GestureRecognizers>
+                                </Span>
+                                <Span TextColor="White" Text=" و " />
+                                <Span TextColor="{StaticResource colYellow}" Text=" سياسة الخصوصية " FontAttributes="Bold" FontSize="Micro"  TextDecorations="Underline" >
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OpenPrivacyPolicyPage" />
+                                    </Span.GestureRecognizers>
+                                </Span>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
                 </Label>
             </StackLayout>
         </StackLayout>

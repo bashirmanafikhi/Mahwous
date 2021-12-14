@@ -54,23 +54,46 @@
                 <Label Text="هل نسيت كلمة المرور؟" TextColor="White" FontSize="14" 
                                    HorizontalOptions="Start" />
 
-                <Label Text="اعادة تعيين كلمة المرور" TextColor="{DynamicResource colRed}" FontSize="14"  TextDecorations="Underline"
+                <Label Text="اعادة تعيين كلمة المرور" TextColor="{DynamicResource colYellow}" FontSize="14"  TextDecorations="Underline"
                                    HorizontalOptions="Start" >
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer />
                     </Label.GestureRecognizers>
                 </Label>
             </StackLayout>
-            
+
             <StackLayout Orientation="Horizontal" >
                 <Label Text="ليس لديك حساب؟" TextColor="White" FontSize="14" 
                                    HorizontalOptions="Start" />
 
-                <Label Text="تسجيل حساب جديد" TextColor="{DynamicResource colRed}" FontSize="14"  TextDecorations="Underline"
+                <Label Text="تسجيل حساب جديد" TextColor="{DynamicResource colYellow}" FontSize="14"  TextDecorations="Underline"
                                    HorizontalOptions="Start" >
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="GoToRegisterPage" />
                     </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" >
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span  TextColor="White" Text="من خلال تسجيل دخولك إلى تطبيقنا، انت توافق على " />
+                                <Span TextColor="{StaticResource colYellow}" Text=" شروط الإستخدام " FontAttributes="Bold" FontSize="Micro"  TextDecorations="Underline" >
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OpenTermsAndConditionsPage" />
+                                    </Span.GestureRecognizers>
+                                </Span>
+                                <Span TextColor="White" Text=" و " />
+                                <Span TextColor="{StaticResource colYellow}" Text=" سياسة الخصوصية " FontAttributes="Bold" FontSize="Micro"  TextDecorations="Underline" >
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OpenPrivacyPolicyPage" />
+                                    </Span.GestureRecognizers>
+                                </Span>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
                 </Label>
             </StackLayout>
         </StackLayout>

@@ -59,11 +59,34 @@
                     <Label Text="أو يمكنك " TextColor="White" FontSize="14" 
                                        HorizontalOptions="Start" />
 
-                    <Label Text="الدخول من دون حساب" TextColor="{DynamicResource colRed}" FontSize="14"  TextDecorations="Underline"
+                    <Label Text="الدخول من دون حساب" TextColor="{DynamicResource colYellow}" FontSize="14"  TextDecorations="Underline"
                                        HorizontalOptions="Start" >
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="GoToTheMainShell" />
                         </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" >
+                    <Label TextColor="White">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span TextColor="White" Text="من خلال استخدامك لتطبيقنا، انت توافق على " />
+                                    <Span TextColor="{StaticResource colYellow}" Text=" شروط الإستخدام " FontAttributes="Bold" FontSize="Micro"  TextDecorations="Underline" >
+                                        <Span.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OpenTermsAndConditionsPage" />
+                                        </Span.GestureRecognizers>
+                                    </Span>
+                                    <Span TextColor="White" Text=" و " />
+                                    <Span TextColor="{StaticResource colYellow}" Text=" سياسة الخصوصية " FontAttributes="Bold" FontSize="Micro"  TextDecorations="Underline" >
+                                        <Span.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OpenPrivacyPolicyPage" />
+                                        </Span.GestureRecognizers>
+                                    </Span>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
                     </Label>
                 </StackLayout>
             </StackLayout>

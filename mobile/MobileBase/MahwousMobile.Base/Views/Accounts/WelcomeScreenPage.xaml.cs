@@ -64,6 +64,16 @@ namespace MahwousMobile.Base.Views
             await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
         }
 
+        private async void OpenPrivacyPolicyPage(object sender, EventArgs e)
+        {
+            PrivacyPolicyPage page = new PrivacyPolicyPage();
+            await Navigation.PushModalAsync(page);
+        }
 
+        private async void OpenTermsAndConditionsPage(object sender, EventArgs e)
+        {
+            TermsAndConditionsPage page = new TermsAndConditionsPage();
+            await Navigation.PushModalAsync(page);
+        }
     }
 }
