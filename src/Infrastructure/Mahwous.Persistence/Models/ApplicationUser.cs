@@ -20,5 +20,7 @@ namespace Mahwous.Persistence.Models
         public virtual IList<ExternalLink> ExternalLinks { get; set; }
         public virtual IList<MobileNotification> MobileNotifications { get; set; }
         public virtual IList<Message> Messages { get; set; }
+        public virtual IList<Report> Reports { get; set; }
+        public virtual IList<Report> ViolationReports { get; set; }
     }
 }

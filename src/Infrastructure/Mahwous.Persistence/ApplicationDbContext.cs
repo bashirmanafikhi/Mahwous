@@ -34,5 +34,6 @@ namespace Mahwous.Persistence
         public DbSet<MobileApp> MobileApps { get; set; }
         public DbSet<MobileNotification> MobileNotifications { get; set; }
         public DbSet<Message> Messages { get; set; }
+        public DbSet<Report> Reports { get; set; }
     }
 }

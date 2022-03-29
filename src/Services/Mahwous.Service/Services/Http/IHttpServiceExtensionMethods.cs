@@ -17,35 +17,5 @@ namespace Mahwous.Service.Services
             return response.Response;
         }
 
-        public static async Task<PaginatedResponse<T>> GetHelper<T>(this IHttpService httpService, string url,
-            PaginationDetails pagination)
-        {
-            string newURL = "";
-            if (url.Contains("?"))
-            {
-                newURL = $"{url}&page={pagination.PageIndex}&PageSize={pagination.PageSize}";
-            }
-            else
-            {
-                newURL = $"{url}?page={pagination.PageIndex}&PageSize={pagination.PageSize}";
-            }
-
-            var httpResponse = await httpService.Get<T>(newURL);
-            var totalAmountPages = int.Parse(httpResponse.HttpResponseMessage.Headers.GetValues("totalAmountPages").FirstOrDefault());
-            var PageSize = int.Parse(httpResponse.HttpResponseMessage.Headers.GetValues("PageSize").FirstOrDefault());
-            var currentPage = int.Parse(httpResponse.HttpResponseMessage.Headers.GetValues("currentPage").FirstOrDefault());
-            var paginatedResponse = new PaginatedResponse<T>
-            {
-                Response = httpResponse.Response,
-                TotalPages = totalAmountPages,
-                Pagination = new PaginationDetails
-                {
-                    PageIndex = currentPage,
-                    PageSize = PageSize
-                }
-            };
-            return paginatedResponse;
-        }
-
     }
 }

@@ -8,6 +8,7 @@
     xmlns:dataTemplates="clr-namespace:MahwousMobile.Base.Templates.DataTemplates"
     xmlns:styles="clr-namespace:MahwousMobile.Base.Styles;assembly=MahwousMobile.Base"
     xmlns:vm="clr-namespace:MahwousMobile.Base.ViewModels"
+   x:Name="page"
     Title="{Binding ChatRoom.Name}">
     <ContentPage.Resources>
 
@@ -16,7 +17,7 @@
         </DataTemplate>
 
         <DataTemplate x:Key="ThierMessage">
-            <dataTemplates:ThierMessageTemplate />
+            <dataTemplates:ThierMessageTemplate ReportCommand="{Binding BindingContext.ReportUserCommand ,Source={x:Reference page}}" />
         </DataTemplate>
 
         <dataTemplateSelector:ChatBubbleTemplateSelctor

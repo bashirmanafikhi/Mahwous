@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentView
     x:Class="MahwousMobile.Base.Templates.DataTemplates.ThierMessageTemplate"
+    xmlns:styles="clr-namespace:MahwousMobile.Base.Styles;assembly=MahwousMobile.Base" 
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <ContentView.Content>
@@ -20,12 +21,15 @@
                 </Frame.Background>
 
                 <StackLayout HorizontalOptions="End">
-
-                    <Label TextColor="White" Text="{Binding OwnerName}" />
-                    <!--<BoxView
-                        HeightRequest="2"
-                        HorizontalOptions="Fill"
-                        Color="white" />-->
+                    <StackLayout Orientation="Horizontal">
+                        <Label TextColor="{StaticResource colYellow}" FontFamily="FA-S" Text="{x:Static styles:SolidIcons.Flag}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="ReportUser_Clicked"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Label TextColor="White" Text="{Binding OwnerName}" />
+                    </StackLayout>
+                    
                     <Label Text="{Binding Content}" />
                 </StackLayout>
 

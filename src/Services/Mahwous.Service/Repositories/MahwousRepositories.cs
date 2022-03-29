@@ -7,21 +7,20 @@ namespace Mahwous.Service.Repositories
 {
     internal static class Constants
     {
-        public static string MobileAppsUrl = "api/mobileApps";
-        public static string MessagesUrl = "api/messages";
-        public static string CategoriesUrl = "api/categories";
-        public static string NotificationsUrl = "api/mobileNotifications";
-        public static string PostsUrl = "api/posts";
-        public static string ChatRoomsUrl = "api/chatRooms";
-        public static string ExternalLinksUrl = "api/externalLinks";
-        public static string StatusesUrl = "api/statuses";
-        public static string VideosUrl = "api/videoStatuses";
-        public static string ImagesUrl = "api/imageStatuses";
-        public static string QuotesUrl = "api/quoteStatuses";
-        public static string AccountsUrl = "api/accounts";
-        public static readonly string URL = @"https://www.mahwous.com/";
-        //public static readonly string IP = @"http://192.168.0.113:60485/";
-        //public static readonly string Localhost = @"http://localhost:60485/";
+        public const string MobileAppsUrl = "api/mobileApps";
+        public const string MessagesUrl = "api/messages";
+        public const string CategoriesUrl = "api/categories";
+        public const string NotificationsUrl = "api/mobileNotifications";
+        public const string PostsUrl = "api/posts";
+        public const string ChatRoomsUrl = "api/chatRooms";
+        public const string ExternalLinksUrl = "api/externalLinks";
+        public const string StatusesUrl = "api/statuses";
+        public const string VideosUrl = "api/videoStatuses";
+        public const string ImagesUrl = "api/imageStatuses";
+        public const string QuotesUrl = "api/quoteStatuses";
+        public const string AccountsUrl = "api/accounts";
+        public const string ReportsUrl = "api/reports";
+        public const string URL = @"https://www.mahwous.com/";
     }
 
     public class MahwousRepositories
@@ -65,6 +64,16 @@ namespace Mahwous.Service.Repositories
 
         #region Repositories
 
+        private ReportRepository reportsRepository;
+        public ReportRepository ReportsRepository
+        {
+            get
+            {
+                if (reportsRepository == null)
+                    reportsRepository = new ReportRepository(httpService, Constants.ReportsUrl);
+                return reportsRepository;
+            }
+        }
 
         private MessageRepository messagesRepository;
         public MessageRepository MessagesRepository

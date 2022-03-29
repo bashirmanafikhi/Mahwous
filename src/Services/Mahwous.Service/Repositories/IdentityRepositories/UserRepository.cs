@@ -18,9 +18,11 @@ namespace Mahwous.Service.Repositories
             this.httpService = new HttpService(httpClient);
         }
 
-        public async Task<PaginatedResponse<List<UserDTO>>> GetUsers(PaginationDetails paginationDTO)
+        public async Task<PaginatedList<UserDTO>> GetUsers(PaginationDetails pagination)
         {
-            return await httpService.GetHelper<List<UserDTO>>(url, paginationDTO);
+            var newUrl = $"{url}?page={pagination.PageIndex}&PageSize={pagination.PageSize}";
+
+            return await httpService.GetHelper<PaginatedList<UserDTO>>(newUrl);
         }
 
         public async Task<List<RoleDTO>> GetRoles()

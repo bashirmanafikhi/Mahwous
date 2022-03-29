@@ -4,6 +4,7 @@ using Mahwous.Core.Filters;
 using Mahwous.Core.Pagination;
 using Mahwous.Service.Chat;
 using Mahwous.Service.ViewModels.Messages;
+using Mahwous.Service.ViewModels.Reports;
 using MahwousMobile.Base.Helpers;
 using System;
 using System.Collections.ObjectModel;
@@ -21,6 +22,7 @@ namespace MahwousMobile.Base.ViewModels
         private readonly IChatService chatService = DependencyService.Get<IChatService>();
         public ObservableCollection<GetMessageDetailsResponse> MessagesList { get; set; }
         public ICommand SendMessageCommand { get; private set; }
+        public ICommand ReportUserCommand { get; set; }
 
         readonly ChatRoom chatRoom;
         public ChatRoom ChatRoom => chatRoom;
@@ -55,9 +57,22 @@ namespace MahwousMobile.Base.ViewModels
 
             UserName = (new Random()).Next().ToString();
             SendMessageCommand = new Command(SendMessage);
+            ReportUserCommand = new Command(ReportMessage);
             MessagesList = new ObservableCollection<GetMessageDetailsResponse>();
             chatService.ReceiveMessage(GetMessage);
             RetriveOldMessages();
+        } 
+
+        private async void ReportMessage(object obj)
+        {
+            Report report = obj as Report;
+
+            await Repositories.ReportsRepository.Create(new CreateReportCommand
+            {
+                Details = report.Details,
+                ViolatorId = report.ViolatorId
+            });
+            MessageService.ShortAlert("تم ارسال البلاغ بنجاح");
         }
 
         public void JoinRoom() => chatService.JoinRoom(ChatRoom.Id);

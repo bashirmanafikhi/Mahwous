@@ -106,19 +106,6 @@ namespace Mahwous.Service.Services
 
         public async Task<HttpResponseWrapper<TResponse>> PostMultipartContent<T, TResponse>(string url, T data)
         {
-            //var dataJson = JsonSerializer.Serialize(data, data.GetType());
-            //var stringContent = new StringContent(dataJson);
-
-            //var multipartContent = CreateMultipartFormDataContent(data);
-
-            //multipartContent.Headers.ContentType.MediaType = "multipart/form-data";
-            //multipartContent.Add(stringContent, "serializedObject");
-            //foreach (var file in files)
-            //{
-            //    if (file.Value != null && file.Value.Length > 0)
-            //        multipartContent.Add(new StreamContent(file.Value), file.Key, file.Key);
-            //}
-
             var multipartContent = CreateMultipartFormDataContent(data);
             var response = await httpClient.PostAsync(url, multipartContent);
             if (response.IsSuccessStatusCode)

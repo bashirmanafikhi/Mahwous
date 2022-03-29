@@ -28,7 +28,7 @@ namespace Mahwous.API.Controllers.Identity
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<UserDTO>>> Get([FromQuery] PaginationDetails paginationDTO)
+        public async Task<ActionResult<PaginatedList<UserDTO>>> Get([FromQuery] PaginationDetails paginationDTO)
         {
             return await userService.SearchAsync(paginationDTO);
         }

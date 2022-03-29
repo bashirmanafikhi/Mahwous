@@ -55,7 +55,7 @@
     private async Task LoadUsers()
     {
         var paginatedResponse = await usersRepository.GetUsers(paginationDTO);
-        Users = paginatedResponse.Response;
+        Users = paginatedResponse.Items.ToList();
         totalAmountOfPages = paginatedResponse.TotalPages;
     }
 }

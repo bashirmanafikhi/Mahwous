@@ -61,6 +61,7 @@ namespace Mahwous.DependencyInjection
         private static void RegisterRepositories(IServiceCollection services)
         {
             // Repositories
+            services.AddScoped<IReportRepository, ReportRepository>();
             services.AddScoped<IMessageRepository, MessageRepository>();
             services.AddScoped<IPostRepository, PostRepository>();
             services.AddScoped<IMobileAppRepository, MobileAppRepository>();

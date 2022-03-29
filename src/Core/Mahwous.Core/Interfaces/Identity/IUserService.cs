@@ -11,6 +11,6 @@ namespace Mahwous.Core.Interfaces.Identity
     public interface IUserService
     {
         Task<UserDTO> GetCurrentUser();
-        Task<List<UserDTO>> SearchAsync(PaginationDetails paginationDTO);
+        Task<PaginatedList<UserDTO>> SearchAsync(PaginationDetails paginationDTO);
     }
 }

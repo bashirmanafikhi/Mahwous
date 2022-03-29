@@ -22,8 +22,5 @@ namespace Mahwous.Core.Entities
         {
             CreatedAt = DateTime.Now;
         }
-
-        // Get Properties
-        public Type FilterType => typeof(EntityFilter<BaseEntity>);
     }
 }

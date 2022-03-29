@@ -52,11 +52,14 @@ namespace Mahwous.Persistence.IdentityServices
             };
         }
 
-        public async Task<List<UserDTO>> SearchAsync(PaginationDetails paginationDTO)
+        public async Task<PaginatedList<UserDTO>> SearchAsync(PaginationDetails paginationDTO)
         {
             var queryable = context.Users.AsQueryable();
-            return await queryable.Paginate(paginationDTO)
-                .Select(x => new UserDTO { Email = x.Email, Id = x.Id }).ToListAsync();
+            var totalCount = await queryable.CountAsync();
+            var list = await queryable.Paginate(paginationDTO)
+                .Select(x => new UserDTO { Email = x.Email, Id = x.Id, Name = x.FirstName + x.LastName }).ToListAsync();
+
+            return new PaginatedList<UserDTO>(list, totalCount, paginationDTO);
         }
     }
 }
