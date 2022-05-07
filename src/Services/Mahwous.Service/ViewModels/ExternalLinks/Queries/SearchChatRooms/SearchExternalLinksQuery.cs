@@ -29,7 +29,7 @@ namespace Mahwous.Service.ViewModels.ExternalLinks
 
                 if (Filter != null)
                 {
-                    conditions.Add($"{nameof(Filter.LinkType)}={Filter.LinkType}");
+                    conditions.Add($"{nameof(Filter)}.{nameof(Filter.LinkType)}={Filter.LinkType}");
                     // Todo: filter query
                 }
 

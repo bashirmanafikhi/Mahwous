@@ -23,7 +23,7 @@ namespace Mahwous.Service.ViewModels.Messages
                 if (Filter != null)
                 {
                     if (!string.IsNullOrEmpty(Filter.Content))
-                        conditions.Add($"{nameof(Filter.Content)}={Filter.Content}");
+                        conditions.Add($"{nameof(Filter)}.{nameof(Filter.Content)}={Filter.Content}");
                 }
 
                 return string.Join("&", conditions);

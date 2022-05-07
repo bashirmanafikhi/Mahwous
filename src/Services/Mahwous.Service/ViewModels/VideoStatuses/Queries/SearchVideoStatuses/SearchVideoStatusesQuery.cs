@@ -33,7 +33,7 @@ namespace Mahwous.Service.ViewModels.VideoStatuses
                     if (Filter.CategoryIds != null)
                         foreach (var categoryId in Filter.CategoryIds)
                         {
-                            conditions.Add($"{nameof(Filter.CategoryIds)}={categoryId}");
+                            conditions.Add($"{nameof(Filter)}.{nameof(Filter.CategoryIds)}={categoryId}");
                         }
                 }
                 return string.Join("&", conditions);

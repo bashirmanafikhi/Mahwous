@@ -77,25 +77,25 @@
                                 <Grid RowDefinitions="*,*,*,*" ColumnDefinitions="*,*">
 
 
-                                    <Button Grid.ColumnSpan="2"  Padding="5, 5, 15, 5" TextColor="White" CornerRadius="20"  Text="غرف الدردشة" BackgroundColor="{DynamicResource colRed}" Clicked="GoToChatRoomsPage" >
+                                    <Button x:Name="chatRoomsButton"  Grid.ColumnSpan="2"  Padding="5, 5, 15, 5" TextColor="White" CornerRadius="20"  Text="غرف الدردشة" BackgroundColor="{DynamicResource colRed}" Clicked="GoToChatRoomsPage" >
                                         <Button.ImageSource>
                                             <FontImageSource Size="Subtitle"  Color="White" Glyph="{x:Static styles:SolidIcons.Comments}" FontFamily="FA-S" />
                                         </Button.ImageSource>
                                     </Button>
 
-                                    <Button Grid.Column="0" Grid.Row="1" Padding="5, 5, 15, 5" TextColor="White" CornerRadius="20" Text="فيديو" BackgroundColor="{DynamicResource colBlue}" Clicked="GoToVideosPage" >
+                                    <Button x:Name="videosButton" Grid.Column="0" Grid.Row="1" Padding="5, 5, 15, 5" TextColor="White" CornerRadius="20" Text="فيديو" BackgroundColor="{DynamicResource colBlue}" Clicked="GoToVideosPage" >
                                         <Button.ImageSource>
                                             <FontImageSource Size="Subtitle"  Color="White" Glyph="{x:Static styles:SolidIcons.Video}" FontFamily="FA-S" />
                                         </Button.ImageSource>
                                     </Button>
 
-                                    <Button Grid.Column="1" Grid.Row="1" Padding="5, 5, 15, 5" TextColor="White" CornerRadius="20" Text="صور"  BackgroundColor="{DynamicResource colBlue}" Clicked="GoToImagesPage" >
+                                    <Button x:Name="imagesButton"  Grid.Column="1" Grid.Row="1" Padding="5, 5, 15, 5" TextColor="White" CornerRadius="20" Text="صور"  BackgroundColor="{DynamicResource colBlue}" Clicked="GoToImagesPage" >
                                         <Button.ImageSource>
                                             <FontImageSource Size="Subtitle"  Color="White" Glyph="{x:Static styles:SolidIcons.Image}" FontFamily="FA-S" />
                                         </Button.ImageSource>
                                     </Button>
 
-                                    <Button Grid.Column="0" Grid.Row="2" Padding="5, 5, 15, 5" TextColor="Black" CornerRadius="20" Text="اقتباسات" BackgroundColor="{DynamicResource colYellow}" Clicked="GoToQuotesPage" >
+                                    <Button x:Name="quotesButton"  Grid.Column="0" Grid.Row="2" Padding="5, 5, 15, 5" TextColor="Black" CornerRadius="20" Text="اقتباسات" BackgroundColor="{DynamicResource colYellow}" Clicked="GoToQuotesPage" >
                                         <Button.ImageSource>
                                             <FontImageSource Size="Subtitle"  Color="White" Glyph="{x:Static styles:SolidIcons.QuoteRight}" FontFamily="FA-S" />
                                         </Button.ImageSource>

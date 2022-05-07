@@ -30,9 +30,9 @@ namespace Mahwous.Service.ViewModels.Messages
                 if (Filter != null)
                 {
                     if (!string.IsNullOrEmpty(Filter.Content))
-                        conditions.Add($"{nameof(Filter.Content)}={Filter.Content}");
+                        conditions.Add($"{nameof(Filter)}.{nameof(Filter.Content)}={Filter.Content}");
                     if(Filter.RoomId != null)
-                        conditions.Add($"{nameof(Filter.RoomId)}={Filter.RoomId}");
+                        conditions.Add($"{nameof(Filter)}.{nameof(Filter.RoomId)}={Filter.RoomId}");
                 }
 
                 return string.Join("&", conditions);

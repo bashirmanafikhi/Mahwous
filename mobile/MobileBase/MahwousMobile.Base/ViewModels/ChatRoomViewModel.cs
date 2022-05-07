@@ -72,14 +72,24 @@ namespace MahwousMobile.Base.ViewModels
                 Details = report.Details,
                 ViolatorId = report.ViolatorId
             });
+
             MessageService.ShortAlert("تم ارسال البلاغ بنجاح");
+            RetriveMessagesAgain();
         }
 
         public void JoinRoom() => chatService.JoinRoom(ChatRoom.Id);
 
         public void LeaveRoom() => chatService.LeaveRoom(ChatRoom.Id);
 
-        private async void RetriveOldMessages()
+
+
+        private async Task RetriveMessagesAgain()
+        {
+            MessagesList.Clear();
+            await RetriveOldMessages();
+        }
+
+        private async Task RetriveOldMessages()
         {
             MessageFilter filter = new MessageFilter
             {

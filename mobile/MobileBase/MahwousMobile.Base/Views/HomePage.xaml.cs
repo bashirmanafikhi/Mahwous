@@ -32,6 +32,30 @@ namespace MahwousMobile.Base.Views
             }
         }
 
+        public bool ShowVideos
+        {
+            set
+            {
+                videosButton.IsVisible = value;
+            }
+        }
+
+        public bool ShowQuotes
+        {
+            set
+            {
+                quotesButton.IsVisible = value;
+            }
+        }
+
+        public bool ShowImages
+        {
+            set
+            {
+                imagesButton.IsVisible = value;
+            }
+        }
+
         private async void GoToVideosPage(object sender, System.EventArgs e)
         {
             var route = $"//Videos/{nameof(VideosPage)}";

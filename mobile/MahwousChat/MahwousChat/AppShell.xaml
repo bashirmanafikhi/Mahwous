@@ -63,8 +63,18 @@
     </Shell.Resources>
 
 
+    <ShellContent ContentTemplate="{DataTemplate views:WelcomeScreenPage}" Route="WelcomeScreenPage" FlyoutItemIsVisible="False" />
+    <ShellContent ContentTemplate="{DataTemplate views:LoginPage}" Route="LoginPage" FlyoutItemIsVisible="False" />
+    <ShellContent ContentTemplate="{DataTemplate views:RegisterPage}" Route="RegisterPage" FlyoutItemIsVisible="False" />
 
-    <FlyoutItem Title="غرف الدردشة" 
+    <ShellContent Title="الصفحة الرئيسية" Route="HomePage">
+        <ShellContent.Icon>
+            <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Home}" FontFamily="FA-S" />
+        </ShellContent.Icon>
+        <views:HomePage StatusType="Image" ShowImages="False" ShowQuotes="False" ShowVideos="False"/>
+    </ShellContent>
+
+    <FlyoutItem Title="غرف الدردشة" Route="ChatRooms"
                 FlyoutDisplayOptions="AsMultipleItems">
 
         <FlyoutItem.Icon>
@@ -72,7 +82,7 @@
         </FlyoutItem.Icon>
 
 
-        <Tab  Title="غرف الدردشة">
+        <Tab  Title="غرف الدردشة" Route="ChatRoomsPage">
             <Tab.Icon>
                 <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Comments}" FontFamily="FA-S" />
             </Tab.Icon>
@@ -100,7 +110,7 @@
         </Tab>
     </FlyoutItem>
 
-    <FlyoutItem Title="اخبار مهووس"
+    <FlyoutItem Title="اخبار مهووس" Route="Other"
                 FlyoutDisplayOptions="AsMultipleItems">
 
         <FlyoutItem.Icon>
@@ -108,7 +118,7 @@
         </FlyoutItem.Icon>
 
 
-        <Tab  Title="تطبيقاتنا">
+        <Tab  Title="تطبيقاتنا" Route="AppsPage">
             <Tab.Icon>
                 <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.ThLarge}" FontFamily="FA-S" />
             </Tab.Icon>
@@ -117,7 +127,7 @@
             </ShellContent>
         </Tab>
 
-        <Tab  Title="الأخبار">
+        <Tab  Title="الأخبار" Route="PostsPage">
             <Tab.Icon>
                 <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Newspaper}" FontFamily="FA-S" />
             </Tab.Icon>
@@ -126,7 +136,7 @@
             </ShellContent>
         </Tab>
 
-        <Tab  Title="من نحن">
+        <Tab  Title="من نحن" Route="AboutPage">
             <Tab.Icon>
                 <FontImageSource Color="{DynamicResource colForeground}"  Glyph="{x:Static styles:SolidIcons.Question}" FontFamily="FA-S" />
             </Tab.Icon>
