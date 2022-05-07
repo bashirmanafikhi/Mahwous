@@ -2,6 +2,7 @@
 using Mahwous.Core.General;
 using System;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace Mahwous.Core.Filters
 {
@@ -16,6 +17,9 @@ namespace Mahwous.Core.Filters
         Range<int?> ViewsCount { get; set; }
 
         Range<DateTime> CreatedDate { get; set; }
+        string UserId { get; set; }
+
+        Expression<Func<T, bool>> Predicate { get; set; }
 
         IQueryable<T> Filter(IQueryable<T> queryable);
     }

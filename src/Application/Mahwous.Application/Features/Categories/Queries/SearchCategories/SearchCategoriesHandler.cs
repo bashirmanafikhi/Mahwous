@@ -20,7 +20,7 @@ namespace Mahwous.Application.Features.Categories
 
         public async Task<SearchCategoriesResponse> Handle(SearchCategoriesQuery request, CancellationToken cancellationToken)
         {
-            var filter = mapper.Map<CategoryFilter>(request);
+            var filter = mapper.Map<CategoryFilter>(request.Filter);
             var categories = await categoryRepository.SearchAsync(filter, request.Pagination, request.SortType);
             var response = mapper.Map<SearchCategoriesResponse>(categories);
             return response;

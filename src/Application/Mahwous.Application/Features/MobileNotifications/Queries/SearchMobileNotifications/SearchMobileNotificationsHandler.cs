@@ -20,7 +20,7 @@ namespace Mahwous.Application.Features.MobileNotifications
 
         public async Task<SearchMobileNotificationsResponse> Handle(SearchMobileNotificationsQuery request, CancellationToken cancellationToken)
         {
-            var filter = mapper.Map<MobileNotificationFilter>(request);
+            var filter = mapper.Map<MobileNotificationFilter>(request.Filter);
             var mobileNotifications = await notificationRepository.SearchAsync(filter, request.Pagination, request.SortType);
             var response = mapper.Map<SearchMobileNotificationsResponse>(mobileNotifications);
             return response;

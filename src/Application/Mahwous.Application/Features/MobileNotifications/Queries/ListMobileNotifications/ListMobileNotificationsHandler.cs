@@ -20,7 +20,7 @@ namespace Mahwous.Application.Features.MobileNotifications
 
         public async Task<ListMobileNotificationsResponse> Handle(ListMobileNotificationsQuery request, CancellationToken cancellationToken)
         {
-            var filter = mapper.Map<MobileNotificationFilter>(request);
+            var filter = mapper.Map<MobileNotificationFilter>(request.Filter);
             var mobileNotifications = await notificationRepository.ListAllAsync(filter);
             var response = mapper.Map<ListMobileNotificationsResponse>(mobileNotifications);
             return response;

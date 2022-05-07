@@ -2,6 +2,7 @@
 using Mahwous.Core.Enums;
 using Mahwous.Core.Extentions;
 using Mahwous.Core.Filters;
+using Mahwous.Core.Interfaces.Identity;
 using Mahwous.Core.Interfaces.Repositories;
 using Mahwous.Core.Pagination;
 using Microsoft.EntityFrameworkCore;
@@ -15,7 +16,7 @@ namespace Mahwous.Persistence.Repositories
         where T : Status
         where F : StatusFilter<T>
     {
-        public StatusRepository(ApplicationDbContext context) : base(context)
+        public StatusRepository(ApplicationDbContext context, IUserService userService) : base(context, userService)
         {
 
         }

@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Mahwous.Core.Filters
 {
-    public abstract class StatusFilter<T> : EntityFilter<T> where T : Status
+    public abstract class StatusFilter<T> : EntityFilter<T>, IFilter<T> where T : Status
     {
         public StatusFilter()
         {

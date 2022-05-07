@@ -2,6 +2,7 @@
 using Mahwous.Core.General;
 using System;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace Mahwous.Core.Filters
 {
@@ -11,6 +12,8 @@ namespace Mahwous.Core.Filters
         public bool? IsHidden { get; set; }
         public Range<int?> ViewsCount { get; set; }
         public Range<DateTime> CreatedDate { get; set; }
+        public string UserId { get; set; }
+        public Expression<Func<T, bool>> Predicate { get; set; }
 
 
         // Constructor
@@ -38,12 +41,17 @@ namespace Mahwous.Core.Filters
             if (CreatedDate != null && CreatedDate.To != null)
                 queryable = queryable.Where(v => v.CreatedAt.Date <= CreatedDate.To.Date);
 
+            if (UserId != null)
+                queryable = queryable.Where(v => v.UserId != UserId);
+
 
             if (IsHidden.HasValue)
             {
                 queryable = queryable.Where(v => v.IsHidden == IsHidden);
             }
 
+            if (Predicate != null)
+                queryable = queryable.Where(Predicate);
 
             queryable = FilterOtherEntityProperties(queryable);
 

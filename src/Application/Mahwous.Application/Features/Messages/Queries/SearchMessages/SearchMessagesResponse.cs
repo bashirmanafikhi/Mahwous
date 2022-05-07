@@ -12,7 +12,6 @@ namespace Mahwous.Application.Features.Messages
             configuration.CreateMap<PaginatedList<Message>, SearchMessagesResponse>();
             configuration.CreateMap<Message, GetMessageDetailsResponse>()
                 .ForMember(x => x.OwnerName, opt => opt.MapFrom(y => y.User.UserName));
-
         }
     }
 }

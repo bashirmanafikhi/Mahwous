@@ -3,6 +3,7 @@ using Mahwous.Core.Enums;
 using Mahwous.Core.Extentions;
 using Mahwous.Core.Filters;
 using Mahwous.Core.Interfaces;
+using Mahwous.Core.Interfaces.Identity;
 using Mahwous.Core.Pagination;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -18,10 +19,12 @@ namespace Mahwous.Persistence.Repositories
         where F : EntityFilter<T>
     {
         protected readonly ApplicationDbContext _context;
+        private readonly IUserService userService;
 
-        public EntityRepository(ApplicationDbContext dbContext)
+        public EntityRepository(ApplicationDbContext dbContext, IUserService userService)
         {
             _context = dbContext;
+            this.userService = userService;
         }
 
         public async Task<T> GetByIdAsync(int id)
@@ -41,6 +44,14 @@ namespace Mahwous.Persistence.Repositories
 
         public async Task<T> AddAsync(T entity)
         {
+            if (entity == null) return entity;
+
+            if (entity.UserId == null)
+            {
+                var user = await userService.GetCurrentUser();
+                entity.UserId = user?.Id;
+            }
+
             await _context.Set<T>().AddAsync(entity);
             await _context.SaveChangesAsync();
 

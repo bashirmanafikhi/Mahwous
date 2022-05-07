@@ -78,6 +78,16 @@
 
         protected override async Task OnInitializedAsync()
         {
+
+            UserName = (new Random()).Next().ToString();
+        }
+
+        protected async override Task OnParametersSetAsync()
+        {
+            // Get Room Details
+            chatRoom = await repositories.ChatRoomRepository.GetDetails(Id);
+
+            
             try
             {
                 await chatService.Connect();
@@ -93,14 +103,6 @@
             {
                 Console.WriteLine(ex.Message);
             }
-
-            UserName = (new Random()).Next().ToString();
-        }
-
-        protected async override Task OnParametersSetAsync()
-        {
-            // Get Room Details
-            chatRoom = await repositories.ChatRoomRepository.GetDetails(Id);
 
             // Subscribe Chat
             chatService.ReceiveMessage(GetMessage);

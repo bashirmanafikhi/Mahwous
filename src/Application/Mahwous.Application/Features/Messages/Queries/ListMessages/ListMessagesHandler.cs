@@ -23,7 +23,7 @@ namespace Mahwous.Application.Features.Messages
 
         public async Task<ListMessagesResponse> Handle(ListMessagesQuery request, CancellationToken cancellationToken)
         {
-            var filter = mapper.Map<MessageFilter>(request);
+            var filter = mapper.Map<MessageFilter>(request.Filter);
             var messages = await messageRepository.ListAllAsync(filter);
             var response = mapper.Map<ListMessagesResponse>(messages);
 

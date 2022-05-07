@@ -20,7 +20,7 @@ namespace Mahwous.Application.Features.QuoteStatuses
 
         public async Task<SearchQuoteStatusesResponse> Handle(SearchQuoteStatusesQuery request, CancellationToken cancellationToken)
         {
-            var filter = mapper.Map<QuoteFilter>(request);
+            var filter = mapper.Map<QuoteFilter>(request.Filter);
             var quotes = await quoteRepository.SearchAsync(filter, request.Pagination, request.SortType);
             var response = mapper.Map<SearchQuoteStatusesResponse>(quotes);
             return response;

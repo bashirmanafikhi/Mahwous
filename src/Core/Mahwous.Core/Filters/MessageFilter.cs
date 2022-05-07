@@ -8,7 +8,6 @@ namespace Mahwous.Core.Filters
         public string Content { get; set; }
         public int? RoomId { get; set; }
 
-
         public override IQueryable<Message> FilterOtherEntityProperties(IQueryable<Message> queryable)
         {
             if (!string.IsNullOrWhiteSpace(Content))

@@ -37,9 +37,9 @@ namespace Mahwous.Persistence.IdentityServices
         public async Task<UserDTO> GetCurrentUser()
         {
             ClaimsPrincipal currentUser = accessor.HttpContext?.User;
-            string userId = currentUser.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            string userEmail = currentUser.FindFirst(ClaimTypes.Email)?.Value;
-            string name = currentUser.FindFirst(ClaimTypes.Name)?.Value;
+            string userId = currentUser?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            string userEmail = currentUser?.FindFirst(ClaimTypes.Email)?.Value;
+            string name = currentUser?.FindFirst(ClaimTypes.Name)?.Value;
 
             // How to get application user
             //ApplicationUser user = await userManager.GetUserAsync(currentUser);
@@ -50,6 +50,12 @@ namespace Mahwous.Persistence.IdentityServices
                 Email = userEmail,
                 Name = name
             };
+        }
+
+        public void SetUser(ClaimsPrincipal user)
+        {
+            if (accessor.HttpContext?.User == null)
+                accessor.HttpContext.User = user;
         }
 
         public async Task<PaginatedList<UserDTO>> SearchAsync(PaginationDetails paginationDTO)

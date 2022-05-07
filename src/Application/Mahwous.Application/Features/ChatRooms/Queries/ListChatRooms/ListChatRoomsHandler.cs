@@ -20,7 +20,7 @@ namespace Mahwous.Application.Features.ChatRooms
 
         public async Task<ListChatRoomsResponse> Handle(ListChatRoomsQuery request, CancellationToken cancellationToken)
         {
-            var filter = mapper.Map<ChatRoomFilter>(request);
+            var filter = mapper.Map<ChatRoomFilter>(request.Filter);
             var chatRooms = await chatRoomRepository.ListAllAsync(filter);
             var response = mapper.Map<ListChatRoomsResponse>(chatRooms);
             return response;

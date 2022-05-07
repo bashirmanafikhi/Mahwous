@@ -20,7 +20,7 @@ namespace Mahwous.Application.Features.Posts
 
         public async Task<ListPostsResponse> Handle(ListPostsQuery request, CancellationToken cancellationToken)
         {
-            var filter = mapper.Map<PostFilter>(request);
+            var filter = mapper.Map<PostFilter>(request.Filter);
             var posts = await postRepository.ListAllAsync(filter);
             var response = mapper.Map<ListPostsResponse>(posts);
             return response;

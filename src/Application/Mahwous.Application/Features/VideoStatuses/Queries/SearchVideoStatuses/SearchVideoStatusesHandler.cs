@@ -20,7 +20,7 @@ namespace Mahwous.Application.Features.VideoStatuses
 
         public async Task<SearchVideoStatusesResponse> Handle(SearchVideoStatusesQuery request, CancellationToken cancellationToken)
         {
-            var filter = mapper.Map<VideoFilter>(request);
+            var filter = mapper.Map<VideoFilter>(request.Filter);
             var videos = await videoRepository.SearchAsync(filter, request.Pagination, request.SortType);
             var response = mapper.Map<SearchVideoStatusesResponse>(videos);
             return response;

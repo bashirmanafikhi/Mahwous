@@ -20,7 +20,7 @@ namespace Mahwous.Application.Features.MobileApps
 
         public async Task<ListMobileAppsResponse> Handle(ListMobileAppsQuery request, CancellationToken cancellationToken)
         {
-            var filter = mapper.Map<MobileAppFilter>(request);
+            var filter = mapper.Map<MobileAppFilter>(request.Filter);
             var mobileApps = await mobileAppRepository.ListAllAsync(filter);
             var response = mapper.Map<ListMobileAppsResponse>(mobileApps);
             return response;

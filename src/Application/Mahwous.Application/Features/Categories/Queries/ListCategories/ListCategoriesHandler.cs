@@ -20,7 +20,7 @@ namespace Mahwous.Application.Features.Categories
 
         public async Task<ListCategoriesResponse> Handle(ListCategoriesQuery request, CancellationToken cancellationToken)
         {
-            var filter = mapper.Map<CategoryFilter>(request);
+            var filter = mapper.Map<CategoryFilter>(request.Filter);
             var categories = await categoryRepository.ListAllAsync(filter);
             var response = mapper.Map<ListCategoriesResponse>(categories);
             return response;

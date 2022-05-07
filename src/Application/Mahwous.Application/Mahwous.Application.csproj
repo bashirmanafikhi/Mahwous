@@ -1,31 +1,28 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Features\Identity\**" />
+    <Compile Remove="Models\**" />
+    <EmbeddedResource Remove="Features\Identity\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <None Remove="Features\Identity\**" />
+    <None Remove="Models\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="10.3.3" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.16" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Mahwous.Core\Mahwous.Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Features\Identity\Accounts\AccountLogin\" />
-    <Folder Include="Features\Identity\Accounts\AccountRegister\" />
-    <Folder Include="Features\Identity\Roles\Commands\AddUserToRole\" />
-    <Folder Include="Features\Identity\Roles\Queries\ListRoles\" />
-    <Folder Include="Features\Identity\Roles\Commands\" />
-    <Folder Include="Features\Identity\Roles\Commands\RemoveUserFromRole\" />
-    <Folder Include="Features\Identity\Roles\Queries\" />
-    <Folder Include="Features\Identity\Users\" />
-    <Folder Include="Models\" />
   </ItemGroup>
 
 </Project>

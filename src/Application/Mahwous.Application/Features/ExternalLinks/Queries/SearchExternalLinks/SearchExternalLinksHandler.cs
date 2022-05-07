@@ -20,7 +20,7 @@ namespace Mahwous.Application.Features.ExternalLinks
 
         public async Task<SearchExternalLinksResponse> Handle(SearchExternalLinksQuery request, CancellationToken cancellationToken)
         {
-            var filter = mapper.Map<ExternalLinkFilter>(request);
+            var filter = mapper.Map<ExternalLinkFilter>(request.Filter);
             var externalLinks = await externalLinkRepository.SearchAsync(filter, request.Pagination, request.SortType);
             var response = mapper.Map<SearchExternalLinksResponse>(externalLinks);
             return response;

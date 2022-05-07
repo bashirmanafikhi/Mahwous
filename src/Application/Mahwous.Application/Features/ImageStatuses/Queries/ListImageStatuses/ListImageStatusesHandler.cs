@@ -20,7 +20,7 @@ namespace Mahwous.Application.Features.ImageStatuses
 
         public async Task<ListImageStatusesResponse> Handle(ListImageStatusesQuery request, CancellationToken cancellationToken)
         {
-            var filter = mapper.Map<ImageFilter>(request);
+            var filter = mapper.Map<ImageFilter>(request.Filter);
             var imageStatuses = await imageRepository.ListAllAsync(filter);
             var response = mapper.Map<ListImageStatusesResponse>(imageStatuses);
             return response;
