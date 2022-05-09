@@ -7,8 +7,8 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="41754BashirManafikhi.5565231D12580"
-    Publisher="CN=82B5AEAD-1C06-4858-B384-53C945340395"
+    Name="Mahwous.Mahwous"
+    Publisher="CN=Mahwous"
     Version="1.0.4.0" />
 
   <mp:PhoneIdentity PhoneProductId="5d4d92e5-2737-42d0-a357-6cdbcf846cda" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
