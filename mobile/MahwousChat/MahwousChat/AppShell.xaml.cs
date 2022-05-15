@@ -1,4 +1,5 @@
-﻿using MahwousMobile.Base.Helpers;
+﻿using MahwousMobile.Base;
+using MahwousMobile.Base.Helpers;
 using MahwousMobile.Base.Views;
 using System;
 using Xamarin.Essentials;
@@ -8,7 +9,7 @@ using Xamarin.Forms.Xaml;
 namespace MahwousChat
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AppShell : Shell
+    public partial class AppShell : ShellBase
     {
         public AppShell()
         {
@@ -30,33 +31,6 @@ namespace MahwousChat
             });
         }
 
-        private bool maybe_exit = false;
-        //-------------------------------------------------------------------
-        protected override bool OnBackButtonPressed()
-        //-------------------------------------------------------------------
-        {
-            if (Navigation.NavigationStack.Count > 1 || Navigation.ModalStack.Count > 1)
-            {
-                return base.OnBackButtonPressed();
-            }
-            //some more custom checks here
-            //..
-
-            if (maybe_exit)
-            {
-                return false; //QUIT
-            }
-
-            DependencyService.Get<IMessage>().ShortAlert("إضغط مرة أخرة للخروج من البرنامج!");
-            maybe_exit = true;
-
-            Device.StartTimer(TimeSpan.FromSeconds(2), () =>
-            {
-                maybe_exit = false; //reset those 2 seconds
-
-                return false;// false - Don't repeat the timer 
-            });
-            return true; //true - don't process BACK by system
-        }
+        
     }
 }

@@ -1,9 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="10" android:versionName="10" package="com.mahwous.mahwous" android:installLocation="auto">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="11" android:versionName="11" package="com.mahwous.mahwous" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="31" />
 	<application android:label="مهووس" android:supportsRtl="true" android:icon="@drawable/icon" android:usesCleartextTraffic="true">
 		<meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-1685177955120006~5820163467" />
+		<meta-data android:name="com.facebook.sdk.ApplicationId" android:value="572641664068507"/>
+		<meta-data android:name="com.facebook.sdk.ClientToken" android:value="cfa5956022fe47201e384e4a7385743e"/>
+		
 	</application>
+	
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />

@@ -15,9 +15,9 @@ namespace MahwousMobile.Base.Templates.DataTemplates
 
         private async void Item_Tapped(object sender, EventArgs e)
         {
-            var app = BindingContext as Mahwous.Core.Entities.MobileApp;
-            if (!string.IsNullOrEmpty(app.PlayStoreLink))
-                await Browser.OpenAsync(app.PlayStoreLink);
+            //var app = BindingContext as Mahwous.Core.Entities.MobileApp;
+            //if (!string.IsNullOrEmpty(app.PlayStoreLink))
+            //    await Browser.OpenAsync(app.PlayStoreLink);
         }
     }
 }
